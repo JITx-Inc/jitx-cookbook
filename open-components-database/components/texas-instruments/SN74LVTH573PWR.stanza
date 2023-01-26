@@ -1,0 +1,74 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/SN74LVTH573PWR :
+
+  import core
+  import collections
+  import math
+
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/symbol-utils
+  import ocdb/utils/generic-components
+
+  import ocdb/utils/bundles
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+  import ocdb/utils/generator-utils
+  import ocdb/utils/checks
+
+public pcb-landpattern SN74LVTH573PWR-TSSOP-landpattern :
+  make-n-pin-soic-landpattern(20,                ;Number of pins
+                              0.65,              ;Pitch:                      e
+                              tol(6.4, 0.2),     ;Lead span:                  E
+                              tol(4.4, 0.1),     ;Package length:             E1
+                              tol(6.5, 0.1),     ;Package width:              D
+                              tol(0.6, 0.15),    ;Lead size in x direction:   L
+                              tol(0.245, 0.055)) ;Lead size in y direction:   b
+;   layer(Courtyard(Top)) = Rectangle(38.4, 53.2)
+;   layer(Silkscreen("values", Top)) = Text(">REF", 0.7, C, loc(0.0, 0.0))
+;   layer(Silkscreen("F-SilkS", Top)) = Circle(Point(-7.62 * 2.0, -55.0), 0.1)
+
+
+
+public pcb-component component :
+  name = "SN74LVTH573PWR"
+  manufacturer = "Texas Instruments"
+  description = "3.3-V ABT Octal Transparent D-Type Latches with 3-State Outputs"
+  reference-prefix = "U"
+  mpn = "SN74LVTH573PWR"
+  pin  LE
+  pin  nOE
+  port D : pin[[1 through 8]]
+  port Q : pin[[1 through 8]]
+  pin  VCC
+  pin  GND
+
+  val d-p = [2 3 4 5 6 7 8 9]
+  val q-p = [19 18 17 16 15 14 13 12]
+  val vcc-p = 20
+  val gnd-p = 10
+  val noe-p = 1
+  val le-p = 11
+
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [nOE     | noe-p        | Left    ]
+    [LE      | le-p         | Left    ]
+    for (p in d-p, i in 1 to false) do :
+      [D[i]  | p            | Left    ]
+    for (p in q-p, i in 1 to false) do :
+      [Q[i]  | p            | Right   ]
+    [VCC     | vcc-p        | Up      ]
+    [GND     | gnd-p        | Down    ]
+
+  make-box-symbol()
+  assign-landpattern(SN74LVTH573PWR-TSSOP-landpattern)
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+  
+
+; public pcb-module module :
+;   inst c : SN74LVTH573PWR()

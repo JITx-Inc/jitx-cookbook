@@ -1,0 +1,57 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/idt/5PB11xx :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+
+public pcb-component component (n:Int) :
+  description = "1.8V to 3.3V LVCMOS High Performance Clock Buffer Family"
+  manufacturer = "IDT"
+  val [code clkin-p en-p out-p vdd-p gnd-p pkg] = switch(n) :
+    2  : ["02PGG" 1 2 [3, 8                               ] [6           ] [4           ] sop65-landpattern(8) ] 
+    4  : ["04PGG" 1 2 [3, 8, 5, 7                         ] [6           ] [4           ] sop65-landpattern(8) ] 
+    6  : ["06PGG" 1 2 [3, 14, 11, 13, 6, 9                ] [5, 8, 12    ] [4, 7, 10    ] sop65-landpattern(14)] 
+    8  : ["08PGG" 1 2 [3, 16, 13, 15, 6, 11, 8, 9         ] [5, 10, 14   ] [4, 7, 12    ] sop65-landpattern(16)] 
+    10 : ["10PGG" 1 2 [3, 20, 17, 19, 6, 15, 8, 13, 12, 10] [5, 9, 14, 18] [4, 7, 11, 16] sop65-landpattern(20)]
+    else : fatal("Incorrect number of channels for idt-5PB11x %_" % [n])
+  mpn = to-string("5PB11%_" % [code])
+
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [clkin   | clkin-p      | Left    ]
+    [en      | en-p         | Left    ]
+    [vdd     | vdd-p ...    | Up      ]
+    [gnd     | gnd-p ...    | Down    ]
+    for (p in out-p, i in 0 to false) do :
+      [clkout[i] | p | Right]
+
+  make-box-symbol()
+  assign-landpattern(pkg)
+
+  property(self.rated-temperature) = min-max(-40.0 105.0)
+  property(self.vdd.power-pin) = PowerPin(min-max(1.8, 3.3))
+  
+public pcb-module module (n:Int) :
+  port src : power
+  pin clkin
+  port clkout : pin[n]
+  inst buffer : ocdb/components/idt/5PB11xx/component(n)
+  default-bypass(buffer)
+  net (buffer.clkin, clkin)
+  net (buffer.clkout, clkout)
+  net (src.vdd, buffer.vdd)
+  net (src.gnd, buffer.gnd)
+
+
+public pcb-module module () :
+  inst i : module(10)

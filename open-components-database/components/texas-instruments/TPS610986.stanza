@@ -1,0 +1,57 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/TPS610986 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "TPS610986DSE"
+  description = "Ultra-Low Quiescent Current Synchronous Boost with Integrated LDO/Load Switch"
+
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [VMAIN   | 1            | Left    ]
+    [SW      | 2            | Left    ]
+    [VIN     | 3            | Left    ]
+    [MODE    | 4            | Right   ]
+    [VSUB    | 5            | Right   ]
+    [GND     | 6            | Right   ]
+
+  make-box-symbol()
+  assign-landpattern(dfn-landpattern(6, 0.5, [0.25 0.5], 0.5, [1.5 1.5]))
+
+public pcb-module module :
+  pin gnd
+  pin vbat
+  pin v-boost
+  pin v-sw
+  pin sw
+
+  inst boost : ocdb/components/texas-instruments/TPS610986/component
+  net (gnd, boost.GND)
+  ; decoupling caps
+  cap-strap(gnd, boost.VIN, 0.1e-6)
+  cap-strap(gnd, boost.VSUB, 10.0e-6)
+  cap-strap(gnd, boost.VMAIN, 10.0e-6)
+  inst r : chip-resistor(390.0)
+  inst l : smd-inductor(["inductance" => 4.7e-6, "min-current-saturation" => 0.9])
+
+  net (l.p[1], boost.SW)
+  net (vbat, l.p[2], r.p[1])
+  net (r.p[2], boost.VIN)
+  cap-strap(l.p[2], gnd, 10.0e-6)
+
+  net (v-boost, boost.VMAIN)
+  net (v-sw, boost.VSUB)
+  net (sw, boost.MODE)

@@ -1,0 +1,30 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/on-semiconductor/BAS21LT1G :
+  import core
+  import collections
+  import math
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns 
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "ON Semiconductor"
+  description = "High Voltage Switching Diode - SOT23"
+  mpn = "BAS21LT1G"
+
+  pin a
+  pin c
+
+  val pkg = SOT23()
+  val sym = diode-sym()
+  landpattern = pkg(a => pkg.p[1], c => pkg.p[3])
+  symbol = sym(a => sym.a, c => sym.c)
+
+public pcb-module module :
+  inst c : component
