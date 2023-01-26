@@ -1,0 +1,223 @@
+#use-added-syntax(jitx)
+defpackage components/BQ24078RGTR :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+  import ocdb/utils/property-structs
+
+pcb-pad rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(0.28, 0.665)
+  layer(Paste(Top)) = Rectangle(0.28, 0.665)
+  layer(SolderMask(Top)) = Rectangle(0.28, 0.665)
+
+pcb-pad rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(0.665, 0.28)
+  layer(Paste(Top)) = Rectangle(0.665, 0.28)
+  layer(SolderMask(Top)) = Rectangle(0.665, 0.28)
+
+pcb-pad rect-smd-pad-3 :
+  type = SMD
+  shape = Rectangle(1.68, 1.68)
+  layer(Paste(Top)) = Rectangle(1.68, 1.68)
+  layer(SolderMask(Top)) = Rectangle(1.68, 1.68)
+
+public pcb-landpattern VQFN-16_L30-W30-P050-BL-EP :
+  pad p[1] : rect-smd-pad-1 at loc(-0.750064, -1.407417) on Top
+  pad p[2] : rect-smd-pad-1 at loc(-0.249936, -1.407417) on Top
+  pad p[3] : rect-smd-pad-1 at loc(0.249936, -1.407417) on Top
+  pad p[4] : rect-smd-pad-1 at loc(0.750064, -1.407417) on Top
+  pad p[5] : rect-smd-pad-2 at loc(1.407417, -0.750064) on Top
+  pad p[6] : rect-smd-pad-2 at loc(1.407417, -0.249936) on Top
+  pad p[7] : rect-smd-pad-2 at loc(1.407417, 0.249936) on Top
+  pad p[8] : rect-smd-pad-2 at loc(1.407417, 0.750064) on Top
+  pad p[9] : rect-smd-pad-1 at loc(0.750064, 1.407417) on Top
+  pad p[10] : rect-smd-pad-1 at loc(0.249936, 1.407417) on Top
+  pad p[11] : rect-smd-pad-1 at loc(-0.249936, 1.407417) on Top
+  pad p[12] : rect-smd-pad-1 at loc(-0.750064, 1.407417) on Top
+  pad p[13] : rect-smd-pad-2 at loc(-1.407417, 0.750064) on Top
+  pad p[14] : rect-smd-pad-2 at loc(-1.407417, 0.249936) on Top
+  pad p[15] : rect-smd-pad-2 at loc(-1.407417, -0.249936) on Top
+  pad p[16] : rect-smd-pad-2 at loc(-1.407417, -0.750064) on Top
+  pad p[17] : rect-smd-pad-3 at loc(0.0, 0.0) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.5762), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.5762), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.5762), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, -1.5762), Point(1.080493, -1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, 1.5762), Point(-1.080493, 1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, 1.5762), Point(1.080493, 1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, -1.080493), Point(-1.5762, -1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, -1.5762), Point(-1.080493, -1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, 1.080493), Point(-1.5762, 1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, -1.080493), Point(1.5762, -1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, 1.080493), Point(1.5762, 1.5762)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150013, [Arc(-0.750064, -2.040132, 0.074931, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-1.499873, -1.500127, 0.0299720000000001, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.150013, [Arc(-0.750064, -1.800102, 0.074931, 0.0, 360.0)])
+
+  ; model3d = Model3D("../../3d-models/VQFN-16_L3.0-W3.0-P0.50-BL-EP.wrl",
+  ;   Vec3D(0.0, 0.0, 0.0),
+  ;   Vec3D(1.0, 1.0, 1.0),
+  ;   Vec3D(0.0, 0.0, -90.0))
+
+defn apply-component-properties (comp:JITXObject) :
+  match(instance-type(comp)) :
+    (SingleModule) :
+      inside pcb-module :
+        ; we apply the following properties to the component
+        property(comp.IN.power-pin) = PowerPin(min-max(4.35, 6.40))
+        property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
+        property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
+        property(comp.BAT.voltage) = min-max(-0.3, 5.0)
+        ; properties that we could write checks for in the future...
+        property(comp.R-ILIM) = min-max(1100.0, 8000.0)
+        property(comp.R-ISET) = min-max(590.0, 8900.0)
+        property(comp.R-ITERM) = min-max(0.0e3, 15.0e3)
+        property(comp.R-TMR) = min-max(18.0e3, 72.0e3)
+        property(comp.uvlo-voltage) = min-typ-max(3.2, 3.3, 3.4)
+
+        ; in our io check code, 
+        ; we check Voh-min > Vih-max
+        ; we check Vol-max < Vil-min
+        ; so defining Vil-min at 0.0v is wrong and self-defeating (but the datasheet...)
+        ; ditto for Vih-max at 6.0V
+        ; so we define typ()'s for them which evaluates to a single value
+        val vil = typ(0.4)
+        val vih = typ(1.4)
+        val vol = typ(0.4) ; @ 5mA which is an effective impedance of 80 Ohms
+
+        ; ; open collectors on CHG# & PGOOD#
+        val oc  = OpenCollector(vol, 5.0e-3)
+        val dio = DigitalIO(oc, vil, vih, comp.OUT, comp.VSS, 1.0e-6)
+        property(comp.CHG#.digital-io) = dio
+        property(comp.PGOOD#.digital-io) = dio
+    (SingleComponent) : 
+      inside pcb-component :
+        ; we apply the following properties to the component
+        property(comp.IN.power-pin) = PowerPin(min-max(4.35, 6.40))
+        property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
+        property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
+        property(comp.BAT.voltage) = min-max(-0.3, 5.0)
+        ; properties that we could write checks for in the future...
+        property(comp.R-ILIM) = min-max(1100.0, 8000.0)
+        property(comp.R-ISET) = min-max(590.0, 8900.0)
+        property(comp.R-ITERM) = min-max(0.0e3, 15.0e3)
+        property(comp.R-TMR) = min-max(18.0e3, 72.0e3)
+        property(comp.uvlo-voltage) = min-typ-max(3.2, 3.3, 3.4)
+
+        ; in our io check code, 
+        ; we check Voh-min > Vih-max
+        ; we check Vol-max < Vil-min
+        ; so defining Vil-min at 0.0v is wrong and self-defeating (but the datasheet...)
+        ; ditto for Vih-max at 6.0V
+        ; so we define typ()'s for them which evaluates to a single value
+        val vil = typ(0.4)
+        val vih = typ(1.4)
+        val vol = typ(0.4) ; @ 5mA which is an effective impedance of 80 Ohms
+
+        ; ; open collectors on CHG# & PGOOD#
+        val oc  = OpenCollector(vol, 5.0e-3)
+        val dio = DigitalIO(oc, vil, vih, comp.OUT, comp.VSS, 1.0e-6)
+        property(comp.CHG#.digital-io) = dio
+        property(comp.PGOOD#.digital-io) = dio
+
+public pcb-component component :
+  description = "Charger IC Lithium Ion 16-VQFN (3x3)"
+  mpn = "BQ24078RGTR"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir ]
+    [TS      | p[1]         | Left     ]
+    [OUT     | p[10] p[11]  | Right    ]
+    [ILIM    | p[12]        | Right    ]
+    [IN      | p[13]        | Right    ]
+    [TMR     | p[14]        | Right    ]
+    [SYSOFF  | p[15]        | Right    ]
+    [ISET    | p[16]        | Right    ]
+    [EP      | p[17]        | Right    ]
+    [BAT     | p[2] p[3]    | Left     ] ; Charger Power Stage Output and Battery Voltage Sense Input. Connect BAT to the positive terminal of the battery. Bypass BAT to VSS with a 4.7-μF to 47-μF ceramic capacitor.
+    [CE#     | p[4]         | Left     ]
+    [EN2     | p[5]         | Left     ] ; EN2:0 EN1:1 500 mA. USB500 mode
+    [EN1     | p[6]         | Left     ]
+    [PGOOD#  | p[7]         | Left     ]
+    [VSS     | p[8]         | Left     ]
+    [CHG#    | p[9]         | Right    ]
+
+  assign-landpattern(VQFN-16_L30-W30-P050-BL-EP)
+  make-box-symbol()
+
+  property(self.LCSC) = "C473396"
+  property(self.datasheet) = "https://item.szlcsc.com/191835.html"
+
+  ; apply-component-properties(self)
+
+public pcb-module module :
+  pin vin
+  pin vout
+  pin gnd
+  pin bat+
+  pin sysoff
+
+  ; using the database part by the following line:
+  ; inst bq : database-part(["manufacturer" => "Texas Instruments", "mpn" => "BQ24078RGTR"])
+  ; using the component definition from above:
+  inst bq : components/BQ24078RGTR/component
+
+  apply-component-properties(bq)
+
+  net (bq.IN vin)
+  bypass-cap-strap(bq.IN gnd 4.7e-6)
+  net (bq.VSS bq.EP gnd)
+  net (bq.OUT vout)
+  bypass-cap-strap(bq.OUT gnd 4.7e-6)
+
+  inst charge-led : gen-led-cmp("red", "0603")
+  inst good-power-led : gen-led-cmp("green", "0603")
+  inst rchg-led : gen-res-cmp(1.0e3)
+  inst rgpw-led : gen-res-cmp(1.0e3)
+  net (charge-led.a rchg-led.p[1])
+  net (rchg-led.p[2] vout)
+  net (good-power-led.a rgpw-led.p[1])
+  net (rgpw-led.p[2] vout)
+  net (charge-led.c bq.CHG#)
+  net (good-power-led.c bq.PGOOD#)
+
+  net (bat+ bq.BAT)
+  bypass-cap-strap(bq.BAT gnd 4.7e-6)
+
+  net (sysoff bq.SYSOFF)
+
+  inst rpd-ce# : gen-res-cmp(33.0)
+  net (gnd rpd-ce#.p[1])
+  net (rpd-ce#.p[2] bq.CE#)
+
+  inst rts : gen-res-cmp(10.0e3)
+  net (bq.TS rts.p[1])
+  net (rts.p[2] gnd)
+  
+  ; use default timers 
+  no-connect(bq.TMR)
+
+  ; Safety timer for 6.25 hours
+  ; val r-tmr = closest-std-val((6.25 * 3600.0) / (10.0 * 48.0), 5.0)
+  ; res-strap(bq.TMR gnd, r-tmr)
+
+  ; Current limit = 500ma for usb limit
+  inst rpu-en1 : gen-res-cmp(33.0)
+  inst rpd-en2 : gen-res-cmp(33.0)
+  net (bq.EN1 rpu-en1.p[1])
+  net (rpu-en1.p[2] bat+)
+  net (bq.EN2 rpd-en2.p[1])
+  net (rpd-en2.p[2] gnd)
+  res-strap(bq.ILIM, gnd, 1.1e3)
+
+  ; Charge current 325mA
+  val r-chg = closest-std-val(890.0 / 325.0e-3, 5.0)
+  res-strap(bq.ISET, gnd, r-chg)
+
+  schematic-group(self) = BQ24078
+  layout-group(self) = BQ24078

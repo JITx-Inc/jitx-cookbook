@@ -1,0 +1,50 @@
+; ====================
+; A number of helper functions to check your designs, export to CAD, 
+; update your design in CAD, etc.
+; ====================
+#use-added-syntax(jitx)
+defpackage helpers :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/checks
+  import ocdb/utils/generic-components
+
+; =====================
+; Run the design checks
+; =====================
+defn check-design (circuit:Instantiable) :
+  var main-module = circuit
+  main-module = ocdb/utils/generator-utils/run-final-passes(circuit) ; Analyze design with a pass
+  set-main-module(main-module) ; Treat the provided module as a design, and compile it.
+  run-checks("checks.txt")
+
+; ====================
+; Actual Export design
+; ====================
+defn export-to-cad () :
+  set-paper(ANSI-A4)
+  set-export-backend(`altium)
+  export-cad()
+
+; ====================
+; Export design to CAD
+; ====================
+defn export-design () :
+  set-export-board?(true)
+  export-to-cad()
+
+; ===================================
+; Update CAD, keeping layout progress
+; ===================================
+defn update-design () :
+  set-export-board?(false)
+  export-to-cad()
+
+; =================
+; Export BOM to tsv
+; =================
+defn export-bill-of-materials () :
+  set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
+  set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
+  export-bom()
