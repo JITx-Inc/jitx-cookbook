@@ -1,0 +1,86 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/TCAN1051 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/property-structs
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "TCAN1051GVDRQ1"
+  description = "1/1 Transceiver Half CANbus 8-SOIC"
+
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [VIO     | 5            | Left    ]
+    [TXD     | 1            | Left    ]
+    [RXD     | 4            | Left    ]
+    [S       | 8            | Left    ]
+    [GND     | 2            | Down    ]
+    [VCC     | 3            | Up      ]
+    [CANL    | 6            | Right   ]
+    [CANH    | 7            | Right   ]
+
+  make-box-symbol()
+  assign-landpattern(soic127p-landpattern(8))
+
+  property(self.VIO.power-pin) = PowerPin(min-max(2.8, 5.5))
+  property(self.VCC.power-pin) = PowerPin(min-max(4.5, 5.5))
+
+  ; Figure out what the io voltage level is in the design.
+  val drive-props = DigitalOutput(
+    CMOSOutput(FractionalVoltage(0.2, self.VIO), 
+                FractionalVoltage(0.8, self.VIO)), 
+    false, self.VCC, self.GND)
+
+  val input-props = DigitalInput(
+    FractionalVoltage(0.3, self.VIO),
+    FractionalVoltage(0.7, self.VIO),
+    self.VCC, self.GND, 30.0e-6)
+
+  property(self.TXD.digital-output) = drive-props
+  property(self.RXD.digital-input) = input-props
+  property(self.S.digital-input) = input-props
+  
+public pcb-module module:
+  ; Set up ports
+  port can : can
+  port can-interface : can-interface
+  pin s
+  port power:power
+  pin vcc
+  pin vio
+  pin gnd
+
+  inst xcvr : ocdb/components/texas-instruments/TCAN1051/component
+
+  net (xcvr.GND gnd power.gnd)
+  net (xcvr.TXD can-interface.tx)
+  net (xcvr.RXD can-interface.rx)
+  net (xcvr.VIO vio)
+  net (xcvr.S s)
+  net (xcvr.VCC vcc, power.vdd)
+  net (xcvr.CANH, can.canh)
+  net (xcvr.CANL, can.canl)
+
+  cap-strap(xcvr.VCC, gnd, 4.7e-6)
+  cap-strap(xcvr.VCC, gnd, 0.1e-6)
+  cap-strap(xcvr.VIO, gnd, 4.7e-6)
+  cap-strap(xcvr.VIO, gnd, 0.1e-6)
+
+  schematic-group(self) = tcan
+
+  ; val v = 5.0
+  ; apply-digital-input-params(uart.tx, 0.3 * v, 0.7 * v)
+  ; apply-digital-input-params(s, 0.3 * v, 0.7 * v)
+  ; apply-digital-output-params(uart.rx, 0.2 * v, 0.8 * v)

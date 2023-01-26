@@ -1,0 +1,56 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/analog-devices/LT3093:
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+ 
+public pcb-component component :
+  name = "LT3093"
+  manufacturer = "Analog Devices"
+  mpn = "LT3093EDD"
+  description = "–20V, 200mA, Ultralow Noise, Ultrahigh PSRR Negative Linear Regulator"
+  pin-properties :
+    [pin:Ref | pads:Int ...   | side:Dir  ]
+    [in   | 1 2 13 | Left] 
+    [en   | 3 | Left]
+    [pg   | 4 | Left]
+    [set  | 8 | Left]
+    [vioc | 7 | Left]
+    [ilim | 6 | Left]
+    [out  | 11 12 | Right] 
+    [outs | 10 | Right]
+    [pgfb | 5 | Right]
+    [gnd  | 9 | Down]
+  make-box-symbol()
+  assign-landpattern(dfn-landpattern(12, 0.45, [0.25, 0.7], -1.4, [3.5, 3.0], [1.65, 2.38]))
+
+public pcb-module module (v-out:Double) :
+  pin vin
+  pin vout
+  pin gnd
+  pin en
+  inst ps : ocdb/components/analog-devices/LT3093/component
+  val r-set = v-out / -100.0e-6
+  val r-fb = res-strap(ps.set, gnd, closest-std-val(r-set, 0.1))
+  val c0 = cap-strap(ps.set, gnd, 4.7e-6)
+  val c1 = cap-strap(ps.in, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 30.0])
+  val c2 = cap-strap(ps.out, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 30.0])
+  ; short-trace(r-fb.p[1], ps.set)
+  ; short-trace(r-fb.p[1], c0.p[1])
+  ; short-trace(c1.p[1], ps.in)
+  ; short-trace(c2.p[1], ps.out)
+  net (ps.en, en) 
+  net (ps.in, ps.pgfb, vin)
+  net (ps.out, ps.outs, vout)
+  net (ps.gnd, ps.ilim, gnd)
+
+public pcb-module module () :
+  inst i : module(-5.0) 

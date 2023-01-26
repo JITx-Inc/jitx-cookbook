@@ -1,0 +1,49 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/SN6501 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "SN6501DBVT"
+  description = "Transformer Driver PMIC SOT-23-5"
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [D[2]    | 3            | Right   ]
+    [D[1]    | 1            | Right   ]
+    [VCC     | 2            | Up      ]
+    [GND     | 4 5          | Down    ]
+
+  make-box-symbol()
+  assign-landpattern(SOT95P280X145-5N)
+
+; Module set up for isolated 1:1 voltage levels, 2.5kv isolation
+public pcb-module module:
+  ; Set up ports
+  port vin: power
+  port vout: power
+  inst drv : ocdb/components/texas-instruments/SN6501/component
+
+  cap-strap(drv.VCC, vin.gnd, 1.0e-6)
+  net (vin.gnd, drv.GND)
+  cap-strap(vout.vdd, vout.gnd, 1.0e-6)
+  inst xfrmr : ocdb/components/wurth/760390012/component
+  inst d : ocdb/components/on-semiconductor/MBR0520L/component[2]
+  net (drv.D[2] xfrmr.p[1])
+  net (drv.D[1] xfrmr.p[3])
+  net (vin.vdd drv.VCC xfrmr.p[2])
+  net (d[0].a xfrmr.p[4])
+  net (d[1].a xfrmr.p[6])
+  net (xfrmr.p[5] vout.gnd)
+  net (d[0].c d[1].c vout.vdd)

@@ -1,0 +1,31 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/on-semiconductor/NSR0240HT1G :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "ON Semiconductor"
+  description = "DIODE SCHOTTKY 40V 250MA SOD323 "
+  mpn = "NSR0240HT1G"
+
+  pin a
+  pin c
+  val pkg = two-pin-landpattern(2.85, 1.60, 0.83, 3.05, 1.03)
+  val sym = diode-sym(DiodeSchottky)
+  landpattern = pkg(a => pkg.p[1], c => pkg.p[2]) 
+  symbol = sym(a => sym.a, c => sym.c) 
+  reference-prefix = "D"
+
+public pcb-module module :
+  inst c : component
