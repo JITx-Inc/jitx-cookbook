@@ -8,6 +8,36 @@ defpackage components/AP2125K-2_8TRG1 :
   import ocdb/utils/property-structs
   import ocdb/utils/generic-components
 
+; Check to make sure voltage is not in a given range
+pcb-check ap2125k-voltage-not-in-range-check (p:JITXObject, value:Toleranced) :
+  if has-property?(p.voltage) :
+    val t = property(p.voltage)
+    #CHECK(
+      condition =            not in-range?(value, t),
+      name =                 "AP2125 Logic Check",
+      description =          "Check the AP2125",
+      category =             "Component checks"
+      subcheck-description = "Check the logic voltage level of a digital IO on the AP2125"
+      pass-message =         "Voltage %_ is correctly outside of %_" % [t value]
+      fail-message =         "Voltage %_ to %_ is within the range of %_ to %_" % [min-value(t) max-value(t) min-value(value) max-value(value)]
+      locators =             []
+      )    
+
+; Check to make sure voltage is within a given range
+pcb-check ap2125k-voltage-in-range-check (p:JITXObject, value:Toleranced) :
+  if has-property?(p.voltage) :
+    val t = property(p.voltage)
+    #CHECK(
+      condition =            in-range?(value, t),
+      name =                 "AP2125 Logic Check",
+      description =          "Check the AP2125",
+      category =             "Component checks"
+      subcheck-description = "Check the logic voltage level of a digital IO on the AP2125"
+      pass-message =         "Voltage %_ is correctly inside of %_" % [t value]
+      fail-message =         "Voltage %_ to %_ is not within the range of %_ to %_" % [min-value(t) max-value(t) min-value(value) max-value(value)]
+      locators =             []
+      )    
+
 pcb-pad rect-smd-pad :
   type = SMD
   shape = Rectangle(1.0, 0.6)
@@ -44,30 +74,48 @@ public pcb-component component :
     [pin:Ref | pads:Ref ... | side:Dir ]
     [VIN | p[1] | Left ]
     [GND | p[2] | Left ]
-    [EN | p[3] | Left ]
+    [CE | p[3] | Left ]
     [NC | p[4] | Right ]
     [VOUT | p[5] | Right ]
 
   assign-landpattern(SOT-23-5_L30-W16-P095-LS28-BL)
   make-box-symbol()
 
-  property(self.VIN.power-pin) = PowerPin(min-max(2.8 + 0.3, 6.0))
-  property(self.VOUT.power-supply-pin) = PowerSupplyPin(min-typ-max(2.744 2.8 2.856), 0.3)
+  val vih = 1.5
+  val vil = 0.4
+  property(self.dropout-voltage-max) = 300.0e-3
+  val vout = min-typ-max(2.744 2.8 2.856)
+  val vin = min-max(2.8 + property(self.dropout-voltage-max), 6.0)
+
+  property(self.VIN.power-pin) = PowerPin(vin)
+  property(self.VOUT.power-supply-pin) = PowerSupplyPin(vout, 0.3)
+  property(self.CE.digital-input) = DigitalInput(typ(vil), typ(vih), self.VIN, self.GND, 1.0e-6)
   property(self.VOUT.voltage) = min-typ-max(2.744 2.8 2.856)
+  property(self.VOUT.max-current) = 360.0e-3
 
   property(self.LCSC) = "C176953"
+
+  eval-when has-property?(self.CE.voltage) :
+    val input-voltage = property(self.CE.voltage)
+    if typ-value(input-voltage) < vil :
+      property(self.VOUT.voltage) = typ(0.0)
+    else if typ-value(input-voltage) > vih:
+      property(self.VOUT.voltage) = vout
+
+  check ap2125k-voltage-not-in-range-check(self.CE, min-max(vil, vih))
+  check ap2125k-voltage-in-range-check(self.VIN, vin)
 
 public pcb-module module : 
   pin vin
   pin vout
   pin gnd
-  pin en
+  pin ce
   public inst ps : components/AP2125K-2_8TRG1/component
   ocdb/utils/generic-components/bypass-cap-strap(ps.VIN, gnd, 1.0e-6)
   ocdb/utils/generic-components/bypass-cap-strap(ps.VOUT, gnd, 1.0e-6)
   net (vin, ps.VIN)
   net (ps.VOUT vout)
   net (gnd, ps.GND)
-  net (en, ps.EN)
+  net (ce, ps.CE)
 
   schematic-group(self) = AP2112

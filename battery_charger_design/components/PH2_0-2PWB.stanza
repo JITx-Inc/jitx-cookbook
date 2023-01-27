@@ -51,12 +51,12 @@ public pcb-landpattern CONN-SMD_2P-P200_PH20-SPWB :
     Vec3D(0.0, 0.0, -180.0))
 
 public pcb-symbol PH2_0-2PWB :
-  pin p[1] at Point(-2.54, -8.89) with :
+  pin gnd at Point(-2.54, -8.89) with :
     direction = Left
     length = 2.54
     number-size = 1.0
     name-size = 1.0
-  pin p[2] at Point(-2.54, -11.43) with :
+  pin power at Point(-2.54, -11.43) with :
     direction = Left
     length = 2.54
     number-size = 1.0
@@ -81,8 +81,8 @@ public pcb-component component :
   description = "PH2_0-2PWB"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
-    [p[1] | p[1] | Left | "Unspecified"]
-    [p[2] | p[2] | Left | "Unspecified"]
+    [gnd | p[1] | Left | "Unspecified"]
+    [power | p[2] | Left | "Unspecified"]
     [p[3] | p[3] | Down | "Unspecified"]
     [p[4] | p[4] | Up | "Unspecified"]
 

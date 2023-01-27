@@ -52,41 +52,41 @@ public pcb-landpattern C778186 :
   ;   Vec3D(0.0, 0.0, 0.0))
   
 public pcb-symbol MK-12C02-G025 :
-  pin p[1] at Point(-2.0, -5.3) with :
+  pin left at Point(-2.0, -5.3) with :
     direction = Down
     length = 1.7
     number-size = 0.6
     name-size = 0.6
-  pin p[2] at Point(0.0, -5.3) with :
+  pin center at Point(0.0, -5.3) with :
     direction = Down
     length = 1.7
     number-size = 0.6
     name-size = 0.6
-  pin p[3] at Point(2.0, -5.3) with :
+  pin right at Point(2.0, -5.3) with :
     direction = Down
     length = 1.7
     number-size = 0.6
     name-size = 0.6
-  pin p[4] at Point(3.0, -5.0) with :
+  pin gnd at Point(4.0, -5.3) with :
     direction = Down
-    length = 2.0
+    length = 1.7
     number-size = 0.6
     name-size = 0.6
-  pin p[5] at Point(4.0, -5.0) with :
-    direction = Down
-    length = 2.0
-    number-size = 0.6
-    name-size = 0.6
-  pin p[6] at Point(-3.0, -5.0) with :
-    direction = Down
-    length = 2.0
-    number-size = 0.6
-    name-size = 0.6
-  pin p[7] at Point(-4.0, -5.0) with :
-    direction = Down
-    length = 2.0
-    number-size = 0.6
-    name-size = 0.6
+  ; pin gnd[2] at Point(4.0, -5.0) with :
+  ;   direction = Down
+  ;   length = 2.0
+  ;   number-size = 0.6
+  ;   name-size = 0.6
+  ; pin gnd[3] at Point(-3.0, -5.0) with :
+  ;   direction = Down
+  ;   length = 2.0
+  ;   number-size = 0.6
+  ;   name-size = 0.6
+  ; pin gnd[4] at Point(-4.0, -5.0) with :
+  ;   direction = Down
+  ;   length = 2.0
+  ;   number-size = 0.6
+  ;   name-size = 0.6
   
   layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
   layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
@@ -127,9 +127,10 @@ public pcb-component component :
     [right       | p[3]    | Left     | "Unspecified"]
     [center       | p[2]         | Left     | "Unspecified"]
     [gnd    | p[4] p[5] p[6] p[7]        | Down     | "Unspecified"]
- 
+
+  property(self.max-power) = 12.0 * 0.5 ; watts - 12V * 0.5A
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2009021103_G-Switch-MK-12C02-G025_C778186.pdf"
     
   assign-landpattern(C778186)
+  ; assign-symbol(MK-12C02-G025)
   make-box-symbol()
-  
-  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2009021103_G-Switch-MK-12C02-G025_C778186.pdf"

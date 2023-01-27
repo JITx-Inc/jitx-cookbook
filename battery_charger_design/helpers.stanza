@@ -13,9 +13,8 @@ defpackage helpers :
 ; =====================
 ; Run the design checks
 ; =====================
-defn check-design (circuit:Instantiable) :
-  var main-module = circuit
-  main-module = ocdb/utils/generator-utils/run-final-passes(circuit) ; Analyze design with a pass
+public defn run-check-on-design (circuit:Instantiable) :
+  val main-module = ocdb/utils/generator-utils/run-final-passes(circuit) ; Analyze design with a pass
   set-main-module(main-module) ; Treat the provided module as a design, and compile it.
   run-checks("checks.txt")
 

@@ -12,6 +12,7 @@ defpackage main :
   import ocdb/utils/generic-components
   import ocdb/utils/box-symbol
   import ocdb/utils/generator-utils
+  import helpers
 
 ; Module to run as a design
 val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
@@ -29,17 +30,18 @@ pcb-module battery-manager-module :
 
   ; create battery JST connector, connect it
   inst battery-connector : components/PH2_0-2PWB/component
-  net (battery-connector.p[2] gnd)
+  net (battery-connector.gnd gnd)
 
   ; create the battery manager IC, connect it
   inst battery-manager : components/BQ24078RGTR/module
-  net VBAT (battery-connector.p[1] battery-manager.bat+)
+  net VBAT (battery-connector.power battery-manager.bat+)
   net BMOUT (battery-manager.vout)
   net (battery-manager.gnd GND)
 
   ; create switch and pull up, connect them. Switch pulls SYSOFF down for normal operation, high to disconnect battery
   inst switch-phy : components/MK-12C02-G025/component
   net (switch-phy.left GND) ; switch turns battery-manager on
+  net (switch-phy.gnd GND)
   net (switch-phy.center battery-manager.sysoff)
   val sys-r = res-strap(switch-phy.right VBAT, 100.0e3) ; pull-up turns battery monitor off
 
@@ -49,10 +51,11 @@ pcb-module battery-manager-module :
   net VBUS (battery-manager.vin usb.usb-2.vbus.vdd)
 
   ; create the LDO and connect it
-  inst ld : components/AP2125K-2_8TRG1/module
-  net (battery-manager.vout ld.vin ld.en)
-  net (ld.gnd, GND)
-  net P2V8 (ld.vout)
+  inst ldo : components/AP2125K-2_8TRG1/module
+  net (battery-manager.vout ldo.vin ldo.ce)
+  net (ldo.gnd, GND)
+  net P2V8 (ldo.vout)
+  val ldo-pulldown = res-strap(ldo.ce GND, 100.0e3) ; pull-down on the CE pin disables the LDO when the battery manager is not outputting voltage
   property(BMOUT.voltage) = min-max(3.5 5.0) ; set the acceptable voltage input range for the LDO, which receives its input as the output of the batter-manager
   
   ; set symbols of some nets
@@ -65,10 +68,18 @@ pcb-module battery-manager-module :
   schematic-group([sys-r switch-phy battery-connector]) = schematic-group(battery-manager)
   layout-group([sys-r switch-phy battery-connector]) = layout-group(battery-manager)
 
+  schematic-group([ldo ldo-pulldown]) = schematic-group(ldo)
+  layout-group([ldo ldo-pulldown]) = layout-group(ldo)
+
+  check-design(self)
+
 ; Setup board
 set-design-directory("CAD") ; set which directly we will save to
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
+
+; Run checks
+run-check-on-design(battery-manager-module)
 
 ; Run the code
 set-main-module(battery-manager-module) ; Treat the provided module as a design, and compile it.

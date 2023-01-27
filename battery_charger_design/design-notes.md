@@ -4,7 +4,33 @@
 
 UVLO is 3.3 volts - this is the Vin, not for Vbat. The V
 
+## Setting current
+
 Setting the input current limit of the battery charger: I_IN-MAX = K_ILIM / R_ILIM
+
+10.2.2.2 Calculations
+	10.2.2.2.1 Program the Fast Charge Current (ISET):
+		RISET = KISET / ICHG
+		KISET = 890 AΩ from the electrical characteristics table.
+		RISET = 890 AΩ / 0.8 A = 1.1125 kΩ
+		Select the closest standard value, which for this case is 1.13 kΩ. Connect this resistor between ISET (pin 16)
+		and VSS.
+	10.2.2.2.2 Program the Input Current Limit (ILIM)
+		RlLIM = KILIM / II_MAX
+		KILIM = 1550 AΩ from the electrical characteristics table.
+		RISET = 1550 AΩ / 1.3 A = 1.192 kΩ
+		Select the closest standard value, which for this case is 1.18 kΩ. Connect this resistor between ILIM (pin 12) and
+		VSS.
+
+### Current going into the battery
+
+9.3.5.1 Charge Current Translator
+When the charger is enabled, internal circuits generate a current proportional to the charge current at the ISET
+input. The current out of ISET is 1/400 (±10%) of the charge current. This current, when applied to the external
+charge current programming resistor, RISET, generates an analog voltage that can be monitored by an external
+host to calculate the current sourced from BAT.
+
+- VISET = ICHARGE / 400 × RISET
 
 ### Vout
 
@@ -46,3 +72,60 @@ battery supplement mode is still available. Connect CE to a low logic level to e
 System Enable Input. Connect SYSOFF high to turn off the FET connecting the battery to the system output. When an
 adapter is connected, charging is also disabled. Connect SYSOFF low for normal operation. SYSOFF is internally pulled up
 to V BAT through a large resistor (approximately 5 MΩ). Do not leave SYSOFF unconnected to ensure proper operation.
+
+
+## Checks
+
+#### Battery Connector + Switch
+
+- GND needs to be on the left of the batteries cable when plugging it in - make sure these aren't reversed
+- make sure that there is no possible short in either switch position
+- switch MK12C02 meets specs - 12V 0.5 or 6V 1.0A (convert this to power and check for meets power specs)
+ 
+#### LDO
+
+- LDO EN needs to be pulled down when off, pulled high when on - make sure not NC
+- LDO voltage input range
+- LDO - make sure bypass caps are present
+
+#### BQ2407 battery charger 
+
+- bq2047 EP/thermal-pad must be connected to VSS
+- check BQ2407 has appropriate bypass caps
+	- Bypass OUT to VSS with a 4.7-μF to 47-μF ceramic capacitor
+- check BQ2407 input voltage range
+	- 
+- check BQ2407 output voltage range
+- check BQ2407 that ILIM, ITERM have resistance to GND in proper range
+	- Connect a 1100-Ω to 8-kΩ resistor from ILIM to VSS 
+	- Connect a 590-Ω to 8.9-kΩ resistor from ISET to VSS
+- ensure proper resistance on CHG pin on BQ2407 -> Connect CHG to the desired logic voltage rail using a 1kΩ-100kΩ resistor, or use with an LED for visual indication.
+- ensure proper resistance on PGOOD pin on BQ2407 -> Connect PGOOD to the desired logic voltage rail using a 1-kΩ to 100-kΩ resistor, or use with an LED for visual indication
+- check BQ2407 BAT is bypassed to VSS with cap in proper range
+	- Bypass BAT to VSS with a 4.7-μF to 47-μF ceramic capacitor
+- check that EN1 and EN2 are following the proper 01 configuration (or, another configuration)
+- check BQ2407 SYSOFF is not NC
+- check BQ2407 SYSOFF is pulled high/low
+- check TMR is either NC or connected to the proper voltage range
+- ensure VSS is connected directly to GND
+- ensure TS is connected to 10k resistor or 10k thermistor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

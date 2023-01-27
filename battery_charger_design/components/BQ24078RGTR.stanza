@@ -8,6 +8,19 @@ defpackage components/BQ24078RGTR :
   import ocdb/utils/generic-components
   import ocdb/utils/property-structs
 
+pcb-check bq2407-checks (component:JITXObject):
+
+    #CHECK(
+    name =                 ""
+    description =          "Check that EP is connected to GND/VSS"
+    condition =            has-property?(component.aec-rating),
+    category =             "Connection"
+    ; subcheck-description = "Check that %_ has a defined aec-rating" % [ref(component)],
+    pass-message =         "EP is connected to VSS"
+    info-message =         "EP is not connected to VSS"
+    locators =             [instance-definition(component)]
+    )
+
 pcb-pad rect-smd-pad-1 :
   type = SMD
   shape = Rectangle(0.28, 0.665)
@@ -91,7 +104,7 @@ defn apply-component-properties (comp:JITXObject) :
         val vih = typ(1.4)
         val vol = typ(0.4) ; @ 5mA which is an effective impedance of 80 Ohms
 
-        ; ; open collectors on CHG# & PGOOD#
+        ; open collectors on CHG# & PGOOD#
         val oc  = OpenCollector(vol, 5.0e-3)
         val dio = DigitalIO(oc, vil, vih, comp.OUT, comp.VSS, 1.0e-6)
         property(comp.CHG#.digital-io) = dio
@@ -153,6 +166,13 @@ public pcb-component component :
   property(self.LCSC) = "C473396"
   property(self.datasheet) = "https://item.szlcsc.com/191835.html"
 
+  eval-when has-property?(self.BAT.voltage) :
+    val battery-voltage = property(self.BAT.voltage)
+    if typ-value(battery-voltage) <= 3.2 :
+      property(self.OUT.voltage) = typ(3.41)
+    else :
+      property(self.OUT.voltage) = battery-voltage
+
   ; apply-component-properties(self)
 
 public pcb-module module :
@@ -179,12 +199,13 @@ public pcb-module module :
   inst good-power-led : gen-led-cmp("green", "0603")
   inst rchg-led : gen-res-cmp(1.0e3)
   inst rgpw-led : gen-res-cmp(1.0e3)
-  net (charge-led.a rchg-led.p[1])
-  net (rchg-led.p[2] vout)
-  net (good-power-led.a rgpw-led.p[1])
-  net (rgpw-led.p[2] vout)
-  net (charge-led.c bq.CHG#)
-  net (good-power-led.c bq.PGOOD#)
+  net (charge-led.a bat+)
+  net (good-power-led.a bat+)
+  net (charge-led.c rchg-led.p[2])
+  net (good-power-led.c rgpw-led.p[2])
+
+  net (rchg-led.p[1] bq.CHG#)
+  net (rgpw-led.p[1] bq.PGOOD#)
 
   net (bat+ bq.BAT)
   bypass-cap-strap(bq.BAT gnd 4.7e-6)
@@ -215,9 +236,12 @@ public pcb-module module :
   net (rpd-en2.p[2] gnd)
   res-strap(bq.ILIM, gnd, 1.1e3)
 
-  ; Charge current 325mA
-  val r-chg = closest-std-val(890.0 / 325.0e-3, 5.0)
+  ; Charge current 325mA  (for a LiPo, charge current should be the same as the capacity in, eg. 100mAh battery charges at 100mA)
+  val charge-current = 325.0e-3
+  val r-chg = closest-std-val(890.0 / charge-current, 5.0)
   res-strap(bq.ISET, gnd, r-chg)
 
   schematic-group(self) = BQ24078
   layout-group(self) = BQ24078
+
+  ;check bq2407-checks
