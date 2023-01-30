@@ -1,0 +1,40 @@
+; A model of a standard 5V USB input, to be used for testing and voltage propogation (not to be part of the final layout)
+#use-added-syntax(jitx)
+defpackage components/USBCable:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+  import ocdb/utils/bundles
+
+pcb-landpattern lp-USBCable :
+  make-n-pin-soic-landpattern(number-of-leads, pitch, lead-span, package-length,
+      package-width, terminal-length, terminal-width) where :
+    val number-of-leads = 2
+    val pitch = 2.54
+    val lead-span = tol(9.5, 0.15)
+    val package-length = tol(8.75, 0.2)
+    val package-width = tol(15.24, 0.35)
+    val terminal-length = tol((9.5 - 2.54) / 2.0, 0.15),
+    val terminal-width = tol(0.64, 0.01)
+
+public pcb-component component :
+  name = "USBCable"
+  description = "Model the input from a USB cable"
+  reference-prefix = "U"
+
+  pin-properties :
+    [pin:Ref      | pads:Int ... | side:Dir ]
+    [POWER        | 1            | Up       ]
+    [GND          | 2            | Down     ]
+
+  val usb-voltage = min-typ-max(4.75, 5.0, 5.5)
+  property(self.POWER.power-supply-pin) = PowerSupplyPin(usb-voltage, 500.0e-3) ; for standard USB supply
+  property(self.POWER.voltage) = usb-voltage
+
+  make-box-symbol()
+  assign-landpattern(lp-USBCable)

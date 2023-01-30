@@ -1,3 +1,4 @@
+; A 2.8V LDO voltage regulator IC, AP2125K
 #use-added-syntax(jitx)
 defpackage components/AP2125K-2_8TRG1 :
   import core
@@ -81,6 +82,7 @@ public pcb-component component :
   assign-landpattern(SOT-23-5_L30-W16-P095-LS28-BL)
   make-box-symbol()
 
+  ; set the logic voltage levels
   val vih = 1.5
   val vil = 0.4
   property(self.dropout-voltage-max) = 300.0e-3
@@ -88,20 +90,24 @@ public pcb-component component :
   val vin = min-max(2.8 + property(self.dropout-voltage-max), 6.0)
 
   property(self.VIN.power-pin) = PowerPin(vin)
-  property(self.VOUT.power-supply-pin) = PowerSupplyPin(vout, 0.3)
   property(self.CE.digital-input) = DigitalInput(typ(vil), typ(vih), self.VIN, self.GND, 1.0e-6)
-  property(self.VOUT.voltage) = min-typ-max(2.744 2.8 2.856)
-  property(self.VOUT.max-current) = 360.0e-3
 
   property(self.LCSC) = "C176953"
 
-  eval-when has-property?(self.CE.voltage) :
-    val input-voltage = property(self.CE.voltage)
-    if typ-value(input-voltage) < vil :
-      property(self.VOUT.voltage) = typ(0.0)
-    else if typ-value(input-voltage) > vih:
-      property(self.VOUT.voltage) = vout
+  ; logic to set the output voltage of the LDO based on the pin input parameters
+  eval-when has-property?(self.CE.voltage) and has-property?(self.VIN.voltage) :
+    val ce-voltage = property(self.CE.voltage)
+    val input-voltage = property(self.VIN.voltage)
+    val outv = 
+      if typ-value(ce-voltage) < vil :
+        typ(0.0)
+      else if typ-value(ce-voltage) > vih:
+        vout
+      else :
+        fatal("CE voltage is in between Vil and Vih in AP2125K")
+    property(self.VOUT.power-supply-pin) = PowerSupplyPin(outv, 0.36)
 
+  ; run checks to ensure that the voltage ranges are correct for logic
   check ap2125k-voltage-not-in-range-check(self.CE, min-max(vil, vih))
   check ap2125k-voltage-in-range-check(self.VIN, vin)
 
@@ -111,11 +117,16 @@ public pcb-module module :
   pin gnd
   pin ce
   public inst ps : components/AP2125K-2_8TRG1/component
+
+  ; create the bypass capacitors
   ocdb/utils/generic-components/bypass-cap-strap(ps.VIN, gnd, 1.0e-6)
   ocdb/utils/generic-components/bypass-cap-strap(ps.VOUT, gnd, 1.0e-6)
+
+  ; connects pins to nets
   net (vin, ps.VIN)
   net (ps.VOUT vout)
   net (gnd, ps.GND)
   net (ce, ps.CE)
 
+  ; group the schematic for easier parsing
   schematic-group(self) = AP2112

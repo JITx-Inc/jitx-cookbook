@@ -28,15 +28,25 @@ pcb-module battery-manager-module :
   inst version-label  : ocdb/artwork/board-text/version-silkscreen("Version 0.1") ; make a version label text on silkscreen
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
 
+  ; create the battery manager IC, connect it
+  inst battery-manager : components/BQ24078RGTR/module
+  net BMOUT (battery-manager.vout)
+  net (battery-manager.gnd GND)
+
   ; create battery JST connector, connect it
   inst battery-connector : components/PH2_0-2PWB/component
   net (battery-connector.gnd gnd)
+  net (battery-connector.power battery-manager.bat+)
 
-  ; create the battery manager IC, connect it
-  inst battery-manager : components/BQ24078RGTR/module
-  net VBAT (battery-connector.power battery-manager.bat+)
-  net BMOUT (battery-manager.vout)
-  net (battery-manager.gnd GND)
+  ; create the battery itself
+  inst battery : components/LithiumBattery/component(typ(3.7), 500.0) ; (voltage, current)
+  net VBAT (battery.POWER, battery-manager.bat+)
+  net (GND battery.GND)
+
+  ; create an input voltage from the USB cable
+  inst usb-cable : components/USBCable/component
+  net (battery-manager.vin usb-cable.POWER)
+  net (GND usb-cable.GND)
 
   ; create switch and pull up, connect them. Switch pulls SYSOFF down for normal operation, high to disconnect battery
   inst switch-phy : components/MK-12C02-G025/component
@@ -52,11 +62,19 @@ pcb-module battery-manager-module :
 
   ; create the LDO and connect it
   inst ldo : components/AP2125K-2_8TRG1/module
-  net (battery-manager.vout ldo.vin ldo.ce)
+  net (BMOUT ldo.vin ldo.ce)
   net (ldo.gnd, GND)
   net P2V8 (ldo.vout)
   val ldo-pulldown = res-strap(ldo.ce GND, 100.0e3) ; pull-down on the CE pin disables the LDO when the battery manager is not outputting voltage
-  property(BMOUT.voltage) = min-max(3.5 5.0) ; set the acceptable voltage input range for the LDO, which receives its input as the output of the batter-manager
+
+  ; create voltage output JST connector, connect it
+  inst vout-connector : components/PH2_0-2PWB/component
+  net (vout-connector.gnd gnd)
+  net (vout-connector.power ldo.vout)
+
+  ; create test pads to test/solder LDO vout
+  add-testpoint([vout-connector.power], Testpoint-SMDPad)
+  add-testpoint([vout-connector.gnd], Testpoint-SMDPad)
   
   ; set symbols of some nets
   symbol(VBAT) = ocdb/utils/symbols/supply-sym

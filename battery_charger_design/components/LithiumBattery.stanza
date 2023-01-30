@@ -1,0 +1,40 @@
+; A model of a standard lithium battery, to be used for testing and voltage propogation (not to be part of the final layout)
+#use-added-syntax(jitx)
+defpackage components/LithiumBattery:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/generic-components
+  import ocdb/utils/property-structs
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+
+pcb-landpattern lp-LithiumBattery :
+  make-n-pin-soic-landpattern(number-of-leads, pitch, lead-span, package-length,
+      package-width, terminal-length, terminal-width) where :
+    val number-of-leads = 2
+    val pitch = 2.54
+    val lead-span = tol(9.5, 0.15)
+    val package-length = tol(8.75, 0.2)
+    val package-width = tol(15.24, 0.35)
+    val terminal-length = tol((9.5 - 2.54) / 2.0, 0.15),
+    val terminal-width = tol(0.64, 0.01)
+
+public pcb-component component (voltage : Toleranced, capacity : Double) : ; capacity is in mAh
+  name = "LithiumBattery"
+  description = "Normal Lithium Polymer/Ion Battery"
+  reference-prefix = "U"
+
+  pin-properties :
+    [pin:Ref      | pads:Int ... | side:Dir ]
+    [POWER        | 1            | Up       ]
+    [GND          | 2            | Down     ]
+
+  property(self.POWER.power-supply-pin) = PowerSupplyPin(voltage, capacity / 1000.0) ; for a 1C battery
+  property(self.POWER.voltage) = voltage
+
+  make-box-symbol()
+  assign-landpattern(lp-LithiumBattery)

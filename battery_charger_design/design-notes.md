@@ -1,6 +1,8 @@
-# Design Notes for Battery Management PSU
+# Design Notes for Battery Charger PSU
 
-## Battery Management IC, BQ2407x
+Working notes for the design of the battery charger PSU board.
+
+## Battery Charger IC, BQ2407x
 
 UVLO is 3.3 volts - this is the Vin, not for Vbat. The V
 
@@ -78,54 +80,37 @@ to V BAT through a large resistor (approximately 5 MΩ). Do not leave SYSOFF unc
 
 #### Battery Connector + Switch
 
-- GND needs to be on the left of the batteries cable when plugging it in - make sure these aren't reversed
-- make sure that there is no possible short in either switch position
-- switch MK12C02 meets specs - 12V 0.5 or 6V 1.0A (convert this to power and check for meets power specs)
+- [X] switch MK12C02 meets specs - 12V 0.5 or 6V 1.0A (convert this to power and check for meets power specs)
  
 #### LDO
 
-- LDO EN needs to be pulled down when off, pulled high when on - make sure not NC
-- LDO voltage input range
-- LDO - make sure bypass caps are present
+- [X] LDO EN needs to be pulled down when off, pulled high when on - make sure not NC
+- [X] LDO voltage input range
+- [ ] LDO - make sure bypass caps are present
 
 #### BQ2407 battery charger 
 
-- bq2047 EP/thermal-pad must be connected to VSS
-- check BQ2407 has appropriate bypass caps
-	- Bypass OUT to VSS with a 4.7-μF to 47-μF ceramic capacitor
-- check BQ2407 input voltage range
-	- 
-- check BQ2407 output voltage range
-- check BQ2407 that ILIM, ITERM have resistance to GND in proper range
-	- Connect a 1100-Ω to 8-kΩ resistor from ILIM to VSS 
-	- Connect a 590-Ω to 8.9-kΩ resistor from ISET to VSS
-- ensure proper resistance on CHG pin on BQ2407 -> Connect CHG to the desired logic voltage rail using a 1kΩ-100kΩ resistor, or use with an LED for visual indication.
-- ensure proper resistance on PGOOD pin on BQ2407 -> Connect PGOOD to the desired logic voltage rail using a 1-kΩ to 100-kΩ resistor, or use with an LED for visual indication
-- check BQ2407 BAT is bypassed to VSS with cap in proper range
-	- Bypass BAT to VSS with a 4.7-μF to 47-μF ceramic capacitor
-- check that EN1 and EN2 are following the proper 01 configuration (or, another configuration)
-- check BQ2407 SYSOFF is not NC
-- check BQ2407 SYSOFF is pulled high/low
-- check TMR is either NC or connected to the proper voltage range
-- ensure VSS is connected directly to GND
-- ensure TS is connected to 10k resistor or 10k thermistor
+##### NOW
+- [X] bq2047 EP/thermal-pad must be connected to VSS
+- [X] check BQ2407 input voltage range
+- [X] check BQ2407 output voltage range (check LDO input
+- [X] check BQ2407 SYSOFF is not NC
+- [X] check BQ2407 SYSOFF is pulled high/low
+- [X] check TMR is either NC or connected to the proper voltage range
+- [X] ensure VSS is connected directly to GND
 
+##### LATER
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [ ] check BQ2407 has appropriate bypass caps
+	- [ ] Bypass OUT to VSS with a 4.7-μF to 47-μF ceramic capacitor
+- [ ] ensure TS is connected to 10k resistor or 10k thermistor
+- [ ] check BQ2407 BAT is bypassed to VSS with cap in proper range
+	- [ ] Bypass BAT to VSS with a 4.7-μF to 47-μF ceramic capacitor
+- [ ] ensure proper resistance on CHG pin on BQ2407 -> Connect CHG to the desired logic voltage rail using a 1kΩ-100kΩ resistor, or use with an LED for visual indication.
+- [ ] ensure proper resistance on PGOOD pin on BQ2407 -> Connect PGOOD to the desired logic voltage rail using a 1-kΩ to 100-kΩ resistor, or use with an LED for visual indication
+- [ ] check that EN1 and EN2 are following the proper 01 configuration (or, another configuration)
+- [ ] check BQ2407 that ILIM, ITERM have resistance to GND in proper range
+	- [ ] Connect a 1100-Ω to 8-kΩ resistor from ILIM to VSS 
+	- [ ] Connect a 590-Ω to 8.9-kΩ resistor from ISET to VSS
+- [ ] GND needs to be on the left of the batteries cable when plugging it in - make sure these aren't reversed
+- [ ] make sure that there is no possible short in either switch position

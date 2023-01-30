@@ -1,3 +1,4 @@
+; A Lithium battery charger IC, BQ2407
 #use-added-syntax(jitx)
 defpackage components/BQ24078RGTR :
   import core
@@ -8,16 +9,43 @@ defpackage components/BQ24078RGTR :
   import ocdb/utils/generic-components
   import ocdb/utils/property-structs
 
+defn has-pin? (comp:JITXObject, pin-q:String) :
+  val t = to-tuple $ for p in pins(comp) filter :
+    substring?(to-string(ref(p)), pin-q)
+  not empty?(t)
+
 pcb-check bq2407-checks (component:JITXObject):
+
+    #CHECK(
+    name =                 "EP Exist check"
+    description =          "Check that EP exists "
+    condition =            has-pin?(component, "EP"),
+    category =             "Component checks"
+    subcheck-description =          "Check that the EP pin exists "
+    pass-message =         "EP does exist. "
+    fail-message =         "EP does not exist"
+    locators =             [instance-definition(component)]
+    )
+
+    #CHECK(
+    name =                 "VSS Exist check"
+    description =          "Check that VSS exists "
+    condition =            has-pin?(component, "VSS"),
+    category =             "Component checks"
+    subcheck-description =          "Check that the VSS pin exists "
+    pass-message =         "VSS does exist. "
+    info-message =         "VSS does not exist"
+    locators =             [instance-definition(component)]
+    )
 
     #CHECK(
     name =                 ""
     description =          "Check that EP is connected to GND/VSS"
-    condition =            has-property?(component.aec-rating),
+    condition =            connected?([component.EP, component.VSS]),
     category =             "Connection"
-    ; subcheck-description = "Check that %_ has a defined aec-rating" % [ref(component)],
+    subcheck-description =          "Check that EP is connected to VSS"
     pass-message =         "EP is connected to VSS"
-    info-message =         "EP is not connected to VSS"
+    fail-message =         "EP is not connected to VSS"
     locators =             [instance-definition(component)]
     )
 
@@ -79,14 +107,16 @@ public pcb-landpattern VQFN-16_L30-W30-P050-BL-EP :
   ;   Vec3D(0.0, 0.0, -90.0))
 
 defn apply-component-properties (comp:JITXObject) :
+  var vih = 1.4
+  var vil = 0.4
   match(instance-type(comp)) :
     (SingleModule) :
       inside pcb-module :
         ; we apply the following properties to the component
         property(comp.IN.power-pin) = PowerPin(min-max(4.35, 6.40))
-        property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
-        property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
-        property(comp.BAT.voltage) = min-max(-0.3, 5.0)
+        ; property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
+        ; property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
+        property(comp.SYSOFF.digital-input) = DigitalInput(typ(vil), typ(vih), comp.IN, comp.VSS, 1.0e-6)
         ; properties that we could write checks for in the future...
         property(comp.R-ILIM) = min-max(1100.0, 8000.0)
         property(comp.R-ISET) = min-max(590.0, 8900.0)
@@ -113,9 +143,9 @@ defn apply-component-properties (comp:JITXObject) :
       inside pcb-component :
         ; we apply the following properties to the component
         property(comp.IN.power-pin) = PowerPin(min-max(4.35, 6.40))
-        property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
-        property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
-        property(comp.BAT.voltage) = min-max(-0.3, 5.0)
+        ; property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
+        ; property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
+        property(comp.SYSOFF.digital-input) = DigitalInput(typ(vil), typ(vih), comp.IN, comp.VSS, 1.0e-6)
         ; properties that we could write checks for in the future...
         property(comp.R-ILIM) = min-max(1100.0, 8000.0)
         property(comp.R-ISET) = min-max(590.0, 8900.0)
@@ -165,15 +195,18 @@ public pcb-component component :
 
   property(self.LCSC) = "C473396"
   property(self.datasheet) = "https://item.szlcsc.com/191835.html"
+  property(self.rated-temperature) = 125.0
 
+  ; set the logic of VOUT depending on the input voltage of the battery
   eval-when has-property?(self.BAT.voltage) :
     val battery-voltage = property(self.BAT.voltage)
-    if typ-value(battery-voltage) <= 3.2 :
-      property(self.OUT.voltage) = typ(3.41)
-    else :
-      property(self.OUT.voltage) = battery-voltage
-
-  ; apply-component-properties(self)
+    val outv = 
+      if typ-value(battery-voltage) <= 3.2 :
+        typ(3.41)
+      else :
+        battery-voltage
+    property(self.OUT.power-supply-pin) = PowerSupplyPin(outv, 4.5)
+    property(self.OUT.voltage) = outv
 
 public pcb-module module :
   pin vin
@@ -182,52 +215,62 @@ public pcb-module module :
   pin bat+
   pin sysoff
 
-  ; using the database part by the following line:
-  ; inst bq : database-part(["manufacturer" => "Texas Instruments", "mpn" => "BQ24078RGTR"])
   ; using the component definition from above:
   inst bq : components/BQ24078RGTR/component
 
   apply-component-properties(bq)
 
-  net (bq.IN vin)
-  bypass-cap-strap(bq.IN gnd 4.7e-6)
+  ; connect EP and VSS to GND
   net (bq.VSS bq.EP gnd)
-  net (bq.OUT vout)
-  bypass-cap-strap(bq.OUT gnd 4.7e-6)
 
+  ; add input bypass capacitor
+  net (bq.IN vin)
+  cap-strap(vout, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 12.0])
+  
+  ; add output bypass capacitor
+  net (bq.OUT vout)
+  cap-strap(bq.OUT, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 12.0])
+
+  ; add indicator LEDs to CHG# and PGOOD#
+  ;; generate LEDs
   inst charge-led : gen-led-cmp("red", "0603")
   inst good-power-led : gen-led-cmp("green", "0603")
+  ;; generate ballast resistors
   inst rchg-led : gen-res-cmp(1.0e3)
   inst rgpw-led : gen-res-cmp(1.0e3)
+  ;; hook up LEDs and resistors to power and pin
   net (charge-led.a bat+)
   net (good-power-led.a bat+)
   net (charge-led.c rchg-led.p[2])
   net (good-power-led.c rgpw-led.p[2])
-
   net (rchg-led.p[1] bq.CHG#)
   net (rgpw-led.p[1] bq.PGOOD#)
 
+  ; battery pin bypass capacitor
   net (bat+ bq.BAT)
-  bypass-cap-strap(bq.BAT gnd 4.7e-6)
+  cap-strap(bq.BAT, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 12.0])
 
+  ; setup SYSOFF net
   net (sysoff bq.SYSOFF)
 
+  ; CE pin pulldown
   inst rpd-ce# : gen-res-cmp(33.0)
   net (gnd rpd-ce#.p[1])
   net (rpd-ce#.p[2] bq.CE#)
 
+  ; TS pin pulldown
   inst rts : gen-res-cmp(10.0e3)
   net (bq.TS rts.p[1])
   net (rts.p[2] gnd)
-  
-  ; use default timers 
+
+  ; use default timers by not connecting TMR pin
   no-connect(bq.TMR)
 
   ; Safety timer for 6.25 hours
   ; val r-tmr = closest-std-val((6.25 * 3600.0) / (10.0 * 48.0), 5.0)
   ; res-strap(bq.TMR gnd, r-tmr)
 
-  ; Current limit = 500ma for usb limit
+  ; set current limit = 500ma for usb limit, by pulling up/down EN1 and EN2
   inst rpu-en1 : gen-res-cmp(33.0)
   inst rpd-en2 : gen-res-cmp(33.0)
   net (bq.EN1 rpu-en1.p[1])
@@ -236,12 +279,13 @@ public pcb-module module :
   net (rpd-en2.p[2] gnd)
   res-strap(bq.ILIM, gnd, 1.1e3)
 
-  ; Charge current 325mA  (for a LiPo, charge current should be the same as the capacity in, eg. 100mAh battery charges at 100mA)
+  ; set charge current 325mA by setting ISET pin resistance  (for a LiPo, charge current should be the same as the capacity in, eg. 100mAh battery charges at 100mA)
   val charge-current = 325.0e-3
   val r-chg = closest-std-val(890.0 / charge-current, 5.0)
   res-strap(bq.ISET, gnd, r-chg)
 
+  ; group components so easier to read in schematic and layout
   schematic-group(self) = BQ24078
   layout-group(self) = BQ24078
 
-  ;check bq2407-checks
+  check bq2407-checks(bq)

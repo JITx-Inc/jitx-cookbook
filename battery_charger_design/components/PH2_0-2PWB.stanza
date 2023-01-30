@@ -1,3 +1,4 @@
+; A small JST connector, PH2-0-2PWB
 #use-added-syntax(jitx)
 defpackage components/PH2_0-2PWB :
   import core
@@ -91,3 +92,4 @@ public pcb-component component :
 
   property(self.LCSC) = "C47647"
   property(self.datasheet) = "https://item.szlcsc.com/48652.html"
+  property(self.rated-temperature) = 220.0 ; degrees celcius for 10 seconds

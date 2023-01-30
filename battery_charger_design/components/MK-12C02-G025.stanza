@@ -1,3 +1,4 @@
+; A small SMD SPDT switch component
 #use-added-syntax(jitx)
 defpackage components/MK-12C02-G025 :
   import core
