@@ -30,7 +30,7 @@ pcb-module battery-manager-module :
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
 
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
-  place(logo) at loc(7.0, -5.0, 0.0) on Bottom
+  place(logo) at loc(10.0, -5.0, 0.0) on Bottom
 
   ; create the battery manager IC, connect it
   inst battery-manager : components/BQ24078RGTR/module
