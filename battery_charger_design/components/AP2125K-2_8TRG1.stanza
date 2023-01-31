@@ -40,9 +40,6 @@ pcb-check ap2125k-voltage-in-range-check (p:JITXObject, value:Toleranced) :
       locators =             []
       )    
 
-public pcb-landpattern SOT-23-5_L30-W16-P095-LS28-BL :
-  make-sot23-5()
-
 public pcb-component component :
   description = "AP2125K-2_8TRG1"
   mpn = "AP2125K-2.8TRG1"
