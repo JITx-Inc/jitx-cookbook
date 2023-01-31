@@ -7,6 +7,8 @@ defpackage components/PH2_0-2PWB :
   import jitx/commands
   import ocdb/utils/box-symbol
 
+; the below smd-pad and pcb-landpattern were imported into JITX from an external EDA CAD program
+; you can import your own landpatterns into JITX as well: https://docs.jitx.com/tutorials/kicad-revision.html#import-the-kicad-project-to-jitx
 pcb-pad rect-smd-pad-1 :
   type = SMD
   shape = Rectangle(0.9, 1.7)
@@ -45,11 +47,6 @@ public pcb-landpattern CONN-SMD_2P-P200_PH20-SPWB :
   layer(Finish(Top)) = Line(0.254001, [Point(-3.999873, -3.775159), Point(-3.999873, 3.824917)])
   layer(Finish(Top)) = Line(0.254001, [Point(-3.999873, 3.824841), Point(4.000152, 3.824917)])
   layer(Finish(Top)) = Line(0.254001, [Point(-3.200356, -2.175159), Point(-3.200356, -3.775616)])
-
-  model3d = Model3D("../../3d-models/CONN-SMD_2P-P2.00_PH2.0-SPWB.wrl",
-    Vec3D(0.0, 0.0, 0.0),
-    Vec3D(1.0, 1.0, 1.0),
-    Vec3D(0.0, 0.0, -180.0))
 
 public pcb-symbol PH2_0-2PWB :
   pin gnd at Point(-2.54, -8.89) with :

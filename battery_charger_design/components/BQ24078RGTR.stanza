@@ -8,6 +8,7 @@ defpackage components/BQ24078RGTR :
   import ocdb/utils/box-symbol
   import ocdb/utils/generic-components
   import ocdb/utils/property-structs
+  import ocdb/utils/landpatterns
 
 defn has-pin? (comp:JITXObject, pin-q:String) :
   val t = to-tuple $ for p in pins(comp) filter :
@@ -49,62 +50,16 @@ pcb-check bq2407-checks (component:JITXObject):
     locators =             [instance-definition(component)]
     )
 
-pcb-pad rect-smd-pad-1 :
-  type = SMD
-  shape = Rectangle(0.28, 0.665)
-  layer(Paste(Top)) = Rectangle(0.28, 0.665)
-  layer(SolderMask(Top)) = Rectangle(0.28, 0.665)
-
-pcb-pad rect-smd-pad-2 :
-  type = SMD
-  shape = Rectangle(0.665, 0.28)
-  layer(Paste(Top)) = Rectangle(0.665, 0.28)
-  layer(SolderMask(Top)) = Rectangle(0.665, 0.28)
-
-pcb-pad rect-smd-pad-3 :
-  type = SMD
-  shape = Rectangle(1.68, 1.68)
-  layer(Paste(Top)) = Rectangle(1.68, 1.68)
-  layer(SolderMask(Top)) = Rectangle(1.68, 1.68)
-
 public pcb-landpattern VQFN-16_L30-W30-P050-BL-EP :
-  pad p[1] : rect-smd-pad-1 at loc(-0.750064, -1.407417) on Top
-  pad p[2] : rect-smd-pad-1 at loc(-0.249936, -1.407417) on Top
-  pad p[3] : rect-smd-pad-1 at loc(0.249936, -1.407417) on Top
-  pad p[4] : rect-smd-pad-1 at loc(0.750064, -1.407417) on Top
-  pad p[5] : rect-smd-pad-2 at loc(1.407417, -0.750064) on Top
-  pad p[6] : rect-smd-pad-2 at loc(1.407417, -0.249936) on Top
-  pad p[7] : rect-smd-pad-2 at loc(1.407417, 0.249936) on Top
-  pad p[8] : rect-smd-pad-2 at loc(1.407417, 0.750064) on Top
-  pad p[9] : rect-smd-pad-1 at loc(0.750064, 1.407417) on Top
-  pad p[10] : rect-smd-pad-1 at loc(0.249936, 1.407417) on Top
-  pad p[11] : rect-smd-pad-1 at loc(-0.249936, 1.407417) on Top
-  pad p[12] : rect-smd-pad-1 at loc(-0.750064, 1.407417) on Top
-  pad p[13] : rect-smd-pad-2 at loc(-1.407417, 0.750064) on Top
-  pad p[14] : rect-smd-pad-2 at loc(-1.407417, 0.249936) on Top
-  pad p[15] : rect-smd-pad-2 at loc(-1.407417, -0.249936) on Top
-  pad p[16] : rect-smd-pad-2 at loc(-1.407417, -0.750064) on Top
-  pad p[17] : rect-smd-pad-3 at loc(0.0, 0.0) on Top
-
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.5762), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.5762), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.5762), "", TrueTypeFont)
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, -1.5762), Point(1.080493, -1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, 1.5762), Point(-1.080493, 1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, 1.5762), Point(1.080493, 1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, -1.080493), Point(-1.5762, -1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, -1.5762), Point(-1.080493, -1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.5762, 1.080493), Point(-1.5762, 1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, -1.080493), Point(1.5762, -1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.5762, 1.080493), Point(1.5762, 1.5762)])
-  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150013, [Arc(-0.750064, -2.040132, 0.074931, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-1.499873, -1.500127, 0.0299720000000001, 0.0, 360.0)])
-  layer(Finish(Top)) = Polyline(0.150013, [Arc(-0.750064, -1.800102, 0.074931, 0.0, 360.0)])
-
-  ; model3d = Model3D("../../3d-models/VQFN-16_L3.0-W3.0-P0.50-BL-EP.wrl",
-  ;   Vec3D(0.0, 0.0, 0.0),
-  ;   Vec3D(1.0, 1.0, 1.0),
-  ;   Vec3D(0.0, 0.0, -90.0))
+  make-qfn-landpattern(num-pins, pitch, package-size, terminal-length, terminal-width, 
+    corner-pads, exposed-metal-heat-feature) where :
+    val num-pins = 16
+    val pitch = 0.5
+    val package-size = typ(2.8 + 0.6)
+    val terminal-length = typ(0.6)
+    val terminal-width = typ(0.24)
+    val corner-pads = false
+    val exposed-metal-heat-feature = Rectangle(1.68, 1.68)
 
 defn apply-component-properties (comp:JITXObject) :
   var vih = 1.4
@@ -218,6 +173,7 @@ public pcb-module module :
   ; using the component definition from above:
   inst bq : components/BQ24078RGTR/component
 
+  ; apply properties to the component we just created
   apply-component-properties(bq)
 
   ; connect EP and VSS to GND
