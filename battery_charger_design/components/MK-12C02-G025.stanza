@@ -7,6 +7,8 @@ defpackage components/MK-12C02-G025 :
   import jitx/commands
   import ocdb/utils/box-symbol
 
+; the below smd-pad and pcb-landpattern were imported into JITX from an external EDA CAD program
+; you can import your own landpatterns into JITX as well: https://docs.jitx.com/tutorials/kicad-revision.html#import-the-kicad-project-to-jitx
 pcb-pad rect-smd-pad-1 :
   type = SMD
   shape = Rectangle(0.9, 1.8)
@@ -46,11 +48,6 @@ public pcb-landpattern C778186 :
   layer(Cutout()) = Circle(-1.5, 0.409182, 0.4249935)
   layer(SolderMask(Top)) = Circle(-1.5, 0.409182, 0.4249935)
   layer(SolderMask(Bottom)) = Circle(-1.5, 0.409182, 0.4249935)
-  
-  ; model3d = Model3D("..\\..\\3d-models\\C778186.wrl",
-  ;   Vec3D(0.0, 0.0, 0.0),
-  ;   Vec3D(1.0, 1.0, 1.0),
-  ;   Vec3D(0.0, 0.0, 0.0))
   
 public pcb-symbol MK-12C02-G025 :
   pin left at Point(-2.0, -5.3) with :
