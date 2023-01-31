@@ -8,6 +8,7 @@ defpackage main :
   import core
   import jitx
   import jitx/commands
+  import utils/time
   import ocdb/utils/checks
   import ocdb/utils/generic-components
   import ocdb/utils/box-symbol
@@ -21,12 +22,15 @@ pcb-module battery-manager-module :
 
   ; setup the ground network
   net GND (gnd)
-  symbol(GND) = ocdb/utils/symbols/ground-sym
   property(GND.voltage) = typ(0.0)
 
-  ; draw a version number on the board silkscreen
-  inst version-label  : ocdb/artwork/board-text/version-silkscreen("Version 0.1") ; make a version label text on silkscreen
+  ; draw a version number and date on the board silkscreen
+  val mydate:String = get-time-string("%Y-%m-%d")
+  inst version-label  : ocdb/artwork/board-text/version-silkscreen(string-join("Version 0.1 ", mydate)) ; make a version label text on silkscreen
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
+
+  inst logo : ocdb/artwork/jitx-logo/logo(10.0)
+  place(logo) at loc(10.0, -5.0, 0.0) on Bottom
 
   ; create the battery manager IC, connect it
   inst battery-manager : components/BQ24078RGTR/module
@@ -40,20 +44,19 @@ pcb-module battery-manager-module :
 
   ; create the battery itself
   inst battery : components/LithiumBattery/component(typ(3.7), 500.0) ; (voltage, current)
-  net VBAT (battery.POWER, battery-manager.bat+)
+  net VBAT (battery.POWER battery-manager.bat+)
   net (GND battery.GND)
 
   ; create an input voltage from the USB cable
   inst usb-cable : components/USBCable/component
-  net (battery-manager.vin usb-cable.POWER)
+  net (usb-cable.POWER battery-manager.vin)
   net (GND usb-cable.GND)
 
   ; create switch and pull up, connect them. Switch pulls SYSOFF down for normal operation, high to disconnect battery
   inst switch-phy : components/MK-12C02-G025/component
-  net (switch-phy.left GND) ; switch turns battery-manager on
-  net (switch-phy.gnd GND)
+  net (GND switch-phy.left switch-phy.gnd) ; switch turns battery-manager on
   net (switch-phy.center battery-manager.sysoff)
-  val sys-r = res-strap(switch-phy.right VBAT, 100.0e3) ; pull-up turns battery monitor off
+  val sys-r = res-strap(switch-phy.right, VBAT, 100.0e3) ; pull-up turns battery monitor off
 
   ; create USB connector and connect it
   inst usb : usb2-on-a-usb-c-connector(ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/module(SinkDefault))
@@ -63,7 +66,7 @@ pcb-module battery-manager-module :
   ; create the LDO and connect it
   inst ldo : components/AP2125K-2_8TRG1/module
   net (BMOUT ldo.vin ldo.ce)
-  net (ldo.gnd, GND)
+  net (ldo.gnd GND)
   net P2V8 (ldo.vout)
   val ldo-pulldown = res-strap(ldo.ce GND, 100.0e3) ; pull-down on the CE pin disables the LDO when the battery manager is not outputting voltage
 
@@ -77,6 +80,7 @@ pcb-module battery-manager-module :
   add-testpoint([vout-connector.gnd], Testpoint-SMDPad)
   
   ; set symbols of some nets
+  symbol(GND) = ocdb/utils/symbols/ground-sym
   symbol(VBAT) = ocdb/utils/symbols/supply-sym
   symbol(VBUS) = ocdb/utils/symbols/supply-sym
   symbol(BMOUT) = ocdb/utils/symbols/supply-sym
