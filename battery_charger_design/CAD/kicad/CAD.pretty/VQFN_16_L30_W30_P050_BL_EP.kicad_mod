@@ -1,0 +1,99 @@
+(footprint VQFN_16_L30_W30_P050_BL_EP (version 20211014) (generator jitx) (layer F.Cu)
+  (pad 1 smd rect
+    (at -1.5 -0.75 0.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 2 smd rect
+    (at -1.5 -0.25 0.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 3 smd rect
+    (at -1.5 0.25 0.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 4 smd rect
+    (at -1.5 0.75 0.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 5 smd rect
+    (at -0.75 1.5 90.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 6 smd rect
+    (at -0.25 1.5 90.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 7 smd rect
+    (at 0.25 1.5 90.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 8 smd rect
+    (at 0.75 1.5 90.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 9 smd rect
+    (at 1.5 0.75 180.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 10 smd rect
+    (at 1.5 0.25 180.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 11 smd rect
+    (at 1.5 -0.25 180.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 12 smd rect
+    (at 1.5 -0.75 180.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 13 smd rect
+    (at 0.75 -1.5 270.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 14 smd rect
+    (at 0.25 -1.5 270.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 15 smd rect
+    (at -0.25 -1.5 270.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 16 smd rect
+    (at -0.75 -1.5 270.0)
+    (size 0.8 0.16)
+    (layers F.Cu F.Paste))
+  (pad 17 smd rect
+    (at 0.0 0.0 0.0)
+    (size 1.68 1.68)
+    (layers F.Cu F.Paste))
+  (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_poly (pts (xy -1.95 -0.62) (xy -1.05 -0.62) (xy -1.05 -0.88) (xy -1.95 -0.88)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -1.95 -0.12) (xy -1.05 -0.12) (xy -1.05 -0.38) (xy -1.95 -0.38)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -1.95 0.38) (xy -1.05 0.38) (xy -1.05 0.12) (xy -1.95 0.12)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -1.95 0.88) (xy -1.05 0.88) (xy -1.05 0.62) (xy -1.95 0.62)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -0.62 1.95) (xy -0.62 1.05) (xy -0.88 1.05) (xy -0.88 1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -0.12 1.95) (xy -0.12 1.05) (xy -0.38 1.05) (xy -0.38 1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 0.38 1.95) (xy 0.38 1.05) (xy 0.12 1.05) (xy 0.12 1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 0.88 1.95) (xy 0.88 1.05) (xy 0.62 1.05) (xy 0.62 1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 1.95 0.62) (xy 1.05 0.62) (xy 1.05 0.88) (xy 1.95 0.88)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 1.95 0.12) (xy 1.05 0.12) (xy 1.05 0.38) (xy 1.95 0.38)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 1.95 -0.38) (xy 1.05 -0.38) (xy 1.05 -0.12) (xy 1.95 -0.12)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 1.95 -0.88) (xy 1.05 -0.88) (xy 1.05 -0.62) (xy 1.95 -0.62)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 0.62 -1.95) (xy 0.62 -1.05) (xy 0.88 -1.05) (xy 0.88 -1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy 0.12 -1.95) (xy 0.12 -1.05) (xy 0.38 -1.05) (xy 0.38 -1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -0.38 -1.95) (xy -0.38 -1.05) (xy -0.12 -1.05) (xy -0.12 -1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -0.88 -1.95) (xy -0.88 -1.05) (xy -0.62 -1.05) (xy -0.62 -1.95)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -0.89 0.89) (xy 0.89 0.89) (xy 0.89 -0.89) (xy -0.89 -0.89)) (layer F.Mask) (width 0))
+  (fp_line (start -2.0 2.0) (end 2.0 2.0) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 2.0 2.0) (end 2.0 -2.0) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 2.0 -2.0) (end -2.0 -2.0) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -2.0 -2.0) (end -2.0 2.0) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -1.7765 -1.6235) (end -1.4705 -1.6235) (layer F.SilkS) (width 0.153))
+  (fp_text reference ">REF" (at 0.0 -2.5 0.0) (layer F.SilkS) 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (model "/home/cayden/devdir/jitx-cookbook/battery_charger_design/CAD/3d-models/VQFN-16_L3.0-W3.0-P0.50-BL-EP.wrl"
+    (offset (xyz 0.0 0.0 0.0))
+    (scale (xyz 1.0 1.0 1.0))
+    (rotate (xyz 0.0 0.0 -90.0))))

@@ -1,0 +1,13 @@
+(footprint TEXT_LP (version 20211014) (generator jitx) (layer F.Cu)
+  (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_text user "Version 0.1 2023-01-31" (at 0.0 0.0 0.0) (layer F.SilkS) 
+    (effects (font (size 1.5 1.5) (thickness 0.10)) (justify left)))
+  (fp_line (start -15.2347806 0.9) (end -15.2347806 -0.9) (layer F.SilkS) (width 0.1))
+  (fp_line (start -15.2347806 -0.9) (end 15.2347806 -0.9) (layer F.SilkS) (width 0.1))
+  (fp_line (start 15.2347806 -0.9) (end 15.2347806 0.9) (layer F.SilkS) (width 0.1))
+  (fp_line (start 15.2347806 0.9) (end -15.2347806 0.9) (layer F.SilkS) (width 0.1))
+  (fp_line (start -15.2347806 0.9) (end 15.2347806 0.9) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 15.2347806 0.9) (end 15.2347806 -0.9) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 15.2347806 -0.9) (end -15.2347806 -0.9) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -15.2347806 -0.9) (end -15.2347806 0.9) (layer F.CrtYd) (width 0.05)))

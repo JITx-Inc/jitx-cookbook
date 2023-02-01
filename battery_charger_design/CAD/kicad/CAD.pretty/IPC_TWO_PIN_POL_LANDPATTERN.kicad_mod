@@ -1,0 +1,20 @@
+(footprint IPC_TWO_PIN_POL_LANDPATTERN (version 20211014) (generator jitx) (layer F.Cu)
+  (pad c smd rect
+    (at 0.0 -0.718933982822018 0.0)
+    (size 0.95 0.512132034355964)
+    (layers F.Cu F.Paste))
+  (pad a smd rect
+    (at 0.0 0.718933982822018 0.0)
+    (size 0.95 0.512132034355964)
+    (layers F.Cu F.Paste))
+  (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_poly (pts (xy -0.525 -0.412867965644036) (xy 0.525 -0.412867965644036) (xy 0.525 -1.025) (xy -0.525 -1.025)) (layer F.Mask) (width 0))
+  (fp_poly (pts (xy -0.525 1.025) (xy 0.525 1.025) (xy 0.525 0.412867965644036) (xy -0.525 0.412867965644036)) (layer F.Mask) (width 0))
+  (fp_line (start -0.625 1.125) (end 0.625 1.125) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 0.625 1.125) (end 0.625 -1.125) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 0.625 -1.125) (end -0.625 -1.125) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -0.625 -1.125) (end -0.625 1.125) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -0.4485 -1.3115) (end 0.0105 -1.3115) (layer F.SilkS) (width 0.153))
+  (fp_text reference ">REF" (at 1.125 0.0 90.0) (layer F.SilkS) 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left))))

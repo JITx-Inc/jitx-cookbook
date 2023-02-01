@@ -24,27 +24,27 @@ public defn run-check-on-design (circuit:Instantiable) :
 ; ====================
 defn export-to-cad () :
   set-paper(ANSI-A4)
-  set-export-backend(`altium)
+  set-export-backend(`kicad)
   export-cad()
 
 ; ====================
 ; Export design to CAD
 ; ====================
-defn export-design () :
+public defn export-design () :
   set-export-board?(true)
   export-to-cad()
 
 ; ===================================
 ; Update CAD, keeping layout progress
 ; ===================================
-defn update-design () :
+public defn update-design () :
   set-export-board?(false)
   export-to-cad()
 
 ; =================
 ; Export BOM to tsv
 ; =================
-defn export-bill-of-materials () :
+public defn export-bill-of-materials () :
   set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
   set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
   export-bom()

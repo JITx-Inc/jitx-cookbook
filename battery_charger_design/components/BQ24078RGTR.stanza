@@ -51,6 +51,7 @@ pcb-check bq2407-checks (component:JITXObject):
     )
 
 public pcb-landpattern VQFN-16_L30-W30-P050-BL-EP :
+  ; make qfn package
   make-qfn-landpattern(num-pins, pitch, package-size, terminal-length, terminal-width, 
     corner-pads, exposed-metal-heat-feature) where :
     val num-pins = 16
@@ -60,6 +61,12 @@ public pcb-landpattern VQFN-16_L30-W30-P050-BL-EP :
     val terminal-width = typ(0.24)
     val corner-pads = false
     val exposed-metal-heat-feature = Rectangle(1.68, 1.68)
+
+  ; assign 3d model of component
+  model3d = Model3D("./3d-models/VQFN-16_L3.0-W3.0-P0.50-BL-EP.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, -90.0))
 
 defn apply-component-properties (comp:JITXObject) :
   var vih = 1.4
