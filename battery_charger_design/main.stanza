@@ -26,7 +26,6 @@ pcb-module battery-manager-module :
 
   ; draw a version number and date on the board silkscreen
   val mydate:String = get-time-string("%Y-%m-%d")
-  println(mydate)
   inst version-label  : ocdb/artwork/board-text/version-silkscreen(append("Version 0.1 ", mydate)) ; make a version label text on silkscreen
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
 
@@ -108,7 +107,8 @@ set-main-module(battery-manager-module) ; Treat the provided module as a design,
 
 ; Export to CAD
 ;export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
-update-design()
+;update-design()
+; export-bill-of-materials()
 
 ; View the results
 view-board()

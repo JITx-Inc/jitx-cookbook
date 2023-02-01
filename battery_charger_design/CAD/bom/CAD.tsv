@@ -1,0 +1,89 @@
+Notes	Description	Instances	Datasheet	References	Manufacturer	MPN	Vendor	SKU	Qty	Price	Cost	Total	5.8223
+Auto Selected	RES SMD 100K OHM 0.5% 1/16W 0402	rid, usb.rid, rid	http://datasheet.octopart.com/RR0510P-104-D-Susumu-datasheet-5302462.pdf	R13 R11 R12	Susumu	RR0510P-104-D	Digi-Key	RR05P100KDCT-ND	3	$0.13	$0.39
+Auto Selected	RES SMD 1.1K OHM 0.5% 1/16W 0402	battery-manager.rid	http://datasheet.octopart.com/RR0510P-112-D-Susumu-datasheet-62069792.pdf	R7	Susumu	RR0510P-112-D	Arrow Electronics	RR0510P-112-D	1	$0.1123	$0.1123
+Auto Selected	0402 4.7 uF 16 V ±20% Tolerance X5R Surface Mount Multilayer Ceramic Capacitor	battery-manager.cap, battery-manager.cap, battery-manager.cap	http://datasheet.octopart.com/0402YD475MAT2A-KYOCERA-AVX-datasheet-50865064.pdf	C3 C2 C1	KYOCERA AVX	0402YD475MAT2A	Newark	08AK4796	3	$0.28	$0.84
+Auto Selected	Multilayer Ceramic Capacitor, 1 uF, 16 V, ± 10%, X5R, 0402 [1005 Metric]	ldo.cap, ldo.cap	http://datasheet.octopart.com/CL05A105KO5NNNC-Samsung-Electro-Mechanics-datasheet-11776774.pdf	C6 C5	Samsung	CL05A105KO5NNNC	Newark	82AC9182	2	$0.005	$0.01
+Auto Selected	RES SMD 2.7K OHM 0.5% 1/16W 0402	battery-manager.rid	http://datasheet.octopart.com/RR0510P-272-D-Susumu-datasheet-5302462.pdf	R8	Susumu	RR0510P-272-D	Mouser	754-RR0510P-272D	1	$0.13	$0.13
+Auto Selected	Charger IC Lithium Ion 16-VQFN (3x3)	battery-manager.bq	https://octopart.com/opatz8j6/c1?t=SpD83rtDde6Wg3ghZW9sKBEDVq7-UyhT0Vbto4OL379lucTkIGcpEbbymrT3EmKbLJFAcQ7_6JqaEXWAywB6EDtXQBMjsaSZQvN-lBOxCm77WGOL_KV_IzP7w8JrctAO7TghbTgs8tT_zKkEWhtqVyuWZdxur8TL1hKZcZmiW-y1lc7bzaGt5wM0siqU4TUD-HBJ2bFi7u01D_oK7K_3HeqGER677x3EWAzWwPkK0mQzGLh1qM_0AU090IPvP-Rwk6-b-fjsoxy5CpTcQiKVg8sWs-DlbXgTF4XVSz25uCKBtubV6mvG86ZPQbNOU-RjDFz02uoKtcND0fBxtSyUt8lVjGuNakXZkxI-tWY7DODeo13kCpS-vEpCE0tDs19hbMGbbw	U1	Texas Instruments	BQ24078RGTR	Mouser	595-BQ24078RGTR	1	$3.65	$3.65
+Auto Selected	RES SMD 5.1K OHM 1% 1/16W 0402	usb.con.rid, usb.con.rid	http://datasheet.octopart.com/RC0402FR-075K1L-Yageo-datasheet-10408619.pdf	R10 R9	Yageo	RC0402FR-075K1L	Digi-Key	311-5.10KLRCT-ND	2	$0.1	$0.2
+Auto Selected	AP2125K-2_8TRG1	ldo.ps	http://datasheet.octopart.com/AP2125K-2.8TRG1-Diodes-Inc.-datasheet-68071780.pdf	U2	Diodes Inc.	AP2125K-2.8TRG1	Newark	76AH4608	1	$0.39	$0.39
+Auto Selected	Multilayer Ceramic Capacitors (High dielectric type), 16V, 0.1 uF, ± 10 %, 0402, X5R, RoHS	usb.cap	http://datasheet.octopart.com/EMK105BJ104KV-F-Taiyo-Yuden-datasheet-8857305.pdf	C4	Taiyo Yuden	EMK105BJ104KV-F	Digi-Key	587-1226-1-ND	1	$0.1	$0.1
+No Matching Part	JITX Logo	logo		JITX1		non-BOM			1		$0.0
+No Matching Part	LED, GENERIC, green, Vf 2.0V, If 20 mA, 0603	battery-manager.good-power-led		D2		green, Vf 2.0, If 20 mA			1		$0.0
+No Matching Part	250mA 1 16 Female Type-C SMD  USB Connectors ROHS	usb.con.conn		J1		TYPE-C-31-M-12			1		$0.0
+No Matching Part	Version 0.1 2023-02-01	version-label		TXT1		Version 0.1 2023-02-01			1		$0.0
+No Matching Part	LED, GENERIC, red, Vf 2.0V, If 20 mA, 0603	battery-manager.charge-led		D1		red, Vf 2.0, If 20 mA			1		$0.0
+No Information		vout-connector		U9					1		$0.0
+No Information		test-points.point[0]		U4					1		$0.0
+No Information		usb-cable		U7					1		$0.0
+No Information		battery-manager.rpu-en1		R5					1		$0.0
+No Information		switch-phy		U8					1		$0.0
+No Information		battery-manager.rts		R4					1		$0.0
+No Information		battery-manager.rpd-en2		R6					1		$0.0
+No Information		test-points.point[0]		U3					1		$0.0
+No Information		battery		U6					1		$0.0
+No Information		battery-manager.rchg-led		R1					1		$0.0
+No Information		battery-manager.rpd-ce#		R3					1		$0.0
+No Information		battery-manager.rgpw-led		R2					1		$0.0
+No Information		battery-connector		U5					1		$0.0
+
+Messages:
+The instances rid (R13), usb.rid (R11), rid (R12) were assigned part RR0510P-104-D, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Digi-Key for $0.13 (SKU = RR05P100KDCT-ND)
+  Digi-Key for $0.13 (SKU = RR05P100KDDKR-ND)
+The instances battery-manager.rid (R7) were assigned part RR0510P-112-D, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Arrow Electronics for $0.1123 (SKU = RR0510P-112-D)
+  Mouser for $0.12 (SKU = 754-RR0510P-112D)
+  Digi-Key for $0.13 (SKU = RR05P1.1KDCT-ND)
+  Digi-Key for $0.13 (SKU = RR05P1.1KDDKR-ND)
+The instances battery-manager.cap (C3), battery-manager.cap (C2), battery-manager.cap (C1) were assigned part 0402YD475MAT2A, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Newark for $0.28 (SKU = 08AK4796)
+  Newark for $0.055 (SKU = 08AK4797)
+  Digi-Key for $0.25 (SKU = 478-10788-1-ND)
+  Digi-Key for $0.25 (SKU = 478-10788-6-ND)
+  Mouser for $0.26 (SKU = 581-0402YD475MAT2A)
+The instances ldo.cap (C6), ldo.cap (C5) were assigned part CL05A105KO5NNNC, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Newark for $0.005 (SKU = 82AC9182)
+  Newark for $0.007 (SKU = 82AC9181)
+  Digi-Key for $0.1 (SKU = 1276-1067-1-ND)
+  Digi-Key for $0.1 (SKU = 1276-1067-6-ND)
+  Mouser for $0.1 (SKU = 187-CL05A105KO5NNNC)
+The instances battery-manager.rid (R8) were assigned part RR0510P-272-D, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Mouser for $0.13 (SKU = 754-RR0510P-272D)
+  Digi-Key for $0.13 (SKU = RR05P2.7KDCT-ND)
+  Digi-Key for $0.13 (SKU = RR05P2.7KDDKR-ND)
+The instances battery-manager.bq (U1) were assigned part BQ24078RGTR, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Mouser for $3.65 (SKU = 595-BQ24078RGTR)
+  Digi-Key for $3.65 (SKU = 296-49551-1-ND)
+  Digi-Key for $3.65 (SKU = 296-49551-6-ND)
+The instances usb.con.rid (R10), usb.con.rid (R9) were assigned part RC0402FR-075K1L, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Digi-Key for $0.1 (SKU = 311-5.10KLRCT-ND)
+  Digi-Key for $0.1 (SKU = 311-5.10KLRDKR-ND)
+  Mouser for $0.1 (SKU = 603-RC0402FR-075K1L)
+The instances ldo.ps (U2) were assigned part AP2125K-2.8TRG1, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Newark for $0.39 (SKU = 76AH4608)
+  Mouser for $0.51 (SKU = 621-AP2125K-2.8TRG1)
+  Digi-Key for $0.39 (SKU = AP2125K-2.8TRG1DICT-ND)
+  Digi-Key for $0.39 (SKU = AP2125K-2.8TRG1DIDKR-ND)
+The instances usb.cap (C4) were assigned part EMK105BJ104KV-F, which is available from the following vendors. Please indicate the preferred vendor in the selection document.
+  Digi-Key for $0.1 (SKU = 587-1226-1-ND)
+  Digi-Key for $0.1 (SKU = 587-1226-6-ND)
+  Mouser for $0.1 (SKU = 963-EMK105BJ104KV-F)
+The instances logo (JITX1) were assigned part non-BOM, but there is not enough stock.
+The instances battery-manager.good-power-led (D2) were assigned part green, Vf 2.0, If 20 mA, but there is not enough stock.
+The instances usb.con.conn (J1) were assigned part TYPE-C-31-M-12, but there is not enough stock.
+The instances version-label (TXT1) were assigned part Version 0.1 2023-02-01, but there is not enough stock.
+The instances battery-manager.charge-led (D1) were assigned part red, Vf 2.0, If 20 mA, but there is not enough stock.
+The instance vout-connector (U9) has no assigned part.
+The instance test-points.point[0] (U4) has no assigned part.
+The instance usb-cable (U7) has no assigned part.
+The instance battery-manager.rpu-en1 (R5) has no assigned part.
+The instance switch-phy (U8) has no assigned part.
+The instance battery-manager.rts (R4) has no assigned part.
+The instance battery-manager.rpd-en2 (R6) has no assigned part.
+The instance test-points.point[0] (U3) has no assigned part.
+The instance battery (U6) has no assigned part.
+The instance battery-manager.rchg-led (R1) has no assigned part.
+The instance battery-manager.rpd-ce# (R3) has no assigned part.
+The instance battery-manager.rgpw-led (R2) has no assigned part.
+The instance battery-connector (U5) has no assigned part.

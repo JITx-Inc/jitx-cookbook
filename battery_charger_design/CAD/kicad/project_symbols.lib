@@ -123,30 +123,6 @@
 )
     )
 
-    (symbol "test_point_sym"  
-      (in_bom yes) (on_board yes) 
-      
-      (property "Reference" "U" (id 0) (at -2.54 1.905 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "test_point_sym" (id 1) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "test_point_sym_1_0"
-
-      (pin unspecified line (at 2.54 0.0 180) (length 0.0)
-        (name "p" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (circle (center -1.27 0.0) (radius 0.635) (stroke (width 0.0) (type default) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -0.635 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type default) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
     (symbol "box_symbol_7L_8R_0T_0B"  
       (in_bom yes) (on_board yes) 
       
@@ -701,20 +677,44 @@
 )
     )
 
-    (symbol "Version_0_1_2023_01_31"  
+    (symbol "test_point_sym"  
+      (in_bom yes) (on_board yes) 
+      
+      (property "Reference" "U" (id 0) (at -2.54 1.905 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "test_point_sym" (id 1) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "test_point_sym_1_0"
+
+      (pin unspecified line (at 2.54 0.0 180) (length 0.0)
+        (name "p" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center -1.27 0.0) (radius 0.635) (stroke (width 0.0) (type default) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.635 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type default) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Version_0_1_2023_02_01"  
       (in_bom yes) (on_board yes) 
       
       (property "Reference" "TXT" (id 0) (at -2.54 3.902 0.0)
         (effects (font (size 0.3048 0.3048))  (justify left bottom )))
       
-      (property "Value" "Version_0_1_2023_01_31" (id 1) (at -2.54 2.84 0.0)
+      (property "Value" "Version_0_1_2023_02_01" (id 1) (at -2.54 2.84 0.0)
         (effects (font (size 0.3048 0.3048))  (justify left bottom )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "Version_0_1_2023_01_31_1_0"
+(symbol "Version_0_1_2023_02_01_1_0"
       (rectangle (start -2.54 -2.54) (end 2.54 2.54) (stroke (width 0.0) (type default) (color 0 0 0 0)) (fill (type none)))
 )
     )
