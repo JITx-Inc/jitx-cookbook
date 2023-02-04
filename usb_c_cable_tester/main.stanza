@@ -1,0 +1,105 @@
+; ====================
+; A USB-C cable tester
+; ====================
+
+; declare our package name and import dependencies
+#use-added-syntax(jitx)
+defpackage main : 
+  import core
+  import jitx
+  import jitx/commands
+  import utils/time
+  import ocdb/utils/checks
+  import ocdb/utils/generic-components
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generator-utils
+  import helpers
+
+; return a list of colors of the rainbow, sliding smoothly through color space
+defn generate-rainbow (num-colors:Int) -> Seq:
+  val colors:Tuple<String> = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+  val generated-colors = 
+    for i in 0 to num-colors seq :
+      colors[i % length(colors)]
+  generated-colors
+
+; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
+defn generate-test-led (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
+  inside pcb-module :
+    val colors:Seq<String> = generate-rainbow(length(in-pins))
+    for (in-pin in in-pins, color in colors) do :
+      ; generate LED
+      inst status-led : gen-led-cmp(color, "0402")
+      ; generate ballast resistor
+      inst ballast-res : gen-res-cmp(1.0e3, "0402")
+      ; hook up LEDs, resistors to input and output
+      net (in-pin ballast-res.p[1]) ; input power
+      net (ballast-res.p[2] status-led.a) ; input power
+      net (status-led.c gnd-pin) ; GND     
+      ; add a testpoint for this pin
+      add-testpoint([in-pin], Testpoint-SMDPad)
+
+; go through a design and label all of the test-points
+; defn label-test-points () :
+;   inside pcb-module :
+;     for my-net in nets(self) do :
+;       for component in all-connected-items(my-net) do :
+;         println(component)
+;         ; if component is type(test-point) :
+;           ; change value label of component to be the name of the net
+;           ; val net-name:String =  component
+;           value-label(r) = Text(net-name)
+
+; Module to run as a design
+val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
+pcb-module usb-c-cable-tester-module :
+  pin gnd
+  net GND (gnd)
+  ; draw a version number and date on the board silkscreen
+  val mydate:String = get-time-string("%Y-%m-%d")
+  inst version-label  : ocdb/artwork/board-text/version-silkscreen(append("Version 0.1 ", mydate)) ; make a version label text on silkscreen
+  place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
+
+  inst logo : ocdb/artwork/jitx-logo/logo(10.0)
+  place(logo) at loc(10.0, -5.0, 0.0) on Bottom
+
+  ; create USB connectors
+  ; inst in-usb : usb2-on-a-usb-c-connector(ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/module(SinkDefault))
+  ; inst out-usb : usb2-on-a-usb-c-connector(ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/module(SinkDefault))
+
+  inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
+  inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
+
+  ; set symbols of some nets
+  symbol(GND) = ocdb/utils/symbols/ground-sym
+
+  ; check-design(self)
+
+  ; generate-test-led([out-usb.usb-c.vbus.vdd, out-usb.usb-c.vbus.gnd, out-usb.usb-c.vbus.gnd], GND)
+  generate-test-led(pins(out-usb), GND)
+
+  ; label all the test points we created for our test LEDs
+  ; label-test-points()
+
+; Setup board
+set-design-directory("CAD") ; set which directly we will save to
+set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
+set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
+
+; Run checks
+; run-check-on-design(usb-c-cable-tester-module)
+
+; Run the code
+set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
+; val labelled-tp = transform-module(label-testpoints-all, usb-c-cable-tester-module)
+; set-main-module(labelled-tp)
+
+; Export to CAD
+;export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
+;update-design()
+; export-bill-of-materials()
+
+; View the results
+view-board()
+view-schematic()
+; view-design-explorer()
