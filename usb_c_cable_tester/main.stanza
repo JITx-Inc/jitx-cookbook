@@ -6,6 +6,7 @@
 #use-added-syntax(jitx)
 defpackage main : 
   import core
+  import collections
   import jitx
   import jitx/commands
   import utils/time
@@ -15,19 +16,86 @@ defpackage main :
   import ocdb/utils/generator-utils
   import helpers
 
+defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
+  get-pad-pose(obj, pad-ref, false) 
+
+defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -> Pose: 
+  val landpattern-pads = pads( landpattern(instance-definition(obj)) )
+  match(pad-num) :
+    (pad-num:Int) :
+      pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
+    (pad-num:False) :
+      pose(find!({ref(_) == pad-ref}, landpattern-pads))
+
 ; return a list of colors of the rainbow, sliding smoothly through color space
 defn generate-rainbow (num-colors:Int) -> Seq:
-  val colors:Tuple<String> = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+  val colors:Tuple<String> = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet" ]
   val generated-colors = 
     for i in 0 to num-colors seq :
       colors[i % length(colors)]
   generated-colors
 
+defstruct PinPos :
+  x-loc: Double
+  y-loc: Double
+  my-pin: JITXObject
+
+defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
+  ; get all of the pins in the components
+  val pins-list = pins(comp)
+  ; order the pins based on pad position
+  val sorted-pin-pos = qsort{x-loc, _} $
+    ; get a map of pins to pad locations
+    for my-pin in pins-list seq? :
+      val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
+      One(PinPos(x(pad-pos), y(pad-pos), my-pin))
+  ; extract just the pins from the sorted list
+  val sorted-pins = 
+    for pin-pos in sorted-pin-pos seq : 
+      my-pin(pin-pos)
+  to-tuple(sorted-pins)
+ 
+; public pcb-module my-test-points (count:Int, method:ocdb/utils/generic-components/Testpoint|Instantiable) :
+;   port tp : pin[count]
+;   val points = match(method) :
+;     (method:Testpoint-PTHLoop) :
+;       var color = "yellow"
+;       ; if r == #R(gnd):
+;       ;   color = "black"
+;       public inst point : ocdb/components/keystone/500xx/component(color)[count]
+;       point
+;     (method:Testpoint-SMDLoop) :
+;       public inst point : ocdb/components/te-connectivity/RC/component[count]
+;       point
+;     (method:Testpoint-SMDPad) :
+;       public inst point : gen-testpad(2.0)[count]
+;       point
+;     (method:Instantiable) :
+;       public inst point : method[count]
+;       point
+;   for i in 0 to count do :
+;     net (tp[i] points[i].p)
+
+; public defn my-add-testpoint (rs:Tuple<JITXObject>, method:ocdb/utils/generic-components/Testpoint|Instantiable) :
+;   inside pcb-module : 
+;     public pcb-module module (rs:Tuple<JITXObject>, method:ocdb/utils/generic-components/Testpoint|Instantiable) :
+;       public inst test-points:my-test-points(length(rs), method)
+;       for (r in rs, i in 0 to false) do :
+;         net (test-points.tp[i] r)
+    
+;     module(rs, method)
+
+defn testpad-strap (tp:JITXObject, diameter:Double) -> JITXObject:
+  inside pcb-module :
+    inst tp-pad : gen-testpad(diameter)
+    net (tp-pad.p tp)
+    tp-pad
+
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
 defn generate-test-led (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
   inside pcb-module :
     val colors:Seq<String> = generate-rainbow(length(in-pins))
-    for (in-pin in in-pins, color in colors) do :
+    for (in-pin in in-pins, color in colors, y-place in 0 to false) do :
       ; generate LED
       inst status-led : gen-led-cmp(color, "0402")
       ; generate ballast resistor
@@ -37,7 +105,18 @@ defn generate-test-led (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
       net (ballast-res.p[2] status-led.a) ; input power
       net (status-led.c gnd-pin) ; GND     
       ; add a testpoint for this pin
-      add-testpoint([in-pin], Testpoint-SMDPad)
+      ; inst my-tp : my-add-testpoint([in-pin], Testpoint-SMDLoop)
+      ; inst my-tp : testpad-strap(in-pin, 2.0)
+      val my-tp = testpad-strap(in-pin, 2.0)
+      ;place the components
+      val start-x-pos = 12.7
+      val res-to-led-distance = 1.8
+      val tp-to-res-distance = 1.0
+      val y-start-height = -5.0
+      val y-height = (to-double(y-place) * 1.0) + y-start-height
+      place(ballast-res) at loc(start-x-pos + res-to-led-distance, y-height, 270.0) on Top
+      place(status-led) at loc(start-x-pos, y-height, 90.0) on Top
+      place(my-tp) at loc(start-x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
 
 ; go through a design and label all of the test-points
 ; defn label-test-points () :
@@ -54,19 +133,21 @@ defn generate-test-led (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
 val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
 pcb-module usb-c-cable-tester-module :
   pin gnd
+  pin power
+
   net GND (gnd)
+  net POWER (power)
+
   ; draw a version number and date on the board silkscreen
   val mydate:String = get-time-string("%Y-%m-%d")
   inst version-label  : ocdb/artwork/board-text/version-silkscreen(append("Version 0.1 ", mydate)) ; make a version label text on silkscreen
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
 
+  ; setup logo
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
 
   ; create USB connectors
-  ; inst in-usb : usb2-on-a-usb-c-connector(ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/module(SinkDefault))
-  ; inst out-usb : usb2-on-a-usb-c-connector(ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/module(SinkDefault))
-
   inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
   inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
 
@@ -75,8 +156,11 @@ pcb-module usb-c-cable-tester-module :
 
   ; check-design(self)
 
-  ; generate-test-led([out-usb.usb-c.vbus.vdd, out-usb.usb-c.vbus.gnd, out-usb.usb-c.vbus.gnd], GND)
-  generate-test-led(pins(out-usb), GND)
+  val ordered-pins = get-pins-physically-ordered(out-usb)
+  generate-test-led(ordered-pins, GND)
+
+  ; connect all pins of in-usb to power
+  net (POWER pins(in-usb))
 
   ; label all the test points we created for our test LEDs
   ; label-test-points()
@@ -103,3 +187,4 @@ set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a desi
 view-board()
 view-schematic()
 ; view-design-explorer()
+; 
