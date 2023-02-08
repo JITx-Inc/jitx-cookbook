@@ -15,6 +15,7 @@ defpackage main :
   import ocdb/utils/box-symbol
   import ocdb/utils/generator-utils
   import helpers
+  import ocdb/components/q-n-j/CR2032-BS-6-1
 
 defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
   get-pad-pose(obj, pad-ref, false) 
@@ -55,47 +56,18 @@ defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
       my-pin(pin-pos)
   to-tuple(sorted-pins)
  
-; public pcb-module my-test-points (count:Int, method:ocdb/utils/generic-components/Testpoint|Instantiable) :
-;   port tp : pin[count]
-;   val points = match(method) :
-;     (method:Testpoint-PTHLoop) :
-;       var color = "yellow"
-;       ; if r == #R(gnd):
-;       ;   color = "black"
-;       public inst point : ocdb/components/keystone/500xx/component(color)[count]
-;       point
-;     (method:Testpoint-SMDLoop) :
-;       public inst point : ocdb/components/te-connectivity/RC/component[count]
-;       point
-;     (method:Testpoint-SMDPad) :
-;       public inst point : gen-testpad(2.0)[count]
-;       point
-;     (method:Instantiable) :
-;       public inst point : method[count]
-;       point
-;   for i in 0 to count do :
-;     net (tp[i] points[i].p)
-
-; public defn my-add-testpoint (rs:Tuple<JITXObject>, method:ocdb/utils/generic-components/Testpoint|Instantiable) :
-;   inside pcb-module : 
-;     public pcb-module module (rs:Tuple<JITXObject>, method:ocdb/utils/generic-components/Testpoint|Instantiable) :
-;       public inst test-points:my-test-points(length(rs), method)
-;       for (r in rs, i in 0 to false) do :
-;         net (test-points.tp[i] r)
-    
-;     module(rs, method)
-
 defn testpad-strap (tp:JITXObject, diameter:Double) -> JITXObject:
   inside pcb-module :
     inst tp-pad : gen-testpad(diameter)
     net (tp-pad.p tp)
+    value-label(tp-pad) = Text(append("TP-", to-string(ref(tp))), 1.0, C, loc(5.0, 0.0))
     tp-pad
 
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
 defn generate-test-led (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
   inside pcb-module :
     val colors:Seq<String> = generate-rainbow(length(in-pins))
-    for (in-pin in in-pins, color in colors, y-place in 0 to false) do :
+    for (in-pin in in-pins, color in colors, place in 0 to false) do :
       ; generate LED
       inst status-led : gen-led-cmp(color, "0402")
       ; generate ballast resistor
@@ -109,28 +81,28 @@ defn generate-test-led (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
       ; inst my-tp : testpad-strap(in-pin, 2.0)
       val my-tp = testpad-strap(in-pin, 2.0)
       ;place the components
-      val start-x-pos = 12.7
+      val x-module-height = 1.6
+      val start-x-pos = -12.8 + (to-double(place) * x-module-height)
       val res-to-led-distance = 1.8
-      val tp-to-res-distance = 1.0
-      val y-start-height = -5.0
-      val y-height = (to-double(y-place) * 1.0) + y-start-height
+      val tp-to-res-distance = 3.0
+      val y-module-height = 1.6
+      val y-start-height = -1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)
+      val y-height = (to-double(place) * y-module-height) + y-start-height
       place(ballast-res) at loc(start-x-pos + res-to-led-distance, y-height, 270.0) on Top
       place(status-led) at loc(start-x-pos, y-height, 90.0) on Top
       place(my-tp) at loc(start-x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
 
-; go through a design and label all of the test-points
-; defn label-test-points () :
-;   inside pcb-module :
-;     for my-net in nets(self) do :
-;       for component in all-connected-items(my-net) do :
-;         println(component)
-;         ; if component is type(test-point) :
-;           ; change value label of component to be the name of the net
-;           ; val net-name:String =  component
-;           value-label(r) = Text(net-name)
+defn valid-instance (i : JITXObject) :
+  match(to-string(ref(i)): String) :
+    if equal?(to-string(ref(i)) as String, "tp-pad") :
+      true
+  else :
+    false
 
 ; Module to run as a design
-val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
+val board-width = 45.0
+val board-height = 20.0
+val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 pcb-module usb-c-cable-tester-module :
   pin gnd
   pin power
@@ -148,8 +120,17 @@ pcb-module usb-c-cable-tester-module :
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
 
   ; create USB connectors
+  val usb-shift = 8.2
   inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
+  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-shift, 3.0, 270.0) on Top
   inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
+  place(out-usb) at loc((width(board-shape) / 2.0) - usb-shift, -3.0, 90.0) on Top
+
+  ; create coin cell battery
+  inst battery : ocdb/components/q-n-j/CR2032-BS-6-1/component
+  net (POWER battery.power.vdd)
+  net (GND battery.power.gnd)
+  place(battery) at loc(0.0, 0.0, 270.0) on Bottom
 
   ; set symbols of some nets
   symbol(GND) = ocdb/utils/symbols/ground-sym
@@ -162,21 +143,16 @@ pcb-module usb-c-cable-tester-module :
   ; connect all pins of in-usb to power
   net (POWER pins(in-usb))
 
-  ; label all the test points we created for our test LEDs
-  ; label-test-points()
-
 ; Setup board
 set-design-directory("CAD") ; set which directly we will save to
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
 ; Run checks
-; run-check-on-design(usb-c-cable-tester-module)
+run-check-on-design(usb-c-cable-tester-module)
 
-; Run the code
+; transform the design so all testpoints are labelled
 set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
-; val labelled-tp = transform-module(label-testpoints-all, usb-c-cable-tester-module)
-; set-main-module(labelled-tp)
 
 ; Export to CAD
 ;export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
@@ -186,5 +162,4 @@ set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a desi
 ; View the results
 view-board()
 view-schematic()
-; view-design-explorer()
-; 
+view-design-explorer()
