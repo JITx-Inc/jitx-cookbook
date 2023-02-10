@@ -18,17 +18,10 @@ defpackage main :
   import ocdb/components/q-n-j/CR2032-BS-6-1
   import ocdb/utils/property-structs
 
-; get the location of a pad
-defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
-  get-pad-pose(obj, pad-ref, false) 
-
-defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -> Pose: 
-  val landpattern-pads = pads( landpattern(instance-definition(obj)) )
-  match(pad-num) :
-    (pad-num:Int) :
-      pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
-    (pad-num:False) :
-      pose(find!({ref(_) == pad-ref}, landpattern-pads))
+; define parameters of the board
+val board-width = 45.0
+val board-height = 22.0
+val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 
 ; return a list of colors of the rainbow, sliding smoothly through color space
 defn generate-rainbow (num-colors:Int) -> Seq:
@@ -38,27 +31,6 @@ defn generate-rainbow (num-colors:Int) -> Seq:
       colors[i % length(colors)]
   generated-colors
 
-; get a list of pins, ordered by their physical location
-defstruct PinPos :
-  x-loc: Double
-  y-loc: Double
-  my-pin: JITXObject
-
-defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
-  ; get all of the pins in the components
-  val pins-list = pins(comp)
-  ; order the pins based on pad position
-  val sorted-pin-pos = qsort{x-loc, _} $
-    ; get a map of pins to pad locations
-    for my-pin in pins-list seq :
-      val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
-      PinPos(x(pad-pos), y(pad-pos), my-pin)
-  ; extract just the pins from the sorted list
-  val sorted-pins = 
-    for pin-pos in sorted-pin-pos seq : 
-      my-pin(pin-pos)
-  to-tuple(sorted-pins)
- 
 ; place a testpad
 defn testpad-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObject:
   inside pcb-module :
@@ -82,7 +54,7 @@ pcb-module generate-test-led (net-name:String, color:String) :
   ; add a testpoint for this pin
   val test-pad = testpad-strap(IN, net-name, 2.0)
   ; hook up LEDs, resistors to input and output
-  net (ballast-res.p[2] status-led.a) ; connect cathode of resistor to anode of LED
+  net (ballast-res.p[2] status-led.a) ; connect one terminal of the resistor to anode of LED
   net (in ballast-res.p[1]) ; input power
   net (out status-led.c) ; GND     
   self
@@ -97,21 +69,19 @@ defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
       net (in-pin test-led.in)
       net (gnd-pin test-led.out)
       ; place components
-      val x-module-height = 1.6
-      val start-x-pos = -12.8 + (to-double(place) * x-module-height)
       val res-to-led-distance = 1.8
       val tp-to-res-distance = 3.0
+      val x-module-height = 1.9
+      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) - 3.0 ; subtract an extra bit to make up for the size of the entire test-led submodule
+      val x-pos = x-start + (to-double(place) * x-module-height)
       val y-module-height = 1.6
       val y-start-height = -1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)
       val y-height = (to-double(place) * y-module-height) + y-start-height
-      place(test-led.ballast-res) at loc(start-x-pos + res-to-led-distance, y-height, 270.0) on Top
-      place(test-led.status-led) at loc(start-x-pos, y-height, 90.0) on Top
-      place(test-led.tp-pad) at loc(start-x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
+      place(test-led.status-led) at loc(x-pos, y-height, 90.0) on Top
+      place(test-led.ballast-res) at loc(x-pos + res-to-led-distance, y-height, 270.0) on Top
+      place(test-led.tp-pad) at loc(x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
 
 ; Module to run as a design
-val board-width = 45.0
-val board-height = 20.0
-val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 pcb-module usb-c-cable-tester-module :
   pin gnd
   pin power
@@ -132,7 +102,7 @@ pcb-module usb-c-cable-tester-module :
 
   ; create USB connectors
   val usb-shift = 8.2
-  inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
+  inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component
   place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-shift, 3.0, 270.0) on Top
   inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
   place(out-usb) at loc((width(board-shape) / 2.0) - usb-shift, -3.0, 90.0) on Top

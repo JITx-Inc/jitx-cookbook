@@ -48,3 +48,36 @@ public defn export-bill-of-materials () :
   set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
   set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
   export-bom()
+
+; get a list of pins, ordered by their physical location
+defstruct PinPos :
+  x-loc: Double
+  y-loc: Double
+  my-pin: JITXObject
+
+public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
+  ; get all of the pins in the components
+  val pins-list = pins(comp)
+  ; order the pins based on pad position
+  val sorted-pin-pos = qsort{x-loc, _} $
+    ; get a map of pins to pad locations
+    for my-pin in pins-list seq :
+      val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
+      PinPos(x(pad-pos), y(pad-pos), my-pin)
+  ; extract just the pins from the sorted list
+  val sorted-pins = 
+    for pin-pos in sorted-pin-pos seq : 
+      my-pin(pin-pos)
+  to-tuple(sorted-pins)
+ 
+; get the location of a pad
+defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
+  get-pad-pose(obj, pad-ref, false) 
+
+defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -> Pose: 
+  val landpattern-pads = pads( landpattern(instance-definition(obj)) )
+  match(pad-num) :
+    (pad-num:Int) :
+      pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
+    (pad-num:False) :
+      pose(find!({ref(_) == pad-ref}, landpattern-pads))
