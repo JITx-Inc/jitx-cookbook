@@ -20,3 +20,11 @@ Since we're making a status LED for every single pin, let's write a generator th
 Since we want test points on every pin, let's add test points while we generate the LEDs.
 
 Since we want the names of our test points to match the net they're attached to, and we want this to work generically, let's write a function which introspects our design, finds all of the testpoints, and sets their value to the net they're connected to.
+
+
+## TODO
+
+- [ ] turn the ROYGB-LED voltage input into a propogated voltage
+- [ ] write and run checks
+    - [ ] make a test rig that connects the two usb connectors together
+
