@@ -1,0 +1,83 @@
+; ====================
+; A number of helper functions to check your designs, export to CAD, 
+; update your design in CAD, etc.
+; ====================
+#use-added-syntax(jitx)
+defpackage helpers :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/checks
+  import ocdb/utils/generic-components
+
+; =====================
+; Run the design checks
+; =====================
+public defn run-check-on-design (circuit:Instantiable) :
+  set-main-module(circuit) ; Treat the provided module as a design, and compile it.
+  val main-module = ocdb/utils/generator-utils/run-final-passes(circuit) ; Analyze design with a pass
+  set-main-module(main-module) ; Treat the provided module as a design, and compile it.
+  run-checks("checks.txt")
+
+; ====================
+; Actual Export design
+; ====================
+defn export-to-cad () :
+  set-paper(ANSI-A4)
+  set-export-backend(`kicad)
+  export-cad()
+
+; ====================
+; Export design to CAD
+; ====================
+public defn export-design () :
+  set-export-board?(true)
+  export-to-cad()
+
+; ===================================
+; Update CAD, keeping layout progress
+; ===================================
+public defn update-design () :
+  set-export-board?(false)
+  export-to-cad()
+
+; =================
+; Export BOM to tsv
+; =================
+public defn export-bill-of-materials () :
+  set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
+  set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
+  export-bom()
+
+; get a list of pins, ordered by their physical location
+defstruct PinPos :
+  x-loc: Double
+  y-loc: Double
+  my-pin: JITXObject
+
+public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
+  ; get all of the pins in the components
+  val pins-list = pins(comp)
+  ; order the pins based on pad position
+  val sorted-pin-pos = qsort{x-loc, _} $
+    ; get a map of pins to pad locations
+    for my-pin in pins-list seq :
+      val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
+      PinPos(x(pad-pos), y(pad-pos), my-pin)
+  ; extract just the pins from the sorted list
+  val sorted-pins = 
+    for pin-pos in sorted-pin-pos seq : 
+      my-pin(pin-pos)
+  to-tuple(sorted-pins)
+ 
+; get the location of a pad
+defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
+  get-pad-pose(obj, pad-ref, false) 
+
+defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -> Pose: 
+  val landpattern-pads = pads( landpattern(instance-definition(obj)) )
+  match(pad-num) :
+    (pad-num:Int) :
+      pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
+    (pad-num:False) :
+      pose(find!({ref(_) == pad-ref}, landpattern-pads))

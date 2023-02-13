@@ -12,6 +12,7 @@ You've now built the recipe! Checkout the tutorial and documentation to learn mo
 
 ### Recipes
 
-| Recipe | What It Can Do |
-| ------------- | ------------- |
-| [Battery Charger](./battery_charger_design/) | LiPo battery charger, LDO volgate regulator, USB-C connector, JST battery connector, resistors, capacitors |
+| Recipe                                                | What It Can Do                                                                                                                               |
+| -------------                                         | -------------                                                                                                                                |
+| [Battery Charger](./battery_charger_design/)          | LiPo battery charger, LDO volgate regulator, USB-C connector, JST battery connector, resistors, capacitors, detailed checks, export to KiCad |
+| [USB-C Cable Tester](./usb_c_cable_tester/)           | Test points, programmatic parts placement, USB-C connectors, LEDs, coin cell battery, circuit introspection                                  |
