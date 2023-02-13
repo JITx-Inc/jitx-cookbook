@@ -58,7 +58,7 @@ defstruct PinPos :
 public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   ; get all of the pins in the components
   val pins-list = pins(comp)
-  ; order the pins based on pad position
+  ; order the pins based on pad position, using the PinPos object above to pack together our pins and pin locations
   val sorted-pin-pos = qsort{x-loc, _} $
     ; get a map of pins to pad locations
     for my-pin in pins-list seq :
@@ -68,7 +68,7 @@ public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   val sorted-pins = 
     for pin-pos in sorted-pin-pos seq : 
       my-pin(pin-pos)
-  to-tuple(sorted-pins)
+  to-tuple(sorted-pins) ; return the sorted pins as a Tuple
  
 ; get the location of a pad
 defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 

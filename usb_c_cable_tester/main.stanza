@@ -17,18 +17,19 @@ defpackage main :
   import helpers
   import ocdb/components/q-n-j/CR2032-BS-6-1
   import ocdb/utils/property-structs
+  import components/LED-maker-ROYGB
 
 ; define parameters of the board
 val board-width = 45.0
-val board-height = 22.0
+val board-height = 45.0
 val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 
 ; return a list of colors of the rainbow, sliding smoothly through color space
 defn generate-rainbow (num-colors:Int) -> Seq:
-  val colors:Tuple<String> = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet" ]
+  ; val colors:Tuple<String> = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet" ]
   val generated-colors = 
     for i in 0 to num-colors seq :
-      colors[i % length(colors)]
+      components/LED-maker-ROYGB/LED-COLORS(i % components/LED-maker-ROYGB/LED-COLORS-length)
   generated-colors
 
 ; place a testpad
@@ -42,53 +43,54 @@ defn testpad-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObjec
     tp-pad
 
 ; generate a test LED
-pcb-module generate-test-led (net-name:String, color:String) :
+pcb-module generate-test-led (net-name:String, color:components/LED-maker-ROYGB/LED-COLORS) :
   pin in
   pin out
 
   net IN (in)
-  ; generate LED
-  public inst status-led : gen-led-cmp(color, "0402")
-  ; generate ballast resistor
-  public inst ballast-res : gen-res-cmp(1.0e3, "0402")
-  ; add a testpoint for this pin
+
+  ; ; add a testpoint for this pin
   val test-pad = testpad-strap(IN, net-name, 2.0)
-  ; hook up LEDs, resistors to input and output
-  net (ballast-res.p[2] status-led.a) ; connect one terminal of the resistor to anode of LED
-  net (in ballast-res.p[1]) ; input power
-  net (out status-led.c) ; GND     
+  ; generate LED
+  public inst status-led : components/LED-maker-ROYGB/module(color, typ(6.0))
+  net (status-led.in in)
+  net (status-led.out out)
   self
 
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
 defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
   inside pcb-module :
-    val colors:Seq<String> = generate-rainbow(length(in-pins))
+    val colors:Seq<LED-COLORS> = generate-rainbow(length(in-pins))
     for (in-pin in in-pins, color in colors, place in 0 to false) do :
       ; create test LED and connect it
       inst test-led : generate-test-led(to-string(ref(in-pin)), color)
       net (in-pin test-led.in)
       net (gnd-pin test-led.out)
+
       ; place components
-      val res-to-led-distance = 1.8
+      val res-to-led-distance = 2.2
       val tp-to-res-distance = 3.0
       val x-module-height = 1.9
-      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) - 3.0 ; subtract an extra bit to make up for the size of the entire test-led submodule
+      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) - 2.5 ; subtract an extra bit to make up for the size of the entire test-led submodule
       val x-pos = x-start + (to-double(place) * x-module-height)
       val y-module-height = 1.6
       val y-start-height = -1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)
       val y-height = (to-double(place) * y-module-height) + y-start-height
-      place(test-led.status-led) at loc(x-pos, y-height, 90.0) on Top
-      place(test-led.ballast-res) at loc(x-pos + res-to-led-distance, y-height, 270.0) on Top
+      place(test-led.status-led.led) at loc(x-pos, y-height, 270.0) on Top
+      place(test-led.status-led.ballast-res) at loc(x-pos + res-to-led-distance, y-height, 270.0) on Top
       place(test-led.tp-pad) at loc(x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
 
 ; Module to run as a design
 pcb-module usb-c-cable-tester-module :
+  ; define pins to expose from our module
   pin gnd
   pin power
 
+  ; define nets
   net GND (gnd)
   net POWER (power)
 
+  ; specify the capacity of the lithium coin cell battery that we use
   val battery-capacity = 90.0 ;mAh
 
   ; draw a version number and date on the board silkscreen
@@ -113,11 +115,15 @@ pcb-module usb-c-cable-tester-module :
     property(my-pin.power-supply-pin) = PowerSupplyPin(voltage, battery-capacity / 1000.0) ; for a 1C battery
     property(my-pin.voltage) = voltage
 
-  ; create coin cell battery
-  inst battery : ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
-  net (POWER battery.power.vdd)
-  net (GND battery.power.gnd)
-  place(battery) at loc(0.0, 0.0, 270.0) on Bottom
+  ; create 2 coin cell batteries in series
+  inst battery-high : ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
+  net (POWER battery-high.power.vdd)
+  inst battery-low: ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
+  net (GND battery-low.power.gnd)
+  net (battery-high.power.gnd battery-low.power.vdd)
+  val battery-y = board-height / 4.0
+  place(battery-high) at loc(0.0, battery-y, 270.0) on Bottom
+  place(battery-low) at loc(0.0, -1.0 * battery-y, 90.0) on Bottom
 
   ; set symbols of some nets
   symbol(GND) = ocdb/utils/symbols/ground-sym
@@ -126,9 +132,9 @@ pcb-module usb-c-cable-tester-module :
   check-design(self)
 
   ; make nets for all of the pins on the usb C that we want to test
-  val pin-to-net-name-map = HashTable<Ref, JITXObject>()
-  net VBUS-net (out-usb.VBUS)
-  pin-to-net-name-map[ref(out-usb.VBUS)] = VBUS-net
+  val pin-to-net-name-map = HashTable<Ref, JITXObject>() ; first make a HashTable (like a dictionary) that maps the pins we want to test to the nets that they are connected to
+  net VBUS-net (out-usb.VBUS) ; for each pin of the USB, we make a net
+  pin-to-net-name-map[ref(out-usb.VBUS)] = VBUS-net ; save the mapping from the reference of the pin to the net
   net CC1-net (out-usb.CC1)
   pin-to-net-name-map[ref(out-usb.CC1)] = CC1-net
   net CC2-net (out-usb.CC2)
@@ -152,6 +158,7 @@ pcb-module usb-c-cable-tester-module :
 
   ; get all pins of the USB, and order them based on how they physically appear
   val ordered-pins = get-pins-physically-ordered(out-usb)
+  ; convert from the ordered pins list to a list of nets those pins are connected to
   val ordered-net-names = 
     for my-pin in ordered-pins seq? :
       if key?(pin-to-net-name-map, ref(my-pin)) :
@@ -165,6 +172,7 @@ pcb-module usb-c-cable-tester-module :
   ; connect all pins of in-usb to power
   net (POWER pins(in-usb))
 
+  ; run checks on this module
   check-design(self)
 
 ; Setup board
@@ -179,7 +187,7 @@ run-check-on-design(usb-c-cable-tester-module)
 set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
 
 ; Export to CAD
-export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
+; export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
 
 ; View the results
 view-board()
