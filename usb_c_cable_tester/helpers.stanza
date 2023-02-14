@@ -81,3 +81,25 @@ defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -
       pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
     (pad-num:False) :
       pose(find!({ref(_) == pad-ref}, landpattern-pads))
+
+pcb-material copper :
+  type = Conductor
+  name = "Copper"
+  
+pcb-material core :
+  type = Dielectric
+  dielectric-coefficient = 4.26
+  name = "PR4 Core"
+
+pcb-material soldermask :
+  type = Dielectric
+  dielectric-coefficient = 3.9
+  name = "Taiyo BSN4000"
+
+public pcb-stackup jlcpcb-jlc-2layer:
+  name = "JLCPCB 2-layer 1.6mm"
+  layer(0.019, soldermask) ; 0.5mil over conductor
+  layer(0.035, copper) 
+  layer(1.2650, core)
+  layer(0.035, copper) 
+  layer(0.019, soldermask) ; 0.5mil over conductor

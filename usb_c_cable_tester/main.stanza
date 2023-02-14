@@ -20,7 +20,7 @@ defpackage main :
   import components/LED-maker-ROYGB
 
 ; define parameters of the board
-val board-width = 45.0
+val board-width = 65.0
 val board-height = 45.0
 val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 
@@ -43,27 +43,27 @@ defn testpad-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObjec
     tp-pad
 
 ; generate a test LED
-pcb-module generate-test-led (net-name:String, color:components/LED-maker-ROYGB/LED-COLORS) :
+pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:components/LED-maker-ROYGB/LED-COLORS) :
   pin in
   pin out
 
   net IN (in)
 
-  ; ; add a testpoint for this pin
+  ; add a testpoint for this pin
   val test-pad = testpad-strap(IN, net-name, 2.0)
   ; generate LED
-  public inst status-led : components/LED-maker-ROYGB/module(color, typ(6.0))
+  public inst status-led : components/LED-maker-ROYGB/module(color, voltage)
   net (status-led.in in)
   net (status-led.out out)
   self
 
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
-defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
+defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject, voltage:Toleranced) :
   inside pcb-module :
     val colors:Seq<LED-COLORS> = generate-rainbow(length(in-pins))
     for (in-pin in in-pins, color in colors, place in 0 to false) do :
       ; create test LED and connect it
-      inst test-led : generate-test-led(to-string(ref(in-pin)), color)
+      inst test-led : generate-test-led(voltage, to-string(ref(in-pin)), color)
       net (in-pin test-led.in)
       net (gnd-pin test-led.out)
 
@@ -80,7 +80,9 @@ defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
       place(test-led.status-led.ballast-res) at loc(x-pos + res-to-led-distance, y-height, 270.0) on Top
       place(test-led.tp-pad) at loc(x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
 
-; Module to run as a design
+pcb-module hookedup-usb-c-cable-tester-module :
+  inst my-usb-tester : usb-c-cable-tester-module
+
 pcb-module usb-c-cable-tester-module :
   ; define pins to expose from our module
   pin gnd
@@ -104,16 +106,10 @@ pcb-module usb-c-cable-tester-module :
 
   ; create USB connectors
   val usb-shift = 8.2
-  inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component
+  public inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component
   place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-shift, 3.0, 270.0) on Top
-  inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
+  public inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
   place(out-usb) at loc((width(board-shape) / 2.0) - usb-shift, -3.0, 90.0) on Top
-
-  ; create virtual voltage output from out-usb so checks can run
-  val voltage = typ(3.0)
-  for my-pin in pins(out-usb) do :
-    property(my-pin.power-supply-pin) = PowerSupplyPin(voltage, battery-capacity / 1000.0) ; for a 1C battery
-    property(my-pin.voltage) = voltage
 
   ; create 2 coin cell batteries in series
   inst battery-high : ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
@@ -122,8 +118,14 @@ pcb-module usb-c-cable-tester-module :
   net (GND battery-low.power.gnd)
   net (battery-high.power.gnd battery-low.power.vdd)
   val battery-y = board-height / 4.0
-  place(battery-high) at loc(0.0, battery-y, 270.0) on Bottom
-  place(battery-low) at loc(0.0, -1.0 * battery-y, 90.0) on Bottom
+  place(battery-high) at loc(0.0, battery-y, 90.0) on Bottom
+  place(battery-low) at loc(0.0, -1.0 * battery-y, 270.0) on Bottom
+  val total-board-voltage = property(battery-high.power.vdd.voltage) + property(battery-low.power.vdd.voltage)
+
+  ; create virtual voltage output from out-usb so checks can run
+  for my-pin in pins(out-usb) do :
+    property(my-pin.power-supply-pin) = PowerSupplyPin(total-board-voltage, battery-capacity / 1000.0) ; for a 1C battery
+    property(my-pin.voltage) = total-board-voltage
 
   ; set symbols of some nets
   symbol(GND) = ocdb/utils/symbols/ground-sym
@@ -167,23 +169,25 @@ pcb-module usb-c-cable-tester-module :
         None()
 
   ; generate an array of test LEDs for each net we just made
-  generate-test-leds-array(to-tuple(ordered-net-names), GND)
+  generate-test-leds-array(to-tuple(ordered-net-names), GND, total-board-voltage)
 
   ; connect all pins of in-usb to power
   net (POWER pins(in-usb))
+
+  ; add mounting holes to corners of the board
+  add-mounting-holes(board-shape, "M2", [])
 
   ; run checks on this module
   check-design(self)
 
 ; Setup board
 set-design-directory("CAD") ; set which directly we will save to
-set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
+set-board(ocdb/utils/defaults/default-board(jlcpcb-jlc-2layer, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
 ; Run checks
 run-check-on-design(usb-c-cable-tester-module)
 
-; transform the design so all testpoints are labelled
 set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
 
 ; Export to CAD
