@@ -1,4 +1,6 @@
-; make LEDs of different colors with the same brightness -> module that accepts color, brightness, and voltage, and create an LED with ballast resistor
+; Make LEDs of different colors with the same brightness.
+; A module that accepts color and voltage, and creates an LED with tuned ballast resistor for a 50mCd luminous intensity.
+
 #use-added-syntax(jitx)
 defpackage components/LED-maker-ROYGB:
   import core
@@ -22,8 +24,8 @@ public pcb-enum components/LED-maker-ROYGB/LED-COLORS :
   RED
   ORANGE
   YELLOW
-  GREEN
-  BLUE
+  ; GREEN
+  ; BLUE
  
 public pcb-component led-component (color:LED-COLORS) :
   name = "LED-maker-ROYGBIV"
@@ -42,42 +44,32 @@ public pcb-component led-component (color:LED-COLORS) :
       mpn = "19-21/R6C-FP1Q2L/3T"
       property(self.lcsc) = "C93128"
       property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1810010118_Everlight-Elec-19-21-R6C-FP1Q2L-3T_C93128.pdf"
-      property(self.li-minimum) = 45.0e-3
-      property(self.li-maximum) = 112.0e-3
-      property(self.vf-minimum) = 1.7
-      property(self.vf-maximum) = 2.3
+      property(self.li) = min-max(45.0e-3, 112.0e-3)
+      property(self.vf) = min-max(1.7, 2.3)
     ORANGE:
       mpn = "19-217UYOC/S3077/TR8"
       property(self.lcsc) = "C264474"
       property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1912111437_Everlight-Elec-19-217UYOC-S3077-TR8_C264474.pdf"
-      property(self.li-minimum) = 28.0e-3
-      property(self.li-maximum) = 72.0e-3
-      property(self.vf-minimum) = 1.7
-      property(self.vf-maximum) = 2.4
+      property(self.li) = min-max(28.0e-3, 72.0e-3)
+      property(self.vf) = min-max(1.7, 2.4)
     YELLOW:
       mpn = "19-21/Y2C-CN1P2B/3T"
       property(self.lcsc) = "C131265"
       property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1811141628_Everlight-Elec-19-21-Y2C-CN1P2B-3T_C131265.pdf"
-      property(self.li-minimum) = 28.5e-3
-      property(self.li-maximum) = 72.0e-3
-      property(self.vf-minimum) = 1.75
-      property(self.vf-maximum) = 2.35
-    GREEN:
-      mpn = "19-217/GHC-YN1P2B18X/3T"
-      property(self.lcsc) = "C2980184"
-      property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2202101201_Everlight-Elec-19-21-GHC-YR1S2-3T_C2973113.pdf"
-      property(self.li-minimum) = 28.5e-3
-      property(self.li-maximum) = 72.0e-3
-      property(self.vf-minimum) = 2.7
-      property(self.vf-maximum) = 3.7
-    BLUE:
-      mpn = "19-213/BHC-AP2Q2E/3T"
-      property(self.lcsc) = "C474027"
-      property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1912251011_Everlight-Elec-19-213-BHC-AP2Q2E-3T_C474027.pdf"
-      property(self.li-minimum) = 57.0e-3
-      property(self.li-maximum) = 112.0e-3
-      property(self.vf-minimum) = 2.75
-      property(self.vf-maximum) = 3.65
+      property(self.li) = min-max(28.5e-3, 72.0e-3)
+      property(self.vf) = min-max(1.75, 2.35)
+    ; GREEN:
+    ;   mpn = "19-217/GHC-YN1P2B18X/3T"
+    ;   property(self.lcsc) = "C2980184"
+    ;   property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2202101201_Everlight-Elec-19-21-GHC-YR1S2-3T_C2973113.pdf"
+    ;   property(self.li) = min-max(28.5e-3, 72.0e-3)
+    ;   property(self.vf) = min-max(2.7, 3.7)
+    ; BLUE:
+    ;   mpn = "19-213/BHC-AP2Q2E/3T"
+    ;   property(self.lcsc) = "C474027"
+    ;   property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1912251011_Everlight-Elec-19-213-BHC-AP2Q2E-3T_C474027.pdf"
+    ;   property(self.li) = min-max(57.0e-3, 112.0e-3)
+    ;   property(self.vf) = min-max(2.75, 3.65)
 
   pin-properties :
     [pin:Ref    | pads:Int ... | side:Dir ]
@@ -87,18 +79,14 @@ public pcb-component led-component (color:LED-COLORS) :
   assign-symbol(diode-sym(DiodeLED))
   assign-landpattern(lp-led-maker)
 
-  supports power:
-    power.vdd => self.a
-    power.gnd => self.c
-
 defn percent-to-li (percent:Double, min-li:Double, max-li:Double) -> Double :
   ((percent * (min-li - max-li)) + min-li)
 
 
 defn compute-ballast-resistor (led:JITXObject, voltage:Toleranced, brightness:Double) -> Double : ; led is an led-component, brightness is in candellas
   ; nominal luminous intensity of this LED
-  val nli = ((property(led.li-maximum) + property(led.li-minimum)) / 2.0) as Double
-  val vf = ((property(led.vf-maximum) + property(led.vf-minimum)) / 2.0) as Double
+  val nli = center-value(property(led.li))
+  val vf = center-value(property(led.vf))
 
   ; map luminous intensity to current
   ; Datasheet gives data in tables, so use piecewise linear model to find value
@@ -112,7 +100,7 @@ defn compute-ballast-resistor (led:JITXObject, voltage:Toleranced, brightness:Do
 
   ; get the required resistance, given the input voltage and the desired current
   val computed-resistance = (voltage - typ(vf)) / typ(computed-current)
-  ; turn the resistor into the closest standard value resistor
+  ; turn the resistor into the closest standard value resistor by passing in a the resistance that we computed
   val standard-computed-resistance = closest-std-val(typ-value(computed-resistance), 5.0)
 
   standard-computed-resistance
@@ -123,12 +111,12 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   pin out
 
   ; using the component definition from above:
-  public inst led : components/LED-maker-ROYGB/led-component(color)
+  inst led : components/LED-maker-ROYGB/led-component(color)
 
   ; create ballast resistor
   val brightness = 50.0e-3 ; candella
   val ballast-resistance = compute-ballast-resistor(led, voltage-in, brightness);
-  public inst ballast-res : gen-res-cmp(ballast-resistance, "0402")
+  inst ballast-res : gen-res-cmp(ballast-resistance, "0402")
 
   ; hook up LEDs, resistors to input and output
   net (in ballast-res.p[1]) ; input power
@@ -136,5 +124,10 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   net (led.c out) ; connect led to output
 
   ; specify our input voltage range
-  property(in.power-supply-pin) = PowerSupplyPin(voltage-in, property(led.max-current))
+  property(in.power-pin) = PowerPin(voltage-in)
   property(in.voltage) = voltage-in
+
+  ; place the LED and resistor relative to each other
+  val res-to-led-distance = 2.2
+  place(led) at loc(0.0, 0.0, 270.0) on Top
+  place(ballast-res) at loc(res-to-led-distance, 0.0, 270.0) on Top

@@ -59,7 +59,7 @@ public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   ; get all of the pins in the components
   val pins-list = pins(comp)
   ; order the pins based on pad position, using the PinPos object above to pack together our pins and pin locations
-  val sorted-pin-pos = qsort{x-loc, _} $
+  val sorted-pin-pos = qsort{y-loc, _} $
     ; get a map of pins to pad locations
     for my-pin in pins-list seq :
       val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
@@ -81,6 +81,18 @@ defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -
       pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
     (pad-num:False) :
       pose(find!({ref(_) == pad-ref}, landpattern-pads))
+
+public defn get-named-net (my-pin:JITXObject) :
+  var my-net
+  inside pcb-module :
+    label<False> my-break:
+      for item in all-connected-items(self) do :
+        if contains?(component-pins(item), my-pin) :
+          for n in nets(item) do:
+            match(ref?(n):Ref) :
+              my-net = n
+              my-break(false)
+  my-net
 
 pcb-material copper :
   type = Conductor
