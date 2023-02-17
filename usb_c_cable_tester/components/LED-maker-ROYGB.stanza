@@ -16,6 +16,7 @@ defpackage components/LED-maker-ROYGB:
   import ocdb/utils/generator-utils
   import ocdb/utils/symbols
   import ocdb/utils/db-parts
+  import ocdb/utils/pin-checks/all
 
 pcb-landpattern lp-led-maker :
   make-ipc-two-pin-landpattern("0603")
@@ -131,3 +132,11 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   val res-to-led-distance = 2.2
   place(led) at loc(0.0, 0.0, 270.0) on Top
   place(ballast-res) at loc(res-to-led-distance, 0.0, 270.0) on Top
+
+  run-module-pin-check()
+
+; run a check on the module power pins
+public defn run-module-pin-check () :
+  ; for i in module-instances(module) do :
+  inside pcb-module:
+    check-pins(self)
