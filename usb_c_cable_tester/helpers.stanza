@@ -5,6 +5,7 @@
 #use-added-syntax(jitx)
 defpackage helpers :
   import core
+  import collections
   import jitx
   import jitx/commands
   import ocdb/utils/checks
@@ -55,20 +56,58 @@ defstruct PinPos :
   y-loc: Double
   my-pin: JITXObject
 
+defn cw-pin-sort (comp:JITXObject, pinposes:Tuple<PinPos>) -> Tuple<PinPos> :
+  ; extract only the SMD pads (ignore TH)
+  val smd-poses = 
+    for pos in pinposes seq? :
+      if (get-pad-type(comp, property(my-pin(pos).pads)[0]) == SMD) :
+        One(pos)
+      else :
+        None()
+  var smd-poses-tuple = to-tuple(smd-poses)
+  ; get groups based on y location
+  val y-locs = Vector<Double>()
+  for pos in smd-poses-tuple do :
+    if not contains?(y-locs, y-loc(pos)) :
+      add(y-locs y-loc(pos))
+  ; sort based on x location, using groups, and switching direction every other group
+  ; get the first row
+  val first-row-poses = qsort{x-loc, _} $
+    for pos in pinposes seq? :
+      if (y-loc(pos) == y-locs[0]) :
+        One(pos)
+      else :
+        None()
+  ; get the second row
+  val second-row-poses = qsort{x-loc, _} $
+    for pos in pinposes seq? :
+      if (y-loc(pos) == y-locs[1]) :
+        One(pos)
+      else :
+        None()
+  ; reverse the second row so it's now sorted right to left
+  val second-row-poses-reversed = reverse(to-list(second-row-poses))
+  val sorted-pins = to-tuple(cat(second-row-poses-reversed, first-row-poses))
+  sorted-pins
+
 public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   ; get all of the pins in the components
   val pins-list = pins(comp)
-  ; order the pins based on pad position, using the PinPos object above to pack together our pins and pin locations
-  val sorted-pin-pos = qsort{y-loc, _} $
+  ; use the PinPos object above to pack together our pins and pin locations
+  val pin-pos = 
     ; get a map of pins to pad locations
     for my-pin in pins-list seq :
       val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
       PinPos(x(pad-pos), y(pad-pos), my-pin)
+  val pin-pos-tuple = to-tuple(pin-pos)
+  ; order the pins based on pad position in a counterclockwise fashion
+  val sorted-pin-pos = cw-pin-sort(comp, pin-pos-tuple)
   ; extract just the pins from the sorted list
   val sorted-pins = 
     for pin-pos in sorted-pin-pos seq : 
       my-pin(pin-pos)
-  to-tuple(sorted-pins) ; return the sorted pins as a Tuple
+  val sorted-pins-tuple = to-tuple(sorted-pins)
+  sorted-pins-tuple
  
 ; get the location of a pad
 defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
@@ -81,6 +120,19 @@ defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -
       pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
     (pad-num:False) :
       pose(find!({ref(_) == pad-ref}, landpattern-pads))
+
+; get the type of a pad
+defn get-pad-type (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
+  get-pad-type(obj, pad-ref, false) 
+
+defn get-pad-type (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -> PadType: 
+  val landpattern-pads = pads( landpattern(instance-definition(obj)) )
+  match(pad-num) :
+    (pad-num:Int) :
+      pad-type(pad(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads)))
+    (pad-num:False) :
+      pad-type(pad(find!({ref(_) == pad-ref}, landpattern-pads)))
+
 
 public defn get-named-net (my-pin:JITXObject) :
   var my-net

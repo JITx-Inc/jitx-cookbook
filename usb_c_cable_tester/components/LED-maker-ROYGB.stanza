@@ -15,8 +15,6 @@ defpackage components/LED-maker-ROYGB:
   import ocdb/utils/generic-components
   import ocdb/utils/generator-utils
   import ocdb/utils/symbols
-  import ocdb/utils/db-parts
-  import ocdb/utils/pin-checks/all
 
 pcb-landpattern lp-led-maker :
   make-ipc-two-pin-landpattern("0603")
@@ -25,8 +23,8 @@ public pcb-enum components/LED-maker-ROYGB/LED-COLORS :
   RED
   ORANGE
   YELLOW
-  ; GREEN
-  ; BLUE
+  GREEN
+  BLUE
  
 public pcb-component led-component (color:LED-COLORS) :
   name = "LED-maker-ROYGBIV"
@@ -59,18 +57,18 @@ public pcb-component led-component (color:LED-COLORS) :
       property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1811141628_Everlight-Elec-19-21-Y2C-CN1P2B-3T_C131265.pdf"
       property(self.li) = min-max(28.5e-3, 72.0e-3)
       property(self.vf) = min-max(1.75, 2.35)
-    ; GREEN:
-    ;   mpn = "19-217/GHC-YN1P2B18X/3T"
-    ;   property(self.lcsc) = "C2980184"
-    ;   property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2202101201_Everlight-Elec-19-21-GHC-YR1S2-3T_C2973113.pdf"
-    ;   property(self.li) = min-max(28.5e-3, 72.0e-3)
-    ;   property(self.vf) = min-max(2.7, 3.7)
-    ; BLUE:
-    ;   mpn = "19-213/BHC-AP2Q2E/3T"
-    ;   property(self.lcsc) = "C474027"
-    ;   property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1912251011_Everlight-Elec-19-213-BHC-AP2Q2E-3T_C474027.pdf"
-    ;   property(self.li) = min-max(57.0e-3, 112.0e-3)
-    ;   property(self.vf) = min-max(2.75, 3.65)
+    GREEN:
+      mpn = "19-217/GHC-YN1P2B18X/3T"
+      property(self.lcsc) = "C2980184"
+      property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2202101201_Everlight-Elec-19-21-GHC-YR1S2-3T_C2973113.pdf"
+      property(self.li) = min-max(28.5e-3, 72.0e-3)
+      property(self.vf) = min-max(2.7, 3.7)
+    BLUE:
+      mpn = "19-213/BHC-AP2Q2E/3T"
+      property(self.lcsc) = "C474027"
+      property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1912251011_Everlight-Elec-19-213-BHC-AP2Q2E-3T_C474027.pdf"
+      property(self.li) = min-max(57.0e-3, 112.0e-3)
+      property(self.vf) = min-max(2.75, 3.65)
 
   pin-properties :
     [pin:Ref    | pads:Int ... | side:Dir ]
@@ -133,10 +131,6 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   place(led) at loc(0.0, 0.0, 270.0) on Top
   place(ballast-res) at loc(res-to-led-distance, 0.0, 270.0) on Top
 
-  run-module-pin-check()
-
-; run a check on the module power pins
-public defn run-module-pin-check () :
-  ; for i in module-instances(module) do :
-  inside pcb-module:
-    check-pins(self)
+  
+  ; run a check on the module power pins
+  ocdb/utils/pin-checks/all/check-pins(self)

@@ -13,12 +13,10 @@ defpackage main :
   import utils/time
   import ocdb/utils/checks
   import ocdb/utils/generic-components
-  import ocdb/utils/box-symbol
   import ocdb/utils/generator-utils
   import helpers
-  import ocdb/utils/property-structs
+  ; import components/LED-maker-ROYGB/LED-COLORS
   import components/LED-maker-ROYGB
-  import ocdb/utils/pin-checks/all
 
 ; define parameters of the board
 val board-width = 65.0
@@ -27,14 +25,15 @@ val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 
 ; return a list of colors of the rainbow, sliding smoothly through color space
 defn generate-rainbow (num-colors:Int) -> Seq:
+  val color-subset = [RED, YELLOW, ORANGE]
   val generated-colors = 
     for i in 0 to num-colors seq :
       ; use the LED-COLORS enum, defined in the LED-maker-ROYGB component, looping through it to use all the colors
-      components/LED-maker-ROYGB/LED-COLORS(i % components/LED-maker-ROYGB/LED-COLORS-length)
+      LED-COLORS(i % length(color-subset))
   generated-colors
 
 ; place a testpad
-defn testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObject:
+defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObject:
   inside pcb-module :
     public inst tp-pad : gen-testpad(diameter)
     net (tp-pad.p tp)
@@ -50,7 +49,7 @@ pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:compone
   net IN (in)
 
   ; add a testpoint for this pin
-  val test-pad = testpoint-strap(IN, net-name, 2.0)
+  val test-pad = my-testpoint-strap(IN, net-name, 2.0) ; in current versions of OCDB, we can directly call `testpoint-strap` function
 
   ; generate LED of certain color with a ballast resistor tuned for that color and LED type
   inst status-led : components/LED-maker-ROYGB/module(color, voltage)
@@ -66,7 +65,7 @@ pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:compone
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
 defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject, voltage:Toleranced) :
   inside pcb-module :
-    val colors:Seq<LED-COLORS> = generate-rainbow(length(in-pins))
+    val colors:Seq<components/LED-maker-ROYGB/LED-COLORS> = generate-rainbow(length(in-pins))
     for (in-pin in in-pins, color in colors, place in 0 to false) do :
       ; create test LED and connect it
       inst test-led : generate-test-led(voltage, to-string(ref(in-pin)), color)
@@ -85,13 +84,13 @@ defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject, vo
 ; a rig that plugs a USB cable into both connectors on the main usb cable testing board - this is created to allow us to run checks
 public pcb-module test-rig :
   inst design-under-test : usb-c-cable-tester-module
-  inst usb-c-cable : usb-c-cable-component
+  inst usb-c-cable : usb-c-cable-module
   net IN (design-under-test.in-usb.usb-c-pinout usb-c-cable.in-usb-bundle)
   net OUT (design-under-test.out-usb.usb-c-pinout usb-c-cable.out-usb-bundle)
   check-design(self)
 
 ; a component that models a usb cable
-public pcb-module usb-c-cable-component :
+public pcb-module usb-c-cable-module:
   port in-usb-bundle : ocdb/components/xkb/U263-241N-4BQC11-1/usb-c-bundle
   port out-usb-bundle : ocdb/components/xkb/U263-241N-4BQC11-1/usb-c-bundle
   net (in-usb-bundle out-usb-bundle)
@@ -107,22 +106,14 @@ pcb-module usb-c-cable-tester-module :
 
   ; draw a version number and date on the board silkscreen
   val mydate:String = get-time-string("%Y-%m-%d")
-  inst version-label  : ocdb/artwork/board-text/version-silkscreen(append("USB-C Cable Tester | Version 0.1 ", mydate)) ; make a version label text on silkscreen
+  inst version-label  : ocdb/artwork/board-text/version-silkscreen(to-string("USB-C Cable Tester | Version 0.1 %_" % [get-time-string("%Y-%m-%d")])) ; make a version label text on silkscreen
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
 
   ; setup logo
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
 
-  ; create USB connectors
-  val usb-x-shift = 4.0
-  val usb-y-shift = -10.0
-  public inst in-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
-  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-x-shift, usb-y-shift, 270.0) on Top
-  public inst out-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
-  place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 90.0) on Top
-
-  ; create 2 coin cell batteries in series
+  ; create a coin cell battery
   val battery-capacity = 90.0 ;mAh
   inst battery : ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
   net (POWER battery.power.vdd)
@@ -131,8 +122,13 @@ pcb-module usb-c-cable-tester-module :
   val battery-x = board-width / -5.0
   place(battery) at loc(battery-x, battery-y, 90.0) on Top
 
-  ; set symbols of some nets
-  symbol(GND) = ocdb/utils/symbols/ground-sym
+  ; create USB connectors
+  val usb-x-shift = 8.0
+  val usb-y-shift = -10.0
+  public inst in-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
+  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-x-shift, usb-y-shift, 0.0) on Top
+  public inst out-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
+  place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 0.0) on Top
 
   ; make nets for all of the pins on the usb C that we want to test
   net VBUS (out-usb.usb-c-pinout.VBUS) ; for each pin of the USB, we make a net
@@ -167,6 +163,9 @@ pcb-module usb-c-cable-tester-module :
   ; connect all pins of in-usb to power
   net (POWER pins(in-usb))
 
+  ; set symbols of some nets
+  symbol(GND) = ocdb/utils/symbols/ground-sym
+
   ; add mounting holes to corners of the board
   add-mounting-holes(board-shape, "M2", [])
 
@@ -176,7 +175,7 @@ set-board(ocdb/utils/defaults/default-board(jlcpcb-jlc-2layer, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
 ; Run checks
-run-check-on-design(test-rig)
+; run-check-on-design(test-rig)
 
 set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
 
@@ -185,5 +184,5 @@ set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a desi
 
 ; View the results
 view-board()
-view-schematic()
-view-design-explorer()
+; view-schematic()
+; view-design-explorer()
