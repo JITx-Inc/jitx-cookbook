@@ -39,6 +39,9 @@ defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITX
     net (tp-pad.p tp)
     ; name the test point
     value-label(tp-pad) = Text(tp-name, 1.0, W, loc(1.5, 0.0))
+    ; val my-label = Text(tp-name, 1.0, W, loc(1.5, 0.0))
+    inst my-label : ocdb/artwork/board-text/text(tp-name, 1.0, 0.0)
+    place(my-label) at loc(1.0, -0.4, 0.0) on Top (relative-to tp-pad)
     tp-pad
 
 ; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
@@ -57,7 +60,7 @@ pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:compone
   net (status-led.out out)
 
   ; place the test-LED module and the testpoint in a linear array in the layout
-  val led-module-to-tp-distance = 5.5
+  val led-module-to-tp-distance = 8.2
   place(status-led) at loc(0.0, 0.0, 0.0) on Top
   place(test-pad) at loc(led-module-to-tp-distance, 0.0) on Top
   self
@@ -74,7 +77,7 @@ defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject, vo
 
       ; place components
       val x-module-height = 1.9
-      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) + 1.0 ; subtract an extra bit to make up for the size of the entire test-led submodule
+      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) - 2.0 ; subtract an extra bit to make up for the size of the entire test-led submodule
       val x-pos = x-start + (to-double(place) * x-module-height)
       val y-module-height = 1.6
       val y-start-height = (-1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)) - (board-height / 14.0)
@@ -180,7 +183,8 @@ set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
 
 ; Export to CAD
-; export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
+export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
+; update-design()
 
 ; View the results
 view-board()

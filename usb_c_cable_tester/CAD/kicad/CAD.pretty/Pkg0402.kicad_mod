@@ -1,4 +1,4 @@
-(footprint IPC_TWO_PIN_LANDPATTERN (version 20211014) (generator jitx) (layer F.Cu)
+(footprint Pkg0402 (version 20211014) (generator jitx) (layer F.Cu)
   (pad 1 smd rect
     (at 0.0 -0.4598612181134 0.0)
     (size 0.6 0.3802775637732)
