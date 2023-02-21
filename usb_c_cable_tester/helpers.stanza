@@ -56,7 +56,7 @@ defstruct PinPos :
   y-loc: Double
   my-pin: JITXObject
 
-defn cw-pin-sort (comp:JITXObject, pinposes:Tuple<PinPos>) -> Tuple<PinPos> :
+defn snake-pin-sort (comp:JITXObject, pinposes:Tuple<PinPos>) -> Tuple<PinPos> :
   ; extract only the SMD pads (ignore TH)
   val smd-poses = 
     for pos in pinposes seq? :
@@ -69,26 +69,27 @@ defn cw-pin-sort (comp:JITXObject, pinposes:Tuple<PinPos>) -> Tuple<PinPos> :
   val y-locs = Vector<Double>()
   for pos in smd-poses-tuple do :
     if not contains?(y-locs, y-loc(pos)) :
-      add(y-locs y-loc(pos))
+      add(y-locs, y-loc(pos))
+  qsort!(y-locs) ; sort the rows
+  val num-rows = length(y-locs)
   ; sort based on x location, using groups, and switching direction every other group
-  ; get the first row
-  val first-row-poses = qsort{x-loc, _} $
-    for pos in pinposes seq? :
-      if (y-loc(pos) == y-locs[0]) :
-        One(pos)
-      else :
-        None()
-  ; get the second row
-  val second-row-poses = qsort{x-loc, _} $
-    for pos in pinposes seq? :
-      if (y-loc(pos) == y-locs[1]) :
-        One(pos)
-      else :
-        None()
-  ; reverse the second row so it's now sorted right to left
-  val second-row-poses-reversed = reverse(to-list(second-row-poses))
-  val sorted-pins = to-tuple(cat(second-row-poses-reversed, first-row-poses))
-  sorted-pins
+  val sorted-pins = Vector<PinPos>()
+  for (row-num in 0 to num-rows) do :
+    val this-row = 
+      for pos in pinposes seq? :
+        if (y-loc(pos) == y-locs[row-num]) :
+          One(pos)
+        else :
+          None()
+    var this-row-final : Tuple<PinPos>
+    ; reverse every other row order so we "snake" through the pins
+    if ((row-num) % 2 != 0) :
+      this-row-final = qsort(x-loc, this-row)
+    else :
+      this-row-final = to-tuple(reverse(to-list(qsort(x-loc, this-row))))
+    ; add all the sorted pins to our master list of pins
+    map({add(sorted-pins, _)}, this-row-final)
+  to-tuple(sorted-pins)
 
 public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   ; get all of the pins in the components
@@ -101,7 +102,7 @@ public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
       PinPos(x(pad-pos), y(pad-pos), my-pin)
   val pin-pos-tuple = to-tuple(pin-pos)
   ; order the pins based on pad position in a counterclockwise fashion
-  val sorted-pin-pos = cw-pin-sort(comp, pin-pos-tuple)
+  val sorted-pin-pos = snake-pin-sort(comp, pin-pos-tuple)
   ; extract just the pins from the sorted list
   val sorted-pins = 
     for pin-pos in sorted-pin-pos seq : 
