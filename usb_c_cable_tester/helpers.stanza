@@ -6,8 +6,11 @@
 defpackage helpers :
   import core
   import collections
+  import lang-utils
+
   import jitx
   import jitx/commands
+
   import ocdb/utils/checks
   import ocdb/utils/generic-components
 
@@ -61,38 +64,25 @@ defstruct PinPos :
 
 defn snake-pin-sort (comp:JITXObject, pinposes:Tuple<PinPos>) -> Tuple<PinPos> :
   ; extract only the SMD pads (ignore TH)
-  val smd-poses = 
-    for pos in pinposes seq? :
-      if (get-pad-type(comp, property(my-pin(pos).pads)[0]) == SMD) :
-        One(pos)
+  val smd-poses = to-tuple $
+    for pos in pinposes filter : ; use a filter, which will only return the items which match our conditional
+      get-pad-type(comp, property(my-pin(pos).pads)[0]) == SMD
+
+  ; get groups (which represent rows of pins) based on y location
+  val poses-by-y-loc = group-by(y-loc, smd-poses)
+
+  ; sort each group/row based on x location
+  val sorted-rows = qsort(key, poses-by-y-loc)
+  
+  ; switching direction every other group to "snake"
+  to-tuple $
+    for ([y-loc, pin-poses] in kvs(sorted-rows), row-num in 0 to false) seq-cat : ; [y-loc, pin-poses] is an unpacking of the {key : values} in sorted-rows
+      ; sort each row, reversing the order of every other row order so we "snake" through the pins
+      val sorted-poses = qsort(x-loc, pin-poses)
+      if row-num % 2 != 0 :
+        sorted-poses
       else :
-        None()
-  var smd-poses-tuple = to-tuple(smd-poses)
-  ; get groups based on y location
-  val y-locs = Vector<Double>()
-  for pos in smd-poses-tuple do :
-    if not contains?(y-locs, y-loc(pos)) :
-      add(y-locs, y-loc(pos))
-  qsort!(y-locs) ; sort the rows
-  val num-rows = length(y-locs)
-  ; sort based on x location, using groups, and switching direction every other group
-  val sorted-pins = Vector<PinPos>()
-  for (row-num in 0 to num-rows) do :
-    val this-row = 
-      for pos in pinposes seq? :
-        if (y-loc(pos) == y-locs[row-num]) :
-          One(pos)
-        else :
-          None()
-    var this-row-final : Tuple<PinPos>
-    ; reverse every other row order so we "snake" through the pins
-    if ((row-num) % 2 != 0) :
-      this-row-final = qsort(x-loc, this-row)
-    else :
-      this-row-final = to-tuple(reverse(to-list(qsort(x-loc, this-row))))
-    ; add all the sorted pins to our master list of pins
-    map({add(sorted-pins, _)}, this-row-final)
-  to-tuple(sorted-pins)
+        in-reverse(sorted-poses)
 
 public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   ; get all of the pins in the components
@@ -137,18 +127,11 @@ defn get-pad-type (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -
     (pad-num:False) :
       pad-type(pad(find!({ref(_) == pad-ref}, landpattern-pads)))
 
-
-public defn get-named-net (my-pin:JITXObject) :
-  var my-net
-  inside pcb-module :
-    label<False> my-break:
-      for item in all-connected-items(self) do :
-        if contains?(component-pins(item), my-pin) :
-          for n in nets(item) do:
-            match(ref?(n):Ref) :
-              my-net = n
-              my-break(false)
-  my-net
+; given a module and a pin that exists within that module, find the named net which that pin is connected to
+public defn get-named-net (my-module: Instantiable|Self, my-pin:JITXObject) -> Net :
+  ; for every connected item in the module, check if any of its pins are the pins we're looking for. If so, look at every net that pin is connected to, and return the first named net
+  all-connected-items(my-module) $> find!{contains?{component-pins(_), my-pin}, _}
+                                 $> find!{{ref?(_) is Ref}, nets(_)}
 
 pcb-material copper :
   type = Conductor
