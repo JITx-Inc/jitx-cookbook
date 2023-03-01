@@ -114,7 +114,8 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   ; create ballast resistor
   val brightness = 50.0e-3 ; candella
   val ballast-resistance = compute-ballast-resistor(led, voltage-in, brightness);
-  inst ballast-res : gen-res-cmp(ballast-resistance, "0402")
+  inst ballast-res : database-part(["category" => "resistor", "resistance" => ballast-resistance, "case" => ["0402"], "_exist" => ["vendor_part_numbers.lcsc"]])
+  view-design-explorer $ instance-definition(ballast-res)
 
   ; hook up LEDs, resistors to input and output
   net (in ballast-res.p[1]) ; input power
@@ -126,12 +127,12 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   property(in.voltage) = voltage-in
 
   ; place the LED and resistor relative to each other
-  val res-to-led-distance = 2.2
+  val res-to-led-distance = 3.2
   place(led) at loc(0.0, 0.0, 270.0) on Top
-  place(ballast-res) at loc(res-to-led-distance, 0.0, 270.0) on Top
+  place(ballast-res) at loc(res-to-led-distance, 0.0, 180.0) on Top
 
-  ref-label(led) = Text(">REF", 1.0, W, loc(0.0, -6.0, 90.0))
-  ref-label(ballast-res) = Text(">REF", 1.0, W, loc(0.0, 1.2, 90.0))
+  ref-label(led) = Text(">REF", 1.0, W, loc(0.0, -4.5, 90.0))
+  ref-label(ballast-res) = Text(">REF", 1.0, W, loc(0.0, 1.2, 180.0))
   
   ; run a check on the module power pins
   ocdb/utils/pin-checks/all/check-pins(self)

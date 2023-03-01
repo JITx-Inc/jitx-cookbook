@@ -40,8 +40,8 @@ defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITX
     ; name the test point
     value-label(tp-pad) = Text(tp-name, 1.0, W, loc(1.5, 0.0))
     ; val my-label = Text(tp-name, 1.0, W, loc(1.5, 0.0))
-    inst my-label : ocdb/artwork/board-text/text(tp-name, 1.0, 0.0)
-    place(my-label) at loc(1.0, -0.4, 0.0) on Top (relative-to tp-pad)
+    ; inst my-label : ocdb/artwork/board-text/text(tp-name, 1.0, 0.0)
+    ; place(my-label) at loc(1.0, -0.4, 0.0) on Top (relative-to tp-pad)
     tp-pad
 
 ; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
@@ -77,7 +77,7 @@ defn generate-test-leds-array (in-pins:Tuple<Net>, gnd-pin:JITXObject, voltage:T
 
       ; place components
       val x-module-height = 1.9
-      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) - 2.0 ; subtract an extra bit to make up for the size of the entire test-led submodule
+      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) + 1.5; subtract an extra bit to make up for the size of the entire test-led submodule
       val x-pos = x-start + (to-double(place) * x-module-height)
       val y-module-height = 1.6
       val y-start-height = (-1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)) - (board-height / 14.0)
@@ -121,8 +121,8 @@ pcb-module usb-c-cable-tester-module :
   inst battery : ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
   net (POWER battery.power.vdd)
   net (GND battery.power.gnd)
-  val battery-y = board-height / 5.0
-  val battery-x = board-width / -5.0
+  val battery-y = board-height / 3.5
+  val battery-x = board-width / -7.0
   place(battery) at loc(battery-x, battery-y, 90.0) on Top
 
   ; create USB connectors
