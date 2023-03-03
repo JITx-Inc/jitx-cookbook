@@ -1,4 +1,4 @@
-20942697585742580
+21319300710323241
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -2415,14 +2415,28 @@ NPTH
 0
 0
 CAD
-Pkg0402
+Pkg0603
 
 
 0
 2
 2
 CAD
-Pkg0603
+R0402
+
+
+0
+2
+2
+CAD
+R0402_1
+
+
+0
+2
+2
+CAD
+R0402_2
 
 
 0
@@ -8057,106 +8071,78 @@ neutrik xlr b
 6
 6
 Connector_Audio
-Jack_speakON-6.35mm_Neutrik_NLJ2MD-H_Horizontal
-speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, horizontal pcb mount, https://www.neutrik.com/en/product/nlj2md-h
+Jack_speakON-6.35mm_Neutrik_NLJ2MDXX-H_Horizontal
+speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, horizontal pcb mount, replaces NLJ2MD-H, https://www.neutrik.com/en/product/nlj2mdxx-h
 neutrik speakon combo
 0
 2
 2
 Connector_Audio
-Jack_speakON-6.35mm_Neutrik_NLJ2MD-V_Vertical
-speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, vertical pcb mount, https://www.neutrik.com/en/product/nlj2md-v
+Jack_speakON-6.35mm_Neutrik_NLJ2MDXX-V_Vertical
+speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, vertical pcb mount, replaces NLJ2MD-V, https://www.neutrik.com/en/product/nlj2mdxx-v
 neutrik speakon combo
 0
 2
 2
 Connector_Audio
-Jack_speakON_Neutrik_NL2MD-H_Horizontal
-speakON Chassis Connectors, 2 pole chassis connector, gray D-size flange, countersunk thru holes, horizontal PCB, https://www.neutrik.com/en/product/nl2md-h
+Jack_speakON_Neutrik_NL2MDXX-H-3_Horizontal
+speakON Chassis Connectors, 2 pole chassis connector, gray D-size flange, countersunk thru holes, horizontal PCB, replaces NL2MD-H, https://www.neutrik.com/en/product/nl2mdxx-h-3
 neutrik speakon
 0
 2
 2
 Connector_Audio
-Jack_speakON_Neutrik_NL2MD-V_Vertical
-speakON Chassis Connectors, 2 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl2md-v
+Jack_speakON_Neutrik_NL2MDXX-V_Vertical
+speakON Chassis Connectors, 2 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, replaces NL2MD-V, https://www.neutrik.com/en/product/nl2mdxx-v
 neutrik speakon
 0
 2
 2
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-H-1_Horizontal
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, countersunk thru holes, horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h-1
+Jack_speakON_Neutrik_NL4MDXX-H-2_Horizontal
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), horizontal PCB mount, replaces NL4MD-H-2, https://www.neutrik.com/en/product/nl4mdxx-h-2
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-H-2_Horizontal
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h-2
+Jack_speakON_Neutrik_NL4MDXX-H-3_Horizontal
+speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), horizontal PCB mount, replaces NL4MD-H, NL4MD-H-1, NL4MD-H-3, https://www.neutrik.com/en/product/nl4mdxx-h-3
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-H-3_Horizontal
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, self tapping screw holes (A-screw), horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h-3
+Jack_speakON_Neutrik_NL4MDXX-V-2_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), vertical PCB mount, replaces NL4MD-V-2, https://www.neutrik.com/en/product/nl4mdxx-v-2
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-H_Horizontal
-speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h
+Jack_speakON_Neutrik_NL4MDXX-V-3_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), vertical PCB mount, replaces NL4MD-V-1, https://www.neutrik.com/en/product/nl4mdxx-v-3
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-V-1_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v-1
+Jack_speakON_Neutrik_NL4MDXX-V_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, replaces NL4MD-V, NL4MD-V-R, NL4MD-V-S, https://www.neutrik.com/en/product/nl4mdxx-v
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-V-2_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v-2
-neutrik speakon
-0
-4
-4
-Connector_Audio
-Jack_speakON_Neutrik_NL4MD-V-R_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, red D-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v-r
-neutrik speakon
-0
-4
-4
-Connector_Audio
-Jack_speakON_Neutrik_NL4MD-V-S_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, switchable version of NL4MD-V with 8 vertical PCB contacts (4 switching contacts), https://www.neutrik.com/en/product/nl4md-v-s
+Jack_speakON_Neutrik_NL8MDXX-V-3_Vertical
+speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, self tapping screw holes (A-screw), vertical PCB mount, replaces NL8MD-V-1, https://www.neutrik.com/en/product/nl8mdxx-v-3
 neutrik speakon
 0
 8
 8
 Connector_Audio
-Jack_speakON_Neutrik_NL4MD-V_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v
-neutrik speakon
-0
-4
-4
-Connector_Audio
-Jack_speakON_Neutrik_NL8MD-V-1_Vertical
-speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, self tapping screw holes (A-screw), vertical PCB mount, https://www.neutrik.com/en/product/nl8md-v-1
-neutrik speakon
-0
-8
-8
-Connector_Audio
-Jack_speakON_Neutrik_NL8MD-V_Vertical
-speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl8md-v
+Jack_speakON_Neutrik_NL8MDXX-V_Vertical
+speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, countersunk thru holes, vertical PCB mount, replaces NL8MD-V, https://www.neutrik.com/en/product/nl8mdxx-v
 neutrik speakon
 0
 8
@@ -46150,6 +46136,69 @@ connector TE MATE-N-LOK top entry ATA PATA IDE 5.25 inch floppy drive power
 0
 4
 4
+Connector_TE-Connectivity
+TE_Micro-MaTch_1-215079-0_2x05_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 10 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 1-215079-0 8-215079-10
+0
+10
+10
+Connector_TE-Connectivity
+TE_Micro-MaTch_1-215079-2_2x06_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 12 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 1-215079-2 8-215079-12
+0
+12
+12
+Connector_TE-Connectivity
+TE_Micro-MaTch_1-215079-4_2x07_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 14 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 1-215079-4 8-215079-14
+0
+14
+14
+Connector_TE-Connectivity
+TE_Micro-MaTch_1-215079-6_2x08_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 16 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 1-215079-6 8-215079-16
+0
+16
+16
+Connector_TE-Connectivity
+TE_Micro-MaTch_1-215079-8_2x09_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 18 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 1-215079-8 8-215079-18
+0
+18
+18
+Connector_TE-Connectivity
+TE_Micro-MaTch_2-215079-0_2x10_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 20 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 2-215079-0 9-215079-20
+0
+20
+20
+Connector_TE-Connectivity
+TE_Micro-MaTch_215079-4_2x02_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 4 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 215079-4 7-215079-4
+0
+4
+4
+Connector_TE-Connectivity
+TE_Micro-MaTch_215079-6_2x03_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 6 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 215079-6 7-215079-6
+0
+6
+6
+Connector_TE-Connectivity
+TE_Micro-MaTch_215079-8_2x04_P1.27mm_Vertical
+TE-Connectivity Micro-MaTch female-on-board top-entry thru-hole 8 pin connector, https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F215079%7FY1%7Fpdf%7FEnglish%7FENG_CD_215079_Y1.pdf%7F215079-4
+connector TE-Connectivity Micro-MaTch Vertical 215079-8 7-215079-8
+0
+8
+8
 Connector_USB
 USB3_A_Molex_48393-001
 USB 3.0, type A, right angle (http://www.molex.com/pdm_docs/sd/483930003_sd.pdf)
@@ -46459,6 +46508,13 @@ Micro B USB SMD
 11
 6
 Connector_USB
+USB_Micro-B_Technik_TWP-4002D-H3
+Dustproof Micro USB Type B TWP-4002D-H3, https://www.technik.com.hk/images/pdf_product/WP4002D-H3-A_2.0.pdf
+USB Micro B horizontal dustproof waterproof IP67
+0
+7
+6
+Connector_USB
 USB_Micro-B_Wuerth_614105150721_Vertical
 USB Micro-B receptacle, through-hole, vertical, http://katalog.we-online.de/em/datasheet/614105150721.pdf
 usb micro receptacle vertical
@@ -46485,6 +46541,13 @@ USB Micro-B receptacle, http://www.mouser.com/ds/2/445/629105150521-469306.pdf
 usb micro receptacle
 0
 9
+6
+Connector_USB
+USB_Micro-B_XKB_U254-051T-4BH83-F1S
+XKB Connectivity, USB Micro-B, right-angle, SMT, https://datasheet.lcsc.com/lcsc/2206091745_XKB-Connectivity-U254-051T-4BH83-F1S_C397452.pdf
+USB Micro-B Receptacle SMD
+0
+11
 6
 Connector_USB
 USB_Mini-B_AdamTech_MUSB-B5-S-VT-TSMT-1_SMD_Vertical
@@ -51233,6 +51296,13 @@ DFS
 4
 4
 Diode_SMD
+Infineon_SG-WLL-2-3_0.58x0.28_P0.36mm
+Infineon  SG-WLL-2-3, 0.58x0.28x0.15mm, https://www.infineon.com/dgdl/Infineon-SG-WLL-2-3_SPO_PDF-Package-v02_00-EN.pdf?fileId=5546d46271bf4f9201723159ce71239d
+Infineon WLL
+0
+4
+2
+Diode_SMD
 Littelfuse_PolyZen-LS
 http://m.littelfuse.com/~/media/electronics/datasheets/polyzen_devices/littelfuse_polyzen_standard_polyzen_catalog_datasheet.pdf.pdf
 Diode Polymer Protected Zener Diode Littelfuse LS
@@ -54201,6 +54271,104 @@ Bourns SRR1260 SMD inductor
 2
 2
 Inductor_SMD
+L_Chilisin_BMRA00050520
+Inductor, Chilisin, BMRA00050520, 5.7x5.4x1.8mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRA00050530
+Inductor, Chilisin, BMRA00050530, 5.7x5.4x3.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRB00060612
+Inductor, Chilisin, BMRB00060612, 7.3x6.6x1.2mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRB00060618
+Inductor, Chilisin, BMRB00060618, 7.3x6.6x1.6mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRB00060624
+Inductor, Chilisin, BMRB00060624, 7.3x6.6x2.4mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRB00060650
+Inductor, Chilisin, BMRB00060650, 7.3x6.6x5.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRF00101040
+Inductor, Chilisin, BMRF00101040, 11.6x10.1x4.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRF00131350
+Inductor, Chilisin, BMRF00131350, 13.8x12.6x5.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRF00131360
+Inductor, Chilisin, BMRF00131360, 13.8x12.6x5.8mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRF00171770
+Inductor, Chilisin, BMRF00171770, 17.15x17.15x6.8mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRG00101030
+Inductor, Chilisin, BMRG00101030, 11.6x10.1x3.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRG00131360
+Inductor, Chilisin, BMRG00131360, 13.8x12.6x6.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRx00060615
+Inductor, Chilisin, BMRx00060615, 7.3x6.6x1.3mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
+L_Chilisin_BMRx00060630
+Inductor, Chilisin, BMRx00060630, 7.3x6.6x3.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf
+Inductor bmrx mchi
+0
+2
+2
+Inductor_SMD
 L_Coilcraft_LPS3010
 Shielded Power Inductor SMD 3x3x1mm, Coilcraft LPS3010, https://www.coilcraft.com/pdfs/lps3010.pdf
 inductor low profile
@@ -54229,16 +54397,401 @@ inductor
 2
 2
 Inductor_SMD
-L_Coilcraft_XAL60xx_6.36x6.56mm
-Coilcraft XAL60xx series, https://www.coilcraft.com/pdfs/xal60xx.pdf
-L Coilcraft XAL60xx
+L_Coilcraft_XAL1010-XXX
+Inductor, Coilcraft, XAL1010-XXX, 10.5x11.8x10.0mm, https://www.coilcraft.com/getmedia/dd74e670-e705-456a-9a69-585fe02eaf3c/xal1010.pdf
+Inductor xal
 0
 2
 2
 Inductor_SMD
-L_Coilcraft_XAL5030
-L_Coilcraft_XAL5030
-L Coilcraft XAL5030
+L_Coilcraft_XAL1030-XXX
+Inductor, Coilcraft, XAL1030-XXX, 10.5x11.8x3.1mm, https://www.coilcraft.com/getmedia/7b108457-7731-456d-9256-ca72f2e1a551/xal1030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1060-XXX
+Inductor, Coilcraft, XAL1060-XXX, 10.5x11.8x6.0mm, https://www.coilcraft.com/getmedia/8909f858-b441-4d60-acff-8b8ca36f9ede/xal1060.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1350-XXX
+Inductor, Coilcraft, XAL1350-XXX, 13.2x14.2x5.0mm, https://www.coilcraft.com/getmedia/dc536f86-3a3b-454f-950e-8e153260e61c/xal1350.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-103
+Inductor, Coilcraft, XAL1510-103, 15.4x16.4x10.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-153
+Inductor, Coilcraft, XAL1510-153, 15.4x16.4x10.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-223
+Inductor, Coilcraft, XAL1510-223, 15.4x16.4x10.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-333
+Inductor, Coilcraft, XAL1510-333, 15.4x16.4x11.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-472
+Inductor, Coilcraft, XAL1510-472, 15.4x16.4x10.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-682
+Inductor, Coilcraft, XAL1510-682, 15.4x16.4x10.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1510-822
+Inductor, Coilcraft, XAL1510-822, 15.4x16.4x10.0mm, https://www.coilcraft.com/getmedia/cd1cef27-13f0-4568-8894-f7311475209b/xal1510.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1513-153
+Inductor, Coilcraft, XAL1513-153, 15.4x16.4x13.0mm, https://www.coilcraft.com/getmedia/129ad6f3-0445-47fd-a0b3-edeb49177c17/xal1513.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-102
+Inductor, Coilcraft, XAL1580-102, 15.4x16.4x8.2mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-132
+Inductor, Coilcraft, XAL1580-132, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-182
+Inductor, Coilcraft, XAL1580-182, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-202
+Inductor, Coilcraft, XAL1580-202, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-302
+Inductor, Coilcraft, XAL1580-302, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-401
+Inductor, Coilcraft, XAL1580-401, 15.4x16.4x8.2mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-452
+Inductor, Coilcraft, XAL1580-452, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-532
+Inductor, Coilcraft, XAL1580-532, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-612
+Inductor, Coilcraft, XAL1580-612, 15.4x16.4x8.0mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL1580-741
+Inductor, Coilcraft, XAL1580-741, 15.4x16.4x8.2mm, https://www.coilcraft.com/getmedia/7fdfd306-5217-4ddc-b6b7-a2659ceeb6e3/xal1580.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL4020-XXX
+Inductor, Coilcraft, XAL4020-XXX, 4.3x4.3x2.1mm, https://www.coilcraft.com/getmedia/6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL4030-XXX
+Inductor, Coilcraft, XAL4030-XXX, 4.3x4.3x3.1mm, https://www.coilcraft.com/getmedia/6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL4040-XXX
+Inductor, Coilcraft, XAL4040-XXX, 4.3x4.3x4.1mm, https://www.coilcraft.com/getmedia/6adcb47d-8b55-416c-976e-1e22e0d2848c/xal4000.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL5020-XXX
+Inductor, Coilcraft, XAL5020-XXX, 5.48x5.68x2.0mm, https://www.coilcraft.com/getmedia/1941eff1-c018-493c-8cd6-d88d2edf5029/xal5020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL5030-XXX
+Inductor, Coilcraft, XAL5030-XXX, 5.48x5.68x3.1mm, https://www.coilcraft.com/getmedia/49bc46c8-4b2c-45b9-9b6c-2eaa235ea698/xal50xx.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL5050-XXX
+Inductor, Coilcraft, XAL5050-XXX, 5.48x5.68x5.1mm, https://www.coilcraft.com/getmedia/49bc46c8-4b2c-45b9-9b6c-2eaa235ea698/xal50xx.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL6020-XXX
+Inductor, Coilcraft, XAL6020-XXX, 6.56x6.76x2.1mm, https://www.coilcraft.com/getmedia/467ff589-8942-4e57-92d0-5bef6e04ce09/xal6020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL6030-XXX
+Inductor, Coilcraft, XAL6030-XXX, 6.56x6.76x3.1mm, https://www.coilcraft.com/getmedia/ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL6060-XXX
+Inductor, Coilcraft, XAL6060-XXX, 6.56x6.76x6.1mm, https://www.coilcraft.com/getmedia/ea51f14b-7f32-4dc6-8dfe-d4b70549040f/xal60xx.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-102
+Inductor, Coilcraft, XAL7020-102, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-122
+Inductor, Coilcraft, XAL7020-122, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-151
+Inductor, Coilcraft, XAL7020-151, 8.0x8.0x2.05mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-152
+Inductor, Coilcraft, XAL7020-152, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-222
+Inductor, Coilcraft, XAL7020-222, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-271
+Inductor, Coilcraft, XAL7020-271, 8.0x8.0x2.05mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-331
+Inductor, Coilcraft, XAL7020-331, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-471
+Inductor, Coilcraft, XAL7020-471, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7020-681
+Inductor, Coilcraft, XAL7020-681, 8.0x8.0x2.0mm, https://www.coilcraft.com/getmedia/0197e98c-67f7-4375-9e38-14d7376a46f3/xal7020.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-102
+Inductor, Coilcraft, XAL7030-102, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-103
+Inductor, Coilcraft, XAL7030-103, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-152
+Inductor, Coilcraft, XAL7030-152, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-161
+Inductor, Coilcraft, XAL7030-161, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-222
+Inductor, Coilcraft, XAL7030-222, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-272
+Inductor, Coilcraft, XAL7030-272, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-301
+Inductor, Coilcraft, XAL7030-301, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-332
+Inductor, Coilcraft, XAL7030-332, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-472
+Inductor, Coilcraft, XAL7030-472, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-562
+Inductor, Coilcraft, XAL7030-562, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-601
+Inductor, Coilcraft, XAL7030-601, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-682
+Inductor, Coilcraft, XAL7030-682, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7030-822
+Inductor, Coilcraft, XAL7030-822, 8.0x8.0x3.1mm, https://www.coilcraft.com/getmedia/0d05a05e-d55d-4a0c-911d-46bd73686633/xal7030.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7050-XXX
+Inductor, Coilcraft, XAL7050-XXX, 7.7x8.0x5.0mm, https://www.coilcraft.com/getmedia/13a991b3-4273-4be3-81ba-f3cf372b4691/xal7050.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL7070-XXX
+Inductor, Coilcraft, XAL7070-XXX, 7.7x8.0x7.0mm, https://www.coilcraft.com/getmedia/1ba55433-bcc8-4838-9b21-382f497e12e0/xal7070.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL8050-223
+Inductor, Coilcraft, XAL8050-223, 8.3x8.8x5.0mm, https://www.coilcraft.com/getmedia/5885ede8-ea4f-464a-9dcb-18dbf143a845/xal8050.pdf
+Inductor xal
+0
+2
+2
+Inductor_SMD
+L_Coilcraft_XAL8080-XXX
+Inductor, Coilcraft, XAL8080-XXX, 8.3x8.8x8.0mm, https://www.coilcraft.com/getmedia/345e50d6-a804-4ecb-9a92-5185221faf3e/xal8080.pdf
+Inductor xal
 0
 2
 2
@@ -54740,128 +55293,625 @@ Inductor SMD CR75 Unshielded
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA04xxS
-Inductor, Sunlord, MWSA04xxS, 4.4mmx4.2mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0402S
+Inductor, Sunlord, MWSA0402S, 4.4x4.2x1.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA05xxS
-Inductor, Sunlord, MWSA05xxS, 5.4mmx5.2mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0412S
+Inductor, Sunlord, MWSA0412S, 4.4x4.2x1.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA06xxS
-Inductor, Sunlord, MWSA06xxS, 7.0mmx6.6mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0503S
+Inductor, Sunlord, MWSA0503S, 5.4x5.2x2.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA08xxS
-Inductor, Sunlord, MWSA08xxS, 8.2mmx8.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0518S
+Inductor, Sunlord, MWSA0518S, 5.4x5.2x1.6mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA12xxS
-Inductor, Sunlord, MWSA12xxS, 13.45mmx12.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0602S
+Inductor, Sunlord, MWSA0602S, 7.0x6.6x1.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA17xxS
-Inductor, Sunlord, MWSA17xxS, 17.15mmx17.15mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0603S
+Inductor, Sunlord, MWSA0603S, 7.0x6.6x2.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_MWSA22xxS
-Inductor, Sunlord, MWSA22xxS, 22.0mmx23.5mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+L_Sunlord_MWSA0604S
+Inductor, Sunlord, MWSA0604S, 7.0x6.6x3.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA0605S
+Inductor, Sunlord, MWSA0605S, 7.0x6.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA0615S
+Inductor, Sunlord, MWSA0615S, 7.0x6.6x1.3mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA0618S
+Inductor, Sunlord, MWSA0618S, 7.0x6.6x1.6mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA0624S
+Inductor, Sunlord, MWSA0624S, 7.0x6.6x2.2mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA0804S
+Inductor, Sunlord, MWSA0804S, 8.2x8.8x3.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
 L_Sunlord_MWSA1003S
-Inductor, Sunlord, MWSA1003S, 11.5mmx10.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+Inductor, Sunlord, MWSA1003S, 11.5x10.0x2.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
 L_Sunlord_MWSA1004S
-Inductor, Sunlord, MWSA1004S, 11.0mmx10.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+Inductor, Sunlord, MWSA1004S, 11.0x10.0x3.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
 L_Sunlord_MWSA1005S
-Inductor, Sunlord, MWSA1005S, 11.5mmx10.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
-Inductor inductor mwsa-s
+Inductor, Sunlord, MWSA1005S, 11.5x10.0x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_SWPA30xxS
-Inductor, Sunlord, SWPA30xxS, 3.0mmx3.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+L_Sunlord_MWSA1204S-1R0
+Inductor, Sunlord, MWSA1204S-1R0, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_SWPA40xxS
-Inductor, Sunlord, SWPA40xxS, 4.0mmx4.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+L_Sunlord_MWSA1204S-1R5
+Inductor, Sunlord, MWSA1204S-1R5, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_SWPA60xxS
-Inductor, Sunlord, SWPA60xxS, 6.0mmx6.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+L_Sunlord_MWSA1204S-2R2
+Inductor, Sunlord, MWSA1204S-2R2, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_SWPA80xxS
-Inductor, Sunlord, SWPA80xxS, 8.0mmx8.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+L_Sunlord_MWSA1204S-3R3
+Inductor, Sunlord, MWSA1204S-3R3, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
 0
 2
 2
 Inductor_SMD
-L_Sunlord_SWPA2520xxS
-Inductor, Sunlord, SWPA2520xxS, 2.5mmx2.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+L_Sunlord_MWSA1204S-4R7
+Inductor, Sunlord, MWSA1204S-4R7, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-6R8
+Inductor, Sunlord, MWSA1204S-6R8, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-100
+Inductor, Sunlord, MWSA1204S-100, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-150
+Inductor, Sunlord, MWSA1204S-150, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-220
+Inductor, Sunlord, MWSA1204S-220, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-R22
+Inductor, Sunlord, MWSA1204S-R22, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-R47
+Inductor, Sunlord, MWSA1204S-R47, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-R68
+Inductor, Sunlord, MWSA1204S-R68, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1204S-R82
+Inductor, Sunlord, MWSA1204S-R82, 13.45x12.8x4.0mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-1R0
+Inductor, Sunlord, MWSA1205S-1R0, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-1R5
+Inductor, Sunlord, MWSA1205S-1R5, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-2R2
+Inductor, Sunlord, MWSA1205S-2R2, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-3R3
+Inductor, Sunlord, MWSA1205S-3R3, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-4R7
+Inductor, Sunlord, MWSA1205S-4R7, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-6R8
+Inductor, Sunlord, MWSA1205S-6R8, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-100
+Inductor, Sunlord, MWSA1205S-100, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-150
+Inductor, Sunlord, MWSA1205S-150, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-220
+Inductor, Sunlord, MWSA1205S-220, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-330
+Inductor, Sunlord, MWSA1205S-330, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-470
+Inductor, Sunlord, MWSA1205S-470, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-R22
+Inductor, Sunlord, MWSA1205S-R22, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-R36
+Inductor, Sunlord, MWSA1205S-R36, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-R50
+Inductor, Sunlord, MWSA1205S-R50, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-R68
+Inductor, Sunlord, MWSA1205S-R68, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1205S-R82
+Inductor, Sunlord, MWSA1205S-R82, 13.45x12.6x4.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-1R5
+Inductor, Sunlord, MWSA1206S-1R5, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-2R2
+Inductor, Sunlord, MWSA1206S-2R2, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-3R3
+Inductor, Sunlord, MWSA1206S-3R3, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-4R7
+Inductor, Sunlord, MWSA1206S-4R7, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-5R6
+Inductor, Sunlord, MWSA1206S-5R6, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-6R8
+Inductor, Sunlord, MWSA1206S-6R8, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-8R2
+Inductor, Sunlord, MWSA1206S-8R2, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-100
+Inductor, Sunlord, MWSA1206S-100, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-101
+Inductor, Sunlord, MWSA1206S-101, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-120
+Inductor, Sunlord, MWSA1206S-120, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-121
+Inductor, Sunlord, MWSA1206S-121, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-150
+Inductor, Sunlord, MWSA1206S-150, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-151
+Inductor, Sunlord, MWSA1206S-151, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-180
+Inductor, Sunlord, MWSA1206S-180, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-220
+Inductor, Sunlord, MWSA1206S-220, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-270
+Inductor, Sunlord, MWSA1206S-270, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-330
+Inductor, Sunlord, MWSA1206S-330, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-470
+Inductor, Sunlord, MWSA1206S-470, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-680
+Inductor, Sunlord, MWSA1206S-680, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1206S-R68
+Inductor, Sunlord, MWSA1206S-R68, 13.45x12.6x5.8mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1265S
+Inductor, Sunlord, MWSA1265S, 13.45x12.6x6.5mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA1707S
+Inductor, Sunlord, MWSA1707S, 17.15x17.15x6.7mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_MWSA2213S
+Inductor, Sunlord, MWSA2213S, 23.5x22.0x12.6mm, https://sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMjExMTUxNDQ4MDU0NTQucGRm&lan=en
+Inductor mwsa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA3010S
+Inductor, Sunlord, SWPA3010S, 3.0x3.0x1.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA3012S
+Inductor, Sunlord, SWPA3012S, 3.0x3.0x1.2mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA3015S
+Inductor, Sunlord, SWPA3015S, 3.0x3.0x1.5mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA4010S
+Inductor, Sunlord, SWPA4010S, 4.0x4.0x1.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA4012S
+Inductor, Sunlord, SWPA4012S, 4.0x4.0x1.2mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA4018S
+Inductor, Sunlord, SWPA4018S, 4.0x4.0x1.8mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA4020S
+Inductor, Sunlord, SWPA4020S, 4.0x4.0x2.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA4026S
+Inductor, Sunlord, SWPA4026S, 4.0x4.0x2.6mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA4030S
+Inductor, Sunlord, SWPA4030S, 4.0x4.0x3.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
 0
 2
 2
 Inductor_SMD
 L_Sunlord_SWPA5012S
-Inductor, Sunlord, SWPA5012S, 5.0mmx5.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+Inductor, Sunlord, SWPA5012S, 5.0x5.0x1.2mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
 0
 2
 2
 Inductor_SMD
 L_Sunlord_SWPA5020S
-Inductor, Sunlord, SWPA5020S, 5.0mmx5.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+Inductor, Sunlord, SWPA5020S, 5.0x5.0x2.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
 0
 2
 2
 Inductor_SMD
 L_Sunlord_SWPA5040S
-Inductor, Sunlord, SWPA5040S, 5.0mmx5.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
-Inductor inductor swpa
+Inductor, Sunlord, SWPA5040S, 5.0x5.0x4.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA6020S
+Inductor, Sunlord, SWPA6020S, 6.0x6.0x2.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA6028S
+Inductor, Sunlord, SWPA6028S, 6.0x6.0x2.8mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA6040S
+Inductor, Sunlord, SWPA6040S, 6.0x6.0x4.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA6045S
+Inductor, Sunlord, SWPA6045S, 6.0x6.0x4.5mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA8040S
+Inductor, Sunlord, SWPA8040S, 8.0x8.0x4.2mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA252010S
+Inductor, Sunlord, SWPA252010S, 2.5x2.0x1.0mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWPA252012S
+Inductor, Sunlord, SWPA252012S, 2.5x2.0x1.2mm, https://www.sunlordinc.com/UploadFiles/PDF_Cat/20120704094224784.pdf
+Inductor swpa
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWRB1204S
+Inductor, Sunlord, SWRB1204S, 12.5x12.5x5.0mm, https://www.sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMTA2MTAxMTMyMzc4MTEucGRm&lan=
+Inductor swrb
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWRB1205S
+Inductor, Sunlord, SWRB1205S, 12.5x12.5x6.0mm, https://www.sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMTA2MTAxMTMyMzc4MTEucGRm&lan=
+Inductor swrb
+0
+2
+2
+Inductor_SMD
+L_Sunlord_SWRB1207S
+Inductor, Sunlord, SWRB1207S, 12.5x12.5x8.0mm, https://www.sunlordinc.com/Download.aspx?file=L1VwbG9hZEZpbGVzL1BERl9DYXQvMjAyMTA2MTAxMTMyMzc4MTEucGRm&lan=
+Inductor swrb
 0
 2
 2
@@ -57995,6 +59045,13 @@ LED RGB Chip SMD
 4
 4
 LED_SMD
+LED_LiteOn_LTST-C295K_1.6x0.8mm
+Topview dual http://optoelectronics.liteon.com/upload/download/DS22-2009-0072/LTST-C295KGKRKT.PDF
+SMD Top view Dual colour
+0
+4
+4
+LED_SMD
 LED_LiteOn_LTST-S326
 http://optoelectronics.liteon.com/upload/download/DS22-2000-287/LTST-S326KGJRKT.PDF
 LED SMD right angle  CCA
@@ -58932,6 +59989,13 @@ carambola2 8devices
 0
 104
 52
+Module
+Electrosmith_Daisy_Seed
+Embedded platform for audio applications. 96kHz / 24-bit audio hardware. 64MB of SDRAM for up to 10 minute long audio. ARM Cortex-M7 MCU, running at 480MHz. 31 total GPIO pins with configurable functionality. 12-bit Digital to Analog Converters (x2). SD card interfaces. PWM outputs. Serial Protocols for connecting external sensors and devices (SPI, UART, I2S, I2C). Dedicated VIN pin for power. Micro USB port, and additional USB pins for full OTG-support as host and device. https://static1.squarespace.com/static/58d03fdc1b10e3bf442567b8/t/6227e6236f02fb68d1577146/1646781988478/Daisy_Seed_datasheet_v1.0.3.pdf
+Electrosmith Daisy Seed Microcontroller Module ARM Cortex-M7 Audio Codec
+0
+40
+40
 Module
 Maple_Mini
 Maple Mini, http://docs.leaflabs.com/static.leaflabs.com/pub/leaflabs/maple-docs/0.0.12/hardware/maple-mini.html
@@ -62818,6 +63882,13 @@ Maxim_WLP-12
 12
 12
 Package_BGA
+Maxim_WLP-12_1.608x2.008mm_Layout4x3_P0.4mm_Ball0.27mm_Pad0.25mm_NSMD
+Maxim WLP-12, W121H2+1, 2.008x1.608mm, 12 Ball, 4x3 Layout, 0.4mm Pitch, https://pdfserv.maximintegrated.com/package_dwgs/21-100302.PDF, https://pdfserv.maximintegrated.com/package_dwgs/21-100302.PDF
+BGA 12 0.4
+0
+12
+12
+Package_BGA
 Microchip_TFBGA-196_11x11mm_Layout14x14_P0.75mm_SMD
 TFBGA-196, 11.0x11.0mm, 196 Ball, 14x14 Layout, 0.75mm Pitch, http://ww1.microchip.com/downloads/en/DeviceDoc/SAMA5D2-Series-Data-Sheet-DS60001476C.pdf#page=2956
 BGA 196 0.75
@@ -62984,6 +64055,13 @@ Texas Instruments, DSBGA, 0.822x1.116mm, 5 bump 2x1x2 array, NSMD pad definition
 Texas Instruments DSBGA BGA YFF S-XBGA-N5
 0
 10
+5
+Package_BGA
+Texas_DSBGA-5_0.8875x1.3875mm_Layout2x3_P0.5mm
+Texas Instruments, DSBGA, area grid, NSMD, YZP0005 pad definition, 0.8875x1.3875mm, 5 Ball, 2x3 Layout, 0.5mm Pitch, https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf#page=42, https://www.ti.com/lit/ml/mxbg018l/mxbg018l.pdf
+BGA 5 0.5 YZP
+0
+5
 5
 Package_BGA
 Texas_DSBGA-6_0.9x1.4mm_Layout2x3_P0.5mm
@@ -63560,6 +64638,20 @@ LFCSP 8 0.5
 12
 5
 Package_CSP
+Analog_LFCSP-16-1EP_4x4mm_P0.65mm_EP2.35x2.35mm
+Analog  LFCSP, 16 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_16_20.pdf, CP-16-20), generated with kicad-footprint-generator ipc_noLead_generator.py
+Analog LFCSP NoLead
+0
+21
+17
+Package_CSP
+Analog_LFCSP-16-1EP_4x4mm_P0.65mm_EP2.35x2.35mm_ThermalVias
+Analog  LFCSP, 16 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_16_20.pdf, CP-16-20), generated with kicad-footprint-generator ipc_noLead_generator.py
+Analog LFCSP NoLead
+0
+31
+17
+Package_CSP
 Analog_LFCSP-UQ-10_1.3x1.6mm_P0.4mm
 Analog  LFCSP-UQ, 10 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_10_10.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 Analog LFCSP-UQ NoLead
@@ -63674,6 +64766,20 @@ LFCSP NoLead
 Package_CSP
 LFCSP-16-1EP_4x4mm_P0.65mm_EP2.4x2.4mm_ThermalVias
 LFCSP, 16 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp-16/cp-16-40.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+LFCSP NoLead
+0
+31
+17
+Package_CSP
+LFCSP-16-1EP_4x4mm_P0.65mm_EP2.6x2.6mm
+LFCSP, 16 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_16_17.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+LFCSP NoLead
+0
+21
+17
+Package_CSP
+LFCSP-16-1EP_4x4mm_P0.65mm_EP2.6x2.6mm_ThermalVias
+LFCSP, 16 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_16_17.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 LFCSP NoLead
 0
 31
@@ -63804,6 +64910,20 @@ LFCSP 0.5
 0
 37
 33
+Package_CSP
+LFCSP-40-1EP_6x6mm_P0.5mm_EP3.9x3.9mm
+LFCSP, 40 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_40_14.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+LFCSP NoLead
+0
+45
+41
+Package_CSP
+LFCSP-40-1EP_6x6mm_P0.5mm_EP3.9x3.9mm_ThermalVias
+LFCSP, 40 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_40_14.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+LFCSP NoLead
+0
+55
+41
 Package_CSP
 LFCSP-48-1EP_7x7mm_P0.5mm_EP4.1x4.1mm
 LFCSP, 48 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_48_5.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
@@ -64960,6 +66080,27 @@ DFN 1.27
 16
 9
 Package_DFN_QFN
+DHVQFN-14-1EP_2.5x3mm_P0.5mm_EP1x1.5mm
+DHVQFN, 14 Pin (JEDEC MO-241/VAA, https://assets.nexperia.com/documents/package-information/SOT762-1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+DHVQFN NoLead
+0
+16
+15
+Package_DFN_QFN
+DHVQFN-16-1EP_2.5x3.5mm_P0.5mm_EP1x2mm
+DHVQFN, 16 Pin (JEDEC MO-241/VAB, https://assets.nexperia.com/documents/package-information/SOT763-1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+DHVQFN NoLead
+0
+19
+17
+Package_DFN_QFN
+DHVQFN-20-1EP_2.5x4.5mm_P0.5mm_EP1x3mm
+DHVQFN, 20 Pin (JEDEC MO-241/VAC, https://assets.nexperia.com/documents/package-information/SOT764-1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+DHVQFN NoLead
+0
+23
+21
+Package_DFN_QFN
 Diodes_DFN1006-3
 DFN package size 1006 3 pins
 DFN package size 1006 3 pins
@@ -65156,6 +66297,13 @@ MLPQ- 0.65
 21
 17
 Package_DFN_QFN
+Maxim_TDFN-6-1EP_3x3mm_P0.95mm_EP1.5x2.3mm
+Maxim  TDFN, 6 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/MAX4460-MAX4462.pdf#page=19, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/tdfn-ep/21-0137.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+Maxim TDFN NoLead
+0
+11
+7
+Package_DFN_QFN
 Micrel_MLF-8-1EP_2x2mm_P0.5mm_EP0.6x1.2mm
 Micrel  MLF, 8 Pin (http://ww1.microchip.com/downloads/en/DeviceDoc/mic23050.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 Micrel MLF NoLead
@@ -65294,6 +66442,13 @@ XDFN4 footprint (as found on the https://www.onsemi.com/pub/Collateral/NCP115-D.
 OnSemi XDFN4
 0
 5
+5
+Package_DFN_QFN
+PQFN-8-EP_6x5mm_P1.27mm_Generic
+Universal Footprint for Thermally-enhanced SO-8 packages; compatible with Vishay PowerPAK SO−8, International Rectifier PQFN, Texas Instrument SON 5 × 6 mm (Q5A), Alpha and Omega DFN 5 × 6, ST Microelectronics PowerFLAT™ 5 × 6, Toshiba SOP Advance, Infineon Super SO8, NXP LFPAK (SOT669), Renesas WPAK(3F) / LFPAK, Fairchild Power 56, APEC PMPAK 5 × 6, MagnaChip PowerDFN56, ROHM HSOP8, UBIQ PRPAK56, NIKO−SEM PDFN 5 × 6, NEC 8-pin HVSON. Datasheets: https://www.onsemi.com/pub/Collateral/AND9137-D.PDF, https://assets.nexperia.com/documents/leaflet/75016838.pdf
+Thermally-enhanced SO-8 PowerPAK PQFN Q5A PowerFLAT LFPAK SOT669 WPAK(3F) LFPAK Power56 PMPAK PowerDFN56 HSOP8 PRPAK56 PDFN HVSON
+0
+21
 5
 Package_DFN_QFN
 Panasonic_HQFN-16-1EP_4x4mm_P0.65mm_EP2.9x2.9mm
@@ -66941,6 +68096,20 @@ TDFN NoLead
 16
 11
 Package_DFN_QFN
+TDFN-12-1EP_3x3mm_P0.4mm_EP1.7x2.45mm
+TDFN, 12 Pin (https://www.renesas.com/us/en/document/psc/package-drawing-tdfn-12pin-l123x3c), generated with kicad-footprint-generator ipc_noLead_generator.py
+TDFN NoLead
+0
+25
+13
+Package_DFN_QFN
+TDFN-12-1EP_3x3mm_P0.4mm_EP1.7x2.45mm_ThermalVias
+TDFN, 12 Pin (https://www.renesas.com/us/en/document/psc/package-drawing-tdfn-12pin-l123x3c), generated with kicad-footprint-generator ipc_noLead_generator.py
+TDFN NoLead
+0
+32
+13
+Package_DFN_QFN
 TDFN-12_2x3mm_P0.5mm
 TDFN, 12 Pads, No exposed, http://www.st.com/resource/en/datasheet/stm6600.pdf
 DFN
@@ -67062,6 +68231,20 @@ TQFN NoLead
 Package_DFN_QFN
 TQFN-24-1EP_4x4mm_P0.5mm_EP2.1x2.1mm_ThermalVias
 TQFN, 24 Pin (https://pdfserv.maximintegrated.com/package_dwgs/21-0139.PDF), generated with kicad-footprint-generator ipc_noLead_generator.py
+TQFN NoLead
+0
+39
+25
+Package_DFN_QFN
+TQFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm
+TQFN, 24 Pin (http://pdfserv.maxim-ic.com/package_dwgs/21-0139.PDF), generated with kicad-footprint-generator ipc_noLead_generator.py
+TQFN NoLead
+0
+29
+25
+Package_DFN_QFN
+TQFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm_ThermalVias
+TQFN, 24 Pin (http://pdfserv.maxim-ic.com/package_dwgs/21-0139.PDF), generated with kicad-footprint-generator ipc_noLead_generator.py
 TQFN NoLead
 0
 39
@@ -67949,6 +69132,20 @@ VQFN NoLead
 30
 21
 Package_DFN_QFN
+VQFN-24-1EP_4x4mm_P0.5mm_EP2.5x2.5mm
+VQFN, 24 Pin (https://ww1.microchip.com/downloads/aemDocuments/documents/product-documents/package-drawings/24L-VQFN%E2%80%934x4x0.9mm-MJ-C04-00143b.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VQFN NoLead
+0
+29
+25
+Package_DFN_QFN
+VQFN-24-1EP_4x4mm_P0.5mm_EP2.5x2.5mm_ThermalVias
+VQFN, 24 Pin (https://ww1.microchip.com/downloads/aemDocuments/documents/product-documents/package-drawings/24L-VQFN%E2%80%934x4x0.9mm-MJ-C04-00143b.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VQFN NoLead
+0
+39
+25
+Package_DFN_QFN
 VQFN-24-1EP_4x4mm_P0.5mm_EP2.45x2.45mm
 VQFN, 24 Pin (http://www.ti.com/lit/ds/symlink/msp430f1101a.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 VQFN NoLead
@@ -68116,6 +69313,13 @@ VQFN NoLead
 0
 91
 65
+Package_DFN_QFN
+W-PDFN-8-1EP_6x5mm_P1.27mm_EP3x3mm
+W-PDFN, 8 Pin (https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/nor-flash/serial-nor/mt25q/die-rev-a/mt25q_qljs_u_256_aba_0.pdf#page=22), generated with kicad-footprint-generator ipc_noLead_generator.py
+W-PDFN NoLead
+0
+13
+9
 Package_DFN_QFN
 WDFN-6-2EP_4.0x2.6mm_P0.65mm
 WDFN, 6 pin, 4.0x2.6, 0.65P; Two exposed pads, (https://www.onsemi.com/pub/Collateral/511BZ.PDF)
@@ -70959,6 +72163,13 @@ QFP 0.5
 53
 49
 Package_QFP
+TQFP-48-1EP_7x7mm_P0.5mm_EP4.11x4.11mm
+TQFP, 48 Pin (https://www.lumissil.com/assets/pdf/core/IS31FL3236_DS.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+TQFP QFP
+0
+65
+49
+Package_QFP
 TQFP-48-1EP_7x7mm_P0.5mm_EP5x5mm
 TQFP, 48 Pin (https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC2100_datasheet_Rev1.08.pdf (page 45)), generated with kicad-footprint-generator ipc_gullwing_generator.py
 TQFP QFP
@@ -71602,6 +72813,20 @@ HTSSOP 0.5
 0
 72
 57
+Package_SO
+HVSSOP-8-1EP_3x3mm_P0.65mm_EP1.57x1.89mm
+HVSSOP, 8 Pin (https://www.ti.com/lit/ds/symlink/tpa6110a2.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+HVSSOP SO
+0
+13
+9
+Package_SO
+HVSSOP-8-1EP_3x3mm_P0.65mm_EP1.57x1.89mm_ThermalVias
+HVSSOP, 8 Pin (https://www.ti.com/lit/ds/symlink/tpa6110a2.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+HVSSOP SO
+0
+18
+9
 Package_SO
 HVSSOP-10-1EP_3x3mm_P0.5mm_EP1.57x1.88mm
 HVSSOP, 10 Pin (https://www.ti.com/lit/ds/symlink/bq24090.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
@@ -73073,6 +74298,13 @@ TSSOP SO
 16
 16
 Package_SO
+TSSOP-20-1EP_4.4x6.5mm_P0.65mm_EP2.15x3.35mm
+TSSOP, 20 Pin (https://pdfserv.maximintegrated.com/package_dwgs/21-100132.PDF), generated with kicad-footprint-generator ipc_gullwing_generator.py
+TSSOP SO
+0
+25
+21
+Package_SO
 TSSOP-20_4.4x5mm_P0.4mm
 TSSOP, 20 Pin (JEDEC MO-194 Var AC https://www.jedec.org/document_search?search_api_views_fulltext=MO-194), generated with kicad-footprint-generator ipc_gullwing_generator.py
 TSSOP SO
@@ -73696,6 +74928,13 @@ SON NoLead
 13
 9
 Package_SON
+Texas_DPY0002A_0.6x1mm_P0.65mm
+X1SON 2 pin 0.6x1mm 0.375mm height package, https://www.ti.com/lit/ml/mpss034c/mpss034c.pdf, https://www.ti.com/lit/ds/symlink/tpd6e05u06.pdf
+X1SON
+0
+2
+2
+Package_SON
 Texas_DQK
 Texas WSON-6 DQK, http://www.ti.com/lit/ds/symlink/csd16301q2.pdf
 Texas WSON6 2x2mm
@@ -73737,6 +74976,13 @@ Plastic Small Outline No-Lead
 0
 7
 7
+Package_SON
+Texas_R-PUSON-N14
+USON, 14 Pin (https://www.ti.com/lit/ds/symlink/tpd6e05u06.pdf#page=28), generated with kicad-footprint-generator ipc_noLead_generator.py
+USON NoLead
+0
+14
+14
 Package_SON
 Texas_R-PWSON-N12_EP0.4x2mm
 http://www.ti.com/lit/ds/symlink/tpd6f003.pdf
@@ -73801,11 +75047,32 @@ Texas_S-PWSON-N10_ThermalVias
 47
 11
 Package_SON
+Texas_USON-6_1x1.45mm_P0.5mm_SMD
+USON, 6 Pin (https://www.ti.com/lit/ds/symlink/sn74auc1g04.pdf#page=24), Solder Mask Defined
+USON NoLead DRY0006A
+0
+6
+6
+Package_SON
 Texas_X2SON-4_1x1mm_P0.65mm
 X2SON 5 pin 1x1mm package (Reference Datasheet: http://www.ti.com/lit/ds/sbvs193d/sbvs193d.pdf Reference part: TPS383x) [StepUp generated footprint]
 X2SON
 0
 13
+5
+Package_SON
+Texas_X2SON-5_0.8x0.8mm_P0.48mm
+X2SON 5 pin 0.8x0.8mm package (Reference Datasheet: https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf#page=39 Reference part: SN74LVC1G17) [StepUp generated footprint]
+X2SON DPW0005A
+0
+9
+5
+Package_SON
+Texas_X2SON-5_0.8x0.8mm_P0.48mm_RoutingVia
+X2SON 5 pin 0.8x0.8mm package (Reference Datasheet: https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf#page=39 Reference part: SN74LVC1G17) [StepUp generated footprint]
+X2SON DPW0005A
+0
+10
 5
 Package_SON
 USON-10_2.5x1.0mm_P0.5mm
@@ -74754,7 +76021,7 @@ TO-50-4 Macro X Package Style M238
 4
 Package_TO_SOT_SMD
 TO-252-2
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
+TO-252/DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
 DPAK TO-252 DPAK-3 TO-252-3 SOT-428
 0
 7
@@ -74768,42 +76035,42 @@ TO-252-2 diode
 2
 Package_TO_SOT_SMD
 TO-252-3_TabPin2
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
+TO-252/DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
 DPAK TO-252 DPAK-3 TO-252-3 SOT-428
 0
 8
 3
 Package_TO_SOT_SMD
 TO-252-3_TabPin4
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
+TO-252/DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-3-1/
 DPAK TO-252 DPAK-3 TO-252-3 SOT-428
 0
 8
 4
 Package_TO_SOT_SMD
 TO-252-4
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
+TO-252/DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
 DPAK TO-252 DPAK-5 TO-252-5
 0
 9
 5
 Package_TO_SOT_SMD
 TO-252-5_TabPin3
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
+TO-252/DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
 DPAK TO-252 DPAK-5 TO-252-5
 0
 10
 5
 Package_TO_SOT_SMD
 TO-252-5_TabPin6
-TO-252 / DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
+TO-252/DPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO252/PG-TO252-5-11/
 DPAK TO-252 DPAK-5 TO-252-5
 0
 10
 6
 Package_TO_SOT_SMD
 TO-263-2
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
 D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
 0
 7
@@ -74817,56 +76084,56 @@ D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404 diode
 2
 Package_TO_SOT_SMD
 TO-263-3_TabPin2
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
 D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
 0
 8
 3
 Package_TO_SOT_SMD
 TO-263-3_TabPin4
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
 D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
 0
 8
 4
 Package_TO_SOT_SMD
 TO-263-4
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
 D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
 0
 9
 5
 Package_TO_SOT_SMD
 TO-263-5_TabPin3
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
 D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
 0
 10
 5
 Package_TO_SOT_SMD
 TO-263-5_TabPin6
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-5-1/
 D2PAK DDPAK TO-263 D2PAK-5 TO-263-5 SOT-426
 0
 10
 6
 Package_TO_SOT_SMD
 TO-263-6
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
 D2PAK DDPAK TO-263 D2PAK-7 TO-263-7 SOT-427
 0
 11
 7
 Package_TO_SOT_SMD
 TO-263-7_TabPin4
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
 D2PAK DDPAK TO-263 D2PAK-7 TO-263-7 SOT-427
 0
 12
 7
 Package_TO_SOT_SMD
 TO-263-7_TabPin8
-TO-263 / D2PAK / DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
 D2PAK DDPAK TO-263 D2PAK-7 TO-263-7 SOT-427
 0
 12
@@ -75005,12 +76272,26 @@ Texas TO-PMOD NDY00011A
 12
 12
 Package_TO_SOT_SMD
+Texas_R-PDSO-G5_DCK-5
+DCK R-PDSO-G5, JEDEC MO-203C Var AA, https://www.ti.com/lit/ds/symlink/tmp20.pdf#page=23
+DCK R-PDSO-G5 MO-203C
+0
+5
+5
+Package_TO_SOT_SMD
 Texas_R-PDSO-G6
 R-PDSO-G6, http://www.ti.com/lit/ds/slis144b/slis144b.pdf
 R-PDSO-G6 SC-70-6
 0
 6
 6
+Package_TO_SOT_SMD
+Texas_R-PDSO-N5_DRL-5
+R-PDSO-N5, DRL, JEDEC MO-293B Var UAAD-1, https://www.ti.com/lit/ml/mpds158d/mpds158d.pdf
+SOT R-PDSO-N5 DRL
+0
+5
+5
 Package_TO_SOT_SMD
 VSOF5
 VSOF5
@@ -78218,9 +79499,23 @@ Single 2.4 GHz Wi-Fi and Bluetooth combo  chip
 60
 39
 RF_Module
+ESP32-WROOM-32D
+2.4 GHz Wi-Fi and Bluetooth module, https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf
+2.4 GHz Wi-Fi and Bluetooth module ESP32-D0WD Espressif ESP32-WROOM-32E
+0
+60
+39
+RF_Module
 ESP32-WROOM-32U
 Single 2.4 GHz Wi-Fi and Bluetooth combo chip with U.FL connector, https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf
 Single 2.4 GHz Wi-Fi and Bluetooth combo  chip
+0
+60
+39
+RF_Module
+ESP32-WROOM-32UE
+2.4 GHz Wi-Fi and Bluetooth module, https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf
+2.4 GHz Wi-Fi and Bluetooth module
 0
 60
 39
@@ -78301,6 +79596,13 @@ TWE-L-WX
 0
 32
 32
+RF_Module
+NINA-B111
+NINA-B111 LGA module 42 Pin https://content.u-blox.com/sites/default/files/NINA-B1_DataSheet_UBX-15019243.pdf#page=30
+NINA ublox u-blox b111 bluetooth nrf52840 module
+0
+42
+42
 RF_Module
 Particle_P1
 https://docs.particle.io/datasheets/p1-datasheet/
@@ -79003,7 +80305,7 @@ Relay SPDT IM-relay HJR-4102
 6
 Relay_THT
 Relay_SPDT_HsinDa_Y14
-http://www.hsinda.com.cn/en/ProductShow.asp?ID=208
+http://www.hsinda.com.tw/upload/file/Y14-20200430135145.pdf
 Relay Y14
 0
 6
@@ -80633,6 +81935,13 @@ Sensirion QFN NoLead
 25
 21
 Sensor
+Sensortech_MiCS_5x7mm_P1.25mm
+https://www.sgxsensortech.com/content/uploads/2014/07/1084_Datasheet-MiCS-5524-rev-8.pdf
+Sensortech MiCS MEMS sensor
+0
+10
+10
+Sensor
 Winson_GM-402B_5x5mm_P1.27mm
 Winson GM-402B, 8 Pin (https://www.winsen-sensor.com/d/files/me2/mems--gm-402b--manual-v1_1.pdf)
 Winson
@@ -80940,6 +82249,13 @@ sensirion dfn nolead
 0
 10
 9
+Sensor_Motion
+Analog_LGA-16_3.25x3mm_P0.5mm_LayoutBorder3x5y
+LGA, 16 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL363.pdf#page=44)
+LGA NoLead CC-16-4
+0
+16
+16
 Sensor_Motion
 InvenSense_QFN-24_3x3mm_P0.4mm
 24-Lead Plastic QFN (3mm x 3mm); Pitch 0.4mm; EP 1.7x1.54mm; for InvenSense motion sensors; keepout area marked (Package see: https://store.invensense.com/datasheets/invensense/MPU9250REV1.0.pdf; See also https://www.invensense.com/wp-content/uploads/2015/02/InvenSense-MEMS-Handling.pdf)
