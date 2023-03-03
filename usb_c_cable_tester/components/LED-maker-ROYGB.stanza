@@ -131,8 +131,8 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   place(led) at loc(0.0, 0.0, 270.0) on Top
   place(ballast-res) at loc(res-to-led-distance, 0.0, 180.0) on Top
 
-  ref-label(led) = Text(">REF", 1.0, W, loc(0.0, -4.5, 90.0))
-  ref-label(ballast-res) = Text(">REF", 1.0, W, loc(0.0, 1.2, 180.0))
+  ref-label(led) = Text(">REF", 1.0, W, loc(0.0, -6.5, 90.0))
+  ref-label(ballast-res) = Text(">REF", 1.0, W, loc(-1.5, 0.0, 180.0))
   
   ; run a check on the module power pins
   ocdb/utils/pin-checks/all/check-pins(self)

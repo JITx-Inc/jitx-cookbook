@@ -28,6 +28,8 @@ public defn run-check-on-design (circuit:Instantiable) :
 ; ====================
 val export-field-mapping = [
   "LCSC" => "LCSC"
+  "lcsc" => "LCSC"
+  "vendor_part_numbers.lcsc" => "LCSC"
 ]
 defn export-to-cad () :
   set-paper(ANSI-A4)
