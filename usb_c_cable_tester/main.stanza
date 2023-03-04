@@ -1,5 +1,6 @@
 ; ====================
 ; A USB-C cable tester
+; The top level module of our final design begins on the line `pcb-module usb-c-cable-tester-module`. Start there if you're reading this recipe for the first time.
 ; ====================
 
 ; declare our package name and import dependencies
@@ -12,174 +13,178 @@ defpackage main :
   import utils/time
   import ocdb/utils/checks
   import ocdb/utils/generic-components
-  import ocdb/utils/box-symbol
   import ocdb/utils/generator-utils
   import helpers
-  import ocdb/components/q-n-j/CR2032-BS-6-1
-  import ocdb/utils/property-structs
+  ; import components/LED-maker-ROYGB/LED-COLORS
+  import components/LED-maker-ROYGB
 
 ; define parameters of the board
-val board-width = 45.0
-val board-height = 22.0
+val board-width = 65.0
+val board-height = 45.0
 val board-shape = RoundedRectangle(board-width, board-height, 0.25)
 
 ; return a list of colors of the rainbow, sliding smoothly through color space
 defn generate-rainbow (num-colors:Int) -> Seq:
-  val colors:Tuple<String> = [ "red", "orange", "yellow", "green", "blue", "indigo", "violet" ]
+  val color-subset = [RED, YELLOW, ORANGE]
   val generated-colors = 
     for i in 0 to num-colors seq :
-      colors[i % length(colors)]
+      ; use the LED-COLORS enum, defined in the LED-maker-ROYGB component, looping through it to use all the colors
+      LED-COLORS(i % length(color-subset))
   generated-colors
 
 ; place a testpad
-defn testpad-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObject:
+defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITXObject:
   inside pcb-module :
     public inst tp-pad : gen-testpad(diameter)
     net (tp-pad.p tp)
     ; name the test point
-    value-label(tp-pad) = Text(tp-name, 1.0, W, loc(1.5, 0.0))
-    reference-designator(tp-pad) = tp-name
+    value-label(tp-pad) = Text(tp-name, 1.0, W, loc(1.2, 0.0))
+    ; val my-label = Text(tp-name, 1.0, W, loc(1.5, 0.0))
+    inst my-label : ocdb/artwork/board-text/text(tp-name, 1.0, 0.0)
+    place(my-label) at loc(1.2, -0.4, 0.0) on Top (relative-to tp-pad)
     tp-pad
 
-; generate a test LED
-pcb-module generate-test-led (net-name:String, color:String) :
+; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
+pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:components/LED-maker-ROYGB/LED-COLORS) :
   pin in
   pin out
 
   net IN (in)
-  ; generate LED
-  public inst status-led : gen-led-cmp(color, "0402")
-  ; generate ballast resistor
-  public inst ballast-res : gen-res-cmp(1.0e3, "0402")
+
   ; add a testpoint for this pin
-  val test-pad = testpad-strap(IN, net-name, 2.0)
-  ; hook up LEDs, resistors to input and output
-  net (ballast-res.p[2] status-led.a) ; connect one terminal of the resistor to anode of LED
-  net (in ballast-res.p[1]) ; input power
-  net (out status-led.c) ; GND     
+  val test-pad = my-testpoint-strap(IN, net-name, 2.0) ; in current versions of OCDB, we can directly call `testpoint-strap` function
+
+  ; generate LED of certain color with a ballast resistor tuned for that color and LED type
+  inst status-led : components/LED-maker-ROYGB/module(color, voltage)
+  net (status-led.in in)
+  net (status-led.out out)
+
+  ; place the test-LED module and the testpoint in a linear array in the layout
+  val led-module-to-tp-distance = 9.0
+  place(status-led) at loc(0.0, 0.0, 0.0) on Top
+  place(test-pad) at loc(led-module-to-tp-distance, 0.0) on Top
   self
 
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
-defn generate-test-leds-array (in-pins:Tuple<JITXObject>, gnd-pin:JITXObject) :
+defn generate-test-leds-array (in-pins:Tuple<Net>, gnd-pin:JITXObject, voltage:Toleranced) :
   inside pcb-module :
-    val colors:Seq<String> = generate-rainbow(length(in-pins))
+    val colors:Seq<components/LED-maker-ROYGB/LED-COLORS> = generate-rainbow(length(in-pins))
     for (in-pin in in-pins, color in colors, place in 0 to false) do :
       ; create test LED and connect it
-      inst test-led : generate-test-led(to-string(ref(in-pin)), color)
+      inst test-led : generate-test-led(voltage, to-string(ref(in-pin)), color)
       net (in-pin test-led.in)
       net (gnd-pin test-led.out)
+
       ; place components
-      val res-to-led-distance = 1.8
-      val tp-to-res-distance = 3.0
       val x-module-height = 1.9
-      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0) - 3.0 ; subtract an extra bit to make up for the size of the entire test-led submodule
+      val x-start = (((to-double(length(in-pins))) * x-module-height) / -2.0); subtract an extra bit to make up for the size of the entire test-led submodule
       val x-pos = x-start + (to-double(place) * x-module-height)
       val y-module-height = 1.6
-      val y-start-height = -1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)
-      val y-height = (to-double(place) * y-module-height) + y-start-height
-      place(test-led.status-led) at loc(x-pos, y-height, 90.0) on Top
-      place(test-led.ballast-res) at loc(x-pos + res-to-led-distance, y-height, 270.0) on Top
-      place(test-led.tp-pad) at loc(x-pos + res-to-led-distance + tp-to-res-distance, y-height) on Top
+      val y-start-height = (-1.0 * ((to-double(length(in-pins) - 1) * y-module-height) / 2.0)) - (board-height / 7.0)
+      val y-pos = (to-double(place) * y-module-height) + y-start-height
+      place(test-led) at loc(x-pos, y-pos) on Top
 
-; Module to run as a design
+; a rig that plugs a USB cable into both connectors on the main usb cable testing board - this is created to allow us to run checks
+public pcb-module test-rig :
+  inst design-under-test : usb-c-cable-tester-module
+  inst usb-c-cable : usb-c-cable-module
+  net IN (design-under-test.in-usb.usb-c-pinout usb-c-cable.in-usb-bundle)
+  net OUT (design-under-test.out-usb.usb-c-pinout usb-c-cable.out-usb-bundle)
+  check-design(self)
+
+; a component that models a usb cable
+public pcb-module usb-c-cable-module:
+  port in-usb-bundle : ocdb/components/xkb/U263-241N-4BQC11-1/usb-c-bundle
+  port out-usb-bundle : ocdb/components/xkb/U263-241N-4BQC11-1/usb-c-bundle
+  net (in-usb-bundle out-usb-bundle)
+
 pcb-module usb-c-cable-tester-module :
+  ; define pins to expose from our module
   pin gnd
   pin power
 
+  ; define nets
   net GND (gnd)
   net POWER (power)
 
-  val battery-capacity = 90.0 ;mAh
-
   ; draw a version number and date on the board silkscreen
   val mydate:String = get-time-string("%Y-%m-%d")
-  inst version-label  : ocdb/artwork/board-text/version-silkscreen(append("Version 0.1 ", mydate)) ; make a version label text on silkscreen
+  inst version-label  : ocdb/artwork/board-text/version-silkscreen(to-string("USB-C Cable Tester | Version 0.1 %_" % [get-time-string("%Y-%m-%d")])) ; make a version label text on silkscreen
   place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom ; place the version label text at specified location
 
   ; setup logo
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
 
-  ; create USB connectors
-  val usb-shift = 8.2
-  inst in-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component
-  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-shift, 3.0, 270.0) on Top
-  inst out-usb : ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/component;
-  place(out-usb) at loc((width(board-shape) / 2.0) - usb-shift, -3.0, 90.0) on Top
-
-  ; create virtual voltage output from out-usb so checks can run
-  val voltage = typ(3.0)
-  for my-pin in pins(out-usb) do :
-    property(my-pin.power-supply-pin) = PowerSupplyPin(voltage, battery-capacity / 1000.0) ; for a 1C battery
-    property(my-pin.voltage) = voltage
-
-  ; create coin cell battery
+  ; create a coin cell battery
+  val battery-capacity = 90.0 ;mAh
   inst battery : ocdb/components/q-n-j/CR2032-BS-6-1/component(battery-capacity)
   net (POWER battery.power.vdd)
   net (GND battery.power.gnd)
-  place(battery) at loc(0.0, 0.0, 270.0) on Bottom
+  val battery-y = board-height / 3.5
+  val battery-x = board-width / -7.0
+  place(battery) at loc(battery-x, battery-y, 90.0) on Top
 
-  ; set symbols of some nets
-  symbol(GND) = ocdb/utils/symbols/ground-sym
-
-  ; run checks on the design
-  check-design(self)
+  ; create USB connectors
+  val usb-x-shift = 8.0
+  val usb-y-shift = -10.0
+  public inst in-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
+  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-x-shift, usb-y-shift, 0.0) on Top
+  public inst out-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
+  place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 0.0) on Top
 
   ; make nets for all of the pins on the usb C that we want to test
-  val pin-to-net-name-map = HashTable<Ref, JITXObject>()
-  net VBUS-net (out-usb.VBUS)
-  pin-to-net-name-map[ref(out-usb.VBUS)] = VBUS-net
-  net CC1-net (out-usb.CC1)
-  pin-to-net-name-map[ref(out-usb.CC1)] = CC1-net
-  net CC2-net (out-usb.CC2)
-  pin-to-net-name-map[ref(out-usb.CC2)] = CC2-net
-  net DP1-net (out-usb.DP1)
-  pin-to-net-name-map[ref(out-usb.DP1)] = DP1-net
-  net DN1-net (out-usb.DN1)
-  pin-to-net-name-map[ref(out-usb.DN1)] = DN1-net
-  net DP2-net (out-usb.DP2)
-  pin-to-net-name-map[ref(out-usb.DP2)] = DP2-net
-  net DN2-net (out-usb.DN2)
-  pin-to-net-name-map[ref(out-usb.DN2)] = DN2-net
-  net SBU1-net (out-usb.SBU1)
-  pin-to-net-name-map[ref(out-usb.SBU1)] = SBU1-net
-  net SBU2-net (out-usb.SBU2)
-  pin-to-net-name-map[ref(out-usb.SBU2)] = SBU2-net
-  net GND-net (out-usb.GND)
-  pin-to-net-name-map[ref(out-usb.GND)] = GND-net
-  net SHIELD-net (out-usb.SHIELD)
-  pin-to-net-name-map[ref(out-usb.SHIELD)] = SHIELD-net
+  net VBUS (out-usb.usb-c-pinout.VBUS) ; for each pin of the USB, we make a net
+  net GND-usb (out-usb.usb-c-pinout.GND)
+  net SHIELD (out-usb.usb-c-pinout.shield)
+  net SBU2 (out-usb.usb-c-pinout.SBU2)
+  net SBU1 (out-usb.usb-c-pinout.SBU1)
+  net DN2 (out-usb.usb-c-pinout.DN2)
+  net DP2 (out-usb.usb-c-pinout.DP2)
+  net DN1 (out-usb.usb-c-pinout.DN1)
+  net DP1 (out-usb.usb-c-pinout.DP1)
+  net CC2 (out-usb.usb-c-pinout.CC2)
+  net CC1 (out-usb.usb-c-pinout.CC1)
+  net SSTXP1 (out-usb.usb-c-pinout.SSTXP1)
+  net SSTXN1 (out-usb.usb-c-pinout.SSTXN1)
+  net SSRXP1 (out-usb.usb-c-pinout.SSRXP1)
+  net SSRXN1 (out-usb.usb-c-pinout.SSRXN1)
+  net SSTXP2 (out-usb.usb-c-pinout.SSTXP2)
+  net SSTXN2 (out-usb.usb-c-pinout.SSTXN2)
+  net SSRXP2 (out-usb.usb-c-pinout.SSRXP2)
+  net SSRXN2 (out-usb.usb-c-pinout.SSRXN2)
 
   ; get all pins of the USB, and order them based on how they physically appear
   val ordered-pins = get-pins-physically-ordered(out-usb)
-  val ordered-net-names = 
-    for my-pin in ordered-pins seq? :
-      if key?(pin-to-net-name-map, ref(my-pin)) :
-        One(pin-to-net-name-map[ref(my-pin)])
-      else :
-        None()
+
+  ; convert from ordered list of pins to ordered list of nets
+  val ordered-nets = map(get-named-net{self, _}, ordered-pins)
 
   ; generate an array of test LEDs for each net we just made
-  generate-test-leds-array(to-tuple(ordered-net-names), GND)
+  generate-test-leds-array(ordered-nets, GND, property(battery.power.vdd.voltage))
 
   ; connect all pins of in-usb to power
   net (POWER pins(in-usb))
 
-  check-design(self)
+  ; set symbols of some nets
+  symbol(GND) = ocdb/utils/symbols/ground-sym
+
+  ; add mounting holes to corners of the board
+  add-mounting-holes(board-shape, "M2", [])
 
 ; Setup board
 set-design-directory("CAD") ; set which directly we will save to
-set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
+set-board(ocdb/utils/defaults/default-board(jlcpcb-jlc-2layer, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
 ; Run checks
-run-check-on-design(usb-c-cable-tester-module)
+run-check-on-design(test-rig)
 
-; transform the design so all testpoints are labelled
 set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
 
 ; Export to CAD
-export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
+; export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
+update-design()
 
 ; View the results
 view-board()

@@ -1,0 +1,9 @@
+(footprint TEXT_LP_5 (version 20211014) (generator jitx) (layer F.Cu)
+  (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_text user "GND-usb" (at 0.0 0.0 0.0) (layer F.SilkS) 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_line (start -3.5360104 0.6) (end 3.5360104 0.6) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 3.5360104 0.6) (end 3.5360104 -0.6) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 3.5360104 -0.6) (end -3.5360104 -0.6) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -3.5360104 -0.6) (end -3.5360104 0.6) (layer F.CrtYd) (width 0.05)))

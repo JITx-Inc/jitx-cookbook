@@ -1,0 +1,9 @@
+(footprint TEXT_LP_14 (version 20211014) (generator jitx) (layer F.Cu)
+  (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_text user "DN2" (at 0.0 0.0 0.0) (layer F.SilkS) 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) (justify left)))
+  (fp_line (start -1.593266 0.6) (end 1.593266 0.6) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 1.593266 0.6) (end 1.593266 -0.6) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 1.593266 -0.6) (end -1.593266 -0.6) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -1.593266 -0.6) (end -1.593266 0.6) (layer F.CrtYd) (width 0.05)))

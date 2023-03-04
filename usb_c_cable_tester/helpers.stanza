@@ -5,8 +5,12 @@
 #use-added-syntax(jitx)
 defpackage helpers :
   import core
+  import collections
+  import lang-utils
+
   import jitx
   import jitx/commands
+
   import ocdb/utils/checks
   import ocdb/utils/generic-components
 
@@ -22,10 +26,15 @@ public defn run-check-on-design (circuit:Instantiable) :
 ; ====================
 ; Actual Export design
 ; ====================
+val export-field-mapping = [
+  "LCSC" => "LCSC"
+  "lcsc" => "LCSC"
+  "vendor_part_numbers.lcsc" => "LCSC"
+]
 defn export-to-cad () :
   set-paper(ANSI-A4)
   set-export-backend(`kicad)
-  export-cad()
+  export-cad(export-field-mapping)
 
 ; ====================
 ; Export design to CAD
@@ -55,20 +64,46 @@ defstruct PinPos :
   y-loc: Double
   my-pin: JITXObject
 
+defn snake-pin-sort (comp:JITXObject, pinposes:Tuple<PinPos>) -> Tuple<PinPos> :
+  ; extract only the SMD pads (ignore TH)
+  val smd-poses = to-tuple $
+    for pos in pinposes filter : ; use a filter, which will only return the items which match our conditional
+      get-pad-type(comp, property(my-pin(pos).pads)[0]) == SMD
+
+  ; get groups (which represent rows of pins) based on y location
+  val poses-by-y-loc = group-by(y-loc, smd-poses)
+
+  ; sort each group/row based on x location
+  val sorted-rows = qsort(key, poses-by-y-loc)
+  
+  ; switching direction every other group to "snake"
+  to-tuple $
+    for ([y-loc, pin-poses] in kvs(sorted-rows), row-num in 0 to false) seq-cat : ; [y-loc, pin-poses] is an unpacking of the {key : values} in sorted-rows
+      ; sort each row, reversing the order of every other row order so we "snake" through the pins
+      val sorted-poses = qsort(x-loc, pin-poses)
+      if row-num % 2 != 0 :
+        sorted-poses
+      else :
+        in-reverse(sorted-poses)
+
 public defn get-pins-physically-ordered (comp:JITXObject) -> Tuple<JITXObject> :
   ; get all of the pins in the components
   val pins-list = pins(comp)
-  ; order the pins based on pad position
-  val sorted-pin-pos = qsort{x-loc, _} $
+  ; use the PinPos object above to pack together our pins and pin locations
+  val pin-pos = 
     ; get a map of pins to pad locations
     for my-pin in pins-list seq :
       val pad-pos = center(get-pad-pose(comp, property(my-pin.pads)[0]))
       PinPos(x(pad-pos), y(pad-pos), my-pin)
+  val pin-pos-tuple = to-tuple(pin-pos)
+  ; order the pins based on pad position in a counterclockwise fashion
+  val sorted-pin-pos = snake-pin-sort(comp, pin-pos-tuple)
   ; extract just the pins from the sorted list
   val sorted-pins = 
     for pin-pos in sorted-pin-pos seq : 
       my-pin(pin-pos)
-  to-tuple(sorted-pins)
+  val sorted-pins-tuple = to-tuple(sorted-pins)
+  sorted-pins-tuple
  
 ; get the location of a pad
 defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
@@ -81,3 +116,43 @@ defn get-pad-pose (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -
       pose(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads))
     (pad-num:False) :
       pose(find!({ref(_) == pad-ref}, landpattern-pads))
+
+; get the type of a pad
+defn get-pad-type (obj:JITXObject, pad-ref:VarRef|IndexRef) : 
+  get-pad-type(obj, pad-ref, false) 
+
+defn get-pad-type (obj:JITXObject, pad-ref:VarRef|IndexRef, pad-num:Int|False) -> PadType: 
+  val landpattern-pads = pads( landpattern(instance-definition(obj)) )
+  match(pad-num) :
+    (pad-num:Int) :
+      pad-type(pad(find!({ref(_) == Ref(pad-ref)[pad-num]}, landpattern-pads)))
+    (pad-num:False) :
+      pad-type(pad(find!({ref(_) == pad-ref}, landpattern-pads)))
+
+; given a module and a pin that exists within that module, find the named net which that pin is connected to
+public defn get-named-net (my-module: Instantiable|Self, my-pin:JITXObject) -> Net :
+  ; for every connected item in the module, check if any of its pins are the pins we're looking for. If so, look at every net that pin is connected to, and return the first named net
+  all-connected-items(my-module) $> find!{contains?{component-pins(_), my-pin}, _}
+                                 $> find!{{ref?(_) is Ref}, nets(_)}
+
+pcb-material copper :
+  type = Conductor
+  name = "Copper"
+  
+pcb-material core :
+  type = Dielectric
+  dielectric-coefficient = 4.26
+  name = "PR4 Core"
+
+pcb-material soldermask :
+  type = Dielectric
+  dielectric-coefficient = 3.9
+  name = "Taiyo BSN4000"
+
+public pcb-stackup jlcpcb-jlc-2layer:
+  name = "JLCPCB 2-layer 1.6mm"
+  layer(0.019, soldermask) ; 0.5mil over conductor
+  layer(0.035, copper) 
+  layer(1.2650, core)
+  layer(0.035, copper) 
+  layer(0.019, soldermask) ; 0.5mil over conductor
