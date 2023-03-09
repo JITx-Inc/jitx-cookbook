@@ -15,8 +15,8 @@ defpackage main :
   import ocdb/utils/generic-components
   import ocdb/utils/generator-utils
   import helpers
-  ; import components/LED-maker-ROYGB/LED-COLORS
   import components/LED-maker-ROYGB
+  import ocdb/utils/bundles
 
 ; define parameters of the board
 val board-width = 65.0
@@ -94,8 +94,8 @@ public pcb-module test-rig :
 
 ; a component that models a usb cable
 public pcb-module usb-c-cable-module:
-  port in-usb-bundle : ocdb/components/xkb/U263-241N-4BQC11-1/usb-c-bundle
-  port out-usb-bundle : ocdb/components/xkb/U263-241N-4BQC11-1/usb-c-bundle
+  port in-usb-bundle : ocdb/utils/bundles/usb-c-full-bundle
+  port out-usb-bundle : ocdb/utils/bundles/usb-c-full-bundle
   net (in-usb-bundle out-usb-bundle)
 
 pcb-module usb-c-cable-tester-module :
@@ -126,12 +126,14 @@ pcb-module usb-c-cable-tester-module :
   place(battery) at loc(battery-x, battery-y, 90.0) on Top
 
   ; create USB connectors
-  val usb-x-shift = 8.0
-  val usb-y-shift = -10.0
-  public inst in-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
-  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-x-shift, usb-y-shift, 0.0) on Top
-  public inst out-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
-  place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 0.0) on Top
+  val usb-x-shift = 4.0
+  val usb-y-shift = -7.0
+  ; public inst in-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
+  public inst in-usb : components/USB-C-1054500101/component
+  place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-x-shift, usb-y-shift, -90.0) on Top
+  ; public inst out-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
+  public inst out-usb : components/USB-C-1054500101/component
+  place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 90.0) on Top
 
   ; make nets for all of the pins on the usb C that we want to test
   net VBUS (out-usb.usb-c-pinout.VBUS) ; for each pin of the USB, we make a net

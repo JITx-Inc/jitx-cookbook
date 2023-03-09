@@ -1,0 +1,301 @@
+#use-added-syntax(jitx)
+defpackage components/USB-C-1054500101 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+
+pcb-pad oval-th-pad-1 :
+  type = TH
+  shape = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.65, 1.700481, loc(0.0, 0.0))
+
+pcb-pad oval-th-pad-2 :
+  type = TH
+  shape = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.65, 1.725463, loc(0.0, 0.0))
+
+pcb-pad oval-th-pad-3 :
+  type = TH
+  shape = Capsule(1.2, 2.7, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.2, 2.7, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.2, 2.7, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.65, 2.1755, loc(0.0, 0.0))
+
+pcb-pad oval-th-pad-4 :
+  type = TH
+  shape = Capsule(1.2, 2.6, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.2, 2.6, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.2, 2.6, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.65, 2.1755, loc(0.0, 0.0))
+
+pcb-pad rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(0.3, 0.7)
+  layer(Paste(Top)) = Rectangle(0.3, 0.7)
+  layer(SolderMask(Top)) = Rectangle(0.3, 0.7)
+
+pcb-pad rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(1.0, 0.7)
+  layer(Paste(Top)) = Rectangle(1.0, 0.7)
+  layer(SolderMask(Top)) = Rectangle(1.0, 0.7)
+
+public pcb-landpattern MOLEX10545001011 :
+  pad A1 : rect-smd-pad-1 at loc(-3.0, 3.77) on Top
+  pad A10 : rect-smd-pad-1 at loc(2.0, 3.77) on Top
+  pad A11 : rect-smd-pad-1 at loc(2.5, 3.77) on Top
+  pad A12 : rect-smd-pad-1 at loc(3.0, 3.77) on Top
+  pad A2 : rect-smd-pad-1 at loc(-2.5, 3.77) on Top
+  pad A3 : rect-smd-pad-1 at loc(-2.0, 3.77) on Top
+  pad A4 : rect-smd-pad-1 at loc(-1.5, 3.77) on Top
+  pad A5 : rect-smd-pad-1 at loc(-1.0, 3.77) on Top
+  pad A6 : rect-smd-pad-1 at loc(-0.5, 3.77) on Top
+  pad A7 : rect-smd-pad-1 at loc(0.5, 3.77) on Top
+  pad A8 : rect-smd-pad-1 at loc(1.0, 3.77) on Top
+  pad A9 : rect-smd-pad-1 at loc(1.5, 3.77) on Top
+  pad B1 : rect-smd-pad-2 at loc(3.1, 2.47) on Top
+  pad B10 : rect-smd-pad-1 at loc(-1.75, 2.47) on Top
+  pad B11 : rect-smd-pad-1 at loc(-2.25, 2.47) on Top
+  pad B12 : rect-smd-pad-2 at loc(-3.1, 2.47) on Top
+  pad B2 : rect-smd-pad-1 at loc(2.25, 2.47) on Top
+  pad B3 : rect-smd-pad-1 at loc(1.75, 2.47) on Top
+  pad B4 : rect-smd-pad-1 at loc(1.25, 2.47) on Top
+  pad B5 : rect-smd-pad-1 at loc(0.75, 2.47) on Top
+  pad B6 : rect-smd-pad-1 at loc(0.25, 2.47) on Top
+  pad B7 : rect-smd-pad-1 at loc(-0.25, 2.47) on Top
+  pad B8 : rect-smd-pad-1 at loc(-0.75, 2.47) on Top
+  pad B9 : rect-smd-pad-1 at loc(-1.25, 2.47) on Top
+  pad S1 : oval-th-pad-1 at loc(-4.32, 3.36) on Top
+  pad S2 : oval-th-pad-2 at loc(4.32, 3.36) on Top
+  pad S3 : oval-th-pad-3 at loc(-4.32, -2.0) on Top
+  pad S4 : oval-th-pad-4 at loc(4.32, -2.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-5.22, 4.71), 
+    Point(5.22, 4.71), 
+    Point(5.22, -4.2), 
+    Point(-5.22, -4.2)])
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.003598, C, loc(-1.899125, 6.992835), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.003504, C, loc(5.748805, -5.717805), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [Point(-4.47, -0.3), Point(-4.47, 1.9)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [Point(-4.47, -3.77), Point(4.47, -3.77)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [Point(4.47, -0.3), Point(4.47, 1.9)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.2, [Arc(-3.048, 5.08, 0.1, 0.0, 360.0)])
+  layer(Finish(Top)) = Line(0.127, [Point(-4.47, 3.95), Point(-4.47, -3.95)])
+  layer(Finish(Top)) = Line(0.127, [Point(-4.47, -3.95), Point(4.47, -3.95)])
+  layer(Finish(Top)) = Line(0.127, [Point(4.47, 3.95), Point(-4.47, 3.95)])
+  layer(Finish(Top)) = Line(0.127, [Point(4.47, -3.95), Point(4.47, 3.95)])
+  layer(Finish(Top)) = Polyline(0.2, [Arc(-3.048, 5.08, 0.1, 0.0, 360.0)])
+  layer(ForbidCopper(LayerIndex(0), LayerIndex(0))) = Polygon([
+    Point(145.85, 115.754), 
+    Point(152.85, 115.754), 
+    Point(152.85, 121.404), 
+    Point(145.85, 121.404)])
+  layer(ForbidVia()) = Polygon([
+    Point(145.85, 115.754), 
+    Point(152.85, 115.754), 
+    Point(152.85, 121.404), 
+    Point(145.85, 121.404)])
+  layer(ForbidVia()) = Polygon([
+    Point(145.85, 115.754), 
+    Point(152.85, 115.754), 
+    Point(152.85, 121.404), 
+    Point(145.85, 121.404)])
+
+public pcb-symbol USB-C-1054500101 :
+  pin RX2- at Point(-12.7, -5.08) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin RX2+ at Point(-12.7, -7.62) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin GND_A at Point(-12.7, -10.16) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin TX1+ at Point(-12.7, 10.16) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin TX1- at Point(-12.7, 7.62) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin CC1 at Point(-12.7, 5.08) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin D1+ at Point(-12.7, 2.54) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin D1- at Point(-12.7, 0.0) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin SBU1 at Point(-12.7, -2.54) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin VBUS_A at Point(-12.7, 12.7) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin RX1- at Point(12.7, 7.62) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin RX1+ at Point(12.7, 10.16) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin GND_B at Point(12.7, -10.16) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin TX2+ at Point(12.7, -7.62) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin TX2- at Point(12.7, -5.08) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin CC2 at Point(12.7, -2.54) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin D2+ at Point(12.7, 0.0) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin D2- at Point(12.7, 2.54) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin SBU2 at Point(12.7, 5.08) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin VBUS_B at Point(12.7, 12.7) with :
+    direction = Right
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+  pin SHIELD at Point(-12.7, -15.24) with :
+    direction = Left
+    length = 5.08
+    number-size = 1.016
+    name-size = 1.016
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(-12.7, 16.002), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(-12.7, -18.542), "", TrueTypeFont)
+  layer("foreground") = Rectangle(25.4, 33.02, loc(0.0, -1.27))
+
+public pcb-component component :
+  port usb-c-pinout : usb-c-full-bundle
+  pin-properties :
+    [pin:Ref | pads:Ref ...            | side:Dir | electrical-type:String]
+    [usb-c-pinout.SSRXN2 | A10 | Left | "Bidirectional"]
+    [usb-c-pinout.SSRXP2 | A11 | Left | "Bidirectional"]
+    [usb-c-pinout.GND    | A12 A1 B12 B1 | Left | "PowerIn"]
+    [usb-c-pinout.SSTXP1 | A2 | Left | "Bidirectional"]
+    [usb-c-pinout.SSTXN1 | A3 | Left | "Bidirectional"]
+    [usb-c-pinout.CC1    | A5 | Left | "Bidirectional"]
+    [usb-c-pinout.DP1    | A6 | Left | "Bidirectional"]
+    [usb-c-pinout.DN1    | A7 | Left | "Bidirectional"]
+    [usb-c-pinout.SBU1   | A8 | Left | "Bidirectional"]
+    [usb-c-pinout.VBUS   | A9 A4 B9 B4 | Left | "PowerIn"]
+    [usb-c-pinout.SSRXN1 | B10 | Right | "Bidirectional"]
+    [usb-c-pinout.SSRXP1 | B11 | Right | "Bidirectional"]
+    ; [usb-c-pinout.GND    | B12 B1 | Right | "PowerIn"]
+    [usb-c-pinout.SSTXP2 | B2 | Right | "Bidirectional"]
+    [usb-c-pinout.SSTXN2 | B3 | Right | "Bidirectional"]
+    [usb-c-pinout.CC2    | B5 | Right | "Bidirectional"]
+    [usb-c-pinout.DP2    | B6 | Right | "Bidirectional"]
+    [usb-c-pinout.DN2    | B7 | Right | "Bidirectional"]
+    [usb-c-pinout.SBU2   | B8 | Right | "Bidirectional"]
+    ; [usb-c-pinout.VBUS   | B9 B4 | Right | "PowerIn"]
+    [usb-c-pinout.shield | S4 S3 S2 S1 | Left | "Passive"]
+
+    ; [usb-c-pinout.SSRXN1          RX2- | A10 | Left | "Bidirectional"]
+    ; [usb-c-pinout.SSRXP2          RX2+ | A11 | Left | "Bidirectional"]
+    ; [usb-c-pinout.GND             GND_A | A12 A1 | Left | "PowerIn"]
+    ; [usb-c-pinout.SSTXP1          TX1+ | A2 | Left | "Bidirectional"]
+    ; [usb-c-pinout.SSTXN1          TX1- | A3 | Left | "Bidirectional"]
+    ; [usb-c-pinout.CC1             CC1 | A5 | Left | "Bidirectional"]
+    ; [usb-c-pinout.DP1 D1+ | A6 | Left | "Bidirectional"]
+    ; [usb-c-pinout.DN1 D1- | A7 | Left | "Bidirectional"]
+    ; [usb-c-pinout.SBU1 SBU1 | A8 | Left | "Bidirectional"]
+    ; [usb-c-pinout.VBUS VBUS_A | A9 A4 | Left | "PowerIn"]
+    ; [usb-c-pinout.SSRXN1 RX1- | B10 | Right | "Bidirectional"]
+    ; [usb-c-pinout.SSRXP1 RX1+ | B11 | Right | "Bidirectional"]
+    ; [usb-c-pinout.GND GND_B | B12 B1 | Right | "PowerIn"]
+    ; [usb-c-pinout.SSTXP2 TX2+ | B2 | Right | "Bidirectional"]
+    ; [usb-c-pinout.SSTXP1 TX2- | B3 | Right | "Bidirectional"]
+    ; [usb-c-pinout.CC2 CC2 | B5 | Right | "Bidirectional"]
+    ; [usb-c-pinout.DP2 D2+ | B6 | Right | "Bidirectional"]
+    ; [usb-c-pinout.DN2 D2- | B7 | Right | "Bidirectional"]
+    ; [usb-c-pinout.SBU2 SBU2 | B8 | Right | "Bidirectional"]
+    ; [usb-c-pinout.VBUS VBUS_B | B9 B4 | Right | "PowerIn"]
+    ; [usb-c-pinout.shield SHIELD | S4 S3 S2 S1 | Left | "Passive"]
+
+
+
+    ; [usb-c-pinout.VBUS | A4  A9  B9 B4 | Left ]
+    ; [usb-c-pinout.CC1 | A5 | Right ]
+    ; [usb-c-pinout.CC2 | B5 | Left ]
+    ; [usb-c-pinout.DP1 | A6 | Right ]
+    ; [usb-c-pinout.DN1 | A7 | Right ]
+    ; [usb-c-pinout.DP2 | B6 | Left ]
+    ; [usb-c-pinout.DN2 | B7 | Left ]
+    ; [usb-c-pinout.SBU1 | A8 | Right ]
+    ; [usb-c-pinout.SBU2 | B8 | Left ]
+    ; [usb-c-pinout.GND | A12 B1 A1 B12 | Left ]
+    ; [usb-c-pinout.shield | p[25] p[26] p[27] p[28] | Down ]
+    ; [usb-c-pinout.SSTXP1 | A2 | Right ]
+    ; [usb-c-pinout.SSTXN1 | A3 | Right ]
+    ; [usb-c-pinout.SSRXP1 | B11 | Left ]
+    ; [usb-c-pinout.SSRXN1 | B10 | Left ]
+    ; [usb-c-pinout.SSRXP2 | A11 | Right ]
+    ; [usb-c-pinout.SSRXN2 | A10 | Right ]
+    ; [usb-c-pinout.SSTXP2 | B2 | Left ]
+    ; [usb-c-pinout.SSTXN2 | B3 | Left ]
+
+  assign-landpattern(MOLEX10545001011)
+  ; assign-symbol(USB-C-1054500101)
+  make-box-symbol()
+
+  property(self.MANUFACTURER) = "Molex"
+  property(self.MAXIMUM_PACKAGE_HEIGHT) = "3.24mm"
+  property(self.PARTREV) = "A7"
+  property(self.STANDARD) = "Manufacturer Recommendations"
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1811131824_MOLEX-1054500101_C134092.pdf"
