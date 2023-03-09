@@ -179,11 +179,10 @@ First, we'll create the battery manager submodule, and start connecting it:
   net (battery-manager.gnd GND)
 ```
 
-Then, let's create a JST connector for our battery input, and connect that to the battery charger (see the full [Github repo](https://github.com/JITx-Inc/jitx-cookbook/tree/main/battery_charger_design) for this component definition):
+Then, let's create a JST connector for our battery input, and connect that to the battery charger (see the full [Github repo](https://github.com/JITx-Inc/jitx-cookbook/tree/main/battery_charger_design) for this component definition). We will load in a JST connector that we created and placed in the components directory:
 ```
   ; create battery JST connector, connect it
   inst battery-connector : components/PH2_0-2PWB/component 
-> [where does this come from?]
   net (battery-connector.gnd gnd)
   net (battery-connector.power battery-manager.bat+)
 ```
