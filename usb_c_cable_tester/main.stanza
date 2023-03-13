@@ -136,25 +136,10 @@ pcb-module usb-c-cable-tester-module :
   place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 90.0) on Top
 
   ; make nets for all of the pins on the usb C that we want to test
-  net VBUS (out-usb.usb-c-pinout.VBUS) ; for each pin of the USB, we make a net
-  net GND-usb (out-usb.usb-c-pinout.GND)
-  net SHIELD (out-usb.usb-c-pinout.shield)
-  net SBU2 (out-usb.usb-c-pinout.SBU2)
-  net SBU1 (out-usb.usb-c-pinout.SBU1)
-  net DN2 (out-usb.usb-c-pinout.DN2)
-  net DP2 (out-usb.usb-c-pinout.DP2)
-  net DN1 (out-usb.usb-c-pinout.DN1)
-  net DP1 (out-usb.usb-c-pinout.DP1)
-  net CC2 (out-usb.usb-c-pinout.CC2)
-  net CC1 (out-usb.usb-c-pinout.CC1)
-  net SSTXP1 (out-usb.usb-c-pinout.SSTXP1)
-  net SSTXN1 (out-usb.usb-c-pinout.SSTXN1)
-  net SSRXP1 (out-usb.usb-c-pinout.SSRXP1)
-  net SSRXN1 (out-usb.usb-c-pinout.SSRXN1)
-  net SSTXP2 (out-usb.usb-c-pinout.SSTXP2)
-  net SSTXN2 (out-usb.usb-c-pinout.SSTXN2)
-  net SSRXP2 (out-usb.usb-c-pinout.SSRXP2)
-  net SSRXN2 (out-usb.usb-c-pinout.SSRXN2)
+  for p in pins(out-usb) do : ; for each pin of the USB, we make a net
+    val pin-ref = ref(p)
+    val pin-name = tail(pin-ref, ref-length(pin-ref) - 1)
+    make-net(to-symbol(pin-name), [p])
 
   ; get all pins of the USB, and order them based on how they physically appear
   val ordered-pins = get-pins-physically-ordered(out-usb)
@@ -170,6 +155,7 @@ pcb-module usb-c-cable-tester-module :
 
   ; set symbols of some nets
   symbol(GND) = ocdb/utils/symbols/ground-sym
+  symbol(POWER) = ocdb/utils/symbols/supply-sym
 
   ; add mounting holes to corners of the board
   add-mounting-holes(board-shape, "M2", [])
@@ -186,7 +172,7 @@ set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a desi
 
 ; Export to CAD
 ; export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!
-update-design()
+; update-design()
 
 ; View the results
 view-board()
