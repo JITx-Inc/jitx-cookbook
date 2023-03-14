@@ -114,7 +114,7 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   ; create ballast resistor
   val brightness = 50.0e-3 ; candella
   val ballast-resistance = compute-ballast-resistor(led, voltage-in, brightness);
-  inst ballast-res : database-part(["category" => "resistor", "resistance" => ballast-resistance, "case" => ["0402"], "_exist" => ["vendor_part_numbers.lcsc"]])
+  inst ballast-res : database-part(["category" => "resistor", "resistance" => ballast-resistance, "case" => ["0402"], "_exist" => ["vendor_part_numbers.lcsc", "rated-temperature"]])
   view-design-explorer $ instance-definition(ballast-res)
 
   ; hook up LEDs, resistors to input and output
