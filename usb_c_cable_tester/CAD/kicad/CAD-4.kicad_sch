@@ -1229,208 +1229,127 @@
     )
   )
 
-  (symbol (lib_id "VBUS") (at 22.225 157.48 0.0) (unit 1)
+  (symbol (lib_id "SSRXN2") (at 22.225 148.59 0.0) (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid f4433f5e-9f0e-c35c-c400-42ced43d7509)
-    (property "Reference" "TXT11" (id 0) (at 19.685 153.578 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "VBUS" (id 1) (at 19.685 154.64 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_18" (id 2) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "VBUS" (id 5) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "VBUS" (id 7) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-
-    (instances
-      (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT11") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "SBU1") (at 22.225 148.59 0.0) (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid 243b932a-42ed-4489-23a4-415183e59fde)
-    (property "Reference" "TXT15" (id 0) (at 19.685 144.688 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "SBU1" (id 1) (at 19.685 145.75 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_12" (id 2) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid b1c28f40-381f-1fac-85ab-d98935d99806)
+    (property "Reference" "TXT16" (id 0) (at 19.685 144.688 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Value" "SSRXN2" (id 1) (at 19.685 145.75 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Footprint" "CAD:TEXT_LP_7" (id 2) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
     (property "Datasheet" "" (id 3) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
       (property "Name" "test-led_my-label" (id 4) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "SBU1" (id 5) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "SSRXN2" (id 5) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
       (property "Manufacturer" "non-BOM" (id 6) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "SBU1" (id 7) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "SSRXN2" (id 7) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
       (property "Reference-prefix" "TXT" (id 8) (at 22.225 148.59 0.0) (effects (font (size 0.762 0.762)) hide))
     
 
     (instances
       (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT15") (unit 1)
+        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/91e21fbe-3b5d-8b85-63ba-f005a1a9262d"
+          (reference "TXT16") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "DN1") (at 22.225 139.7 0.0) (unit 1)
+  (symbol (lib_id "SBU2") (at 22.225 157.48 0.0) (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid 143c3c51-c3f8-e5ed-87e4-0ac2cb462db5)
-    (property "Reference" "TXT14" (id 0) (at 19.685 135.798 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "DN1" (id 1) (at 19.685 136.86 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_5" (id 2) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "DN1" (id 5) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "DN1" (id 7) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid 8be46ceb-f06c-a1e8-e096-4b0457ff3e5c)
+    (property "Reference" "TXT6" (id 0) (at 19.685 153.578 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Value" "SBU2" (id 1) (at 19.685 154.64 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Footprint" "CAD:TEXT_LP_15" (id 2) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "test-led_my-label" (id 4) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "SBU2" (id 5) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "SBU2" (id 7) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "TXT" (id 8) (at 22.225 157.48 0.0) (effects (font (size 0.762 0.762)) hide))
     
 
     (instances
       (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT14") (unit 1)
+        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/91e21fbe-3b5d-8b85-63ba-f005a1a9262d"
+          (reference "TXT6") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "DP1") (at 22.225 130.81 0.0) (unit 1)
+  (symbol (lib_id "Generic_Mounting_Hole") (at 22.225 135.89 0.0) (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid 494667e7-2d61-62a9-f79c-0b53fc33d686)
-    (property "Reference" "TXT13" (id 0) (at 19.685 126.908 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "DP1" (id 1) (at 19.685 127.97 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_17" (id 2) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid d681eaf6-4c54-5156-801a-033a12b7f512)
+    (property "Reference" "U22" (id 0) (at 19.685 133.985 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Value" "" (id 1) (at 22.225 135.89 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Footprint" "CAD:NPTH" (id 2) (at 22.225 135.89 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 22.225 135.89 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "hole" (id 4) (at 22.225 135.89 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "2.3mm mounting hole" (id 5) (at 22.225 135.89 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+
+    (instances
+      (project "CAD"
+        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/91e21fbe-3b5d-8b85-63ba-f005a1a9262d"
+          (reference "U22") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Generic_Mounting_Hole") (at 22.225 140.97 0.0) (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 9c1b23fc-b495-8c9e-b77f-e2ea3238105d)
+    (property "Reference" "U21" (id 0) (at 19.685 139.065 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Value" "" (id 1) (at 22.225 140.97 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Footprint" "CAD:NPTH" (id 2) (at 22.225 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 22.225 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "hole" (id 4) (at 22.225 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "2.3mm mounting hole" (id 5) (at 22.225 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+
+    (instances
+      (project "CAD"
+        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/91e21fbe-3b5d-8b85-63ba-f005a1a9262d"
+          (reference "U21") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Generic_Mounting_Hole") (at 22.225 130.81 0.0) (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid bde6b805-d20a-c836-435e-966d49792b1e)
+    (property "Reference" "U20" (id 0) (at 19.685 128.905 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Value" "" (id 1) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Footprint" "CAD:NPTH" (id 2) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
     (property "Datasheet" "" (id 3) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "DP1" (id 5) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "DP1" (id 7) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "hole" (id 4) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "2.3mm mounting hole" (id 5) (at 22.225 130.81 0.0) (effects (font (size 0.762 0.762)) hide))
     
 
     (instances
       (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT13") (unit 1)
+        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/91e21fbe-3b5d-8b85-63ba-f005a1a9262d"
+          (reference "U20") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "CC1") (at 22.225 121.92 0.0) (unit 1)
+  (symbol (lib_id "Generic_Mounting_Hole") (at 22.225 125.73 0.0) (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid aab25b3f-2cee-5625-3a9c-100bebf9ba40)
-    (property "Reference" "TXT12" (id 0) (at 19.685 118.018 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "CC1" (id 1) (at 19.685 119.08 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_10" (id 2) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "CC1" (id 5) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "CC1" (id 7) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 121.92 0.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid 3cba8d18-9e3c-4279-4253-5b7ef452a662)
+    (property "Reference" "U19" (id 0) (at 19.685 123.825 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Value" "" (id 1) (at 22.225 125.73 0.0) (effects (font (size 0.762 0.762)) (justify left)))
+    (property "Footprint" "CAD:NPTH" (id 2) (at 22.225 125.73 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 22.225 125.73 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "hole" (id 4) (at 22.225 125.73 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "2.3mm mounting hole" (id 5) (at 22.225 125.73 0.0) (effects (font (size 0.762 0.762)) hide))
     
 
     (instances
       (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT12") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "SSTXN1") (at 22.225 113.03 0.0) (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid aadcebb8-790a-3452-56d6-1517a83874fc)
-    (property "Reference" "TXT10" (id 0) (at 19.685 109.128 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "SSTXN1" (id 1) (at 19.685 110.19 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_4" (id 2) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "SSTXN1" (id 5) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "SSTXN1" (id 7) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-
-    (instances
-      (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT10") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "SSTXP1") (at 22.225 104.14 0.0) (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid dafec6c7-2b20-16ac-4080-f0d802961966)
-    (property "Reference" "TXT9" (id 0) (at 19.685 100.238 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "SSTXP1" (id 1) (at 19.685 101.3 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_16" (id 2) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "SSTXP1" (id 5) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "SSTXP1" (id 7) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-
-    (instances
-      (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT9") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "SSRXP1") (at 22.225 95.25 0.0) (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid 2c616e7c-b1b3-df52-f08b-bbcaf70db00c)
-    (property "Reference" "TXT8" (id 0) (at 19.685 91.348 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "SSRXP1" (id 1) (at 19.685 92.41 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_9" (id 2) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "SSRXP1" (id 5) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "SSRXP1" (id 7) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 95.25 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-
-    (instances
-      (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT8") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "SSRXN1") (at 22.225 86.36 0.0) (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid 8730e2e2-4d07-37ab-4d04-c93687e154cd)
-    (property "Reference" "TXT7" (id 0) (at 19.685 82.458 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Value" "SSRXN1" (id 1) (at 19.685 83.52 0.0) (effects (font (size 0.762 0.762)) (justify left)))
-    (property "Footprint" "CAD:TEXT_LP_3" (id 2) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "test-led_my-label" (id 4) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "SSRXN1" (id 5) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "SSRXN1" (id 7) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "TXT" (id 8) (at 22.225 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-
-    (instances
-      (project "CAD"
-        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/36b60b7d-3207-9c5d-08b0-33322f62f823"
-          (reference "TXT7") (unit 1)
+        (path "/d7b12f02-6f94-1ae8-e3ef-e9d55fbda710/91e21fbe-3b5d-8b85-63ba-f005a1a9262d"
+          (reference "U19") (unit 1)
         )
       )
     )

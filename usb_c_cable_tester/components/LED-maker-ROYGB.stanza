@@ -42,31 +42,31 @@ public pcb-component led-component (color:LED-COLORS) :
     RED:
       mpn = "19-21/R6C-FP1Q2L/3T"
       property(self.LCSC) = "C93128"
-      property(self.datasheet) = "https://datasheet.LCSC.com/LCSC/1810010118_Everlight-Elec-19-21-R6C-FP1Q2L-3T_C93128.pdf"
+      property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1810010118_Everlight-Elec-19-21-R6C-FP1Q2L-3T_C93128.pdf"
       property(self.li) = min-max(45.0e-3, 112.0e-3)
       property(self.vf) = min-max(1.7, 2.3)
     ORANGE:
       mpn = "19-217UYOC/S3077/TR8"
       property(self.LCSC) = "C264474"
-      property(self.datasheet) = "https://datasheet.LCSC.com/LCSC/1912111437_Everlight-Elec-19-217UYOC-S3077-TR8_C264474.pdf"
+      property(self.datasheet) = "https://datasheet.LCSC.com/lcsc/1912111437_Everlight-Elec-19-217UYOC-S3077-TR8_C264474.pdf"
       property(self.li) = min-max(28.0e-3, 72.0e-3)
       property(self.vf) = min-max(1.7, 2.4)
     YELLOW:
       mpn = "19-21/Y2C-CN1P2B/3T"
       property(self.LCSC) = "C131265"
-      property(self.datasheet) = "https://datasheet.LCSC.com/LCSC/1811141628_Everlight-Elec-19-21-Y2C-CN1P2B-3T_C131265.pdf"
+      property(self.datasheet) = "https://datasheet.LCSC.com/lcsc/1811141628_Everlight-Elec-19-21-Y2C-CN1P2B-3T_C131265.pdf"
       property(self.li) = min-max(28.5e-3, 72.0e-3)
       property(self.vf) = min-max(1.75, 2.35)
     GREEN:
       mpn = "19-217/GHC-YN1P2B18X/3T"
       property(self.LCSC) = "C2980184"
-      property(self.datasheet) = "https://datasheet.LCSC.com/LCSC/2202101201_Everlight-Elec-19-21-GHC-YR1S2-3T_C2973113.pdf"
+      property(self.datasheet) = "https://datasheet.LCSC.com/lcsc/2202101201_Everlight-Elec-19-21-GHC-YR1S2-3T_C2973113.pdf"
       property(self.li) = min-max(28.5e-3, 72.0e-3)
       property(self.vf) = min-max(2.7, 3.7)
     BLUE:
       mpn = "19-213/BHC-AP2Q2E/3T"
       property(self.LCSC) = "C474027"
-      property(self.datasheet) = "https://datasheet.LCSC.com/LCSC/1912251011_Everlight-Elec-19-213-BHC-AP2Q2E-3T_C474027.pdf"
+      property(self.datasheet) = "https://datasheet.LCSC.com/lcsc/1912251011_Everlight-Elec-19-213-BHC-AP2Q2E-3T_C474027.pdf"
       property(self.li) = min-max(57.0e-3, 112.0e-3)
       property(self.vf) = min-max(2.75, 3.65)
 
@@ -114,7 +114,7 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   ; create ballast resistor
   val brightness = 50.0e-3 ; candella
   val ballast-resistance = compute-ballast-resistor(led, voltage-in, brightness);
-  inst ballast-res : database-part(["category" => "resistor", "resistance" => ballast-resistance, "case" => ["0402"], "_exist" => ["vendor_part_numbers.lcsc"]])
+  inst ballast-res : database-part(["category" => "resistor", "resistance" => ballast-resistance, "case" => ["0402"], "_exist" => ["vendor_part_numbers.lcsc", "rated-temperature"]])
   view-design-explorer $ instance-definition(ballast-res)
 
   ; hook up LEDs, resistors to input and output
@@ -124,7 +124,7 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
 
   ; specify our input voltage range
   property(in.power-pin) = PowerPin(voltage-in)
-  property(in.voltage) = voltage-in
+  ; property(in.voltage) = voltage-in
 
   ; place the LED and resistor relative to each other
   val res-to-led-distance = 3.2
