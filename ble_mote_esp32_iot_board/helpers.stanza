@@ -1,0 +1,52 @@
+; ====================
+; A number of helper functions to check your designs, export to CAD, 
+; update your design in CAD, etc.
+; ====================
+#use-added-syntax(jitx)
+defpackage helpers :
+  import core
+  import collections
+  import lang-utils
+
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/checks
+  import ocdb/utils/generic-components
+
+; ======================
+; Export a design to CAD
+; ======================
+defn export-design (module:Instantiable, shape:Rectangle, directory:String) :
+  set-export-backend(`altium)
+
+  set-design-directory(directory)
+  set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, shape))
+  set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
+  set-main-module(module)
+  export-bill-of-materials()
+  set-config-sets([`groups])
+  export-cad()
+
+; =================
+; Export BOM to tsv
+; =================
+defn export-bill-of-materials () :
+  set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
+  set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
+  export-bom()
+
+; ============
+; Run the code
+; ============
+; compile-design()
+
+; val pico-shape = Rectangle(35.0, 20.0)
+; export-design(sensor-system(ocdb/components/espressif/ESP32-PICO-D4/module, pico-shape)
+;               pico-shape, 
+;               "air-quality-sensor-pico")
+
+; val wroom-shape = Rectangle(45.0, 30.0)
+; export-design(sensor-system(ocdb/components/espressif/esp32-wroom-32/module(ocdb/components/espressif/esp32-wroom-32/ESP32-WROOM-32E-N16), wroom-shape)
+;               wroom-shape, 
+;               "air-quality-sensor-wroom")
