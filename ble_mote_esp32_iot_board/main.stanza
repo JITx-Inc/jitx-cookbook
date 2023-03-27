@@ -53,7 +53,7 @@ pcb-module pms7003 :
   property(header.p[9].digital-input) = 
     DigitalInput(vil, vih, header.p[1], header.p[3], 1.0e-6)
 
-pcb-module sensors :
+pcb-module peripherals :
   port power-3v3 : power
   port debug : uart([UART-DTR UART-RTS UART-RX UART-TX])
   port particle-counter-interface : pms7003-interface
@@ -141,12 +141,12 @@ pcb-module sensors :
 
 
 pcb-module sensor-system (processor:Instantiable, board-outline:Rectangle):
-  inst sensors : sensors
+  inst peripherals : peripherals
   
   val x = width(board-outline) / 2.0
   val y = height(board-outline) / 2.0
-  place(sensors.usb) at loc(4.0 - x, 7.0 - y) on Top
-  place(sensors.particle-counter) at loc(5.0 - x, y - 5.0, 180.0) on Bottom
+  place(peripherals.usb) at loc(4.0 - x, 7.0 - y) on Top
+  place(peripherals.particle-counter) at loc(5.0 - x, y - 5.0, 180.0) on Bottom
 
   inst proc : processor
   net gnd (proc.gnd)
@@ -163,15 +163,16 @@ pcb-module sensor-system (processor:Instantiable, board-outline:Rectangle):
   require i2c:i2c from proc
   require pc-uart:uart() from proc
   require pc-ctrl:gpio[2] from proc
-  net (sensors.debug, proc.uart)
-  net (sensors.power-3v3, proc.power)
-  net (sensors.humidity-i2c i2c)
-  net (sensors.particle-counter-interface.uart  pc-uart)
-  net (sensors.particle-counter-interface.set   pc-ctrl[0].gpio)
-  net (sensors.particle-counter-interface.reset pc-ctrl[1].gpio)
+  net (peripherals.debug, proc.uart)
+  net (peripherals.power-3v3, proc.power)
+  net (peripherals.humidity-i2c i2c)
+  net (peripherals.particle-counter-interface.uart  pc-uart)
+  net (peripherals.particle-counter-interface.set   pc-ctrl[0].gpio)
+  net (peripherals.particle-counter-interface.reset pc-ctrl[1].gpio)
 
   ; Add a BRIGHT 60.0mcd RGB led indicator to the processor (to be visible outside)
-  val rgb = add-rgb-indicator(60.0, proc, sensors.power-3v3.vdd)
+  val rgb = add-rgb-indicator(60.0, proc, peripherals.power-3v3.vdd)
+
   ; Add a ground plane
   geom(gnd):
     copper-pour(LayerIndex(1), isolate = 0.1, rank = 1) = board-outline
