@@ -95,7 +95,7 @@ pcb-module battery-manager-module :
   check-design(self)
 
 ; Setup board
-set-design-directory("CAD") ; set which directly we will save to
+set-current-design("battery_charger_design") ; set which directly we will save to
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 

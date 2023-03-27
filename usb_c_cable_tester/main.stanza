@@ -161,7 +161,7 @@ pcb-module usb-c-cable-tester-module :
   add-mounting-holes(board-shape, "M2", [])
 
 ; Setup board
-set-design-directory("CAD") ; set which directly we will save to
+set-current-design("usb_c_cable_tester") ; set which directly we will save to
 set-board(ocdb/utils/defaults/default-board(jlcpcb-jlc-2layer, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
