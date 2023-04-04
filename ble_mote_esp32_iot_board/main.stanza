@@ -190,7 +190,7 @@ pcb-module sensor-system (processor:Instantiable, board-outline:Rectangle):
 val board-outline = Rectangle(45.0, 30.0)
 
 ; setup the board
-set-design-directory("CAD")
+set-current-design("ble_mote_esp32_iot_board")
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-outline))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
