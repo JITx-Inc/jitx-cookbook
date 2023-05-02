@@ -1,0 +1,510 @@
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+DRAMl,,,,,,,,,
+T17,SA0,DRAM,I/O,Z a,-,-,,,
+U18,SA1,DRAM,I/O,Z,-,-,,,
+V19,SA2,DRAM,I/O,Z ti,-,-,,,
+V20,SA3,DRAM,I/O,Z,-,-,,,
+V21,SA4,DRAM,I/O,Z n,-,-,,,
+Y19,SA5,DRAM,I/O,Z,-,-,,,
+Y20,SA6,DRAM,I/O de,Z,-,-,,,
+V15,SA7,DRAM,I/O,Z,-,-,,,
+W18,SA8,DRAM,I/O i,Z,-,-,,,
+Y18,SA9,DRAM f,I/O,Z,-,-,,,
+P19,SA10,DRAM,I/O,Z,-,-,,,
+N19,SA11,DRAM on,I/O,Z,-,-,,,
+R18,SA12,DRAM,I/O,Z,-,-,,,
+V12,SA13,DRAM,I/O,Z,-,-,,,
+N17,SA14,DRAM c,I/O,Z,-,-,,,
+R17,SA15,DRAM,I/O,Z,-,-,,,
+W17,SBA0,DRAM,O,Z,-,-,,,
+T18,SBA1,DRAM,O,Z,-,-,,,
+V17,SBA2,DRAM,O,Z,-,-,,,
+U15,SCAS,DRAM,O,Z,-,-,,,
+AA19,SCK,DRAM,O,Z,-,-,,,
+AA20,SCKB,DRAM,O,Z,-,-,,,
+AA21,SCKE0,DRAM,O,Z,-,-,,,
+Y21,SCKE1,DRAM,O,Z,-,-,,,
+W20,SCS0,DRAM,O,Z,-,-,,,
+W21,SCS1,DRAM,O,Z,-,-,,,
+N20,SDQ0,DRAM,I/O,Z,-,-,,,
+P21,SDQ1,DRAM,I/O,Z,-,-,,,
+P20,SDQ2,DRAM,I/O,Z,-,-,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 66",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+U21,SDQ3,DRAM,I/O,Z,-,-,,,
+R19,SDQ4,DRAM,I/O,Z,-,-,,,
+T20,SDQ5,DRAM,I/O,Z,-,-,,,
+U19,SDQ6,DRAM,I/O,Z,-,-,,,
+U20,SDQ7,DRAM,I/O,Z,-,-,,,
+J19,SDQ8,DRAM,I/O,Z,-,-,,,
+H20,SDQ9,DRAM,I/O,Z,-,-,,,
+H21,SDQ10,DRAM,I/O,Z,-,-,,,
+J21,SDQ11,DRAM,I/O,Z,-,-,,,
+L20,SDQ12,DRAM,I/O,Z,-,-,,,
+L21,SDQ13,DRAM,I/O,Z,-,-,,,
+M21,SDQ14,DRAM,I/O,Z,-,-,,,
+M19,SDQ15,DRAM,I/O,Z a,- l,-,,,
+Y17,SDQ16,DRAM,I/O,Z,-,-,,,
+AA17,SDQ17,DRAM,I/O,Z ti,-,-,,,
+Y16,SDQ18,DRAM,I/O,Z,-,-,,,
+W15,SDQ19,DRAM,I/O,Z n,-,-,,,
+Y14,SDQ20,DRAM,I/O e,Z,-,-,,,
+AA14,SDQ21,DRAM,I/O,Z,-,-,,,
+Y13,SDQ22,DRAM,I/O id,Z,-,-,,,
+Y12,SDQ23,DRAM,I/O,Z,-,-,,,
+W12,SDQ24,DRAM f,I/O,Z,-,-,,,
+AA11,SDQ25,DRAM,I/O,Z,-,-,,,
+Y11,SDQ26,DRAM n,I/O,Z,-,-,,,
+Y10,SDQ27,DRAM o,I/O,Z,-,-,,,
+W9,SDQ28,DRAM,I/O,Z,-,-,,,
+AA8,SDQ29,DRAM c,I/O,Z,-,-,,,
+Y8,SDQ30,DRAM,I/O,Z,-,-,,,
+Y7,SDQ31,DRAM,I/O,Z,-,-,,,
+M20,SDQM0,DRAM,O,Z,-,-,,,
+G20,SDQM1,DRAM,O,Z,-,-,,,
+AA18,SDQM2,DRAM,O,Z,-,-,,,
+AA12,SDQM3,DRAM,O,Z,-,-,,,
+R20,SDQS0,DRAM,I/O,Z,-,-,,,
+R21,SDQS0B,DRAM,I/O,Z,-,-,,,
+K20,SDQS1,DRAM,I/O,Z,-,-,,,
+J20,SDQS1B,DRAM,I/O,Z,-,-,,,
+AA15,SDQS2,DRAM,I/O,Z,-,-,,,
+Y15,SDQS2B,DRAM,I/O,Z,-,-,,,
+AA9,SDQS3,DRAM,I/O,Z,-,-,,,
+Y9,SDQS3B,DRAM,I/O,Z,-,-,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 67",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+W11,SODT0,DRAM,O,Z,-,-,,,
+V11,SODT1,DRAM,O,Z,-,-,,,
+V13,SRAS,DRAM,O,Z,-,-,,,
+U16,SRST,DRAM,O,Z,-,-,,,
+T16,SVREF,DRAM,P,Z,-,-,,,
+W13,SWE,DRAM,O,Z,-,-,,,
+V10,SZQ,DRAM,A,Z,-,-,,,
+"L16,M16,N16,P16, P17,R16,T12,T13,T 14,T15,U11",VCC-DRAM,POWER,P,-,-,-,,,
+GPIO Al,,,,,,,,,
+D11,PA0,GPIO,I/O,Z,NO PULL,20,,,
+D5,PA1,GPIO,I/O,Z,NO PULL,20,,,
+D6,PA2,GPIO,I/O,Z ia,NO PULL,20,,,
+E13,PA3,GPIO,I/O,Z,NO PULL,20,,,
+F5,PA4,GPIO,I/O,Z t,NO PULL,20,,,
+H6,PA5,GPIO,I/O,Z n,NO PULL,20,,,
+E14,PA6,GPIO,I/O,Z,NO PULL,20,,,
+D8,PA7,GPIO,I/O e,Z,NO PULL,20,,,
+F13,PA8,GPIO,I/O,Z,NO PULL,20,,,
+D13,PA9,GPIO,I/O id,Z,NO PULL,20,,,
+E11,PA10,GPIO f,I/O,Z,NO PULL,20,,,
+F11,PA11,GPIO,I/O,Z,NO PULL,20,,,
+C13,PA12,GPIO on,I/O,Z,NO_PULL,20,,,
+E15,PA13,GPIO,I/O,Z,NO_PULL,20,,,
+G12,PA14,GPIO c,I/O,Z,NO_PULL,20,,,
+F14,PA15,GPIO,I/O,Z,NO_PULL,20,,,
+D15,PA16,GPIO,I/O,Z,NO_PULL,20,,,
+C14,PA17,GPIO,I/O,Z,NO_PULL,20,,,
+B13,PA18,GPIO,I/O,Z,NO_PULL,20,,,
+B14,PA19,GPIO,I/O,Z,NO_PULL,20,,,
+A13,PA20,GPIO,I/O,Z,NO_PULL,20,,,
+A14,PA21,GPIO,I/O,Z,NO_PULL,20,,,
+"G13,G14,G15,H13, H14, J14",VCC_IO,POWER,P,-,-,-,,,
+GPIO C,,,,,,,,,
+C15,PC0,GPIO,I/O,Z,NO PULL,20,,,
+C16,PC1,GPIO,I/O,Z,NO PULL,20,,,
+B16,PC2,GPIO,I/O,Z,NO PULL,20,,,
+B15,PC3,GPIO,I/O,Z,Pull-Up,20,,,
+F16,PC4,GPIO,I/O,Z,Pull-Up,20,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 68",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+A17,PC5,GPIO,I/O,Z,NO PULL,20,,,
+E16,PC6,GPIO,I/O,Z,Pull-Up,20,,,
+A16,PC7,GPIO,I/O,Z,Pull-Up,20,,,
+B18,PC8,GPIO,I/O,Z,NO PULL,20,,,
+C17,PC9,GPIO,I/O,Z,NO PULL,20,,,
+D17,PC10,GPIO,I/O,Z,NO PULL,20,,,
+C18,PC11,GPIO,I/O,Z,NO PULL,20,,,
+B17,PC12,GPIO,I/O,Z,NO PULL,20,,,
+B19,PC13,GPIO,I/O,Z,NO PULL,20,,,
+F17,PC14,GPIO,I/O,Z,NO PULL,20,,,
+C19,PC15,GPIO,I/O,Z,NO PULL,20,,,
+H16,PC16,GPIO,I/O,Z,NO PULL,20,,,
+GPIO Dal,,,,,,,,,
+C21,PD0,GPIO,I/O,Z i,NO PULL,20,,,
+H17,PD1,GPIO,I/O,Z t,NO PULL,20,,,
+B20,PD2,GPIO,I/O,Z,NO PULL,20,,,
+H18,PD3,GPIO,I/O,Z n,NO PULL,20,,,
+A20,PD4,GPIO,I/O,Z,NO PULL,20,,,
+F19,PD5,GPIO,I/O e,Z,NO PULL,20,,,
+B21,PD6,GPIO,I/O,Z,NO PULL,20,,,
+E18,PD7,GPIO f,I/O id,Z,NO PULL,20,,,
+E20,PD8,GPIO,I/O,Z,NO PULL,20,,,
+F21,PD9,GPIO,I/O,Z,NO PULL,20,,,
+H19,PD10,GPIO on,I/O,Z,NO PULL,20,,,
+F20,PD11,GPIO,I/O,Z,NO PULL,20,,,
+E19,PD12,GPIO c,I/O,Z,NO PULL,20,,,
+K17,PD13,GPIO,I/O,Z,NO PULL,20,,,
+L17,PD14,GPIO,I/O,Z,NO PULL,20,,,
+K18,PD15,GPIO,I/O,Z,NO PULL,20,,,
+L18,PD16,GPIO,I/O,Z,NO PULL,20,,,
+L19,PD17,GPIO,I/O,Z,NO PULL,20,,,
+J15,VCC_PD,POWER,P,-,-,-,,,
+GPIO E,,,,,,,,,
+B10,PE0,GPIO,I/O,Z,NO PULL,20,,,
+A10,PE1,GPIO,I/O,Z,NO PULL,20,,,
+B11,PE2,GPIO,I/O,Z,NO PULL,20,,,
+C10,PE3,GPIO,I/O,Z,NO PULL,20,,,
+C9,PE4,GPIO,I/O,Z,NO PULL,20,,,
+E10,PE5,GPIO,I/O,Z,NO PULL,20,,,
+D10,PE6,GPIO,I/O,Z,NO PULL,20,,,
+C8,PE7,GPIO,I/O,Z,NO PULL,20,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 69",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+C11,PE8,GPIO,I/O,Z,NO PULL,20,,,
+C12,PE9,GPIO,I/O,Z,NO PULL,20,,,
+E8,PE10,GPIO,I/O,Z,NO PULL,20,,,
+A11,PE11,GPIO,I/O,Z,NO PULL,20,,,
+B12,PE12,GPIO,I/O,Z,NO PULL,20,,,
+C7,PE13,GPIO,I/O,Z,NO PULL,20,,,
+C6,PE14,GPIO,I/O,Z,NO PULL,20,,,
+C5,PE15,GPIO,I/O,Z,NO PULL,20,,,
+GPIO F,,,,,,,,,
+D19,PF0,GPIO,I/O,Z,NO PULL,20,,,
+A19,PF1,GPIO,I/O,Z,NO PULL,20,,,
+D20,PF2,GPIO,I/O,Z,NO PULL l,20,,,
+F18,PF3,GPIO,I/O,Z,NO PULL,20,,,
+E21,PF4,GPIO,I/O,Z ia,NO PULL,20,,,
+C20,PF5,GPIO,I/O,Z t,NO PULL,20,,,
+G18,PF6,GPIO,I/O,Z,NO PULL,20,,,
+GPIO Gn,,,,,,,,,
+J3,PG0,GPIO,I/O,Z,NO PULL,20,,,
+L2,PG1,GPIO,I/O e,Z,NO PULL,20,,,
+H4,PG2,GPIO,I/O,Z,NO PULL,20,,,
+F3,PG3,GPIO f,I/O id,Z,NO PULL,20,,,
+C2,PG4,GPIO,I/O,Z,NO PULL,20,,,
+C1,PG5,GPIO,I/O,Z,NO PULL,20,,,
+G4,PG6,GPIO on,I/O,Z,NO PULL,20,,,
+D3,PG7,GPIO,I/O,Z,NO PULL,20,,,
+C3,PG8,GPIO c,I/O,Z,NO PULL,20,,,
+E3,PG9,GPIO,I/O,Z,NO PULL,20,,,
+M3,PG10,GPIO,I/O,Z,NO PULL,20,,,
+D2,PG11,GPIO,I/O,Z,NO PULL,20,,,
+D1,PG12,GPIO,I/O,Z,NO PULL,20,,,
+B1,PG13,GPIO,I/O,Z,NO PULL,20,,,
+H7,VCC_PG,Power,P,-,-,-,,,
+GPIO L,,,,,,,,,
+N1,PL0,GPIO,I/O,Z,Pull-Up,20,,,
+M1,PL1,GPIO,I/O,Z,Pull-Up,20,,,
+P2,PL2,GPIO,I/O,Z,NO PULL,20,,,
+R1,PL3,GPIO,I/O,Z,NO PULL,20,,,
+N2,PL4,GPIO,I/O,Z,NO PULL,20,,,
+R2,PL5,GPIO,I/O,Z,NO PULL,20,,,
+T4,PL6,GPIO,I/O,Z,NO PULL,20,,,
+T3,PL7,GPIO,I/O,Z,NO PULL,20,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 70",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+T2,PL8,GPIO,I/O,Z,NO PULL,20,,,
+M6,PL9,GPIO,I/O,Z,NO PULL,20,,,
+V2,PL10,GPIO,I/O,Z,NO PULL,20,,,
+U2,PL11,GPIO,I/O,Z,NO PULL,20,,,
+System Control,,,,,,,,,
+W6,UBOOT,-,I,-,Pull-Up,-,,,
+T5,TEST,-,I,-,Pull-Down,-,,,
+AA6,NMI,-,I,-,NO PULL,-,,,
+V6,RESET,-,I,-,NO PULL,-,,,
+L5,PLLTEST,-,A,-,-,-,,,
+P3,X32KFOUT,-,A,-,-,-,,,
+K2,X24MIN,-,A,-,- l,-,,,
+K1,X24MOUT,-,A,-,-,-,,,
+K6,VCC_RTC,-,P,- ia,-,-,,,
+N3,VCC_PLL,-,P,- t,-,-,,,
+HDMIn,,,,,,,,,
+G5,HCEC,-,A,-,-,-,,,
+M2,HHPD,-,A,-,-,-,,,
+H3,HSCL,-,A e,-,-,-,,,
+K3,HSDA,-,A,-,-,-,,,
+F1,HTX0N,- f,A id,-,-,-,,,
+G1,HTX0P,-,A,-,-,-,,,
+G2,HTX1N,-,A,-,-,-,,,
+H2,HTX1P,- on,A,-,-,-,,,
+J2,HTX2N,-,A,-,-,-,,,
+J1,HTX2P,- c,A,-,-,-,,,
+E2,HTXCN,-,A,-,-,-,,,
+F2,HTXCP,-,A,-,-,-,,,
+J6,HVCC,-,P,-,-,-,,,
+M5,HGND,-,G,-,-,-,,,
+USB,,,,,,,,,
+B5,USB_DM0,-,A,-,-,-,,,
+B7,USB_DM1,-,A,-,-,-,,,
+A8,USB_DM2,-,A,-,-,-,,,
+B9,USB_DM3,-,A,-,-,-,,,
+A5,USB_DP0,-,A,-,-,-,,,
+B6,USB_DP1,-,A,-,-,-,,,
+A7,USB_DP2,-,A,-,-,-,,,
+B8,USB_DP3,-,A,-,-,-,,,
+G11,VCC_USB,-,P,-,-,-,,,
+AUDIO_CODEC,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 71",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+U3,AGND,-,G,-,-,-,,,
+V3,AVCC,-,P,-,-,-,,,
+V1,LINEINL,-,A,-,-,-,,,
+W1,LINEINR,-,A,-,-,-,,,
+AA3,LINEOUTL,-,A,-,-,-,,,
+Y3,LINEOUTR,-,A,-,-,-,,,
+W3,MBIAS,-,A,-,-,-,,,
+Y1,MICIN1N,-,A,-,-,-,,,
+W2,MICIN1P,-,A,-,-,-,,,
+AA2,MICIN2N,-,A,-,-,-,,,
+Y2,MICIN2P,-,A,-,-,-,,,
+Y4,VRA1,-,A,-,- l,-,,,
+W5,VRA2,-,A,-,-,-,,,
+V4,VRP,-,A,- ia,-,-,,,
+EPHYt,,,,,,,,,
+A2,EPHY_LINK_LED,-,A,-,-,-,,,
+F6,EPHY_RTX,-,A,- n,-,-,,,
+A4,EPHY_RXN,-,A,-,-,-,,,
+B4,EPHY_RXP,-,A e,-,-,-,,,
+F7,EPHY_SPD_LED,-,A,-,-,-,,,
+A3,EPHY_TXN,- f,A id,-,-,-,,,
+B3,EPHY_TXP,-,A,-,-,-,,,
+G7,EPHY_VCC,-,P,-,-,-,,,
+F8,EPHY_VDD,- on,P,-,-,-,,,
+JTAGc,,,,,,,,,
+A1,JTAG-SEL0,-,I,-,Pull-Up,-,,,
+B2,JTAG-SEL1,-,I,-,Pull-Up,-,,,
+ADC,,,,,,,,,
+AA5,KEYADC,-,A,-,-,-,,,
+TV,,,,,,,,,
+H8,GND_TV,-,G,-,-,-,,,
+F10,TVOUT,-,A,-,-,-,,,
+G9,V33_TV,-,P,-,-,-,,,
+RTC,,,,,,,,,
+M4,RTC_VIO,-,P,-,-,-,,,
+V5,X32KIN,-,A,-,-,-,,,
+U4,X32KOUT,-,A,-,-,-,,,
+CPU,,,,,,,,,
+T10,VDD-CPUFB,-,I/O,-,-,-,,,
+T9,GND-CPUFB,-,G,-,-,-,,,
+Power,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 72",,,,,,,,,
+Pin Description,,,,,,,,,
+Ball#,Pin Name,"Default 
+Function",Type,Reset State,"Default 
+Pull Up/Down",Buffer Strength (mA),,,
+H11,VDD_EFUSEEBP,-,P,-,-,-,,,
+G10,VDD_EFUSE,-,P,-,-,-,,,
+"N8,P6,P7,P8,P9,R6, R7, R8,T6,T7, 
+T8,U6,U9",VDD_CPUX,-,P,-,-,-,,,
+"J7,J8",VDD_CPUS,-,P,-,-,-,,,
+"H10,J10,J11,J12,K1 0,K11,K12,L10,L11, L12,L13, L14",VDD-SYS,-,P,-,-,-,,,
+"A21,AA1,G8,H12, H15, J13,J16, J9, K13, K14,K15, K16, K7,K8,K9,L15,L8,L9, M10,M11,M12, M13,M14,M15,M7, M8,M9,N10,N11, N12,N13,N14,N15, N7,N9,P10,P11,P12 ,.P13,P14,P15,R10, R11,R12,R13,R14, R9,T11",GND,-,"G 
+ide",- ntia,"l
+-",-,,,
+Otherf,,,,,,,,,
+K4,NC,-,-,-,-,-,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+Note:,,,,,,,,,
+con,,,,,,,,,
+"1) Default Function defines the default function of each pin, especially for pins with multiplexing functions; 2) Type defines the signal direction: I (Input), O (Output), I/O(Input / Output), OD(Open-Drain), A (Analog), AI(Analog Input), AO(Analog Output),A I/O(Analog Input /Output), P (Power), G (Ground);",,,,,,,,,
+,,,,,,,,,
+3) Reset State defines the state of the terminal at reset: Z for high-impedance ;,,,,,,,,,
+,,,,,,,,,
+"4) Default Pull Up/Down defines the presence of an internal pull up or pull down resister. Unless otherwise specified, the pin is default to be floating, and can be configured as pull up or pull down;",,,,,,,,,
+,,,,,,,,,
+5) Buffer Strength defines drive strength of the associated output buffer.,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 73",,,,,,,,,
+Pin Description,,,,,,,,,
+,,,,,,,,,
+3.2. GPIO Multiplexing Functions,,,,,,,,,
+,,,,,,,,,
+Table 3-2 provides a description of the H3 GPIO multiplexing functions.,,,,,,,,,
+,,,,,,,,,
+Table 3-2. Multiplexing Functions,,,,,,,,,
+"Pin 
+Name","Default 
+Function","IO 
+Type","Default 
+IO State","Default 
+Pull-up/ 
+down",Function 2,Function3,Function 4,Function 5,Function 6
+PA0,GPIO,I/O,DIS,Z,UART2_TX,JTAG_MS,-,-,PA_EINT0
+PA1,,I/O,DIS,Z,UART2_RX,JTAG_CK,-,-,PA_EINT1
+PA2,,I/O,DIS,Z,UART2_RTS,JTAG_DO,-,-,PA_EINT2
+PA3,,I/O,DIS,Z,UART2_CTS,JTAG_DI,-,-,PA_EINT3
+PA4,,I/O,DIS,Z,UART0_TX,-,-,-,PA_EINT4
+PA5,,I/O,DIS,Z,UART0_RX,PWM0,-,-,PA_EINT5
+PA6,,I/O,DIS,Z,SIM_PWREN,- i,- a,-,PA_EINT6
+PA7,,I/O,DIS,Z,SIM_CLK,-,-,-,PA_EINT7
+PA8,,I/O,DIS,Z,SIM_DATA,- nt,-,-,PA_EINT8
+PA9,,I/O,DIS,Z,SIM_RST,-,-,-,PA_EINT9
+PA10,,I/O,DIS,Z,SIM_DET e,-,-,-,PA_EINT10
+PA11,,I/O,DIS,Z,TWI0_SCK d,DI_TX,-,-,PA_EINT11
+PA12,,I/O,DIS,Z,TWI0_SDA,DI_RX,-,-,PA_EINT12
+PA13,,I/O,DIS,Z f,SPI1_CS i,UART3_TX,-,-,PA_EINT13
+PA14,,I/O,DIS,Z,SPI1_CLK,UART3_RX,-,-,PA_EINT14
+PA15,,I/O,DIS,Z n,SPI1_MOSI,UART3_RTS,-,-,PA_EINT15
+PA16,,I/O,DIS,Z o,SPI1_MISO,UART3_CTS,-,-,PA_EINT16
+PA17,,I/O,DIS,Z,OWA_OUT,-,-,-,PA_EINT17
+PA18,,I/O,DIS c,Z,PCM0_SYNC,TWI1_SCK,-,-,PA_EINT18
+PA19,,I/O,DIS,Z,PCM0_CLK,TWI1_SDA,-,-,PA_EINT19
+PA20,,I/O,DIS,Z,PCM0_DOUT,SIM_VPPEN,-,-,PA_EINT20
+PA21,,I/O,DIS,Z,PCM0_DIN,SIM_VPPPP,-,-,PA_EINT21
+PC0,GPIO,I/O,DIS,Z,NAND_WE,SPI0_MOSI,-,-,-
+PC1,,I/O,DIS,Z,NAND_ALE,SPI0_MISO,-,-,-
+PC2,,I/O,DIS,Z,NAND_CLE,SPI0_CLK,-,-,-
+PC3,,I/O,DIS,Pull-up,NAND_CE1,SPI0_CS,-,-,-
+PC4,,I/O,DIS,Pull-up,NAND_CE0,-,-,-,-
+PC5,,I/O,DIS,Z,NAND_RE,SDC2_CLK,-,-,-
+PC6,,I/O,DIS,Pull-up,NAND_RB0,SDC2_CMD,-,-,-
+PC7,,I/O,DIS,Pull-up,NAND_RB1,-,-,-,-
+PC8,,I/O,DIS,Z,NAND_DQ0,SDC2_D0,-,-,-
+PC9,,I/O,DIS,Z,NAND_DQ1,SDC2_D1,-,-,-
+PC10,,I/O,DIS,Z,NAND_DQ2,SDC2_D2,-,-,-
+PC11,,I/O,DIS,Z,NAND_DQ3,SDC2_D3,-,-,-
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 74",,,,,,,,,
+Pin Description,,,,,,,,,
+"Pin 
+Name","Default 
+Function","IO 
+Type","Default 
+IO State","Default 
+Pull-up/ 
+down",Function 2,Function3,Function 4,Function 5,Function 6
+PC12,,I/O,DIS,Z,NAND_DQ4,SDC2_D4,-,-,-
+PC13,,I/O,DIS,Z,NAND_DQ5,SDC2_D5,-,-,-
+PC14,,I/O,DIS,Z,NAND_DQ6,SDC2_D6,-,-,-
+PC15,,I/O,DIS,Z,NAND_DQ7,SDC2_D7,-,-,-
+PC16,,I/O,DIS,Z,NAND_DQS,SDC2_RST,-,-,-
+PD0,GPIO,I/O,DIS,Z,"RGMII_RXD3/ MII_RXD3/ 
+RMII_NULL",-,-,-,-
+PD1,,I/O,DIS,Z,RGMII_RXD2/ MII_RXD2/RM II_NULL,-,-,-,-
+PD2,,I/O,DIS,Z,RGMII_RXD1/ MII_RXD2/RM II_RXD1,- i,- al,-,-
+PD3,,I/O,DIS,Z,RGMII_RXD0/ MII_RXD1/RM II_RXD0,- nt,-,-,-
+PD4,,I/O,DIS,Z,"de
+RGMII_RXCK/ MII_RXCK/RMI I_NULL",-,-,-,-
+PD5,,I/O,DIS,nfZ,"i
+RGMII_RXCTL/ MII_RXDV/RM II_NULL",-,-,-,-
+PD6,,I/O,DIS c,oZ,"RGMII_NULL/ MII_RXERR/R 
+MII_RXER",-,-,-,-
+PD7,,I/O,DIS,Z,RGMII_TXD3/ MII_TXD3/RMI I_NULL,-,-,-,-
+PD8,,I/O,DIS,Z,RGMII_TXD2/ MII_TXD2/RMI I_NULL,-,-,-,-
+PD9,,I/O,DIS,Z,RGMII_TXD1/ MII_TXD1/RMI I_TXD1,-,-,-,-
+PD10,,I/O,DIS,Z,RGMII_TXD0/ MII_TXD0/RMI I_TXD0,-,-,-,-
+PD11,,I/O,DIS,Z,RGMII_NULL/ MII_CRS/RMII _CRS_DV,-,-,-,-
+PD12,,I/O,DIS,Z,RGMII_TXCK/,-,-,-,-
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 75",,,,,,,,,
+Pin Description,,,,,,,,,
+"Pin 
+Name","Default 
+Function","IO 
+Type","Default 
+IO State","Default 
+Pull-up/ 
+down",Function 2,Function3,Function 4,Function 5,Function 6
+,,,,,MII_TXCK/RMI I_TXCK,,,,
+PD13,,I/O,DIS,Z,RGMII_TXCTL/ MII_TXEN/RMI I_TXEN,-,-,-,-
+PD14,,I/O,DIS,Z,"RGMII_NULL/ MII_TXERR/R 
+MII_NULL",-,-,-,-
+PD15,,I/O,DIS,Z,RGMII_CLKIN/ MII_COL/RMII _NULL,-,"- 
+l",-,-
+PD16,,I/O,DIS,Z,MDC,-,-,-,-
+PD17,,I/O,DIS,Z,MDIO,-,-,-,-
+PE0,GPIO,I/O,DIS,Z,CSI_PCLK,TS_CLK i,- a,-,-
+PE1,,I/O,DIS,Z,CSI_MCLK,TS_ERR,-,-,-
+PE2,,I/O,DIS,Z,CSI_HSYNC,TS_SYNC nt,-,-,-
+PE3,,I/O,DIS,Z,CSI_VSYNC,TS_DVLD,-,-,-
+PE4,,I/O,DIS,Z,CSI_D0 e,TS_D0,-,-,-
+PE5,,I/O,DIS,Z,CSI_D1,TS_D1,-,-,-
+PE6,,I/O,DIS,Z,CSI_D2,TS_D2,-,-,-
+PE7,,I/O,DIS,Z f,CSI_D3 id,TS_D3,-,-,-
+PE8,,I/O,DIS,Z,CSI_D4,TS_D4,-,-,-
+PE9,,I/O,DIS,Z n,CSI_D5,TS_D5,-,-,-
+PE10,,I/O,DIS,Z o,CSI_D6,TS_D6,-,-,-
+PE11,,I/O,DIS,Z,CSI_D7,TS_D7,-,-,-
+PE12,,I/O,DIS c,Z,CSI_SCK,TWI2_SCK,-,-,-
+PE13,,I/O,DIS,Z,CSI_SDA,TWI2_SDA,-,-,-
+PE14,,I/O,DIS,Z,-,-,-,-,-
+PE15,,I/O,DIS,Z,-,-,-,-,-
+PF0,GPIO,I/O,JTAG_MS,Z,SDC0_D1,JTAG_MS,-,-,-
+PF1,,I/O,JTAG_DI,Z,SDC0_D0,JTAG_DI,-,-,-
+PF2,,I/O,DIS,Z,SDC0_CLK,UART0_TX,-,-,-
+PF3,,I/O,JTAG_DO,Z,SDC0_CMD,JTAG_DO,-,-,-
+PF4,,I/O,DIS,Z,SDC0_D3,UART0_RX,-,-,-
+PF5,,I/O,JTAG_CK,Z,SDC0_D2,JTAG_CK,-,-,-
+PF6,,I/O,DIS,Z,SDC0_DET,-,-,-,-
+PG0,GPIO,I/O,DIS,Z,SDC1_CLK,-,-,-,PG_EINT0
+PG1,,I/O,DIS,Z,SDC1_CMD,-,-,-,PG_EINT1
+PG2,,I/O,DIS,Z,SDC1_D0,-,-,-,PG_EINT2
+PG3,,I/O,DIS,Z,SDC1_D1,-,-,-,PG_EINT3
+PG4,,I/O,DIS,Z,SDC1_D2,-,-,-,PG_EINT4
+,,,,,,,,,
+,,,,,,,,,
+"H3 Datasheet(Revision1.2) Copyright© 2015 Allwinner Technology Co.,Ltd.All Rights Reserved. Page 76",,,,,,,,,
+Pin Description,,,,,,,,,
+"Pin 
+Name","Default 
+Function","IO 
+Type","Default 
+IO State","Default 
+Pull-up/ 
+down",Function 2,Function3,Function 4,Function 5,Function 6
+PG5,,I/O,DIS,Z,SDC1_D3,-,-,-,PG_EINT5
+PG6,,I/O,DIS,Z,UART1_TX,-,-,-,PG_EINT6
+PG7,,I/O,DIS,Z,UART1_RX,-,-,-,PG_EINT7
+PG8,,I/O,DIS,Z,UART1_RTS,-,-,-,PG_EINT8
+PG9,,I/O,DIS,Z,UART1_CTS,-,-,-,PG_EINT9
+PG10,,I/O,DIS,Z,PCM1_SYNC,-,-,-,PG_EINT10
+PG11,,I/O,DIS,Z,PCM1_CLK,-,-,-,PG_EINT11
+PG12,,I/O,DIS,Z,PCM1_DOUT,-,-,-,PG_EINT12
+PG13,,I/O,DIS,Z,PCM1_DIN,-,-,-,PG_EINT13
+PL0,GPIO,I/O,DIS,Pull-up,S_TWI_SCK,-,-,-,S_PL_EINT0
+PL1,,I/O,DIS,Pull-up,S_TWI_SDA,-,- l,-,S_PL_EINT1
+PL2,,I/O,DIS,Z,S_UART_TX,-,-,-,S_PL_EINT2
+PL3,,I/O,DIS,Z,S_UART_RX,-,-,-,S_PL_EINT3
+PL4,,I/O,DIS,Z,S_JTAG_MS,- ti,- a,-,S_PL_EINT4
+PL5,,I/O,DIS,Z,S_JTAG_CK,-,-,-,S_PL_EINT5
+PL6,,I/O,DIS,Z,S_JTAG_DO,- n,-,-,S_PL_EINT6
+PL7,,I/O,DIS,Z,S_JTAG_DI,-,-,-,S_PL_EINT7
+PL8,,I/O,DIS,Z,-,-,-,-,S_PL_EINT8
+PL9,,I/O,DIS,Z,- de,-,-,-,S_PL_EINT9
+PL10,,I/O,DIS,Z,S_PWM,-,-,-,S_PL_EINT10
+PL11,,I/O,DIS,Z f,S_CIR_RX i,-,-,-,S_PL_EINT12
