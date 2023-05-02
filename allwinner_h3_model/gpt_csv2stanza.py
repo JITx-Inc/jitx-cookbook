@@ -1,52 +1,54 @@
 import csv
 import re
 
-
-class PinData:
+class Pin:
     def __init__(self, pin_name, ball_numbers, group):
         self.pin_name = pin_name
         self.ball_numbers = ball_numbers
         self.group = group
 
     def __str__(self):
-        return f"[ {self.pin_name} | {', '.join(self.ball_numbers)} | Left | {self.group} ]"
+        return f"[ {self.pin_name} | {', '.join(self.ball_numbers)} | Left | {self.group}]"
 
+def process_ball_numbers(ball_numbers):
+    return [re.sub(r"(\d+)$", r"[\1]", bn) for bn in ball_numbers]
 
-def parse_csv(file_name):
-    pin_data_list = []
-    current_group = None
+def process_pin_name(pin_name):
+    return re.sub(r"(\d+)$", r"[\1]", pin_name)
 
-    with open(file_name, newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        for index, row in enumerate(reader):
-            if index > 332:
+def parse_csv(file_path):
+    pins = []
+    current_group = ""
+
+    with open(file_path, "r") as csvfile:
+        csvreader = csv.reader(csvfile)
+
+        for i, row in enumerate(csvreader):
+            if i >= 340:  # Ignore lines after the 340th row
                 break
 
-            if not row or not row[0] or not row[1]:
+            if len(row) < 2:  # Ignore invalid lines
                 continue
 
-            ball_number = re.match(r'^[A-Z]+\d+$', row[0])
-            pin_name = re.match(r'^[A-Z]+\d*$', row[1])
+            ball_number, pin_name = row[:2]
 
-            if ball_number and pin_name:
-                ball_number = re.sub(r'(\d+)', r'[\1]', row[0])
-                pin_name = re.sub(r'(\d+)', r'[\1]', row[1])
+            if pin_name == "Pin Name" or pin_name == "Function" or pin_name == "Type":
+                continue  # Ignore header lines
 
-                if row[1].endswith(','):
-                    current_group = row[1].strip(',')
-                else:
-                    ball_numbers = [ball_number]
-                    if '"' in row[0]:
-                        ball_numbers = [re.sub(r'(\d+)', r'[\1]', bn) for bn in row[0].strip('"').split(',')]
+            if not re.search(r"^[A-Z]+\d+$", ball_number) and not re.search(r'^"[A-Z\d]+', ball_number):
+                current_group = ball_number
+                continue
 
-                    pin_data = PinData(pin_name, ball_numbers, current_group)
-                    pin_data_list.append(pin_data)
+            ball_numbers = re.findall(r"[A-Z]+\d+", ball_number)
+            ball_numbers = process_ball_numbers(ball_numbers)
+            pin_name = process_pin_name(pin_name)
+            pin = Pin(pin_name, ball_numbers, current_group)
+            pins.append(pin)
 
-    return pin_data_list
+    return pins
 
-
-def write_stanza_file(pin_data_list, output_file):
-    with open(output_file, 'w') as f:
+def write_stanza_file(pins, output_file_path):
+    with open(output_file_path, "w") as f:
         f.write("#use-added-syntax(jitx)\n")
         f.write("defpackage allwinner-h3 :\n")
         f.write("  import core\n")
@@ -55,18 +57,20 @@ def write_stanza_file(pin_data_list, output_file):
         f.write("  import jitx\n")
         f.write("  import jitx/commands\n")
         f.write("  import ocdb/utils/box-symbol\n\n")
-        f.write('public pcb-component component :\n')
+        f.write("public pcb-component component :\n")
         f.write('  manufacturer = "Allwinner"\n')
         f.write('  mpn = "H3"\n')
         f.write("  pin-properties :\n")
-        f.write("    [pin:Ref | pads:Int ... | side:Dir|  bank: Ref ]\n")
 
-        for pin_data in pin_data_list:
-            f.write(f"    {str(pin_data)}\n")
+        for pin in pins:
+            f.write(f"    {str(pin)}\n")
 
-
-if __name__ == "__main__":
+def main():
     input_file = "allwinnerH3.csv"
     output_file = "allwinner-h3.stanza"
-    pin_data_list = parse_csv(input_file)
-    write_stanza_file(pin_data_list, output_file)
+
+    pins = parse_csv(input_file)
+    write_stanza_file(pins, output_file)
+
+if __name__ == "__main__":
+    main()
