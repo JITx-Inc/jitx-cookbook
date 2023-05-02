@@ -19,11 +19,15 @@ def parse_csv(file_name):
     with open(file_name, newline='') as csvfile:
         reader = csv.reader(csvfile)
         for index, row in enumerate(reader):
-            if index > 332:
+            if index > 340:
                 break
+
+            if row[0] and not row[1] and row[0] != "Pin Description" and not row[0].startswith('H3'):
+                current_group = row[0]
 
             if not row or not row[0] or not row[1]:
                 continue
+
 
             ball_number = re.match(r'^[A-Z]+\d+$', row[0])
             pin_name = re.match(r'^[A-Z]+\d*$', row[1])
@@ -31,16 +35,12 @@ def parse_csv(file_name):
             if ball_number and pin_name:
                 ball_number = re.sub(r'(\d+)', r'[\1]', row[0])
                 pin_name = re.sub(r'(\d+)', r'[\1]', row[1])
+                ball_numbers = [ball_number]
+                if '"' in row[0]:
+                    ball_numbers = [re.sub(r'(\d+)', r'[\1]', bn) for bn in row[0].strip('"').split(',')]
 
-                if row[1].endswith(','):
-                    current_group = row[1].strip(',')
-                else:
-                    ball_numbers = [ball_number]
-                    if '"' in row[0]:
-                        ball_numbers = [re.sub(r'(\d+)', r'[\1]', bn) for bn in row[0].strip('"').split(',')]
-
-                    pin_data = PinData(pin_name, ball_numbers, current_group)
-                    pin_data_list.append(pin_data)
+                pin_data = PinData(pin_name, ball_numbers, current_group)
+                pin_data_list.append(pin_data)
 
     return pin_data_list
 
