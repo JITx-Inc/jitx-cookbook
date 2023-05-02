@@ -24,10 +24,10 @@ def parse_csv(file_path):
         csvreader = csv.reader(csvfile)
 
         for i, row in enumerate(csvreader):
-            if i >= 335:  # Ignore lines after the 340th row
+            if i >= 335:  # Ignore lines after the 335th row
                 break
 
-            if len(row) < 2:  # Ignore invalid lines
+            if len(row) < 1:  # Ignore invalid lines
                 continue
 
             ball_number, pin_name = row[:2]
@@ -35,12 +35,16 @@ def parse_csv(file_path):
             if pin_name == "Pin Name" or pin_name == "Function" or pin_name == "Type":
                 continue  # Ignore header lines
 
-            valid_ball_number = re.search(r"^[A-Z]+\d+$", ball_number) or re.search(r'^"[A-Z\d]+', ball_number)
-            valid_pin_name = re.search(r"^[A-Z]+\d*$", pin_name)
+            valid_ball_number = re.search(r"^([A-Z]+\s*\d+\s*(?:,\s*[A-Z]+\s*\d+\s*)*)$", ball_number) or re.search(r'^"[A-Z\d]+', ball_number)
+            valid_pin_name = re.search(r"^[A-Z]+([-_]*[A-Z]*\d*[A-Z]*)*$", pin_name)
 
-            if not valid_ball_number and not valid_pin_name:
-                current_group = ball_number
+
+            if (ball_number != "Pin Description" and not ball_number.startswith("H3") and
+                    not valid_ball_number and not valid_pin_name and ball_number.strip() != ""):
+                current_group = ball_number.replace(' ', "-")
+                print(current_group)
                 continue
+
 
             if valid_ball_number and valid_pin_name:
                 ball_numbers = re.findall(r"[A-Z]+\d+", ball_number)
@@ -48,6 +52,8 @@ def parse_csv(file_path):
                 pin_name = process_pin_name(pin_name)
                 pin = Pin(pin_name, ball_numbers, current_group)
                 pins.append(pin)
+            else :
+                print(valid_ball_number, valid_pin_name, row)
 
     return pins
 
@@ -68,6 +74,7 @@ def write_stanza_file(pins, output_file_path):
 
         for pin in pins:
             f.write(f"    {str(pin)}\n")
+        f.write('  make-box-symbol()\n')
 
 def main():
     input_file = "allwinnerH3.csv"
