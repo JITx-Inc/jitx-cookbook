@@ -44,3 +44,17 @@ Debug regexs using GPT, until only problematic rows remaining are:
 ['H10,J10,J11,J12,K1 0,K11,K12,L10,L11, L12,L13, L14', 'VDD-SYS', '-', 'P', '-', '-', '-', '', '', '']
 ['A21,AA1,G8,H12, H15, J13,J16, J9, K13, K14,K15, K16, K7,K8,K9,L15,L8,L9, M10,M11,M12, M13,M14,M15,M7, M8,M9,N10,N11, N12,N13,N14,N15, N7,N9,P10,P11,P12 ,.P13,P14,P15,R10, R11,R12,R13,R14, R9,T11', 'GND', '-', 'G \nide', '- ntia', 'l\n-', '-', '', '', '']
 
+Edit those rows in csv. 
+```
+K1 0 => K10
+```
+```
+P12,.P13, => P12,P13,
+```
+
+Now we need the leave out list for the package (looks random). Analyze the pin list. Prompt for GPT:
+```
+Now I need to analyze which pins from the ball numbers are missing. These pins are in a grid with rows as strings and columns as numbers. A[1] is the top left pin. The rows are not just alphabetical, you must determine the used strings by analyzing the populated pins. Print out a list of which strings are used as row names.
+
+Write a python function to print out which pins are missing from the grid
+```
