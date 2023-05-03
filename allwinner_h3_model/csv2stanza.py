@@ -17,34 +17,40 @@ def process_pin_name(pin_name):
     return re.sub(r"(\d+)$", r"[\1]", pin_name)
 
 def find_missing_pins(pin_data_list):
-    # Extract all row names and column numbers from the pin data list
-    row_names = set()
-    col_numbers = set()
-    populated_pins = set()
-
+    used_rows = set()
+    used_cols = set()
+    used_pins = set()
+    
+    # Extract row letters and columns from ball numbers
     for pin_data in pin_data_list:
         for ball_number in pin_data.ball_numbers:
             match = re.match(r"([A-Z]+)\[(\d+)\]", ball_number)
             if match:
-                row_name, col_number = match.groups()
-                print(ball_number, row_name, col_number)
-                row_names.add(row_name)
-                col_numbers.add(int(col_number))
-                populated_pins.add((row_name, int(col_number)))
-
-    # Sort row names and column numbers
-    row_names = sorted(list(row_names), key=lambda x: (len(x), x))
-    print(row_names)
-    col_numbers = sorted(list(col_numbers))
-
-    # Find missing pins
+                row_letter = match.group(1)
+                col_number = int(match.group(2))
+                used_rows.add(row_letter)
+                used_cols.add(col_number)
+                used_pins.add((row_letter, col_number))
+    
+    # Find the range of used row letters and columns
+    row_letters = sorted(list(used_rows))
+    min_col = min(used_cols)
+    max_col = max(used_cols)
+    
+    # Find and print missing pins
     missing_pins = []
-    for row_name in row_names:
-        for col_number in col_numbers:
-            if (row_name, col_number) not in populated_pins:
-                missing_pins.append(f"{row_name}[{col_number}]")
-
+    for i, row_letter in enumerate(row_letters):
+        for col_number in range(min_col, max_col + 1):
+            if (row_letter, col_number) not in used_pins:
+                missing_pins.append([i, col_number - 1])
+    print(missing_pins)
+    
+    # Find and print unused row letters from the alphabet
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    unused_row_letters = [letter for letter in alphabet if letter not in used_rows]
+    print(unused_row_letters)
     return missing_pins
+
 
 def parse_csv(file_path):
     pins = []
@@ -87,8 +93,7 @@ def parse_csv(file_path):
 def write_stanza_file(pins, output_file_path):
 
 
-    missing_pins = find_missing_pins(pins)
-    print("Missing pins:", missing_pins)
+
 
     with open(output_file_path, "w") as f:
         f.write("#use-added-syntax(jitx)\n")
