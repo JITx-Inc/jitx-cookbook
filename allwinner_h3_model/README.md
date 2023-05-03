@@ -58,3 +58,8 @@ Now I need to analyze which pins from the ball numbers are missing. These pins a
 
 Write a python function to print out which pins are missing from the grid
 ```
+
+## Creating the landpattern
+
+https://www.aliexpress.com/i/3256804488327033.html?gatewayAdapt=4itemAdapt
+

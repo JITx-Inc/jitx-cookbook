@@ -18,16 +18,7 @@ defn setup-board () :
 ; Module to run as a design
 pcb-module my-design :
   ; define some pins/ports
-  pin gnd
-  pin power-5v
-  pin signal
-
-  ; Create a 10k resistor component
-  res-strap(power-5v, signal, 10.0e3)
-
-  ; Write the board version on silkscreen
-  inst version-label  : ocdb/artwork/board-text/version-silkscreen("Version 0.0")
-  place(version-label) at loc(0.0, height(board-shape) / 2.0 - 1.0) on Bottom
+  inst h3 : allwinner-h3/component
 
 ; Set the design name - a directory with this name will be generated under the "designs" directory
 set-current-design("jitx-design")

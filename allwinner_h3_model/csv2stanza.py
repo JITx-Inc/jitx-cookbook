@@ -34,12 +34,15 @@ def find_missing_pins(pin_data_list):
     
     # Find the range of used row letters and columns
     row_letters = sorted(list(used_rows))
+    aa = row_letters.pop(1)
+    row_letters.append(aa)
     min_col = min(used_cols)
     max_col = max(used_cols)
     
     # Find and print missing pins
     missing_pins = []
     for i, row_letter in enumerate(row_letters):
+        print(i, row_letter)
         for col_number in range(min_col, max_col + 1):
             if (row_letter, col_number) not in used_pins:
                 missing_pins.append([i, col_number - 1])
@@ -94,7 +97,6 @@ def write_stanza_file(pins, output_file_path):
 
 
 
-
     with open(output_file_path, "w") as f:
         f.write("#use-added-syntax(jitx)\n")
         f.write("defpackage allwinner-h3 :\n")
@@ -103,17 +105,26 @@ def write_stanza_file(pins, output_file_path):
         f.write("  import math\n")
         f.write("  import jitx\n")
         f.write("  import jitx/commands\n")
+        f.write("  import ocdb/utils/landpatterns\n")
         f.write("  import ocdb/utils/box-symbol\n\n")
+        f.write("pcb-landpattern LFBGA347:\n")
+        f.write("  defn depop? (r:Int, c:Int) :\n")
+        f.write("    contains?(\n")
+        f.write("      [")
+        for p in find_missing_pins(pins):
+            f.write(str(p) + ', ')
+        f.write("          ],[r, c])\n")
+        f.write("  make-bga-landpattern(21, 21, 0.65, 0.4, tol(14.0, 0.15), tol(14.0, 0.15), CustomDepop(depop?))\n")
         f.write("public pcb-component component :\n")
         f.write('  manufacturer = "Allwinner"\n')
         f.write('  mpn = "H3"\n')
         f.write("  pin-properties :\n")
+        f.write("    [pin:Ref | pads:Ref ... | side:Dir| bank:Ref ]\n")
 
         for pin in pins:
             f.write(f"    {str(pin)}\n")
         f.write('  make-box-symbol()\n')
-
-
+        f.write('  assign-landpattern(LFBGA347)\n')
 
 
 def main():

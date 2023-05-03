@@ -1,3 +1,4 @@
-include "open-components-database/stanza.proj"
+include "../open-components-database/stanza.proj"
 package main defined-in "main.stanza"
 package helpers defined-in "helpers.stanza"
+package allwinner-h3 defined-in "allwinner-h3.stanza"
