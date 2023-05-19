@@ -1,0 +1,50 @@
+; When renaming the stanza package name below, also rename it in the folder stanza.proj
+; See docs.jitx.com for help
+#use-added-syntax(jitx)
+defpackage components/BJT-2N3904:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generic-components
+  import checks
+
+public pcb-module module :
+  pin b
+  pin c
+  pin e
+  
+  inst bjt : database-part(["mpn" => "2N3904U 1A", "manufacturer" => "CBI"])
+  net (bjt.B b)
+  net (bjt.C c)
+  net (bjt.E e)
+
+  val vcb-max = typ(60.0)
+  val vce-max = typ(40.0)
+  val veb-max = typ(6.0)
+  val ic-max = typ(0.200)
+  val power-max = typ(0.625) ; Watts Ambient @ 25C
+
+  var Vcb = typ(0.0)
+  var Vce = typ(0.0)
+  var Veb = typ(0.0)
+  
+  property(self.rated-temperature) = min-max(-55.0, 150.0)
+  ;   eval-when has-property?(c.voltage) : ; and eval-when has-property?(b.voltage) and eval-when has-property?(e.voltage) :
+  eval-when has-property?(c.voltage) and has-property?(b.voltage) and has-property?(e.voltage) :
+    Vce = property(c.voltage) - property(e.voltage)
+    Veb = property(e.voltage) - property(b.voltage)
+    Vcb = property(c.voltage) - property(b.voltage)
+    check value-does-not-exceed-limits(Vcb, vcb-max)
+    check value-does-not-exceed-limits(Vce, vce-max)
+    check value-does-not-exceed-limits(Veb, veb-max)
+
+  eval-when has-property?(c.current) and has-property?(e.current) :
+    check value-does-not-exceed-limits(property(c.current), ic-max)
+
+  eval-when has-property?(self.power):
+    check value-does-not-exceed-limits(abs(property(self.power)), power-max)

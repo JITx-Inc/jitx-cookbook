@@ -1,0 +1,98 @@
+#use-added-syntax(jitx)
+defpackage components/VL53L0CXV0DH_1 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+  import ocdb/utils/bundles
+  import ocdb/utils/generic-components
+
+pcb-pad rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(0.5, 0.650013)
+  layer(Paste(Top)) = Rectangle(0.5, 0.650013)
+  layer(SolderMask(Top)) = Rectangle(0.5, 0.650013)
+
+pcb-pad rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(0.550013, 0.550013)
+  layer(Paste(Top)) = Rectangle(0.550013, 0.550013)
+  layer(SolderMask(Top)) = Rectangle(0.550013, 0.550013)
+
+public pcb-landpattern OPTO-SMD_12P_VL53L0CXV0DH-1 :
+  pad p[1] : rect-smd-pad-1 at loc(1.599949, -0.875032) on Top
+  pad p[2] : rect-smd-pad-1 at loc(0.800102, -0.875032) on Top
+  pad p[3] : rect-smd-pad-1 at loc(0.0, -0.875032) on Top
+  pad p[4] : rect-smd-pad-1 at loc(-0.800102, -0.875032) on Top
+  pad p[5] : rect-smd-pad-1 at loc(-1.599949, -0.875032) on Top
+  pad p[6] : rect-smd-pad-2 at loc(-1.599949, 0.0) on Top
+  pad p[7] : rect-smd-pad-1 at loc(-1.599949, 0.875032) on Top
+  pad p[8] : rect-smd-pad-1 at loc(-0.800102, 0.875032) on Top
+  pad p[9] : rect-smd-pad-1 at loc(0.0, 0.875032) on Top
+  pad p[10] : rect-smd-pad-1 at loc(0.800102, 0.875032) on Top
+  pad p[11] : rect-smd-pad-1 at loc(1.599949, 0.875032) on Top
+  pad p[12] : rect-smd-pad-2 at loc(1.599949, 0.0) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.2762), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.2762), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.2762), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.2762, -1.2762), Point(-2.014503, -1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.2762, -0.414503), Point(2.2762, -1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.2762, 1.2762), Point(-2.014503, 1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.2762, 1.2762), Point(2.014503, 1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.2762, 0.414503), Point(-2.2762, 1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.2762, -1.2762), Point(2.014503, -1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.2762, 0.414503), Point(2.2762, 1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.2762, -0.414503), Point(-2.2762, -1.2762)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.250013, [Arc(0.949962, 0.0, 0.124968, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(2.199898, -1.199898, 0.0299719999999999, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.250013, [Arc(1.649987, -1.599949, 0.124969, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150013, [Arc(-0.949962, 0.0, 0.0749299999999999, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.150013, [Arc(-0.949962, 0.0, 0.0749299999999999, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.250013, [Arc(0.949962, 0.0, 0.124968, 0.0, 360.0)])
+
+  model3d = Model3D("../../3d-models/OPTO-SMD_12P_VL53L0CXV0DH-1.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, -90.0))
+
+public pcb-component component :
+  description = "VL53L0CXV0DH_1"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [VDD | p[1] | Left | "Unspecified"]
+    [AVDD | p[11] | Right | "Unspecified"]
+    [SCL | p[10] | Right | "Unspecified"]
+    [GND | p[2] p[3] p[4] p[12] p[6]| Left | "Unspecified"]
+    [SHT | p[5] | Left | "Unspecified"]
+    [GP1 | p[7] | Right | "Unspecified"]
+    [DNC | p[8] | Right | "Unspecified"]
+    [SDA | p[9] | Right | "Unspecified"]
+
+  assign-landpattern(OPTO-SMD_12P_VL53L0CXV0DH-1)
+  make-box-symbol()
+
+  property(self.VDD.power-pin) = PowerPin(min-max(2.6 3.5))
+  property(self.AVDD.power-pin) = PowerPin(min-max(2.6 3.5))
+
+  property(self.LCSC) = "C91199"
+  property(self.datasheet) = "https://item.szlcsc.com/92388.html"
+
+public pcb-module module :
+  port power : power
+  port i2c : i2c ; Address: 0x52
+  pin x-shut 
+  pin gpio1
+  public inst tof : database-part(["mpn" => "VL53L0CXV0DH1", "manufacturer" => "STMicroelectronics"])
+  bypass-cap-strap(tof.VDD, tof.GND, 4.7e-6)
+  bypass-cap-strap(tof.AVDD, tof.GND, 0.1e-6)
+  net (i2c.sda tof.SDA)
+  net (i2c.scl tof.SCL)
+  net (x-shut, tof.SHT)
+  net (gpio1, tof.GP1)
+  net (power.vdd tof.AVDD tof.VDD )
+  net (power.gnd tof.GND tof.GND2 tof.GND3 tof.GND4 tof.VSS)
+  schematic-group(self) = Vl53L0
+  layout-group(self) = Vl53L0

@@ -1,0 +1,107 @@
+#use-added-syntax(jitx)
+defpackage components/W25Q128JVSIQTR :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+pcb-pad oval-smd-pad :
+  type = SMD
+  shape = Capsule(0.629997, 2.250013, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.629997, 2.250013, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.629997, 2.250013, loc(0.0, 0.0))
+
+public pcb-landpattern C97521 :
+  pad p[1] : oval-smd-pad at loc(-1.905004, -3.530099) on Top
+  pad p[2] : oval-smd-pad at loc(-0.635001, -3.530099) on Top
+  pad p[3] : oval-smd-pad at loc(0.635001, -3.530099) on Top
+  pad p[4] : oval-smd-pad at loc(1.905004, -3.530099) on Top
+  pad p[5] : oval-smd-pad at loc(1.905004, 3.530099) on Top
+  pad p[6] : oval-smd-pad at loc(0.635001, 3.530099) on Top
+  pad p[7] : oval-smd-pad at loc(-0.635001, 3.530099) on Top
+  pad p[8] : oval-smd-pad at loc(-1.905004, 3.530099) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 5.530099), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.530099), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -7.530099), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.63871, 2.176403), Point(2.63871, 2.176403)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.63871, 2.176403), Point(2.63871, -2.176403)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.63871, -2.176403), Point(-2.63871, 2.176403)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.63871, -2.176403), Point(-2.63871, -2.176403)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.3, [Arc(-2.672339, -3.530099, 0.150114, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.3, [Arc(-1.905004, -1.423927, 0.150114, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-2.58509, -3.920041, 0.0299720000000003, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.3, [Arc(-1.905004, -4.350013, 0.150114, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C97521.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+public pcb-symbol W25Q128JVSIQTR :
+  pin CS# at Point(-4.0, -6.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin DO at Point(-4.0, -7.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin IO2 at Point(-4.0, -8.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin GND at Point(-4.0, -9.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin DI at Point(4.0, -9.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin CLK at Point(4.0, -8.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin IO3 at Point(4.0, -7.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin VCC at Point(4.0, -6.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("foreground") = Rectangle(8.0, 5.4, loc(0.0, -7.5))
+  layer("foreground") = Circle(-3.5, -5.3, 0.15)
+  layer("foreground") = Circle(-3.5, -5.3, 0.15)
+  
+public pcb-component component :
+  description = "W25Q128JVSIQTR"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [CS# | p[1] | Left | "Unspecified"]
+    [DO | p[2] | Left | "Unspecified"]
+    [IO2 | p[3] | Left | "Unspecified"]
+    [GND | p[4] | Left | "Unspecified"]
+    [DI | p[5] | Right | "Unspecified"]
+    [CLK | p[6] | Right | "Unspecified"]
+    [IO3 | p[7] | Right | "Unspecified"]
+    [VCC | p[8] | Right | "Unspecified"]
+    
+  assign-landpattern(C97521)
+  make-box-symbol()
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1811142111_Winbond-Elec-W25Q128JVSIQ_C97521.pdf"
+  

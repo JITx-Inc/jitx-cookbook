@@ -1,0 +1,16 @@
+#use-added-syntax(jitx)
+defpackage components/PH2-0-2PWB :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+
+public pcb-module module:
+  pin power
+  pin ground
+  
+  inst battery : database-part(["vendor_part_numbers.lcsc" => "C47647"])
+  net (ground battery.p[1])
+  net (power battery.p[2])

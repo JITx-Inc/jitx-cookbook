@@ -2,3 +2,6 @@
 /pending.*dat
 *.txt
 *-backups/
+*elf
+*bin
+temp/

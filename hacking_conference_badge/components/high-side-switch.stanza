@@ -1,0 +1,40 @@
+; When renaming the stanza package name below, also rename it in the folder stanza.proj
+; See docs.jitx.com for help
+#use-added-syntax(jitx)
+defpackage components/high-side-switch:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generic-components
+
+public pcb-module high-side-switch () :
+  pin input
+  pin output
+  port power : power
+
+  net GND (power.gnd)
+  net VDD (power.vdd)
+  ; inst rc: myresistor(800.0)
+  inst rinput : chip-resistor(closest-std-val(1000.0, 10.0), 0.01)
+  inst rint : chip-resistor(closest-std-val(10000.0, 10.0), 0.01)
+
+  inst q1 : components/BJT-2N3904S-RTKPS/module
+  inst pmos-sw : components/MOS-A06409/module
+
+  net (input rinput.p[1])
+  net (VDD rint.p[2])
+  net (GND q1.e)
+  net (rinput.p[2] q1.b)
+  net (q1.c rint.p[1])
+
+  net (VDD pmos-sw.s)
+  net (q1.c pmos-sw.g)
+  net (pmos-sw.d output)
+
+  schematic-group([rinput, rint, q1, pmos-sw]) = high-side-switch-schematic-group
+  schematic-group([rinput, rint, q1, pmos-sw]) = high-side-switch-layout-group

@@ -1,0 +1,105 @@
+#use-added-syntax(jitx)
+defpackage components/RK09K1130AP5 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+pcb-pad circle-th-pad :
+  type = TH
+  shape = Circle(0.9)
+  layer(SolderMask(Top)) = Circle(0.9)
+  layer(SolderMask(Bottom)) = Circle(0.9)
+  layer(Cutout()) = Circle(0.5500125)
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(2.9, 3.0, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(2.9, 3.0, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(2.9, 3.0, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(1.900025, 2.200025, loc(0.0, 0.0))
+
+public pcb-landpattern C470295 :
+  pad p[1] : circle-th-pad at loc(-2.5, -6.230505) on Top
+  pad p[2] : circle-th-pad at loc(0.000127, -6.230505) on Top
+  pad p[3] : circle-th-pad at loc(2.5, -6.230505) on Top
+  pad p[4] : oval-th-pad at loc(-4.899797, 0.769495) on Top
+  pad p[5] : oval-th-pad at loc(4.900051, 0.769495) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 8.286513), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -8.286513), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -10.286513), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-5.08001, 2.349505), Point(-5.08001, 6.286513)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-5.08001, -6.286513), Point(-3.683007, -6.286513)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(5.08001, -6.286513), Point(5.08001, -0.952502)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.556007, -6.286513), Point(5.08001, -6.286513)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(5.08001, 6.286513), Point(5.08001, 2.349505)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-5.08001, 6.286513), Point(5.08001, 6.286513)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-5.08001, -0.952502), Point(-5.08001, -6.286513)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-5.149809, -6.480518, 0.0299970000000007, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254001, [Arc(0.000127, -0.317374, 2.773686, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C470295.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+public pcb-symbol RK09K1130AP5 :
+  pin p[1] at Point(-38.4, 26.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[2] at Point(-39.4, 26.5) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[3] at Point(-40.4, 26.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[4] at Point(-38.4, 25.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[5] at Point(-40.4, 25.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("none") = Line(0.0, [Point(-39.4, 26.6), Point(-39.4, 27.1)])
+  layer("none") = Line(0.0, [Point(-40.4, 25.0), Point(-38.4, 25.0)])
+  layer("none") = Line(0.0, [  
+    Point(-40.4, 26.4), 
+    Point(-38.4, 26.4), 
+    Point(-38.4, 25.4), 
+    Point(-40.4, 25.4), 
+    Point(-40.4, 26.4)])
+  layer("foreground") = Polygon([  
+    Point(-39.4, 26.4), 
+    Point(-39.6, 26.9), 
+    Point(-39.2, 26.9), 
+    Point(-39.4, 26.4)])
+  
+public pcb-component component :
+  description = "RK09K1130AP5"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[1] | p[1] | Right | "Input"]
+    [p[2] | p[2] | Up | "Input"]
+    [p[3] | p[3] | Left | "Input"]
+    [p[4] | p[4] | Right | "Input"]
+    [p[5] | p[5] | Left | "Input"]
+    
+  assign-landpattern(C470295)
+  make-box-symbol()
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2005150038_ALPSALPINE-RK09K1130AP5_C470295.pdf"
+  

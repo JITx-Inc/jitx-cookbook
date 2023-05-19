@@ -1,0 +1,85 @@
+#use-added-syntax(jitx)
+defpackage components/_0603White_light_C2290 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+
+pcb-pad rect-smd-pad :
+  type = SMD
+  shape = Rectangle(0.8, 0.8)
+  layer(Paste(Top)) = Rectangle(0.8, 0.8)
+  layer(SolderMask(Top)) = Rectangle(0.8, 0.8)
+
+public pcb-landpattern C2290 :
+  pad p[1] : rect-smd-pad at loc(0.876302, 0.0, 90.0) on Top
+  pad p[2] : rect-smd-pad at loc(-0.825502, 0.0, 90.0) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 2.863602), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -2.863602), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(1.790704, 0.863602), Point(0.317501, 0.863602)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.202997, [Point(0.1016, -0.406401), Point(0.1016, 0.381001)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-0.292101, -0.863602), Point(-1.435103, -0.863602)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-0.266701, 0.863602), Point(-1.435103, 0.863602)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(1.790704, -0.863602), Point(0.317501, -0.863602)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-1.790704, 0.508001), Point(-1.435103, 0.863602)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-1.435103, -0.863602), Point(-1.790704, -0.508001)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(1.790704, -0.863602), Point(1.790704, 0.863602)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-1.790704, -0.508001), Point(-1.790704, 0.508001)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.202997, [Point(0.1016, -0.00795), Point(-0.073762, -0.00795)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(0.825502, 0.400051, 0.029972, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C2290.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+public pcb-symbol _0603White_light_C2290 :
+  pin A at Point(-40.5, 25.0) with :
+    direction = Left
+    length = 1.5
+    number-size = 0.6
+    name-size = 0.6
+  pin K at Point(-39.5, 25.0) with :
+    direction = Right
+    length = 1.5
+    number-size = 0.6
+    name-size = 0.6
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("foreground") = Polygon([  
+    Point(-40.5, 24.4), 
+    Point(-39.5, 25.0), 
+    Point(-40.5, 25.7), 
+    Point(-40.5, 24.4)])
+  layer("foreground") = Polygon([  
+    Point(-38.9, 26.7), 
+    Point(-39.3, 26.5), 
+    Point(-39.1, 26.3), 
+    Point(-38.9, 26.7)])
+  layer("foreground") = Polygon([  
+    Point(-38.5, 26.3), 
+    Point(-38.9, 26.1), 
+    Point(-38.7, 25.9), 
+    Point(-38.5, 26.3)])
+  layer("none") = Line(0.0, [Point(-39.6, 26.0), Point(-38.9, 26.7)])
+  layer("none") = Line(0.0, [Point(-39.5, 25.8), Point(-39.5, 24.2)])
+  layer("none") = Line(0.0, [Point(-39.2, 25.6), Point(-38.5, 26.3)])
+  
+public pcb-component component :
+  description = "0603White_light_C2290"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [a | a | Left | "Unspecified"]
+    [c | c | Right | "Unspecified"]
+    
+  assign-landpattern(ipc-two-pin-pol-landpattern("0603"))
+  assign-symbol(diode-sym(DiodeLED))
+  property(self.lcsc) = "C2290"
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1809041711_Hubei-KENTO-Elec-C2290_C2290.pdf"
+  
