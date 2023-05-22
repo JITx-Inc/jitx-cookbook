@@ -88,8 +88,12 @@ defn generate-test-leds-array (in-pins:Tuple<Net>, gnd-pin:JITXObject, voltage:T
 public pcb-module test-rig :
   inst design-under-test : usb-c-cable-tester-module
   inst usb-c-cable : usb-c-cable-module
-  net IN (design-under-test.in-usb.usb-c-pinout usb-c-cable.in-usb-bundle)
-  net OUT (design-under-test.out-usb.usb-c-pinout usb-c-cable.out-usb-bundle)
+
+  require dut-in-usb : usb-c-full-bundle from design-under-test.in-usb
+  require dut-out-usb : usb-c-full-bundle from design-under-test.out-usb
+
+  net IN (dut-in-usb usb-c-cable.in-usb-bundle)
+  net OUT (dut-out-usb usb-c-cable.out-usb-bundle)
   check-design(self)
 
 ; a component that models a usb cable
@@ -146,6 +150,8 @@ pcb-module usb-c-cable-tester-module :
 
   ; convert from ordered list of pins to ordered list of nets
   val ordered-nets = map(get-named-net{self, _}, ordered-pins)
+  println(ordered-pins)
+  println(ordered-nets)
 
   ; generate an array of test LEDs for each net we just made
   generate-test-leds-array(ordered-nets, GND, property(battery.power.vdd.voltage))
