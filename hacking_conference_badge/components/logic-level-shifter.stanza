@@ -1,0 +1,59 @@
+; When renaming the stanza package name below, also rename it in the folder stanza.proj
+; See docs.jitx.com for help
+#use-added-syntax(jitx)
+defpackage components/logic-level-shifter:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/bundles
+  import ocdb/utils/generic-components
+
+public pcb-module module :
+  pin hv
+  pin lv
+  pin gnd
+  pin lv-signal
+  pin hv-signal
+  
+  inst fet : database-part(["mpn" => "BSS138", "manufacturer" => "LGE"])
+
+  val lv-pullup = res-strap(lv-signal, lv, 10.0e3)
+  val hv-pullup = res-strap(hv-signal, hv, 10.0e3)
+
+  net (fet.S, lv-signal)
+  net (fet.D, hv-signal)
+  net (fet.G, lv)
+
+  schematic-group([fet, lv-pullup, hv-pullup]) = shifter-sg
+  layout-group([fet, lv-pullup, hv-pullup]) = shifter-lg
+
+public pcb-module i2c-level-shifter-module :
+  pin gnd
+  pin lv
+  pin hv
+
+  ; create level shifters
+  inst scl-shift : components/logic-level-shifter/module
+  inst sda-shift : components/logic-level-shifter/module
+
+  ; create i2c ports for level shifters
+  port lv-i2c : i2c
+  port hv-i2c : i2c
+
+  ; connect i2c scl
+  net (lv-i2c.scl scl-shift.lv-signal)
+  net (hv-i2c.scl scl-shift.hv-signal)
+
+  ; connect i2c sda
+  net (lv-i2c.sda sda-shift.lv-signal)
+  net (hv-i2c.sda sda-shift.hv-signal)
+
+  ; connect power + ground
+  net (hv scl-shift.hv sda-shift.hv)
+  net (lv scl-shift.lv sda-shift.lv)
+  net (gnd scl-shift.gnd, sda-shift.gnd)
+  
+  schematic-group([scl-shift, sda-shift]) = shifters-sg
+  schematic-group([scl-shift, sda-shift]) = shifters-lg

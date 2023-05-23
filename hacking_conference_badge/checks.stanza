@@ -1,0 +1,51 @@
+#use-added-syntax(jitx)
+defpackage checks:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+ 
+public pcb-check value-does-not-exceed-limits (v:Toleranced, limit:Toleranced) :
+  val name = "Value Does Not Exceed Limit Check"
+  val description = "Check that voltage/current/power of a JITX object is less than the maximum specification"
+  val category = "value-check"
+  #CHECK(
+    condition =            check-limits(limit, v),
+    name =                 "Limit Check",
+    description =          "Check that a value is less than the maximum limit",
+    category =             "Value checks"
+    subcheck-description = "Check that a value is less than the maximum limit"
+    pass-message =         "Value %_ is correctly within %_" % [v limit]
+    fail-message =         "Value %_ to %_ exceeds the range of %_ to %_" % [min-value(v) max-value(v) min-value(limit) max-value(limit)]
+    locators =             []
+    )   
+
+defn drain-current-check (isNType?:True|False, id:Toleranced, threshold:Toleranced) -> True|False :
+  if isNType? :
+    max-value(threshold) < min-value(id)
+  else :
+    max-value(threshold) < min-value(-1.0 * id)
+
+public pcb-check transistor-is-on (xtor: JITXObject, isNMOS?:True|False, id:Toleranced, on-current:Toleranced) :
+  val name = "Check state of transistor"
+  val description = "Check that a transistor is on or off"
+  val category = "state-check"
+  #CHECK(
+    condition =            drain-current-check(isNMOS?, id, on-current),
+    name =                 "On/Off Check",
+    description =          "Check that the transistor is on",
+    category =             "State checks"
+    subcheck-description = "Check that the drain current of the transistor is greater than a threshold"
+    pass-message =         "Transistor %_ is on. Drain current (%_A) is greater than the threshold (%_A)" % [ref(xtor) id  on-current]
+    fail-message =         "Transistor %_ drain current %_A is less than the on threshold of %_A" % [ref(xtor) id on-current]
+    locators =             []
+    )  
+
+defn check-limits (limit:Toleranced, value:Toleranced) -> True|False :
+  if tolerance-range(limit) == 0.0 : ; one sided limit check...
+    if max-value(limit) < 0.0 :
+      max-value(value) > max-value(limit)
+    else :
+      max-value(value) < max-value(limit)
+  else :
+    in-range?(limit, value)

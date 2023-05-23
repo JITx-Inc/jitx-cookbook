@@ -221,28 +221,71 @@ public pcb-symbol USB-C-1054500101 :
   layer("foreground") = Rectangle(25.4, 33.02, loc(0.0, -1.27))
 
 public pcb-component component :
-  port usb-c-pinout : usb-c-full-bundle
+  ; port usb-c-pinout : usb-c-full-bundle
+  ; pin-properties :
+  ;   [pin:Ref | pads:Ref ...            | side:Dir | electrical-type:String]
+  ;   [usb-c-pinout.SSRXN2 | A10 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.SSRXP2 | A11 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.GND    | A12 A1 B12 B1 | Left | "PowerIn"]
+  ;   [usb-c-pinout.SSTXP1 | A2 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.SSTXN1 | A3 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.CC1    | A5 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.DP1    | A6 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.DN1    | A7 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.SBU1   | A8 | Left | "Bidirectional"]
+  ;   [usb-c-pinout.VBUS   | A9 A4 B9 B4 | Left | "PowerIn"]
+  ;   [usb-c-pinout.SSRXN1 | B10 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.SSRXP1 | B11 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.SSTXP2 | B2 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.SSTXN2 | B3 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.CC2    | B5 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.DP2    | B6 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.DN2    | B7 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.SBU2   | B8 | Right | "Bidirectional"]
+  ;   [usb-c-pinout.shield | S4 S3 S2 S1 | Left | "Passive"]
+
   pin-properties :
     [pin:Ref | pads:Ref ...            | side:Dir | electrical-type:String]
-    [usb-c-pinout.SSRXN2 | A10 | Left | "Bidirectional"]
-    [usb-c-pinout.SSRXP2 | A11 | Left | "Bidirectional"]
-    [usb-c-pinout.GND    | A12 A1 B12 B1 | Left | "PowerIn"]
-    [usb-c-pinout.SSTXP1 | A2 | Left | "Bidirectional"]
-    [usb-c-pinout.SSTXN1 | A3 | Left | "Bidirectional"]
-    [usb-c-pinout.CC1    | A5 | Left | "Bidirectional"]
-    [usb-c-pinout.DP1    | A6 | Left | "Bidirectional"]
-    [usb-c-pinout.DN1    | A7 | Left | "Bidirectional"]
-    [usb-c-pinout.SBU1   | A8 | Left | "Bidirectional"]
-    [usb-c-pinout.VBUS   | A9 A4 B9 B4 | Left | "PowerIn"]
-    [usb-c-pinout.SSRXN1 | B10 | Right | "Bidirectional"]
-    [usb-c-pinout.SSRXP1 | B11 | Right | "Bidirectional"]
-    [usb-c-pinout.SSTXP2 | B2 | Right | "Bidirectional"]
-    [usb-c-pinout.SSTXN2 | B3 | Right | "Bidirectional"]
-    [usb-c-pinout.CC2    | B5 | Right | "Bidirectional"]
-    [usb-c-pinout.DP2    | B6 | Right | "Bidirectional"]
-    [usb-c-pinout.DN2    | B7 | Right | "Bidirectional"]
-    [usb-c-pinout.SBU2   | B8 | Right | "Bidirectional"]
-    [usb-c-pinout.shield | S4 S3 S2 S1 | Left | "Passive"]
+    [SSRXN2 | A10 | Left | "Bidirectional"]
+    [SSRXP2 | A11 | Left | "Bidirectional"]
+    [GND    | A12 A1 B12 B1 | Left | "PowerIn"]
+    [SSTXP1 | A2 | Left | "Bidirectional"]
+    [SSTXN1 | A3 | Left | "Bidirectional"]
+    [CC1    | A5 | Left | "Bidirectional"]
+    [DP1    | A6 | Left | "Bidirectional"]
+    [DN1    | A7 | Left | "Bidirectional"]
+    [SBU1   | A8 | Left | "Bidirectional"]
+    [VBUS   | A9 A4 B9 B4 | Left | "PowerIn"]
+    [SSRXN1 | B10 | Right | "Bidirectional"]
+    [SSRXP1 | B11 | Right | "Bidirectional"]
+    [SSTXP2 | B2 | Right | "Bidirectional"]
+    [SSTXN2 | B3 | Right | "Bidirectional"]
+    [CC2    | B5 | Right | "Bidirectional"]
+    [DP2    | B6 | Right | "Bidirectional"]
+    [DN2    | B7 | Right | "Bidirectional"]
+    [SBU2   | B8 | Right | "Bidirectional"]
+    [shield | S4 S3 S2 S1 | Left | "Passive"]
+
+  supports usb-c-full-bundle :
+    usb-c-full-bundle.VBUS => self.VBUS
+    usb-c-full-bundle.CC1 => self.CC1
+    usb-c-full-bundle.CC2 => self.CC2
+    usb-c-full-bundle.DP1 => self.DP1
+    usb-c-full-bundle.DN1 => self.DN1
+    usb-c-full-bundle.DP2 => self.DP2
+    usb-c-full-bundle.DN2 => self.DN2
+    usb-c-full-bundle.SBU1 => self.SBU1
+    usb-c-full-bundle.SBU2 => self.SBU2
+    usb-c-full-bundle.GND => self.GND
+    usb-c-full-bundle.shield => self.shield
+    usb-c-full-bundle.SSTXP1 => self.SSTXP1
+    usb-c-full-bundle.SSTXN1 => self.SSTXN1
+    usb-c-full-bundle.SSRXP1 => self.SSRXP1
+    usb-c-full-bundle.SSRXN1 => self.SSRXN1
+    usb-c-full-bundle.SSRXP2 => self.SSRXP2
+    usb-c-full-bundle.SSRXN2 => self.SSRXN2
+    usb-c-full-bundle.SSTXP2 => self.SSTXP2
+    usb-c-full-bundle.SSTXN2 => self.SSTXN2
 
   assign-landpattern(MOLEX10545001011)
   make-box-symbol()

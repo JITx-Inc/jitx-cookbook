@@ -1,0 +1,101 @@
+#use-added-syntax(jitx)
+defpackage components/BSN20 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+pcb-pad rect-smd-pad :
+  type = SMD
+  shape = Rectangle(1.070003, 0.6)
+  layer(Paste(Top)) = Rectangle(1.070003, 0.6)
+  layer(SolderMask(Top)) = Rectangle(1.070003, 0.6)
+
+public pcb-landpattern C116157 :
+  pad p[1] : rect-smd-pad at loc(1.235077, -0.949962) on Top
+  pad p[2] : rect-smd-pad at loc(1.235077, 0.949962) on Top
+  pad p[3] : rect-smd-pad at loc(-1.235077, 0.0) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.536195), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.536195), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.536195), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(0.876073, 1.536195), Point(-0.876327, 1.536195)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-0.876327, -1.536195), Point(-0.876327, -0.49459)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(0.876073, 0.455398), Point(0.876073, -0.455398)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(0.876073, -1.536195), Point(-0.876327, -1.536195)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-0.876327, 1.536195), Point(-0.876327, 0.49459)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(1.399873, -1.459995, 0.0299970000000001, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.2, [Arc(1.65113, -0.949962, 0.100077, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C116157.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, -180.0))
+  
+public pcb-symbol BSN20 :
+  pin G at Point(-2.0, -5.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin S at Point(0.0, -6.0) with :
+    direction = Down
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  pin D at Point(0.0, -4.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.6
+    name-size = 0.6
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("none") = Line(0.0, [Point(-1.2, -4.1), Point(-1.2, -5.9)])
+  layer("none") = Line(0.0, [  
+    Point(-1.0, -5.0), 
+    Point(0.0, -5.0), 
+    Point(0.0, -6.0), 
+    Point(1.0, -6.0), 
+    Point(1.0, -5.3)])
+  layer("none") = Line(0.0, [  
+    Point(0.6, -4.9), 
+    Point(0.7, -4.8), 
+    Point(1.3, -4.8), 
+    Point(1.4, -4.7)])
+  layer("none") = Line(0.0, [Point(-2.0, -5.0), Point(-1.2, -5.0)])
+  layer("none") = Line(0.0, [Point(0.0, -5.7), Point(-1.0, -5.7)])
+  layer("none") = Line(0.0, [  
+    Point(-1.0, -4.3), 
+    Point(0.0, -4.3), 
+    Point(0.0, -4.0), 
+    Point(1.0, -4.0), 
+    Point(1.0, -4.8)])
+  layer("none") = Line(0.0, [Point(-1.0, -5.2), Point(-1.0, -4.8)])
+  layer("none") = Line(0.0, [Point(-1.0, -5.9), Point(-1.0, -5.5)])
+  layer("none") = Line(0.0, [Point(-1.0, -4.1), Point(-1.0, -4.5)])
+  layer("foreground") = Polygon([  
+    Point(-1.0, -5.0), 
+    Point(-0.4, -4.8), 
+    Point(-0.4, -5.2), 
+    Point(-1.0, -5.0)])
+  layer("foreground") = Polygon([  
+    Point(1.0, -4.8), 
+    Point(1.3, -5.3), 
+    Point(0.7, -5.3), 
+    Point(1.0, -4.8)])
+  
+public pcb-component component :
+  description = "BSN20"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [G | p[1] | Left | "Unspecified"]
+    [S | p[2] | Down | "Unspecified"]
+    [D | p[3] | Up | "Unspecified"]
+    
+  assign-landpattern(C116157)
+  assign-symbol(BSN20)
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1811021114_Shikues-BSN20_C116157.pdf"
+  

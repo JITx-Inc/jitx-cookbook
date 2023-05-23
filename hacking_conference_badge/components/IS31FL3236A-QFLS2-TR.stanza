@@ -1,0 +1,306 @@
+#use-added-syntax(jitx)
+defpackage components/IS31FL3236A-QFLS2-TR :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/landpatterns
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+
+
+pcb-pad custom-smd-pad-1 :
+  type = SMD
+  shape = Polygon([  
+    Point(0.100025, 0.249886), 
+    Point(0.100025, -0.600051), 
+    Point(-0.099975, -0.600051), 
+    Point(-0.099975, 0.049911)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(0.100025, 0.249886), 
+    Point(0.100025, -0.600051), 
+    Point(-0.099975, -0.600051), 
+    Point(-0.099975, 0.049911)])
+  layer(Paste(Top)) = Polygon([  
+    Point(0.100025, 0.249886), 
+    Point(0.100025, -0.600051), 
+    Point(-0.099975, -0.600051), 
+    Point(-0.099975, 0.049911)])
+
+pcb-pad custom-smd-pad-2 :
+  type = SMD
+  shape = Polygon([  
+    Point(0.250013, 0.100051), 
+    Point(-0.599924, 0.100051), 
+    Point(-0.599924, -0.099949), 
+    Point(0.050038, -0.099949)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(0.250013, 0.100051), 
+    Point(-0.599924, 0.100051), 
+    Point(-0.599924, -0.099949), 
+    Point(0.050038, -0.099949)])
+  layer(Paste(Top)) = Polygon([  
+    Point(0.250013, 0.100051), 
+    Point(-0.599924, 0.100051), 
+    Point(-0.599924, -0.099949), 
+    Point(0.050038, -0.099949)])
+
+pcb-pad custom-smd-pad-3 :
+  type = SMD
+  shape = Polygon([  
+    Point(-0.250013, 0.1), 
+    Point(0.599924, 0.1), 
+    Point(0.599924, -0.1), 
+    Point(-0.050038, -0.1)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(-0.250013, 0.1), 
+    Point(0.599924, 0.1), 
+    Point(0.599924, -0.1), 
+    Point(-0.050038, -0.1)])
+  layer(Paste(Top)) = Polygon([  
+    Point(-0.250013, 0.1), 
+    Point(0.599924, 0.1), 
+    Point(0.599924, -0.1), 
+    Point(-0.050038, -0.1)])
+
+pcb-pad custom-smd-pad-4 :
+  type = SMD
+  shape = Polygon([  
+    Point(-0.100025, 0.249911), 
+    Point(-0.100025, -0.600025), 
+    Point(0.099975, -0.600025), 
+    Point(0.099975, 0.049936)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(-0.100025, 0.249911), 
+    Point(-0.100025, -0.600025), 
+    Point(0.099975, -0.600025), 
+    Point(0.099975, 0.049936)])
+  layer(Paste(Top)) = Polygon([  
+    Point(-0.100025, 0.249911), 
+    Point(-0.100025, -0.600025), 
+    Point(0.099975, -0.600025), 
+    Point(0.099975, 0.049936)])
+
+pcb-pad custom-smd-pad-5 :
+  type = SMD
+  shape = Polygon([  
+    Point(-0.249911, -0.100025), 
+    Point(0.600025, -0.100025), 
+    Point(0.600025, 0.099975), 
+    Point(-0.049936, 0.099975)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(-0.249911, -0.100025), 
+    Point(0.600025, -0.100025), 
+    Point(0.600025, 0.099975), 
+    Point(-0.049936, 0.099975)])
+  layer(Paste(Top)) = Polygon([  
+    Point(-0.249911, -0.100025), 
+    Point(0.600025, -0.100025), 
+    Point(0.600025, 0.099975), 
+    Point(-0.049936, 0.099975)])
+
+pcb-pad custom-smd-pad-6 :
+  type = SMD
+  shape = Polygon([  
+    Point(-0.1, -0.250013), 
+    Point(-0.1, 0.599924), 
+    Point(0.1, 0.599924), 
+    Point(0.1, -0.050038)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(-0.1, -0.250013), 
+    Point(-0.1, 0.599924), 
+    Point(0.1, 0.599924), 
+    Point(0.1, -0.050038)])
+  layer(Paste(Top)) = Polygon([  
+    Point(-0.1, -0.250013), 
+    Point(-0.1, 0.599924), 
+    Point(0.1, 0.599924), 
+    Point(0.1, -0.050038)])
+
+pcb-pad custom-smd-pad-7 :
+  type = SMD
+  shape = Polygon([  
+    Point(0.100025, -0.249911), 
+    Point(0.100025, 0.600025), 
+    Point(-0.099975, 0.600025), 
+    Point(-0.099975, -0.049936)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(0.100025, -0.249911), 
+    Point(0.100025, 0.600025), 
+    Point(-0.099975, 0.600025), 
+    Point(-0.099975, -0.049936)])
+  layer(Paste(Top)) = Polygon([  
+    Point(0.100025, -0.249911), 
+    Point(0.100025, 0.600025), 
+    Point(-0.099975, 0.600025), 
+    Point(-0.099975, -0.049936)])
+
+pcb-pad custom-smd-pad-8 :
+  type = SMD
+  shape = Polygon([  
+    Point(0.250013, -0.1), 
+    Point(-0.599924, -0.1), 
+    Point(-0.599924, 0.1), 
+    Point(0.050038, 0.1)])
+  layer(SolderMask(Top)) = Polygon([  
+    Point(0.250013, -0.1), 
+    Point(-0.599924, -0.1), 
+    Point(-0.599924, 0.1), 
+    Point(0.050038, 0.1)])
+  layer(Paste(Top)) = Polygon([  
+    Point(0.250013, -0.1), 
+    Point(-0.599924, -0.1), 
+    Point(-0.599924, 0.1), 
+    Point(0.050038, 0.1)])
+
+pcb-pad rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(2.450013, 2.450013)
+  layer(SolderMask(Top)) = Rectangle(2.450013, 2.450013)
+  layer(Paste(Top)) = Rectangle(2.450013, 2.450013)
+
+pcb-pad rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(0.9, 0.2)
+  layer(SolderMask(Top)) = Rectangle(0.9, 0.2)
+  layer(Paste(Top)) = Rectangle(0.9, 0.2)
+
+pcb-pad rect-smd-pad-3 :
+  type = SMD
+  shape = Rectangle(0.2, 0.9)
+  layer(SolderMask(Top)) = Rectangle(0.2, 0.9)
+  layer(Paste(Top)) = Rectangle(0.2, 0.9)
+
+public pcb-landpattern C246443 :
+  pad p[1] : custom-smd-pad-1 at loc(-2.0, -2.385954) on Top
+  pad p[2] : rect-smd-pad-3 at loc(-1.599949, -2.536068) on Top
+  pad p[3] : rect-smd-pad-3 at loc(-1.199898, -2.536068) on Top
+  pad p[4] : rect-smd-pad-3 at loc(-0.800102, -2.536068) on Top
+  pad p[5] : rect-smd-pad-3 at loc(-0.400051, -2.536068) on Top
+  pad p[6] : rect-smd-pad-3 at loc(0.0, -2.536068) on Top
+  pad p[7] : rect-smd-pad-3 at loc(0.400051, -2.536068) on Top
+  pad p[8] : rect-smd-pad-3 at loc(0.800102, -2.536068) on Top
+  pad p[9] : rect-smd-pad-3 at loc(1.199898, -2.536068) on Top
+  pad p[10] : rect-smd-pad-3 at loc(1.599949, -2.536068) on Top
+  pad p[11] : custom-smd-pad-4 at loc(2.0, -2.385954) on Top
+  pad p[12] : custom-smd-pad-3 at loc(2.386081, -2.000127) on Top
+  pad p[13] : rect-smd-pad-2 at loc(2.535941, -1.600076) on Top
+  pad p[14] : rect-smd-pad-2 at loc(2.535941, -1.200025) on Top
+  pad p[15] : rect-smd-pad-2 at loc(2.535941, -0.799975) on Top
+  pad p[16] : rect-smd-pad-2 at loc(2.535941, -0.399924) on Top
+  pad p[17] : rect-smd-pad-2 at loc(2.535941, -0.000127) on Top
+  pad p[18] : rect-smd-pad-2 at loc(2.535941, 0.399924) on Top
+  pad p[19] : rect-smd-pad-2 at loc(2.535941, 0.799975) on Top
+  pad p[20] : rect-smd-pad-2 at loc(2.535941, 1.200025) on Top
+  pad p[21] : rect-smd-pad-2 at loc(2.535941, 1.600076) on Top
+  pad p[22] : custom-smd-pad-5 at loc(2.385827, 1.999873) on Top
+  pad p[23] : custom-smd-pad-6 at loc(2.0, 2.385954) on Top
+  pad p[24] : rect-smd-pad-3 at loc(1.599949, 2.536068) on Top
+  pad p[25] : rect-smd-pad-3 at loc(1.199898, 2.536068) on Top
+  pad p[26] : rect-smd-pad-3 at loc(0.800102, 2.536068) on Top
+  pad p[27] : rect-smd-pad-3 at loc(0.400051, 2.536068) on Top
+  pad p[28] : rect-smd-pad-3 at loc(0.0, 2.536068) on Top
+  pad p[29] : rect-smd-pad-3 at loc(-0.400051, 2.536068) on Top
+  pad p[30] : rect-smd-pad-3 at loc(-0.800102, 2.536068) on Top
+  pad p[31] : rect-smd-pad-3 at loc(-1.199898, 2.536068) on Top
+  pad p[32] : rect-smd-pad-3 at loc(-1.599949, 2.536068) on Top
+  pad p[33] : custom-smd-pad-7 at loc(-2.0, 2.3857) on Top
+  pad p[34] : custom-smd-pad-8 at loc(-2.386081, 1.999873) on Top
+  pad p[35] : rect-smd-pad-2 at loc(-2.535941, 1.600076) on Top
+  pad p[36] : rect-smd-pad-2 at loc(-2.535941, 1.200025) on Top
+  pad p[37] : rect-smd-pad-2 at loc(-2.535941, 0.799975) on Top
+  pad p[38] : rect-smd-pad-2 at loc(-2.535941, 0.399924) on Top
+  pad p[39] : rect-smd-pad-2 at loc(-2.535941, -0.000127) on Top
+  pad p[40] : rect-smd-pad-2 at loc(-2.535941, -0.399924) on Top
+  pad p[41] : rect-smd-pad-2 at loc(-2.535941, -0.799975) on Top
+  pad p[42] : rect-smd-pad-2 at loc(-2.535941, -1.200025) on Top
+  pad p[43] : rect-smd-pad-2 at loc(-2.535941, -1.600076) on Top
+  pad p[44] : custom-smd-pad-2 at loc(-2.386081, -2.000127) on Top
+  pad p[45] : rect-smd-pad-1 at loc(0.0, -0.000127) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 4.921006), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -4.921006), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-2.499873, -2.5, 0.0299719999999999, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.3, [Arc(-2.020066, -2.859919, 0.150114, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254001, [Arc(-2.328931, -3.250064, 0.179579, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(2.413005, 2.921006), Point(2.921006, 2.921006)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(2.921006, 2.921006), Point(2.921006, 2.413005)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(2.921006, -2.413005), Point(2.921006, -2.921006)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(2.921006, -2.921006), Point(2.413005, -2.921006)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.921006, -2.413005), Point(-2.921006, -2.540005)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.921006, -2.540005), Point(-2.540005, -2.921006)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.540005, -2.921006), Point(-2.413005, -2.921006)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.921006, 2.413005), Point(-2.921006, 2.921006)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.921006, 2.921006), Point(-2.413005, 2.921006)])
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -6.921006), "", TrueTypeFont)
+  
+  model3d = Model3D("..\\..\\3d-models\\C246443.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, -90.0))
+
+public pcb-component component :
+  mpn = "IS31FL3236A-QFLS2-TR"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [VCC | p[38] | Left | "Unspecified"]
+    [SCL | p[42] | Left | "Unspecified"]
+    [SDA | p[41] | Left | "Unspecified"]
+    [SDB | p[36] | Left | "Unspecified"]
+    [AD | p[37] | Left | "Unspecified"]
+    [R-EXT | p[40] | Left | "Unspecified"]
+    [EPAD | p[45] | Down | "Unspecified"]
+    [GND[0] | p[17] | Down | "Unspecified"]
+    [GND[1] | p[39] | Down | "Unspecified"]
+    [OUT[1] | p[43] | Right | "Unspecified"]
+    [OUT[2] | p[44] | Right | "Unspecified"]
+    [OUT[3] | p[1] | Right | "Unspecified"]
+    [OUT[4] | p[2] | Right | "Unspecified"]
+    [OUT[5] | p[3] | Right | "Unspecified"]
+    [OUT[6] | p[4] | Right | "Unspecified"]
+    [OUT[7] | p[5] | Right | "Unspecified"]
+    [OUT[8] | p[6] | Right | "Unspecified"]
+    [OUT[9] | p[7] | Right | "Unspecified"]
+    [OUT[10] | p[8] | Right | "Unspecified"]
+    [OUT[11] | p[9] | Right | "Unspecified"]
+    [OUT[12] | p[10] | Right | "Unspecified"]
+    [OUT[13] | p[11] | Right | "Unspecified"]
+    [OUT[14] | p[12] | Right | "Unspecified"]
+    [OUT[15] | p[13] | Right | "Unspecified"]
+    [OUT[16] | p[14] | Right | "Unspecified"]
+    [OUT[17] | p[15] | Right | "Unspecified"]
+    [OUT[18] | p[16] | Right | "Unspecified"]
+    [OUT[19] | p[18] | Right | "Unspecified"]
+    [OUT[20] | p[19] | Right | "Unspecified"]
+    [OUT[21] | p[20] | Right | "Unspecified"]
+    [OUT[22] | p[21] | Right | "Unspecified"]
+    [OUT[23] | p[22] | Right | "Unspecified"]
+    [OUT[24] | p[23] | Right | "Unspecified"]
+    [OUT[25] | p[24] | Right | "Unspecified"]
+    [OUT[26] | p[25] | Right | "Unspecified"]
+    [OUT[27] | p[26] | Right | "Unspecified"]
+    [OUT[28] | p[27] | Right | "Unspecified"]
+    [OUT[29] | p[28] | Right | "Unspecified"]
+    [OUT[30] | p[29] | Right | "Unspecified"]
+    [OUT[31] | p[30] | Right | "Unspecified"]
+    [OUT[32] | p[31] | Right | "Unspecified"]
+    [OUT[33] | p[32] | Right | "Unspecified"]
+    [OUT[34] | p[33] | Right | "Unspecified"]
+    [OUT[35] | p[34] | Right | "Unspecified"]
+    [OUT[36] | p[35] | Right | "Unspecified"]
+    
+    
+  assign-landpattern(C246443)
+  make-box-symbol()
+  property(self.lcsc) = "C246443"
+
+  property(self.VCC.power-pin) = PowerPin(min-max(2.7, 5.5))
+
+  for p in pins(self.OUT) do :
+    supports gpio :
+      gpio.gpio => p
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1810010543_ISSI-Integrated-Silicon-Solution-IS31FL3236A-QFLS2-TR_C246443.pdf"
+
+  

@@ -1,0 +1,101 @@
+#use-added-syntax(jitx)
+defpackage components/NCP1117LPST33T3G :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+  import ocdb/utils/generic-components
+
+pcb-pad rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(2.464999, 1.050013)
+  layer(Paste(Top)) = Rectangle(2.464999, 1.050013)
+  layer(SolderMask(Top)) = Rectangle(2.464999, 1.050013)
+
+pcb-pad rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(2.464999, 3.540005)
+  layer(Paste(Top)) = Rectangle(2.464999, 3.540005)
+  layer(SolderMask(Top)) = Rectangle(2.464999, 3.540005)
+
+public pcb-landpattern C146799 :
+  pad p[1] : rect-smd-pad-1 at loc(2.857506, -2.299975) on Top
+  pad p[2] : rect-smd-pad-1 at loc(2.857506, 0.0) on Top
+  pad p[3] : rect-smd-pad-1 at loc(2.857506, 2.299975) on Top
+  pad p[4] : rect-smd-pad-2 at loc(-2.857506, 0.0) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 5.401219), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.401219), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -7.401219), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.396393, -3.401219), Point(-1.396393, 3.401219)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.396393, -3.401219), Point(-1.396393, -3.401219)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.396393, 3.401219), Point(1.396393, -3.401219)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.396393, 3.401219), Point(1.396393, 3.401219)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(3.5, -3.250038, 0.0299969999999998, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.5, [Arc(4.228626, -2.276607, 0.250013, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C146799.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, -180.0))
+  
+public pcb-symbol NCP1117LPST33T3G :
+  pin ADJGND at Point(3.0, -8.0) with :
+    direction = Right
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  pin VOUT at Point(3.0, -6.0) with :
+    direction = Right
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  pin VIN at Point(-3.0, -6.0) with :
+    direction = Left
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  pin EP at Point(3.0, -7.0) with :
+    direction = Right
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("foreground") = Rectangle(6.0, 4.0, loc(0.0, -7.0))
+  
+public pcb-component component :
+  description = "NCP1117LPST33T3G"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [ADJGND | p[1] | Right | "PowerIn"]
+    [VOUT | p[2] p[4]| Right | "PowerIn"]
+    [VIN | p[3] | Left | "PowerIn"]
+    
+  assign-landpattern(C146799)
+  make-box-symbol()
+  
+  property(self.VIN.power-pin) = PowerPin(min-max(3.3 + 1.4, 18.0))
+  property(self.VOUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235 3.3 3.365), 1.0)
+  property(self.VOUT.voltage) = min-typ-max(3.235 3.3 3.365)
+
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1809111714_onsemi-NCP1117LPST33T3G_C146799.pdf"
+  
+public pcb-module module :
+  pin VIN
+  pin VOUT
+  pin GND
+  inst ld : components/NCP1117LPST33T3G/component
+  net (VIN ld.VIN)
+  net (VOUT ld.VOUT)
+  bypass-cap-strap(ld.VIN GND, 10.0e-6)
+  bypass-cap-strap(ld.VOUT GND, 10.0e-6)
+  net (ld.ADJGND, GND)
+
+  schematic-group(self) = NCP1117
+  layout-group(self) = NCP1117

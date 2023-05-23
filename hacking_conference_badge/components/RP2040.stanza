@@ -1,0 +1,641 @@
+#use-added-syntax(jitx)
+defpackage components/RP2040 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+
+pcb-pad rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(1.1, 0.2)
+  layer(Paste(Top)) = Rectangle(1.1, 0.2)
+  layer(SolderMask(Top)) = Rectangle(1.1, 0.2)
+
+pcb-pad rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(3.1, 3.1)
+  layer(Paste(Top)) = Rectangle(3.1, 3.1)
+  layer(SolderMask(Top)) = Rectangle(3.1, 3.1)
+
+public pcb-landpattern C2040 :
+  pad p[1] : rect-smd-pad-1 at loc(-3.550165, 2.600076) on Top
+  pad p[2] : rect-smd-pad-1 at loc(-3.550165, 2.200025) on Top
+  pad p[3] : rect-smd-pad-1 at loc(-3.550165, 1.799975) on Top
+  pad p[4] : rect-smd-pad-1 at loc(-3.550165, 1.399924) on Top
+  pad p[5] : rect-smd-pad-1 at loc(-3.550165, 1.000127) on Top
+  pad p[6] : rect-smd-pad-1 at loc(-3.550165, 0.600076) on Top
+  pad p[7] : rect-smd-pad-1 at loc(-3.550165, 0.200025) on Top
+  pad p[8] : rect-smd-pad-1 at loc(-3.550165, -0.200025) on Top
+  pad p[9] : rect-smd-pad-1 at loc(-3.550165, -0.600076) on Top
+  pad p[10] : rect-smd-pad-1 at loc(-3.550165, -0.999873) on Top
+  pad p[11] : rect-smd-pad-1 at loc(-3.550165, -1.399924) on Top
+  pad p[12] : rect-smd-pad-1 at loc(-3.550165, -1.799975) on Top
+  pad p[13] : rect-smd-pad-1 at loc(-3.550165, -2.200025) on Top
+  pad p[14] : rect-smd-pad-1 at loc(-3.550165, -2.600076) on Top
+  pad p[15] : rect-smd-pad-1 at loc(-2.599949, -3.550038, 90.0) on Top
+  pad p[16] : rect-smd-pad-1 at loc(-2.200152, -3.550038, 90.0) on Top
+  pad p[17] : rect-smd-pad-1 at loc(-1.800102, -3.550038, 90.0) on Top
+  pad p[18] : rect-smd-pad-1 at loc(-1.400051, -3.550038, 90.0) on Top
+  pad p[19] : rect-smd-pad-1 at loc(-1.0, -3.550038, 90.0) on Top
+  pad p[20] : rect-smd-pad-1 at loc(-0.599949, -3.550038, 90.0) on Top
+  pad p[21] : rect-smd-pad-1 at loc(-0.200152, -3.550038, 90.0) on Top
+  pad p[22] : rect-smd-pad-1 at loc(0.199898, -3.550038, 90.0) on Top
+  pad p[23] : rect-smd-pad-1 at loc(0.599949, -3.550038, 90.0) on Top
+  pad p[24] : rect-smd-pad-1 at loc(1.0, -3.550038, 90.0) on Top
+  pad p[25] : rect-smd-pad-1 at loc(1.400051, -3.550038, 90.0) on Top
+  pad p[26] : rect-smd-pad-1 at loc(1.799848, -3.550038, 90.0) on Top
+  pad p[27] : rect-smd-pad-1 at loc(2.199898, -3.550038, 90.0) on Top
+  pad p[28] : rect-smd-pad-1 at loc(2.599949, -3.550038, 90.0) on Top
+  pad p[29] : rect-smd-pad-1 at loc(3.550165, -2.600076, 180.0) on Top
+  pad p[30] : rect-smd-pad-1 at loc(3.550165, -2.200025, 180.0) on Top
+  pad p[31] : rect-smd-pad-1 at loc(3.550165, -1.799975, 180.0) on Top
+  pad p[32] : rect-smd-pad-1 at loc(3.550165, -1.399924, 180.0) on Top
+  pad p[33] : rect-smd-pad-1 at loc(3.550165, -0.999873, 180.0) on Top
+  pad p[34] : rect-smd-pad-1 at loc(3.550165, -0.600076, 180.0) on Top
+  pad p[35] : rect-smd-pad-1 at loc(3.550165, -0.200025, 180.0) on Top
+  pad p[36] : rect-smd-pad-1 at loc(3.550165, 0.200025, 180.0) on Top
+  pad p[37] : rect-smd-pad-1 at loc(3.550165, 0.600076, 180.0) on Top
+  pad p[38] : rect-smd-pad-1 at loc(3.550165, 1.000127, 180.0) on Top
+  pad p[39] : rect-smd-pad-1 at loc(3.550165, 1.399924, 180.0) on Top
+  pad p[40] : rect-smd-pad-1 at loc(3.550165, 1.799975, 180.0) on Top
+  pad p[41] : rect-smd-pad-1 at loc(3.550165, 2.200025, 180.0) on Top
+  pad p[42] : rect-smd-pad-1 at loc(3.550165, 2.600076, 180.0) on Top
+  pad p[43] : rect-smd-pad-1 at loc(2.599949, 3.550038, 270.0) on Top
+  pad p[44] : rect-smd-pad-1 at loc(2.199898, 3.550038, 270.0) on Top
+  pad p[45] : rect-smd-pad-1 at loc(1.799848, 3.550038, 270.0) on Top
+  pad p[46] : rect-smd-pad-1 at loc(1.400051, 3.550038, 270.0) on Top
+  pad p[47] : rect-smd-pad-1 at loc(1.0, 3.550038, 270.0) on Top
+  pad p[48] : rect-smd-pad-1 at loc(0.599949, 3.550038, 270.0) on Top
+  pad p[49] : rect-smd-pad-1 at loc(0.199898, 3.550038, 270.0) on Top
+  pad p[50] : rect-smd-pad-1 at loc(-0.200152, 3.550038, 270.0) on Top
+  pad p[51] : rect-smd-pad-1 at loc(-0.599949, 3.550038, 270.0) on Top
+  pad p[52] : rect-smd-pad-1 at loc(-1.0, 3.550038, 270.0) on Top
+  pad p[53] : rect-smd-pad-1 at loc(-1.400051, 3.550038, 270.0) on Top
+  pad p[54] : rect-smd-pad-1 at loc(-1.800102, 3.550038, 270.0) on Top
+  pad p[55] : rect-smd-pad-1 at loc(-2.200152, 3.550038, 270.0) on Top
+  pad p[56] : rect-smd-pad-1 at loc(-2.599949, 3.550038, 270.0) on Top
+  pad p[57] : rect-smd-pad-2 at loc(0.0, 0.000127) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 5.550038), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.550038), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -7.550038), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.499924, -3.499924), Point(2.93109, -3.499924)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.500076, 3.500025), Point(-2.931191, 3.500025)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.499924, 3.500025), Point(3.499924, 2.931191)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.500076, 2.931191), Point(-2.931191, 3.500025)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.400051, -3.499924), Point(-3.500076, -3.499924)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(2.93109, 3.500025), Point(3.499924, 3.500025)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.240996, 3.403175), Point(-3.500076, 3.144094)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.500076, 2.931191), Point(-3.500076, 3.500025)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.931191, -3.499924), Point(-3.400051, -3.499924)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.499924, -2.93109), Point(3.499924, -3.499924)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.240996, 3.500025), Point(-3.240996, 3.403175)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.500076, -3.499924), Point(-3.500076, -2.93109)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254001, [Arc(-4.0, 3.700152, 0.127, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-3.500127, 3.5, 0.0299719999999999, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.254001, [Arc(-3.899924, 2.600076, 0.127, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C2040.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+public pcb-symbol RP2040 :
+  pin IOVDD[5] at Point(3.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin IOVDD[4] at Point(2.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO8 at Point(11.5, 1.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO9 at Point(11.5, 0.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO10 at Point(11.5, -1.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO11 at Point(11.5, -2.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO12 at Point(11.5, -3.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO13 at Point(11.5, -4.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO14 at Point(11.5, -5.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO15 at Point(11.5, -6.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin TESTEN at Point(-5.0, -23.0) with :
+    direction = Down
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO0 at Point(11.5, 9.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin XIN at Point(-11.5, -5.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin XOUT at Point(-11.5, -7.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin IOVDD[3] at Point(1.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin DVDD[1] at Point(-7.0, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin SWCLK at Point(-11.5, -16.5) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin SWD at Point(-11.5, -17.5) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin RUN at Point(-11.5, -12.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO16 at Point(11.5, -7.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO17 at Point(11.5, -8.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO18 at Point(11.5, -9.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO1 at Point(11.5, 8.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO19 at Point(11.5, -10.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO20 at Point(11.5, -11.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO21 at Point(11.5, -12.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin IOVDD[2] at Point(0.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO22 at Point(11.5, -13.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO23 at Point(11.5, -14.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO24 at Point(11.5, -15.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO25 at Point(11.5, -16.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO26_ADC0 at Point(11.5, -18.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO27_ADC1 at Point(11.5, -19.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO2 at Point(11.5, 7.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO28_ADC2 at Point(11.5, -20.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO29_ADC3 at Point(11.5, -21.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin IOVDD[1] at Point(-0.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin ADC_AVDD at Point(6.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin VREG_IN at Point(-3.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin VREG_VOUT at Point(-5.0, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin USB_DM at Point(11.5, 12.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin USB_DP at Point(11.5, 13.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin USB_VDD at Point(5.0, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin IOVDD[0] at Point(-1.5, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO3 at Point(11.5, 6.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin DVDD[0] at Point(-8.0, 15.0) with :
+    direction = Up
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin QSPI_SD3 at Point(-11.5, 4.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin QSPI_SCLK at Point(-11.5, 2.5) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin QSPI_SD0 at Point(-11.5, 7.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin QSPI_SD2 at Point(-11.5, 5.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin QSPI_SD1 at Point(-11.5, 6.0) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin QSPI_SS at Point(-11.5, 8.5) with :
+    direction = Left
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GND at Point(0.0, -23.0) with :
+    direction = Down
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO4 at Point(11.5, 5.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO5 at Point(11.5, 4.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO6 at Point(11.5, 3.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  pin GPIO7 at Point(11.5, 2.0) with :
+    direction = Right
+    length = 1.0
+    number-size = 0.58
+    name-size = 0.58
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("foreground") = Rectangle(23.0, 38.0, loc(0.0, -4.0))
+  layer("foreground") = Text("Raspberry Pi", 1.15, C, loc(0.0, -2.0), "", TrueTypeFont)
+  layer("foreground") = Text("RP2040", 1.15, C, loc(0.0, -4.0), "", TrueTypeFont)
+  
+public pcb-component component :
+  description = "RP2040"
+  mpn = "RP2040"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [IOVDD[5] | p[1] | Up | "Bidirectional"]
+    [IOVDD[4] | p[10] | Up | "Bidirectional"]
+    [GPIO[8] | p[11] | Right | "Bidirectional"]
+    [GPIO[9] | p[12] | Right | "Bidirectional"]
+    [GPIO[10] | p[13] | Right | "Bidirectional"]
+    [GPIO[11] | p[14] | Right | "Bidirectional"]
+    [GPIO[12] | p[15] | Right | "Bidirectional"]
+    [GPIO[13] | p[16] | Right | "Bidirectional"]
+    [GPIO[14] | p[17] | Right | "Bidirectional"]
+    [GPIO[15] | p[18] | Right | "Bidirectional"]
+    [TESTEN | p[19] | Down | "Unspecified"]
+    [GPIO[0] | p[2] | Right | "Bidirectional"]
+    [XIN | p[20] | Left | "Input"]
+    [XOUT | p[21] | Left | "Unspecified"]
+    [IOVDD[3] | p[22] | Up | "Bidirectional"]
+    [SWCLK | p[24] | Left | "Output"]
+    [SWD | p[25] | Left | "Bidirectional"]
+    [RUN | p[26] | Left | "Input"]
+    [GPIO[16] | p[27] | Right | "Bidirectional"]
+    [GPIO[17] | p[28] | Right | "Bidirectional"]
+    [GPIO[18] | p[29] | Right | "Bidirectional"]
+    [GPIO[1] | p[3] | Right | "Bidirectional"]
+    [GPIO[19] | p[30] | Right | "Bidirectional"]
+    [GPIO[20] | p[31] | Right | "Bidirectional"]
+    [GPIO[21] | p[32] | Right | "Bidirectional"]
+    [IOVDD[2] | p[33] | Up | "Bidirectional"]
+    [GPIO[22] | p[34] | Right | "Bidirectional"]
+    [GPIO[23] | p[35] | Right | "Bidirectional"]
+    [GPIO[24] | p[36] | Right | "Bidirectional"]
+    [GPIO[25] | p[37] | Right | "Bidirectional"]
+    [GPIO[26] | p[38] | Right | "Bidirectional"] ; _ADC0
+    [GPIO[27] | p[39] | Right | "Bidirectional"] ; _ADC1
+    [GPIO[2] | p[4] | Right | "Bidirectional"]
+    [GPIO[28] | p[40] | Right | "Bidirectional"] ; _ADC2
+    [GPIO[29] | p[41] | Right | "Bidirectional"] ; _ADC3
+    [IOVDD[1] | p[42] | Up | "Bidirectional"]
+    [ADC_AVDD | p[43] | Up | "Bidirectional"]
+    [USB_DM | p[46] | Left | "Bidirectional"]
+    [USB_DP | p[47] | Left | "Bidirectional"]
+    [USB_VDD | p[48] | Up | "Bidirectional"]
+    [IOVDD[0] | p[49] | Up | "Bidirectional"]
+    [GPIO[3] | p[5] | Right | "Bidirectional"]
+    [VREG_IN | p[44] | Up | "Bidirectional"]
+    [VREG_VOUT | p[45] | Up | "Bidirectional"]
+    [DVDD[0] | p[50] | Up | "Bidirectional"]
+    [DVDD[1] | p[23] | Up | "Bidirectional"]
+    [QSPI_SD3 | p[51] | Left | "Bidirectional"]
+    [QSPI_SCLK | p[52] | Left | "Output"]
+    [QSPI_SD0 | p[53] | Left | "Bidirectional"]
+    [QSPI_SD2 | p[54] | Left | "Bidirectional"]
+    [QSPI_SD1 | p[55] | Left | "Bidirectional"]
+    [QSPI_SS | p[56] | Left | "Bidirectional"]
+    [GND | p[57] | Down | "Bidirectional"]
+    [GPIO[4] | p[6] | Right | "Bidirectional"]
+    [GPIO[5] | p[7] | Right | "Bidirectional"]
+    [GPIO[6] | p[8] | Right | "Bidirectional"]
+    [GPIO[7] | p[9] | Right | "Bidirectional"]
+    
+  assign-landpattern(C2040)
+  make-box-symbol()
+
+  for p in pins(self.IOVDD) do :
+    property(p.power-pin) = PowerPin(min-max(1.8 3.4))
+
+  pcb-bundle io-pin : 
+    pin p
+
+  for p in pins(self.GPIO) do :
+    supports gpio :
+      gpio.gpio => p
+    supports io-pin :
+      io-pin.p => p
+  
+  supports timer :
+    timer.timer => self.GPIO[0] ; PWM0 A (there are 8 more, dual channels)
+
+  pcb-bundle I2C0-SDA : 
+    pin p  
+  pcb-bundle I2C1-SDA : 
+    pin p  
+  pcb-bundle I2C0-SCL : 
+    pin p  
+  pcb-bundle I2C1-SCL : 
+    pin p  
+
+  for p in [self.GPIO[0] self.GPIO[4] self.GPIO[8] self.GPIO[12] self.GPIO[16] self.GPIO[20]] do :
+    supports I2C0-SDA :
+      I2C0-SDA.p => p
+
+  for p in [self.GPIO[1] self.GPIO[5] self.GPIO[9] self.GPIO[13] self.GPIO[17] self.GPIO[21]] do :
+    supports I2C0-SCL :
+      I2C0-SCL.p => p
+
+  for p in [self.GPIO[2] self.GPIO[6] self.GPIO[10] self.GPIO[14] self.GPIO[18] self.GPIO[26]] do :
+    supports I2C1-SDA :
+      I2C1-SDA.p => p
+
+  for p in [self.GPIO[3] self.GPIO[7] self.GPIO[11] self.GPIO[15] self.GPIO[19] self.GPIO[27]] do :
+    supports I2C1-SCL :
+      I2C1-SCL.p => p
+
+  supports i2c : 
+    require sda-pin : I2C0-SDA
+    require scl-pin : I2C0-SCL
+    i2c.sda => sda-pin.p
+    i2c.scl => scl-pin.p
+  supports i2c : 
+    require sda-pin : I2C1-SDA
+    require scl-pin : I2C1-SCL
+    i2c.sda => sda-pin.p
+    i2c.scl => scl-pin.p
+
+  for p in [self.GPIO[26] self.GPIO[27] self.GPIO[28] self.GPIO[29]] do :
+    supports adc :
+      adc.adc => p
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2201101600_Raspberry-Pi-RP2040_C2040.pdf"
+
+public pcb-module module :
+  pin vdd
+  pin gnd
+  port usb  : usb-2-data
+
+  ; TODO: Model gpio properly in parts-db
+  public inst mcu : components/RP2040/component
+
+  val r-usb-M = res-strap(usb.N, mcu.USB_DM, 27.0)
+  val r-usb-P = res-strap(usb.P, mcu.USB_DP, 27.0)
+
+  inst esd : database-part(["manufacturer" => "Nexperia", "mpn" => "PUSB3FR4"])
+  net (gnd esd.GND0 esd.GND1)
+  net RP-USB-NET-DN (usb.N esd.CH1)
+  net RP-USB-NET-DP (usb.P esd.CH2)
+  net RP-USB-DM (mcu.USB_DM)
+  net RP-USB-DP (mcu.USB_DP)
+
+  ;; set net classes for usb
+  ; val rp-usb-net-class = NetClass(`RP2040-USB-net-class, [`min-trace => 0.8])
+  ; property(RP-USB-NET-DP.net-class) = rp-usb-net-class
+  ; property(RP-USB-NET-DP.net-class) = rp-usb-net-class
+  ; property(RP-USB-DM.net-class) = rp-usb-net-class
+  ; property(RP-USB-DP.net-class) = rp-usb-net-class
+
+  ; Flash circuit
+  ; inst flash : database-part(["manufacturer" => "Winbond Elec", "mpn" => "W25Q128JVSIQ"])
+  inst flash : database-part(["manufacturer" => "Winbond Elec", "mpn" => "W25Q128JVSIQTR -YJLTY"])
+  ; inst flash : components/W25Q128JVSIQTR/component
+  val c-f = cap-strap(flash.VCC flash.GND, 2.2e-6)
+  val r-pu = res-strap(flash.VCC flash.NOT_CS, 10.0e3)
+  property(r-pu.DNP) = true
+  net (flash.NOT_CS mcu.QSPI_SS)
+  net (flash.CLK mcu.QSPI_SCLK)
+  net (flash.DI_IO0 mcu.QSPI_SD0)
+  net (flash.DO_IO1 mcu.QSPI_SD1)
+  net (flash.IO2 mcu.QSPI_SD2)
+  net (flash.IO mcu.QSPI_SD3)
+  net (flash.VCC vdd)
+  net (flash.GND gnd)
+
+  ; Boot and run configuration
+  ;inst boot-butt : database-part(["manufacturer" => "C&K", "mpn" => "PTS810SJM250SMTRLFS"]) ; black, out of stock at JLCPCB
+  inst boot-butt : database-part(["mpn" => "PTS810SJK250SMTRLFS", "manufacturer" => "C&K"]) ; white, in stock at JLCPCB
+  val boot-r = res-strap(boot-butt.p[1] mcu.QSPI_SS, 1.0e3)
+  net (boot-butt.p[1] esd.CH3)
+  val c-boot = cap-strap(boot-butt.p[1] vdd 0.1e-6)
+  net (boot-butt.p[3] gnd)
+  inst swd : pin-header(2)
+  net (swd.p[1] mcu.SWD)
+  net (swd.p[2] mcu.SWCLK)
+  do-not-populate(swd)
+  ;inst reset-butt : database-part(["manufacturer" => "C&K", "mpn" => "PTS810SJM250SMTRLFS"]) ; black, out of stock at JLCPCB
+  inst reset-butt : database-part(["mpn" => "PTS810SJK250SMTRLFS", "manufacturer" => "C&K"]) ; white, in stock at JLCPCB
+  val reset-r = res-strap(reset-butt.p[1] mcu.RUN, 1.0e3)
+  val c-reset = cap-strap(reset-butt.p[1] vdd 0.1e-6)
+  net (reset-butt.p[1] esd.CH4)
+  net (reset-butt.p[3] gnd)
+
+  ; Crystal
+  inst x : database-part(["manufacturer" => "TAE(Zhejiang Abel Elec)", "mpn" => "TAXM12M2GLFBET2T"])
+  property(x.crystal-resonator) = ocdb/utils/property-structs/CrystalResonator(20.0e-12, 7.0e-12, 5.0e-15, 50.0, 12.0e6, 30.0e-6, 100.0e-6)
+  add-xtal-caps(x gnd)
+  ; val stray-capacitance = 5.0e-12
+  ; val c-load = 20.0e-12
+  ; val c-bal = closest-std-val(2.0 * (c-load - stray-capacitance), 5.0)
+  ; val c-b1 = cap-strap(x.p[2], gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G" ])
+  ; val c-b2 = cap-strap(x.p[1], gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G" ])
+
+  net (x.p[1] mcu.XIN)
+  val r-x = res-strap(x.p[2] mcu.XOUT, 1.0e3)
+
+  ; Bypass
+  net (mcu.VREG_VOUT mcu.DVDD[0] mcu.DVDD[1])
+  val c-byp1 = bypass-cap-strap(mcu.VREG_VOUT gnd, 1.0e-6)
+  val c-byp2 = bypass-cap-strap(mcu.VREG_IN gnd, 1.0e-6)
+  net VDD (mcu.ADC_AVDD mcu.USB_VDD mcu.VREG_IN vdd)
+  net (mcu.GND gnd)
+  inst iovdd-bypass : ceramic-cap(1.0e-6)[6]
+  for (p in pins(mcu.IOVDD), i in 0 to false) do:
+    net (p vdd iovdd-bypass[i].p[1])
+    net (iovdd-bypass[i].p[2], gnd)
+
+  schematic-group([flash c-f r-pu]) = flash
+  layout-group([flash c-f r-pu]) = flash
+  schematic-group([boot-butt boot-r reset-butt]) = buttons
+  layout-group([boot-butt boot-r reset-butt]) = buttons
+  schematic-group([mcu x]) = rpi
+  layout-group([mcu x]) = rpi
+
+  ; place(c-byp1) at loc(-5.2000          1.0000   90.0000) on Top  ; C1        1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1               
+  place(c-byp2) at loc(5.1400           -2.7100  -90.0000) on Top     ; C5        1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1              
+  place(iovdd-bypass[0]) at loc(-4.5164          -3.6968   -90.0000) on Top    ; C6        1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1             
+  place(iovdd-bypass[1]) at loc(5.1400           1.0100  90.0000) on Top   ; C7        1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1                
+  place(iovdd-bypass[2]) at loc(-0.5900          5.3400    180.0000) on Top  ; C8        1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1               
+  place(iovdd-bypass[3]) at loc(0.380   -6.4399  0.0000) on Top    ; C9        1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1             
+  place(iovdd-bypass[4]) at loc(-2.7114          -4.8000   -90.0000) on Top    ; C10       1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1             
+  place(iovdd-bypass[5]) at loc(-1.5800          5.3186    180.0000) on Top  ; C13       1.0μF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1               
+  place(r-pu) at loc(9.1400           -1.1300    90.0000) on Top     ; R3        10.0kΩ_±_1.00%  IPC_TWO_PIN_LANDPATTERN_4              
+  place(c-f) at loc(15.8200          -1.3800   90.0000) on Top    ; C12       2.2μF_±_20.00%  IPC_TWO_PIN_LANDPATTERN_1             
+  ; place(boot-r) at loc(11.6900          -9.9364  180.0000) on Top    ; R2        1.0kΩ_±_1.00%   IPC_TWO_PIN_LANDPATTERN_3             
+  ; place(c-boot) at loc(11.6900          -11.6500    0.0000) on Top    ; C4        100.0nF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1             
+  ; place(reset-r) at loc(3.3600           -11.5700    0.0000) on Top     ; R4        1.0kΩ_±_1.00%   IPC_TWO_PIN_LANDPATTERN_3              
+  ; place(c-reset) at loc(3.3900           -9.9700  180.0000) on Top     ; C11       100.0nF_±_10.00%  IPC_TWO_PIN_LANDPATTERN_1              
+  ; place(reset-butt) at loc(6.9900 -10.8300    0.0000) on Top     ; U3                          KEY_SMD_4P_L42_W32_P220_LS46           
+  ; place(boot-butt) at loc(15.1400 -10.8400    0.0000) on Top    ; U4                          KEY_SMD_4P_L42_W32_P220_LS46_1        
+  place(r-x) at loc(0.3200           5.3500    0.0000) on Top   ; R5        1.0kΩ_±_1.00%   IPC_TWO_PIN_LANDPATTERN_3                
+  ; place(c-b1) at loc(-0.0800          6.7600  -90.0000) on Top  ; C2        30.0pF_±_5.00%   IPC_TWO_PIN_LANDPATTERN                 
+  ; place(c-b2) at loc(1.6200           6.7700   90.0000) on Top   ; C3        30.0pF_±_5.00%   IPC_TWO_PIN_LANDPATTERN                  
+  place(r-usb-M) at loc(-1.6200   -6.4399  180.0000) on Top    ; R6        22.0Ω_±_1.00%   IPC_TWO_PIN_LANDPATTERN_2             
+  place(r-usb-P) at loc(-0.7200   -6.4400  180.0000) on Top    ; R1        22.0Ω_±_1.00%   IPC_TWO_PIN_LANDPATTERN_2             
+  place(mcu) at loc(0.0000        0.0000  180.0000) on Top   ; U1                          C2040                                    
+  place(flash) at loc(11.9100          -4.8100  -90.0000) on Top    ; U2                          SOIC_8_L53_W53_P127_LS80_BL           
+  place(x) at loc(0.4800           10.9400  180.0000) on Top   ; U5                          HC_49S_L114_W48                          
+  place(esd) at loc(-0.4700       -8.4900    0.0000) on Top    ; U6                          DFN2510A_10_L25_W10_P050_BL           
+
+  ; geom(VDD) :
+  ;   copper-pour(LayerIndex(2), isolate = 0.1, rank = 2) = loc(6.0, -5.0) * Rectangle(24.0, 20.0)

@@ -1,0 +1,59 @@
+#use-added-syntax(jitx)
+defpackage components/PAM8302AADCR :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+pcb-pad oval-smd-pad :
+  type = SMD
+  shape = Capsule(0.629997, 1.864999, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.629997, 1.864999, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.629997, 1.864999, loc(0.0, 0.0))
+
+public pcb-landpattern C112137 :
+  pad p[1] : oval-smd-pad at loc(-1.905004, -2.682499) on Top
+  pad p[2] : oval-smd-pad at loc(-0.635001, -2.682499) on Top
+  pad p[3] : oval-smd-pad at loc(0.635001, -2.682499) on Top
+  pad p[4] : oval-smd-pad at loc(1.905004, -2.682499) on Top
+  pad p[5] : oval-smd-pad at loc(1.905004, 2.682499) on Top
+  pad p[6] : oval-smd-pad at loc(0.635001, 2.682499) on Top
+  pad p[7] : oval-smd-pad at loc(-0.635001, 2.682499) on Top
+  pad p[8] : oval-smd-pad at loc(-1.905004, 2.682499) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 4.682499), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -4.682499), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -6.682499), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.5762, -1.521412), Point(-2.5762, -1.521412)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.5762, 1.521412), Point(2.5762, -1.521412)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.5762, -1.521412), Point(-2.5762, 1.521412)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.5762, 1.521412), Point(2.5762, 1.521412)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.3, [Arc(-2.672339, -2.682499, 0.150114, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-2.449987, -3.0, 0.0299970000000003, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.3, [Arc(-1.905004, -0.769114, 0.150114, 0.0, 360.0)])
+  layer(Finish(Top)) = Polyline(0.3, [Arc(-1.905004, -3.400051, 0.150114, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C112137.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, -90.0))
+  
+public pcb-component component :
+  description = "PAM8302AADCR"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [SD# | p[1] | Left | "Unspecified"]
+    [NC | p[2] | Left | "Unspecified"]
+    [IN+ | p[3] | Left | "Unspecified"]
+    [IN- | p[4] | Left | "Unspecified"]
+    [VO+ | p[5] | Right | "Unspecified"]
+    [VDD | p[6] | Right | "Unspecified"]
+    [GND | p[7] | Right | "Unspecified"]
+    [VO- | p[8] | Right | "Unspecified"]
+    
+  assign-landpattern(C112137)
+  make-box-symbol()
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1809192027_Diodes-Incorporated-PAM8302AADCR_C112137.pdf"
+  

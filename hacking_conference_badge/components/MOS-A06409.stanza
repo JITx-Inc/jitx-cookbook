@@ -1,0 +1,50 @@
+; When renaming the stanza package name below, also rename it in the folder stanza.proj
+; See docs.jitx.com for help
+#use-added-syntax(jitx)
+defpackage components/MOS-A06409:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generic-components
+  import checks
+ 
+public pcb-module module :
+  pin d
+  pin g
+  pin s
+
+  inst mosfet : database-part(["mpn" => "AO6409", "manufacturer" => "Alpha & Omega Semicon"])
+  net (mosfet.D0 mosfet.D1 mosfet.D2 mosfet.D3 d)
+  net (mosfet.G g)
+  net (mosfet.S s)
+
+  val vds-max = typ(-20.0)
+  val vgs-max = min-max(-8.0, 8.0)
+  val id-max = typ(-4.2)
+  val power-max = typ(1.3) ; Watts Ambient @ 25C
+
+  var Vds = typ(0.0)
+  var Vgs = typ(0.0)
+
+  property(self.rated-temperature) = min-max(-55.0, 150.0)
+
+  val xtor = self
+  ; eval-when has-property?(c.voltage) : ; and eval-when has-property?(b.voltage) and eval-when has-property?(e.voltage) :
+  eval-when has-property?(d.voltage) and has-property?(g.voltage) and has-property?(s.voltage) :
+    Vds = property(d.voltage) - property(s.voltage) ; should be negative otherwise the protection diode turns on
+    Vgs = property(g.voltage) - property(s.voltage) ; could be anything short of 25.0v abs
+    check value-does-not-exceed-limits(Vds, vds-max)
+    check value-does-not-exceed-limits(Vgs, vgs-max)
+
+  eval-when has-property?(d.current) and has-property?(s.current) :
+    val id = property(d.current)
+    check value-does-not-exceed-limits(id, id-max) ; comparing max negative values then...
+    check transistor-is-on(xtor, false, id, typ(10.0e-3))
+
+  eval-when has-property?(self.power):
+    check value-does-not-exceed-limits(abs(property(self.power)), power-max)

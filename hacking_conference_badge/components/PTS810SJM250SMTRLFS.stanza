@@ -1,0 +1,82 @@
+#use-added-syntax(jitx)
+defpackage components/PTS810SJM250SMTRLFS :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+pcb-pad rect-smd-pad :
+  type = SMD
+  shape = Rectangle(1.050013, 0.7)
+  layer(Paste(Top)) = Rectangle(1.050013, 0.7)
+  layer(SolderMask(Top)) = Rectangle(1.050013, 0.7)
+
+public pcb-landpattern C116501 :
+  pad p[1] : rect-smd-pad at loc(-2.100076, 1.087948) on Top
+  pad p[2] : rect-smd-pad at loc(2.100076, 1.087948) on Top
+  pad p[3] : rect-smd-pad at loc(-2.100076, -1.061913) on Top
+  pad p[4] : rect-smd-pad at loc(2.100076, -1.061913) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.536894), "", TrueTypeFont)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.536894), "", TrueTypeFont)
+  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.536894), "", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-0.508001, -1.002985), Point(0.508001, -1.002985)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-0.508001, 1.02902), Point(0.508001, 1.02902)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(1.366421, 1.536894), Point(-1.366421, 1.536894)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(2.199898, 0.556833), Point(2.199898, -0.530798)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-2.199898, 0.556833), Point(-2.199898, -0.530798)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-1.381102, -1.536894), Point(1.381102, -1.536894)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254001, [Arc(-0.508001, 0.0130179999999999, 1.016003, 90.0, -180.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254001, [Arc(2.54000061702092, 0.013018, 2.27184561702092, 206.565100611358, -53.1302012227158)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-2.299975, 1.612967, 0.0299719999999999, 0.0, 360.0)])
+  
+  model3d = Model3D("..\\..\\3d-models\\C116501.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+public pcb-symbol PTS810SJM250SMTRLFS :
+  pin p[1] at Point(-2.0, -4.0) with :
+    direction = Left
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[2] at Point(2.0, -4.0) with :
+    direction = Right
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[3] at Point(-2.0, -6.0) with :
+    direction = Left
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  pin p[4] at Point(2.0, -6.0) with :
+    direction = Right
+    length = 2.0
+    number-size = 0.6
+    name-size = 0.6
+  
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  layer("none") = Line(0.0, [Point(0.0, -6.0), Point(0.0, -5.4)])
+  layer("none") = Line(0.0, [Point(0.0, -5.4), Point(-0.5, -4.7)])
+  layer("none") = Line(0.0, [Point(-2.0, -4.0), Point(2.0, -4.0)])
+  layer("none") = Line(0.0, [Point(-2.0, -6.0), Point(2.0, -6.0)])
+  layer("none") = Line(0.0, [Point(0.0, -4.0), Point(0.0, -4.6)])
+  
+public pcb-component component :
+  description = "PTS810SJM250SMTRLFS"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[1] | p[1] | Left | "Unspecified"]
+    [p[2] | p[2] | Right | "Unspecified"]
+    [p[3] | p[3] | Left | "Unspecified"]
+    [p[4] | p[4] | Right | "Unspecified"]
+    
+  assign-landpattern(C116501)
+  assign-symbol(PTS810SJM250SMTRLFS)
+  
+  property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/1811092141_C-K-PTS810SJM250SMTRLFS_C116501.pdf"
+  

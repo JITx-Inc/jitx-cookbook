@@ -1,0 +1,33 @@
+(footprint Pkg0402 (version 20221018) (generator jitx) (layer F.Cu) (tstamp 814a5680-60e5-773d-5902-80ffc06598c4) 
+  (pad 1 smd rect
+    (at 0.0 -0.4986112181134 0.0)
+    (size 0.6 0.457777563773199)
+    (layers F.Cu F.Paste)
+    (tstamp 3752e109-c4ac-a109-143e-6ae37364a363))
+  (pad 2 smd rect
+    (at 0.0 0.4986112181134 0.0)
+    (size 0.6 0.457777563773199)
+    (layers F.Cu F.Paste)
+    (tstamp 9f182c34-4b56-7ee3-34b6-f85cc75dea3e))
+  (pad "" smd rect
+    (at 0.0 0.4986112181134 0.0)
+    (size 0.7 0.557777563773199)
+    (layers F.Mask)
+    (tstamp eb2a4d70-447a-53c1-34d0-401566e1a68a))
+  (pad "" smd rect
+    (at 0.0 -0.4986112181134 0.0)
+    (size 0.7 0.557777563773199)
+    (layers F.Mask)
+    (tstamp 4f5e4625-6771-5c16-a1e9-2de44c31ef1b))
+  (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) )
+    (tstamp be0482cd-7ef4-9651-7549-336254904dd5)
+    )
+  (fp_line (start -0.45 0.8775) (end 0.45 0.8775) (layer F.CrtYd) (stroke (width 0.05) (type solid)) (tstamp 6da2c85f-0d62-ad13-064c-3824b6f387a2))
+  (fp_line (start 0.45 0.8775) (end 0.45 -0.8775) (layer F.CrtYd) (stroke (width 0.05) (type solid)) (tstamp e890e309-5d83-17ff-98d0-111a9390c6ed))
+  (fp_line (start 0.45 -0.8775) (end -0.45 -0.8775) (layer F.CrtYd) (stroke (width 0.05) (type solid)) (tstamp 02207966-34c0-459a-10a9-23a39c73c897))
+  (fp_line (start -0.45 -0.8775) (end -0.45 0.8775) (layer F.CrtYd) (stroke (width 0.05) (type solid)) (tstamp 4f1514eb-71ca-e143-4ea0-c23f5bbfb7f2))
+  (fp_text reference ">REF" (at 0.95 0.0 90.0) (layer F.SilkS) 
+    (effects (font (size 1.0 1.0) (thickness 0.10)) )
+    (tstamp 229f3c15-87e1-bcee-00de-136f0abd66eb)
+    ))

@@ -1,0 +1,212 @@
+; A Lithium battery charger IC, BQ2407
+#use-added-syntax(jitx)
+defpackage components/BQ24078RGTR :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+  import ocdb/utils/property-structs
+  import ocdb/utils/landpatterns
+
+defn has-pin? (comp:JITXObject, pin-q:String) :
+  val t = to-tuple $ for p in pins(comp) filter :
+    substring?(to-string(ref(p)), pin-q)
+  not empty?(t)
+
+pcb-check bq2407-checks (component:JITXObject):
+
+    #CHECK(
+    name =                 "EP Exist check"
+    description =          "Check that EP exists "
+    condition =            has-pin?(component, "EP"),
+    category =             "Component checks"
+    subcheck-description =          "Check that the EP pin exists "
+    pass-message =         "EP does exist. "
+    fail-message =         "EP does not exist"
+    locators =             [instance-definition(component)]
+    )
+
+    #CHECK(
+    name =                 "VSS Exist check"
+    description =          "Check that VSS exists "
+    condition =            has-pin?(component, "VSS"),
+    category =             "Component checks"
+    subcheck-description =          "Check that the VSS pin exists "
+    pass-message =         "VSS does exist. "
+    info-message =         "VSS does not exist"
+    locators =             [instance-definition(component)]
+    )
+
+    #CHECK(
+    name =                 ""
+    description =          "Check that EP is connected to GND/VSS"
+    condition =            connected?([component.EP, component.VSS]),
+    category =             "Connection"
+    subcheck-description =          "Check that EP is connected to VSS"
+    pass-message =         "EP is connected to VSS"
+    fail-message =         "EP is not connected to VSS"
+    locators =             [instance-definition(component)]
+    )
+
+defn apply-component-properties (comp:JITXObject) :
+  var vih = 1.4
+  var vil = 0.4
+  match(instance-type(comp)) :
+    (SingleModule) :
+      inside pcb-module :
+        ; we apply the following properties to the component
+        property(comp.IN.power-pin) = PowerPin(min-max(4.35, 6.40))
+        ; property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
+        ; property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
+        property(comp.SYSOFF.digital-input) = DigitalInput(typ(vil), typ(vih), comp.IN, comp.VSS, 1.0e-6)
+        ; properties that we could write checks for in the future...
+        property(comp.R-ILIM) = min-max(1100.0, 8000.0)
+        property(comp.R-ISET) = min-max(590.0, 8900.0)
+        property(comp.R-ITERM) = min-max(0.0e3, 15.0e3)
+        property(comp.R-TMR) = min-max(18.0e3, 72.0e3)
+        property(comp.uvlo-voltage) = min-typ-max(3.2, 3.3, 3.4)
+
+        ; in our io check code, 
+        ; we check Voh-min > Vih-max
+        ; we check Vol-max < Vil-min
+        ; so defining Vil-min at 0.0v is wrong and self-defeating (but the datasheet...)
+        ; ditto for Vih-max at 6.0V
+        ; so we define typ()'s for them which evaluates to a single value
+        val vil = typ(0.4)
+        val vih = typ(1.4)
+        val vol = typ(0.4) ; @ 5mA which is an effective impedance of 80 Ohms
+
+        ; open collectors on CHG# & PGOOD#
+        val oc  = OpenCollector(vol, 5.0e-3)
+        val dio = DigitalIO(oc, vil, vih, comp.OUT0, comp.VSS, 1.0e-6)
+        property(comp.CHG_NOT.digital-io) = dio
+        property(comp.PGOOD_NOT.digital-io) = dio
+    (SingleComponent) : 
+      inside pcb-component :
+        ; we apply the following properties to the component
+        property(comp.IN.power-pin) = PowerPin(min-max(4.35, 6.40))
+        ; property(comp.OUT.power-supply-pin) = PowerSupplyPin(min-typ-max(3.235, 3.3, 3.365), 4.5)
+        ; property(comp.OUT.voltage) = min-typ-max(3.235, 3.3, 3.365)
+        property(comp.SYSOFF.digital-input) = DigitalInput(typ(vil), typ(vih), comp.IN, comp.VSS, 1.0e-6)
+        ; properties that we could write checks for in the future...
+        property(comp.R-ILIM) = min-max(1100.0, 8000.0)
+        property(comp.R-ISET) = min-max(590.0, 8900.0)
+        property(comp.R-ITERM) = min-max(0.0e3, 15.0e3)
+        property(comp.R-TMR) = min-max(18.0e3, 72.0e3)
+        property(comp.uvlo-voltage) = min-typ-max(3.2, 3.3, 3.4)
+
+        ; in our io check code, 
+        ; we check Voh-min > Vih-max
+        ; we check Vol-max < Vil-min
+        ; so defining Vil-min at 0.0v is wrong and self-defeating (but the datasheet...)
+        ; ditto for Vih-max at 6.0V
+        ; so we define typ()'s for them which evaluates to a single value
+        val vil = typ(0.4)
+        val vih = typ(1.4)
+        val vol = typ(0.4) ; @ 5mA which is an effective impedance of 80 Ohms
+
+        ; ; open collectors on CHG# & PGOOD#
+        val oc  = OpenCollector(vol, 5.0e-3)
+        val dio = DigitalIO(oc, vil, vih, comp.OUT0, comp.VSS, 1.0e-6)
+        property(comp.CHG_NOT.digital-io) = dio
+        property(comp.PGOOD_NOT.digital-io) = dio
+
+public pcb-module module :
+  pin vin
+  pin vout
+  pin gnd
+  pin bat+
+
+  ; using the component definition from above:
+  inst bq : database-part(["manufacturer" => "Texas Instruments", "mpn" => "BQ24078RGTR"])
+  property(bq.rated-temperature) = min-max(-40.0, 125.0)
+  net (bq.OUT0 bq.OUT1)
+  net (bq.BAT0 bq.BAT1)
+
+  ; apply properties to the component we just created
+  apply-component-properties(bq)
+
+  ; connect EP and VSS to GND
+  net (bq.VSS bq.EP gnd)
+
+  ; add input bypass capacitor
+  net (bq.IN vin)
+  cap-strap(vin, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 12.0])
+  
+  ; add output bypass capacitor
+  net (bq.OUT0 vout)
+  cap-strap(vout, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 12.0])
+
+  ; add indicator LEDs to CHG# and PGOOD#
+  ;; generate LEDs
+  inst charge-led : gen-led-cmp("red", "0603")
+  inst good-power-led : gen-led-cmp("green", "0603")
+
+  ;; generate ballast resistors
+  inst rchg-led : chip-resistor(1.0e3)
+  inst rgpw-led : chip-resistor(2.0e3)
+
+  ;; hook up LEDs and resistors to power and pin
+  net (charge-led.a vout)
+  net (good-power-led.a vout)
+  net (charge-led.c rchg-led.p[2])
+  net (good-power-led.c rgpw-led.p[2])
+  net (rchg-led.p[1] bq.CHG_NOT)
+  net (rgpw-led.p[1] bq.PGOOD_NOT)
+
+  ; battery pin bypass capacitor
+  net (bat+ bq.BAT0)
+  cap-strap(bq.BAT0, gnd, ["capacitance" => 4.7e-6 "min-rated-voltage" => 12.0])
+
+  ; setup SYSOFF net
+  net (bq.SYSOFF gnd)
+
+  ; CE pin pulldown
+  inst rpd-ce# : chip-resistor(33.0)
+  net (gnd rpd-ce#.p[1])
+  net (rpd-ce#.p[2] bq.CE_NOT)
+
+  ; TS pin pulldown
+  inst rts : chip-resistor(10.0e3)
+  net (bq.TS rts.p[1])
+  net (rts.p[2] gnd)
+
+  ; use default timers by not connecting TMR pin
+  no-connect(bq.TMR)
+
+  ; Safety timer for 6.25 hours
+  ; val r-tmr = closest-std-val((6.25 * 3600.0) / (10.0 * 48.0), 5.0)
+  ; res-strap(bq.TMR gnd, r-tmr)
+
+  ; set current limit = 500ma for usb limit, by pulling up/down EN1 and EN2
+  inst rpu-en1 : chip-resistor(33.0)
+  inst rpd-en2 : chip-resistor(33.0)
+  net (bq.EN1 rpu-en1.p[1])
+  net (rpu-en1.p[2] bat+)
+  net (bq.EN2 rpd-en2.p[1])
+  net (rpd-en2.p[2] gnd)
+  res-strap(bq.ILIM, gnd, 1.1e3)
+
+  ; set charge current 325mA by setting ISET pin resistance  (for a LiPo, charge current should be the same as the capacity in, eg. 100mAh battery charges at 100mA)
+  val charge-current = 325.0e-3
+  val r-chg = closest-std-val(890.0 / charge-current, 5.0)
+  res-strap(bq.ISET, gnd, r-chg)
+
+  ; set the logic of VOUT depending on the input voltage of the battery
+  eval-when has-property?(bq.BAT0.voltage) :
+    val battery-voltage = property(bq.BAT0.voltage)
+    val outv = 
+      if typ-value(battery-voltage) <= 3.2 :
+        typ(3.41)
+      else :
+        battery-voltage
+    property(bq.OUT0.power-supply-pin) = PowerSupplyPin(outv, 4.5)
+    property(bq.OUT0.voltage) = outv
+
+  ; group components so easier to read in schematic and layout
+  schematic-group(self) = BQ24078
+  layout-group(self) = BQ24078
+
+  check bq2407-checks(bq)
