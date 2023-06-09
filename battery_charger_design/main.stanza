@@ -39,7 +39,7 @@ pcb-module battery-manager-module :
 
   ; create battery JST connector, connect it
   inst battery-connector : components/PH2_0-2PWB/component
-  net (battery-connector.gnd gnd)
+  net (battery-connector.gnd GND)
   net (battery-connector.power battery-manager.bat+)
 
   ; create the battery itself
@@ -60,7 +60,7 @@ pcb-module battery-manager-module :
 
   ; create USB connector and connect it
   inst usb : usb2-on-a-usb-c-connector(ocdb/components/korean-hroparts-elec/TYPE-C-31-M-12/module(SinkDefault))
-  net (usb.usb-2.vbus.gnd gnd)
+  net (usb.usb-2.vbus.gnd GND)
   net VBUS (battery-manager.vin usb.usb-2.vbus.vdd)
 
   ; create the LDO and connect it
@@ -72,7 +72,7 @@ pcb-module battery-manager-module :
 
   ; create voltage output JST connector, connect it
   inst vout-connector : components/PH2_0-2PWB/component
-  net (vout-connector.gnd gnd)
+  net (vout-connector.gnd GND)
   net (vout-connector.power ldo.vout)
 
   ; create test pads to test/solder LDO vout
