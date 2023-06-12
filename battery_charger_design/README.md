@@ -86,7 +86,7 @@ Let's start by filling out information about the component itself. We can change
 
 We can inspect the line that says `assign-landpattern`. This is where the component's footprint is assigned. We can see that `lp-test-comp` is assigned by default. If we scroll up to the `lp-test-comp` landpattern, we can see that we're generating an SOIC footprint with the `make-n-pin-soic-landpattern` function. Looking at our datasheet, the BQ2407 uses a QFN footprint, so let's change the footprint to that.
 
-In order to learn how to generate a QFN landpatter, let's move over to the docs here: https://docs.jitx.com.
+In order to learn how to generate a QFN landpattern, let's move over to the docs here: https://docs.jitx.com.
 
 We can then use the search bar and look up something about what we're trying to do, like **"make a qfn"**. In the search results, there is a reference to the `make-qfn-landpattern` function which looks like the QFN counterpart. We can replace the previous `make-n-pin-soic-landpattern` with this new QFN function. Let's also use a slightly modified version of this function to fill in information like the EP. We can find the extended version of the function, with EP, by searching for `make-qfn-landpattern` in [OCDB](https://github.com/JITx-Inc/open-components-database) and looking at the function options.
 
@@ -169,7 +169,7 @@ For the AP2125 LDO component, we follow the exact same workflow as for the BQ240
 
 ### Main Design
 
-Now that our components are defined, we can define our design. This step is analogoous to designing a schematic, but it's defined in code. We're going to pull in all of our components and connect them together.
+Now that our components are defined, we can define our design. This step is analogous to designing a schematic, but it's defined in code. We're going to pull in all of our components and connect them together.
 
 First, we'll create the battery manager submodule, and start connecting it:
 ```
@@ -183,7 +183,7 @@ Then, let's create a JST connector for our battery input, and connect that to th
 ```
   ; create battery JST connector, connect it
   inst battery-connector : components/PH2_0-2PWB/component 
-  net (battery-connector.gnd gnd)
+  net (battery-connector.gnd GND)
   net (battery-connector.power battery-manager.bat+)
 ```
 
@@ -198,7 +198,7 @@ We also create a battery component. Importantly, this component won't actually b
 We can then do a very similiar thing to define the USB cable power source, the USB connector itself, and the output power JST.
 
 Let's create a switch that can be used to turn the battery charger IC on and off. We'll pull one pole up, one pole down, and we'll make the common connection to the battery charger IC's SYSOFF pin:
- 
+
 ```
   ; create switch and pull up, connect them. Switch pulls SYSOFF down for normal operation, high to disconnect battery
   inst switch-phy : components/MK-12C02-G025/component
