@@ -233,51 +233,7 @@
     "netclass_patterns": [
       {
         "netclass": "Default",
-        "pattern": "xD_D4_SD_WP_MS_SCLK"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "LED"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "VDD18"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "USB-"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "GND0"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "a"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SSTXP1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SD_nCD"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "xD_D3_SD_D1_MS_D5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SSTXN1"
-      },
-      {
-        "netclass": "Default",
         "pattern": "xD_D2_SD_D0_MS_D4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "TXD_SCK_MS_SKT_SEL"
       },
       {
         "netclass": "Default",
@@ -285,7 +241,19 @@
       },
       {
         "netclass": "Default",
+        "pattern": "TXD_SCK_MS_SKT_SEL"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SSTXN1"
+      },
+      {
+        "netclass": "Default",
         "pattern": "SSRXP1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "xD_nWP_SD_CLK_MS_BS"
       },
       {
         "netclass": "Default",
@@ -293,11 +261,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "xD_D6_SD_D3_MS_D3"
+        "pattern": "RESET_N"
       },
       {
         "netclass": "Default",
-        "pattern": "VDD18PLL"
+        "pattern": "xD_D6_SD_D3_MS_D3"
       },
       {
         "netclass": "Default",
@@ -309,34 +277,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "XTAL2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "RXD_SDA"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "xD_nWP_SD_CLK_MS_BS"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "GND2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "RESET_N"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "USB+"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "XTAL1_CLKIN"
-      },
-      {
-        "netclass": "Default",
         "pattern": "xD_CLE_SD_CMD_MS_D0"
       },
       {
@@ -345,11 +285,71 @@
       },
       {
         "netclass": "Default",
+        "pattern": "GND2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "XTAL2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RXD_SDA"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "xD_D4_SD_WP_MS_SCLK"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "LED"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "GND0"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "USB+"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SSTXP1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "SD_nCD"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "XTAL1_CLKIN"
+      },
+      {
+        "netclass": "Default",
         "pattern": "xD_D5_SD_D2"
       },
       {
+        "netclass": "Default",
+        "pattern": "VDD18"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "USB-"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "VDD18PLL"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "a"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "xD_D3_SD_D1_MS_D5"
+      },
+      {
         "netclass": "Power",
-        "pattern": "vdd33"
+        "pattern": "gnd"
       },
       {
         "netclass": "Power",
@@ -357,7 +357,7 @@
       },
       {
         "netclass": "Power",
-        "pattern": "gnd"
+        "pattern": "vdd33"
       }
     ]
   },
