@@ -13,6 +13,10 @@ defpackage main :
   import ocdb/utils/design-vars
   import ocdb/utils/generator-utils
 
+; debug
+;enable-spy()
+; enable-debug-plugin-serializer()
+
 MIN-CAP-VOLTAGE = 6.0
 
 ; Define the shape/size of the board
@@ -25,13 +29,17 @@ defn setup-board () :
   set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
 ; We want decoupling capacitors to be close to the component being decoupled
-defn short-cap-strap (first-pin:JITXObject, second-pin:JITXObject, params:Tuple<KeyValue>) -> JITXObject :
+defn bypass-cap-strap (power-pin:JITXObject, gnd-pin:JITXObject, params:Tuple<KeyValue>) -> JITXObject :
   inside pcb-module:
-    inst cap : ceramic-cap(params)
-    net (first-pin, cap.p[1])
-    short-trace(first-pin, cap.p[1])
-    net (second-pin, cap.p[2])
+    val cap = cap-strap(gnd-pin, power-pin, params)
+    short-trace(cap.p[2], power-pin)
     cap
+
+defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced, tol:Double) :
+  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance "tolerance" => tol])
+
+defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced) :
+  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance])
 
 pcb-bundle sd-card-uhs-1-connector:
   pin CMD ; Command/Response
@@ -101,20 +109,20 @@ pcb-module media-controller :
   net (usb2240.GND power.gnd sd-card-conn.power.gnd usb2240.TEST usb-in.vbus.gnd)
   net (usb2240.VDD330 usb2240.VDD331 usb2240.VDD332 usb2240.VDDA33 power.vdd)
 
-  res-strap(usb2240.RBIAS, power.gnd, ["resistance" => 12.0e3, "tolerance" => 0.01])
+  res-strap(usb2240.RBIAS, power.gnd, ["resistance" => 12.0e3, "tolerance" => 0.01, "min-vendor_part_numbers.lcsc" => " "]) ; [space] is the lowest ascii character easily accessible
 
-  res-strap(usb2240.RESET_N, power.vdd, ["resistance" => 10.0e3])
-  short-cap-strap(usb2240.RESET_N, power.gnd, ["capacitance" => 1.0e-6])
+  res-strap(usb2240.RESET_N, power.vdd, ["resistance" => 10.0e3, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.RESET_N, power.gnd, ["capacitance" => 1.0e-6, "min-vendor_part_numbers.lcsc" => " "])
 
-  short-cap-strap(usb2240.VDD18, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2])
-  short-cap-strap(usb2240.VDD18PLL, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2])
+  bypass-cap-strap(usb2240.VDD18, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.VDD18PLL, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "min-vendor_part_numbers.lcsc" => " "])
 
-  short-cap-strap(usb2240.VDD330, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603"])
-  short-cap-strap(usb2240.VDD331, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603"])
-  short-cap-strap(usb2240.VDD332, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603"])
-  short-cap-strap(usb2240.VDDA33, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603"])
+  bypass-cap-strap(usb2240.VDD330, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.VDD331, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.VDD332, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.VDDA33, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
 
-  short-cap-strap(usb2240.CRD_PWR, power.gnd, ["capacitance" => 4.7e-6])
+  bypass-cap-strap(usb2240.CRD_PWR, power.gnd, ["capacitance" => 4.7e-6, "min-vendor_part_numbers.lcsc" => " "])
 
   net (usb2240.RXD_SDA i2c.sda)
   net (usb2240.TXD_SCK_MS_SKT_SEL i2c.scl)
@@ -143,13 +151,13 @@ pcb-module media-controller :
   val stray-capacitance = 5.0e-12
   val c-load = load-capacitance(property(xtal.crystal-resonator))
   val c-bal = closest-std-val(2.0 * (c-load - stray-capacitance), 5.0)
-  cap-strap(xtal.IN, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G" ])
-  cap-strap(xtal.OUT, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G" ])
+  cap-strap(xtal.IN, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "min-vendor_part_numbers.lcsc" => " "])
+  cap-strap(xtal.OUT, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "min-vendor_part_numbers.lcsc" => " "])
 
   net (xtal.IN usb2240.XTAL1_CLKIN)
   net (xtal.OUT usb2240.XTAL2)
   net (xtal.GND0 xtal.GND1 power.gnd)
-  res-strap(usb2240.XTAL1_CLKIN, usb2240.XTAL2, ["resistance" => 1.0e6])
+  res-strap(usb2240.XTAL1_CLKIN, usb2240.XTAL2, ["resistance" => 1.0e6, "min-vendor_part_numbers.lcsc" => " "])
 
 pcb-module usb-2-on-usb-c-male :
   port usb-c : usb-c
@@ -172,8 +180,8 @@ pcb-module usb-2-on-usb-c-male :
   net (usb-c.tx[1].P conn.SSTXP1)
 
   ; GND0 and GND2 are connected to the shield
-  res-strap(usb-2.vbus.gnd, conn.GND0, 100.0e3)
-  short-cap-strap(usb-2.vbus.gnd, conn.GND2, ["capacitance" => 0.1e-6])
+  res-strap(usb-2.vbus.gnd, conn.GND0, ["resistance" => 100.0e3, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb-2.vbus.gnd, conn.GND2, ["capacitance" => 0.1e-6, "min-vendor_part_numbers.lcsc" => " "])
 
 pcb-module voltage-regulator :
   port power-in : power
@@ -190,8 +198,8 @@ pcb-module voltage-regulator :
   net (reg.VCC power-in.vdd)
   net (reg.VOUT power-out.vdd)
   
-  short-cap-strap(reg.VCC, power-in.gnd, ["capacitance" => 0.1e-6])
-  short-cap-strap(reg.VOUT, power-out.gnd, ["capacitance" => 0.1e-6])
+  bypass-cap-strap(reg.VCC, power-in.gnd, ["capacitance" => 0.1e-6, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(reg.VOUT, power-out.gnd, ["capacitance" => 0.1e-6, "min-vendor_part_numbers.lcsc" => " "])
 
 pcb-module eeprom :
   port power : power
@@ -220,11 +228,11 @@ pcb-module eeprom :
   net (eeprom.SCL i2c.scl)
 
   ; Put pull up on SDA and SCL
-  res-strap(eeprom.SDA, power.vdd, ["resistance" => 5.0e3])
-  res-strap(eeprom.SCL, power.vdd, ["resistance" => 5.0e3])
+  res-strap(eeprom.SDA, power.vdd, ["resistance" => 5.0e3, "min-vendor_part_numbers.lcsc" => " "])
+  res-strap(eeprom.SCL, power.vdd, ["resistance" => 5.0e3, "min-vendor_part_numbers.lcsc" => " "])
 
   ; We don't want write operations to the EEPROM so we set WC_NOT high
-  res-strap(eeprom.WC_NOT, power.vdd, ["resistance" => 5.0e3])
+  res-strap(eeprom.WC_NOT, power.vdd, ["resistance" => 5.0e3, "min-vendor_part_numbers.lcsc" => " "])
 
 pcb-module sd-connector :
   port conn : sd-card-uhs-1-connector
@@ -250,7 +258,6 @@ pcb-module sd-card-reader :
   add-mounting-holes(Rectangle(x(d) - 2.0, y(d) - 2.0), "M2", [1 3])
 
   inst logo : ocdb/artwork/jitx-logo/logo(5.0)
-  place(logo) at loc(x(d) / 2.0 - 1.0, -5.0, 90.0) on Top
 
   ; Call all our modules
   inst usb : usb-2-on-usb-c-male

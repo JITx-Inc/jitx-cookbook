@@ -2,7 +2,7 @@
 (kicad_sch
   (version 20230121)
   (generator jitx)
-  (uuid 2afd41f1-84ca-c174-ce0c-a60c508d35bd)
+  (uuid 27564917-eb46-5190-1aa0-82aeb524e22f)
   (paper "A")
                          
   
@@ -79,6 +79,199 @@
       )
       (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "unplated_hole_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -2.54 1.905 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "unplated_hole_sym" (id 1) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "unplated_hole_sym_1_0"
+      (circle (center -1.27 0.0) (radius 0.635) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -1.27 0.0) (radius 1.143) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "ALTIUM_POWER_ARROW" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ALTIUM_POWER_ARROW" (id 1) (at 2.54 -0.508 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ALTIUM_POWER_ARROW_1_0"
+
+      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.794 0.0) (xy 1.27 0.762) (xy 1.27 -0.762) (xy 2.794 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "TYPE_C_31_G_03" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 18.240030480061 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      
+      (property "Value" "TYPE_C_31_G_03" (id 1) (at 0.0 17.240030480061 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TYPE_C_31_G_03_1_0"
+
+      (pin unspecified line (at 2.54 -22.86 90) (length 5.08001016002032)
+        (name "GND0" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -22.86 90) (length 5.08001016002032)
+        (name "GND1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 2.54 20.32 270) (length 5.08001016002032)
+        (name "GND2" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 20.32 270) (length 5.08001016002032)
+        (name "GND3" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 16.51 12.7 180) (length 2.54000508001016)
+        (name "GND4" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 16.51 10.16 180) (length 2.54000508001016)
+        (name "SSRXP1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 16.51 7.62 180) (length 2.54000508001016)
+        (name "SSRXN1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 16.51 5.08 180) (length 2.54000508001016)
+        (name "VBUS0" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 -15.24 0) (length 2.54000508001016)
+        (name "GND5" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 -2.54 0) (length 2.54000508001016)
+        (name "DN1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 0.0 0) (length 2.54000508001016)
+        (name "DP1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 2.54 0) (length 2.54000508001016)
+        (name "CC1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 5.08 0) (length 2.54000508001016)
+        (name "VBUS1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 7.62 0) (length 2.54000508001016)
+        (name "SSTXN1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 10.16 0) (length 2.54000508001016)
+        (name "SSTXP1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -13.97 12.7 0) (length 2.54000508001016)
+        (name "GND6" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -11.4300228600457 -17.7800355600711) (end 13.9700279400559 15.240030480061) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -10.1600203200406 13.9700279400559) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "JITX_symbol" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -2.54 3.902 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      
+      (property "Value" "JITX_symbol" (id 1) (at -2.54 2.84 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "JITX_symbol_1_0"
+      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045) (xy 10.64306775 2.736906) (xy 9.40420775 2.7367485) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 9.6444795 5.3075045) (xy 11.204365675778 7.41173405617841)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 11.204365675778 7.41173405617841) (mid 11.5715164132218 7.68647346428221) (end 12.02033525 7.780511) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 12.02033525 7.780511) (xy 10.7521741568897 7.77915244080762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 10.7521741568897 7.77915244080762) (mid 10.3244289019203 7.71659474940583) (end 9.95883526617392 7.48589849585123) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.95883526617392 7.48589849585123) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 4.80545275 2.7367835) (xy 5.52213025 2.736801) (xy 6.09744275 6.006396) (xy 7.04751775 6.007796) (xy 7.17619525 6.746366) (xy 6.22827275 6.7467685) (xy 6.35336275 7.4639535) (xy 5.63701775 7.463901) (xy 4.80545275 2.7367835)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (arc (start 4.81951158629631 7.46403410472138) (mid 4.56761122169657 7.38909574502682) (end 4.39731705832001 7.1889221969265) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.39731705832001 7.1889221969265) (xy 4.39731771337896 7.18892347769723)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.39731771337896 7.18892347769723) (mid 4.37903669579069 6.93835280018836) (end 4.54329029777422 6.74824595058332) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.54329029777422 6.74824595058332) (xy 4.54329042972881 6.74824604286013)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.54329042972881 6.74824604286013) (mid 4.8347064457627 6.7584952028342) (end 5.05014573460892 6.95500029819479) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.05014573460892 6.95500029819479) (xy 5.0501454400865 6.95500033093321)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 5.0501454400865 6.95500033093321) (mid 5.11292088648779 7.19473733498076) (end 4.98779016906679 7.4086459400865) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.98779016906679 7.4086459400865) (xy 4.98779016800714 7.40864611461444)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.98779016800714 7.40864611461444) (mid 4.90690057503162 7.44621327349144) (end 4.81951161284777 7.46403424333775) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.81951161284777 7.46403424333775) (xy 4.81951158629631 7.46403410472138)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 3.89443775 6.3231635) (xy 3.17699025 6.3231985)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.17699025 6.3231985) (xy 2.52209151060913 2.60191506576061)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 2.52209151060913 2.60191506576061) (mid 2.05675349031717 1.92653195318543) (end 1.2808715 1.660658) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 1.2808715 1.660658) (xy 1.16204986761718 0.946150157081704)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 1.16204986761718 0.946150157081704) (mid 2.47433952610446 1.46740670189427) (end 3.24900260539611 2.64796150657934) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.24900260539611 2.64796150657934) (xy 3.89443775 6.3231635)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (arc (start 4.6536755 2.739566) (mid 4.47355971115545 2.84819051977396) (end 4.42300775 3.05236075) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.42300775 3.05236075) (xy 4.93274772036982 5.99834598533872)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.93274772036982 5.99834598533872) (mid 4.87164254214732 6.21359196465728) (end 4.67623276466128 6.32258597036982) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.67623276466128 6.32258597036982) (xy 4.03524193183806 6.32123973631567)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.03524193183806 6.32123973631567) (mid 4.22213158850411 6.21328643348833) (end 4.27976525 6.005296) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.27976525 6.005296) (xy 3.7661802699951 3.02495606296363)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 3.7661802699951 3.02495606296363) (mid 3.84086820737184 2.8260933338554) (end 4.03429774834461 2.73828851794516) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.03429774834461 2.73828851794516) (xy 4.6536755 2.739566)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.6444795 5.3075045) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 8.68532525 7.776591)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.68532525 7.776591) (xy 7.36731275 7.777781)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 7.36731275 7.777781) (xy 8.31381775 5.253301)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.31381775 5.253301) (xy 6.69911401210568 3.12239450877699)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 6.69911401210568 3.12239450877699) (mid 6.34438927313888 2.86083653042072) (end 5.92142775 2.7369585) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.92142775 2.7369585) (xy 7.20697795987015 2.73714213727357)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 7.20697795987015 2.73714213727357) (mid 7.6509829133912 2.835530220617) (end 8.01080546865927 3.11364592030973) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.01080546865927 3.11364592030973) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "ALTIUM_POWER_GND_POWER" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ALTIUM_POWER_GND_POWER" (id 1) (at 2.54 -1.016 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ALTIUM_POWER_GND_POWER_1_0"
+
+      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.397) (xy 1.27 1.397)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.69545 -1.0922) (xy 1.69545 1.0922)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.11455 -0.762) (xy 2.11455 0.762)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -0.4572) (xy 2.54 0.4572)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -163,127 +356,6 @@
       (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "capacitor_sym" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "capacitor_sym" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "capacitor_sym_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "M24C04_WMN6TP" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 6.81000762001524 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      
-      (property "Value" "M24C04_WMN6TP" (id 1) (at 0.0 5.81000762001524 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "M24C04_WMN6TP_1_0"
-
-      (pin unspecified line (at -10.16 3.81 0) (length 2.54000508001016)
-        (name "NC" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -10.16 1.27 0) (length 2.54000508001016)
-        (name "E1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -10.16 -1.27 0) (length 2.54000508001016)
-        (name "E2" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -10.16 -3.81 0) (length 2.54000508001016)
-        (name "VSS" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 10.16 -3.81 180) (length 2.54000508001016)
-        (name "SDA" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 10.16 -1.27 180) (length 2.54000508001016)
-        (name "SCL" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 10.16 1.27 180) (length 2.54000508001016)
-        (name "WC_NOT" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 10.16 3.81 180) (length 2.54000508001016)
-        (name "VCC" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (rectangle (start -7.62001524003048 -6.85801371602743) (end 7.62001524003048 6.85801371602743) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -6.3500127000254 5.58801117602235) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -6.3500127000254 5.58801117602235) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "resistor_sym" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "resistor_sym" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "resistor_sym_1_0"
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -378,6 +450,245 @@
       )
       (rectangle (start -13.9700279400559 -20.3200406400813) (end 16.510033020066 20.3200406400813) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
       (circle (center -13.3350266700533 19.6850393700787) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "capacitor_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "capacitor_sym" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "capacitor_sym_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "M24C04_WMN6TP" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 6.81000762001524 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      
+      (property "Value" "M24C04_WMN6TP" (id 1) (at 0.0 5.81000762001524 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "M24C04_WMN6TP_1_0"
+
+      (pin unspecified line (at -10.16 3.81 0) (length 2.54000508001016)
+        (name "NC" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -10.16 1.27 0) (length 2.54000508001016)
+        (name "E1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -10.16 -1.27 0) (length 2.54000508001016)
+        (name "E2" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -10.16 -3.81 0) (length 2.54000508001016)
+        (name "VSS" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 10.16 -3.81 180) (length 2.54000508001016)
+        (name "SDA" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 10.16 -1.27 180) (length 2.54000508001016)
+        (name "SCL" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 10.16 1.27 180) (length 2.54000508001016)
+        (name "WC_NOT" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 10.16 3.81 180) (length 2.54000508001016)
+        (name "VCC" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -7.62001524003048 -6.85801371602743) (end 7.62001524003048 6.85801371602743) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -6.3500127000254 5.58801117602235) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -6.3500127000254 5.58801117602235) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "Sym7B024000Q01" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.54000508001016 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      
+      (property "Value" "Sym7B024000Q01" (id 1) (at 0.0 4.54000508001016 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym7B024000Q01_1_0"
+
+      (pin unspecified line (at 7.62 -2.54 180) (length 2.54000508001016)
+        (name "GND0" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54000508001016)
+        (name "GND1" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 2.54 180) (length 2.54000508001016)
+        (name "OUT" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54000508001016)
+        (name "IN" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -0.508001016002032 -1.77800355600711) (end 0.508001016002032 1.77800355600711) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -5.08001016002032 -5.08001016002032) (end 5.08001016002032 5.08001016002032) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -3.81000762001524 -3.81000762001524) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 5.08001016002032 2.54000508001016) (xy 2.54000508001016 2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 2.54000508001016) (xy 2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 -0.0) (xy 1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy -5.08001016002032 -2.54000508001016) (xy -2.54000508001016 -2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -2.54000508001016) (xy -2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -0.0) (xy -1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.27000254000508 -1.77800355600711) (xy 1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy -1.27000254000508 -1.77800355600711) (xy -1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "diode_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.54 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "diode_sym" (id 1) (at 2.54 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "diode_sym_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "a" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "c" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 0.0 0.0) (radius 1.905) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.27 0.254) (xy 2.286 -0.762)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -0.508) (xy 2.286 -1.524)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.905 -0.762) (xy 2.286 -0.762) (xy 2.286 -0.381)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.905 -1.524) (xy 2.286 -1.524) (xy 2.286 -1.143)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.016) (xy 1.27 1.016) (xy -1.27 1.016) (xy 0.0 -1.016)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 0.0 -1.016) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.016) (xy 1.27 -1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "resistor_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "resistor_sym" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "resistor_sym_1_0"
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.54 1.27 0.0)
+        (effects (font (size 0.2 0.2))  (justify left )))
+      
+      (property "Value" "" (id 1) (at 2.54 -1.27 0.0)
+        (effects (font (size 0.2 0.2))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.5 0.5))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.5 0.5))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
+      )
+
+
+      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
+      )
+
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
 )
     )
 
@@ -609,317 +920,6 @@
 )
     )
 
-    (symbol "unplated_hole_sym" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at -2.54 1.905 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "unplated_hole_sym" (id 1) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "unplated_hole_sym_1_0"
-      (circle (center -1.27 0.0) (radius 0.635) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -1.27 0.0) (radius 1.143) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "ALTIUM_POWER_ARROW" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
-      
-      (property "Value" "ALTIUM_POWER_ARROW" (id 1) (at 2.54 -0.508 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "ALTIUM_POWER_ARROW_1_0"
-
-      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
-        (name "0" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 2.794 0.0) (xy 1.27 0.762) (xy 1.27 -0.762) (xy 2.794 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "TYPE_C_31_G_03" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 18.240030480061 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      
-      (property "Value" "TYPE_C_31_G_03" (id 1) (at 0.0 17.240030480061 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "TYPE_C_31_G_03_1_0"
-
-      (pin unspecified line (at 2.54 -22.86 90) (length 5.08001016002032)
-        (name "GND0" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -22.86 90) (length 5.08001016002032)
-        (name "GND1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 2.54 20.32 270) (length 5.08001016002032)
-        (name "GND2" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 20.32 270) (length 5.08001016002032)
-        (name "GND3" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 16.51 12.7 180) (length 2.54000508001016)
-        (name "GND4" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 16.51 10.16 180) (length 2.54000508001016)
-        (name "SSRXP1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 16.51 7.62 180) (length 2.54000508001016)
-        (name "SSRXN1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 16.51 5.08 180) (length 2.54000508001016)
-        (name "VBUS0" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 -15.24 0) (length 2.54000508001016)
-        (name "GND5" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 -2.54 0) (length 2.54000508001016)
-        (name "DN1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 0.0 0) (length 2.54000508001016)
-        (name "DP1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 2.54 0) (length 2.54000508001016)
-        (name "CC1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 5.08 0) (length 2.54000508001016)
-        (name "VBUS1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 7.62 0) (length 2.54000508001016)
-        (name "SSTXN1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 10.16 0) (length 2.54000508001016)
-        (name "SSTXP1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -13.97 12.7 0) (length 2.54000508001016)
-        (name "GND6" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (rectangle (start -11.4300228600457 -17.7800355600711) (end 13.9700279400559 15.240030480061) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -10.1600203200406 13.9700279400559) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "Sym7B024000Q01" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 5.54000508001016 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      
-      (property "Value" "Sym7B024000Q01" (id 1) (at 0.0 4.54000508001016 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "Sym7B024000Q01_1_0"
-
-      (pin unspecified line (at 7.62 -2.54 180) (length 2.54000508001016)
-        (name "GND0" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -7.62 2.54 0) (length 2.54000508001016)
-        (name "GND1" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 7.62 2.54 180) (length 2.54000508001016)
-        (name "OUT" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -7.62 -2.54 0) (length 2.54000508001016)
-        (name "IN" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (rectangle (start -0.508001016002032 -1.77800355600711) (end 0.508001016002032 1.77800355600711) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (rectangle (start -5.08001016002032 -5.08001016002032) (end 5.08001016002032 5.08001016002032) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -3.81000762001524 -3.81000762001524) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 5.08001016002032 2.54000508001016) (xy 2.54000508001016 2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 2.54000508001016) (xy 2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 -0.0) (xy 1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy -5.08001016002032 -2.54000508001016) (xy -2.54000508001016 -2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -2.54000508001016) (xy -2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -0.0) (xy -1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 1.27000254000508 -1.77800355600711) (xy 1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy -1.27000254000508 -1.77800355600711) (xy -1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "diode_sym" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 2.54 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "diode_sym" (id 1) (at 2.54 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "diode_sym_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "a" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "c" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (circle (center 0.0 0.0) (radius 1.905) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 1.27 0.254) (xy 2.286 -0.762)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.27 -0.508) (xy 2.286 -1.524)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.905 -0.762) (xy 2.286 -0.762) (xy 2.286 -0.381)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.905 -1.524) (xy 2.286 -1.524) (xy 2.286 -1.143)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.016) (xy 1.27 1.016) (xy -1.27 1.016) (xy 0.0 -1.016)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 0.0 -1.016) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -1.016) (xy 1.27 -1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "JITX_symbol" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at -2.54 3.902 0.0)
-        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
-      
-      (property "Value" "JITX_symbol" (id 1) (at -2.54 2.84 0.0)
-        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "JITX_symbol_1_0"
-      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045) (xy 10.64306775 2.736906) (xy 9.40420775 2.7367485) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 9.6444795 5.3075045) (xy 11.204365675778 7.41173405617841)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 11.204365675778 7.41173405617841) (mid 11.5715164132218 7.68647346428221) (end 12.02033525 7.780511) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 12.02033525 7.780511) (xy 10.7521741568897 7.77915244080762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 10.7521741568897 7.77915244080762) (mid 10.3244289019203 7.71659474940583) (end 9.95883526617392 7.48589849585123) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.95883526617392 7.48589849585123) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 4.80545275 2.7367835) (xy 5.52213025 2.736801) (xy 6.09744275 6.006396) (xy 7.04751775 6.007796) (xy 7.17619525 6.746366) (xy 6.22827275 6.7467685) (xy 6.35336275 7.4639535) (xy 5.63701775 7.463901) (xy 4.80545275 2.7367835)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (arc (start 4.81951158629631 7.46403410472138) (mid 4.56761122169657 7.38909574502682) (end 4.39731705832001 7.1889221969265) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.39731705832001 7.1889221969265) (xy 4.39731771337896 7.18892347769723)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.39731771337896 7.18892347769723) (mid 4.37903669579069 6.93835280018836) (end 4.54329029777422 6.74824595058332) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.54329029777422 6.74824595058332) (xy 4.54329042972881 6.74824604286013)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.54329042972881 6.74824604286013) (mid 4.8347064457627 6.7584952028342) (end 5.05014573460892 6.95500029819479) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.05014573460892 6.95500029819479) (xy 5.0501454400865 6.95500033093321)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 5.0501454400865 6.95500033093321) (mid 5.11292088648779 7.19473733498076) (end 4.98779016906679 7.4086459400865) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.98779016906679 7.4086459400865) (xy 4.98779016800714 7.40864611461444)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.98779016800714 7.40864611461444) (mid 4.90690057503162 7.44621327349144) (end 4.81951161284777 7.46403424333775) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.81951161284777 7.46403424333775) (xy 4.81951158629631 7.46403410472138)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 3.89443775 6.3231635) (xy 3.17699025 6.3231985)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.17699025 6.3231985) (xy 2.52209151060913 2.60191506576061)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 2.52209151060913 2.60191506576061) (mid 2.05675349031717 1.92653195318543) (end 1.2808715 1.660658) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 1.2808715 1.660658) (xy 1.16204986761718 0.946150157081704)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 1.16204986761718 0.946150157081704) (mid 2.47433952610446 1.46740670189427) (end 3.24900260539611 2.64796150657934) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.24900260539611 2.64796150657934) (xy 3.89443775 6.3231635)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (arc (start 4.6536755 2.739566) (mid 4.47355971115545 2.84819051977396) (end 4.42300775 3.05236075) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.42300775 3.05236075) (xy 4.93274772036982 5.99834598533872)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.93274772036982 5.99834598533872) (mid 4.87164254214732 6.21359196465728) (end 4.67623276466128 6.32258597036982) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.67623276466128 6.32258597036982) (xy 4.03524193183806 6.32123973631567)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.03524193183806 6.32123973631567) (mid 4.22213158850411 6.21328643348833) (end 4.27976525 6.005296) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.27976525 6.005296) (xy 3.7661802699951 3.02495606296363)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 3.7661802699951 3.02495606296363) (mid 3.84086820737184 2.8260933338554) (end 4.03429774834461 2.73828851794516) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.03429774834461 2.73828851794516) (xy 4.6536755 2.739566)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.6444795 5.3075045) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 8.68532525 7.776591)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.68532525 7.776591) (xy 7.36731275 7.777781)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 7.36731275 7.777781) (xy 8.31381775 5.253301)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.31381775 5.253301) (xy 6.69911401210568 3.12239450877699)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 6.69911401210568 3.12239450877699) (mid 6.34438927313888 2.86083653042072) (end 5.92142775 2.7369585) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.92142775 2.7369585) (xy 7.20697795987015 2.73714213727357)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 7.20697795987015 2.73714213727357) (mid 7.6509829133912 2.835530220617) (end 8.01080546865927 3.11364592030973) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.01080546865927 3.11364592030973) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "ALTIUM_POWER_GND_POWER" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
-      
-      (property "Value" "ALTIUM_POWER_GND_POWER" (id 1) (at 2.54 -1.016 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "ALTIUM_POWER_GND_POWER_1_0"
-
-      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
-        (name "0" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.27 -1.397) (xy 1.27 1.397)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.69545 -1.0922) (xy 1.69545 1.0922)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 2.11455 -0.762) (xy 2.11455 0.762)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 2.54 -0.4572) (xy 2.54 0.4572)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 2.54 1.27 0.0)
-        (effects (font (size 0.2 0.2))  (justify left )))
-      
-      (property "Value" "" (id 1) (at 2.54 -1.27 0.0)
-        (effects (font (size 0.2 0.2))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.5 0.5))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.5 0.5))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
-      )
-
-
-      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
-      )
-
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
     (symbol "my_capacitor" 
       (in_bom yes) (on_board yes)
       
@@ -948,6 +948,198 @@
       (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "C266601" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "Card" (id 0) (at 0.0 20.7800355600711 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      
+      (property "Value" "C266601" (id 1) (at 0.0 19.7800355600711 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "C266601_1_0"
+
+      (pin unspecified line (at -16.51 17.78 0) (length 2.54000508001016)
+        (name "CD_DAT3" (effects (font (size 1.0 1.0))))
+        (number "1" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 15.24 0) (length 2.54000508001016)
+        (name "CMD" (effects (font (size 1.0 1.0))))
+        (number "2" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 12.7 0) (length 2.54000508001016)
+        (name "VSS1" (effects (font (size 1.0 1.0))))
+        (number "3" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 10.16 0) (length 2.54000508001016)
+        (name "VDD" (effects (font (size 1.0 1.0))))
+        (number "4" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 7.62 0) (length 2.54000508001016)
+        (name "CLK" (effects (font (size 1.0 1.0))))
+        (number "5" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 5.08 0) (length 2.54000508001016)
+        (name "VSS2" (effects (font (size 1.0 1.0))))
+        (number "6" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 2.54 0) (length 2.54000508001016)
+        (name "DAT0" (effects (font (size 1.0 1.0))))
+        (number "7" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 0.0 0) (length 2.54000508001016)
+        (name "DAT1" (effects (font (size 1.0 1.0))))
+        (number "8" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -2.54 0) (length 2.54000508001016)
+        (name "DAT2" (effects (font (size 1.0 1.0))))
+        (number "9" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -5.08 0) (length 2.54000508001016)
+        (name "CD" (effects (font (size 1.0 1.0))))
+        (number "10" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -7.62 0) (length 2.54000508001016)
+        (name "WP" (effects (font (size 1.0 1.0))))
+        (number "11" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -10.16 0) (length 2.54000508001016)
+        (name "SHELL0" (effects (font (size 1.0 1.0))))
+        (number "12" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -12.7 0) (length 2.54000508001016)
+        (name "SHELL1" (effects (font (size 1.0 1.0))))
+        (number "13" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -15.24 0) (length 2.54000508001016)
+        (name "SHELL2" (effects (font (size 1.0 1.0))))
+        (number "14" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -16.51 -17.78 0) (length 2.54000508001016)
+        (name "SHELL3" (effects (font (size 1.0 1.0))))
+        (number "15" (effects (font (size 1.0 1.0))))
+      )
+      (rectangle (start -13.9700279400559 -20.3200406400813) (end 16.510033020066 20.3200406400813) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -13.3350266700533 19.6850393700787) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "my_resistor" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_resistor" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_resistor_1_0"
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "C174142" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "R" (id 0) (at 2.54 1.27 0.0)
+        (effects (font (size 0.2 0.2))  (justify left )))
+      
+      (property "Value" "C174142" (id 1) (at 2.54 -1.27 0.0)
+        (effects (font (size 0.2 0.2))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "C174142_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.5 0.5))))
+        (number "1" (effects (font (size 0.5 0.5))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.5 0.5))))
+        (number "2" (effects (font (size 0.5 0.5))))
+      )
+
+      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
+      )
+
+
+      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
+      )
+
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "my_resistor_1" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_resistor_1" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_resistor_1_1_0"
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -1013,36 +1205,6 @@
 )
     )
 
-    (symbol "my_resistor" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_resistor" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_resistor_1_0"
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
     (symbol "my_capacitor_3" 
       (in_bom yes) (on_board yes)
       
@@ -1071,6 +1233,36 @@
       (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "my_resistor_2" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_resistor_2" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_resistor_2_1_0"
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -1278,6 +1470,37 @@
 )
     )
 
+    (symbol "my_capacitor_4" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_4" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_4_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
     (symbol "C840338" 
       (in_bom yes) (on_board yes)
       
@@ -1377,20 +1600,20 @@
 )
     )
 
-    (symbol "my_resistor_1" 
+    (symbol "my_resistor_3" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_resistor_1" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_resistor_3" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_resistor_1_1_0"
+(symbol "my_resistor_3_1_0"
 
       (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1404,37 +1627,6 @@
       (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_4" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_4" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_4_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -1500,42 +1692,6 @@
 )
     )
 
-    (symbol "LED_maker_ROYGBIV" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "LED" (id 0) (at 2.54 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "LED_maker_ROYGBIV" (id 1) (at 2.54 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "LED_maker_ROYGBIV_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "a" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "c" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (circle (center 0.0 0.0) (radius 1.905) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 1.27 0.254) (xy 2.286 -0.762)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.27 -0.508) (xy 2.286 -1.524)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.905 -0.762) (xy 2.286 -0.762) (xy 2.286 -0.381)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 1.905 -1.524) (xy 2.286 -1.524) (xy 2.286 -1.143)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.016) (xy 1.27 1.016) (xy -1.27 1.016) (xy 0.0 -1.016)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 0.0 -1.016) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -1.016) (xy 1.27 -1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
     (symbol "my_capacitor_7" 
       (in_bom yes) (on_board yes)
       
@@ -1550,6 +1706,37 @@
         (effects (font (size 0.635 0.635)) hide))
       
 (symbol "my_capacitor_7_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "my_capacitor_8" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_8" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_8_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1591,94 +1778,51 @@
 )
     )
 
-    (symbol "my_resistor_2" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_resistor_2" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_resistor_2_1_0"
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "C654991" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "X" (id 0) (at 0.0 5.54000508001016 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      
-      (property "Value" "C654991" (id 1) (at 0.0 4.54000508001016 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "C654991_1_0"
-
-      (pin unspecified line (at 7.62 -2.54 180) (length 2.54000508001016)
-        (name "GND0" (effects (font (size 1.0 1.0))))
-        (number "2" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -7.62 2.54 0) (length 2.54000508001016)
-        (name "GND1" (effects (font (size 1.0 1.0))))
-        (number "4" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at 7.62 2.54 180) (length 2.54000508001016)
-        (name "OUT" (effects (font (size 1.0 1.0))))
-        (number "3" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -7.62 -2.54 0) (length 2.54000508001016)
-        (name "IN" (effects (font (size 1.0 1.0))))
-        (number "1" (effects (font (size 1.0 1.0))))
-      )
-      (rectangle (start -0.508001016002032 -1.77800355600711) (end 0.508001016002032 1.77800355600711) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (rectangle (start -5.08001016002032 -5.08001016002032) (end 5.08001016002032 5.08001016002032) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -3.81000762001524 -3.81000762001524) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 5.08001016002032 2.54000508001016) (xy 2.54000508001016 2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 2.54000508001016) (xy 2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 -0.0) (xy 1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy -5.08001016002032 -2.54000508001016) (xy -2.54000508001016 -2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -2.54000508001016) (xy -2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -0.0) (xy -1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 1.27000254000508 -1.77800355600711) (xy 1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy -1.27000254000508 -1.77800355600711) (xy -1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "my_capacitor_8" 
+    (symbol "my_capacitor_9" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_8" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_9" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_8_1_0"
+(symbol "my_capacitor_9_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "my_capacitor_10" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_10" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_10_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1756,6 +1900,37 @@
 )
     )
 
+    (symbol "my_capacitor_11" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_11" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_11_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
     (symbol "C442601" 
       (in_bom yes) (on_board yes)
       
@@ -1790,199 +1965,6 @@
 )
     )
 
-    (symbol "my_capacitor_9" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_9" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_9_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "C266601" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "Card" (id 0) (at 0.0 20.7800355600711 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      
-      (property "Value" "C266601" (id 1) (at 0.0 19.7800355600711 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "C266601_1_0"
-
-      (pin unspecified line (at -16.51 17.78 0) (length 2.54000508001016)
-        (name "CD_DAT3" (effects (font (size 1.0 1.0))))
-        (number "1" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 15.24 0) (length 2.54000508001016)
-        (name "CMD" (effects (font (size 1.0 1.0))))
-        (number "2" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 12.7 0) (length 2.54000508001016)
-        (name "VSS1" (effects (font (size 1.0 1.0))))
-        (number "3" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 10.16 0) (length 2.54000508001016)
-        (name "VDD" (effects (font (size 1.0 1.0))))
-        (number "4" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 7.62 0) (length 2.54000508001016)
-        (name "CLK" (effects (font (size 1.0 1.0))))
-        (number "5" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 5.08 0) (length 2.54000508001016)
-        (name "VSS2" (effects (font (size 1.0 1.0))))
-        (number "6" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 2.54 0) (length 2.54000508001016)
-        (name "DAT0" (effects (font (size 1.0 1.0))))
-        (number "7" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 0.0 0) (length 2.54000508001016)
-        (name "DAT1" (effects (font (size 1.0 1.0))))
-        (number "8" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -2.54 0) (length 2.54000508001016)
-        (name "DAT2" (effects (font (size 1.0 1.0))))
-        (number "9" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -5.08 0) (length 2.54000508001016)
-        (name "CD" (effects (font (size 1.0 1.0))))
-        (number "10" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -7.62 0) (length 2.54000508001016)
-        (name "WP" (effects (font (size 1.0 1.0))))
-        (number "11" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -10.16 0) (length 2.54000508001016)
-        (name "SHELL0" (effects (font (size 1.0 1.0))))
-        (number "12" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -12.7 0) (length 2.54000508001016)
-        (name "SHELL1" (effects (font (size 1.0 1.0))))
-        (number "13" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -15.24 0) (length 2.54000508001016)
-        (name "SHELL2" (effects (font (size 1.0 1.0))))
-        (number "14" (effects (font (size 1.0 1.0))))
-      )
-
-      (pin unspecified line (at -16.51 -17.78 0) (length 2.54000508001016)
-        (name "SHELL3" (effects (font (size 1.0 1.0))))
-        (number "15" (effects (font (size 1.0 1.0))))
-      )
-      (rectangle (start -13.9700279400559 -20.3200406400813) (end 16.510033020066 20.3200406400813) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -13.3350266700533 19.6850393700787) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "my_resistor_3" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_resistor_3" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_resistor_3_1_0"
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "C174142" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "R" (id 0) (at 2.54 1.27 0.0)
-        (effects (font (size 0.2 0.2))  (justify left )))
-      
-      (property "Value" "C174142" (id 1) (at 2.54 -1.27 0.0)
-        (effects (font (size 0.2 0.2))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "C174142_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.5 0.5))))
-        (number "1" (effects (font (size 0.5 0.5))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.5 0.5))))
-        (number "2" (effects (font (size 0.5 0.5))))
-      )
-
-      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
-      )
-
-
-      (text "" (at 0.0 0.0 0) (effects (font (size 0 0)) )
-      )
-
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
     (symbol "my_resistor_4" 
       (in_bom yes) (on_board yes)
       
@@ -2013,22 +1995,39 @@
 )
     )
 
-    (symbol "Generic_Mounting_Hole" 
+    (symbol "LED_maker_ROYGBIV" 
       (in_bom yes) (on_board yes)
       
-      (property "Reference" "U" (id 0) (at -2.54 1.905 0.0)
+      (property "Reference" "LED" (id 0) (at 2.54 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "Generic_Mounting_Hole" (id 1) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
+      (property "Value" "LED_maker_ROYGBIV" (id 1) (at 2.54 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "Generic_Mounting_Hole_1_0"
-      (circle (center -1.27 0.0) (radius 0.635) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -1.27 0.0) (radius 1.143) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+(symbol "LED_maker_ROYGBIV_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "a" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "c" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 0.0 0.0) (radius 1.905) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.27 0.254) (xy 2.286 -0.762)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -0.508) (xy 2.286 -1.524)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.905 -0.762) (xy 2.286 -0.762) (xy 2.286 -0.381)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.905 -1.524) (xy 2.286 -1.524) (xy 2.286 -1.143)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.016) (xy 1.27 1.016) (xy -1.27 1.016) (xy 0.0 -1.016)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 0.0 -1.016) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.016) (xy 1.27 -1.016)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -2046,122 +2045,6 @@
         (effects (font (size 0.635 0.635)) hide))
       
 (symbol "my_resistor_5_1_0"
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_10" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_10" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_10_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_11" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_11" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_11_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "JITX" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "JITX" (id 0) (at -2.54 3.902 0.0)
-        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
-      
-      (property "Value" "JITX" (id 1) (at -2.54 2.84 0.0)
-        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "JITX_1_0"
-      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045) (xy 10.64306775 2.736906) (xy 9.40420775 2.7367485) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 9.6444795 5.3075045) (xy 11.204365675778 7.41173405617841)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 11.204365675778 7.41173405617841) (mid 11.5715164132218 7.68647346428221) (end 12.02033525 7.780511) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 12.02033525 7.780511) (xy 10.7521741568897 7.77915244080762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 10.7521741568897 7.77915244080762) (mid 10.3244289019203 7.71659474940583) (end 9.95883526617392 7.48589849585123) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.95883526617392 7.48589849585123) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 4.80545275 2.7367835) (xy 5.52213025 2.736801) (xy 6.09744275 6.006396) (xy 7.04751775 6.007796) (xy 7.17619525 6.746366) (xy 6.22827275 6.7467685) (xy 6.35336275 7.4639535) (xy 5.63701775 7.463901) (xy 4.80545275 2.7367835)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (arc (start 4.81951158629631 7.46403410472138) (mid 4.56761122169657 7.38909574502682) (end 4.39731705832001 7.1889221969265) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.39731705832001 7.1889221969265) (xy 4.39731771337896 7.18892347769723)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.39731771337896 7.18892347769723) (mid 4.37903669579069 6.93835280018836) (end 4.54329029777422 6.74824595058332) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.54329029777422 6.74824595058332) (xy 4.54329042972881 6.74824604286013)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.54329042972881 6.74824604286013) (mid 4.8347064457627 6.7584952028342) (end 5.05014573460892 6.95500029819479) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.05014573460892 6.95500029819479) (xy 5.0501454400865 6.95500033093321)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 5.0501454400865 6.95500033093321) (mid 5.11292088648779 7.19473733498076) (end 4.98779016906679 7.4086459400865) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.98779016906679 7.4086459400865) (xy 4.98779016800714 7.40864611461444)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.98779016800714 7.40864611461444) (mid 4.90690057503162 7.44621327349144) (end 4.81951161284777 7.46403424333775) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.81951161284777 7.46403424333775) (xy 4.81951158629631 7.46403410472138)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 3.89443775 6.3231635) (xy 3.17699025 6.3231985)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.17699025 6.3231985) (xy 2.52209151060913 2.60191506576061)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 2.52209151060913 2.60191506576061) (mid 2.05675349031717 1.92653195318543) (end 1.2808715 1.660658) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 1.2808715 1.660658) (xy 1.16204986761718 0.946150157081704)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 1.16204986761718 0.946150157081704) (mid 2.47433952610446 1.46740670189427) (end 3.24900260539611 2.64796150657934) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.24900260539611 2.64796150657934) (xy 3.89443775 6.3231635)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (arc (start 4.6536755 2.739566) (mid 4.47355971115545 2.84819051977396) (end 4.42300775 3.05236075) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.42300775 3.05236075) (xy 4.93274772036982 5.99834598533872)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.93274772036982 5.99834598533872) (mid 4.87164254214732 6.21359196465728) (end 4.67623276466128 6.32258597036982) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.67623276466128 6.32258597036982) (xy 4.03524193183806 6.32123973631567)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.03524193183806 6.32123973631567) (mid 4.22213158850411 6.21328643348833) (end 4.27976525 6.005296) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.27976525 6.005296) (xy 3.7661802699951 3.02495606296363)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 3.7661802699951 3.02495606296363) (mid 3.84086820737184 2.8260933338554) (end 4.03429774834461 2.73828851794516) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.03429774834461 2.73828851794516) (xy 4.6536755 2.739566)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.6444795 5.3075045) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 8.68532525 7.776591)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.68532525 7.776591) (xy 7.36731275 7.777781)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 7.36731275 7.777781) (xy 8.31381775 5.253301)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.31381775 5.253301) (xy 6.69911401210568 3.12239450877699)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 6.69911401210568 3.12239450877699) (mid 6.34438927313888 2.86083653042072) (end 5.92142775 2.7369585) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.92142775 2.7369585) (xy 7.20697795987015 2.73714213727357)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 7.20697795987015 2.73714213727357) (mid 7.6509829133912 2.835530220617) (end 8.01080546865927 3.11364592030973) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.01080546865927 3.11364592030973) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "my_resistor_6" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_resistor_6" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_resistor_6_1_0"
 
       (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -2208,402 +2091,481 @@
       (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
-  )
-  (wire (pts (xy 80.01 105.41) (xy 81.28 105.41)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 29b5d3a2-5188-1048-82a5-ee4a2c9c8a8b))
-  (wire (pts (xy 80.01 107.95) (xy 81.28 107.95)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 4053dc71-ef8f-de26-7915-b662cd75c27c))
-  (wire (pts (xy 80.01 110.49) (xy 81.28 110.49)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 51d962c8-3ca8-a4a2-5b05-7c08d3897860))
-  (wire (pts (xy 80.01 113.03) (xy 81.28 113.03)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 9cbf72b9-a4f5-a4ed-37e1-653a58f824e7))
-  (wire (pts (xy 49.53 133.35) (xy 48.26 133.35)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a086b5c8-67c1-154d-77f4-da0fecaea731))
-  (wire (pts (xy 49.53 120.65) (xy 48.26 120.65)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ab2e7fe9-ea93-8d5a-fc73-4b19d9bddf52))
-  (wire (pts (xy 49.53 118.11) (xy 48.26 118.11)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 433867b6-6619-34ad-6afd-6aa4e97760ff))
-  (wire (pts (xy 49.53 115.57) (xy 48.26 115.57)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 80e649aa-4a1a-55c7-dc3a-61a898d36ece))
-  (wire (pts (xy 49.53 113.03) (xy 48.26 113.03)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 133c9af1-a172-4b6b-7c6b-3f23db7ffed3))
-  (wire (pts (xy 49.53 110.49) (xy 48.26 110.49)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 29373f9c-a1c7-e81b-c3ec-cdd7890a06a1))
-  (wire (pts (xy 49.53 107.95) (xy 48.26 107.95)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 1ec5867a-df24-5738-11f1-48ecfd28c74b))
-  (wire (pts (xy 49.53 105.41) (xy 48.26 105.41)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 68439307-7542-f48f-6c68-a8c9fb28304c))
-  (wire (pts (xy 63.5 95.25) (xy 86.36 95.25)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 33606e5d-ad0f-ed04-a5ab-1e9bd54bcb6e))
-  (wire (pts (xy 43.18 148.59) (xy 86.36 148.59)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 76a15fa2-aa43-de14-6ed1-7fd43c8f7074))
-  (wire (pts (xy 81.28 105.41) (xy 86.36 105.41)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 00e34e11-1b1e-886e-7554-cd0ebbcf53bc))
-  (wire (pts (xy 43.18 105.41) (xy 48.26 105.41)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 60a2a74e-5e29-2d08-aedd-4439a216c4ba))
-  (wire (pts (xy 43.18 133.35) (xy 48.26 133.35)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 02561e70-b86b-fc5c-76f6-2595b4e451ae))
-  (wire (pts (xy 43.18 148.59) (xy 43.18 105.41)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 92e1eb86-b9a4-c4b1-707f-3bf50c556cf2))
-  (wire (pts (xy 83.82 148.59) (xy 83.82 147.32)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3e4eb0e3-c09b-9dc4-7388-baec7fc006e4))
-  (wire (pts (xy 63.5 97.79) (xy 63.5 95.25)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 17cc636d-ef9e-54d4-2fcf-a922a8221a59))
-  (wire (pts (xy 63.5 148.59) (xy 63.5 140.97)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2df51ccd-38ad-3d97-ddab-28336574c005))
-  (wire (pts (xy 66.04 148.59) (xy 66.04 147.32)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 692b0423-5e62-5e5c-3bf3-a67130ffded3))
-  (wire (pts (xy 86.36 149.86) (xy 86.36 95.25)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ad1188c9-30a1-72e8-1832-b7d52c9aef74))
-  (wire (pts (xy 66.04 96.52) (xy 83.82 96.52)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid db796e83-47fe-bf53-c362-b74db5c43d0c))
-  (wire (pts (xy 83.82 142.24) (xy 83.82 96.52)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e277a679-07d6-ee6f-f77d-0e3b18fe78b0))
-  (wire (pts (xy 66.04 97.79) (xy 66.04 96.52)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 57263f55-49eb-4796-b320-801cb67c2ca8))
-  (wire (pts (xy 66.04 142.24) (xy 66.04 140.97)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 456ffb49-c7eb-d8f6-fb1e-1d1833126983))
-  (wire (pts (xy 41.91 93.98) (xy 82.55 93.98)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 593fcc18-243e-416f-5881-c736053d1b33))
-  (wire (pts (xy 81.28 113.03) (xy 82.55 113.03)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e8f0c827-4a35-829e-c226-d26c974d5133))
-  (wire (pts (xy 41.91 113.03) (xy 48.26 113.03)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ea048134-47ac-712e-82de-af43571fe877))
-  (wire (pts (xy 41.91 113.03) (xy 41.91 93.98)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 83926343-215e-27ae-d8d7-51b1196e2561))
-  (wire (pts (xy 82.55 113.03) (xy 82.55 92.71)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2e60643f-9a41-a71b-1c96-969bd5edffcf))
-  (wire (pts (xy 121.92 142.24) (xy 121.92 140.97)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 11147ee0-2071-eca6-e369-2549e76b92cd))
-  (wire (pts (xy 93.98 143.51) (xy 96.52 143.51)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 0baa002e-1d72-f3ac-a4ef-ad93f4085166))
-  (wire (pts (xy 93.98 143.51) (xy 93.98 132.08)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid bad228be-4c9a-a27f-0029-726b7a4c386a))
-  (wire (pts (xy 95.25 140.97) (xy 96.52 140.97)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d5ea6103-3017-9268-c0c0-c823ff92db8f))
-  (wire (pts (xy 95.25 148.59) (xy 121.92 148.59)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 105ddb5f-0fc6-9dff-66aa-ca52618480f5))
-  (wire (pts (xy 113.03 148.59) (xy 113.03 147.32)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 6dd38fb5-ab69-383d-1874-e609ddd07762))
-  (wire (pts (xy 121.92 149.86) (xy 121.92 147.32)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 7d7c9f5e-7ec7-eda3-187e-16f2a1a0e79b))
-  (wire (pts (xy 95.25 148.59) (xy 95.25 140.97)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e9c2f8e8-6751-73b6-25e4-613393024e71))
-  (wire (pts (xy 95.25 133.35) (xy 113.03 133.35)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 1da699e5-df99-dac7-5b46-2c387e6bc8c1))
-  (wire (pts (xy 95.25 138.43) (xy 96.52 138.43)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c8de8036-ef29-96bf-1cb9-6efd321691c4))
-  (wire (pts (xy 113.03 142.24) (xy 113.03 132.08)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3fe88cf0-016d-2e1e-9ac3-10edad3efbcd))
-  (wire (pts (xy 95.25 138.43) (xy 95.25 133.35)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a661941a-21dd-2d9d-d4ee-a9fd1306959c))
-  (polyline (pts (xy 69.85 62.23) (xy 87.63 62.23)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid c7e87e1d-d584-509f-d85e-8dafd4b9df36))
-  (polyline (pts (xy 69.85 83.82) (xy 87.63 83.82)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid c5f3cb82-7018-fd9e-709e-71ffc0a9c3f1))
-  (polyline (pts (xy 69.85 83.82) (xy 69.85 62.23)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 2e7645e2-8fc0-34ea-0500-dbf2a9790df4))
-  (polyline (pts (xy 87.63 83.82) (xy 87.63 62.23)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 99006f5a-8304-356a-93aa-6b6a83c8f6e1))
-  (polyline (pts (xy 39.37 86.36) (xy 130.81 86.36)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid cbe471ba-606e-198a-5de9-83981a0c6c02))
-  (polyline (pts (xy 39.37 156.21) (xy 130.81 156.21)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid ccc5cbc0-6410-939d-14a1-f59f28493957))
-  (polyline (pts (xy 39.37 156.21) (xy 39.37 86.36)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid ec915419-24a9-a5c0-886b-41ca84e303e0))
-  (polyline (pts (xy 130.81 156.21) (xy 130.81 86.36)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid c352b01d-cb29-2795-71cc-7939cd736260))
-(junction (at 83.82 148.59) (diameter 0.762) (color 0 0 0 0 ) (uuid 51124292-16c2-569f-e6f7-0a436a12d589))
-(junction (at 63.5 148.59) (diameter 0.762) (color 0 0 0 0 ) (uuid afb84bb5-377d-9f9d-023a-aa24a2d9dc7f))
-(junction (at 66.04 148.59) (diameter 0.762) (color 0 0 0 0 ) (uuid f2cef079-96b0-ee19-2f1a-d6ed080a3dec))
-(junction (at 86.36 148.59) (diameter 0.762) (color 0 0 0 0 ) (uuid 2de4e464-cf62-36f5-1546-a82d9e416ce9))
-(junction (at 86.36 105.41) (diameter 0.762) (color 0 0 0 0 ) (uuid 27ea008b-4a7a-5115-0fc2-eafba938ed38))
-(junction (at 43.18 133.35) (diameter 0.762) (color 0 0 0 0 ) (uuid 59f703a5-d8f8-a99d-aa9b-08a41ac32356))
-(junction (at 82.55 93.98) (diameter 0.762) (color 0 0 0 0 ) (uuid 1cc2ccee-d71c-c3d5-5046-787b8dcccbb8))
-(junction (at 113.03 148.59) (diameter 0.762) (color 0 0 0 0 ) (uuid 7e223ea7-53b7-dc33-00d3-d16ef05eb706))
-(junction (at 121.92 148.59) (diameter 0.762) (color 0 0 0 0 ) (uuid 127d5412-91cb-943a-a8e6-a64443693e13))
-(junction (at 113.03 133.35) (diameter 0.762) (color 0 0 0 0 ) (uuid c0c04cfc-5ff7-f8e8-7c05-e79a3f71a438))
 
-  (global_label "USB-" (at 48.26 120.65 180)
+    (symbol "Generic_Mounting_Hole" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -2.54 1.905 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "Generic_Mounting_Hole" (id 1) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Generic_Mounting_Hole_1_0"
+      (circle (center -1.27 0.0) (radius 0.635) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -1.27 0.0) (radius 1.143) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "my_resistor_6" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "R" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_resistor_6" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_resistor_6_1_0"
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 -2.54) (xy 0.0 -1.5875)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -1.5875) (xy -0.762 -1.27) (xy 0.762 -0.635) (xy -0.762 0.0) (xy 0.762 0.635) (xy -0.762 1.27) (xy 0.0 1.5875)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.5875) (xy 0.0 2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "C654991" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "X" (id 0) (at 0.0 5.54000508001016 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      
+      (property "Value" "C654991" (id 1) (at 0.0 4.54000508001016 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "C654991_1_0"
+
+      (pin unspecified line (at 7.62 -2.54 180) (length 2.54000508001016)
+        (name "GND0" (effects (font (size 1.0 1.0))))
+        (number "2" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54000508001016)
+        (name "GND1" (effects (font (size 1.0 1.0))))
+        (number "4" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at 7.62 2.54 180) (length 2.54000508001016)
+        (name "OUT" (effects (font (size 1.0 1.0))))
+        (number "3" (effects (font (size 1.0 1.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54000508001016)
+        (name "IN" (effects (font (size 1.0 1.0))))
+        (number "1" (effects (font (size 1.0 1.0))))
+      )
+      (rectangle (start -0.508001016002032 -1.77800355600711) (end 0.508001016002032 1.77800355600711) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -5.08001016002032 -5.08001016002032) (end 5.08001016002032 5.08001016002032) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -3.81000762001524 -3.81000762001524) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 5.08001016002032 2.54000508001016) (xy 2.54000508001016 2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 2.54000508001016) (xy 2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 2.54000508001016 -0.0) (xy 1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy -5.08001016002032 -2.54000508001016) (xy -2.54000508001016 -2.54000508001016)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -2.54000508001016) (xy -2.54000508001016 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy -2.54000508001016 -0.0) (xy -1.27000254000508 -0.0)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.27000254000508 -1.77800355600711) (xy 1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy -1.27000254000508 -1.77800355600711) (xy -1.27000254000508 1.77800355600711)) (stroke (width 0.254000508001016) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "JITX" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "JITX" (id 0) (at -2.54 3.902 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      
+      (property "Value" "JITX" (id 1) (at -2.54 2.84 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "JITX_1_0"
+      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045) (xy 10.64306775 2.736906) (xy 9.40420775 2.7367485) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 9.6444795 5.3075045) (xy 11.204365675778 7.41173405617841)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 11.204365675778 7.41173405617841) (mid 11.5715164132218 7.68647346428221) (end 12.02033525 7.780511) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 12.02033525 7.780511) (xy 10.7521741568897 7.77915244080762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 10.7521741568897 7.77915244080762) (mid 10.3244289019203 7.71659474940583) (end 9.95883526617392 7.48589849585123) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.95883526617392 7.48589849585123) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 4.80545275 2.7367835) (xy 5.52213025 2.736801) (xy 6.09744275 6.006396) (xy 7.04751775 6.007796) (xy 7.17619525 6.746366) (xy 6.22827275 6.7467685) (xy 6.35336275 7.4639535) (xy 5.63701775 7.463901) (xy 4.80545275 2.7367835)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (arc (start 4.81951158629631 7.46403410472138) (mid 4.56761122169657 7.38909574502682) (end 4.39731705832001 7.1889221969265) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.39731705832001 7.1889221969265) (xy 4.39731771337896 7.18892347769723)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.39731771337896 7.18892347769723) (mid 4.37903669579069 6.93835280018836) (end 4.54329029777422 6.74824595058332) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.54329029777422 6.74824595058332) (xy 4.54329042972881 6.74824604286013)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.54329042972881 6.74824604286013) (mid 4.8347064457627 6.7584952028342) (end 5.05014573460892 6.95500029819479) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.05014573460892 6.95500029819479) (xy 5.0501454400865 6.95500033093321)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 5.0501454400865 6.95500033093321) (mid 5.11292088648779 7.19473733498076) (end 4.98779016906679 7.4086459400865) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.98779016906679 7.4086459400865) (xy 4.98779016800714 7.40864611461444)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.98779016800714 7.40864611461444) (mid 4.90690057503162 7.44621327349144) (end 4.81951161284777 7.46403424333775) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.81951161284777 7.46403424333775) (xy 4.81951158629631 7.46403410472138)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 3.89443775 6.3231635) (xy 3.17699025 6.3231985)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.17699025 6.3231985) (xy 2.52209151060913 2.60191506576061)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 2.52209151060913 2.60191506576061) (mid 2.05675349031717 1.92653195318543) (end 1.2808715 1.660658) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 1.2808715 1.660658) (xy 1.16204986761718 0.946150157081704)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 1.16204986761718 0.946150157081704) (mid 2.47433952610446 1.46740670189427) (end 3.24900260539611 2.64796150657934) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 3.24900260539611 2.64796150657934) (xy 3.89443775 6.3231635)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (arc (start 4.6536755 2.739566) (mid 4.47355971115545 2.84819051977396) (end 4.42300775 3.05236075) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.42300775 3.05236075) (xy 4.93274772036982 5.99834598533872)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.93274772036982 5.99834598533872) (mid 4.87164254214732 6.21359196465728) (end 4.67623276466128 6.32258597036982) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.67623276466128 6.32258597036982) (xy 4.03524193183806 6.32123973631567)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 4.03524193183806 6.32123973631567) (mid 4.22213158850411 6.21328643348833) (end 4.27976525 6.005296) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.27976525 6.005296) (xy 3.7661802699951 3.02495606296363)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 3.7661802699951 3.02495606296363) (mid 3.84086820737184 2.8260933338554) (end 4.03429774834461 2.73828851794516) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 4.03429774834461 2.73828851794516) (xy 4.6536755 2.739566)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 8.80626775 4.1641535) (xy 9.6444795 5.3075045)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.6444795 5.3075045) (xy 9.2135315 6.41686525)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 9.2135315 6.41686525) (xy 8.68532525 7.776591)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.68532525 7.776591) (xy 7.36731275 7.777781)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 7.36731275 7.777781) (xy 8.31381775 5.253301)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.31381775 5.253301) (xy 6.69911401210568 3.12239450877699)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 6.69911401210568 3.12239450877699) (mid 6.34438927313888 2.86083653042072) (end 5.92142775 2.7369585) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 5.92142775 2.7369585) (xy 7.20697795987015 2.73714213727357)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (arc (start 7.20697795987015 2.73714213727357) (mid 7.6509829133912 2.835530220617) (end 8.01080546865927 3.11364592030973) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))       (polyline (pts (xy 8.01080546865927 3.11364592030973) (xy 8.80626775 4.1641535)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+  )
+  (wire (pts (xy 81.28 99.06) (xy 82.55 99.06)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2b82050b-3d81-13a1-2b08-cbb7a2459793))
+  (wire (pts (xy 81.28 101.6) (xy 82.55 101.6)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid dc2b5ec4-2ac5-053c-1694-b7f273fbb947))
+  (wire (pts (xy 81.28 104.14) (xy 82.55 104.14)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d7441fd9-ed4a-242a-26d5-ffd378bc50a1))
+  (wire (pts (xy 81.28 106.68) (xy 82.55 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid abc48612-1ac1-03ab-6184-955945243d23))
+  (wire (pts (xy 50.8 127.0) (xy 49.53 127.0)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid fbc91465-1531-c176-c792-61d6b349ddfe))
+  (wire (pts (xy 50.8 114.3) (xy 49.53 114.3)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 4bb72a17-ee1b-95d1-05c0-359aef2aa898))
+  (wire (pts (xy 50.8 111.76) (xy 49.53 111.76)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid fed82206-8221-53f2-4dfb-c3d65e3bc691))
+  (wire (pts (xy 50.8 109.22) (xy 49.53 109.22)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid dcecd43d-0418-307d-0311-0e3522554b38))
+  (wire (pts (xy 50.8 106.68) (xy 49.53 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a387c7ab-4203-205b-992b-8c7d252cf306))
+  (wire (pts (xy 50.8 104.14) (xy 49.53 104.14)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d9011996-4958-b524-d437-da4fa7815390))
+  (wire (pts (xy 50.8 101.6) (xy 49.53 101.6)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2445749e-755f-c3f1-38cd-f490e0dff169))
+  (wire (pts (xy 50.8 99.06) (xy 49.53 99.06)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3f4aa8e9-a9e1-36e0-18d6-c64ae270bf14))
+  (wire (pts (xy 95.25 142.24) (xy 96.52 142.24)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e80c286b-57d7-f0e5-6295-c25ff68b9f90))
+  (wire (pts (xy 95.25 147.32) (xy 123.19 147.32)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ba897d8e-c2b8-1828-bf75-3123d117c394))
+  (wire (pts (xy 95.25 88.9) (xy 124.46 88.9)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 84b227a1-5103-f0b3-1f0a-fce4e1896a29))
+  (wire (pts (xy 95.25 147.32) (xy 95.25 88.9)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e686d370-03a4-46a1-c993-2f5013a1562c))
+  (wire (pts (xy 124.46 88.9) (xy 124.46 83.82)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3d8d80ea-4324-1bab-ab0b-11bfed455210))
+  (wire (pts (xy 123.19 147.32) (xy 123.19 146.05)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 0ed75bab-49b6-8b80-4585-9da0e89684e5))
+  (wire (pts (xy 48.26 127.0) (xy 49.53 127.0)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 75a2b228-0e50-0e47-b01b-edd69816a69c))
+  (wire (pts (xy 48.26 135.89) (xy 64.77 135.89)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 8da97ea9-6761-170a-232c-2979f96bde1b))
+  (wire (pts (xy 48.26 139.7) (xy 96.52 139.7)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ac23cde2-9bce-36d1-b9a7-a258fa4edd02))
+  (wire (pts (xy 49.53 147.32) (xy 66.04 147.32)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a41186df-5944-7854-7f00-47a614acc130))
+  (wire (pts (xy 48.26 90.17) (xy 123.19 90.17)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2c2366e1-2ec8-d4cb-63c1-31f076ea1e3b))
+  (wire (pts (xy 82.55 99.06) (xy 83.82 99.06)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ee57f4ff-c79b-51ad-c9cf-1a76e4e1906e))
+  (wire (pts (xy 48.26 99.06) (xy 49.53 99.06)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 37a79177-d3c8-f702-8602-b58b900e00fb))
+  (wire (pts (xy 85.09 140.97) (xy 85.09 139.7)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2b7c7bdd-d60d-bcde-9fb0-2e8d8afae1de))
+  (wire (pts (xy 113.03 140.97) (xy 113.03 90.17)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 9f14226e-bee3-5144-dcec-31a1baf1b04f))
+  (wire (pts (xy 66.04 147.32) (xy 66.04 146.05)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c43cdffa-fe6e-b177-5b77-d87822296539))
+  (wire (pts (xy 64.77 91.44) (xy 64.77 90.17)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 935f5794-0c22-91be-1457-382ff89cdef5))
+  (wire (pts (xy 64.77 135.89) (xy 64.77 134.62)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 644476e5-0971-9107-e47c-b65e6328ec43))
+  (wire (pts (xy 49.53 158.75) (xy 49.53 139.7)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 6b739fad-76c3-8a0d-5d32-f409b3b191a5))
+  (wire (pts (xy 48.26 139.7) (xy 48.26 90.17)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 070aed4b-dc83-8c34-50c6-279c56a0a7b0))
+  (wire (pts (xy 123.19 140.97) (xy 123.19 90.17)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ec9dd610-f2f7-a817-d7da-8a28ed873305))
+  (wire (pts (xy 83.82 139.7) (xy 83.82 99.06)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e92e286b-1846-75d0-bddd-44c6ef0bd41e))
+  (wire (pts (xy 85.09 148.59) (xy 119.38 148.59)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 60a55d3e-eb92-c3db-75bf-2f14005ccd82))
+  (wire (pts (xy 67.31 80.01) (xy 119.38 80.01)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 542ae4d4-1cdc-74ca-94b9-4ec043e25773))
+  (wire (pts (xy 119.38 148.59) (xy 119.38 80.01)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 5a316fca-12eb-2f35-13b4-f78da20202a5))
+  (wire (pts (xy 85.09 148.59) (xy 85.09 146.05)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 6270d4ff-f9ac-092e-3cf4-8ab8e1d98d06))
+  (wire (pts (xy 67.31 91.44) (xy 67.31 80.01)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 94595696-c4f9-0961-3b77-8ae5a0faac45))
+  (wire (pts (xy 66.04 135.89) (xy 67.31 135.89)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 4602ee9b-adc5-3b8b-2ead-f51464ec05d2))
+  (wire (pts (xy 67.31 135.89) (xy 67.31 134.62)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 31b347d8-a106-ce3a-a3a2-ea9c49315e1e))
+  (wire (pts (xy 66.04 140.97) (xy 66.04 135.89)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid da197434-444f-4e70-9c26-2734578f4586))
+  (wire (pts (xy 82.55 106.68) (xy 116.84 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 7c744de1-e0d9-842c-bf17-6bc37e39e76b))
+  (wire (pts (xy 46.99 106.68) (xy 49.53 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b93b9119-be8a-52ea-84e4-879c39878e6c))
+  (wire (pts (xy 81.28 137.16) (xy 96.52 137.16)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 5de36a13-56ae-1333-2d4c-a70a9f0837c6))
+  (wire (pts (xy 46.99 162.56) (xy 116.84 162.56)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 1c112ab4-ea79-3f0c-600d-ad767cb2c14b))
+  (wire (pts (xy 116.84 162.56) (xy 116.84 83.82)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 684da84c-cd24-fd6b-0944-776ece9ba5f6))
+  (wire (pts (xy 113.03 162.56) (xy 113.03 146.05)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 616ee677-1649-3455-e105-aff1582c1c0f))
+  (wire (pts (xy 81.28 162.56) (xy 81.28 137.16)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid acf51cd6-f694-4cd3-fc2d-19c985d5a7ea))
+  (wire (pts (xy 46.99 162.56) (xy 46.99 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 401b5d10-9ef9-1753-7df5-83510a6de0be))
+  (polyline (pts (xy 69.85 54.61) (xy 87.63 54.61)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 178ec76e-341e-be1d-a926-aeb2d8da66db))
+  (polyline (pts (xy 69.85 76.2) (xy 87.63 76.2)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 42818a81-34ae-ac73-c880-d3b86b0c7513))
+  (polyline (pts (xy 69.85 76.2) (xy 69.85 54.61)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 14f257a3-ec02-2133-f8f8-c8351933dc14))
+  (polyline (pts (xy 87.63 76.2) (xy 87.63 54.61)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 4966511e-2f30-7eeb-3f66-0dbbad6f3047))
+  (polyline (pts (xy 41.91 77.47) (xy 128.27 77.47)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid cd4bdb59-5663-5542-91c2-4b6541a7762c))
+  (polyline (pts (xy 41.91 165.1) (xy 128.27 165.1)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 0bf39884-d41c-f268-9500-5b2baf5119f7))
+  (polyline (pts (xy 41.91 165.1) (xy 41.91 77.47)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid c7c157be-ee67-9c05-859e-4e289981e30c))
+  (polyline (pts (xy 128.27 165.1) (xy 128.27 77.47)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 84b84e21-565a-81b9-62cc-da578359758e))
+(junction (at 95.25 142.24) (diameter 0.762) (color 0 0 0 0 ) (uuid 33dc48af-0cbe-25b8-5d31-1ec0d3ef7c03))
+(junction (at 48.26 127.0) (diameter 0.762) (color 0 0 0 0 ) (uuid 64b50317-2556-e185-f919-14b0fb436ef1))
+(junction (at 48.26 135.89) (diameter 0.762) (color 0 0 0 0 ) (uuid d89eba60-8f62-2fd6-8661-01169fc6491d))
+(junction (at 85.09 139.7) (diameter 0.762) (color 0 0 0 0 ) (uuid 94afa124-c850-7c7a-3cff-49d423c5ec46))
+(junction (at 49.53 139.7) (diameter 0.762) (color 0 0 0 0 ) (uuid 62f82bc9-4e96-57bc-b1a4-cbdee4137b8c))
+(junction (at 83.82 139.7) (diameter 0.762) (color 0 0 0 0 ) (uuid 81a4dad4-fff6-574b-d50d-455ca0023ee7))
+(junction (at 49.53 147.32) (diameter 0.762) (color 0 0 0 0 ) (uuid 9a903cc9-52a0-6602-68a6-fad8884283d2))
+(junction (at 113.03 90.17) (diameter 0.762) (color 0 0 0 0 ) (uuid 8db2114d-7c96-9496-ca19-11fbce72b741))
+(junction (at 64.77 90.17) (diameter 0.762) (color 0 0 0 0 ) (uuid 2ea109d8-bf86-9fcb-dac6-bd7d69faad7a))
+(junction (at 48.26 99.06) (diameter 0.762) (color 0 0 0 0 ) (uuid d2143240-d14c-0214-f8db-7f0b7149728f))
+(junction (at 116.84 106.68) (diameter 0.762) (color 0 0 0 0 ) (uuid 2ef225f4-8bbf-24b3-e790-a89e69ba1b10))
+(junction (at 113.03 162.56) (diameter 0.762) (color 0 0 0 0 ) (uuid 563e739f-233f-d878-3b53-039e109b8096))
+(junction (at 81.28 162.56) (diameter 0.762) (color 0 0 0 0 ) (uuid d6b8664c-98c3-84c5-34cc-867d6202da10))
+
+  (global_label "USB-" (at 49.53 114.3 180)
     (effects (font (size 0.762 0.762)) (justify right ))
-    (uuid 11434872-00de-7d15-a164-e9f40c000fb3)
+    (uuid 3d4a288b-c27b-20ea-eeba-e018ecd7323e)
   )
 
-  (global_label "USB+" (at 48.26 118.11 180)
+  (global_label "USB+" (at 49.53 111.76 180)
     (effects (font (size 0.762 0.762)) (justify right ))
-    (uuid 52162627-3bf7-bb59-9936-2fc04fe122d1)
+    (uuid 65d5f996-569e-3649-6441-9002494dd854)
   )
 
-  (label "Vin" (at 39.37 86.36 0)
+  (label "Vin" (at 41.91 77.47 0)
     (effects (font (size 0.762 0.762)) (justify left bottom ))
-    (uuid 611f07c1-b102-ebbb-58cd-8b47d3f2d11b)
+    (uuid fff44b48-653f-4eaa-ea47-34c8062970cd)
   )
 
-  (symbol (lib_id "Generic_Mounting_Hole") (at 74.93 66.04 0.0)  (unit 1)
+  (symbol (lib_id "C442601") (at 104.14 139.7 0.0)  (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid 2782d9a1-77cd-5eda-b0e0-7f073a8aa625)
-    (property "Reference" "U2" (id 0) (at 72.39 64.135 0.0) (effects (font (size 0.762 0.762)) (justify right )))
-    (property "Value" "" (id 1) (at 74.93 66.04 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Footprint" "jitx-design:NPTH" (id 2) (at 74.93 66.04 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 74.93 66.04 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "hole" (id 4) (at 74.93 66.04 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "2.3mm mounting hole" (id 5) (at 74.93 66.04 0.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid 7d33cf2d-9f6d-923e-58bd-cd7e8a40c6bc)
+    (property "Reference" "U3" (id 0) (at 104.14 134.15999491999 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "BD433M5FP-CE2" (id 1) (at 104.14 135.15999491999 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "jitx-design:TO_252_3_L6_5_W5_8_P4_58_BR" (id 2) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "reg_reg" (id 4) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "500mA 60dB@(120Hz) 750mV@(300mA) Fixed 3.3V~3.3V Positive 1 42V TO-252-3  Linear Voltage Regulators (LDO) ROHS" (id 5) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "ROHM Semicon" (id 6) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "BD433M5FP-CE2" (id 7) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "U" (id 8) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "LCSC" "C442601" (id 9) (at 104.14 139.7 0.0) (effects (font (size 0.762 0.762)) hide))
     
-
+    (pin "VCC" (uuid b0520205-a0b3-d844-6465-08d72f29a616))
+    (pin "FIN" (uuid e15b9077-b3ae-744d-0be4-8f31a545f13c))
+    (pin "VOUT" (uuid f5f48572-76ad-8026-bb32-b14e853729f8))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "U2") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "my_resistor_3") (at 66.04 144.78 0.0)  (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid fa556719-095b-05b5-ec38-657d0d51cf86)
-    (property "Reference" "R1" (id 0) (at 67.31 143.51 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Value" "100K" (id 1) (at 67.31 146.05 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Footprint" "jitx-design:Pkg0402_1" (id 2) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "https://www.vishay.com/docs/28779/tnpue3.pdf" (id 3) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "usb_rid" (id 4) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "TNPU0402 100K 0.1% T-16 EP1 E3" (id 5) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "Vishay Dale" (id 6) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "TNPU0402100KBZEP00" (id 7) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "R" (id 8) (at 66.04 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-    (pin "1" (uuid 1b2086fe-b51e-7537-02fc-1a621347bb6e))
-    (pin "2" (uuid 775a846c-35f7-9fbb-1c87-2135af441d47))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "R1") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "C840338") (at 63.5 118.11 0.0)  (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid 77fffc1e-d379-4574-198b-02894286959d)
-    (property "Reference" "USB1" (id 0) (at 63.5 99.869969519939 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
-    (property "Value" "TYPE-C-31-G-03" (id 1) (at 63.5 100.869969519939 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
-    (property "Footprint" "jitx-design:USB_C_SMD_TYPE_C_31_G_03" (id 2) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "https://datasheet.lcsc.com/lcsc/2108131930_Korean-Hroparts-Elec-TYPE-C-31-G-03_C840338.pdf" (id 3) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "usb_conn" (id 4) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "1 Surface Mount Male Type-C SMD  USB Connectors ROHS" (id 5) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "Korean Hroparts Elec" (id 6) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "TYPE-C-31-G-03" (id 7) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "USB" (id 8) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "LCSC" "C840338" (id 9) (at 63.5 118.11 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-    (pin "GND0" (uuid d9ae3bcb-1ef1-e8cd-7060-c895992ddc1e))
-    (pin "GND1" (uuid 0aa77f24-5034-26d6-4cc9-b894bf382c59))
-    (pin "GND2" (uuid f2361ea7-3fc2-cc0d-d465-f35eb9da3847))
-    (pin "GND3" (uuid c3f4fa6f-5dad-be38-ff8b-d4692c50c411))
-    (pin "GND4" (uuid 6782a585-6801-9bcf-0cbd-d297968dca12))
-    (pin "SSRXP1" (uuid bceeaa17-ece6-aa22-f684-19ef72bf6d99))
-    (pin "SSRXN1" (uuid 4c422573-c032-a15c-0357-fe0871a0bfbc))
-    (pin "VBUS0" (uuid 987e372e-73bf-70cb-479a-c5cd619e1d9b))
-    (pin "GND5" (uuid 2477696f-85d0-e928-c4a5-f06ccd19db97))
-    (pin "DN1" (uuid 62ea254c-275a-3fb4-6d20-6ace2d4c5bf3))
-    (pin "DP1" (uuid 1f7947b0-bad0-c0fc-8e88-afd3284da1df))
-    (pin "CC1" (uuid 5701869a-ab56-7a5d-f6b1-62c909aff4bc))
-    (pin "VBUS1" (uuid a7cd583f-d1c6-ab26-f6fc-31fda63b94fc))
-    (pin "SSTXN1" (uuid fcf1848f-c501-d3bf-27f6-be9c2785c9fd))
-    (pin "SSTXP1" (uuid 84cb67c1-7ffe-3054-3a78-73eec886c5ff))
-    (pin "GND6" (uuid 260fa0ce-a054-2998-0717-3c7e10151867))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "USB1") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Generic_Mounting_Hole") (at 74.93 69.85 0.0)  (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid e12e7fe7-c287-590f-25c4-8e58449f24d6)
-    (property "Reference" "U1" (id 0) (at 72.39 67.945 0.0) (effects (font (size 0.762 0.762)) (justify right )))
-    (property "Value" "" (id 1) (at 74.93 69.85 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Footprint" "jitx-design:NPTH" (id 2) (at 74.93 69.85 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 74.93 69.85 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "hole" (id 4) (at 74.93 69.85 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "2.3mm mounting hole" (id 5) (at 74.93 69.85 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "U1") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "my_capacitor_8") (at 121.92 144.78 0.0)  (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid 16104e18-5c1a-125e-f41d-34c8884ff84f)
-    (property "Reference" "C3" (id 0) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Value" "100n" (id 1) (at 123.19 146.05 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Footprint" "jitx-design:Pkg0402" (id 2) (at 121.92 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "http://www.passivecomponent.com/wp-content/uploads/2018/10/MLCC.pdf" (id 3) (at 121.92 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "reg_cap" (id 4) (at 121.92 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "Walsin Technology Corporation" (id 5) (at 121.92 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "0402B104K160CT" (id 6) (at 121.92 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "C" (id 7) (at 121.92 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-    (pin "1" (uuid 2d93cabb-bbd4-e144-39bc-34d97fdacc4b))
-    (pin "2" (uuid 5e38bdbd-b2e1-42dd-7d8d-6147638a9d79))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "C3") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "C442601") (at 104.14 140.97 0.0)  (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid c006e57e-0efd-b3b6-ffd1-4c947cd223e6)
-    (property "Reference" "U3" (id 0) (at 104.14 135.42999491999 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
-    (property "Value" "BD433M5FP-CE2" (id 1) (at 104.14 136.42999491999 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
-    (property "Footprint" "jitx-design:TO_252_3_L6_5_W5_8_P4_58_BR" (id 2) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "reg_reg" (id 4) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "500mA 60dB@(120Hz) 750mV@(300mA) Fixed 3.3V~3.3V Positive 1 42V TO-252-3  Linear Voltage Regulators (LDO) ROHS" (id 5) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "ROHM Semicon" (id 6) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "BD433M5FP-CE2" (id 7) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "U" (id 8) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "LCSC" "C442601" (id 9) (at 104.14 140.97 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-    (pin "VCC" (uuid 5633aea9-2e9a-df00-9162-cd2a0f538df2))
-    (pin "FIN" (uuid 815d14b5-b158-2884-73c3-8e94fc7acf43))
-    (pin "VOUT" (uuid d8ce7cd4-ff86-fb04-0989-220468b0c6bb))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
           (reference "U3") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "my_capacitor_2") (at 83.82 144.78 180.0)  (unit 1)
+  (symbol (lib_id "Generic_Mounting_Hole") (at 74.93 58.42 0.0)  (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid 79b0216b-33c1-aa5d-e80f-78c8dcf5db2c)
-    (property "Reference" "C1" (id 0) (at 82.55 143.51 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Value" "100n" (id 1) (at 82.55 146.05 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Footprint" "jitx-design:Pkg0402" (id 2) (at 83.82 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "http://www.passivecomponent.com/wp-content/uploads/2018/10/MLCC.pdf" (id 3) (at 83.82 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "usb_cap" (id 4) (at 83.82 144.78 180.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "Walsin Technology Corporation" (id 5) (at 83.82 144.78 180.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "0402B104K160CT" (id 6) (at 83.82 144.78 180.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "C" (id 7) (at 83.82 144.78 180.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid c8fa8d5e-8172-c9fc-d680-ee44e5dc0cc0)
+    (property "Reference" "U2" (id 0) (at 72.39 56.515 0.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "" (id 1) (at 74.93 58.42 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "jitx-design:NPTH" (id 2) (at 74.93 58.42 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 74.93 58.42 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "hole" (id 4) (at 74.93 58.42 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "2.3mm mounting hole" (id 5) (at 74.93 58.42 0.0) (effects (font (size 0.762 0.762)) hide))
     
-    (pin "1" (uuid 381f83f7-7f92-037a-9562-6b85b69da384))
-    (pin "2" (uuid 5f5325e2-7444-44c5-ba54-d5bfc4cd2f96))
+
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "C1") (unit 1)
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "U2") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "JITX") (at 72.39 81.28 0.0)  (unit 1)
+  (symbol (lib_id "my_capacitor_5") (at 113.03 143.51 0.0)  (unit 1)
     (in_bom yes) (on_board yes) 
-    (uuid b880c68f-d7ef-e2bc-8580-d7344e62918c)
-    (property "Reference" "JITX1" (id 0) (at 69.85 77.378 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
-    (property "Value" "non-BOM" (id 1) (at 69.85 78.44 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
-    (property "Footprint" "jitx-design:JITX_SM_LP" (id 2) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "logo" (id 4) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Description" "JITX Logo" (id 5) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "non-BOM" (id 6) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "non-BOM" (id 7) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "JITX" (id 8) (at 72.39 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
+    (uuid 7d38f3f9-83ad-b850-abfd-10dd6f9f669f)
+    (property "Reference" "C2" (id 0) (at 114.3 142.24 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Value" "100n" (id 1) (at 114.3 144.78 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "jitx-design:Pkg0402_2" (id 2) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=EMK105BJ104KV-F  &u=M" (id 3) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "reg_cap" (id 4) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "Taiyo Yuden" (id 5) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "EMK105BJ104KV-F" (id 6) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "C" (id 7) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "LCSC" "C2168180" (id 8) (at 113.03 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
     
-
+    (pin "1" (uuid 12b93713-6ac2-5f48-55a0-facf50353923))
+    (pin "2" (uuid 564929e8-13e1-8fa4-f241-7860ead95d4a))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "JITX1") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "my_capacitor_6") (at 113.03 144.78 0.0)  (unit 1)
-    (in_bom yes) (on_board yes) 
-    (uuid dfdf8682-845e-182e-f251-beb100d17f76)
-    (property "Reference" "C2" (id 0) (at 114.3 143.51 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Value" "100n" (id 1) (at 114.3 146.05 0.0) (effects (font (size 0.762 0.762)) (justify left )))
-    (property "Footprint" "jitx-design:Pkg0402" (id 2) (at 113.03 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "http://www.passivecomponent.com/wp-content/uploads/2018/10/MLCC.pdf" (id 3) (at 113.03 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Name" "reg_cap" (id 4) (at 113.03 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Manufacturer" "Walsin Technology Corporation" (id 5) (at 113.03 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "MPN" "0402B104K160CT" (id 6) (at 113.03 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-      (property "Reference-prefix" "C" (id 7) (at 113.03 144.78 0.0) (effects (font (size 0.762 0.762)) hide))
-    
-    (pin "1" (uuid fcd932be-e79a-38b7-7b73-c3c2f2a3f610))
-    (pin "2" (uuid e111e36c-42e2-b9f5-af80-d0bdaabdda66))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
           (reference "C2") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "gnd") (at 86.36 149.86 0.0) (unit 1)
-    (in_bom yes) (on_board yes)
-    (uuid 97eaa6e2-5ea1-fc71-2574-d72c76ebbfee)
-    (property "Reference" "#PWR?" (id 0) (at 86.36 149.86 0) (effects hide))
-    (property "Value" "gnd" (id 1) (at 83.82 152.4 0.0) (effects (font (size 0.762 0.762))))
-    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
-    (pin "~" (uuid cf96b71c-9c25-1413-56fe-548633f93d07))
+  (symbol (lib_id "JITX") (at 72.39 73.66 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 6deb0713-28ab-4660-5ce3-8c724b3da3ba)
+    (property "Reference" "JITX1" (id 0) (at 69.85 69.758 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "non-BOM" (id 1) (at 69.85 70.82 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "jitx-design:JITX_SM_LP" (id 2) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "logo" (id 4) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "JITX Logo" (id 5) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "non-BOM" (id 6) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "non-BOM" (id 7) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "JITX" (id 8) (at 72.39 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "JITX1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "my_capacitor_9") (at 123.19 143.51 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 87b0f30b-dacb-32c9-a3c6-0a87f72dc10c)
+    (property "Reference" "C3" (id 0) (at 124.46 142.24 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Value" "100n" (id 1) (at 124.46 144.78 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "jitx-design:Pkg0402_2" (id 2) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=EMK105BJ104KV-F  &u=M" (id 3) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "reg_cap" (id 4) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "Taiyo Yuden" (id 5) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "EMK105BJ104KV-F" (id 6) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "C" (id 7) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "LCSC" "C2168180" (id 8) (at 123.19 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 16630610-2461-fba9-4a82-085794c40bbb))
+    (pin "2" (uuid 06ae2fdf-28f7-ba7b-4747-b7471603fbf4))
+    (instances
+      (project "jitx-design"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "C3") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "my_resistor_5") (at 66.04 143.51 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 2e5fccd7-39bc-ddb5-a708-fa5cde4a4804)
+    (property "Reference" "R1" (id 0) (at 67.31 142.24 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Value" "100K" (id 1) (at 67.31 144.78 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "jitx-design:Pkg0402_3" (id 2) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" (id 3) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "usb_rid" (id 4) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "RES SMD 100K OHM 0.5% 1/16W 0402" (id 5) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "YAGEO" (id 6) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "RC0402DR-07100KL" (id 7) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "R" (id 8) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "LCSC" "C138080" (id 9) (at 66.04 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid d544e771-9da8-b85f-9e91-fd52516e1977))
+    (pin "2" (uuid 9c99caf7-2a08-51a9-1287-e68f5ed46d81))
+    (instances
+      (project "jitx-design"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "R1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "my_capacitor_2") (at 85.09 143.51 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 4dae7619-0810-83cc-3260-9c22c22d6d10)
+    (property "Reference" "C1" (id 0) (at 83.82 142.24 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Value" "100n" (id 1) (at 83.82 144.78 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "jitx-design:Pkg0402_2" (id 2) (at 85.09 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://ds.yuden.co.jp/TYCOMPAS/ut/detail?pn=EMK105BJ104KV-F  &u=M" (id 3) (at 85.09 143.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "usb_cap" (id 4) (at 85.09 143.51 180.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "Taiyo Yuden" (id 5) (at 85.09 143.51 180.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "EMK105BJ104KV-F" (id 6) (at 85.09 143.51 180.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "C" (id 7) (at 85.09 143.51 180.0) (effects (font (size 0.762 0.762)) hide))
+      (property "LCSC" "C2168180" (id 8) (at 85.09 143.51 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid fdf3b8d0-7f7b-38ef-82b3-ea5f07b86601))
+    (pin "2" (uuid 4cf597b0-dcc9-3259-dabf-bf8d7d31c3be))
+    (instances
+      (project "jitx-design"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "C1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "C840338") (at 64.77 111.76 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid cb18b9a4-f53e-56fa-2668-f434f88b0a34)
+    (property "Reference" "USB1" (id 0) (at 64.77 93.5199695199391 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "TYPE-C-31-G-03" (id 1) (at 64.77 94.5199695199391 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "jitx-design:USB_C_SMD_TYPE_C_31_G_03" (id 2) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://datasheet.lcsc.com/lcsc/2108131930_Korean-Hroparts-Elec-TYPE-C-31-G-03_C840338.pdf" (id 3) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "usb_conn" (id 4) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "1 Surface Mount Male Type-C SMD  USB Connectors ROHS" (id 5) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Manufacturer" "Korean Hroparts Elec" (id 6) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "MPN" "TYPE-C-31-G-03" (id 7) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Reference-prefix" "USB" (id 8) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "LCSC" "C840338" (id 9) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "GND0" (uuid aa28c730-a714-7ed9-8c51-52c713cbc5ff))
+    (pin "GND1" (uuid ac9a7ed1-b9fd-5fee-1df9-20f9485a61a3))
+    (pin "GND2" (uuid f403c321-239d-d108-9a92-dc7a6084387c))
+    (pin "GND3" (uuid 6b17cca8-1399-7ac1-d4c7-e64964e957be))
+    (pin "GND4" (uuid 47591e03-0a65-0bda-6b4e-766dae1d46cc))
+    (pin "SSRXP1" (uuid dde381e2-dce8-3b6e-a518-81e61e8f7dff))
+    (pin "SSRXN1" (uuid 8b527076-d236-d87b-ab42-23cb4ebf8aa2))
+    (pin "VBUS0" (uuid d5b762fb-1219-2d1d-65c6-e829e1971630))
+    (pin "GND5" (uuid 3c1979d5-abfa-d924-b28e-3dceaf95f8e7))
+    (pin "DN1" (uuid 9db42cec-a446-1ee7-5369-e70f0eefdab2))
+    (pin "DP1" (uuid 98eaab0f-0545-3292-8deb-4e324908ff75))
+    (pin "CC1" (uuid 1c30f77e-49f3-c453-24e9-fb15b257e9e3))
+    (pin "VBUS1" (uuid 1839e880-bac2-c796-efd0-02e4f89bf430))
+    (pin "SSTXN1" (uuid 24eeb98f-1012-2f7b-d6c7-2f0de9df888c))
+    (pin "SSTXP1" (uuid a8ed58be-3651-b7af-eb3d-3cf4929c8a02))
+    (pin "GND6" (uuid 1d7c1211-cbfc-88ca-9258-d715ec844816))
+    (instances
+      (project "jitx-design"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "USB1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Generic_Mounting_Hole") (at 74.93 62.23 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 0562b750-03e8-fee7-fa34-0c7f97254869)
+    (property "Reference" "U1" (id 0) (at 72.39 60.325 0.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "" (id 1) (at 74.93 62.23 0.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "jitx-design:NPTH" (id 2) (at 74.93 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (at 74.93 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "hole" (id 4) (at 74.93 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "2.3mm mounting hole" (id 5) (at 74.93 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+
+    (instances
+      (project "jitx-design"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
+          (reference "U1") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "vdd33") (at 124.46 83.82 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid b69d8410-fb28-6d26-ef6f-d52da5da5a4a)
+    (property "Reference" "#PWR?" (id 0) (at 124.46 83.82 0) (effects hide))
+    (property "Value" "vdd33" (id 1) (at 121.92 81.28 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid eb95b405-70f6-9f33-f5c1-e8e4f07206c4))
+    (instances
+      (project "jitx-design"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
           (reference "#PWR?") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "vdd50") (at 82.55 92.71 0.0) (unit 1)
+  (symbol (lib_id "gnd") (at 49.53 158.75 0.0) (unit 1)
     (in_bom yes) (on_board yes)
-    (uuid 4debc504-4811-576f-16cb-da6054cc5b10)
-    (property "Reference" "#PWR?" (id 0) (at 82.55 92.71 0) (effects hide))
-    (property "Value" "vdd50" (id 1) (at 80.01 90.17 0.0) (effects (font (size 0.762 0.762))))
+    (uuid f0c93a30-bb0a-82ce-d44a-77ede6579c8a)
+    (property "Reference" "#PWR?" (id 0) (at 49.53 158.75 0) (effects hide))
+    (property "Value" "gnd" (id 1) (at 46.99 161.29 0.0) (effects (font (size 0.762 0.762))))
     (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
     (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
-    (pin "~" (uuid 542988a1-2d15-66ea-7f14-fcafc8209a68))
+    (pin "~" (uuid 60a25317-5391-1bae-38d0-a7550f78f7b5))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
           (reference "#PWR?") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "vdd33") (at 121.92 140.97 0.0) (unit 1)
+  (symbol (lib_id "vdd50") (at 116.84 83.82 0.0) (unit 1)
     (in_bom yes) (on_board yes)
-    (uuid 00f1cc83-718f-5d41-a7a2-335c12e3c311)
-    (property "Reference" "#PWR?" (id 0) (at 121.92 140.97 0) (effects hide))
-    (property "Value" "vdd33" (id 1) (at 119.38 138.43 0.0) (effects (font (size 0.762 0.762))))
+    (uuid 48e4ec3c-69a6-2bd4-a1da-3dfdd4758cc8)
+    (property "Reference" "#PWR?" (id 0) (at 116.84 83.82 0) (effects hide))
+    (property "Value" "vdd50" (id 1) (at 114.3 81.28 0.0) (effects (font (size 0.762 0.762))))
     (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
     (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
-    (pin "~" (uuid 9ea13b9c-fb1a-0ecf-74fc-e931da53db7b))
+    (pin "~" (uuid b28b1c15-6212-23fe-f728-815d8b7219c5))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "vdd33") (at 93.98 132.08 0.0) (unit 1)
-    (in_bom yes) (on_board yes)
-    (uuid b5c9a359-8d22-922d-8611-5f94a01ed248)
-    (property "Reference" "#PWR?" (id 0) (at 93.98 132.08 0) (effects hide))
-    (property "Value" "vdd33" (id 1) (at 91.44 129.54 0.0) (effects (font (size 0.762 0.762))))
-    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
-    (pin "~" (uuid 85867838-a8b9-5731-dd67-28614bede1fb))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "gnd") (at 121.92 149.86 0.0) (unit 1)
-    (in_bom yes) (on_board yes)
-    (uuid 94709007-49e0-28a9-d288-a0ca4cd2e232)
-    (property "Reference" "#PWR?" (id 0) (at 121.92 149.86 0) (effects hide))
-    (property "Value" "gnd" (id 1) (at 119.38 152.4 0.0) (effects (font (size 0.762 0.762))))
-    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
-    (pin "~" (uuid 0d609ed5-4cfb-9095-6c7b-62e5eb29a0b7))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
-          (reference "#PWR?") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "vdd50") (at 113.03 132.08 0.0) (unit 1)
-    (in_bom yes) (on_board yes)
-    (uuid feefbd0c-33d3-c122-718b-1f7aa28d47e3)
-    (property "Reference" "#PWR?" (id 0) (at 113.03 132.08 0) (effects hide))
-    (property "Value" "vdd50" (id 1) (at 110.49 129.54 0.0) (effects (font (size 0.762 0.762))))
-    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
-    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
-    (pin "~" (uuid 1b00e60b-667d-433d-7d5f-fb8cec53ee35))
-    (instances
-      (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a/d8b48ca4-ffd4-b3d2-d695-e23205b91ba3"
+        (path "/219df102-d28d-b743-245e-efc9439ef913/769e5753-ecff-ff7d-9bbd-16372ff6c879"
           (reference "#PWR?") (unit 1)
         )
       )
