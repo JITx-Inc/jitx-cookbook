@@ -2,7 +2,7 @@
 (kicad_sch
   (version 20230121)
   (generator jitx)
-  (uuid b775508d-2d09-249b-827d-d4ce6cabcb2a)
+  (uuid 74dd59b1-e19e-ee3c-2f54-d31c8e9968d7)
   (paper "A")
                          
   
@@ -79,90 +79,6 @@
       )
       (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
       (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "BD433M5FP_CE2" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 5.54000508001016 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      
-      (property "Value" "BD433M5FP_CE2" (id 1) (at 0.0 4.54000508001016 0.0)
-        (effects (font (size 0.28224 0.28224))  ))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "BD433M5FP_CE2_1_0"
-
-      (pin unspecified line (at -7.62 2.54 0) (length 2.54000508001016)
-        (name "VCC" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -7.62 0.0 0) (length 2.54000508001016)
-        (name "FIN" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at -7.62 -2.54 0) (length 2.54000508001016)
-        (name "VOUT" (effects (font (size 1.0 1.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (rectangle (start -5.08001016002032 -5.08001016002032) (end 5.08001016002032 5.08001016002032) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-      (circle (center -3.81000762001524 3.81000762001524) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "supply_sym" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
-      
-      (property "Value" "supply_sym" (id 1) (at -2.54 2.54 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "supply_sym_1_0"
-
-      (pin unspecified line (at 0.0 0.0 90) (length 0.0)
-        (name "0" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
-)
-    )
-
-    (symbol "ground_sym" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
-        (effects (font (size 10.0 10.0)) hide ))
-      
-      (property "Value" "ground_sym" (id 1) (at -2.54 -2.54 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "ground_sym_1_0"
-
-      (pin unspecified line (at 0.0 0.0 270) (length 0.0)
-        (name "0" (effects (font (size 0.0 0.0))))
-        (number "~" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 0.0) (xy 0.0 -1.27)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
 )
     )
 
@@ -920,6 +836,90 @@
 )
     )
 
+    (symbol "BD433M5FP_CE2" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.54000508001016 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      
+      (property "Value" "BD433M5FP_CE2" (id 1) (at 0.0 4.54000508001016 0.0)
+        (effects (font (size 0.28224 0.28224))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "BD433M5FP_CE2_1_0"
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54000508001016)
+        (name "VCC" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 0.0 0) (length 2.54000508001016)
+        (name "FIN" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54000508001016)
+        (name "VOUT" (effects (font (size 1.0 1.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -5.08001016002032 -5.08001016002032) (end 5.08001016002032 5.08001016002032) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (circle (center -3.81000762001524 3.81000762001524) (radius 0.381000762001524) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "supply_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "supply_sym" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "supply_sym_1_0"
+
+      (pin unspecified line (at 0.0 0.0 90) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "ground_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ground_sym" (id 1) (at -2.54 -2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ground_sym_1_0"
+
+      (pin unspecified line (at 0.0 0.0 270) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 -1.27)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
     (symbol "my_capacitor" 
       (in_bom yes) (on_board yes)
       
@@ -934,68 +934,6 @@
         (effects (font (size 0.635 0.635)) hide))
       
 (symbol "my_capacitor_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_1" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_1" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_1_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_2" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_2" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_2_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1043,20 +981,20 @@
 )
     )
 
-    (symbol "my_capacitor_3" 
+    (symbol "my_capacitor_1" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_3" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_1" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_3_1_0"
+(symbol "my_capacitor_1_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1407,6 +1345,68 @@
 )
     )
 
+    (symbol "my_capacitor_2" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_2" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_2_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "my_capacitor_3" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_3" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_3_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
     (symbol "my_capacitor_4" 
       (in_bom yes) (on_board yes)
       
@@ -1421,68 +1421,6 @@
         (effects (font (size 0.635 0.635)) hide))
       
 (symbol "my_capacitor_4_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_5" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_5" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_5_1_0"
-
-      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
-        (name "1" (effects (font (size 0.0 0.0))))
-        (number "1" (effects (font (size 0.0 0.0))))
-      )
-
-      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
-        (name "2" (effects (font (size 0.0 0.0))))
-        (number "2" (effects (font (size 0.0 0.0))))
-      )
-      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
-      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
-)
-    )
-
-    (symbol "my_capacitor_6" 
-      (in_bom yes) (on_board yes)
-      
-      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      
-      (property "Value" "my_capacitor_6" (id 1) (at 1.27 -1.27 0.0)
-        (effects (font (size 0.28224 0.28224))  (justify left )))
-      (property "Footprint" "" (id 2) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      (property "Datasheet" "~" (id 3) (at 0 0 0)
-        (effects (font (size 0.635 0.635)) hide))
-      
-(symbol "my_capacitor_6_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1536,20 +1474,20 @@
 )
     )
 
-    (symbol "my_capacitor_7" 
+    (symbol "my_capacitor_5" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_7" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_5" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_7_1_0"
+(symbol "my_capacitor_5_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1665,20 +1603,20 @@
 )
     )
 
-    (symbol "my_capacitor_8" 
+    (symbol "my_capacitor_6" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_8" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_6" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_8_1_0"
+(symbol "my_capacitor_6_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -1790,20 +1728,20 @@
 )
     )
 
-    (symbol "my_capacitor_9" 
+    (symbol "my_capacitor_7" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_9" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_7" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_9_1_0"
+(symbol "my_capacitor_7_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -2062,20 +2000,20 @@
 )
     )
 
-    (symbol "my_capacitor_10" 
+    (symbol "my_capacitor_8" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_10" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_8" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_10_1_0"
+(symbol "my_capacitor_8_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -2093,20 +2031,20 @@
 )
     )
 
-    (symbol "my_capacitor_11" 
+    (symbol "my_capacitor_9" 
       (in_bom yes) (on_board yes)
       
       (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       
-      (property "Value" "my_capacitor_11" (id 1) (at 1.27 -1.27 0.0)
+      (property "Value" "my_capacitor_9" (id 1) (at 1.27 -1.27 0.0)
         (effects (font (size 0.28224 0.28224))  (justify left )))
       (property "Footprint" "" (id 2) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 0.635 0.635)) hide))
       
-(symbol "my_capacitor_11_1_0"
+(symbol "my_capacitor_9_1_0"
 
       (pin unspecified line (at 0.0 2.54 270) (length 0.0)
         (name "1" (effects (font (size 0.0 0.0))))
@@ -2178,6 +2116,68 @@
 )
     )
 
+    (symbol "my_capacitor_10" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_10" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_10_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "my_capacitor_11" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "C" (id 0) (at 1.27 1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      
+      (property "Value" "my_capacitor_11" (id 1) (at 1.27 -1.27 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "my_capacitor_11_1_0"
+
+      (pin unspecified line (at 0.0 2.54 270) (length 0.0)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -2.54 90) (length 0.0)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 2.54) (xy 0.0 0.508)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.508) (xy 1.27 0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 -0.508) (xy 0.0 -2.54)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -0.508) (xy 1.27 -0.508)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
     (symbol "my_capacitor_12" 
       (in_bom yes) (on_board yes)
       
@@ -2213,14 +2213,14 @@
   (sheet (at 20.32 20.32) (size 59.69 30.48)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
-    (uuid d8b48ca4-ffd4-b3d2-d695-e23205b91ba3)
+    (uuid 800bd35a-c3ac-e66c-a31d-a6411d4c5f07)
     (property "Sheet name" "2: usb_conn" (id 0) (at 20.32 19.05 0)
       (effects (font (size 1.27 1.27)) (justify left bottom)))
     (property "Sheet file" "jitx-design-2.kicad_sch" (id 1) (at 20.32 52.07 0)
       (effects (font (size 1.27 1.27)) (justify left top)))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a" (page "2"))
+        (path "/74dd59b1-e19e-ee3c-2f54-d31c8e9968d7" (page "2"))
       )
     )
   )
@@ -2228,14 +2228,14 @@
   (sheet (at 20.32 59.69) (size 59.69 30.48)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
-    (uuid b0290b5b-d039-f2b4-b135-8915dee25598)
+    (uuid 7a6736dd-436f-7e89-7c21-8e6fdd7b399e)
     (property "Sheet name" "3: media-controller_usb2240" (id 0) (at 20.32 58.42 0)
       (effects (font (size 1.27 1.27)) (justify left bottom)))
     (property "Sheet file" "jitx-design-3.kicad_sch" (id 1) (at 20.32 91.44 0)
       (effects (font (size 1.27 1.27)) (justify left top)))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a" (page "3"))
+        (path "/74dd59b1-e19e-ee3c-2f54-d31c8e9968d7" (page "3"))
       )
     )
   )
@@ -2243,14 +2243,14 @@
   (sheet (at 20.32 100.33) (size 59.69 30.48)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
-    (uuid 037f55ba-e753-3fc6-104f-29159acc2223)
-    (property "Sheet name" "4: test-points_point1" (id 0) (at 20.32 99.06 0)
+    (uuid a5a74ca3-231f-7fef-a112-9251fde80475)
+    (property "Sheet name" "4: test-points_point0" (id 0) (at 20.32 99.06 0)
       (effects (font (size 1.27 1.27)) (justify left bottom)))
     (property "Sheet file" "jitx-design-4.kicad_sch" (id 1) (at 20.32 132.08 0)
       (effects (font (size 1.27 1.27)) (justify left top)))
     (instances
       (project "jitx-design"
-        (path "/b775508d-2d09-249b-827d-d4ce6cabcb2a" (page "4"))
+        (path "/74dd59b1-e19e-ee3c-2f54-d31c8e9968d7" (page "4"))
       )
     )
   )

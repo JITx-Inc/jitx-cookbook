@@ -233,27 +233,11 @@
     "netclass_patterns": [
       {
         "netclass": "Default",
-        "pattern": "xD_D4_SD_WP_MS_SCLK"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "LED"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "VDD18"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "USB-"
-      },
-      {
-        "netclass": "Default",
         "pattern": "GND0"
       },
       {
         "netclass": "Default",
-        "pattern": "a"
+        "pattern": "VDD18PLL"
       },
       {
         "netclass": "Default",
@@ -265,7 +249,15 @@
       },
       {
         "netclass": "Default",
+        "pattern": "a"
+      },
+      {
+        "netclass": "Default",
         "pattern": "xD_D3_SD_D1_MS_D5"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "CRD_PWR"
       },
       {
         "netclass": "Default",
@@ -273,15 +265,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "xD_D2_SD_D0_MS_D4"
-      },
-      {
-        "netclass": "Default",
         "pattern": "TXD_SCK_MS_SKT_SEL"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "CRD_PWR"
       },
       {
         "netclass": "Default",
@@ -297,10 +281,6 @@
       },
       {
         "netclass": "Default",
-        "pattern": "VDD18PLL"
-      },
-      {
-        "netclass": "Default",
         "pattern": "CC1"
       },
       {
@@ -309,11 +289,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "XTAL2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "RXD_SDA"
+        "pattern": "xD_D2_SD_D0_MS_D4"
       },
       {
         "netclass": "Default",
@@ -321,7 +297,11 @@
       },
       {
         "netclass": "Default",
-        "pattern": "GND2"
+        "pattern": "XTAL2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "RXD_SDA"
       },
       {
         "netclass": "Default",
@@ -345,7 +325,27 @@
       },
       {
         "netclass": "Default",
+        "pattern": "GND2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "xD_D4_SD_WP_MS_SCLK"
+      },
+      {
+        "netclass": "Default",
         "pattern": "xD_D5_SD_D2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "LED"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "VDD18"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "USB-"
       },
       {
         "netclass": "Power",
@@ -353,11 +353,11 @@
       },
       {
         "netclass": "Power",
-        "pattern": "vdd50"
+        "pattern": "gnd"
       },
       {
         "netclass": "Power",
-        "pattern": "gnd"
+        "pattern": "vdd50"
       }
     ]
   },
