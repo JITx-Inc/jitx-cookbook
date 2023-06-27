@@ -109,20 +109,20 @@ pcb-module media-controller :
   net (usb2240.GND power.gnd sd-card-conn.power.gnd usb2240.TEST usb-in.vbus.gnd)
   net (usb2240.VDD330 usb2240.VDD331 usb2240.VDD332 usb2240.VDDA33 power.vdd)
 
-  res-strap(usb2240.RBIAS, power.gnd, ["resistance" => 12.0e3, "tolerance" => 0.01, "min-vendor_part_numbers.lcsc" => " "]) ; [space] is the lowest ascii character easily accessible
+  res-strap(usb2240.RBIAS, power.gnd, ["resistance" => 12.0e3, "tolerance" => 0.01, "_exist" => ["vendor_part_numbers.lcsc"]])
 
-  res-strap(usb2240.RESET_N, power.vdd, ["resistance" => 10.0e3, "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(usb2240.RESET_N, power.gnd, ["capacitance" => 1.0e-6, "min-vendor_part_numbers.lcsc" => " "])
+  res-strap(usb2240.RESET_N, power.vdd, ["resistance" => 10.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.RESET_N, power.gnd, ["capacitance" => 1.0e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
 
-  bypass-cap-strap(usb2240.VDD18, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(usb2240.VDD18PLL, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.VDD18, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDD18PLL, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "_exist" => ["vendor_part_numbers.lcsc"]])
 
-  bypass-cap-strap(usb2240.VDD330, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(usb2240.VDD331, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(usb2240.VDD332, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(usb2240.VDDA33, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.VDD330, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDD331, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDD332, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDDA33, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
 
-  bypass-cap-strap(usb2240.CRD_PWR, power.gnd, ["capacitance" => 4.7e-6, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(usb2240.CRD_PWR, power.gnd, ["capacitance" => 4.7e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
 
   net (usb2240.RXD_SDA i2c.sda)
   net (usb2240.TXD_SCK_MS_SKT_SEL i2c.scl)
@@ -151,13 +151,13 @@ pcb-module media-controller :
   val stray-capacitance = 5.0e-12
   val c-load = load-capacitance(property(xtal.crystal-resonator))
   val c-bal = closest-std-val(2.0 * (c-load - stray-capacitance), 5.0)
-  cap-strap(xtal.IN, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "min-vendor_part_numbers.lcsc" => " "])
-  cap-strap(xtal.OUT, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "min-vendor_part_numbers.lcsc" => " "])
+  cap-strap(xtal.IN, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "_exist" => ["vendor_part_numbers.lcsc"]])
+  cap-strap(xtal.OUT, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "_exist" => ["vendor_part_numbers.lcsc"]])
 
   net (xtal.IN usb2240.XTAL1_CLKIN)
   net (xtal.OUT usb2240.XTAL2)
   net (xtal.GND0 xtal.GND1 power.gnd)
-  res-strap(usb2240.XTAL1_CLKIN, usb2240.XTAL2, ["resistance" => 1.0e6, "min-vendor_part_numbers.lcsc" => " "])
+  res-strap(usb2240.XTAL1_CLKIN, usb2240.XTAL2, ["resistance" => 1.0e6, "_exist" => ["vendor_part_numbers.lcsc"]])
 
 pcb-module usb-2-on-usb-c-male :
   port usb-c : usb-c
@@ -180,8 +180,8 @@ pcb-module usb-2-on-usb-c-male :
   net (usb-c.tx[1].P conn.SSTXP1)
 
   ; GND0 and GND2 are connected to the shield
-  res-strap(usb-2.vbus.gnd, conn.GND0, ["resistance" => 100.0e3, "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(usb-2.vbus.gnd, conn.GND2, ["capacitance" => 0.1e-6, "min-vendor_part_numbers.lcsc" => " "])
+  res-strap(usb-2.vbus.gnd, conn.GND0, ["resistance" => 100.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb-2.vbus.gnd, conn.GND2, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
 
 pcb-module voltage-regulator :
   port power-in : power
@@ -198,8 +198,8 @@ pcb-module voltage-regulator :
   net (reg.VCC power-in.vdd)
   net (reg.VOUT power-out.vdd)
   
-  bypass-cap-strap(reg.VCC, power-in.gnd, ["capacitance" => 0.1e-6, "min-vendor_part_numbers.lcsc" => " "])
-  bypass-cap-strap(reg.VOUT, power-out.gnd, ["capacitance" => 0.1e-6, "min-vendor_part_numbers.lcsc" => " "])
+  bypass-cap-strap(reg.VCC, power-in.gnd, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(reg.VOUT, power-out.gnd, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
 
 pcb-module eeprom :
   port power : power
@@ -228,11 +228,11 @@ pcb-module eeprom :
   net (eeprom.SCL i2c.scl)
 
   ; Put pull up on SDA and SCL
-  res-strap(eeprom.SDA, power.vdd, ["resistance" => 5.0e3, "min-vendor_part_numbers.lcsc" => " "])
-  res-strap(eeprom.SCL, power.vdd, ["resistance" => 5.0e3, "min-vendor_part_numbers.lcsc" => " "])
+  res-strap(eeprom.SDA, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
+  res-strap(eeprom.SCL, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
 
   ; We don't want write operations to the EEPROM so we set WC_NOT high
-  res-strap(eeprom.WC_NOT, power.vdd, ["resistance" => 5.0e3, "min-vendor_part_numbers.lcsc" => " "])
+  res-strap(eeprom.WC_NOT, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
 
 pcb-module sd-connector :
   port conn : sd-card-uhs-1-connector
