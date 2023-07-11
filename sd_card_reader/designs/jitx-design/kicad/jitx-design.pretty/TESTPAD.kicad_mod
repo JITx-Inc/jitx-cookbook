@@ -1,15 +1,15 @@
-(footprint TESTPAD (version 20221018) (generator jitx) (layer F.Cu) (tstamp 6e4419c0-2781-c905-bea3-e8043077be97) 
+(footprint TESTPAD (version 20221018) (generator jitx) (layer F.Cu) (tstamp 21add8b8-0982-f06d-e54d-54725ca6778c) 
   (pad tp smd circle
     (at 0.0 0.0 0.0)
     (size 2.0 2.0)
     (layers F.Cu F.Mask)
     (solder_mask_margin 0.05)
-    (tstamp c8911588-26e2-4c63-2d88-df5c5d50deca))
+    (tstamp 1ffa0395-947d-3ba3-4180-0e70924490a2))
   (fp_text reference ">REF" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
     (effects (font (size 1.0 1.0) (thickness 0.10)) )
-    (tstamp 78fd49a4-ddab-d917-f11c-59d4f71c4d72)
+    (tstamp 0157c087-05e4-70df-4416-40160cf6b243)
     )
   (fp_text value ">VALUE" (at 0.0 0.0 0.0) (layer F.SilkS) hide 
     (effects (font (size 1.0 1.0) (thickness 0.10)) )
-    (tstamp 01e16426-8b3f-fbee-2366-1c6e878672b5)
+    (tstamp d6e2e216-815d-9d15-403b-c4f50f965315)
     ))

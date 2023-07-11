@@ -183,6 +183,8 @@ pcb-module usb-2-on-usb-c-male :
   res-strap(usb-2.vbus.gnd, conn.GND0, ["resistance" => 100.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
   bypass-cap-strap(usb-2.vbus.gnd, conn.GND2, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
 
+  res-strap(usb-c.cc[1], usb-c.vbus.gnd, 5.1e3)
+
 pcb-module voltage-regulator :
   port power-in : power
   port power-out : power
@@ -343,5 +345,5 @@ view-design-explorer()
 view-board()
 view-schematic()
 
-set-export-backend(`kicad)
-export-design()
+;set-export-backend(`kicad)
+;export-design()
