@@ -1,0 +1,22 @@
+#use-added-syntax(jitx)
+defpackage VCO/symbols/PWR_FLAG :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+public pcb-symbol PWR_FLAG :
+  pin pwr at Point(0.0, 0.0) with :
+    direction = Down
+    length = 0.0
+
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, 3.81), "", TrueTypeFont, false, false)
+  layer("none") = Line(0.0, [
+    Point(0.0, 0.0), 
+    Point(0.0, 1.27), 
+    Point(-1.016, 1.905), 
+    Point(0.0, 2.54), 
+    Point(1.016, 1.905), 
+    Point(0.0, 1.27)])
+

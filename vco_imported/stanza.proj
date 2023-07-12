@@ -1,0 +1,6 @@
+package VCO defined-in "VCO.stanza"
+
+packages VCO/* defined-in "."
+
+include "../open-components-database/stanza.proj"
+

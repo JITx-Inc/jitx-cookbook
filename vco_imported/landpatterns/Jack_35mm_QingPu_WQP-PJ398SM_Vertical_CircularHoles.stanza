@@ -1,0 +1,70 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/Jack_35mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad circle-th-pad-1 :
+  type = TH
+  shape = Circle(1.065)
+  layer(SolderMask(Top)) = Circle(1.065)
+  layer(SolderMask(Bottom)) = Circle(1.065)
+  layer(Cutout()) = Circle(0.715)
+
+pcb-pad circle-th-pad-2 :
+  type = TH
+  shape = Circle(1.065)
+  layer(SolderMask(Top)) = Circle(1.065)
+  layer(SolderMask(Bottom)) = Circle(1.065)
+  layer(Cutout()) = Circle(0.71)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.93, 1.83)
+  layer(SolderMask(Top)) = Rectangle(1.93, 1.83)
+  layer(SolderMask(Bottom)) = Rectangle(1.93, 1.83)
+  layer(Cutout()) = Circle(0.61)
+
+public pcb-landpattern Jack_35mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles :
+  pad S : rect-th-pad at loc(0.0, 0.0, 180.0) on Bottom
+  pad T : circle-th-pad-1 at loc(0.0, -11.4, 180.0) on Bottom
+  pad TN : circle-th-pad-2 at loc(0.0, -3.1, 180.0) on Bottom
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-5.0, -12.98), 
+    Point(-5.0, 1.42), 
+    Point(5.0, 1.42), 
+    Point(5.0, -12.98)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.0, 180.0), "", TrueTypeFont, false, false)
+  layer(CustomLayer("Comments")) = Text("KEEPOUT", 0.4, C, loc(0.0, -6.48), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(0.0, -8.0, 180.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("B-SilkS", Top)) = Text(">REF", 1.0, C, loc(-4.03, -1.08, 180.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(-4.5, -1.98), Point(-4.5, -12.48)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(-1.06, 1.0), Point(-1.06, 0.2)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(-1.06, 1.0), Point(-0.2, 1.0)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(-0.5, -12.48), Point(-4.5, -12.48)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(-0.35, -1.98), Point(-4.5, -1.98)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(4.5, -12.48), Point(0.5, -12.48)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(4.5, -1.98), Point(0.35, -1.98)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(4.5, -1.98), Point(4.5, -12.48)])
+  layer(Silkscreen("B-SilkS", Top)) = Polyline(0.12, [Arc(0.0, -6.48, 1.8, 0.0, 360.0)])
+  layer(CustomLayer("Drawings")) = Line(0.12, [Point(-1.42, -6.875), Point(0.4, -5.06)])
+  layer(CustomLayer("Drawings")) = Line(0.12, [Point(-1.41, -6.02), Point(-0.46, -5.07)])
+  layer(CustomLayer("Drawings")) = Line(0.12, [Point(-1.07, -7.49), Point(1.01, -5.41)])
+  layer(CustomLayer("Drawings")) = Line(0.12, [Point(-0.58, -7.83), Point(1.36, -5.89)])
+  layer(CustomLayer("Drawings")) = Line(0.12, [Point(0.09, -7.96), Point(1.48, -6.57)])
+  layer(CustomLayer("Drawings")) = Polyline(0.12, [Arc(0.0, -6.48, 1.5, 0.0, 360.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(-4.5, -12.48), Point(-4.5, -2.08)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, 0.0), Point(0.0, -2.03)])
+  layer(Finish(Top)) = Line(0.1, [Point(4.5, -12.48), Point(-4.5, -12.48)])
+  layer(Finish(Top)) = Line(0.1, [Point(4.5, -12.48), Point(4.5, -2.08)])
+  layer(Finish(Top)) = Line(0.1, [Point(4.5, -2.03), Point(-4.5, -2.03)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(0.0, -6.48, 1.8, 0.0, 360.0)])
+
+  model3d = Model3D("../3d-models/Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+

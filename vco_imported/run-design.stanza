@@ -1,0 +1,55 @@
+#use-added-syntax(jitx)
+defpackage VCO/run-design :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import VCO
+  import VCO/board
+
+
+defn run-design (circuit:Instantiable, run-checks?:True|False) :
+  set-current-design("VCO")
+  set-export-backend(`kicad)
+  set-rules(design-rules)
+  set-board(kicad-project-board)
+
+  var main-module = apply-variants([], circuit)
+  if run-checks? :
+    main-module = ocdb/utils/generator-utils/run-final-passes(main-module)
+
+  set-main-module(main-module)
+
+  if run-checks? :
+    run-checks("checks.txt")
+  else :
+    view-board()
+    view-schematic()
+
+defn compile-design (circuit:Instantiable) :
+  run-design(circuit, false)
+
+defn check-design (circuit:Instantiable) :
+  run-design(circuit, true)
+
+defn export-to-cad () :
+  set-paper(ANSI-A4)
+  set-export-backend(`kicad)
+  export-cad()
+
+defn export-design () :
+  set-export-board?(true)
+  export-to-cad()
+
+defn update-design () :
+  set-export-board?(false)
+  export-to-cad()
+
+defn export-bill-of-materials () :
+  set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
+  set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
+  export-bom()
+
+compile-design(main)
+;export-design()

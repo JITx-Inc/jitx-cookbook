@@ -1,0 +1,294 @@
+#use-added-syntax(jitx)
+defpackage VCO :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/checks
+  import ocdb/utils/generic-components
+  import ocdb/utils/symbols
+  import ocdb/utils/design-vars
+  import VCO/placements
+  import VCO/reference-designators
+  import VCO/geometry
+  import VCO/labels
+  import VCO/properties
+
+
+public pcb-module main :
+  public inst AudioJack2_SwitchT-1 : VCO/components/UNKNOWN/AudioJack2_SwitchT-6/component
+  public inst AudioJack2_SwitchT-2 : VCO/components/UNKNOWN/AudioJack2_SwitchT-5/component
+  public inst AudioJack2_SwitchT-3 : VCO/components/UNKNOWN/AudioJack2_SwitchT-8/component
+  public inst AudioJack2_SwitchT-4 : VCO/components/UNKNOWN/AudioJack2_SwitchT-2/component
+  public inst AudioJack2_SwitchT-5 : VCO/components/UNKNOWN/AudioJack2_SwitchT-1/component
+  public inst AudioJack2_SwitchT-6 : VCO/components/UNKNOWN/AudioJack2_SwitchT-3/component
+  public inst AudioJack2_SwitchT-7 : VCO/components/UNKNOWN/AudioJack2_SwitchT-7/component
+  public inst AudioJack2_SwitchT-8 : VCO/components/UNKNOWN/AudioJack2_SwitchT-4/component
+  public inst AudioJack2_SwitchT-9 : VCO/components/UNKNOWN/AudioJack2_SwitchT/component
+  public inst CA3080 : VCO/components/UNKNOWN/CA3080/component
+  public inst Conn_02x05_Odd_Even : VCO/components/UNKNOWN/Conn_02x05_Odd_Even/component
+  public inst LED-1 : VCO/components/UNKNOWN/LED/component
+  public inst LED-2 : VCO/components/UNKNOWN/LED/component
+  public inst LED-3 : VCO/components/UNKNOWN/LED/component
+  public inst LED-4 : VCO/components/UNKNOWN/LED/component
+  public inst R-1 : VCO/components/UNKNOWN/R-11/component
+  public inst R-10 : VCO/components/UNKNOWN/R-22/component
+  public inst R-11 : VCO/components/UNKNOWN/R-22/component
+  public inst R-12 : VCO/components/UNKNOWN/R-22/component
+  public inst R-13 : VCO/components/UNKNOWN/R-22/component
+  public inst R-14 : VCO/components/UNKNOWN/R-22/component
+  public inst R-15 : VCO/components/UNKNOWN/R-22/component
+  public inst R-16 : VCO/components/UNKNOWN/R-22/component
+  public inst R-17 : VCO/components/UNKNOWN/R-6/component
+  public inst R-18 : VCO/components/UNKNOWN/R-6/component
+  public inst R-19 : VCO/components/UNKNOWN/R-22/component
+  public inst R-2 : VCO/components/UNKNOWN/R-11/component
+  public inst R-20 : VCO/components/UNKNOWN/R-22/component
+  public inst R-21 : VCO/components/UNKNOWN/R-3/component
+  public inst R-22 : VCO/components/UNKNOWN/R-19/component
+  public inst R-23 : VCO/components/UNKNOWN/R-19/component
+  public inst R-24 : VCO/components/UNKNOWN/R-19/component
+  public inst R-25 : VCO/components/UNKNOWN/R-19/component
+  public inst R-26 : VCO/components/UNKNOWN/R-8/component
+  public inst R-27 : VCO/components/UNKNOWN/R/component
+  public inst R-28 : VCO/components/UNKNOWN/R-9/component
+  public inst R-29 : VCO/components/UNKNOWN/R-9/component
+  public inst R-3 : VCO/components/UNKNOWN/R-11/component
+  public inst R-30 : VCO/components/UNKNOWN/R-9/component
+  public inst R-31 : VCO/components/UNKNOWN/R-8/component
+  public inst R-32 : VCO/components/UNKNOWN/R-9/component
+  public inst R-33 : VCO/components/UNKNOWN/R-24/component
+  public inst R-34 : VCO/components/UNKNOWN/R/component
+  public inst R-35 : VCO/components/UNKNOWN/R-24/component
+  public inst R-36 : VCO/components/UNKNOWN/R-24/component
+  public inst R-37 : VCO/components/UNKNOWN/R-24/component
+  public inst R-38 : VCO/components/UNKNOWN/R-6/component
+  public inst R-39 : VCO/components/UNKNOWN/R-10/component
+  public inst R-4 : VCO/components/UNKNOWN/R-11/component
+  public inst R-40 : VCO/components/UNKNOWN/R-12/component
+  public inst R-41 : VCO/components/UNKNOWN/R-10/component
+  public inst R-42 : VCO/components/UNKNOWN/R-4/component
+  public inst R-43 : VCO/components/UNKNOWN/R-2/component
+  public inst R-44 : VCO/components/UNKNOWN/R-4/component
+  public inst R-45 : VCO/components/UNKNOWN/R-6/component
+  public inst R-46 : VCO/components/UNKNOWN/R-9/component
+  public inst R-47 : VCO/components/UNKNOWN/R-9/component
+  public inst R-48 : VCO/components/UNKNOWN/R-3/component
+  public inst R-49 : VCO/components/UNKNOWN/R-15/component
+  public inst R-5 : VCO/components/UNKNOWN/R-22/component
+  public inst R-50 : VCO/components/UNKNOWN/R-1/component
+  public inst R-51 : VCO/components/UNKNOWN/R-3/component
+  public inst R-52 : VCO/components/UNKNOWN/R-14/component
+  public inst R-53 : VCO/components/UNKNOWN/R-16/component
+  public inst R-54 : VCO/components/UNKNOWN/R-18/component
+  public inst R-55 : VCO/components/UNKNOWN/R-21/component
+  public inst R-56 : VCO/components/UNKNOWN/R-11/component
+  public inst R-57 : VCO/components/UNKNOWN/R-26/component
+  public inst R-58 : VCO/components/UNKNOWN/R-5/component
+  public inst R-59 : VCO/components/UNKNOWN/R-6/component
+  public inst R-6 : VCO/components/UNKNOWN/R-22/component
+  public inst R-60 : VCO/components/UNKNOWN/R-17/component
+  public inst R-61 : VCO/components/UNKNOWN/R-7/component
+  public inst R-62 : VCO/components/UNKNOWN/R-3/component
+  public inst R-63 : VCO/components/UNKNOWN/R/component
+  public inst R-64 : VCO/components/UNKNOWN/R-20/component
+  public inst R-65 : VCO/components/UNKNOWN/R-21/component
+  public inst R-66 : VCO/components/UNKNOWN/R-25/component
+  public inst R-67 : VCO/components/UNKNOWN/R/component
+  public inst R-68 : VCO/components/UNKNOWN/R/component
+  public inst R-69 : VCO/components/UNKNOWN/R/component
+  public inst R-7 : VCO/components/UNKNOWN/R-22/component
+  public inst R-70 : VCO/components/UNKNOWN/R-13/component
+  public inst R-71 : VCO/components/UNKNOWN/R-24/component
+  public inst R-72 : VCO/components/UNKNOWN/R-23/component
+  public inst R-8 : VCO/components/UNKNOWN/R-22/component
+  public inst R-9 : VCO/components/UNKNOWN/R-22/component
+  public inst R_Potentiometer-1 : VCO/components/UNKNOWN/R_Potentiometer/component
+  public inst R_Potentiometer-2 : VCO/components/UNKNOWN/R_Potentiometer-2/component
+  public inst R_Potentiometer-3 : VCO/components/UNKNOWN/R_Potentiometer-3/component
+  public inst R_Potentiometer-4 : VCO/components/UNKNOWN/R_Potentiometer-1/component
+  public inst R_Potentiometer-5 : VCO/components/UNKNOWN/R_Potentiometer-2/component
+  public inst R_Potentiometer-6 : VCO/components/UNKNOWN/R_Potentiometer-2/component
+  public inst R_Potentiometer_Trim-1 : VCO/components/UNKNOWN/R_Potentiometer_Trim/component
+  public inst R_Potentiometer_Trim-2 : VCO/components/UNKNOWN/R_Potentiometer_Trim/component
+  public inst R_Potentiometer_Trim-3 : VCO/components/UNKNOWN/R_Potentiometer_Trim/component
+  public inst R_Potentiometer_Trim-4 : VCO/components/UNKNOWN/R_Potentiometer_Trim/component
+  public inst R_Potentiometer_Trim-5 : VCO/components/UNKNOWN/R_Potentiometer_Trim/component
+  public inst R_Potentiometer_Trim-6 : VCO/components/UNKNOWN/R_Potentiometer_Trim/component
+  public inst R_Potentiometer_Trim-7 : VCO/components/UNKNOWN/R_Potentiometer_Trim-2/component
+  public inst R_Potentiometer_Trim-8 : VCO/components/UNKNOWN/R_Potentiometer_Trim-1/component
+  public inst SW_SPDT : VCO/components/UNKNOWN/SW_SPDT/component
+  public inst TL072-1 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-2 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-3 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-4 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-5 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-6 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-7 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-8 : VCO/components/UNKNOWN/TL072/component
+  public inst TL072-9 : VCO/components/UNKNOWN/TL072/component
+  public inst c-1N4148-1 : VCO/components/UNKNOWN/_1N4148/component
+  public inst c-1N4148-2 : VCO/components/UNKNOWN/_1N4148/component
+  public inst c-1N4148-3 : VCO/components/UNKNOWN/_1N4148/component
+  public inst c-1N5819-1 : VCO/components/UNKNOWN/_1N5819/component
+  public inst c-1N5819-2 : VCO/components/UNKNOWN/_1N5819/component
+  public inst c-2N3904-1 : VCO/components/UNKNOWN/_2N3904/component
+  public inst c-2N3904-2 : VCO/components/UNKNOWN/_2N3904/component
+  public inst c-2N3904-3 : VCO/components/UNKNOWN/_2N3904/component
+  public inst c-2N3904-4 : VCO/components/UNKNOWN/_2N3904/component
+  public inst c-2N3904-5 : VCO/components/UNKNOWN/_2N3904/component
+  public inst c-2N3904-6 : VCO/components/UNKNOWN/_2N3904/component
+  public inst c-2N3906-1 : VCO/components/UNKNOWN/_2N3906/component
+  public inst c-2N3906-2 : VCO/components/UNKNOWN/_2N3906/component
+  public inst jitx-C-1 : VCO/components/UNKNOWN/jitx-C-1/component
+  public inst jitx-C-10 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-11 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-12 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-13 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-14 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-15 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-16 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-17 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-18 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-19 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-2 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-20 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-21 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-22 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-23 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-24 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-25 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-26 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-27 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-3 : VCO/components/UNKNOWN/jitx-C-2/component
+  public inst jitx-C-4 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-5 : VCO/components/UNKNOWN/jitx-C-3/component
+  public inst jitx-C-6 : VCO/components/UNKNOWN/jitx-C-2/component
+  public inst jitx-C-7 : VCO/components/UNKNOWN/jitx-C-4/component
+  public inst jitx-C-8 : VCO/components/UNKNOWN/jitx-C/component
+  public inst jitx-C-9 : VCO/components/UNKNOWN/jitx-C/component
+
+
+  public net BaseSquare (R-56.p[1], R-63.p[1], TL072-3.p+[1], c-2N3904-5.E, c-2N3904-6.E)
+  public net BaseTriangle (R-37.p[1], R-58.p[1], R-59.p[1], R_Potentiometer_Trim-6.p[1], TL072-8.p[0], jitx-C-2.p[0], jitx-C-3.p[0])
+  public net GND (AudioJack2_SwitchT-1.p[0], AudioJack2_SwitchT-2.p[0], AudioJack2_SwitchT-3.p[0], AudioJack2_SwitchT-4.p[0], AudioJack2_SwitchT-5.p[0], AudioJack2_SwitchT-6.p[0], AudioJack2_SwitchT-7.p[0], AudioJack2_SwitchT-8.p[0], AudioJack2_SwitchT-9.p[0], CA3080.p+, Conn_02x05_Odd_Even.Pin_3, Conn_02x05_Odd_Even.Pin_4, Conn_02x05_Odd_Even.Pin_5, Conn_02x05_Odd_Even.Pin_6, Conn_02x05_Odd_Even.Pin_7, Conn_02x05_Odd_Even.Pin_8, LED-1.A, LED-2.A, LED-3.A, LED-4.A, R-21.p[1], R-23.p[1], R-27.p[1], R-34.p[1], R-35.p[1], R-39.p[1], R-47.p[1], R-52.p[0], R-61.p[0], R-62.p[0], R_Potentiometer-2.p[1], R_Potentiometer-5.p[1], R_Potentiometer-6.p[1], R_Potentiometer_Trim-1.p[3], R_Potentiometer_Trim-3.p[3], R_Potentiometer_Trim-8.p[1], TL072-1.p+[0], TL072-1.p+[1], TL072-2.p+[0], TL072-2.p+[1], TL072-3.p+[0], TL072-5.p+[0], TL072-5.p+[1], TL072-7.p+[0], TL072-8.p+[0], TL072-9.p+[0], TL072-9.p+[1], c-1N5819-1.K, c-1N5819-2.A, c-2N3904-1.E, c-2N3904-2.E, c-2N3904-3.B, c-2N3906-2.B, jitx-C-10.p[0], jitx-C-11.p[0], jitx-C-12.p[0], jitx-C-13.p[0], jitx-C-14.p[0], jitx-C-15.p[0], jitx-C-16.p[0], jitx-C-17.p[0], jitx-C-18.p[0], jitx-C-19.p[0], jitx-C-20.p[0], jitx-C-21.p[0], jitx-C-22.p[0], jitx-C-23.p[0], jitx-C-24.p[0], jitx-C-25.p[0], jitx-C-26.p[0], jitx-C-27.p[0], jitx-C-4.p[0], jitx-C-5.p[0], jitx-C-8.p[1], jitx-C-9.p[0])
+  public net LEDInvertedSaw (R-18.p[0], R-19.p[1], R-9.p[0], TL072-3.p[0])
+  public net LEDPulse (R-13.p[0], R-38.p[0], TL072-6.p[0], TL072-6.p-[0])
+  public net LEDSaw (R-11.p[0], R-17.p[0], TL072-4.p[1], TL072-4.p-[1])
+  public net LEDSine (R-15.p[0], R-41.p[0], R-45.p[1], R-46.p[0], TL072-8.p[1])
+  public net Net+12V (CA3080.V+, Conn_02x05_Odd_Even.Pin_1, Conn_02x05_Odd_Even.Pin_2, R-48.p[1], R-51.p[1], R-53.p[1], R-57.p[1], R_Potentiometer-1.p[3], R_Potentiometer-3.p[3], R_Potentiometer-4.p[3], R_Potentiometer_Trim-1.p[1], R_Potentiometer_Trim-3.p[1], TL072-1.V+, TL072-2.V+, TL072-3.V+, TL072-4.V+, TL072-5.V+, TL072-6.V+, TL072-7.V+, TL072-8.V+, TL072-9.V+, c-1N5819-2.K, jitx-C-11.p[1], jitx-C-13.p[1], jitx-C-15.p[1], jitx-C-17.p[1], jitx-C-19.p[1], jitx-C-21.p[1], jitx-C-23.p[1], jitx-C-25.p[1], jitx-C-27.p[1], jitx-C-5.p[1], jitx-C-9.p[1])
+  public net Net-12V (CA3080.V-, Conn_02x05_Odd_Even.Pin_10, Conn_02x05_Odd_Even.Pin_9, R-49.p[0], R-54.p[0], R-56.p[0], R-72.p[1], R_Potentiometer-1.p[1], R_Potentiometer-3.p[1], R_Potentiometer-4.p[1], TL072-1.V-, TL072-2.V-, TL072-3.V-, TL072-4.V-, TL072-5.V-, TL072-6.V-, TL072-7.V-, TL072-8.V-, TL072-9.V-, c-1N5819-1.A, jitx-C-10.p[1], jitx-C-12.p[1], jitx-C-14.p[1], jitx-C-16.p[1], jitx-C-18.p[1], jitx-C-20.p[1], jitx-C-22.p[1], jitx-C-24.p[1], jitx-C-26.p[1], jitx-C-4.p[1], jitx-C-8.p[0])
+  public net Net-C201-Pad1 (AudioJack2_SwitchT-9.p[1], jitx-C-7.p[1])
+  public net Net-C201-Pad2 (R_Potentiometer-6.p[3], jitx-C-7.p[0])
+  public net Net-C202-Pad1 (R-71.p[0], R-72.p[0], TL072-9.p-[1], c-2N3906-2.C, jitx-C-6.p[1])
+  public net Net-C202-Pad2 (R-65.p[0], TL072-9.p[1], c-1N4148-3.A, jitx-C-6.p[0])
+  public net Net-C205-Pad1 (SW_SPDT.A, jitx-C-3.p[1])
+  public net Net-C206-Pad1 (SW_SPDT.C, jitx-C-2.p[1])
+  public net Net-C207-Pad1 (R-55.p[1], R-57.p[0], c-2N3904-6.C, jitx-C-1.p[1])
+  public net Net-C207-Pad2 (R-54.p[1], R-55.p[0], c-2N3904-5.B, jitx-C-1.p[0])
+  public net Net-D201-Pad1 (R_Potentiometer_Trim-8.p[3], c-1N4148-3.K)
+  public net Net-D501-Pad1 (R-34.p[0], c-1N4148-2.K, c-2N3904-2.B)
+  public net Net-D501-Pad2 (R-32.p[1], TL072-3.p[1], TL072-3.p-[1], c-1N4148-2.A)
+  public net Net-D502-Pad1 (R-27.p[0], c-1N4148-1.K, c-2N3904-1.B)
+  public net Net-D502-Pad2 (R-30.p[0], TL072-5.p[1], c-1N4148-1.A)
+  public net Net-D601-Pad1 (LED-4.K, R-4.p[1])
+  public net Net-D602-Pad1 (LED-3.K, R-3.p[1])
+  public net Net-D603-Pad1 (LED-2.K, R-2.p[1])
+  public net Net-D604-Pad1 (LED-1.K, R-1.p[1])
+  public net Net-J202-PadT (AudioJack2_SwitchT-8.p[1], R_Potentiometer-5.p[3])
+  public net Net-J203-PadT (AudioJack2_SwitchT-7.p[1], R-69.p[1])
+  public net Net-J204-PadT (AudioJack2_SwitchT-6.p[1], R-59.p[0])
+  public net Net-J301-PadT (AudioJack2_SwitchT-5.p[1], R-45.p[0])
+  public net Net-J401-PadT (AudioJack2_SwitchT-4.p[1], R_Potentiometer-2.p[3])
+  public net Net-J402-PadT (AudioJack2_SwitchT-3.p[1], R-38.p[1])
+  public net Net-J501-PadT (AudioJack2_SwitchT-2.p[1], R-18.p[1])
+  public net Net-J502-PadT (AudioJack2_SwitchT-1.p[1], R-17.p[1])
+  public net Net-Q201-Pad1 (R-65.p[1], c-2N3906-1.E, c-2N3906-2.E)
+  public net Net-Q202-Pad2 (R_Potentiometer_Trim-7.p[2], c-2N3906-1.B)
+  public net Net-Q202-Pad3 (CA3080.BIAS, c-2N3906-1.C)
+  public net Net-Q203-Pad2 (R-58.p[0], c-2N3904-6.B)
+  public net Net-Q204-Pad3 (R-53.p[0], c-2N3904-5.C)
+  public net Net-Q301-Pad1 (R-50.p[1], R_Potentiometer_Trim-5.p[3], c-2N3904-4.E)
+  public net Net-Q301-Pad2 (R-52.p[1], R_Potentiometer_Trim-6.p[2], R_Potentiometer_Trim-6.p[3], c-2N3904-4.B)
+  public net Net-Q301-Pad3 (R-47.p[0], R-51.p[0], TL072-8.p+[1], c-2N3904-4.C)
+  public net Net-Q302-Pad1 (R-50.p[0], R_Potentiometer_Trim-5.p[1], c-2N3904-3.E)
+  public net Net-Q302-Pad3 (R-46.p[1], R-48.p[0], TL072-8.p-[1], c-2N3904-3.C)
+  public net Net-Q501-Pad3 (R-29.p[1], R-31.p[1], c-2N3904-2.C)
+  public net Net-Q502-Pad3 (R-24.p[1], R-26.p[1], c-2N3904-1.C)
+  public net Net-R202-Pad1 (R-71.p[1], R_Potentiometer-6.p[2])
+  public net Net-R203-Pad1 (R-70.p[1], R_Potentiometer_Trim-8.p[2])
+  public net Net-R203-Pad2 (R-64.p[1], R-66.p[0], R-67.p[0], R-68.p[0], R-69.p[0], R-70.p[0], TL072-9.p-[0])
+  public net Net-R205-Pad1 (R-68.p[1], R_Potentiometer-5.p[2])
+  public net Net-R206-Pad1 (R-67.p[1], R_Potentiometer-4.p[2])
+  public net Net-R207-Pad1 (R-66.p[1], R_Potentiometer-3.p[2])
+  public net Net-R209-Pad2 (R-60.p[1], R-64.p[0], TL072-9.p[0])
+  public net Net-R210-Pad2 (CA3080.p-, R-62.p[1], R-63.p[0])
+  public net Net-R214-Pad1 (R-61.p[1], R_Potentiometer_Trim-7.p[1])
+  public net Net-R215-Pad2 (R-60.p[0], R_Potentiometer_Trim-7.p[3])
+  public net Net-R304-Pad1 (R-49.p[1], R_Potentiometer_Trim-5.p[2])
+  public net Net-R401-Pad1 (R-44.p[1], R_Potentiometer-2.p[2])
+  public net Net-R401-Pad2 (R-42.p[1], R-43.p[0], R-44.p[0], TL072-7.p-[0])
+  public net Net-R402-Pad1 (R-43.p[1], R_Potentiometer-1.p[2])
+  public net Net-R403-Pad2 (R-42.p[0], TL072-7.p[0], TL072-7.p-[1])
+  public net Net-R404-Pad1 (R-40.p[1], R-41.p[1], TL072-7.p+[1])
+  public net Net-R405-Pad2 (R-40.p[0], R_Potentiometer_Trim-4.p[3], TL072-7.p[1])
+  public net Net-R406-Pad2 (R-39.p[0], R_Potentiometer_Trim-4.p[1], R_Potentiometer_Trim-4.p[2], TL072-6.p+[0])
+  public net Net-R501-Pad2 (R-36.p[0], R-37.p[0], TL072-6.p+[1])
+  public net Net-R502-Pad1 (R-36.p[1], R_Potentiometer_Trim-3.p[2])
+  public net Net-R503-Pad2 (R-33.p[1], R-35.p[0], TL072-6.p-[1])
+  public net Net-R505-Pad2 (R-26.p[0], R-31.p[0], R-33.p[0], TL072-6.p[1])
+  public net Net-R506-Pad2 (R-30.p[1], R-32.p[0], TL072-5.p-[1])
+  public net Net-R509-Pad2 (R-28.p[1], R-29.p[0], TL072-5.p-[0])
+  public net Net-R510-Pad2 (R-25.p[1], R-28.p[0], TL072-5.p[0])
+  public net Net-R513-Pad2 (R-24.p[0], R-25.p[0], TL072-4.p+[0])
+  public net Net-R515-Pad2 (R-22.p[1], R-23.p[0], TL072-4.p-[0])
+  public net Net-R516-Pad2 (R-22.p[0], R_Potentiometer_Trim-2.p[3], TL072-4.p[0])
+  public net Net-R517-Pad2 (R-20.p[0], R-21.p[0], R_Potentiometer_Trim-2.p[1], R_Potentiometer_Trim-2.p[2], TL072-4.p+[1])
+  public net Net-R518-Pad1 (R-19.p[0], R-20.p[1], TL072-3.p-[0])
+  public net Net-R601-Pad1 (R-15.p[1], R-16.p[1], R-8.p[0], TL072-2.p-[0])
+  public net Net-R601-Pad2 (R-10.p[0], R-12.p[0], R-14.p[0], R-16.p[0], R_Potentiometer_Trim-1.p[2])
+  public net Net-R603-Pad1 (R-13.p[1], R-14.p[1], R-7.p[0], TL072-2.p-[1])
+  public net Net-R605-Pad1 (R-11.p[1], R-12.p[1], R-6.p[0], TL072-1.p-[0])
+  public net Net-R607-Pad1 (R-10.p[1], R-5.p[0], R-9.p[1], TL072-1.p-[1])
+  public net Net-R609-Pad1 (R-4.p[0], R-8.p[1], TL072-2.p[0])
+  public net Net-R610-Pad1 (R-3.p[0], R-7.p[1], TL072-2.p[1])
+  public net Net-R611-Pad1 (R-2.p[0], R-6.p[1], TL072-1.p[0])
+  public net Net-R612-Pad1 (R-1.p[0], R-5.p[1], TL072-1.p[1])
+  public net Net-SW201-Pad2 (CA3080.p, SW_SPDT.B, TL072-8.p-[0])
+  public net unconnected-J201-PadTN (AudioJack2_SwitchT-9.p[2])
+  public net unconnected-J202-PadTN (AudioJack2_SwitchT-8.p[2])
+  public net unconnected-J203-PadTN (AudioJack2_SwitchT-7.p[2])
+  public net unconnected-J204-PadTN (AudioJack2_SwitchT-6.p[2])
+  public net unconnected-J301-PadTN (AudioJack2_SwitchT-5.p[2])
+  public net unconnected-J401-PadTN (AudioJack2_SwitchT-4.p[2])
+  public net unconnected-J402-PadTN (AudioJack2_SwitchT-3.p[2])
+  public net unconnected-J501-PadTN (AudioJack2_SwitchT-2.p[2])
+  public net unconnected-J502-PadTN (AudioJack2_SwitchT-1.p[2])
+  public net unconnected-U201-Pad1 (CA3080.NC[0])
+  public net unconnected-U201-Pad8 (CA3080.NC[1])
+
+  add-main-placements()
+  add-main-reference-designators()
+;  add-main-geometry()
+  add-main-properties()
+  add-main-labels()
+;  check-design(self)
+  symbol(GND) = ocdb/utils/symbols/ground-sym
+  symbol(Net+12V) = ocdb/utils/symbols/supply-sym
+  symbol(Net-12V) = ocdb/utils/symbols/supply-sym
+
+  geom(GND) :
+    copper-pour(LayerIndex(0), isolate = 0.1, rank = 1, orphans = true) = Polygon([Point(-83.5, 61.2) Point(-83.5, -43.3) Point(78.7, -43.3) Point(78.7, 61.2)])
+    copper-pour(LayerIndex(3), isolate = 0.1, rank = 1, orphans = true) = Polygon([Point(-83.5, 61.2) Point(-83.5, -43.3) Point(78.7, -43.3) Point(78.7, 61.2)])
+
+  geom(Net+12V) :
+    copper-pour(LayerIndex(1), isolate = 0.1, rank = 1, orphans = true) = Polygon([Point(-83.5, 61.2) Point(-83.5, -43.3) Point(78.7, -43.3) Point(78.7, 61.2)])
+
+  geom(Net-12V) :
+    copper-pour(LayerIndex(2), isolate = 0.1, rank = 1, orphans = true) = Polygon([Point(-83.5, 61.2) Point(-83.5, -43.3) Point(78.7, -43.3) Point(78.7, 61.2)])
+
+  val power-net-class = NetClass(`Power, [`min-trace => 0.5])
+  property(GND.net-class) = power-net-class
+  property(Net+12V.net-class) = power-net-class
+  property(Net-12V.net-class) = power-net-class
+

@@ -1,0 +1,2663 @@
+
+  (lib_symbols 
+
+    (symbol "Net-12V" (power)
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "#PWR" (id 0) (at 35.0 60.0 0.0)
+        (effects (font (size 5.0 5.0))  (justify left bottom )))
+      
+      (property "Value" "Net-12V" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Net-12V_1_0"
+
+      (pin power_in line (at 0.0 0.0 90) (length 0.0)
+        (name "Net-12V" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "GND" (power)
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "#PWR" (id 0) (at 35.0 60.0 0.0)
+        (effects (font (size 5.0 5.0))  (justify left bottom )))
+      
+      (property "Value" "GND" (id 1) (at -2.54 -2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "GND_1_0"
+
+      (pin power_in line (at 0.0 0.0 270) (length 0.0)
+        (name "GND" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 -1.27)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Net+12V" (power)
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "#PWR" (id 0) (at 35.0 60.0 0.0)
+        (effects (font (size 5.0 5.0))  (justify left bottom )))
+      
+      (property "Value" "Net+12V" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Net+12V_1_0"
+
+      (pin power_in line (at 0.0 0.0 90) (length 0.0)
+        (name "Net+12V" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "Conn_02x05_Odd_Even" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 1.27 7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Conn_02x05_Odd_Even" (id 1) (at 1.27 -7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Conn_02x05_Odd_Even_1_0"
+
+      (pin unspecified line (at -5.08 5.08 0) (length 3.81)
+        (name "Pin_1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 -5.08 180) (length 3.81)
+        (name "Pin_10" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 5.08 180) (length 3.81)
+        (name "Pin_2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 2.54 0) (length 3.81)
+        (name "Pin_3" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 2.54 180) (length 3.81)
+        (name "Pin_4" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 3.81)
+        (name "Pin_5" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 3.81)
+        (name "Pin_6" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 -2.54 0) (length 3.81)
+        (name "Pin_7" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 -2.54 180) (length 3.81)
+        (name "Pin_8" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 -5.08 0) (length 3.81)
+        (name "Pin_9" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.27 -6.35) (end 3.81 6.35) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start 2.54 -2.667) (end 3.81 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -0.127) (end 3.81 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 2.413) (end 0.0 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 2.413) (end 3.81 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -0.127) (end 0.0 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -2.667) (end 0.0 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -5.207) (end 3.81 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 4.953) (end 3.81 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -5.207) (end 0.0 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 4.953) (end 0.0 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "ALTIUM_POWER_GND_POWER" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ALTIUM_POWER_GND_POWER" (id 1) (at 2.54 -1.016 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ALTIUM_POWER_GND_POWER_1_0"
+
+      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.397) (xy 1.27 1.397)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.69545 -1.0922) (xy 1.69545 1.0922)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.11455 -0.762) (xy 2.11455 0.762)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -0.4572) (xy 2.54 0.4572)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "R_Potentiometer_Trim" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "R_Potentiometer_Trim" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "R_Potentiometer_Trim_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "box_symbol_2L_1R_4T_1B" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -6.35 10.252 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      
+      (property "Value" "box_symbol_2L_1R_4T_1B" (id 1) (at -6.35 9.19 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "box_symbol_2L_1R_4T_1B_1_0"
+
+      (pin unspecified line (at -8.89 1.27 0) (length 2.54)
+        (name "L0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -8.89 -1.27 0) (length 2.54)
+        (name "L1" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 8.89 0.0 180) (length 2.54)
+        (name "R0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -3.81 11.43 270) (length 2.54)
+        (name "T0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -1.27 11.43 270) (length 2.54)
+        (name "T1" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 1.27 11.43 270) (length 2.54)
+        (name "T2" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 11.43 270) (length 2.54)
+        (name "T3" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -11.43 90) (length 2.54)
+        (name "B0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -6.35 -8.89) (end 6.35 8.89) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "R_Potentiometer" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "R_Potentiometer" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "R_Potentiometer_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "R" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "R" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "R_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_2N3904" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_2N3904" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_2N3904_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778) (xy 1.27 -1.778) (xy 1.27 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "supply_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "supply_sym" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "supply_sym_1_0"
+
+      (pin unspecified line (at 0.0 0.0 90) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "ground_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ground_sym" (id 1) (at -2.54 -2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ground_sym_1_0"
+
+      (pin unspecified line (at 0.0 0.0 270) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 -1.27)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_1N4148" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_1N4148" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_1N4148_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -1.27 1.27) (xy -1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_1N5819" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_1N5819" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_1N5819_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "AudioJack2_SwitchT" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "AudioJack2_SwitchT" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "AudioJack2_SwitchT_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_2N3906" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_2N3906" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_2N3906_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.286 -1.778) (xy 1.778 -2.286) (xy 1.27 -1.27) (xy 2.286 -1.778) (xy 2.286 -1.778) (xy 2.286 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "SW_SPDT" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 4.318 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "SW_SPDT" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "SW_SPDT_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 2.54)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 2.032 -2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center -2.032 0.0) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center 2.032 2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.524 0.254) (xy 1.651 2.286)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "LED" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "LED" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "LED_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0.0) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.0) (xy 1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "TL072A" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "TL072A" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TL072A_1_0"
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-0" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+0" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "TL072B" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "TL072B" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TL072B_1_0"
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+1" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-1" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "jitx_C" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "jitx_C" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "jitx_C_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "TL072C" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "TL072C" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TL072C_1_0"
+
+      (pin unspecified line (at -2.54 -7.62 90) (length 3.81)
+        (name "V-" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -2.54 7.62 270) (length 3.81)
+        (name "V+" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+)
+    )
+
+    (symbol "ALTIUM_POWER_ARROW" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ALTIUM_POWER_ARROW" (id 1) (at 2.54 -0.508 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ALTIUM_POWER_ARROW_1_0"
+
+      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.794 0.0) (xy 1.27 0.762) (xy 1.27 -0.762) (xy 2.794 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_1" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_1" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_1_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_2" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_2" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_2_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_3" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_3" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_3_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_4" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_4" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_4_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_5" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_5" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_5_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_6" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_6" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_6_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_7" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_7" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_7_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_8" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_8" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_8_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_9" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_9" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_9_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_10" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_10" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_10_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_11" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_11" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_11_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -1.27 1.27) (xy -1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_12" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_12" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_12_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_13" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_13" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_13_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_14" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_14" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_14_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_15" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_15" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_15_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_16" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_16" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_16_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_17" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 4.318 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_17" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_17_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 2.54)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (circle (center 2.032 -2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center -2.032 0.0) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center 2.032 2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.524 0.254) (xy 1.651 2.286)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_18" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_18" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_18_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_19" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_19" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_19_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_20" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_20" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_20_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_21" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_21" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_21_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_22" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_22" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_22_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_23" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 1.27 7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_23" (id 1) (at 1.27 -7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_23_1_0"
+
+      (pin unspecified line (at -5.08 5.08 0) (length 3.81)
+        (name "Pin_1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 -5.08 180) (length 3.81)
+        (name "Pin_10" (effects (font (size 0.0 0.0))))
+        (number "10" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 5.08 180) (length 3.81)
+        (name "Pin_2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 2.54 0) (length 3.81)
+        (name "Pin_3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 2.54 180) (length 3.81)
+        (name "Pin_4" (effects (font (size 0.0 0.0))))
+        (number "4" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 3.81)
+        (name "Pin_5" (effects (font (size 0.0 0.0))))
+        (number "5" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 3.81)
+        (name "Pin_6" (effects (font (size 0.0 0.0))))
+        (number "6" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 -2.54 0) (length 3.81)
+        (name "Pin_7" (effects (font (size 0.0 0.0))))
+        (number "7" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 -2.54 180) (length 3.81)
+        (name "Pin_8" (effects (font (size 0.0 0.0))))
+        (number "8" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 -5.08 0) (length 3.81)
+        (name "Pin_9" (effects (font (size 0.0 0.0))))
+        (number "9" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.27 -6.35) (end 3.81 6.35) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start 2.54 -2.667) (end 3.81 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -0.127) (end 3.81 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 2.413) (end 0.0 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 2.413) (end 3.81 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -0.127) (end 0.0 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -2.667) (end 0.0 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -5.207) (end 3.81 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 4.953) (end 3.81 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -5.207) (end 0.0 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 4.953) (end 0.0 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_24" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_24" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_24_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_25" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_25" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_25_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_26" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_26" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_26_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_27" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_27" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_27_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_28" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_28" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_28_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_29" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_29" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_29_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_30" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_30" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_30_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_31" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_31" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_31_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_32" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_32" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_32_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_33" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_33" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_33_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_34" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_34" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_34_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_35" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_35" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_35_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_36" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_36" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_36_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_37" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_37" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_37_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_38" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_38" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_38_1_0"
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-0" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+0" (effects (font (size 1.27 1.27))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+(symbol "component_38_2_0"
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+1" (effects (font (size 1.27 1.27))))
+        (number "5" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-1" (effects (font (size 1.27 1.27))))
+        (number "6" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "7" (effects (font (size 1.27 1.27))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+(symbol "component_38_3_0"
+
+      (pin unspecified line (at -2.54 -7.62 90) (length 3.81)
+        (name "V-" (effects (font (size 1.27 1.27))))
+        (number "4" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -2.54 7.62 270) (length 3.81)
+        (name "V+" (effects (font (size 1.27 1.27))))
+        (number "8" (effects (font (size 1.27 1.27))))
+      )
+)
+    )
+
+    (symbol "component_39" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_39" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_39_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_40" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_40" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_40_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_41" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_41" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_41_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_42" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_42" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_42_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_43" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_43" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_43_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_44" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_44" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_44_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_45" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_45" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_45_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_46" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_46" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_46_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_47" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -6.35 10.252 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      
+      (property "Value" "component_47" (id 1) (at -6.35 9.19 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_47_1_0"
+
+      (pin unspecified line (at -8.89 1.27 0) (length 2.54)
+        (name "p-" (effects (font (size 0.762 0.762))))
+        (number "2" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at -8.89 -1.27 0) (length 2.54)
+        (name "p+" (effects (font (size 0.762 0.762))))
+        (number "3" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 8.89 0.0 180) (length 2.54)
+        (name "p" (effects (font (size 0.762 0.762))))
+        (number "6" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at -3.81 11.43 270) (length 2.54)
+        (name "NC0" (effects (font (size 0.762 0.762))))
+        (number "1" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at -1.27 11.43 270) (length 2.54)
+        (name "BIAS" (effects (font (size 0.762 0.762))))
+        (number "5" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 1.27 11.43 270) (length 2.54)
+        (name "V+" (effects (font (size 0.762 0.762))))
+        (number "7" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 3.81 11.43 270) (length 2.54)
+        (name "NC1" (effects (font (size 0.762 0.762))))
+        (number "8" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 0.0 -11.43 90) (length 2.54)
+        (name "V-" (effects (font (size 0.762 0.762))))
+        (number "4" (effects (font (size 0.762 0.762))))
+      )
+      (rectangle (start -6.35 -8.89) (end 6.35 8.89) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_48" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_48" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_48_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778) (xy 1.27 -1.778) (xy 1.27 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_49" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_49" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_49_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_50" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_50" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_50_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_51" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_51" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_51_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_52" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_52" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_52_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_53" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_53" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_53_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.286 -1.778) (xy 1.778 -2.286) (xy 1.27 -1.27) (xy 2.286 -1.778) (xy 2.286 -1.778) (xy 2.286 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_54" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_54" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_54_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_55" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_55" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_55_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_56" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_56" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_56_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0.0) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.0) (xy 1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+  )

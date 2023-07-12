@@ -1,0 +1,162 @@
+#use-added-syntax(jitx)
+defpackage VCO/placements :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+public defn add-main-placements () -> False :
+  inside pcb-module :
+    place(self.AudioJack2_SwitchT-1) at loc(-32.4, -31.78, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-2) at loc(-62.4, -31.78, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-3) at loc(-2.40000000000001, -31.78, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-4) at loc(9.59999999999999, 16.72, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-5) at loc(27.6, -31.78, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-6) at loc(57.6, -31.78, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-7) at loc(9.59999999999999, 36.72, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-8) at loc(-62.4, 36.72, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-9) at loc(-62.4, 16.72, 180.0) on Bottom
+    place(self.CA3080) at loc(17.1, 59.1) on Top
+    place(self.Conn_02x05_Odd_Even) at loc(-7.59999999999999, 7.59999999999999, 90.0) on Top
+    place(self.LED-1) at loc(-63.67, -5.3, 180.0) on Bottom
+    place(self.LED-2) at loc(-33.67, -5.3, 180.0) on Bottom
+    place(self.LED-3) at loc(-3.66999999999999, -5.3, 180.0) on Bottom
+    place(self.LED-4) at loc(41.33, -5.3, 180.0) on Bottom
+    place(self.R-1) at loc(-75.3, -27.1, 90.0) on Top
+    place(self.R-10) at loc(-78.8, -39.9, 90.0) on Top
+    place(self.R-11) at loc(-19.833334, -39.9, 90.0) on Top
+    place(self.R-12) at loc(-24.7, -39.9, 90.0) on Top
+    place(self.R-13) at loc(-10.1, -39.9, 90.0) on Top
+    place(self.R-14) at loc(-14.966668, -39.9, 90.0) on Top
+    place(self.R-15) at loc(45.6, -39.9, 90.0) on Top
+    place(self.R-16) at loc(40.3, -39.9, 90.0) on Top
+    place(self.R-17) at loc(-36.2, -17.2) on Top
+    place(self.R-18) at loc(-66.2, -17.2) on Top
+    place(self.R-19) at loc(-77.8, 29.7, 270.0) on Top
+    place(self.R-2) at loc(-22.3, -21.9, 270.0) on Top
+    place(self.R-20) at loc(-77.8, 17.76, 270.0) on Top
+    place(self.R-21) at loc(-77.8, -1.8, 90.0) on Top
+    place(self.R-22) at loc(-46.7, -7.0) on Top
+    place(self.R-23) at loc(-56.5, -7.0) on Top
+    place(self.R-24) at loc(-44.1, -1.7, 90.0) on Top
+    place(self.R-25) at loc(-39.3, -1.7, 90.0) on Top
+    place(self.R-26) at loc(6.40000000000001, -11.7, 180.0) on Top
+    place(self.R-27) at loc(-35.4, 11.0) on Top
+    place(self.R-28) at loc(-26.2, -17.2) on Top
+    place(self.R-29) at loc(-8.58000000000001, -17.2, 180.0) on Top
+    place(self.R-3) at loc(-12.4, -21.9, 270.0) on Top
+    place(self.R-30) at loc(-46.7, -12.5) on Top
+    place(self.R-31) at loc(-11.9, -11.7) on Top
+    place(self.R-32) at loc(-27.5, 0.0999999999999943, 270.0) on Top
+    place(self.R-33) at loc(33.1, 6.2) on Top
+    place(self.R-34) at loc(-23.5, 11.0) on Top
+    place(self.R-35) at loc(23.3, 6.2) on Top
+    place(self.R-36) at loc(5.59999999999999, -4.5) on Top
+    place(self.R-37) at loc(5.69999999999999, 0.5) on Top
+    place(self.R-38) at loc(-6.19999999999999, -17.2) on Top
+    place(self.R-39) at loc(38.78, -10.8) on Top
+    place(self.R-4) at loc(42.9, -18.4, 270.0) on Top
+    place(self.R-40) at loc(50.4, 4.0, 270.0) on Top
+    place(self.R-41) at loc(46.4, 0.0999999999999943, 180.0) on Top
+    place(self.R-42) at loc(75.42, -19.0, 180.0) on Top
+    place(self.R-43) at loc(67.8, -12.05) on Top
+    place(self.R-44) at loc(67.8, -5.09999999999999) on Top
+    place(self.R-45) at loc(23.8, -17.2) on Top
+    place(self.R-46) at loc(71.3, 46.1, 90.0) on Top
+    place(self.R-47) at loc(74.8, 53.7, 270.0) on Top
+    place(self.R-48) at loc(75.0, 40.8, 180.0) on Top
+    place(self.R-49) at loc(75.3, 7.40000000000001, 180.0) on Top
+    place(self.R-5) at loc(-48.3, -19.1) on Top
+    place(self.R-50) at loc(67.5, 21.3) on Top
+    place(self.R-51) at loc(75.0, 34.9, 180.0) on Top
+    place(self.R-52) at loc(47.6, 20.2, 90.0) on Top
+    place(self.R-53) at loc(45.0, 46.1, 270.0) on Top
+    place(self.R-54) at loc(42.7, 27.82, 270.0) on Top
+    place(self.R-55) at loc(23.5, 25.3, 270.0) on Top
+    place(self.R-56) at loc(18.0, 25.3, 270.0) on Top
+    place(self.R-57) at loc(20.7, 46.1, 270.0) on Top
+    place(self.R-58) at loc(37.0, 58.5, 270.0) on Top
+    place(self.R-59) at loc(53.8, -17.2) on Top
+    place(self.R-6) at loc(-53.7, -36.8) on Top
+    place(self.R-60) at loc(-22.4, 35.9, 270.0) on Top
+    place(self.R-61) at loc(-28.0, 28.28, 90.0) on Top
+    place(self.R-62) at loc(2.69999999999999, 51.6, 90.0) on Top
+    place(self.R-63) at loc(6.80000000000001, 56.6) on Top
+    place(self.R-64) at loc(1.11000000000001, 25.9, 180.0) on Top
+    place(self.R-65) at loc(-6.30000000000001, 47.6) on Top
+    place(self.R-66) at loc(-37.7, 51.1, 90.0) on Top
+    place(self.R-67) at loc(-32.4, 51.1, 90.0) on Top
+    place(self.R-68) at loc(-43.0, 51.1, 90.0) on Top
+    place(self.R-69) at loc(-48.3, 51.1, 90.0) on Top
+    place(self.R-7) at loc(11.7, -18.8) on Top
+    place(self.R-70) at loc(-53.6, 51.1, 90.0) on Top
+    place(self.R-71) at loc(-6.30000000000001, 42.15) on Top
+    place(self.R-72) at loc(-6.30000000000001, 36.7) on Top
+    place(self.R-8) at loc(6.30000000000001, -36.7) on Top
+    place(self.R-9) at loc(-72.0, -39.9, 90.0) on Top
+    place(self.R_Potentiometer-1) at loc(60.1, 15.7, 270.0) on Bottom
+    place(self.R_Potentiometer-2) at loc(36.1, 15.7, 270.0) on Bottom
+    place(self.R_Potentiometer-3) at loc(36.1, 35.7, 270.0) on Bottom
+    place(self.R_Potentiometer-4) at loc(60.1, 35.7, 270.0) on Bottom
+    place(self.R_Potentiometer-5) at loc(-35.9, 35.7, 270.0) on Bottom
+    place(self.R_Potentiometer-6) at loc(-35.9, 15.7, 270.0) on Bottom
+    place(self.R_Potentiometer_Trim-1) at loc(-77.9, -8.90000000000001) on Top
+    place(self.R_Potentiometer_Trim-2) at loc(-71.3, 10.9) on Top
+    place(self.R_Potentiometer_Trim-3) at loc(18.7, 6.8, 180.0) on Top
+    place(self.R_Potentiometer_Trim-4) at loc(30.4, -6.90000000000001) on Top
+    place(self.R_Potentiometer_Trim-5) at loc(74.0, 12.8, 180.0) on Top
+    place(self.R_Potentiometer_Trim-6) at loc(48.0, 11.0, 180.0) on Top
+    place(self.R_Potentiometer_Trim-7) at loc(-25.45, 23.2, 180.0) on Top
+    place(self.R_Potentiometer_Trim-8) at loc(-62.4, 52.85, 270.0) on Top
+    place(self.SW_SPDT) at loc(-14.4, 33.2, 270.0) on Bottom
+    place(self.TL072-1) at loc(-51.0, -31.7, 90.0) on Top
+    place(self.TL072-2) at loc(9.0, -31.6, 90.0) on Top
+    place(self.TL072-3) at loc(-79.2, 37.0, 90.0) on Top
+    place(self.TL072-4) at loc(-49.0, 1.8, 180.0) on Top
+    place(self.TL072-5) at loc(-15.3, -12.6, 180.0) on Top
+    place(self.TL072-6) at loc(26.4, -8.5, 180.0) on Top
+    place(self.TL072-7) at loc(62.9, -7.3, 180.0) on Top
+    place(self.TL072-8) at loc(58.1, 59.1) on Top
+    place(self.TL072-9) at loc(-18.3, 59.1) on Top
+    place(self.c-1N4148-1) at loc(-35.2, 7.8, 270.0) on Top
+    place(self.c-1N4148-2) at loc(-23.3, 7.7, 270.0) on Top
+    place(self.c-1N4148-3) at loc(-18.2, 44.0) on Top
+    place(self.c-1N5819-1) at loc(-7.59999999999999, 13.7) on Top
+    place(self.c-1N5819-2) at loc(-7.59999999999999, 4.09999999999999) on Top
+    place(self.c-2N3904-1) at loc(-30.4, 3.90000000000001) on Top
+    place(self.c-2N3904-2) at loc(-18.6, 4.0) on Top
+    place(self.c-2N3904-3) at loc(74.2, 26.7, 90.0) on Top
+    place(self.c-2N3904-4) at loc(69.0, 26.7, 90.0) on Top
+    place(self.c-2N3904-5) at loc(43.9, 32.3) on Top
+    place(self.c-2N3904-6) at loc(19.4, 31.3) on Top
+    place(self.c-2N3906-1) at loc(0.300000000000011, 29.0, 90.0) on Top
+    place(self.c-2N3906-2) at loc(-4.59999999999999, 29.0, 90.0) on Top
+    place(self.jitx-C-1) at loc(31.2, 31.1) on Top
+    place(self.jitx-C-10) at loc(16.6, -34.3, 270.0) on Top
+    place(self.jitx-C-11) at loc(9.0, -21.3, 90.0) on Top
+    place(self.jitx-C-12) at loc(-43.4, -34.4, 270.0) on Top
+    place(self.jitx-C-13) at loc(-51.0, -21.4, 90.0) on Top
+    place(self.jitx-C-14) at loc(-71.6, 34.3, 270.0) on Top
+    place(self.jitx-C-15) at loc(-79.2, 47.3, 90.0) on Top
+    place(self.jitx-C-16) at loc(-46.3, 9.40000000000001) on Top
+    place(self.jitx-C-17) at loc(-59.3, 1.8, 180.0) on Top
+    place(self.jitx-C-18) at loc(-12.6, -5.0) on Top
+    place(self.jitx-C-19) at loc(-25.6, -12.6, 180.0) on Top
+    place(self.jitx-C-2) at loc(42.1, 51.5) on Top
+    place(self.jitx-C-20) at loc(29.1, -0.900000000000006) on Top
+    place(self.jitx-C-21) at loc(16.1, -8.5, 180.0) on Top
+    place(self.jitx-C-22) at loc(65.6, 0.299999999999997) on Top
+    place(self.jitx-C-23) at loc(52.6, -7.3, 180.0) on Top
+    place(self.jitx-C-24) at loc(55.4, 51.5, 180.0) on Top
+    place(self.jitx-C-25) at loc(68.4, 59.1) on Top
+    place(self.jitx-C-26) at loc(-21.0, 51.5, 180.0) on Top
+    place(self.jitx-C-27) at loc(-8.0, 59.1) on Top
+    place(self.jitx-C-3) at loc(42.1, 57.5) on Top
+    place(self.jitx-C-4) at loc(14.4, 51.5, 180.0) on Top
+    place(self.jitx-C-5) at loc(27.4, 56.5) on Top
+    place(self.jitx-C-6) at loc(-8.0, 54.0) on Top
+    place(self.jitx-C-7) at loc(-51.3, 24.4, 270.0) on Top
+    place(self.jitx-C-8) at loc(6.0, 6.40000000000001, 90.0) on Top
+    place(self.jitx-C-9) at loc(-11.0, 6.40000000000001, 90.0) on Top
+

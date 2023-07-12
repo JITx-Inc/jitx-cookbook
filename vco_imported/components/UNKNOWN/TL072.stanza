@@ -1,0 +1,94 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/TL072 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+public pcb-symbol TL072A :
+  pin p[0] at Point(5.08, 0.0) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.27
+  pin p-[0] at Point(-5.08, -2.54) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.27
+    name-size = 1.27
+  pin p+[0] at Point(-5.08, 2.54) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.27
+    name-size = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 5.08), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -5.08), "", TrueTypeFont, false, false)
+  layer("foreground") = Polygon([
+    Point(-5.08, 5.08), 
+    Point(5.08, 0.0), 
+    Point(-5.08, -5.08), 
+    Point(-5.08, 5.08)])
+
+public pcb-symbol TL072B :
+  pin p+[1] at Point(-5.08, 2.54) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.27
+    name-size = 1.27
+  pin p-[1] at Point(-5.08, -2.54) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.27
+    name-size = 1.27
+  pin p[1] at Point(5.08, 0.0) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 5.08), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -5.08), "", TrueTypeFont, false, false)
+  layer("foreground") = Polygon([
+    Point(-5.08, 5.08), 
+    Point(5.08, 0.0), 
+    Point(-5.08, -5.08), 
+    Point(-5.08, 5.08)])
+
+public pcb-symbol TL072C :
+  pin V- at Point(-2.54, -3.81) with :
+    direction = Down
+    length = 3.81
+    number-size = 1.27
+    name-size = 1.27
+  pin V+ at Point(-2.54, 3.81) with :
+    direction = Up
+    length = 3.81
+    number-size = 1.27
+    name-size = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 5.08), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -5.08), "", TrueTypeFont, false, false)
+
+public pcb-component component :
+  datasheet = "http://www.ti.com/lit/ds/symlink/tl071.pdf"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | bank:Ref | electrical-type:String]
+    [p[0] | p[1] | Right | A | "Output"]
+    [p-[0] | p[2] | Left | A | "Input"]
+    [p+[0] | p[3] | Left | A | "Input"]
+    [p+[1] | p[5] | Left | B | "Input"]
+    [p-[1] | p[6] | Left | B | "Input"]
+    [p[1] | p[7] | Right | B | "Output"]
+    [V- | p[4] | Down | C | "PowerIn"]
+    [V+ | p[8] | Up | C | "PowerIn"]
+
+  assign-landpattern(VCO/landpatterns/DIP-8_W762mm_Socket/DIP-8_W762mm_Socket)
+  assign-symbols([
+    Ref("A") => TL072A
+    Ref("B") => TL072B
+    Ref("C") => TL072C
+  ])
+
+  property(self.Value) = "TL072"
+

@@ -1,0 +1,3992 @@
+
+(kicad_sch
+  (version 20230121)
+  (generator jitx)
+  (uuid fd161723-cab7-56a0-7f76-5039c6305919)
+  (paper "A4")
+                         
+  
+  (lib_symbols 
+
+    (symbol "Net-12V" (power)
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "#PWR" (id 0) (at 35.0 60.0 0.0)
+        (effects (font (size 5.0 5.0))  (justify left bottom )))
+      
+      (property "Value" "Net-12V" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Net-12V_1_0"
+
+      (pin power_in line (at 0.0 0.0 90) (length 0.0)
+        (name "Net-12V" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "GND" (power)
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "#PWR" (id 0) (at 35.0 60.0 0.0)
+        (effects (font (size 5.0 5.0))  (justify left bottom )))
+      
+      (property "Value" "GND" (id 1) (at -2.54 -2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "GND_1_0"
+
+      (pin power_in line (at 0.0 0.0 270) (length 0.0)
+        (name "GND" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 -1.27)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Net+12V" (power)
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "#PWR" (id 0) (at 35.0 60.0 0.0)
+        (effects (font (size 5.0 5.0))  (justify left bottom )))
+      
+      (property "Value" "Net+12V" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Net+12V_1_0"
+
+      (pin power_in line (at 0.0 0.0 90) (length 0.0)
+        (name "Net+12V" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "Conn_02x05_Odd_Even" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 1.27 7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Conn_02x05_Odd_Even" (id 1) (at 1.27 -7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Conn_02x05_Odd_Even_1_0"
+
+      (pin unspecified line (at -5.08 5.08 0) (length 3.81)
+        (name "Pin_1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 -5.08 180) (length 3.81)
+        (name "Pin_10" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 5.08 180) (length 3.81)
+        (name "Pin_2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 2.54 0) (length 3.81)
+        (name "Pin_3" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 2.54 180) (length 3.81)
+        (name "Pin_4" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 3.81)
+        (name "Pin_5" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 3.81)
+        (name "Pin_6" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 -2.54 0) (length 3.81)
+        (name "Pin_7" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 -2.54 180) (length 3.81)
+        (name "Pin_8" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 -5.08 0) (length 3.81)
+        (name "Pin_9" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.27 -6.35) (end 3.81 6.35) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start 2.54 -2.667) (end 3.81 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -0.127) (end 3.81 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 2.413) (end 0.0 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 2.413) (end 3.81 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -0.127) (end 0.0 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -2.667) (end 0.0 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -5.207) (end 3.81 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 4.953) (end 3.81 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -5.207) (end 0.0 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 4.953) (end 0.0 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "ALTIUM_POWER_GND_POWER" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ALTIUM_POWER_GND_POWER" (id 1) (at 2.54 -1.016 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ALTIUM_POWER_GND_POWER_1_0"
+
+      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.397) (xy 1.27 1.397)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.69545 -1.0922) (xy 1.69545 1.0922)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.11455 -0.762) (xy 2.11455 0.762)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -0.4572) (xy 2.54 0.4572)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "R_Potentiometer_Trim" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "R_Potentiometer_Trim" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "R_Potentiometer_Trim_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "box_symbol_2L_1R_4T_1B" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -6.35 10.252 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      
+      (property "Value" "box_symbol_2L_1R_4T_1B" (id 1) (at -6.35 9.19 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "box_symbol_2L_1R_4T_1B_1_0"
+
+      (pin unspecified line (at -8.89 1.27 0) (length 2.54)
+        (name "L0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -8.89 -1.27 0) (length 2.54)
+        (name "L1" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 8.89 0.0 180) (length 2.54)
+        (name "R0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -3.81 11.43 270) (length 2.54)
+        (name "T0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -1.27 11.43 270) (length 2.54)
+        (name "T1" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 1.27 11.43 270) (length 2.54)
+        (name "T2" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 11.43 270) (length 2.54)
+        (name "T3" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -11.43 90) (length 2.54)
+        (name "B0" (effects (font (size 0.762 0.762))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -6.35 -8.89) (end 6.35 8.89) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "R_Potentiometer" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "R_Potentiometer" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "R_Potentiometer_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "R" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "R" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "R_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_2N3904" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_2N3904" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_2N3904_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778) (xy 1.27 -1.778) (xy 1.27 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "supply_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "supply_sym" (id 1) (at -2.54 2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "supply_sym_1_0"
+
+      (pin unspecified line (at 0.0 0.0 90) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 0.635)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 1.905) (xy -0.635 0.635) (xy 0.635 0.635) (xy 0.0 1.905)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "ground_sym" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ground_sym" (id 1) (at -2.54 -2.54 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ground_sym_1_0"
+
+      (pin unspecified line (at 0.0 0.0 270) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 0.0 -1.27)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.762 -1.778) (xy 0.762 -1.778)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -0.254 -2.286) (xy 0.254 -2.286)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_1N4148" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_1N4148" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_1N4148_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -1.27 1.27) (xy -1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_1N5819" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_1N5819" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_1N5819_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "AudioJack2_SwitchT" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "AudioJack2_SwitchT" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "AudioJack2_SwitchT_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "Sym_2N3906" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "Sym_2N3906" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "Sym_2N3906_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.286 -1.778) (xy 1.778 -2.286) (xy 1.27 -1.27) (xy 2.286 -1.778) (xy 2.286 -1.778) (xy 2.286 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "SW_SPDT" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 4.318 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "SW_SPDT" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "SW_SPDT_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 2.54)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (circle (center 2.032 -2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center -2.032 0.0) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center 2.032 2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.524 0.254) (xy 1.651 2.286)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "LED" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "LED" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "LED_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0.0) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.0) (xy 1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "TL072A" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "TL072A" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TL072A_1_0"
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-0" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+0" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "TL072B" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "TL072B" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TL072B_1_0"
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+1" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-1" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "jitx_C" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "jitx_C" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "jitx_C_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "TL072C" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "TL072C" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "TL072C_1_0"
+
+      (pin unspecified line (at -2.54 -7.62 90) (length 3.81)
+        (name "V-" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at -2.54 7.62 270) (length 3.81)
+        (name "V+" (effects (font (size 1.27 1.27))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+)
+    )
+
+    (symbol "ALTIUM_POWER_ARROW" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 0.0 0.0)
+        (effects (font (size 10.0 10.0)) hide ))
+      
+      (property "Value" "ALTIUM_POWER_ARROW" (id 1) (at 2.54 -0.508 0.0)
+        (effects (font (size 0.28224 0.28224))  (justify left )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "ALTIUM_POWER_ARROW_1_0"
+
+      (pin unspecified line (at 0.0 0.0 0) (length 0.0)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "~" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 0.0 0.0) (xy 1.27 0.0)) (stroke (width 0.127) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.794 0.0) (xy 1.27 0.762) (xy 1.27 -0.762) (xy 2.794 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_1" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_1" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_1_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_2" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_2" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_2_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_3" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_3" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_3_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_4" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_4" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_4_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_5" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_5" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_5_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_6" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_6" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_6_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_7" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_7" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_7_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_8" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_8" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_8_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_9" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_9" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_9_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_10" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_10" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_10_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_11" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_11" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_11_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -1.27 1.27) (xy -1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_12" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_12" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_12_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_13" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_13" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_13_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_14" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_14" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_14_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.143 0.0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0.0) (xy 1.143 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_15" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_15" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_15_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_16" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.635 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_16" (id 1) (at 0.635 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_16_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 2.794)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 2.794)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy -2.032 0.762) (xy 2.032 0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -2.032 -0.762) (xy 2.032 -0.762)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_17" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 4.318 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_17" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_17_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 2.54)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (circle (center 2.032 -2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center -2.032 0.0) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (circle (center 2.032 2.54) (radius 0.508) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.524 0.254) (xy 1.651 2.286)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_18" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_18" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_18_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_19" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_19" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_19_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_20" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_20" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_20_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_21" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_21" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_21_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_22" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_22" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_22_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_23" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 1.27 7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_23" (id 1) (at 1.27 -7.62 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_23_1_0"
+
+      (pin unspecified line (at -5.08 5.08 0) (length 3.81)
+        (name "Pin_1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 -5.08 180) (length 3.81)
+        (name "Pin_10" (effects (font (size 0.0 0.0))))
+        (number "10" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 5.08 180) (length 3.81)
+        (name "Pin_2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 2.54 0) (length 3.81)
+        (name "Pin_3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 2.54 180) (length 3.81)
+        (name "Pin_4" (effects (font (size 0.0 0.0))))
+        (number "4" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 3.81)
+        (name "Pin_5" (effects (font (size 0.0 0.0))))
+        (number "5" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 3.81)
+        (name "Pin_6" (effects (font (size 0.0 0.0))))
+        (number "6" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 -2.54 0) (length 3.81)
+        (name "Pin_7" (effects (font (size 0.0 0.0))))
+        (number "7" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 -2.54 180) (length 3.81)
+        (name "Pin_8" (effects (font (size 0.0 0.0))))
+        (number "8" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 -5.08 0) (length 3.81)
+        (name "Pin_9" (effects (font (size 0.0 0.0))))
+        (number "9" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.27 -6.35) (end 3.81 6.35) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start 2.54 -2.667) (end 3.81 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -0.127) (end 3.81 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 2.413) (end 0.0 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 2.413) (end 3.81 2.667) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -0.127) (end 0.0 0.127) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -2.667) (end 0.0 -2.413) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 -5.207) (end 3.81 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start 2.54 4.953) (end 3.81 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 -5.207) (end 0.0 -4.953) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (rectangle (start -1.27 4.953) (end 0.0 5.207) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_24" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_24" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_24_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_25" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_25" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_25_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_26" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_26" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_26_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_27" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_27" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_27_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_28" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_28" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_28_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_29" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_29" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_29_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_30" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_30" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_30_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_31" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_31" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_31_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_32" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_32" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_32_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_33" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_33" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_33_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_34" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_34" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_34_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_35" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_35" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_35_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_36" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_36" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_36_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_37" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_37" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_37_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_38" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_38" (id 1) (at 0.0 -5.08 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_38_1_0"
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-0" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+0" (effects (font (size 1.27 1.27))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+(symbol "component_38_2_0"
+
+      (pin unspecified line (at -7.62 2.54 0) (length 2.54)
+        (name "p+1" (effects (font (size 1.27 1.27))))
+        (number "5" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -7.62 -2.54 0) (length 2.54)
+        (name "p-1" (effects (font (size 1.27 1.27))))
+        (number "6" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 7.62 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "7" (effects (font (size 1.27 1.27))))
+      )
+      (polyline (pts (xy -5.08 5.08) (xy 5.08 0.0) (xy -5.08 -5.08) (xy -5.08 5.08) (xy -5.08 5.08)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+(symbol "component_38_3_0"
+
+      (pin unspecified line (at -2.54 -7.62 90) (length 3.81)
+        (name "V-" (effects (font (size 1.27 1.27))))
+        (number "4" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -2.54 7.62 270) (length 3.81)
+        (name "V+" (effects (font (size 1.27 1.27))))
+        (number "8" (effects (font (size 1.27 1.27))))
+      )
+)
+    )
+
+    (symbol "component_39" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_39" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_39_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_40" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_40" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_40_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_41" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_41" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_41_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_42" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_42" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_42_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_43" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_43" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_43_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_44" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 8.89 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_44" (id 1) (at 0.0 6.35 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_44_1_0"
+
+      (pin unspecified line (at 5.08 2.54 180) (length 2.54)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "S" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 0.0 180) (length 2.54)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "T" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 5.08 -2.54 180) (length 2.54)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "TN" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -2.54 -5.08) (end 2.54 3.81) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (rectangle (start -3.81 -2.54) (end -2.54 0.0) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+      (polyline (pts (xy 1.778 -0.254) (xy 2.032 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.0 0.0) (xy 0.635 -0.635) (xy 1.27 0.0) (xy 2.54 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 -2.54) (xy 1.778 -2.54) (xy 1.778 -0.254) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 2.54) (xy -0.635 2.54) (xy -0.635 0.0) (xy -1.27 -0.635) (xy -1.905 0.0)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_45" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_45" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_45_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_46" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_46" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_46_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_47" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -6.35 10.252 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      
+      (property "Value" "component_47" (id 1) (at -6.35 9.19 0.0)
+        (effects (font (size 0.3048 0.3048))  (justify left bottom )))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_47_1_0"
+
+      (pin unspecified line (at -8.89 1.27 0) (length 2.54)
+        (name "p-" (effects (font (size 0.762 0.762))))
+        (number "2" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at -8.89 -1.27 0) (length 2.54)
+        (name "p+" (effects (font (size 0.762 0.762))))
+        (number "3" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 8.89 0.0 180) (length 2.54)
+        (name "p" (effects (font (size 0.762 0.762))))
+        (number "6" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at -3.81 11.43 270) (length 2.54)
+        (name "NC0" (effects (font (size 0.762 0.762))))
+        (number "1" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at -1.27 11.43 270) (length 2.54)
+        (name "BIAS" (effects (font (size 0.762 0.762))))
+        (number "5" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 1.27 11.43 270) (length 2.54)
+        (name "V+" (effects (font (size 0.762 0.762))))
+        (number "7" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 3.81 11.43 270) (length 2.54)
+        (name "NC1" (effects (font (size 0.762 0.762))))
+        (number "8" (effects (font (size 0.762 0.762))))
+      )
+
+      (pin unspecified line (at 0.0 -11.43 90) (length 2.54)
+        (name "V-" (effects (font (size 0.762 0.762))))
+        (number "4" (effects (font (size 0.762 0.762))))
+      )
+      (rectangle (start -6.35 -8.89) (end 6.35 8.89) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_48" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_48" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_48_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778) (xy 1.27 -1.778) (xy 1.27 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_49" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_49" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_49_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_50" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_50" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_50_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_51" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 2.032 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_51" (id 1) (at 0.0 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_51_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "0" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_52" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_52" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_52_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 0.0) (xy -1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0.0) (xy 1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_53" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 5.08 1.905 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_53" (id 1) (at 5.08 0.0 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_53_1_0"
+
+      (pin unspecified line (at 2.54 -5.08 90) (length 2.54)
+        (name "E" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at -5.08 0.0 0) (length 5.715)
+        (name "B" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 2.54 5.08 270) (length 2.54)
+        (name "C" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (circle (center 1.27 0.0) (radius 2.8194) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)) (stroke (width 0.508) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 0.635 0.635) (xy 2.54 2.54)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.286 -1.778) (xy 1.778 -2.286) (xy 1.27 -1.27) (xy 2.286 -1.778) (xy 2.286 -1.778) (xy 2.286 -1.778)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type background)))
+)
+    )
+
+    (symbol "component_54" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_54" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_54_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_55" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at -4.445 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_55" (id 1) (at -2.54 0.0 90.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_55_1_0"
+
+      (pin unspecified line (at 0.0 3.81 270) (length 1.27)
+        (name "1" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 1.27)
+        (name "2" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+
+      (pin unspecified line (at 0.0 -3.81 90) (length 1.27)
+        (name "3" (effects (font (size 0.0 0.0))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (rectangle (start -1.016 -2.54) (end 1.016 2.54) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 2.54 0.0) (xy 1.524 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy 1.524 0.762) (xy 1.524 -0.762)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+
+    (symbol "component_56" 
+      (in_bom yes) (on_board yes)
+      
+      (property "Reference" "U" (id 0) (at 0.0 2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      
+      (property "Value" "component_56" (id 1) (at 0.0 -2.54 0.0)
+        (effects (font (size 0.508 0.508))  ))
+      (property "Footprint" "" (id 2) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      (property "Datasheet" "~" (id 3) (at 0 0 0)
+        (effects (font (size 0.635 0.635)) hide))
+      
+(symbol "component_56_1_0"
+
+      (pin unspecified line (at -3.81 0.0 0) (length 2.54)
+        (name "K" (effects (font (size 0.0 0.0))))
+        (number "1" (effects (font (size 0.0 0.0))))
+      )
+
+      (pin unspecified line (at 3.81 0.0 180) (length 2.54)
+        (name "A" (effects (font (size 0.0 0.0))))
+        (number "2" (effects (font (size 0.0 0.0))))
+      )
+      (polyline (pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0.0) (xy 1.27 -1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 0.0) (xy 1.27 0.0)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.27 -1.27) (xy -1.27 1.27)) (stroke (width 0.254) (type solid) (color 0 0 0 0)) (fill (type none)))
+      (polyline (pts (xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)) (stroke (width 0.0) (type solid) (color 0 0 0 0)) (fill (type none)))
+)
+    )
+  )
+  (wire (pts (xy 187.96 130.81) (xy 187.96 129.54)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 14f0f4a6-4c86-534d-c00b-ea0b3e3c4191))
+  (wire (pts (xy 67.31 73.66) (xy 67.31 72.39)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3cc6f4ad-bd36-cd0e-2487-6ae6fc1024c5))
+  (wire (pts (xy 99.06 46.99) (xy 99.06 45.72)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d4685246-3d43-d66a-2c29-23ecbbe03bd5))
+  (wire (pts (xy 77.47 73.66) (xy 91.44 73.66)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c8e503aa-8ab8-fa3c-f269-2404070e8c45))
+  (wire (pts (xy 76.2 87.63) (xy 111.76 87.63)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 37a88a73-b6df-e59b-4cb9-541a4b47c867))
+  (wire (pts (xy 110.49 87.63) (xy 110.49 85.09)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 5846614e-d506-e4e9-c8a5-e6602746cc09))
+  (wire (pts (xy 77.47 87.63) (xy 77.47 73.66)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 8f5d6218-cadb-b689-ccdd-3ce0356f3741))
+  (wire (pts (xy 119.38 87.63) (xy 120.65 87.63)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid bdbb3c6b-78c8-bc47-4e9c-d3cab4c731a0))
+  (wire (pts (xy 67.31 87.63) (xy 68.58 87.63)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 54806c52-ca3c-8097-eea2-6954ba7b5582))
+  (wire (pts (xy 67.31 92.71) (xy 120.65 92.71)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2a4dc97a-9d28-00d9-7d68-cc4210f045f9))
+  (wire (pts (xy 67.31 106.68) (xy 67.31 81.28)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 6c2f6f35-fd28-2c6a-503b-bf76033790db))
+  (wire (pts (xy 120.65 92.71) (xy 120.65 87.63)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c5a124b4-64c6-2cc5-5d39-69b0832ff2ca))
+  (wire (pts (xy 99.06 68.58) (xy 99.06 54.61)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b766997d-1fd3-89de-16c2-a390a01a583f))
+  (wire (pts (xy 45.72 111.76) (xy 59.69 111.76)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 94634adb-7b6b-3663-acc3-499e63b1db1e))
+  (wire (pts (xy 45.72 125.73) (xy 45.72 111.76)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 8654e156-d143-c7b9-0b82-aedb7a6b82fc))
+  (wire (pts (xy 110.49 77.47) (xy 110.49 76.2)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 25c0085a-78b2-dcc8-7454-f0faca007eea))
+  (wire (pts (xy 170.18 88.9) (xy 179.07 88.9)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c225105f-fb9d-7ee0-609d-24dfe6408f0e))
+  (wire (pts (xy 179.07 93.98) (xy 179.07 88.9)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 61b128af-e72c-607d-a80b-9b111feae02d))
+  (wire (pts (xy 137.16 139.7) (xy 137.16 138.43)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c32cded1-1767-ebe2-5839-27cb2728a0c6))
+  (wire (pts (xy 137.16 109.22) (xy 137.16 95.25)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d87e75b5-7d67-21a3-0455-5ad915bc4954))
+  (wire (pts (xy 137.16 130.81) (xy 137.16 116.84)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 7d70fb70-07a5-5594-a580-2762f5ea4cf9))
+  (wire (pts (xy 134.62 86.36) (xy 154.94 86.36)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 97230bcd-289c-efca-8f9e-a7113ac63a26))
+  (wire (pts (xy 137.16 87.63) (xy 137.16 86.36)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 1ed9e294-0961-f376-3fc4-380629b2d2a4))
+  (wire (pts (xy 125.73 78.74) (xy 179.07 78.74)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 548b19ec-1ed7-fb4d-4bad-3ae5bf4354fe))
+  (wire (pts (xy 170.18 83.82) (xy 179.07 83.82)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 07be276f-bb5f-1b03-14a9-a17f0e51ae35))
+  (wire (pts (xy 125.73 86.36) (xy 127.0 86.36)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 86f09be1-ff0a-fb52-5528-b8ed42e7df28))
+  (wire (pts (xy 179.07 83.82) (xy 179.07 78.74)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 50f8ceb5-6727-1622-2700-1d54b17bd06e))
+  (wire (pts (xy 125.73 86.36) (xy 125.73 78.74)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3ba0cb04-6834-7f9b-cceb-5d6d7230f1ca))
+  (wire (pts (xy 162.56 58.42) (xy 227.33 58.42)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d027f818-e08f-a1e5-c85a-f4814de1f808))
+  (wire (pts (xy 180.34 58.42) (xy 180.34 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c17ed34f-b955-266b-2406-3890c974ef7e))
+  (wire (pts (xy 162.56 58.42) (xy 162.56 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 63d40485-9b0e-be15-f693-047335db555a))
+  (wire (pts (xy 207.01 58.42) (xy 207.01 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 9df7c169-51bb-5e62-27a4-5ad4e875b910))
+  (wire (pts (xy 215.9 58.42) (xy 215.9 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 484466c8-c7af-5778-55b8-27671ab0ac08))
+  (wire (pts (xy 171.45 58.42) (xy 171.45 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a6a949fd-20ca-38c3-b6c8-43b9dc5a2ab7))
+  (wire (pts (xy 227.33 59.69) (xy 227.33 39.37)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid f0cda646-5618-a7a2-a838-624a761e0945))
+  (wire (pts (xy 198.12 58.42) (xy 198.12 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 49e08762-e780-7bbd-2c64-cf970e1cf8a0))
+  (wire (pts (xy 189.23 58.42) (xy 189.23 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d5379a4a-32ba-7c86-195a-a8ea329c71a9))
+  (wire (pts (xy 224.79 58.42) (xy 224.79 57.15)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 46fadc66-db30-7742-3e1d-f37abd23bce3))
+  (wire (pts (xy 154.94 40.64) (xy 224.79 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 71925548-5e90-8d39-03be-13479632e6b4))
+  (wire (pts (xy 154.94 76.2) (xy 227.33 76.2)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 1ea53640-f9d6-08ec-dd9f-02f71f74f34e))
+  (wire (pts (xy 162.56 41.91) (xy 162.56 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 402fc210-9119-97af-d103-bcc223700f49))
+  (wire (pts (xy 207.01 41.91) (xy 207.01 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 84c9e536-af10-7ba6-7870-812fceb1e695))
+  (wire (pts (xy 154.94 76.2) (xy 154.94 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 64c39504-8122-a3ee-01c1-1d19b17e5a4d))
+  (wire (pts (xy 215.9 41.91) (xy 215.9 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 63273c0f-fb95-863e-8362-624382957fcd))
+  (wire (pts (xy 171.45 41.91) (xy 171.45 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 7efb0178-e4ff-9ba8-1514-ec0712b00a41))
+  (wire (pts (xy 180.34 41.91) (xy 180.34 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b7784b5a-7e86-4570-12a9-e5b5ec6d334e))
+  (wire (pts (xy 198.12 41.91) (xy 198.12 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ef514460-4179-8559-15f4-ef034e974671))
+  (wire (pts (xy 227.33 76.2) (xy 227.33 74.93)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b3ca6300-c6a1-73de-44c2-49cea0de39ac))
+  (wire (pts (xy 189.23 41.91) (xy 189.23 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid db78cd0d-4021-6f41-e215-e5f823fbe9e7))
+  (wire (pts (xy 224.79 41.91) (xy 224.79 40.64)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid dd025083-9f51-0455-6313-7ef7aded8cbf))
+  (wire (pts (xy 179.07 40.64) (xy 179.07 39.37)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d34927d7-acbe-d300-6829-d782a3213ebe))
+  (wire (pts (xy 187.96 139.7) (xy 187.96 138.43)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c00f1f38-4e1a-8d9d-4b43-da7bc58d608d))
+  (wire (pts (xy 194.31 101.6) (xy 212.09 101.6)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 57c74e35-ceb0-eb4d-f0cf-2a986bd44e47))
+  (wire (pts (xy 194.31 139.7) (xy 194.31 101.6)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 892f4bcc-8f0f-54dd-1ebc-ae0ac61cfb8b))
+  (wire (pts (xy 187.96 129.54) (xy 187.96 115.57)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b1b21e3c-87af-eb33-718e-ea20dd80acd2))
+  (wire (pts (xy 187.96 106.68) (xy 195.58 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 58d53789-55b1-7a2a-cf5d-3eb9db38ab50))
+  (wire (pts (xy 187.96 96.52) (xy 241.3 96.52)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2bcdc337-dbe6-67af-213f-b62afa53ff2a))
+  (wire (pts (xy 227.33 104.14) (xy 241.3 104.14)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid f1e66976-923e-323f-337e-8742be80ec06))
+  (wire (pts (xy 187.96 107.95) (xy 187.96 96.52)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 9dba20d7-d793-8917-9a7e-85337efe297d))
+  (wire (pts (xy 241.3 104.14) (xy 241.3 96.52)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 05d1c50f-83bd-2794-57e1-f6148089c8d2))
+  (wire (pts (xy 203.2 106.68) (xy 212.09 106.68)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e282cf99-f2e5-4595-2d8d-833b22d8cbce))
+  (wire (pts (xy 229.87 25.4) (xy 292.1 25.4)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid f4a7c5b3-aa5a-9291-1085-7b257c027aca))
+  (wire (pts (xy 278.13 10.16) (xy 292.1 10.16)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b00f3627-a043-dc1c-d73b-0895a22261b3))
+  (wire (pts (xy 292.1 26.67) (xy 292.1 10.16)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3b833137-838f-94c0-f651-621222f6136c))
+  (wire (pts (xy 229.87 27.94) (xy 242.57 27.94)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3b3b0cd3-c521-fb5b-7bac-01ffe36ca1e3))
+  (wire (pts (xy 242.57 27.94) (xy 242.57 16.51)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 04b80f57-f318-d467-9e47-8ffd226fefce))
+  (wire (pts (xy 224.79 7.62) (xy 262.89 7.62)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 28550209-eae1-9a1a-74e9-e1dacb4e53e9))
+  (wire (pts (xy 248.92 8.89) (xy 248.92 7.62)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 397bcdf3-a54d-b6cf-54a4-fa20b2424396))
+  (wire (pts (xy 242.57 8.89) (xy 242.57 7.62)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 90386283-1b8d-49a7-14d6-af70b262ff13))
+  (wire (pts (xy 215.9 0.0) (xy 292.1 0.0)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 7c166cc4-30dc-473e-2dbb-61843bffd750))
+  (wire (pts (xy 278.13 5.08) (xy 292.1 5.08)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c9aea8ee-ce10-22ca-afed-367645477b76))
+  (wire (pts (xy 215.9 7.62) (xy 217.17 7.62)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid c50d9458-d362-d49b-5b71-9fe02edb386a))
+  (wire (pts (xy 215.9 12.7) (xy 215.9 0.0)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 16218810-b704-d9bc-0eed-534fb7e610ee))
+  (wire (pts (xy 292.1 5.08) (xy 292.1 0.0)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 8548dabb-31fd-1dbb-4291-5648418a5269))
+  (wire (pts (xy 193.04 86.36) (xy 208.28 86.36)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 38eef517-9b2a-afae-e965-7172390decee))
+  (wire (pts (xy 208.28 78.74) (xy 214.63 78.74)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ac56a52a-cdad-aafc-3252-2daef893235d))
+  (wire (pts (xy 214.63 80.01) (xy 214.63 78.74)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 94bb9471-2282-305c-4691-24417a3b2612))
+  (wire (pts (xy 208.28 90.17) (xy 208.28 78.74)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid d872d044-6dcc-4dec-379b-b5db993f0bab))
+  (wire (pts (xy 193.04 88.9) (xy 214.63 88.9)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b481824c-0c70-8094-fb0b-416604e7dd46))
+  (wire (pts (xy 214.63 88.9) (xy 214.63 87.63)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid cfe4a81f-f050-549b-b879-52f80c24566d))
+  (wire (pts (xy 218.44 83.82) (xy 232.41 83.82)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a8314064-cdff-0cf5-546e-124c7573a655))
+  (wire (pts (xy 127.0 58.42) (xy 128.27 58.42)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid e50817da-d2fd-12a5-2437-aadf675deb03))
+  (wire (pts (xy 140.97 60.96) (xy 142.24 60.96)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid ad0435df-1dde-3526-9156-b8077401fc51))
+  (wire (pts (xy 127.0 60.96) (xy 128.27 60.96)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 72ea8b2f-aad1-1172-aa84-95eb84283fe6))
+  (wire (pts (xy 140.97 63.5) (xy 142.24 63.5)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid cfbd281b-dadc-3bc4-1439-1e5a2c498d33))
+  (wire (pts (xy 127.0 63.5) (xy 128.27 63.5)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 00078b90-94e6-79e3-f4d2-a6364811ead0))
+  (wire (pts (xy 127.0 71.12) (xy 142.24 71.12)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 43eb160c-6bbe-bb23-2d4c-b46b70412f0d))
+  (wire (pts (xy 140.97 58.42) (xy 142.24 58.42)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid a444ec5d-4a37-87ee-7421-8d43952202a1))
+  (wire (pts (xy 142.24 72.39) (xy 142.24 58.42)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 1a8ea737-67e1-e5df-ac3e-35d47fc6964a))
+  (wire (pts (xy 127.0 71.12) (xy 127.0 58.42)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid beb5afaf-d314-f817-6263-70c17015c3a0))
+  (wire (pts (xy 127.0 50.8) (xy 142.24 50.8)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b4fb908c-dc8a-9d54-36fb-3e92af6521c0))
+  (wire (pts (xy 140.97 55.88) (xy 142.24 55.88)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 6582ad9c-76c8-8d8b-0aa4-d60a69f0844e))
+  (wire (pts (xy 127.0 55.88) (xy 128.27 55.88)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b11af988-01db-60a9-cdbf-bf3dbc7c8484))
+  (wire (pts (xy 142.24 55.88) (xy 142.24 48.26)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 759c9c4c-969f-4415-161b-3defdc2ac0d9))
+  (wire (pts (xy 127.0 55.88) (xy 127.0 50.8)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 2569bb74-6a00-7dd7-89a9-c65b5ae87aa9))
+  (wire (pts (xy 140.97 66.04) (xy 143.51 66.04)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 3cb858d8-8ae9-9549-a4f2-e20379e3303c))
+  (wire (pts (xy 125.73 66.04) (xy 128.27 66.04)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 13d302a2-e77a-2b9c-8570-f067d385c499))
+  (wire (pts (xy 125.73 49.53) (xy 143.51 49.53)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid 033d7551-6b3b-4cb7-372d-2b372d9b8a62))
+  (wire (pts (xy 143.51 66.04) (xy 143.51 49.53)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid bcd40599-a77e-2f11-8cfc-ed61c88eaeb5))
+  (wire (pts (xy 125.73 66.04) (xy 125.73 48.26)) (stroke (width 0.127) (type default) (color 0 0 0 0)) (uuid b66c34b4-0f72-62b7-01b4-cb54a8fed7f8))
+  (polyline (pts (xy 39.37 -2.54) (xy 297.18 -2.54)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 66b48c4f-4824-7526-f21c-8e8bdf0efd35))
+  (polyline (pts (xy 39.37 149.86) (xy 297.18 149.86)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 6e762756-7dcb-62f3-5428-14bb1a66fdbd))
+  (polyline (pts (xy 39.37 149.86) (xy 39.37 -2.54)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid 59b0a4ab-1839-fe4b-346e-2e90634de510))
+  (polyline (pts (xy 297.18 149.86) (xy 297.18 -2.54)) (stroke (width 0.127) (type dot) (color 0 0 0 0)) (uuid f282f7ef-4182-bd64-dcee-88e2bc742938))
+(junction (at 110.49 87.63) (diameter 0.762) (color 0 0 0 0 ) (uuid 860042cb-5d59-3a98-aead-311c1083ac53))
+(junction (at 77.47 87.63) (diameter 0.762) (color 0 0 0 0 ) (uuid c9dad6e7-4fa6-070e-efae-9cfef4b8af7b))
+(junction (at 67.31 87.63) (diameter 0.762) (color 0 0 0 0 ) (uuid 992f2a9c-3be0-40e8-1e6f-d93f68ea4134))
+(junction (at 67.31 92.71) (diameter 0.762) (color 0 0 0 0 ) (uuid 1ba7c33e-db11-3b8b-661e-be1a4fb4a763))
+(junction (at 137.16 86.36) (diameter 0.762) (color 0 0 0 0 ) (uuid a6da340e-c64d-86ef-fde5-7822b8fdd56e))
+(junction (at 180.34 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid fb102ba5-6ee2-e0b0-7948-f069134f59cc))
+(junction (at 207.01 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid f787f8d6-a04e-d3aa-e497-761689d40800))
+(junction (at 215.9 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid e308dc5f-0fcb-437f-4613-3d83714a1c03))
+(junction (at 171.45 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid bae7dd06-5ee9-2b9a-8544-0e77a9ea7323))
+(junction (at 227.33 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid fa614159-6451-1a2a-6217-62c850f9f076))
+(junction (at 198.12 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid c287c4af-919a-5a83-825e-ded01cc64364))
+(junction (at 189.23 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid 06d1b897-4b36-d4f2-af69-fe4573e833cb))
+(junction (at 224.79 58.42) (diameter 0.762) (color 0 0 0 0 ) (uuid 381a8f48-e654-0d52-be25-bb13b82523cd))
+(junction (at 162.56 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid c9b85655-1ba8-0efe-b532-c53a9aa969fe))
+(junction (at 207.01 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid c9649d2b-ed8c-fc2a-ca5d-f9a6fda5c7c0))
+(junction (at 215.9 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid 5cc7b917-ea88-8166-0566-d26afc9e6560))
+(junction (at 171.45 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid d561ccbb-2e10-d170-9383-4d8e8da87816))
+(junction (at 180.34 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid 163e8cc4-5cb3-1429-690b-d0b40a29c9da))
+(junction (at 198.12 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid b3cd9816-38ea-89fe-4ffe-b5e4076208a4))
+(junction (at 189.23 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid 7eeabf95-e485-4808-893e-72cf70594689))
+(junction (at 179.07 40.64) (diameter 0.762) (color 0 0 0 0 ) (uuid 49ed2e39-41f9-8476-8693-290422e5a048))
+(junction (at 187.96 106.68) (diameter 0.762) (color 0 0 0 0 ) (uuid 0dd9c159-2851-7c0b-a4c7-140d4f283a33))
+(junction (at 292.1 25.4) (diameter 0.762) (color 0 0 0 0 ) (uuid 71f08c32-8348-0260-b5ef-a75e672d3cb1))
+(junction (at 248.92 7.62) (diameter 0.762) (color 0 0 0 0 ) (uuid 4f6e4007-4676-2385-eec6-f5ca5720457d))
+(junction (at 242.57 7.62) (diameter 0.762) (color 0 0 0 0 ) (uuid 7a77e490-32d7-d0df-489c-37fb70865fa9))
+(junction (at 215.9 7.62) (diameter 0.762) (color 0 0 0 0 ) (uuid 3b4006dc-2665-2701-e43f-3d0627fe081a))
+(junction (at 208.28 86.36) (diameter 0.762) (color 0 0 0 0 ) (uuid 56f1e4b8-0442-d058-4a0b-582ecb7e9e3b))
+(junction (at 142.24 60.96) (diameter 0.762) (color 0 0 0 0 ) (uuid 55f80c18-b019-42c1-cd62-f6d3a550dc22))
+(junction (at 127.0 60.96) (diameter 0.762) (color 0 0 0 0 ) (uuid 4908922f-d0aa-5b53-3707-ed960661421a))
+(junction (at 142.24 63.5) (diameter 0.762) (color 0 0 0 0 ) (uuid b917b46b-c536-cf15-03c1-e3b0ef995ca7))
+(junction (at 127.0 63.5) (diameter 0.762) (color 0 0 0 0 ) (uuid f06f0e1f-5007-6343-9f74-97967ef8e861))
+(junction (at 142.24 71.12) (diameter 0.762) (color 0 0 0 0 ) (uuid 0c9bd099-dc05-ac33-7429-ebea5b289f26))
+(junction (at 142.24 50.8) (diameter 0.762) (color 0 0 0 0 ) (uuid 542730ba-e35b-7685-b32f-ca2642f3d5b0))
+(junction (at 125.73 49.53) (diameter 0.762) (color 0 0 0 0 ) (uuid e91d0c38-86ac-d971-c29a-968b7b677a6b))
+
+  (global_label "BaseSquare" (shape passive) (at 99.06 78.74 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid b6b8682f-a1af-42a6-7d03-cabb919f007c)
+  )
+
+  (global_label "BaseSquare" (shape passive) (at 67.31 116.84 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid 528365fd-a413-a1a5-5102-4181126e83ad)
+  )
+
+  (label "Net-C207-Pad1" (at 67.31 106.68 90)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid 7d5319a2-715f-737e-21f0-1924478c3b74)
+  )
+
+  (label "Net-C207-Pad2" (at 91.44 73.66 180)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid 91845230-6889-421a-acc1-2706f1803c74)
+  )
+
+  (global_label "BaseTriangle" (shape passive) (at 45.72 133.35 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid deec03b8-2c8c-5edc-90f0-366df1c0a455)
+  )
+
+  (label "Net-Q203-Pad2" (at 59.69 111.76 180)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid 9a3d8ba0-de73-050b-69f2-fc48f142a812)
+  )
+
+  (label "Net-Q204-Pad3" (at 99.06 68.58 90)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid c6d22702-65ed-9894-07a0-7180cb2a0883)
+  )
+
+  (label "Net-R214-Pad1" (at 137.16 116.84 270)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid 55f29170-c738-f762-564a-8515e6433a98)
+  )
+
+  (label "Net-R215-Pad2" (at 137.16 109.22 90)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid edec8de8-4606-2f42-4c42-0b590e62d3cd)
+  )
+
+  (global_label "Net-R203-Pad2" (shape passive) (at 170.18 83.82 0)
+    (effects (font (size 0.762 0.762)) (justify left ))
+    (uuid c10f6ea6-e56c-981a-daab-962a1a5378f5)
+  )
+
+  (global_label "Net-Q202-Pad2" (shape passive) (at 133.35 113.03 180)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid 64753f07-4dce-ce7b-b9e8-79755b5730df)
+  )
+
+  (label "Net-R209-Pad2" (at 154.94 86.36 180)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid f635bd8f-533a-d2ed-8389-06da632e2401)
+  )
+
+  (label "Net-R607-Pad1" (at 212.09 106.68 180)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid 380ee414-6f66-1119-108f-1198e06376b3)
+  )
+
+  (label "Net-D604-Pad1" (at 187.96 129.54 90)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid 15b65b6c-5dd2-b58f-fc1d-52cab6d968f4)
+  )
+
+  (label "Net-R612-Pad1" (at 227.33 104.14 0)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid c23304cc-3e87-7357-c0ac-bf71c62a4c7e)
+  )
+
+  (label "Net-R518-Pad1" (at 278.13 5.08 0)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid ba451b11-83ed-6d88-7573-2e5da551604f)
+  )
+
+  (label "LEDInvertedSaw" (at 262.89 7.62 180)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid ed0d1b13-42f6-8acd-d162-edaafe8b4df4)
+  )
+
+  (label "Net-J501-PadT" (at 229.87 27.94 0)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid a091a8e5-b3f3-e919-de9e-8f727bcd4ed8)
+  )
+
+  (global_label "Net-R517-Pad2" (shape passive) (at 215.9 20.32 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid 09b50f79-4bae-01df-18a2-8c293f4dd7b6)
+  )
+
+  (label "Net-R607-Pad1" (at 248.92 16.51 270)
+    (effects (font (size 0.762 0.762)) (justify right bottom ))
+    (uuid 7de82cfd-fb99-7980-2493-8b3b1b4a09fe)
+  )
+
+  (global_label "Net-R203-Pad2" (shape passive) (at 240.03 83.82 0)
+    (effects (font (size 0.762 0.762)) (justify left ))
+    (uuid 3b098617-a950-d35f-ccb2-be97ae115003)
+  )
+
+  (label "Net-J202-PadT" (at 193.04 88.9 0)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid 64bcfcea-7530-c241-2c0e-84ca62efc131)
+  )
+
+  (label "Net-R205-Pad1" (at 218.44 83.82 0)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid e5432c0b-b6b8-29a4-750f-8ef474db255b)
+  )
+
+  (global_label "Net-R601-Pad2" (shape passive) (at 148.59 66.04 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid 6dcf6320-ea62-ef02-4731-fa1a8a302273)
+  )
+
+  (label "Net-R607-Pad1" (at 148.59 58.42 90)
+    (effects (font (size 0.762 0.762)) (justify left bottom ))
+    (uuid 030beeb3-9f90-4793-8f5c-7d46d954c709)
+  )
+
+  (global_label "LEDSine" (shape passive) (at 237.49 66.04 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid af8e1cc0-1f3d-9554-c890-f66bf82eceac)
+  )
+
+  (global_label "Net-R601-Pad1" (shape passive) (at 237.49 58.42 90)
+    (effects (font (size 0.762 0.762)) (justify left ))
+    (uuid cebe36a5-a4f7-cf97-820b-39cbb1599d13)
+  )
+
+  (global_label "Net-R601-Pad2" (shape passive) (at 245.11 133.35 270)
+    (effects (font (size 0.762 0.762)) (justify right ))
+    (uuid ce02c6bc-1ef0-3822-7683-821a2bc7fd46)
+  )
+
+  (global_label "Net-R603-Pad1" (shape passive) (at 245.11 125.73 90)
+    (effects (font (size 0.762 0.762)) (justify left ))
+    (uuid c8e1dde9-096e-3095-a92e-ef96d67f5a0f)
+  )
+
+  (symbol (lib_id "component_10") (at 236.22 83.82 90.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 934795a4-b2d9-ce0e-8ee9-b2d3deac2d82)
+    (property "Reference" "R205" (id 0) (at 236.22 83.82 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "100K" (id 1) (at 236.22 85.852 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 236.22 83.82 270.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 236.22 83.82 270.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-68" (id 4) (at 236.22 83.82 90.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 0b87cbeb-f479-a59b-235c-feabcb35f04b))
+    (pin "0" (uuid 2855d044-6945-380f-027e-01db7b931f33))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R205") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_19") (at 187.96 111.76 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 5f864554-b084-0e8b-b780-2957a41d35a1)
+    (property "Reference" "R616" (id 0) (at 187.96 111.76 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "75K" (id 1) (at 185.928 111.76 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 187.96 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 187.96 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-1" (id 4) (at 187.96 111.76 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 43d5a736-159d-10be-4c38-75bc1dbaee3c))
+    (pin "0" (uuid dd55448b-b512-e97d-dd09-18eb4ea15a29))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R616") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_34") (at 224.79 27.94 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 0d623aab-2873-8be7-c024-0706ed5461bd)
+    (property "Reference" "J501" (id 0) (at 224.79 19.05 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "AudioJack2_SwitchT" (id 1) (at 224.79 21.59 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "VCO:JACK_35MM_QINGPU_WQP_PJ398SM_VERTICAL_CIRCULARHOLES" (id 2) (at 224.79 27.94 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 224.79 27.94 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "AudioJack2_SwitchT-2" (id 4) (at 224.79 27.94 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "Inverted Saw Out" (id 5) (at 224.79 27.94 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "0" (uuid 8fb20339-ba63-1302-b93a-10e84fc5510e))
+    (pin "1" (uuid 6748df52-5730-2151-9d03-28dbab2699a7))
+    (pin "2" (uuid 2e5c3a6a-0949-40cc-de88-d09f175b85af))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "J501") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_48") (at 64.77 111.76 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid a088e3a8-b968-8cf9-a6cc-f8f560975940)
+    (property "Reference" "Q203" (id 0) (at 69.85 109.855 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "2N3904" (id 1) (at 69.85 111.76 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "VCO:TO_92_INLINE" (id 2) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" (id 3) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "c-2N3904-6" (id 4) (at 64.77 111.76 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "E" (uuid 247aed15-b58e-6ebf-a711-787acbbd54fc))
+    (pin "B" (uuid 8f67c482-afb3-b268-2eef-c9c679664812))
+    (pin "C" (uuid 5a920655-1b7e-600a-8e05-8ba31c12c122))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "Q203") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 229.87 67.31 0.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid e228183a-2c62-169f-9159-73468b6ca606)
+    (property "Reference" "U105" (id 0) (at 229.87 62.23 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 229.87 72.39 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 229.87 67.31 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 229.87 67.31 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-5" (id 4) (at 229.87 67.31 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid 04678610-eb73-3826-0bbf-1cdfcf4a8931))
+    (pin "V+" (uuid 5e9dabc4-1965-4166-a0b4-a685b93cf0be))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U105") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 199.39 106.68 90.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid cb2a30f0-10ae-dc40-019d-f1ddada0792f)
+    (property "Reference" "R612" (id 0) (at 199.39 106.68 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "680K" (id 1) (at 199.39 108.712 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 199.39 106.68 270.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 199.39 106.68 270.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-5" (id 4) (at 199.39 106.68 90.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 74fdc70d-6409-a4bb-ee71-97d849eb88b6))
+    (pin "0" (uuid c52f31f7-198c-6a7e-0ee9-532aaa3b65f3))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R612") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_8") (at 214.63 83.82 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid de04cc82-b2d9-af9d-b7f9-2517db6e5f9b)
+    (property "Reference" "RV202" (id 0) (at 210.185 83.82 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "50K" (id 1) (at 212.09 83.82 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:POTENTIOMETER_ALPHA_RD901F_40_00D_SINGLE_VERTICAL_CIRCULARHOLES" (id 2) (at 214.63 83.82 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 214.63 83.82 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R_Potentiometer-5" (id 4) (at 214.63 83.82 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 44113103-11e9-1f41-7548-04395b5b34d5))
+    (pin "2" (uuid e485f526-1013-ed82-cd0c-ef2e74260dc6))
+    (pin "3" (uuid fad440bd-d89c-d4fc-b551-3d0f277976c3))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "RV202") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_33") (at 187.96 88.9 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid c3de956a-4b60-8068-fb5f-22b0f377aca1)
+    (property "Reference" "J202" (id 0) (at 187.96 80.01 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "AudioJack2_SwitchT" (id 1) (at 187.96 82.55 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "VCO:JACK_35MM_QINGPU_WQP_PJ398SM_VERTICAL_CIRCULARHOLES" (id 2) (at 187.96 88.9 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 187.96 88.9 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "AudioJack2_SwitchT-8" (id 4) (at 187.96 88.9 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Description" "Exponential FM" (id 5) (at 187.96 88.9 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "0" (uuid 02ff76da-e712-9f01-3da2-f9adf0cc4c86))
+    (pin "1" (uuid 205df678-c80e-ebf4-8528-82e871497e44))
+    (pin "2" (uuid 91b77e30-570b-0558-531f-4597995228f4))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "J202") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 204.47 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 40181ad7-5001-3348-e945-83530855ea17)
+    (property "Reference" "U108" (id 0) (at 204.47 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 204.47 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 204.47 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 204.47 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-2" (id 4) (at 204.47 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid 2f556b5d-d6e7-4bc3-39ce-41a81ec5ae68))
+    (pin "V+" (uuid 25221514-12ce-e0fa-9bcc-f2064311a079))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U108") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_4") (at 137.16 134.62 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 9ffed4aa-a99d-bd3b-1c04-983c79504fe9)
+    (property "Reference" "R214" (id 0) (at 139.192 134.62 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "820R" (id 1) (at 137.16 134.62 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 137.16 134.62 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 137.16 134.62 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-61" (id 4) (at 137.16 134.62 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 64d63c17-ea8e-d528-587c-7ccbc499f38f))
+    (pin "0" (uuid 7ebd97b4-3808-2c97-330d-361b96ac632e))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R214") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_25") (at 99.06 50.8 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 431cc7f6-4ed1-4f4b-0654-8884a5524bd1)
+    (property "Reference" "R222" (id 0) (at 101.092 50.8 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "33K" (id 1) (at 99.06 50.8 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 99.06 50.8 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 99.06 50.8 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-53" (id 4) (at 99.06 50.8 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid e8a797a7-49ac-e205-5b3c-88a5e3623b47))
+    (pin "0" (uuid adca53d4-a7da-8487-92b2-ad07f17084ff))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R222") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 237.49 62.23 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 60b39e91-eb0a-cf77-c2ec-cf838962265b)
+    (property "Reference" "R602" (id 0) (at 239.522 62.23 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "680K" (id 1) (at 237.49 62.23 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 237.49 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 237.49 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-15" (id 4) (at 237.49 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid c9c3499c-6ab3-3c9b-98bf-d9cb94bb755c))
+    (pin "0" (uuid 10f11dfd-ee12-e61b-14a7-d488d1b749e4))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R602") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 168.91 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 39c0d9c0-8dce-a4f2-8802-6ebbdc875ac0)
+    (property "Reference" "U103" (id 0) (at 168.91 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 168.91 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 168.91 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 168.91 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-7" (id 4) (at 168.91 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid 3428794e-9941-ca37-12d1-ce21bae1f912))
+    (pin "V+" (uuid 0d27c0cb-7c2f-e41a-6ec8-0d609660f192))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U103") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_40") (at 115.57 87.63 270.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 09c2eff7-768d-564d-8d34-ab70adb27876)
+    (property "Reference" "R220" (id 0) (at 115.57 85.598 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "22K" (id 1) (at 115.57 87.63 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 115.57 87.63 90.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 115.57 87.63 90.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-55" (id 4) (at 115.57 87.63 270.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 3321c59e-a6e3-4411-0250-3d9f57479d16))
+    (pin "0" (uuid 636a31c0-359a-5eea-5b5d-1a87f56b7d30))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R220") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_56") (at 187.96 134.62 270.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 386f1d24-ae5e-7b93-53c4-f24710ece36b)
+    (property "Reference" "D604" (id 0) (at 185.42 134.62 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "LED" (id 1) (at 190.5 134.62 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:LED_D50MM" (id 2) (at 187.96 134.62 90.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 187.96 134.62 90.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "LED-1" (id 4) (at 187.96 134.62 270.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "K" (uuid 2d9a6a43-9eaf-b86d-785b-9b69fe2c56d9))
+    (pin "A" (uuid bd21bfde-bb20-c148-5b5a-67520a3041ed))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "D604") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 186.69 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 4be7692c-70c7-08c3-5152-49bf11123557)
+    (property "Reference" "U106" (id 0) (at 186.69 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 186.69 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 186.69 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 186.69 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-4" (id 4) (at 186.69 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid 1b447903-8d7b-29f2-262a-b8f5ec43a3cf))
+    (pin "V+" (uuid 00516c94-3d49-372e-d5a7-1a284d5cba5f))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U106") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_46") (at 67.31 77.47 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid aadea544-209e-8911-fff4-1d1b373a2cb5)
+    (property "Reference" "R218" (id 0) (at 69.342 77.47 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "180K" (id 1) (at 67.31 77.47 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 67.31 77.47 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 67.31 77.47 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-57" (id 4) (at 67.31 77.47 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid af18ac29-3d08-cad9-1e3e-ba320db38548))
+    (pin "0" (uuid d4747306-6d5e-c0db-822b-85f8b849052d))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R218") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 220.98 7.62 270.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 79b32502-03b3-87bb-5f61-e9124b51b46c)
+    (property "Reference" "R519" (id 0) (at 220.98 5.588 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "680K" (id 1) (at 220.98 7.62 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 220.98 7.62 90.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 220.98 7.62 90.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-19" (id 4) (at 220.98 7.62 270.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 1b4f94d5-256a-05d9-da21-e86bdff865f0))
+    (pin "0" (uuid 06caccfb-c0eb-f76a-9c9a-6bfc7e9fe1e2))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R519") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 213.36 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 827360ed-6bb2-a089-9377-74281ac682ea)
+    (property "Reference" "U109" (id 0) (at 213.36 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 213.36 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 213.36 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 213.36 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-1" (id 4) (at 213.36 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid a89458f6-2edc-d24f-eb82-8b69d924de77))
+    (pin "V+" (uuid 8085cef7-0201-4b26-ccf3-a08f73920823))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U109") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 219.71 104.14 0.0)  (unit 2)
+    (in_bom yes) (on_board yes) 
+    (uuid bd9687ba-0773-0713-0344-540a3dc186ab)
+    (property "Reference" "U109" (id 0) (at 219.71 99.06 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 219.71 109.22 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 219.71 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 219.71 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-1" (id 4) (at 219.71 104.14 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "p+1" (uuid 028096ae-fd45-d0cb-17b2-226f91854629))
+    (pin "p-1" (uuid 7b5490d4-27fc-c277-a9ad-2241c26b7190))
+    (pin "1" (uuid 604a6d73-147f-e3a5-a16f-87fb9ea99ebc))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U109") (unit 2)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_48") (at 96.52 73.66 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 31d5b53f-5fa7-072e-787a-6eaee20dd00f)
+    (property "Reference" "Q204" (id 0) (at 101.6 71.755 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Value" "2N3904" (id 1) (at 101.6 73.66 0.0) (effects (font (size 0.762 0.762)) (justify left bottom )))
+    (property "Footprint" "VCO:TO_92_INLINE" (id 2) (at 96.52 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" (id 3) (at 96.52 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "c-2N3904-5" (id 4) (at 96.52 73.66 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "E" (uuid f4aa0b83-37de-3c31-cae4-5ec7d87a3d88))
+    (pin "B" (uuid 72d5a688-2963-d940-2f6f-eb88220c3777))
+    (pin "C" (uuid 2c333c5d-cb28-e0ef-781c-bea2fed9b9d7))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "Q204") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 148.59 62.23 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 8cbf19f4-e16d-298b-7dd9-34347f52b874)
+    (property "Reference" "R607" (id 0) (at 150.622 62.23 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "680K" (id 1) (at 148.59 62.23 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 148.59 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 148.59 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-10" (id 4) (at 148.59 62.23 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid aee6e760-27d8-c2f6-66ac-7700f0af91a4))
+    (pin "0" (uuid 32c76cd6-f99c-1f01-7a2b-c6cc798fe6ec))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R607") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 215.9 16.51 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 8909d05f-9d65-d355-d6f3-3353d438de00)
+    (property "Reference" "R518" (id 0) (at 217.932 16.51 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "680K" (id 1) (at 215.9 16.51 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 215.9 16.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 215.9 16.51 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-20" (id 4) (at 215.9 16.51 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 5161ea4d-2c01-dfc4-9f06-9a0fc7d6b4f6))
+    (pin "0" (uuid 81ed52cc-0e55-d966-b7cf-57377cc751c2))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R518") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_55") (at 137.16 113.03 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid cd48dd74-040e-484b-5608-b69633e095e0)
+    (property "Reference" "RV206" (id 0) (at 139.7 113.03 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "100R" (id 1) (at 141.605 113.03 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:POTENTIOMETER_BOURNS_3296W_VERTICAL" (id 2) (at 137.16 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 137.16 113.03 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R_Potentiometer_Trim-7" (id 4) (at 137.16 113.03 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid a4d73187-5bf4-00b8-1533-a3b68b24461c))
+    (pin "2" (uuid 26f276ef-8a40-3e86-6e2c-17318ad46231))
+    (pin "3" (uuid 9145fdf0-820c-370c-fbc3-01a7c42868c5))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "RV206") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 222.25 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 8837342e-e904-4b64-3909-7ab3c45ef264)
+    (property "Reference" "U101" (id 0) (at 222.25 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 222.25 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 222.25 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 222.25 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-9" (id 4) (at 222.25 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid cf21cce1-2bb8-9f6a-5960-dd40054dc867))
+    (pin "V+" (uuid e23ccab1-0d44-7c60-8667-5e09c9ae0a20))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U101") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 162.56 86.36 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 030d3251-e2a7-6666-5fae-0f47b0c4ba6b)
+    (property "Reference" "U101" (id 0) (at 162.56 81.28 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 162.56 91.44 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 162.56 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 162.56 86.36 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-9" (id 4) (at 162.56 86.36 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "0" (uuid 123a5469-360a-1f1d-c337-68bb627fc71c))
+    (pin "p-0" (uuid ee717824-7358-8697-43df-19d78bf88451))
+    (pin "p+0" (uuid 94ef25fb-f3f4-3d8c-601a-5b114666b2f3))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U101") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_27") (at 137.16 91.44 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 7042aea7-d73d-438e-5a02-ee438e20ccab)
+    (property "Reference" "R215" (id 0) (at 139.192 91.44 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "47R" (id 1) (at 137.16 91.44 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 137.16 91.44 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 137.16 91.44 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-60" (id 4) (at 137.16 91.44 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 406a7666-2c7a-24dc-096a-662ceb54591b))
+    (pin "0" (uuid 73525c32-9859-b8f2-c0d2-e6b4328e599f))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R215") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_12") (at 72.39 87.63 90.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid aaac02ee-1556-df73-5c29-affd56556c1d)
+    (property "Reference" "C207" (id 0) (at 69.85 88.265 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "47p" (id 1) (at 74.93 88.265 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:C_DISC_D50MM_W25MM_P500MM" (id 2) (at 72.39 87.63 270.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 72.39 87.63 270.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "jitx-C-1" (id 4) (at 72.39 87.63 90.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 586e7b90-7c3f-2898-0df3-484bd192dcdd))
+    (pin "0" (uuid 147d798a-ba8b-e84e-a6cf-19d56c09eb66))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "C207") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 195.58 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 2eb62b60-bcea-f35d-5ae5-2fe8febea08c)
+    (property "Reference" "U104" (id 0) (at 195.58 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 195.58 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 195.58 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 195.58 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-6" (id 4) (at 195.58 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid 50a7fb93-65f6-8e33-c264-b7214be991e7))
+    (pin "V+" (uuid 7c13f1d5-3f5a-1315-d252-aba14b050a6c))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U104") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 245.11 129.54 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 34573285-38d2-0685-7a06-558aa6008dbb)
+    (property "Reference" "R603" (id 0) (at 247.142 129.54 270.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "680K" (id 1) (at 245.11 129.54 270.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 245.11 129.54 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 245.11 129.54 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-14" (id 4) (at 245.11 129.54 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 4a6bb944-370c-4f79-bb04-6a067c8a3bfd))
+    (pin "0" (uuid 10e413a2-b75b-d129-0af4-28307d665c88))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R603") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 177.8 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid 088adbc4-16b5-9a2c-4dc9-ba94baf9a6f2)
+    (property "Reference" "U107" (id 0) (at 177.8 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 177.8 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 177.8 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 177.8 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-3" (id 4) (at 177.8 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid 9f71b400-66bf-41e9-863d-2b834dd95ed4))
+    (pin "V+" (uuid 9ec284e4-3038-9ea5-7245-4c43b1858770))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U107") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 270.51 7.62 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid b46b990c-818e-eba1-f26d-116b31965b34)
+    (property "Reference" "U107" (id 0) (at 270.51 2.54 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 270.51 12.7 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 270.51 7.62 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 270.51 7.62 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-3" (id 4) (at 270.51 7.62 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "0" (uuid fb73ae09-1dab-0060-b1a5-21a6f97f2931))
+    (pin "p-0" (uuid cff5e145-5181-0572-f863-da6f2c3dc4e4))
+    (pin "p+0" (uuid 6feeb746-47a8-cf3f-01f5-6b0cb98c1fed))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U107") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_28") (at 110.49 81.28 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 4b122c15-a818-99d6-8021-685dc170c053)
+    (property "Reference" "R221" (id 0) (at 110.49 81.28 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "560K" (id 1) (at 108.458 81.28 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 110.49 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 110.49 81.28 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-54" (id 4) (at 110.49 81.28 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 202a46e4-a61f-74b5-4ed2-564f1a6972dc))
+    (pin "0" (uuid bfbf7100-5353-9959-621f-27bb6a122874))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R221") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_39") (at 130.81 86.36 90.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 59a9386d-877e-091f-fef4-f0630e0e5a0b)
+    (property "Reference" "R209" (id 0) (at 130.81 86.36 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "2K" (id 1) (at 130.81 88.392 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 130.81 86.36 270.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 130.81 86.36 270.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-64" (id 4) (at 130.81 86.36 90.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 0a8f6ffa-4ab2-5f57-09a9-3ad34e452506))
+    (pin "0" (uuid 5f18d76e-9f31-220f-8965-818a0e2464be))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R209") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_41") (at 248.92 12.7 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 8baa7af7-32fe-b97c-1554-2661c003d6f0)
+    (property "Reference" "R608" (id 0) (at 248.92 12.7 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "680K" (id 1) (at 246.888 12.7 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 248.92 12.7 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 248.92 12.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-9" (id 4) (at 248.92 12.7 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid ac65cd84-fe42-7ff2-f619-100a87f6df65))
+    (pin "0" (uuid 9595ec7b-a581-aa8a-4b96-fd2d0ce11599))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R608") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_23") (at 133.35 60.96 0.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 3ddb0903-7a97-2839-9543-cb8e989d543d)
+    (property "Reference" "J101" (id 0) (at 134.62 53.34 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "Conn_02x05_Odd_Even" (id 1) (at 134.62 68.58 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:PINHEADER_2X05_P254MM_VERTICAL" (id 2) (at 133.35 60.96 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 133.35 60.96 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "Conn_02x05_Odd_Even" (id 4) (at 133.35 60.96 0.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "Pin_1" (uuid 64eb15eb-8c98-5b3b-645e-e25a71106279))
+    (pin "Pin_10" (uuid 1f93b68c-dff9-7f6c-726b-6fd02382ef91))
+    (pin "Pin_2" (uuid 832b2329-c8c3-ef37-2408-2d964ad69bcb))
+    (pin "Pin_3" (uuid 41be09f6-bd19-4d14-7cb0-8ffa753edb0e))
+    (pin "Pin_4" (uuid 1fd40e6a-9d80-b7ee-15e4-2bca400a72c8))
+    (pin "Pin_5" (uuid 30f8aa5b-761e-ccb2-dd58-4c678fea56e1))
+    (pin "Pin_6" (uuid 713f491f-08bb-9ac2-9063-ef7c2a16ce65))
+    (pin "Pin_7" (uuid a71d71bd-b115-a83c-740e-00d0d7df9280))
+    (pin "Pin_8" (uuid fa6e3138-d1a3-acff-2701-d4ff6d7c6c29))
+    (pin "Pin_9" (uuid cc2f5e7b-0810-9ffb-d410-3196719e9a60))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "J101") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_3") (at 242.57 12.7 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 94c5b538-d1c3-4f42-8321-7bc36e4ef9ef)
+    (property "Reference" "R520" (id 0) (at 242.57 12.7 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "1K" (id 1) (at 240.538 12.7 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 242.57 12.7 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 242.57 12.7 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-18" (id 4) (at 242.57 12.7 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 5d73813b-5f49-981d-98d8-3875e408466d))
+    (pin "0" (uuid 5d5dc1f3-3065-0dad-ea6f-5c84f1142beb))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R520") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_38") (at 160.02 49.53 180.0)  (unit 3)
+    (in_bom yes) (on_board yes) 
+    (uuid d0921b82-8aff-86a9-fc1d-21b70190ddf1)
+    (property "Reference" "U102" (id 0) (at 160.02 44.45 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Value" "TL072" (id 1) (at 160.02 54.61 0.0) (effects (font (size 0.762 0.762)) ))
+    (property "Footprint" "VCO:DIP_8_W762MM_SOCKET" (id 2) (at 160.02 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf" (id 3) (at 160.02 49.53 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "TL072-8" (id 4) (at 160.02 49.53 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "V-" (uuid de59ff1f-c557-75fe-7b9f-e215dd2a22ed))
+    (pin "V+" (uuid c3992ebf-4c67-a732-8248-a053a6944133))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "U102") (unit 3)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "component_1") (at 45.72 129.54 180.0)  (unit 1)
+    (in_bom yes) (on_board yes) 
+    (uuid 6eca8bda-4671-685b-1566-7df05408daec)
+    (property "Reference" "R217" (id 0) (at 45.72 129.54 90.0) (effects (font (size 0.762 0.762)) (justify right )))
+    (property "Value" "1M" (id 1) (at 43.688 129.54 90.0) (effects (font (size 0.762 0.762)) (justify left )))
+    (property "Footprint" "VCO:R_AXIAL_DIN0207_L63MM_D25MM_P762MM_HORIZONTAL" (id 2) (at 45.72 129.54 0.0) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "~" (id 3) (at 45.72 129.54 0.0) (effects (font (size 0.762 0.762)) hide))
+      (property "Name" "R-58" (id 4) (at 45.72 129.54 180.0) (effects (font (size 0.762 0.762)) hide))
+    
+    (pin "1" (uuid 9d6bb120-7c20-31c6-07dc-9ae27e8fad0f))
+    (pin "0" (uuid c217af02-9360-a971-53fa-7fc33d79039f))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "R217") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net+12V") (at 67.31 72.39 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 5e8c1f33-2a18-691b-781c-d305ce459777)
+    (property "Reference" "#PWR?" (id 0) (at 67.31 72.39 0) (effects hide))
+    (property "Value" "Net+12V" (id 1) (at 64.77 69.85 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 0f585076-540e-9f3a-8243-f1ab1f225b9a))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net+12V") (at 99.06 45.72 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 9089840f-d432-5b1d-7359-47dbf4df0dcd)
+    (property "Reference" "#PWR?" (id 0) (at 99.06 45.72 0) (effects hide))
+    (property "Value" "Net+12V" (id 1) (at 96.52 43.18 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid b08c28df-85e7-01e7-8650-df138cdaa0dd))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net-12V") (at 110.49 76.2 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid aec6040c-8954-9cf1-deae-8f7468e50f5c)
+    (property "Reference" "#PWR?" (id 0) (at 110.49 76.2 0) (effects hide))
+    (property "Value" "Net-12V" (id 1) (at 107.95 73.66 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid b79c5f51-4121-9b6a-fa09-5bdd489f4b96))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 179.07 93.98 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 22c0ca05-60df-e3f8-405b-11d1c9e9edd3)
+    (property "Reference" "#PWR?" (id 0) (at 179.07 93.98 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 176.53 96.52 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid d44fe2d0-17bf-009c-7ac3-ab698b80bffb))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 137.16 139.7 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 33a09d17-6138-ec6b-7e9f-5cf9cd7f8442)
+    (property "Reference" "#PWR?" (id 0) (at 137.16 139.7 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 134.62 142.24 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid a93801fd-208a-2964-3cd3-951881a5a5e6))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net+12V") (at 227.33 39.37 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 8106105e-0325-8a2a-7395-dc452c802f54)
+    (property "Reference" "#PWR?" (id 0) (at 227.33 39.37 0) (effects hide))
+    (property "Value" "Net+12V" (id 1) (at 224.79 36.83 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 2d706cce-6d5e-939d-a192-077cf4cc1df2))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net-12V") (at 179.07 39.37 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid c3b5a800-2672-b32d-92a9-d7cc6ac1a246)
+    (property "Reference" "#PWR?" (id 0) (at 179.07 39.37 0) (effects hide))
+    (property "Value" "Net-12V" (id 1) (at 176.53 36.83 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 3ef4c05d-4ae5-3d8b-6a45-03bfc5dc2fd9))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 187.96 139.7 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 63d8d95f-8f19-99dc-ac7d-8b9be5673dc7)
+    (property "Reference" "#PWR?" (id 0) (at 187.96 139.7 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 185.42 142.24 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 8777e15f-b719-3b2c-1d22-346a368d7ed2))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 194.31 139.7 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 0132478b-e89a-7031-6d4d-0b08062aff76)
+    (property "Reference" "#PWR?" (id 0) (at 194.31 139.7 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 191.77 142.24 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 9d50e381-f1ca-3b62-4834-f5c948cbdff4))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 292.1 26.67 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 106b9e64-b818-2c6f-757b-5d5b6bee1a2c)
+    (property "Reference" "#PWR?" (id 0) (at 292.1 26.67 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 289.56 29.21 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 057d733c-ddd6-f455-abc4-d58b16f658fa))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 208.28 90.17 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid a1c00fc7-0904-bf5e-f601-3ae9f6a81897)
+    (property "Reference" "#PWR?" (id 0) (at 208.28 90.17 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 205.74 92.71 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 18ec23d3-4002-38eb-24d7-c21654664701))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "GND") (at 142.24 72.39 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid b53067ac-99c3-45d5-ef41-054bee392e49)
+    (property "Reference" "#PWR?" (id 0) (at 142.24 72.39 0) (effects hide))
+    (property "Value" "GND" (id 1) (at 139.7 74.93 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid ce4f7df4-8d68-8e57-07ea-49d47b5a3eb0))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net+12V") (at 142.24 48.26 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 2156874a-f35c-94a5-af8e-0c9033e04028)
+    (property "Reference" "#PWR?" (id 0) (at 142.24 48.26 0) (effects hide))
+    (property "Value" "Net+12V" (id 1) (at 139.7 45.72 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 5fdecd00-ee84-9546-2981-b0ebcf3c0654))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Net-12V") (at 125.73 48.26 0.0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid f630b84c-69e6-bbd5-8551-e113222a8dcf)
+    (property "Reference" "#PWR?" (id 0) (at 125.73 48.26 0) (effects hide))
+    (property "Value" "Net-12V" (id 1) (at 123.19 45.72 0.0) (effects (font (size 0.762 0.762))))
+    (property "Footprint" "" (id 2) (effects (font (size 0.762 0.762)) hide))
+    (property "Datasheet" "" (id 3) (effects (font (size 0.762 0.762)) hide))
+    (pin "~" (uuid 7921b916-03ff-37dd-0bfc-a7348b697c57))
+    (instances
+      (project "VCO"
+        (path "/493cb92b-e08e-7591-67cc-f231481c078e/ccab6793-ad59-a483-dc46-7ddb900d63ad"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+  
+)

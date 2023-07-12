@@ -1,0 +1,138 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/Conn_02x05_Odd_Even :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(1.7, 1.7, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.7, 1.7, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.7, 1.7, loc(0.0, 0.0))
+  layer(Cutout()) = Circle(0.5)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.7, 1.7)
+  layer(SolderMask(Top)) = Rectangle(1.7, 1.7)
+  layer(SolderMask(Bottom)) = Rectangle(1.7, 1.7)
+  layer(Cutout()) = Circle(0.5)
+
+public pcb-landpattern PinHeader_2x05_P254mm_Vertical :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : oval-th-pad at loc(2.54, 0.0) on Top
+  pad p[3] : oval-th-pad at loc(0.0, -2.54) on Top
+  pad p[4] : oval-th-pad at loc(2.54, -2.54) on Top
+  pad p[5] : oval-th-pad at loc(0.0, -5.08) on Top
+  pad p[6] : oval-th-pad at loc(2.54, -5.08) on Top
+  pad p[7] : oval-th-pad at loc(0.0, -7.62) on Top
+  pad p[8] : oval-th-pad at loc(2.54, -7.62) on Top
+  pad p[9] : oval-th-pad at loc(0.0, -10.16) on Top
+  pad p[10] : oval-th-pad at loc(2.54, -10.16) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.8, 1.8), 
+    Point(-1.8, -11.95), 
+    Point(4.35, -11.95), 
+    Point(4.35, 1.8)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(1.27, -12.49, 90.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(1.27, -5.08), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(6.4, 4.0, 180.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, 1.33), Point(0.0, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, 0.0), Point(-1.33, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, -1.27), Point(-1.33, -11.49)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, -1.27), Point(1.27, -1.27)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, -11.49), Point(3.87, -11.49)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.27, 1.33), Point(3.87, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.27, -1.27), Point(1.27, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(3.87, 1.33), Point(3.87, -11.49)])
+  layer(Finish(Top)) = Line(0.1, [Point(-1.27, 0.0), Point(0.0, 1.27)])
+  layer(Finish(Top)) = Line(0.1, [Point(-1.27, -11.43), Point(-1.27, 0.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, 1.27), Point(3.81, 1.27)])
+  layer(Finish(Top)) = Line(0.1, [Point(3.81, 1.27), Point(3.81, -11.43)])
+  layer(Finish(Top)) = Line(0.1, [Point(3.81, -11.43), Point(-1.27, -11.43)])
+
+  model3d = Model3D("../../3d-models/PinHeader_2x05_P2.54mm_Vertical.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
+public pcb-symbol Conn_02x05_Odd_Even :
+  pin Pin_1 at Point(-1.27, 5.08) with :
+    direction = Left
+    length = 3.81
+    number-size = 1.27
+  pin Pin_10 at Point(3.81, -5.08) with :
+    direction = Right
+    length = 3.81
+    number-size = 1.27
+  pin Pin_2 at Point(3.81, 5.08) with :
+    direction = Right
+    length = 3.81
+    number-size = 1.27
+  pin Pin_3 at Point(-1.27, 2.54) with :
+    direction = Left
+    length = 3.81
+    number-size = 1.27
+  pin Pin_4 at Point(3.81, 2.54) with :
+    direction = Right
+    length = 3.81
+    number-size = 1.27
+  pin Pin_5 at Point(-1.27, 0.0) with :
+    direction = Left
+    length = 3.81
+    number-size = 1.27
+  pin Pin_6 at Point(3.81, 0.0) with :
+    direction = Right
+    length = 3.81
+    number-size = 1.27
+  pin Pin_7 at Point(-1.27, -2.54) with :
+    direction = Left
+    length = 3.81
+    number-size = 1.27
+  pin Pin_8 at Point(3.81, -2.54) with :
+    direction = Right
+    length = 3.81
+    number-size = 1.27
+  pin Pin_9 at Point(-1.27, -5.08) with :
+    direction = Left
+    length = 3.81
+    number-size = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(1.27, 7.62), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(1.27, -7.62), "", TrueTypeFont, false, false)
+  layer("foreground") = Rectangle(5.08, 12.7, loc(1.27, 0.0))
+  layer("none") = Rectangle(1.27, 0.254, loc(3.175, -2.54))
+  layer("none") = Rectangle(1.27, 0.254, loc(3.175, 0.0))
+  layer("none") = Rectangle(1.27, 0.254, loc(-0.635, 2.54))
+  layer("none") = Rectangle(1.27, 0.254, loc(3.175, 2.54))
+  layer("none") = Rectangle(1.27, 0.254, loc(-0.635, 0.0))
+  layer("none") = Rectangle(1.27, 0.254, loc(-0.635, -2.54))
+  layer("none") = Rectangle(1.27, 0.254, loc(3.175, -5.08))
+  layer("none") = Rectangle(1.27, 0.254, loc(3.175, 5.08))
+  layer("none") = Rectangle(1.27, 0.254, loc(-0.635, -5.08))
+  layer("none") = Rectangle(1.27, 0.254, loc(-0.635, 5.08))
+
+public pcb-component component :
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [Pin_1 | p[1] | Left | "Passive"]
+    [Pin_10 | p[10] | Right | "Passive"]
+    [Pin_2 | p[2] | Right | "Passive"]
+    [Pin_3 | p[3] | Left | "Passive"]
+    [Pin_4 | p[4] | Right | "Passive"]
+    [Pin_5 | p[5] | Left | "Passive"]
+    [Pin_6 | p[6] | Right | "Passive"]
+    [Pin_7 | p[7] | Left | "Passive"]
+    [Pin_8 | p[8] | Right | "Passive"]
+    [Pin_9 | p[9] | Left | "Passive"]
+
+  assign-landpattern(PinHeader_2x05_P254mm_Vertical)
+  assign-symbol(Conn_02x05_Odd_Even)
+
+  property(self.Value) = "Conn_02x05_Odd_Even"
+

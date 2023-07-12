@@ -1,0 +1,48 @@
+#use-added-syntax(jitx)
+defpackage VCO/board :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-material copper :
+  type = Conductor
+
+pcb-material core-1 :
+  type = Dielectric
+  material-name = "FR4"
+  dielectric-coefficient = 4.5
+  loss-tangent = 0.02
+
+pcb-stackup kicad-project-stackup :
+  layer "F.Cu" (0.035, copper)
+  layer "dielectric 1" (1.51, core-1)
+  layer "B.Cu" (0.035, copper)
+
+public pcb-rules design-rules :
+  min-copper-width = 0.25
+  min-copper-copper-space = 0.127
+  min-copper-hole-space = 0.25
+  min-copper-edge-space = 0.025
+  min-annular-ring = 0.05
+  min-drill-diameter = 0.1
+  min-silkscreen-width = 0.0
+  min-pitch-leaded = 0.35
+  min-pitch-bga = 0.35
+  max-board-width = 457.2
+  max-board-height = 609.6
+  solder-mask-registration = 0.15
+  min-silk-solder-mask-space = 0.15
+  min-silkscreen-text-height = 0.762
+  min-th-pad-expand-outer = 0.15
+  min-soldermask-opening = 0.152
+  min-soldermask-bridge = 0.102
+  min-hole-to-hole = 0.25
+  min-pth-pin-solder-clearance = 3.0
+
+public pcb-board kicad-project-board :
+  stackup = ocdb/manufacturers/stackups/jlcpcb-jlc2313
+  boundary = Polygon([Point(-83.5, 61.2) Point(-83.5, -43.3) Point(78.7, -43.3) Point(78.7, 61.2)])
+  signal-boundary = Polygon([Point(-83.5, 61.2) Point(-83.5, -43.3) Point(78.7, -43.3) Point(78.7, 61.2)])
+
