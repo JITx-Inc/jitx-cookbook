@@ -5,6 +5,7 @@ defpackage VCO/components/UNKNOWN/TL072 :
   import jitx
   import jitx/commands
   import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
 
 
 public pcb-symbol TL072A :
@@ -70,25 +71,24 @@ public pcb-symbol TL072C :
   layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 5.08), "", TrueTypeFont, false, false)
   layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -5.08), "", TrueTypeFont, false, false)
 
-public pcb-component component :
-  datasheet = "http://www.ti.com/lit/ds/symlink/tl071.pdf"
-  pin-properties :
-    [pin:Ref | pads:Ref ... | side:Dir | bank:Ref | electrical-type:String]
-    [p[0] | p[1] | Right | A | "Output"]
-    [p-[0] | p[2] | Left | A | "Input"]
-    [p+[0] | p[3] | Left | A | "Input"]
-    [p+[1] | p[5] | Left | B | "Input"]
-    [p-[1] | p[6] | Left | B | "Input"]
-    [p[1] | p[7] | Right | B | "Output"]
-    [V- | p[4] | Down | C | "PowerIn"]
-    [V+ | p[8] | Up | C | "PowerIn"]
+public pcb-module component :
+  port p : pin[2]
+  port p- : pin[2]
+  port p+ : pin[2]
+  pin V-
+  pin V+
 
-  assign-landpattern(VCO/landpatterns/DIP-8_W762mm_Socket/DIP-8_W762mm_Socket)
-  assign-symbols([
-    Ref("A") => TL072A
-    Ref("B") => TL072B
-    Ref("C") => TL072C
-  ])
+  val datasheet = "http://www.ti.com/lit/ds/symlink/tl071.pdf"
 
-  property(self.Value) = "TL072"
+  inst tl072 : database-part(["mpn" => "TL072CDT", "manufacturer" => "STMicroelectronics"])
+
+  net (p[0] tl072.P_1OUT)
+  net (p[1] tl072.P_2OUT)
+  net (p-[0] tl072.P_1IN-)
+  net (p-[1] tl072.P_2IN-)
+  net (p+[0] tl072.P_1IN+)
+  net (p+[1] tl072.P_2IN+)
+  net (V- tl072.VCC-)
+  net (V+ tl072.VCC+)
+
 

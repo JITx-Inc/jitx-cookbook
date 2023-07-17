@@ -22,24 +22,26 @@ pcb-stackup kicad-project-stackup :
 
 public pcb-rules design-rules :
   min-copper-width = 0.25
-  min-copper-copper-space = 0.127
-  min-copper-hole-space = 0.25
-  min-copper-edge-space = 0.025
-  min-annular-ring = 0.05
-  min-drill-diameter = 0.1
-  min-silkscreen-width = 0.0
-  min-pitch-leaded = 0.35
-  min-pitch-bga = 0.35
-  max-board-width = 457.2
-  max-board-height = 609.6
-  solder-mask-registration = 0.15
+  min-copper-copper-space = 0.09 ; 3.5mil ; 0.127mm for 1 or 2-copper-layer designs
+  min-copper-hole-space = 0.254 ; 10mil
+  min-copper-edge-space = 0.20 ; 7.87mil
+  min-annular-ring = 0.13 ;
+  min-drill-diameter = 0.20 ; 7.87mil
+  ;max-drill-diameter = 6.3 ;
+  min-silkscreen-width = 0.153 ; 6mil
+  min-pitch-leaded = 0.127 ; 11.81mil (guess)
+  min-pitch-bga = 0.377 ; 14.84mil
   min-silk-solder-mask-space = 0.15
-  min-silkscreen-text-height = 0.762
-  min-th-pad-expand-outer = 0.15
-  min-soldermask-opening = 0.152
-  min-soldermask-bridge = 0.102
-  min-hole-to-hole = 0.25
-  min-pth-pin-solder-clearance = 3.0
+  min-silkscreen-text-height = 1.00
+  solder-mask-registration = 0.05
+  min-soldermask-opening = 0.10 ; solder bridge - solder mask opening/expansion DIAMETER
+  min-soldermask-bridge = 0.20 ; per rules green is 0.2mm
+  ;min-via-to-via = 0.254 ; only for vias on the same net otherwise 0.5mm
+  min-hole-to-hole = 0.50 ; only for vias on the same net otherwise 0.5mm
+  min-pth-pin-solder-clearance = 3.0 ; TODO: lookup actual value
+  min-th-pad-expand-outer = 0.26 ; The annular ring size will be enlarged to 0.15mm in production.
+  max-board-width = 350.0 ; maximum assembly size supported single PCB
+  max-board-height = 320.0
 
 public pcb-board kicad-project-board :
   stackup = ocdb/manufacturers/stackups/jlcpcb-jlc2313

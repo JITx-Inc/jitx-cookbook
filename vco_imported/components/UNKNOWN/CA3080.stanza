@@ -5,6 +5,7 @@ defpackage VCO/components/UNKNOWN/CA3080 :
   import jitx
   import jitx/commands
   import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
 
 
 public pcb-symbol CA3080 :
@@ -52,21 +53,25 @@ public pcb-symbol CA3080 :
     Point(-5.08, 5.08), 
     Point(5.08, 0.0)])
 
-public pcb-component component :
-  datasheet = "http://www.intersil.com/content/dam/Intersil/documents/ca30/ca3080-a.pdf"
-  pin-properties :
-    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
-    [NC[0] | p[1] | Up | "NoConnect"]
-    [p- | p[2] | Left | "Input"]
-    [p+ | p[3] | Left | "Input"]
-    [V- | p[4] | Down | "PowerIn"]
-    [BIAS | p[5] | Up | "Passive"]
-    [p | p[6] | Right | "Output"]
-    [V+ | p[7] | Up | "PowerIn"]
-    [NC[1] | p[8] | Up | "NoConnect"]
+public pcb-module component :
+  pin p-
+  pin p+
+  pin V-
+  pin V+
+  pin BIAS
+  pin p
+  port NC : pin[2]
 
-  assign-landpattern(VCO/landpatterns/DIP-8_W762mm_Socket/DIP-8_W762mm_Socket)
-  make-box-symbol()
+  inst lm13700 : database-part(["mpn" => "LM13700MNOPB", "manufacturer" => "Texas Instruments"])
 
-  property(self.Value) = "CA3080"
+  net (lm13700.Amp_bias_input0 BIAS)
+  no-connect(lm13700.Diode_bias0)
+  net (lm13700.Input+0 p+)
+  net (lm13700.Input-0 p-)
+  net (lm13700.Output0 p)
+  net (lm13700.V- V-)
+  net (lm13700.V+ V+)
+
+  res-strap(V+, lm13700.Input+1, 10000.0)
+  res-strap(lm13700.Input+1, V-, 10000.0)
 
