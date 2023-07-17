@@ -52,4 +52,4 @@ defn export-bill-of-materials () :
   export-bom()
 
 compile-design(main)
-;export-design()
+export-design()

@@ -109,21 +109,21 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.09,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.024999999999999998,
-        "min_hole_clearance": 0.25,
-        "min_hole_to_hole": 0.25,
+        "min_copper_edge_clearance": 0.19999999999999998,
+        "min_hole_clearance": 0.254,
+        "min_hole_to_hole": 0.5,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.762,
+        "min_text_height": 1.0,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.09999999999999999,
+        "min_through_hole_diameter": 0.19999999999999998,
         "min_track_width": 0.25,
-        "min_via_annular_width": 0.049999999999999996,
-        "min_via_diameter": 0.39999999999999997,
+        "min_via_annular_width": 0.13,
+        "min_via_diameter": 0.45999999999999996,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -192,7 +192,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.127,
+        "clearance": 0.09,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -203,13 +203,13 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
-        "via_diameter": 0.01,
-        "via_drill": 0.1,
+        "via_diameter": 0.052,
+        "via_drill": 0.2,
         "wire_width": 6
       },
       {
         "bus_width": 12,
-        "clearance": 0.127,
+        "clearance": 0.09,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -220,8 +220,8 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
-        "via_diameter": 0.01,
-        "via_drill": 0.1,
+        "via_diameter": 0.052,
+        "via_drill": 0.2,
         "wire_width": 6
       }
     ],
@@ -233,223 +233,7 @@
     "netclass_patterns": [
       {
         "netclass": "Default",
-        "pattern": "Net-R516-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R515-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R513-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R510-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R509-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R506-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R505-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q201-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R503-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J502-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R502-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R501-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "BaseTriangle"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J501-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R406-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J402-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R405-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R404-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "BaseSquare"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J401-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J301-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J204-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J203-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-J202-PadT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-U201-Pad8"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-U201-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D604-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J502-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R403-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D603-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R402-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J501-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J402-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D602-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "LEDSine"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J401-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D601-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R401-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J301-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J204-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "LEDSaw"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D502-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R401-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J203-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J202-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "LEDPulse"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D502-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R304-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "unconnected-J201-PadTN"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R215-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-SW201-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "LEDInvertedSaw"
-      },
-      {
-        "netclass": "Default",
         "pattern": "Net-D501-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R214-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R612-Pad1"
       },
       {
         "netclass": "Default",
@@ -457,35 +241,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "Net-D501-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R209-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-D201-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R207-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R206-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R611-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R205-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R610-Pad1"
+        "pattern": "Net-R513-Pad2"
       },
       {
         "netclass": "Default",
@@ -497,7 +253,27 @@
       },
       {
         "netclass": "Default",
-        "pattern": "Net-R609-Pad1"
+        "pattern": "Net-C207-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "LEDSine"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J502-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q202-Pad3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R510-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J501-PadTN"
       },
       {
         "netclass": "Default",
@@ -505,11 +281,119 @@
       },
       {
         "netclass": "Default",
+        "pattern": "Net-C206-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J402-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "LEDSaw"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-C205-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J401-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J301-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J204-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J203-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R509-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "unconnected-J202-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "LEDPulse"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-C202-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R506-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "LEDInvertedSaw"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R505-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R503-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R502-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R501-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R406-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R405-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R404-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R402-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R401-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R401-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R304-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R215-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R214-Pad1"
+      },
+      {
+        "netclass": "Default",
         "pattern": "Net-R202-Pad1"
       },
       {
         "netclass": "Default",
-        "pattern": "Net-C207-Pad1"
+        "pattern": "Input+1"
       },
       {
         "netclass": "Default",
@@ -517,7 +401,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "Net-C206-Pad1"
+        "pattern": "BaseTriangle"
       },
       {
         "netclass": "Default",
@@ -525,11 +409,15 @@
       },
       {
         "netclass": "Default",
-        "pattern": "Net-R607-Pad1"
+        "pattern": "BaseSquare"
       },
       {
         "netclass": "Default",
-        "pattern": "Net-C205-Pad1"
+        "pattern": "unconnected-J201-PadTN"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-C201-Pad2"
       },
       {
         "netclass": "Default",
@@ -541,55 +429,7 @@
       },
       {
         "netclass": "Default",
-        "pattern": "Net-R605-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q301-Pad3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-C202-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q301-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R603-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q301-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-C202-Pad1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q204-Pad3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q203-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-R601-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q202-Pad3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-C201-Pad2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "Net-Q202-Pad2"
+        "pattern": "Net-D502-Pad2"
       },
       {
         "netclass": "Default",
@@ -597,7 +437,107 @@
       },
       {
         "netclass": "Default",
+        "pattern": "Net-Q301-Pad3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R612-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q301-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R611-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q301-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R610-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-C202-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R609-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R207-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q204-Pad3"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R209-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q203-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R607-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q202-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-Q201-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R605-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J502-PadT"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J501-PadT"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R603-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J402-PadT"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J401-PadT"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R601-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J301-PadT"
+      },
+      {
+        "netclass": "Default",
         "pattern": "Net-R601-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J204-PadT"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-J203-PadT"
       },
       {
         "netclass": "Default",
@@ -605,11 +545,63 @@
       },
       {
         "netclass": "Default",
+        "pattern": "Net-J202-PadT"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-D604-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-D603-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-D602-Pad1"
+      },
+      {
+        "netclass": "Default",
         "pattern": "Net-R517-Pad2"
       },
       {
-        "netclass": "Power",
-        "pattern": "Net-12V"
+        "netclass": "Default",
+        "pattern": "Net-D601-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R516-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R206-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R515-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R403-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-D502-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-SW201-Pad2"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-R205-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-D501-Pad1"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "Net-D201-Pad1"
       },
       {
         "netclass": "Power",
@@ -618,6 +610,10 @@
       {
         "netclass": "Power",
         "pattern": "Net+12V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "Net-12V"
       }
     ]
   },

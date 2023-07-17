@@ -30,7 +30,7 @@ public defn add-main-placements () -> False :
     place(self.R-13) at loc(-10.1, -39.9, 270.0) on Top
     place(self.R-14) at loc(-14.966668, -39.9, 270.0) on Top
     place(self.R-15) at loc(45.6, -39.9, 90.0) on Top
-    place(self.R-16) at loc(40.3, -39.9, 0.0) on Top
+    place(self.R-16) at loc(40.3 - 3.0, -40.0, 270.0) on Top
     place(self.R-17) at loc(-36.2, -17.2) on Top
     place(self.R-18) at loc(-66.2, -17.2) on Top
     place(self.R-19) at loc(-77.8, 29.7, 90.0) on Top
@@ -40,12 +40,12 @@ public defn add-main-placements () -> False :
     place(self.R-22) at loc(-46.7, -7.0, 270.0) on Top
     place(self.R-23) at loc(-56.5, -7.0) on Top
     place(self.R-24) at loc(-44.1, -1.7, 270.0) on Top
-    place(self.R-25) at loc(-39.3, -1.7, 90.0) on Top
+    place(self.R-25) at loc(-39.3, -1.7, 270.0) on Top
     place(self.R-26) at loc(6.40000000000001, -11.7, 0.0) on Top
     place(self.R-27) at loc(-35.4, 11.0) on Top
     place(self.R-28) at loc(-26.2, -17.2) on Top
     place(self.R-29) at loc(-8.58000000000001, -17.2, 0.0) on Top
-    place(self.R-3) at loc(-12.4, -21.9, 270.0) on Top
+    place(self.R-3) at loc(-12.4, -21.9, 90.0) on Top
     place(self.R-30) at loc(-46.7, -12.5, 270.0) on Top
     place(self.R-31) at loc(-11.9, -11.7) on Top
     place(self.R-32) at loc(-27.5, 0.0999999999999943, 270.0) on Top
@@ -54,7 +54,7 @@ public defn add-main-placements () -> False :
     place(self.R-35) at loc(23.3, 6.2) on Top
     place(self.R-36) at loc(5.59999999999999, -4.5) on Top
     place(self.R-37) at loc(5.69999999999999, 0.5) on Top
-    place(self.R-38) at loc(-6.19999999999999, -17.2) on Top
+    place(self.R-38) at loc(-6.19999999999999, -17.2, 180.0) on Top
     place(self.R-39) at loc(38.78, -10.8) on Top
     place(self.R-4) at loc(42.9, -18.4, 270.0) on Top
     place(self.R-40) at loc(50.4, 4.0, 0.0) on Top
