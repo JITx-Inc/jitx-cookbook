@@ -8,17 +8,17 @@ defpackage VCO/placements :
 
 public defn add-main-placements () -> False :
   inside pcb-module :
-    place(self.AudioJack2_SwitchT-1) at loc(-32.4, -31.78, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-2) at loc(-62.4, -31.78, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-3) at loc(-2.40000000000001, -31.78, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-4) at loc(9.59999999999999, 16.72, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-5) at loc(27.6, -31.78, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-6) at loc(57.6, -31.78, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-7) at loc(9.59999999999999, 36.72, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-8) at loc(-62.4, 36.72, 180.0) on Bottom
-    place(self.AudioJack2_SwitchT-9) at loc(-62.4, 16.72, 180.0) on Bottom
+    place(self.AudioJack2_SwitchT-1) at loc(-32.4, -31.78 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-2) at loc(-62.4, -31.78 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-3) at loc(-2.40000000000001, -31.78 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-4) at loc(9.59999999999999, 16.72 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-5) at loc(27.6, -31.78 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-6) at loc(57.6, -31.78 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-7) at loc(9.59999999999999, 36.72 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-8) at loc(-62.4, 36.72 + 5.0, 90.0) on Bottom
+    place(self.AudioJack2_SwitchT-9) at loc(-62.4, 16.72 + 5.0, 90.0) on Bottom
     place(self.CA3080) at loc(17.1, 59.1) on Top
-    place(self.Conn_02x05_Odd_Even) at loc(-7.59999999999999, 7.59999999999999, 90.0) on Top
+    place(self.Conn_02x05_Odd_Even) at loc(-7.6, 7.6 + 12.5, 0.0) on Top
     place(self.LED-1) at loc(-63.67, -5.3, 180.0) on Bottom
     place(self.LED-2) at loc(-33.67, -5.3, 180.0) on Bottom
     place(self.LED-3) at loc(-3.66999999999999, -5.3, 180.0) on Bottom

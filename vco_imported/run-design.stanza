@@ -33,12 +33,17 @@ defn compile-design (circuit:Instantiable) :
 defn check-design (circuit:Instantiable) :
   run-design(circuit, true)
 
+val export-field-mapping = [
+  "LCSC" => "LCSC"
+  "lcsc" => "LCSC"
+  "vendor_part_numbers.lcsc" => "LCSC"
+]
 defn export-to-cad () :
   set-paper(ANSI-A4)
   set-export-backend(`kicad)
-  export-cad()
+  export-cad(export-field-mapping)
 
-defn export-design () :
+defn export-design ()
   set-export-board?(true)
   export-to-cad()
 
@@ -52,4 +57,4 @@ defn export-bill-of-materials () :
   export-bom()
 
 compile-design(main)
-export-design()
+;export-design()

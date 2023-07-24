@@ -72,6 +72,6 @@ public pcb-module component :
   net (lm13700.V- V-)
   net (lm13700.V+ V+)
 
-  res-strap(V+, lm13700.Input+1, 10000.0)
-  res-strap(lm13700.Input+1, V-, 10000.0)
+  res-strap(V+, lm13700.Input+1, ["resistance" => 10000.0, "_exist" => ["vendor_part_numbers.lcsc"]])
+  res-strap(lm13700.Input+1, V-, ["resistance" => 10000.0, "_exist" => ["vendor_part_numbers.lcsc"]])
 
