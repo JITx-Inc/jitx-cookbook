@@ -13,10 +13,6 @@ defpackage main :
   import ocdb/utils/design-vars
   import ocdb/utils/generator-utils
 
-; debug
-;enable-spy()
-; enable-debug-plugin-serializer()
-
 MIN-CAP-VOLTAGE = 6.0
 
 ; Define the shape/size of the board
@@ -57,7 +53,7 @@ pcb-module media-controller :
   pin LED
   
   ; Look for our media controller in the database (query) and add it to our board
-  inst usb2240 : database-part(["manufacturer" => "Microchip Tech", "mpn" => "USB2240-AEZG-06"])
+  inst usb2240 : database-part(["manufacturer" => "Microchip", "mpn" => "USB2240-AEZG-06"])
 
   ; Use some commonly used things as variables
   val vdd33-rating = min-max(3.0,3.6)
@@ -69,14 +65,13 @@ pcb-module media-controller :
   ; CRD_PWR provides power to the SD card so we call it a supply pin
   property(usb2240.CRD_PWR.supply-pin) = PowerSupplyPin(vdd33-rating, 200.0e-3)
 
-  property(usb2240.LED.digital-output) = DigitalOutput(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), false, usb2240.VDD330, usb2240.GND) ; supply or digital-output or digital-io?
+  property(usb2240.LED.digital-output) = DigitalOutput(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), false, usb2240.VDD330, usb2240.GND)
 
   no-connect(usb2240.MS_INS)
   no-connect(usb2240.NC)
 
-  property(usb2240.RXD_SDA.digital-io) = DigitalIO(OpenCollector(min-max(0.0,0.4), 12.0e-3), min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating)), usb2240.VDD330, usb2240.GND, 10.0e-6)
+  property(usb2240.RXD_SDA.digital-io) = DigitalIO(OpenCollector(min-max(0.0,0.4), 12.0e-3), min-max(0.0,0.8), min-max(2.0, max-value(vdd33-rating) - 0.1), usb2240.VDD330, usb2240.GND, 10.0e-6)
   property(usb2240.TXD_SCK_MS_SKT_SEL.digital-output) = DigitalOutput(OpenCollector(min-max(0.0,0.4), 12.0e-3), false, usb2240.VDD330, usb2240.GND)
-  ; Current leakage is not known on USB
   property(usb2240.USB+.digital-io) = DigitalIO(CMOSOutput(min-max(0.0,0.3), min-max(2.8,5.5)), min-max(0.0,0.8), min-max(2.0,5.5), usb-in.vbus.vdd, usb-in.vbus.gnd, 10.0e-6)
   property(usb2240.USB-.digital-io) = DigitalIO(CMOSOutput(min-max(0.0,0.3), min-max(2.8,5.5)), min-max(0.0,0.8), min-max(2.0,5.5), usb-in.vbus.gnd, usb-in.vbus.vdd, 10.0e-6)
 
@@ -144,8 +139,9 @@ pcb-module media-controller :
 
   inst xtal : database-part(["mpn" => "7B024000Q01", "manufacturer" => "HD"])
   property(xtal.rated-temperature) = min-max(-20.0, 70.0)
-  ; Motional capacitance not known
+
   property(xtal.crystal-resonator) = ocdb/utils/property-structs/CrystalResonator(18.0e-12, 2.0e-12, 4.41e-15, 25.0, 24.0e6, 240.0, 100.0e-6) ; C_l, C_0, C_m, ESR, F, delta F (F * dF/F), D_L
+
   ; Automatically add capacitors to the crystal
   ; Same function as add-xtal-caps(xtal, power.gnd) but change pad names 
   val stray-capacitance = 5.0e-12
@@ -163,7 +159,7 @@ pcb-module usb-2-on-usb-c-male :
   port usb-c : usb-c
   port usb-2 : usb-2
   
-  inst conn : database-part(["mpn" => "TYPE-C-31-G-03", "manufacturer" => "Korean Hroparts Elec"])
+  inst conn : database-part(["mpn" => "TYPE-C-31-G-03", "manufacturer" => "HRO Electronics"])
   place(conn) at loc(0.0,0.0,0.0) on Top
   property(conn.rated-temperature) = false
 
@@ -210,7 +206,6 @@ pcb-module eeprom :
   inst eeprom : database-part(["mpn" => "M24C04-WMN6TP", "manufacturer" => "STMicroelectronics"])
 
   property(eeprom.rated-temperature) = min-max(-65.0, 130.0)
-  ;val vcc = property(power.vdd.voltage)
   val vcc = 3.3
 
   property(eeprom.SDA) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 1.0e-3), min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
@@ -281,8 +276,8 @@ pcb-module sd-card-reader :
   net vdd33 (reg.power-out.vdd)
   net gnd (usb.usb-2.vbus.gnd)
 
-  property(vdd50.voltage) = typ(5.0)
-  property(vdd33.voltage) = typ(3.3)
+  property(vdd50.voltage) = min-max(4.5, 5.5)
+  property(vdd33.voltage) = min-max(3.0, 3.6)
   property(gnd.voltage) = typ(0.0)
 
   inst status-led : components/LED-maker-ROYGB/module(components/LED-maker-ROYGB/RED, property(vdd33.voltage))
