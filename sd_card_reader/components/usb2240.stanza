@@ -1,0 +1,127 @@
+#use-added-syntax(jitx)
+
+defpackage components/usb2240:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/utils/symbols
+  import bundles
+  import helpers
+
+public pcb-module media-controller :
+  port power : power
+  port i2c : i2c
+  port usb-in : usb-2
+  port sd-card-conn : bundles/sd-card-uhs-1-connector
+  pin LED
+  
+  ; Look for our media controller in the database (query) and add it to our board
+  inst usb2240 : database-part(["manufacturer" => "Microchip", "mpn" => "USB2240-AEZG-06"])
+
+  ; Use some commonly used things as variables
+  val vdd33-rating = min-max(3.0,3.6)
+  val io12buffer = DigitalIO(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating)), usb2240.VDD330, usb2240.GND, 10.0e-6)
+
+  ; Set all properties necessary for tests
+  property(usb2240.rated-temperature) = min-max(0.0,70.0)
+  property(usb2240.mounting) = "smd"
+  ; CRD_PWR provides power to the SD card so we call it a supply pin
+  property(usb2240.CRD_PWR.supply-pin) = PowerSupplyPin(vdd33-rating, 200.0e-3)
+
+  property(usb2240.LED.digital-output) = DigitalOutput(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), false, usb2240.VDD330, usb2240.GND)
+
+  no-connect(usb2240.MS_INS)
+  no-connect(usb2240.NC)
+
+  property(usb2240.RXD_SDA.digital-io) = DigitalIO(OpenCollector(min-max(0.0,0.4), 12.0e-3), min-max(0.0,0.8), min-max(2.0, max-value(vdd33-rating) - 0.1), usb2240.VDD330, usb2240.GND, 10.0e-6)
+  property(usb2240.TXD_SCK_MS_SKT_SEL.digital-output) = DigitalOutput(OpenCollector(min-max(0.0,0.4), 12.0e-3), false, usb2240.VDD330, usb2240.GND)
+  property(usb2240.USB+.digital-io) = DigitalIO(CMOSOutput(min-max(0.0,0.3), min-max(2.8,5.5)), min-max(0.0,0.8), min-max(2.0,5.5), usb-in.vbus.vdd, usb-in.vbus.gnd, 10.0e-6)
+  property(usb2240.USB-.digital-io) = DigitalIO(CMOSOutput(min-max(0.0,0.3), min-max(2.8,5.5)), min-max(0.0,0.8), min-max(2.0,5.5), usb-in.vbus.gnd, usb-in.vbus.vdd, 10.0e-6)
+
+  property(usb2240.VDD330.power-pin) = PowerPin(vdd33-rating)
+  property(usb2240.VDD331.power-pin) = PowerPin(vdd33-rating)
+  property(usb2240.VDD332.power-pin) = PowerPin(vdd33-rating)
+  property(usb2240.VDDA33.power-pin) = PowerPin(vdd33-rating)
+
+  property(usb2240.XTAL1_CLKIN.digital-input) = DigitalInput(min-max(0.0,0.5), min-max(1.4, max-value(vdd33-rating)), usb2240.VDD330, usb2240.GND, 10.0e-6)
+  ; XTAL2 (ignore) connected to 24MHz crystal
+  property(usb2240.xD_CLE_SD_CMD_MS_D0.digital-io) = io12buffer
+  property(usb2240.xD_D2_SD_D0_MS_D4.digital-io) = io12buffer
+  property(usb2240.xD_D3_SD_D1_MS_D5.digital-io) = io12buffer
+  property(usb2240.xD_D5_SD_D2.digital-io) = io12buffer
+  property(usb2240.xD_D6_SD_D3_MS_D3.digital-io) = io12buffer
+  
+  no-connect(usb2240.xD_D7_SD_D4_MS_D2)
+  no-connect(usb2240.xD_ALE_SD_D5_MS_D1)
+  no-connect(usb2240.xD_D0_SD_D6_MS_D7)
+  no-connect(usb2240.xD_D1_SD_D7_MS_D6)
+
+  ; Ignore all xD related things as we're making an SD card reader
+  no-connect(usb2240.xD_nB_R)
+  no-connect(usb2240.xD_nCD)
+  no-connect(usb2240.xD_nRE)
+  no-connect(usb2240.xD_nWE)
+  property(usb2240.xD_nWP_SD_CLK_MS_BS.digital-output) = DigitalOutput(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), false, usb2240.VDD330, usb2240.GND)
+
+  ; Connect ports that would be used in every SD card related design
+  net (usb2240.GND power.gnd sd-card-conn.power.gnd usb2240.TEST usb-in.vbus.gnd)
+  net (usb2240.VDD330 usb2240.VDD331 usb2240.VDD332 usb2240.VDDA33 power.vdd)
+
+  res-strap(usb2240.RBIAS, power.gnd, ["resistance" => 12.0e3, "tolerance" => 0.01, "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  res-strap(usb2240.RESET_N, power.vdd, ["resistance" => 10.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.RESET_N, power.gnd, ["capacitance" => 1.0e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  bypass-cap-strap(usb2240.VDD18, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDD18PLL, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  bypass-cap-strap(usb2240.VDD330, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDD331, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDD332, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(usb2240.VDDA33, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  bypass-cap-strap(usb2240.CRD_PWR, power.gnd, ["capacitance" => 4.7e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  net (usb2240.RXD_SDA i2c.sda)
+  net (usb2240.TXD_SCK_MS_SKT_SEL i2c.scl)
+
+  net (usb2240.LED LED)
+
+  net (usb2240.USB+ usb-in.data.P)
+  net (usb2240.USB- usb-in.data.N)
+
+  net (usb2240.SD_nCD sd-card-conn.CD)
+  net (usb2240.xD_D4_SD_WP_MS_SCLK sd-card-conn.WP)
+  net (usb2240.xD_CLE_SD_CMD_MS_D0 sd-card-conn.CMD)
+  net (usb2240.xD_nWP_SD_CLK_MS_BS sd-card-conn.CLK)
+  net (usb2240.CRD_PWR sd-card-conn.power.vdd)
+  net (usb2240.xD_D2_SD_D0_MS_D4 sd-card-conn.DAT[0])
+  net (usb2240.xD_D3_SD_D1_MS_D5 sd-card-conn.DAT[1])
+  net (usb2240.xD_D5_SD_D2 sd-card-conn.DAT[2])
+  net (usb2240.xD_D6_SD_D3_MS_D3 sd-card-conn.DAT[3])
+
+  inst xtal : database-part(["mpn" => "7B024000Q01", "manufacturer" => "HD"])
+  property(xtal.rated-temperature) = min-max(-20.0, 70.0)
+
+  property(xtal.crystal-resonator) = ocdb/utils/property-structs/CrystalResonator(18.0e-12, 2.0e-12, 4.41e-15, 25.0, 24.0e6, 240.0, 100.0e-6) ; C_l, C_0, C_m, ESR, F, delta F (F * dF/F), D_L
+
+  ; Automatically add capacitors to the crystal
+  ; Same function as add-xtal-caps(xtal, power.gnd) but change pad names 
+  val stray-capacitance = 5.0e-12
+  val c-load = load-capacitance(property(xtal.crystal-resonator))
+  val c-bal = closest-std-val(2.0 * (c-load - stray-capacitance), 5.0)
+  cap-strap(xtal.IN, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "_exist" => ["vendor_part_numbers.lcsc"]])
+  cap-strap(xtal.OUT, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  net (xtal.IN usb2240.XTAL1_CLKIN)
+  net (xtal.OUT usb2240.XTAL2)
+  net (xtal.GND0 xtal.GND1 power.gnd)
+  res-strap(usb2240.XTAL1_CLKIN, usb2240.XTAL2, ["resistance" => 1.0e6, "_exist" => ["vendor_part_numbers.lcsc"]])

@@ -1,0 +1,49 @@
+#use-added-syntax(jitx)
+
+defpackage components/m24c04:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/utils/symbols
+  import bundles
+  import helpers
+
+public pcb-module eeprom :
+  port power : power
+  port i2c : i2c
+
+  inst eeprom : database-part(["mpn" => "M24C04-WMN6TP", "manufacturer" => "STMicroelectronics"])
+
+  property(eeprom.rated-temperature) = min-max(-65.0, 130.0)
+  val vcc = 3.3
+
+  property(eeprom.SDA) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 1.0e-3), min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
+  property(eeprom.SCL) = DigitalInput(min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
+
+  property(eeprom.WC_NOT) = DigitalInput(min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
+
+  no-connect(eeprom.NC)
+  ; We only have one EEPROM chip so we leave these floating
+  no-connect(eeprom.E1)
+  no-connect(eeprom.E2)
+
+  net (eeprom.VCC power.vdd)
+  net (eeprom.VSS power.gnd)
+
+  net (eeprom.SDA i2c.sda)
+  net (eeprom.SCL i2c.scl)
+
+  ; Put pull up on SDA and SCL
+  res-strap(eeprom.SDA, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
+  res-strap(eeprom.SCL, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
+
+  ; We don't want write operations to the EEPROM so we set WC_NOT high
+  res-strap(eeprom.WC_NOT, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])

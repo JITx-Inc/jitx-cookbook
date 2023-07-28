@@ -9,14 +9,15 @@ defpackage main :
   import helpers
   import ocdb/utils/property-structs
   import ocdb/utils/bundles
-  import components/LED-maker-ROYGB
   import ocdb/utils/design-vars
   import ocdb/utils/generator-utils
+  import ocdb/utils/netlist-checks/utils
+  import bundles
 
 MIN-CAP-VOLTAGE = 6.0
 
 ; Define the shape/size of the board
-;val board-shape = RoundedRectangle(30.0, 30.0, 0.25)
+; 30.0x30.0 board with 2.0x5.0 cuts on 2 sides
 val board-shape = Polygon([Point(-15.0,-15.0), Point(10.0,-15.0), Point(10.0,-13.0), Point(15.0,-13.0), Point(15.0, 13.0), Point(10.0, 13.0), Point(10.0, 15.0), Point(-15.0,15.0)])
 
 ; Setup the board
@@ -24,136 +25,18 @@ defn setup-board () :
   set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/bay-area-circuits-2-layer-62-mil, board-shape))
   set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
-; We want decoupling capacitors to be close to the component being decoupled
-defn bypass-cap-strap (power-pin:JITXObject, gnd-pin:JITXObject, params:Tuple<KeyValue>) -> JITXObject :
-  inside pcb-module:
-    val cap = cap-strap(gnd-pin, power-pin, params)
-    short-trace(cap.p[2], power-pin)
-    cap
-
-defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced, tol:Double) :
-  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance "tolerance" => tol])
-
-defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced) :
-  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance])
-
-pcb-bundle sd-card-uhs-1-connector:
-  pin CMD ; Command/Response
-  port power : power ; 3.3v and 2 ground pins
-  pin CLK ; Clock
-  port DAT : pin[4] ; Data pins (last pin also used as card detect)
-  pin CD ; Card detect
-  pin WP ; Write protect
-
-pcb-module media-controller :
-  port power : power
-  port i2c : i2c
-  port usb-in : usb-2
-  port sd-card-conn : sd-card-uhs-1-connector
-  pin LED
-  
-  ; Look for our media controller in the database (query) and add it to our board
-  inst usb2240 : database-part(["manufacturer" => "Microchip", "mpn" => "USB2240-AEZG-06"])
-
-  ; Use some commonly used things as variables
-  val vdd33-rating = min-max(3.0,3.6)
-  val io12buffer = DigitalIO(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating)), usb2240.VDD330, usb2240.GND, 10.0e-6)
-
-  ; Set all properties necessary for tests
-  property(usb2240.rated-temperature) = min-max(0.0,70.0)
-  property(usb2240.mounting) = "smd"
-  ; CRD_PWR provides power to the SD card so we call it a supply pin
-  property(usb2240.CRD_PWR.supply-pin) = PowerSupplyPin(vdd33-rating, 200.0e-3)
-
-  property(usb2240.LED.digital-output) = DigitalOutput(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), false, usb2240.VDD330, usb2240.GND)
-
-  no-connect(usb2240.MS_INS)
-  no-connect(usb2240.NC)
-
-  property(usb2240.RXD_SDA.digital-io) = DigitalIO(OpenCollector(min-max(0.0,0.4), 12.0e-3), min-max(0.0,0.8), min-max(2.0, max-value(vdd33-rating) - 0.1), usb2240.VDD330, usb2240.GND, 10.0e-6)
-  property(usb2240.TXD_SCK_MS_SKT_SEL.digital-output) = DigitalOutput(OpenCollector(min-max(0.0,0.4), 12.0e-3), false, usb2240.VDD330, usb2240.GND)
-  property(usb2240.USB+.digital-io) = DigitalIO(CMOSOutput(min-max(0.0,0.3), min-max(2.8,5.5)), min-max(0.0,0.8), min-max(2.0,5.5), usb-in.vbus.vdd, usb-in.vbus.gnd, 10.0e-6)
-  property(usb2240.USB-.digital-io) = DigitalIO(CMOSOutput(min-max(0.0,0.3), min-max(2.8,5.5)), min-max(0.0,0.8), min-max(2.0,5.5), usb-in.vbus.gnd, usb-in.vbus.vdd, 10.0e-6)
-
-  property(usb2240.VDD330.power-pin) = PowerPin(vdd33-rating)
-  property(usb2240.VDD331.power-pin) = PowerPin(vdd33-rating)
-  property(usb2240.VDD332.power-pin) = PowerPin(vdd33-rating)
-  property(usb2240.VDDA33.power-pin) = PowerPin(vdd33-rating)
-
-  property(usb2240.XTAL1_CLKIN.digital-input) = DigitalInput(min-max(0.0,0.5), min-max(1.4, max-value(vdd33-rating)), usb2240.VDD330, usb2240.GND, 10.0e-6)
-  ; XTAL2 (ignore) connected to 24MHz crystal
-  property(usb2240.xD_CLE_SD_CMD_MS_D0.digital-io) = io12buffer
-  property(usb2240.xD_D2_SD_D0_MS_D4.digital-io) = io12buffer
-  property(usb2240.xD_D3_SD_D1_MS_D5.digital-io) = io12buffer
-  property(usb2240.xD_D5_SD_D2.digital-io) = io12buffer
-  property(usb2240.xD_D6_SD_D3_MS_D3.digital-io) = io12buffer
-  
-  no-connect(usb2240.xD_D7_SD_D4_MS_D2)
-  no-connect(usb2240.xD_ALE_SD_D5_MS_D1)
-  no-connect(usb2240.xD_D0_SD_D6_MS_D7)
-  no-connect(usb2240.xD_D1_SD_D7_MS_D6)
-
-  ; Ignore all xD related things as we're making an SD card reader
-  no-connect(usb2240.xD_nB_R)
-  no-connect(usb2240.xD_nCD)
-  no-connect(usb2240.xD_nRE)
-  no-connect(usb2240.xD_nWE)
-  property(usb2240.xD_nWP_SD_CLK_MS_BS.digital-output) = DigitalOutput(CMOSOutput(min-max(0.0,0.4), min-max(min-value(vdd33-rating) - 0.4, max-value(vdd33-rating))), false, usb2240.VDD330, usb2240.GND)
-
-  ; Connect ports that would be used in every SD card related design
-  net (usb2240.GND power.gnd sd-card-conn.power.gnd usb2240.TEST usb-in.vbus.gnd)
-  net (usb2240.VDD330 usb2240.VDD331 usb2240.VDD332 usb2240.VDDA33 power.vdd)
-
-  res-strap(usb2240.RBIAS, power.gnd, ["resistance" => 12.0e3, "tolerance" => 0.01, "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  res-strap(usb2240.RESET_N, power.vdd, ["resistance" => 10.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
-  bypass-cap-strap(usb2240.RESET_N, power.gnd, ["capacitance" => 1.0e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  bypass-cap-strap(usb2240.VDD18, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "_exist" => ["vendor_part_numbers.lcsc"]])
-  bypass-cap-strap(usb2240.VDD18PLL, power.gnd, ["capacitance" => 1.0e-6, "tolerance" => 0.2, "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  bypass-cap-strap(usb2240.VDD330, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
-  bypass-cap-strap(usb2240.VDD331, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
-  bypass-cap-strap(usb2240.VDD332, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
-  bypass-cap-strap(usb2240.VDDA33, power.gnd, ["capacitance" => 1.0e-6, "mounting" => "smd", "max-case" => "0603", "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  bypass-cap-strap(usb2240.CRD_PWR, power.gnd, ["capacitance" => 4.7e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  net (usb2240.RXD_SDA i2c.sda)
-  net (usb2240.TXD_SCK_MS_SKT_SEL i2c.scl)
-
-  net (usb2240.LED LED)
-
-  net (usb2240.USB+ usb-in.data.P)
-  net (usb2240.USB- usb-in.data.N)
-
-  net (usb2240.SD_nCD sd-card-conn.CD)
-  net (usb2240.xD_D4_SD_WP_MS_SCLK sd-card-conn.WP)
-  net (usb2240.xD_CLE_SD_CMD_MS_D0 sd-card-conn.CMD)
-  net (usb2240.xD_nWP_SD_CLK_MS_BS sd-card-conn.CLK)
-  net (usb2240.CRD_PWR sd-card-conn.power.vdd)
-  net (usb2240.xD_D2_SD_D0_MS_D4 sd-card-conn.DAT[0])
-  net (usb2240.xD_D3_SD_D1_MS_D5 sd-card-conn.DAT[1])
-  net (usb2240.xD_D5_SD_D2 sd-card-conn.DAT[2])
-  net (usb2240.xD_D6_SD_D3_MS_D3 sd-card-conn.DAT[3])
-
-  inst xtal : database-part(["mpn" => "7B024000Q01", "manufacturer" => "HD"])
-  property(xtal.rated-temperature) = min-max(-20.0, 70.0)
-
-  property(xtal.crystal-resonator) = ocdb/utils/property-structs/CrystalResonator(18.0e-12, 2.0e-12, 4.41e-15, 25.0, 24.0e6, 240.0, 100.0e-6) ; C_l, C_0, C_m, ESR, F, delta F (F * dF/F), D_L
-
-  ; Automatically add capacitors to the crystal
-  ; Same function as add-xtal-caps(xtal, power.gnd) but change pad names 
-  val stray-capacitance = 5.0e-12
-  val c-load = load-capacitance(property(xtal.crystal-resonator))
-  val c-bal = closest-std-val(2.0 * (c-load - stray-capacitance), 5.0)
-  cap-strap(xtal.IN, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "_exist" => ["vendor_part_numbers.lcsc"]])
-  cap-strap(xtal.OUT, power.gnd, ["capacitance" => c-bal "temperature-coefficient.code" => "C0G", "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  net (xtal.IN usb2240.XTAL1_CLKIN)
-  net (xtal.OUT usb2240.XTAL2)
-  net (xtal.GND0 xtal.GND1 power.gnd)
-  res-strap(usb2240.XTAL1_CLKIN, usb2240.XTAL2, ["resistance" => 1.0e6, "_exist" => ["vendor_part_numbers.lcsc"]])
+; Taken from ocdb/utils/netlist-checks/io-checks.stanza and modified
+pcb-check resistor-on-cc-usb-c (component:JITXObject):
+  #CHECK(
+    condition = cc-has-resistor(component),
+    name = "Check if there is a pull up or pulldown resistor on the USB C CC pin"
+    description = ""
+    category = CATEGORY
+    subcheck-description = "Check that CC pins have at least one resistor",
+    pass-message = "CC pins have at least one pullup resistor",
+    fail-message = "CC pins don't have a pullup resistor attached",
+    locators = [instance-definition(component)]
+  )
 
 pcb-module usb-2-on-usb-c-male :
   port usb-c : usb-c
@@ -181,55 +64,8 @@ pcb-module usb-2-on-usb-c-male :
 
   res-strap(usb-c.cc[1], usb-c.vbus.gnd, 5.1e3)
 
-pcb-module voltage-regulator :
-  port power-in : power
-  port power-out : power
+  check resistor-on-cc-usb-c(self)
 
-  inst reg : database-part(["mpn" => "BD433M5FP-CE2", "manufacturer" => "ROHM Semicon"])
-
-  property(reg.rated-temperature) = min-max(-40.0, 150.0)
-  property(reg.mounting) = "smd"
-  property(reg.VCC.power-pin) = PowerPin(min-max(4.0,42.0))
-  property(reg.VOUT.power-supply-pin) = PowerSupplyPin(min-max(3.2, 3.37), 500.0e-3)
-
-  net (reg.FIN power-in.gnd power-out.gnd)
-  net (reg.VCC power-in.vdd)
-  net (reg.VOUT power-out.vdd)
-  
-  bypass-cap-strap(reg.VCC, power-in.gnd, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
-  bypass-cap-strap(reg.VOUT, power-out.gnd, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
-
-pcb-module eeprom :
-  port power : power
-  port i2c : i2c
-
-  inst eeprom : database-part(["mpn" => "M24C04-WMN6TP", "manufacturer" => "STMicroelectronics"])
-
-  property(eeprom.rated-temperature) = min-max(-65.0, 130.0)
-  val vcc = 3.3
-
-  property(eeprom.SDA) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 1.0e-3), min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
-  property(eeprom.SCL) = DigitalInput(min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
-
-  property(eeprom.WC_NOT) = DigitalInput(min-max(-0.45,0.3 * vcc), min-max(0.7 * vcc, vcc + 1.0), eeprom.VCC, eeprom.VSS, 2.0e-6)
-
-  no-connect(eeprom.NC)
-  ; We only have one EEPROM chip so we leave these floating
-  no-connect(eeprom.E1)
-  no-connect(eeprom.E2)
-
-  net (eeprom.VCC power.vdd)
-  net (eeprom.VSS power.gnd)
-
-  net (eeprom.SDA i2c.sda)
-  net (eeprom.SCL i2c.scl)
-
-  ; Put pull up on SDA and SCL
-  res-strap(eeprom.SDA, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
-  res-strap(eeprom.SCL, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
-
-  ; We don't want write operations to the EEPROM so we set WC_NOT high
-  res-strap(eeprom.WC_NOT, power.vdd, ["resistance" => 5.0e3, "_exist" => ["vendor_part_numbers.lcsc"]])
 
 pcb-module sd-connector :
   port conn : sd-card-uhs-1-connector
@@ -260,13 +96,13 @@ pcb-module sd-card-reader :
   inst usb : usb-2-on-usb-c-male
   place(usb) at loc(x(d) / 2.0 + 1.1, 0.0, -270.0) on Bottom
 
-  inst reg : voltage-regulator
+  inst reg : components/bd433/voltage-regulator
 
-  inst eeprom : eeprom
+  inst eeprom : components/m24c04/eeprom
 
   val testpoints = add-testpoint([eeprom.power.vdd eeprom.power.gnd eeprom.i2c.sda eeprom.i2c.scl], Testpoint-SMDPad)
 
-  inst media-controller : media-controller
+  inst media-controller : components/usb2240/media-controller
   place(media-controller) at loc(0.0, 0.0, 0.0) on Top
 
   inst sd-connector : sd-connector
@@ -276,9 +112,6 @@ pcb-module sd-card-reader :
   net vdd33 (reg.power-out.vdd)
   net gnd (usb.usb-2.vbus.gnd)
 
-  property(vdd50.voltage) = min-max(4.5, 5.5)
-  property(vdd33.voltage) = min-max(3.0, 3.6)
-  property(gnd.voltage) = typ(0.0)
 
   inst status-led : components/LED-maker-ROYGB/module(components/LED-maker-ROYGB/RED, property(vdd33.voltage))
 
@@ -307,6 +140,10 @@ pcb-module sd-card-reader :
   property(vdd33.net-class) = power-net-class
   property(vdd50.net-class) = power-net-class
 
+  property(gnd.voltage) = typ(0.0)
+  property(vdd33.voltage) = min-max(3.0, 3.6)
+  property(vdd50.voltage) = min-max(4.5, 5.5)
+
   schematic-group([media-controller, sd-connector, eeprom, status-led]) = data
   layout-group([media-controller, sd-connector, eeprom, status-led]) = data
 
@@ -328,6 +165,7 @@ set-paper(ANSI-A)
 setup-board()
 
 set-use-layout-groups()
+
 
 ; Set the top level module (the module to be compile into a schematic and PCB)
 set-main-module(sd-card-reader)

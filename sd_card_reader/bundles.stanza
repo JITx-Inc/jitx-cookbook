@@ -1,0 +1,23 @@
+#use-added-syntax(jitx)
+
+defpackage bundles:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/utils/symbols
+
+public pcb-bundle sd-card-uhs-1-connector:
+  pin CMD ; Command/Response
+  port power : power ; 3.3v and 2 ground pins
+  pin CLK ; Clock
+  port DAT : pin[4] ; Data pins (last pin also used as card detect)
+  pin CD ; Card detect
+  pin WP ; Write protect

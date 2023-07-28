@@ -9,6 +9,7 @@ defpackage helpers :
   import jitx/commands
   import ocdb/utils/checks
   import ocdb/utils/generic-components
+  import ocdb/utils/netlist-checks/utils
 
 ; =====================
 ; Run the design checks
@@ -51,3 +52,32 @@ public defn export-bill-of-materials () :
   set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
   set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
   export-bom()
+
+; We want decoupling capacitors to be close to the component being decoupled
+public defn bypass-cap-strap (power-pin:JITXObject, gnd-pin:JITXObject, params:Tuple<KeyValue>) -> JITXObject :
+  inside pcb-module:
+    val cap = cap-strap(gnd-pin, power-pin, params)
+    short-trace(cap.p[2], power-pin)
+    cap
+
+public defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced, tol:Double) :
+  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance "tolerance" => tol])
+
+public defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced) :
+  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance])
+
+
+public defn cc-has-resistor (component:JITXObject) :
+  val ccs = connected-pins(component.usb-c.cc[1])
+
+  defn is-resistor? (r) :
+    has-property?(r.resistor)   and
+    has-property?(r.resistance)
+
+  ; First, we search for the resistors that might be connected to this pin
+  val resistors = ccs $> map{containing-instance!, _}
+                                              $> unique
+                                              $> filter{is-resistor?, _}
+                                              $> to-tuple
+
+  not empty?(resistors)
