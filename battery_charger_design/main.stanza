@@ -31,6 +31,8 @@ pcb-module battery-manager-module :
 
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
+  component-status(logo) :
+    bom-status : NotInBOM
 
   ; create the battery manager IC, connect it
   inst battery-manager : components/BQ24078RGTR/module

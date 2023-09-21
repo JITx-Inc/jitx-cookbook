@@ -119,6 +119,8 @@ pcb-module usb-c-cable-tester-module :
   ; setup logo
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
+  component-status(logo) :
+    bom-status : NotInBOM
 
   ; create a coin cell battery
   val battery-capacity = 90.0 ;mAh
