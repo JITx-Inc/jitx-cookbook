@@ -224,6 +224,9 @@ pcb-module usb-c-cable-tester-module :
   ; setup logo
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
+  component-status(logo) :
+  bom-status : NotInBOM
+
 ```
 
 ##### Naming test points based on connected net - circuit design introspection
