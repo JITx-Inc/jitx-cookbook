@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage ocdb/components/coilcraft/XAL50xx:
+defpackage components/coilcraft/XAL50xx:
   import core
   import collections
   import math
@@ -11,8 +11,8 @@ defpackage ocdb/components/coilcraft/XAL50xx:
   import ocdb/utils/symbols
 
 pcb-landpattern lp :
-  pin p[1] : smd-pad(1.16, 4.7) at loc(3.31 / 2.0, 0.0)
-  pin p[2] : smd-pad(1.16, 4.7) at loc(-3.31 / 2.0, 0.0)
+  pad p[1] : smd-pad(1.16, 4.7) at loc(3.31 / 2.0, 0.0)
+  pad p[2] : smd-pad(1.16, 4.7) at loc(-3.31 / 2.0, 0.0)
   layer(Courtyard(Top)) = Rectangle(5.28, 5.48)
   ref-label()
 

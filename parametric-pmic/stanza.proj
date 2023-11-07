@@ -1,4 +1,8 @@
 include "../open-components-database/stanza.proj"
 package main defined-in "main.stanza"
 package helpers defined-in "helpers.stanza"
-packages components/* defined-in "components"
+
+
+; packages components/* defined-in "components"
+packages components/coilcraft/* defined-in "components/coilcraft"
+packages components/texas-instruments/* defined-in "components/texas-instruments"
