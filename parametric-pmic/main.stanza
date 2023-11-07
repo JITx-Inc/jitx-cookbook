@@ -1,0 +1,26 @@
+; ====================
+; A parametric circuit for the four-output TPS65400
+; The top level module of our final design begins on the line `pcb-module usb-c-cable-tester-module`. Start there if you're reading this recipe for the first time.
+; ====================
+
+#use-added-syntax(jitx)
+defpackage main : 
+  import core
+  import jitx
+  import jitx/commands
+
+val board-shape = RoundedRectangle(100.0, 100.0, 5.0)
+
+pcb-module my-design :
+  inst PMIC : components/texas-instruments/TPS65400/module(VOUT = [3.3 1.8 1.2 0.9])
+  
+; Setup board
+set-current-design("TPS65400-reference") ; set which directly we will save to
+set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
+set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
+
+set-main-module(my-design) ; Treat the provided module as a design, and compile it.
+
+; View the results
+view-board()
+view-schematic()

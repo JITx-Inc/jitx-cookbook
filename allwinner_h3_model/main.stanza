@@ -8,7 +8,7 @@ defpackage main :
   import helpers
 
 ; Define the shape/size of the board
-val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
+val board-shape = RoundedRectangle(30.0, 50.0, 0.25)
 
 ; Setup the board
 defn setup-board () :
@@ -18,7 +18,10 @@ defn setup-board () :
 ; Module to run as a design
 pcb-module my-design :
   ; define some pins/ports
-  inst h3 : allwinner-h3/component
+
+  inst h3 : allwinner-h3/component[2]
+  net (h3[0].SA h3[1].SA)
+  net (h3[0].GND h3[1].GND)
 
 ; Set the design name - a directory with this name will be generated under the "designs" directory
 set-current-design("jitx-design")

@@ -1,0 +1,159 @@
+#use-added-syntax(jitx)
+defpackage components/texas-instruments/TPS65400 : 
+  import core
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/box-symbol
+
+public defn make-thermal-pad (shape:Rectangle, index:Int) :
+  inside pcb-landpattern :
+    val paste-size = RoundedRectangle((width(shape) - 0.5) / 2.0,  (height(shape) - 0.5) / 2.0, 0.05)
+    for l in grid-locs(2, 2, width(paste-size) + 0.2 , height(paste-size) + 0.2) do :
+      layer(Paste(Top)) = l * paste-size
+
+    pcb-pad ep :
+      type = SMD
+      shape = shape
+
+    pad p[index] : ep at loc(0.0, 0.0)
+
+public defn add-thermal-vias (base:Rectangle) :
+  inside pcb-landpattern :
+      for l in grid-locs(3, 3, width(base) / 2.0 - 0.25,  height(base) / 2.0 - 0.25) do :
+        via(LayerIndex(0), LayerIndex(0, Bottom), radius = 0.25, hole-radius = 0.1) at center(l)
+
+pcb-landpattern lp :
+  make-qfn-landpattern( 48,              ;Number of pins
+                        0.5,             ;Pitch:                      e
+                        min-max(6.85, 7.15),   ;Outer size (lead-to-lead):  D and E
+                        tol(0.4, 0.1),   ;Lead size in x direction:   L
+                        tol(0.25, 0.05)) ;Lead size in y direction:   b
+  val thermal-shape = Rectangle(4.1, 4.1)
+  make-thermal-pad(thermal-shape, 49)
+  add-thermal-vias(thermal-shape)
+
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "TPS65400"
+  description = "RF Amplifier .45-3.8GHz NF .55dB Gain 37.5dB"
+  pin-properties :
+    [pin:Ref | pads:Int ...           | side:Dir | bank:Ref]
+    [ CB[1] | 1 | Right  | reg-1]
+    [ SW[1] | 2  3 4 | Right  | reg-1]
+    [ VFB[1] | 47 | Right  | reg-1]
+    [ COMP[1] | 46 | Left  | reg-1]
+    [ ENSW[1] | 48 | Left  | reg-1]
+    [ SS[1] | 45 | Left  | reg-1]
+    [ CB[2] | 12 | Right  | reg-2]
+    [ SW[2] | 9  10 11 | Right  | reg-2]
+    [ VFB[2] | 14 | Right  | reg-2]
+    [ COMP[2] | 15 | Right  | reg-2]
+    [ ENSW[2] | 13 | Right  | reg-2]
+    [ SS[2] | 16 | Right  | reg-2]
+    [ COMP[3] | 25 | Left  | reg-3]
+    [ ENSW[3] | 27 | Left  | reg-3]
+    [ SS[3] | 24 | Left  | reg-3]
+    [ CB[3] | 28 | Right  | reg-3]
+    [ SW[3] | 29 | Right  | reg-3]
+    [ VFB[3] | 26 | Right  | reg-3]
+    [ COMP[4] | 36 | Left  | reg-4]
+    [ ENSW[4] | 34 | Left  | reg-4]
+    [ SS[4] | 37 | Left  | reg-4]
+    [ CB[4] | 33 | Right  | reg-4]
+    [ SW[4] | 32 | Right  | reg-4]
+    [ VFB[4] | 35 | Right  | reg-4]
+
+    [ PVIN[1] | 5 | Right  | util]
+    [ PVIN[2] |  6 | Right  | util]
+    [ PVIN[3] | 30 | Right  | util]
+    [ PVIN[4] | 31 | Right  | util]
+    [ PGND1 | 7 | Right  | util]
+    [ PGND2 | 8 | Right  | util]
+    [ PGOOD | 17 | Right  | util]
+    [ VDDG | 18 | Right  | util]
+    [ VDDA | 19 | Right  | util]
+    [ VDDD | 20 | Right  | util]
+    [ AGND | 21 | Right  | util]
+    [ VIN | 22 | Right  | util]
+    [ CE | 23 | Right  | util]
+    [ I2CADDR | 38 | Right  | util]
+    [ RST_N | 39 | Right  | util]
+    [ RLOCK_SYNC | 40 | Right  | util]
+    [ I2CALERT | 41 | Right  | util]
+    [ SDA | 42 | Right  | util]
+    [ SCL | 43 | Right  | util]
+    [ CLK_OUT | 44 | Right  | util] 
+    [ PAD | 49 | Right  | util] 
+
+  make-box-symbol()
+  assign-landpattern(lp)
+
+public pcb-module module (-- VOUT:[Double Double Double Double]):
+  port vin : power
+  port vout : power[4]
+  port en : pin[4]
+
+  pin gnd
+
+  inst pmic : components/texas-instruments/TPS65400/component
+
+
+  val cin-params = ["capacitance" => 22.0e-6 "min-rated-voltage" => 25.0 "temperature-coefficient.code" => "X5R" ]
+  val cout-params = ["capacitance" => 22.0e-6 "min-rated-voltage" => 6.3 "temperature-coefficient.code" => "X5R" ]
+
+  net (gnd, pmic.PGND1 pmic.PGND2 pmic. AGND pmic.PAD)
+
+  for p in pins(pmic.PVDD) do :
+    bypass-cap-strap(p, gnd, cin-params)
+    bypass-cap-strap(p, gnd, 0.1e-6)
+    net (p vin.vdd pmic.VIN)
+  bypass-cap-strap(pmic.VDDG, gnd, 4.7e-6)
+  bypass-cap-strap(pmic.VDDG, gnd, 4.7e-6)
+  bypass-cap-strap(pmic.VDDD, gnd, 4.7e-6)
+  bypass-cap-strap(pmic.VDDA, gnd, 4.7e-6)
+
+  inst L-sw : components/coilcraft/XAL50xx[2]
+  inst l-sw : components/coilcraft/XAL40xx[2]
+
+  val inductors = [L-sw[0] L-sw[1] l-sw[0] l-sw[1]]
+
+  pcb-module compensation :
+    pin comp
+    pin gnd
+
+    cap-strap(comp, gnd, 22.0e-12)
+    inst r : chip-resistor(30.1e3)
+    net (r.p[1] comp)
+    cap-strap(r.p[2] gnd, 680.0e-12)
+
+  for (i in 1 through 4, l in inductors) do :
+    net (pmic.SW[i] l.p[1])
+    val c-0 = bypass-cap-strap(l.p[2] gnd, cout-params)
+    val c-1 = bypass-cap-strap(l.p[2] gnd, cout-params)
+    val c-2 = bypass-cap-strap(l.p[2] gnd, 0.1e-6)
+    val c-3 = bypass-cap-strap(l.p[1] CB[i], 0.1)
+    val c-4 = bypass-cap-strap(pmic.SS[i] gnd, 0.047e-6)
+    val r-0 = res-strap(pmic.EN[i] gnd, 4.7e3)
+
+
+    layout-group([c-0 c-1 c-2 c-3 c-4 r-0 l]) = (Ref(to-string("SW-%_" % [i])))
+
+    net (pmic.EN[i] en[i - 1])
+    net (l.p[2] vout[i - 1].vdd)
+
+    inst feedback : ocdb/modules/passive-circuits/voltage-divider(source-voltage = typ(VOUT[i - 1]),  
+                                                                  divider-output = 0.8 +/- (3 %), 
+                                                                  current = 80.0e-6)
+    net (feedback.in l.p[2])                                                              
+    net (feedback.out pmic.VFB[i])         
+    net (feedback.lo gnd)                                                     
+    inst c : compensation
+    net (c.comp pmic.COMP[i])
+    net (c.gnd gnd)
+
+    layout-group([feedback c]) = (Ref(to-string("FB-%_" % [i])))
