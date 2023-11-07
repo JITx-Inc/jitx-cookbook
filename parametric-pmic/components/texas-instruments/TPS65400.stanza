@@ -137,17 +137,18 @@ public pcb-module module (-- VOUT:[Double Double Double Double]):
     val c-2 = bypass-cap-strap(l.p[2] gnd, 0.1e-6)
     val c-3 = bypass-cap-strap(l.p[1] pmic.CB[i], 0.1e-6)
     val c-4 = bypass-cap-strap(pmic.SS[i] gnd, 0.047e-6)
-    val r-0 = res-strap(pmic.EN[i] gnd, 4.7e3)
+    val r-0 = res-strap(pmic.ENSW[i] gnd, 4.7e3)
 
     layout-group([c-0 c-1 c-2 c-3 c-4 r-0 l]) = (Ref(to-string("SW-%_" % [i])))
 
-    net (pmic.EN[i] en[i - 1])
+    net (pmic.ENSW[i] en[i - 1])
     net (l.p[2] vout[i - 1].vdd)
     net (gnd vout[i - 1].gnd)
 
     inst feedback : ocdb/modules/passive-circuits/voltage-divider(source-voltage = typ(VOUT[i - 1]),  
                                                                   divider-output = 0.8 +/- (3 %), 
                                                                   current = 80.0e-6)
+    cap-strap(feedback.in feedback.out 1.0e-9)                                                              
     net (feedback.in l.p[2])                                                              
     net (feedback.out pmic.VFB[i])         
     net (feedback.lo gnd)                                                     
@@ -156,3 +157,4 @@ public pcb-module module (-- VOUT:[Double Double Double Double]):
     net (c.gnd gnd)
 
     layout-group([feedback c]) = (Ref(to-string("FB-%_" % [i])))
+  println("Got here")
