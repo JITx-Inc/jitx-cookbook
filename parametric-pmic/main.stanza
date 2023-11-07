@@ -10,8 +10,13 @@ defpackage main :
 val board-shape = RoundedRectangle(100.0, 100.0, 5.0)
 
 pcb-module my-design :
-  ; inst PMIC : components/texas-instruments/TPS65400/component
+
   inst PMIC : components/texas-instruments/TPS65400/module(VOUT = [3.3 1.8 1.2 0.9])
+
+  net gnd (PMIC.vin.gnd)
+
+  geom(gnd):
+    copper-pour(LayerIndex(1), isolate = 0.1, rank = 1) = board-shape
   
   
 ; Setup board

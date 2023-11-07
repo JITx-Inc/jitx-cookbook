@@ -105,12 +105,17 @@ public pcb-module module (-- VOUT:[Double Double Double Double]):
   val cin-params = ["capacitance" => 22.0e-6 "min-rated-voltage" => 25.0 "temperature-coefficient.code" => "X5R" ]
   val cout-params = ["capacitance" => 22.0e-6 "min-rated-voltage" => 6.3 "temperature-coefficient.code" => "X5R" ]
 
-  net (gnd, pmic.PGND1 pmic.PGND2 pmic. AGND pmic.PAD)
+  net (gnd, pmic.PGND1 pmic.PGND2 pmic. AGND pmic.PAD vin.gnd)
 
   for p in pins(pmic.PVIN) do :
-    bypass-cap-strap(p, gnd, cin-params)
-    bypass-cap-strap(p, gnd, 0.1e-6)
     net (p vin.vdd pmic.VIN)
+
+  bypass-cap-strap(pmic.PVIN[1], gnd, cin-params)
+  bypass-cap-strap(pmic.PVIN[1], gnd, 0.1e-6)
+
+  bypass-cap-strap(pmic.PVIN[3], gnd, cin-params)
+  bypass-cap-strap(pmic.PVIN[3], gnd, 0.1e-6)
+
   bypass-cap-strap(pmic.VDDG, gnd, 4.7e-6)
   bypass-cap-strap(pmic.VDDG, gnd, 4.7e-6)
   bypass-cap-strap(pmic.VDDD, gnd, 4.7e-6)
@@ -134,12 +139,12 @@ public pcb-module module (-- VOUT:[Double Double Double Double]):
     net (pmic.SW[i] l.p[1])
     val c-0 = bypass-cap-strap(l.p[2] gnd, cout-params)
     val c-1 = bypass-cap-strap(l.p[2] gnd, cout-params)
-    val c-2 = bypass-cap-strap(l.p[2] gnd, 0.1e-6)
+    ; val c-2 = bypass-cap-strap(l.p[2] gnd, 0.1e-6)
     val c-3 = bypass-cap-strap(l.p[1] pmic.CB[i], 0.1e-6)
     val c-4 = bypass-cap-strap(pmic.SS[i] gnd, 0.047e-6)
     val r-0 = res-strap(pmic.ENSW[i] gnd, 4.7e3)
 
-    layout-group([c-0 c-1 c-2 c-3 c-4 r-0 l]) = (Ref(to-string("SW-%_" % [i])))
+    layout-group([c-0 c-1 c-3 c-4 r-0 l]) = (Ref(to-string("SW-%_" % [i])))
 
     net (pmic.ENSW[i] en[i - 1])
     net (l.p[2] vout[i - 1].vdd)
@@ -157,4 +162,3 @@ public pcb-module module (-- VOUT:[Double Double Double Double]):
     net (c.gnd gnd)
 
     layout-group([feedback c]) = (Ref(to-string("FB-%_" % [i])))
-  println("Got here")
