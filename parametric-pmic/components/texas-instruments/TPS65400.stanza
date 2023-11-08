@@ -117,7 +117,6 @@ public pcb-module module (-- VOUT:[Double Double Double Double]):
   bypass-cap-strap(pmic.PVIN[3], gnd, 0.1e-6)
 
   bypass-cap-strap(pmic.VDDG, gnd, 4.7e-6)
-  bypass-cap-strap(pmic.VDDG, gnd, 4.7e-6)
   bypass-cap-strap(pmic.VDDD, gnd, 4.7e-6)
   bypass-cap-strap(pmic.VDDA, gnd, 4.7e-6)
 

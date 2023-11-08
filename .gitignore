@@ -2,3 +2,9 @@
 /pending.*dat
 *.txt
 *-backups/
+parametric-pmic/parts-db/
+parametric-pmic/designs/TPS65400-reference/cache/
+parametric-pmic/designs/TPS65400-reference/design-info/*.design
+parametric-pmic/designs/TPS65400-reference/design-info/*.design~
+parametric-pmic/designs/TPS65400-reference/design-info/*.table
+parametric-pmic/designs/TPS65400-reference/design-info/*.backup-*
