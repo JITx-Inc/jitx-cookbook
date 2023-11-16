@@ -1,0 +1,31 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/on-semiconductor/MBR0520L :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "ON Semiconductor"
+  description = "DIODE SCHOTTKY 20V 500MA SOD123"
+  mpn = "MBR0520L"
+
+  pin a
+  pin c
+  val pkg = two-pin-polarized-landpattern(4.15, 2.39, 1.02, 4.15, 1.8)
+  val sym = diode-sym(DiodeSchottky)
+  landpattern = pkg(a => pkg.a, c => pkg.c) 
+  symbol = sym(a => sym.a, c => sym.c) 
+  reference-prefix = "D"
+
+public pcb-module module :
+  inst c : component

@@ -1,0 +1,43 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/amphenol/112640 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+
+public pcb-component component :
+  name = "112640"
+  manufacturer = "Amphenol RF"
+  mpn = "112640"
+  description = "CONN BNC JACK STR 50OHM EDGE MNT"
+  pin-properties :
+    [pin:Ref     | pads:Int ...   | side:Dir]
+    [sig | 1 | Left]
+    [gnd | 2 3 4 5 | Down]
+  make-box-symbol()
+  assign-landpattern(amphenol-112640-pkg)
+  reference-prefix = "J"
+
+pcb-landpattern amphenol-112640-pkg :
+
+  pad p[1] : smd-pad(S, 0.86, 4.72) at loc(0.0, 0.127)
+  pad p[2] : smd-pad(S, 1.35, 4.72) at loc(4.925, 0.127)
+  pad p[3] : smd-pad(S, 1.35, 4.72) at loc(-4.925, 0.127)
+  pad p[4] : smd-pad(S, 1.7, 4.72) at loc(-4.46, 0.127) on Bottom
+  pad p[5] : smd-pad(S, 1.7, 4.72) at loc(4.46, 0.127) on Bottom
+
+  layer(Courtyard(Top)) = Rectangle(11.2, 5.0, loc(0.0, 2.36))
+  layer(Courtyard(Bottom)) = Rectangle(11.2, 5.0, loc(0.0, 2.36))
+  layer(BoardEdge())= Line(0.0, [Point(11.2 / -2.0, 0.0), Point(11.2 / 2.0, 0.0)])
+
+  ref-label()
+
+public pcb-module module :
+  inst i : component

@@ -1,0 +1,44 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/fremont-micro-devices/FT25H04 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "Fremont Micro Devices"
+  mpn = "FT25H04S"
+  description = "4M-bit Serial Flash - SPI"
+  port spi : spi-peripheral()
+
+  pin-properties :
+    [pin:Ref      | pads:Int ...   | side:Dir   ]
+    [spi.cs   | 1         | Left  ]
+    [spi.sdo  | 2         | Left  ]
+    [NC       | 3, 7      | Down  ]
+    [VSS      | 4         | Left  ]
+    [spi.sdi  | 5         | Right ]
+    [spi.sck  | 6         | Right ]
+    [VCC      | 8         | Right ]
+
+  make-box-symbol()
+  assign-landpattern(sop65-landpattern(8))
+
+public pcb-module module :
+  port pwr : power
+  port spi : spi-peripheral()
+  inst flash : ocdb/components/fremont-micro-devices/FT25H04/component
+  net (pwr.gnd, flash.VSS)
+  net (pwr.vdd, flash.VCC)
+  net (flash.spi spi)
+  cap-strap(flash.VCC, flash.VSS, 0.1e-6)
+  res-strap(flash.CS, flash.VCC, 100.0e3)  

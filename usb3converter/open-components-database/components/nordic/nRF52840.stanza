@@ -1,0 +1,393 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/nordic/nRF52840 :
+  import core
+  import collections
+  import math
+  import lang-utils with:
+    prefix(min-max) => lang-
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/symbol-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generator-utils
+  import ocdb/utils/checks
+  import ocdb/utils/passive-checks/resonator-checks
+
+defn nrf-bga-pad (copper-diameter:Double) :
+  val pastemask-diameter = 0.3
+  val soldermask-diameter = 0.375
+  inside pcb-landpattern :
+    smd-pad(Circle(copper-diameter * 0.5), Circle(soldermask-diameter * 0.5), Circle(pastemask-diameter * 0.5))
+    
+pcb-landpattern xcvr-nrf52840-qiaa-r-pkg :
+  pad A8 :   nrf-bga-pad(0.275) at loc(-1.25, 3.25, 0.0)
+  pad B1 :   nrf-bga-pad(0.275) at loc(-3.25, 2.75, 0.0)
+  pad B3 :   nrf-bga-pad(0.275) at loc(-2.5, 2.75, 0.0)
+  pad B5 :   nrf-bga-pad(0.275) at loc(-2.0, 2.75, 0.0)
+  pad B7 :   nrf-bga-pad(0.275) at loc(-1.5, 2.75, 0.0)
+  pad B9 :   nrf-bga-pad(0.275) at loc(-1.0, 2.75, 0.0)
+  pad C1 :   nrf-bga-pad(0.275) at loc(-3.25, 2.25, 0.0)
+  pad D2 :   nrf-bga-pad(0.275) at loc(-2.75, 2.0, 0.0)
+  pad F2 :   nrf-bga-pad(0.275) at loc(-2.75, 1.5, 0.0)
+  pad G1 :   nrf-bga-pad(0.275) at loc(-3.25, 1.25, 0.0)
+  pad H2 :   nrf-bga-pad(0.275) at loc(-2.75, 1.0, 0.0)
+  pad J1 :   nrf-bga-pad(0.275) at loc(-3.25, 0.75, 0.0)
+  pad K2 :   nrf-bga-pad(0.275) at loc(-2.75, 0.5, 0.0)
+  pad L1 :   nrf-bga-pad(0.275) at loc(-3.25, 0.25, 0.0)
+  pad M2 :   nrf-bga-pad(0.275) at loc(-2.75, -0.0, 0.0)
+  pad N1 :   nrf-bga-pad(0.275) at loc(-3.25, -0.25, 0.0)
+  pad P2 :   nrf-bga-pad(0.275) at loc(-2.75, -0.5, 0.0)
+  pad R1 :   nrf-bga-pad(0.275) at loc(-3.25, -0.75, 0.0)
+  pad T2 :   nrf-bga-pad(0.275) at loc(-2.75, -1.0, 0.0)
+  pad U1 :   nrf-bga-pad(0.275) at loc(-3.25, -1.25, 0.0)
+  pad W1 :   nrf-bga-pad(0.275) at loc(-3.25, -1.75, 0.0)
+  pad Y2 :   nrf-bga-pad(0.275) at loc(-2.75, -2.0, 0.0)
+  pad A10 :  nrf-bga-pad(0.275) at loc(-0.75, 3.25, 0.0)
+  pad A12 :  nrf-bga-pad(0.275) at loc(-0.25, 3.25, 0.0)
+  pad A14 :  nrf-bga-pad(0.275) at loc(0.25, 3.25, 0.0)
+  pad A16 :  nrf-bga-pad(0.275) at loc(0.75, 3.25, 0.0)
+  pad A18 :  nrf-bga-pad(0.275) at loc(1.25, 3.25, 0.0)
+  pad A20 :  nrf-bga-pad(0.275) at loc(1.75, 3.25, 0.0)
+  pad A22 :  nrf-bga-pad(0.275) at loc(2.25, 3.25, 0.0)
+  pad A23 :  nrf-bga-pad(0.275) at loc(2.75, 3.25, 0.0)
+  pad AB2 :  nrf-bga-pad(0.275) at loc(-2.75, -2.5, 0.0)
+  pad AC5 :  nrf-bga-pad(0.275) at loc(-2.0, -2.75, 0.0)
+  pad AC9 :  nrf-bga-pad(0.275) at loc(-1.0, -2.75, 0.0)
+  pad AD2 :  nrf-bga-pad(0.275) at loc(-2.75, -3.25, 0.0)
+  pad AD4 :  nrf-bga-pad(0.275) at loc(-2.25, -3.25, 0.0)
+  pad AD6 :  nrf-bga-pad(0.275) at loc(-1.75, -3.25, 0.0)
+  pad AD8 :  nrf-bga-pad(0.275) at loc(-1.25, -3.25, 0.0)
+  pad B11 :  nrf-bga-pad(0.275) at loc(-0.5, 2.75, 0.0)
+  pad B13 :  nrf-bga-pad(0.275) at loc(0.0, 2.75, 0.0)
+  pad B15 :  nrf-bga-pad(0.275) at loc(0.5, 2.75, 0.0)
+  pad B17 :  nrf-bga-pad(0.275) at loc(1.0, 2.75, 0.0)
+  pad B19 :  nrf-bga-pad(0.275) at loc(1.5, 2.75, 0.0)
+  pad B24 :  nrf-bga-pad(0.275) at loc(3.25, 2.75, 0.0)
+  pad D23 :  nrf-bga-pad(0.275) at loc(2.75, 2.0, 0.0)
+  pad E24 :  nrf-bga-pad(0.275) at loc(3.25, 1.75, 0.0)
+  pad F23 :  nrf-bga-pad(0.275) at loc(2.75, 1.5, 0.0)
+  pad H23 :  nrf-bga-pad(0.275) at loc(2.75, 1.0, 0.0)
+  pad J24 :  nrf-bga-pad(0.275) at loc(3.25, 0.75, 0.0)
+  pad L24 :  nrf-bga-pad(0.275) at loc(3.25, 0.25, 0.0)
+  pad N24 :  nrf-bga-pad(0.275) at loc(3.25, -0.25, 0.0)
+  pad P23 :  nrf-bga-pad(0.275) at loc(2.75, -0.5, 0.0)
+  pad R24 :  nrf-bga-pad(0.275) at loc(3.25, -0.75, 0.0)
+  pad T23 :  nrf-bga-pad(0.275) at loc(2.75, -1.0, 0.0)
+  pad U24 :  nrf-bga-pad(0.275) at loc(3.25, -1.25, 0.0)
+  pad V23 :  nrf-bga-pad(0.275) at loc(2.75, -1.5, 0.0)
+  pad W24 :  nrf-bga-pad(0.275) at loc(3.25, -1.75, 0.0)
+  pad Y23 :  nrf-bga-pad(0.275) at loc(2.75, -2.0, 0.0)
+  pad AA24 : nrf-bga-pad(0.275) at loc(3.25, -2.25, 0.0)
+  pad AC11 : nrf-bga-pad(0.275) at loc(-0.5, -2.75, 0.0)
+  pad AC13 : nrf-bga-pad(0.275) at loc(0.0, -2.75, 0.0)
+  pad AC15 : nrf-bga-pad(0.275) at loc(0.5, -2.75, 0.0)
+  pad AC17 : nrf-bga-pad(0.275) at loc(1.0, -2.75, 0.0)
+  pad AC19 : nrf-bga-pad(0.275) at loc(1.5, -2.75, 0.0)
+  pad AC21 : nrf-bga-pad(0.275) at loc(2.0, -2.75, 0.0)
+  pad AC24 : nrf-bga-pad(0.275) at loc(3.25, -2.75, 0.0)
+  pad AD10 : nrf-bga-pad(0.275) at loc(-0.75, -3.25, 0.0)
+  pad AD12 : nrf-bga-pad(0.275) at loc(-0.25, -3.25, 0.0)
+  pad AD14 : nrf-bga-pad(0.275) at loc(0.25, -3.25, 0.0)
+  pad AD16 : nrf-bga-pad(0.275) at loc(0.75, -3.25, 0.0)
+  pad AD18 : nrf-bga-pad(0.275) at loc(1.25, -3.25, 0.0)
+  pad AD20 : nrf-bga-pad(0.275) at loc(1.75, -3.25, 0.0)
+  pad AD22 : nrf-bga-pad(0.275) at loc(2.25, -3.25, 0.0)
+  pad AD23 : nrf-bga-pad(0.275) at loc(2.75, -3.25, 0.0)
+  pad p[74] : smd-pad(4.85, 4.85) at loc(0.0, -0.0, 0.0)
+
+  layer(Silkscreen("F-SilkS", Top)) = Circle(Point(-4.445, 2.7432), 0.05)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(-3.5, 3.1), Point(-3.5, 3.5) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(-3.5, 3.5), Point(-1.95, 3.5) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(3.15, 3.5), Point(3.5, 3.5) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(3.5, 3.5), Point(3.5, 3.2) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(3.5, -3.15), Point(3.5, -3.5) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(3.5, -3.5), Point(3.15, -3.5) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(-3.15, -3.5), Point(-3.5, -3.5) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(-3.5, -3.5), Point(-3.5, -2.15) ])
+  ref-label()
+
+public pcb-component component :
+  ;=========================================================================
+  ; Metadata
+  name         = "XCVR_NRF52840-QIAA-R"
+  mpn          = "NRF52840-QIAA-R"
+  manufacturer = "Nordic Semiconductor"
+  description  = "Advanced Bluetooth 5, Thread and Zigbee multiprotocol SoC"
+  ;=========================================================================
+  port P0 : pin[32]
+  port P1 : pin[16]
+  pin XC2
+  pin-properties :
+    [ pin:Ref | pads:Ref ... | side:Dir | bank:Ref]
+    [ P0[00]  | D2      | Right | io ] ;XL1 
+    [ P0[01]  | F2      | Right | io ] ;XL2 
+    [ P0[02]  | A12     | Right | io ] ;AIN0 
+    [ P0[03]  | B13     | Right | io ] ;AIN1 
+    [ P0[04]  | J1      | Right | io ] ;AIN2 
+    [ P0[05]  | K2      | Right | io ] ;AIN3 
+    [ P0[06]  | L1      | Right | io ]
+    [ P0[07]  | M2      | Right | io ] ;TRACECLK 
+    [ P0[08]  | N1      | Right | io ]
+    [ P0[09]  | L24     | Right | io ] ;NFC1 
+    [ P0[10]  | J24     | Right | io ] ;NFC2 
+    [ P0[11]  | T2      | Right | io ] ;TRACEDATA2 
+    [ P0[12]  | U1      | Right | io ] ;TRACEDATA1 
+    [ P0[13]  | AD8     | Right | io ]
+    [ P0[14]  | AC9     | Right | io ]
+    [ P0[15]  | AD10    | Right | io ]
+    [ P0[16]  | AC11    | Right | io ]
+    [ P0[17]  | AD12    | Right | io ]
+    [ P0[18]  | AC13    | Right | io ] ;NRESET 
+    [ P0[19]  | AC15    | Right | io ]
+    [ P0[20]  | AD16    | Right | io ]
+    [ P0[21]  | AC17    | Right | io ]
+    [ P0[22]  | AD18    | Right | io ]
+    [ P0[23]  | AC19    | Right | io ]
+    [ P0[24]  | AD20    | Right | io ]
+    [ P0[25]  | AC21    | Right | io ]
+    [ P0[26]  | G1      | Right | io ]
+    [ P0[27]  | H2      | Right | io ]
+    [ P0[28]  | B11     | Right | io ] ;AIN4 
+    [ P0[29]  | A10     | Right | io ] ;AIN5 
+    [ P0[30]  | B9      | Right | io ] ;AIN6 
+    [ P0[31]  | A8      | Right | io ] ;AIN7 
+    [ P1[00]  | AD22    | Right | io ] ;TRACEDATA0 
+    [ P1[01]  | Y23     | Right | io ]
+    [ P1[02]  | W24     | Right | io ]
+    [ P1[03]  | V23     | Right | io ]
+    [ P1[04]  | U24     | Right | io ]
+    [ P1[05]  | T23     | Right | io ]
+    [ P1[06]  | R24     | Right | io ]
+    [ P1[07]  | P23     | Right | io ]
+    [ P1[08]  | P2      | Right | io ]
+    [ P1[09]  | R1      | Right | io ] ;TRACEDATA3 
+    [ P1[10]  | A20     | Right | io ]
+    [ P1[11]  | B19     | Right | io ]
+    [ P1[12]  | B17     | Right | io ]
+    [ P1[13]  | A16     | Right | io ]
+    [ P1[14]  | B15     | Right | io ]
+    [ P1[15]  | A14     | Right | io ]
+    [ SWDCLK  | AA24    | Left  | io ]
+    [ SWDIO   | AC24    | Left  | io ]
+    [ XC1     | B24     | Left  | io ]
+    [ XC2     | A23     | Left  | io ]
+    [ ANT     | H23     | Left  | io ]
+    [ D-      | AD4     | Left  | io ]
+    [ D+      | AD6     | Left  | io ]
+    [ VBUS    | AD2     | Left | power ]
+    [ VDD[0]  | A22     | Left | power ]
+    [ VDD[1]  | AD14    | Left | power ]
+    [ VDD[2]  | AD23    | Left | power ]
+    [ VDD[3]  | B1      | Left | power ]
+    [ VDD[4]  | W1      | Left | power ]
+    [ VDDH    | Y2      | Left | power ]
+    [ VSS     | p[74] B7| Down | power ]
+    [ VSS_PA  | F23     | Down | power ]
+    [ DCC     | B3      | Right | power ]
+    [ DCCH    | AB2     | Right | power ]
+    [ DEC1    | C1      | Right | power ]
+    [ DEC2    | A18     | Right | power ]
+    [ DEC3    | D23     | Right | power ]
+    [ DEC4    | B5      | Right | power ]
+    [ DEC5    | N24     | Right | power ]
+    [ DEC6    | E24     | Right | power ]
+    [ DECUSB  | AC5     | Right | power ]
+  
+  make-box-symbol()
+  assign-landpattern(xcvr-nrf52840-qiaa-r-pkg)
+
+  val driver = DigitalIO( CMOSOutput(min-max(0.0, 0.4), OffsetVoltage(-0.4, self.VDD[0])), 
+                          FractionalVoltage(0.3, self.VDD[0]), 
+                          FractionalVoltage(0.7, self.VDD[0]), self.VDD[0], self.VSS, 50.0e-9)
+
+  pcb-bundle io-pin : 
+    pin p
+
+  for p  in pins(self.P0) do :
+    supports io-pin :
+      io-pin.p => p
+    property(p.digital-io) = driver
+    
+  for p  in pins(self.P1) do :
+    supports io-pin :
+      io-pin.p => p
+    property(p.digital-io) = driver
+
+  for i in 0 to 48 do :
+    supports gpio :
+      require io:io-pin 
+      gpio.gpio => io.p
+
+  for i in [02 03 04 05 28 29 30 31] do :
+    supports adc :
+      adc.adc => self.P0[i]
+    
+  for i in 0 to 2 do :
+    supports i2c :
+      require pins:io-pin[2] 
+      i2c.sda => pins[0].p
+      i2c.scl => pins[1].p
+
+  for i in 0 to 3 do :
+    supports spi-controller() :
+      require pins:io-pin[4] 
+      spi-controller().copi => pins[0].p
+      spi-controller().cipo => pins[1].p
+      spi-controller().sck => pins[2].p
+      spi-controller().cs => pins[3].p
+
+  for i in 0 to 2 do :
+    supports uart([UART-RX UART-TX UART-CTS UART-RTS]) :
+      require pins:io-pin[4]
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).tx => pins[0].p
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).rx => pins[1].p
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).rts => pins[2].p
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).cts => pins[3].p
+
+  supports swd([SWD-SWO]) :
+    swd([SWD-SWO]).swdio => self.SWDIO
+    swd([SWD-SWO]).swdclk => self.SWDCLK
+    swd([SWD-SWO]).swo => self.P1[00]
+
+  supports reset :
+    reset.reset => self.P0[18]
+
+  ; HFXO for 30ppm
+  property(self.XC2.crystal-oscillator) = CrystalOscillator(3.5e-3, 100.0e-6, 3.0e-12, 30.0e-6 * 32.0e6, 32.0e6)
+  ; LFXO for 50ppm
+  property(self.P0[01].crystal-oscillator) = CrystalOscillator(3.1e-6, 0.5e-6, 4.0e-12, 50.0e-6 * 32.768e3, 32.768e3)
+
+  supports low-freq-oscillator :
+    low-freq-oscillator.in => self.P0[0]
+    low-freq-oscillator.out => self.P0[1]
+
+doc: \<DOC>
+  NRF52840 reference module.
+  ## Args:
+  `include-lfo?:True|False = true` - include a 32.768kHz resonator in the design
+
+  `include-antenna?:True|False = true` - include an antenna and matching circuit in the design
+
+  `power-config:Int = 5` - circuit configuration from https://infocenter.nordicsemi.com/index.jsp?topic=%2Fps_nrf52840%2Fref_circuitry.html (currently supports 5, 6)
+  
+  ## Example use:
+  ```
+    inst nrf : ocdb/components/nordic/nRF52840/module(include-lfo? = false, power-config = 6)
+  ```
+<DOC>
+public pcb-module module (-- include-LFO?:True|False = true, include-antenna?:True|False = true, power-config:Int = 5) :
+  pin gnd
+  inst mcu : ocdb/components/nordic/nRF52840/component
+  net (gnd, mcu.VSS, mcu.VSS_PA)
+
+  ; Setup Bypass caps
+  switch(power-config) :
+    5 : 
+      port usb : usb-2 ; USB enabled
+      pin vdd
+      net (gnd, usb.vbus.gnd)
+      net (mcu.VBUS, usb.vbus.vdd)
+      ; Configure to be in normal voltage mode, DCDC1 enabled (config 5 from datasheet)
+      for [pin_, cap_] in kvs([
+        mcu.DEC1    => 100.0e-9,
+        mcu.DEC3    => 100.0e-12,
+        mcu.DEC5    => 820.0e-12,
+        mcu.DECUSB  => 4.7e-6,
+        mcu.VBUS    => 4.7e-6,
+        mcu.DEC4    => 1.0e-6,
+        mcu.VDDH    => 4.7e-6,
+        mcu.VDD[0]  => 0.1e-6,
+        mcu.VDD[1]  => 0.1e-6,
+        mcu.VDD[2]  => 0.1e-6,
+        mcu.VDD[3]  => 1.0e-6,
+        mcu.VDD[4]  => 1.0e-6
+      ]) do:
+        val c = bypass-cap-strap(pin_, gnd, cap_)
+        schematic-group(c) = power
+        layout-group(c) = power
+
+      inst pwr-ind : smd-inductor([
+        "inductance" => 10.0e-6 
+        "min-current-rating" => 50.0e-3 ])
+      
+      inst filt-ind : smd-inductor([
+        "inductance" => 15.0e-9, 
+        "min-self-resonant-frequency" => 2.0e9,
+        "material-core" => "ceramic"])
+      
+      net (pwr-ind.p[1] mcu.DCCH)
+      net (pwr-ind.p[2] filt-ind.p[1])
+      net (mcu.DEC4 mcu.DEC6 filt-ind.p[2])
+
+      for i in 0 through 4 do : 
+        net (vdd mcu.VDDH mcu.VDD[i])
+    6 :
+      ; Battery power only, no USB, no NFC
+      pin vdd 
+
+      for [pin_, cap_] in kvs([
+        mcu.DEC1    => 100.0e-9,
+        mcu.DEC3    => 100.0e-12,
+        mcu.DEC5    => 820.0e-12,
+        mcu.DEC4    => 1.0e-6,
+        mcu.VDDH    => 4.7e-6,
+        mcu.VDD[0]  => 0.1e-6,
+        mcu.VDD[1]  => 0.1e-6,
+        mcu.VDD[2]  => 0.1e-6,
+        mcu.VDD[3]  => 1.0e-6,
+      ]) do:
+        val c = bypass-cap-strap(pin_, gnd, cap_)
+        schematic-group(c) = power
+        layout-group(c) = power
+      net (mcu.VBUS gnd)
+      net (mcu.DEC4 mcu.DEC6)
+      net (vdd mcu.VDDH)
+      no-connect(mcu.D+)
+      no-connect(mcu.D-)
+      for i in 0 through 4 do : 
+        net (vdd mcu.VDD[i])
+        ; Normal voltage mode.
+        property(mcu.VDD[i].power-pin) = PowerPin(min-typ-max(1.7, 3.0, 3.6))
+      property(mcu.VDDH.power-pin) = PowerPin(min-typ-max(1.7, 3.0, 3.6))
+
+    else :
+      false
+
+  if include-LFO? :  
+    inst lfosc : ocdb/components/epson/FC-135/component
+    require lfo : low-freq-oscillator from mcu
+    net (lfo.in lfosc.p[1])
+    net (lfo.out lfosc.p[2])
+    val lf-cb = add-xtal-caps(lfosc, gnd)
+    check-resonator(lfosc, property(mcu.P0[1].crystal-oscillator), lf-cb)
+
+  inst hfosc : ocdb/components/epson/TSX-3225/component(32.0e6)
+  net (mcu.XC1 hfosc.p[1])
+  net (mcu.XC2 hfosc.p[2])
+  val hf-cb = add-xtal-caps(hfosc, gnd)
+  check-resonator(hfosc, property(mcu.XC2.crystal-oscillator), hf-cb)
+
+  ; Antenna
+  if include-antenna? :
+    inst ant : inverted-f-antenna-cmp
+    inst c3 : ceramic-cap(["capacitance" => 0.8e-12 "temperature-coefficient.code" => "C0G" "case" => "0402"])
+    inst c4 : ceramic-cap(["capacitance" => 0.5e-12 "temperature-coefficient.code" => "C0G" "case" => "0402"])
+    inst l2 : smd-inductor(["inductance" => 4.7e-9 "min-self-resonant-frequency" => 7.0e6 "min-quality-factor" => 8.0 "case" => "0402"])
+    net (gnd c3.p[2] c4.p[2] ant.gnd)
+    net (mcu.ANT c3.p[1] l2.p[1])
+    net launch (l2.p[2] c4.p[1] ant.launch)
+    ; 50 ohm line on a 1.5mm h CBCPW
+    property(launch.net-class) = NetClass(`ANT, [`min-trace => 0.5 `min-space => 0.2])
+    schematic-group([ant c3 c4 l2]) = util
+
+  schematic-group(mcu, 2) = util
+  schematic-group(mcu, 3) = power
+  schematic-group(self) = NRF52840
+  layout-group(self) = NRF52840

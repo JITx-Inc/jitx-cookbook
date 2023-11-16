@@ -1,0 +1,219 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/microchip/ATmega32U4 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/bundles
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/checks
+
+pcb-landpattern qfp80p1200x1200x120-44n-pkg :
+  pad p[1] : smd-pad(1.4732, 0.508) at loc(-5.7404, 3.9878, 0.0)
+  pad p[2] : smd-pad(1.4732, 0.508) at loc(-5.7404, 3.2004, 0.0)
+  pad p[3] : smd-pad(1.4732, 0.508) at loc(-5.7404, 2.3876, 0.0)
+  pad p[4] : smd-pad(1.4732, 0.508) at loc(-5.7404, 1.6002, 0.0)
+  pad p[5] : smd-pad(1.4732, 0.508) at loc(-5.7404, 0.7874, 0.0)
+  pad p[6] : smd-pad(1.4732, 0.508) at loc(-5.7404, 0.0, 0.0)
+  pad p[7] : smd-pad(1.4732, 0.508) at loc(-5.7404, -0.7874, 0.0)
+  pad p[8] : smd-pad(1.4732, 0.508) at loc(-5.7404, -1.6002, 0.0)
+  pad p[9] : smd-pad(1.4732, 0.508) at loc(-5.7404, -2.3876, 0.0)
+  pad p[10] : smd-pad(1.4732, 0.508) at loc(-5.7404, -3.2004, 0.0)
+  pad p[11] : smd-pad(1.4732, 0.508) at loc(-5.7404, -3.9878, 0.0)
+  pad p[12] : smd-pad(0.508, 1.4732) at loc(-3.9878, -5.7404, 0.0)
+  pad p[13] : smd-pad(0.508, 1.4732) at loc(-3.2004, -5.7404, 0.0)
+  pad p[14] : smd-pad(0.508, 1.4732) at loc(-2.3876, -5.7404, 0.0)
+  pad p[15] : smd-pad(0.508, 1.4732) at loc(-1.6002, -5.7404, 0.0)
+  pad p[16] : smd-pad(0.508, 1.4732) at loc(-0.7874, -5.7404, 0.0)
+  pad p[17] : smd-pad(0.508, 1.4732) at loc(0.0, -5.7404, 0.0)
+  pad p[18] : smd-pad(0.508, 1.4732) at loc(0.7874, -5.7404, 0.0)
+  pad p[19] : smd-pad(0.508, 1.4732) at loc(1.6002, -5.7404, 0.0)
+  pad p[20] : smd-pad(0.508, 1.4732) at loc(2.3876, -5.7404, 0.0)
+  pad p[21] : smd-pad(0.508, 1.4732) at loc(3.2004, -5.7404, 0.0)
+  pad p[22] : smd-pad(0.508, 1.4732) at loc(3.9878, -5.7404, 0.0)
+  pad p[23] : smd-pad(1.4732, 0.508) at loc(5.7404, -3.9878, 0.0)
+  pad p[24] : smd-pad(1.4732, 0.508) at loc(5.7404, -3.2004, 0.0)
+  pad p[25] : smd-pad(1.4732, 0.508) at loc(5.7404, -2.3876, 0.0)
+  pad p[26] : smd-pad(1.4732, 0.508) at loc(5.7404, -1.6002, 0.0)
+  pad p[27] : smd-pad(1.4732, 0.508) at loc(5.7404, -0.7874, 0.0)
+  pad p[28] : smd-pad(1.4732, 0.508) at loc(5.7404, 0.0, 0.0)
+  pad p[29] : smd-pad(1.4732, 0.508) at loc(5.7404, 0.7874, 0.0)
+  pad p[30] : smd-pad(1.4732, 0.508) at loc(5.7404, 1.6002, 0.0)
+  pad p[31] : smd-pad(1.4732, 0.508) at loc(5.7404, 2.3876, 0.0)
+  pad p[32] : smd-pad(1.4732, 0.508) at loc(5.7404, 3.2004, 0.0)
+  pad p[33] : smd-pad(1.4732, 0.508) at loc(5.7404, 3.9878, 0.0)
+  pad p[34] : smd-pad(0.508, 1.4732) at loc(3.9878, 5.7404, 0.0)
+  pad p[35] : smd-pad(0.508, 1.4732) at loc(3.2004, 5.7404, 0.0)
+  pad p[36] : smd-pad(0.508, 1.4732) at loc(2.3876, 5.7404, 0.0)
+  pad p[37] : smd-pad(0.508, 1.4732) at loc(1.6002, 5.7404, 0.0)
+  pad p[38] : smd-pad(0.508, 1.4732) at loc(0.7874, 5.7404, 0.0)
+  pad p[39] : smd-pad(0.508, 1.4732) at loc(0.0, 5.7404, 0.0)
+  pad p[40] : smd-pad(0.508, 1.4732) at loc(-0.7874, 5.7404, 0.0)
+  pad p[41] : smd-pad(0.508, 1.4732) at loc(-1.6002, 5.7404, 0.0)
+  pad p[42] : smd-pad(0.508, 1.4732) at loc(-2.3876, 5.7404, 0.0)
+  pad p[43] : smd-pad(0.508, 1.4732) at loc(-3.2004, 5.7404, 0.0)
+  pad p[44] : smd-pad(0.508, 1.4732) at loc(-3.9878, 5.7404, 0.0)
+
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(-4.572, 5.0546), Point(-5.0546, 5.0546) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(5.0546, 4.572), Point(5.0546, 5.0546) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(4.572, -5.0546), Point(5.0546, -5.0546) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(-5.0546, -5.0546), Point(-4.572, -5.0546) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(5.0546, -5.0546), Point(5.0546, -4.572) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(5.0546, 5.0546), Point(4.572, 5.0546) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(-5.0546, 5.0546), Point(-5.0546, 4.572) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [ Point(-5.0546, -4.572), Point(-5.0546, -5.0546) ])
+  layer(Silkscreen("pol", Top)) = Circle(-5., 5., 0.254)
+  ref-label()
+
+public pcb-component component :
+  pin nRESET
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [AREF | 42 | Left]
+    [AVCC[0] | 24 | Up]
+    [AVCC[1] | 44 | Up]
+    [D+ | 4 | Left]
+    [D- | 3 | Left]
+    [GND | 15 23 35 43 | Down]
+    [PB0 | 8 | Right]
+    [PB1 | 9 | Right]
+    [PB2 | 10 | Right]
+    [PB3 | 11 | Right]
+    [PB4 | 28 | Right]
+    [PB5 | 29 | Right]
+    [PB6 | 30 | Right]
+    [PB7 | 12 | Right]
+    [PC6 | 31 | Right]
+    [PC7 | 32 | Right]
+    [PD0 | 18 | Right]
+    [PD1 | 19 | Right]
+    [PD2 | 20 | Right]
+    [PD3 | 21 | Right]
+    [PD4 | 25 | Right]
+    [PD5 | 22 | Right]
+    [PD6 | 26 | Right]
+    [PD7 | 27 | Right]
+    [PE2 | 33 | Left]
+    [PE6 | 1 | Right]
+    [PF0 | 41 | Right]
+    [PF1 | 40 | Right]
+    [PF4 | 39 | Right]
+    [PF5 | 38 | Right]
+    [PF6 | 37 | Right]
+    [PF7 | 36 | Right]
+    [UCAP | 6 | Up]
+    [UGND | 5 | Down]
+    [UVCC | 2 | Up]
+    [VBUS | 7 | Up]
+    [VCC[0] | 14 | Up]
+    [VCC[1] | 34 | Up]
+    [XTAL1 | 17 | Left]
+    [XTAL2 | 16 | Left]
+    [nRESET | 13 | Left]
+
+  check connected(nRESET)
+
+  make-box-symbol()
+  assign-landpattern(qfp80p1200x1200x120-44n-pkg)
+
+  name = "QFP80P1200X1200X120-44N"
+  description = "ATMEGA32U4 MCU"
+  reference-prefix = "U"
+  mpn = "ATmega32U4-AU"
+  
+public pcb-module module :
+  port usb : usb-2
+  pin gnd
+
+  inst mcu : ocdb/components/microchip/ATmega32U4/component
+
+  inst xtal : ocdb/components/yangxing-tech/X322516MLB4SI/component
+  net (mcu.XTAL1, xtal.p[1])
+  net (mcu.XTAL2, xtal.p[2])
+  add-xtal-caps(xtal, gnd)
+
+  net VCC (mcu.AVCC[0], mcu.AVCC[1] mcu.VCC[0], mcu.VCC[1], usb.vbus.vdd)
+  net GND (mcu.GND, mcu.PE2, mcu.UGND, xtal.gnd, usb.vbus.gnd, gnd)
+
+  bypass-cap-strap(mcu.AREF, gnd, 0.1e-6)
+  bypass-cap-strap(mcu.UCAP, gnd, 1.0e-6)
+  bypass-cap-strap(mcu.UVCC, gnd, 1.0e-6)
+  bypass-cap-strap(mcu.VCC[0], gnd, 4.7e-6)
+  bypass-cap-strap(mcu.VCC[1], gnd, 4.7e-6)
+  bypass-cap-strap(mcu.VBUS, gnd, 4.7e-6)
+
+  net VBUS (mcu.VBUS, mcu.UVCC)
+  net nRESET (mcu.nRESET)
+  net USB-P (usb.data.P, mcu.D+)
+  net USB-N (usb.data.N, mcu.D-)
+
+  ; Pull down for VBUS detection
+  res-strap(mcu.VBUS, gnd, 22.0e3)
+
+  supports gpio:
+    gpio.gpio => mcu.PB0
+  supports gpio:
+    gpio.gpio => mcu.PB1
+  supports gpio:
+    gpio.gpio => mcu.PB2
+  supports gpio:
+    gpio.gpio => mcu.PB3
+  supports gpio:
+    gpio.gpio => mcu.PB4
+  supports gpio:
+    gpio.gpio => mcu.PB5
+  supports gpio:
+    gpio.gpio => mcu.PB6
+  supports gpio:
+    gpio.gpio => mcu.PB7
+  supports gpio:
+    gpio.gpio => mcu.PC6
+  supports gpio:
+    gpio.gpio => mcu.PC7
+  supports gpio:
+    gpio.gpio => mcu.PD0
+  supports gpio:
+    gpio.gpio => mcu.PD1
+  supports gpio:
+    gpio.gpio => mcu.PD2
+  supports gpio:
+    gpio.gpio => mcu.PD3
+  supports gpio:
+    gpio.gpio => mcu.PD4
+  supports gpio:
+    gpio.gpio => mcu.PD5
+  supports gpio:
+    gpio.gpio => mcu.PD6
+  supports gpio:
+    gpio.gpio => mcu.PD7
+  supports gpio:
+    gpio.gpio => mcu.PE6
+  supports gpio:
+    gpio.gpio => mcu.PF0
+  supports gpio:
+    gpio.gpio => mcu.PF1
+  supports gpio:
+    gpio.gpio => mcu.PF4
+  supports gpio:
+    gpio.gpio => mcu.PF5
+  supports gpio:
+    gpio.gpio => mcu.PF6
+  supports gpio:
+    gpio.gpio => mcu.PF7
+
+  supports i2c:
+    i2c.scl => mcu.PD0
+    i2c.sda => mcu.PD1
+
+  val spi = spi-controller()
+  supports spi:
+    spi.copi => mcu.PB2
+    spi.cipo => mcu.PB3
+    spi.sck => mcu.PB1
+    spi.cs => mcu.PB0

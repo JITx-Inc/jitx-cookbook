@@ -1,0 +1,60 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/analog-devices/AD8429:
+  import core
+  import collections
+  import math
+  import jitx
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import jitx/commands
+
+; Amplifiers
+public pcb-component component :
+  name = "AD8429"
+  manufacturer = "Analog Devices"
+  mpn = "AD8429BRZ-R7"
+  description = "SP Amp INSTR Amp Single ±18V 8-Pin SOIC N T/R"
+  pin-properties :
+    [pin:Ref | pads:Int ...   | side:Dir  ]
+    [in- | 1 | Left]
+    [rg0 | 2 | Left]
+    [rg1 | 3 | Left]
+    [in+ | 4 | Left]
+    [vout | 7 | Right]
+    [ref | 6 | Right]
+    [vs- | 5 | Down]
+    [vs+ | 8 | Up]
+  make-box-symbol()
+  assign-landpattern(soic127p-landpattern(8))
+
+public pcb-module module (gain:Double) :
+  pin vs+
+  pin vs-
+  pin in+
+  pin in-
+  pin vout
+  pin ref
+  inst opa : ocdb/components/analog-devices/AD8429/component
+  if gain < 1.0 :
+    fatal("Unsupported gain %_ for AD8429" % [gain])
+  else if gain != 1.0 :
+    val rg-val = 6.0e3 / (gain - 1.0)
+    inst rg : chip-resistor(closest-std-val(rg-val, 0.1), 0.001)
+    net (opa.rg0, rg.p[1])
+    net (opa.rg1, rg.p[2])
+  bypass-caps(vs+, ref, 35.0, [10.0e-6 0.1e-9], `vs+)
+  bypass-caps(vs-, ref, 35.0, [10.0e-6 0.1e-9], `vs-)
+  net (opa.in+, in+)
+  net (opa.in-, in-)
+  net (opa.vs+, vs+)
+  net (opa.vs-, vs-)
+  net (opa.vout, vout)
+  net (opa.in+, in+)
+  net (opa.ref, ref)
+
+public pcb-module module () :
+  inst i : module(10.0) 

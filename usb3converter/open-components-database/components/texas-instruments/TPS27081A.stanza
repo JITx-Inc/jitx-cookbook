@@ -1,0 +1,42 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/TPS27081A :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+pcb-landpattern sot23-landpattern : 
+  for (l in grid-locs(3, 2, 2.7, 0.95), i in [1 6 2 5 3 4]) do :
+    pad p[i] : smd-pad(1.1, 0.6) at l
+
+  layer(Courtyard(Top)) = Rectangle(3.8, 2.5)
+  layer(Silkscreen("f-silk", Top)) = LineRectangle(2.9, 2.5)
+  ref-label()
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "TPS27081ADDCR"
+  description = "1.2-V to 8-V, 3-A PFET High-Side Load Switch With Level Shift and Adjustable Slew Rate Control"
+  
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [ON_OFF  | 5            | Left    ]
+    [R1_C1   | 6            | Left    ]
+    [R2      | 1            | Right   ]
+    [VIN     | 4            | Left    ]
+    [VOUT    | 2, 3         | Right   ]
+  
+  make-box-symbol()
+  assign-landpattern(sot23-landpattern)
+
+public pcb-module module :
+  inst c : component

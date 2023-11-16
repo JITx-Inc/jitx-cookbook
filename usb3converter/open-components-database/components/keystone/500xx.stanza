@@ -1,0 +1,40 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/keystone/500xx :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/symbols
+  import ocdb/utils/property-structs
+
+public pcb-component component (color:String) :
+  name = "500xx"
+  manufacturer = "Keystone Electronics"
+  mpn = switch(color) :
+    "red"    : "5000"
+    "black"  : "5001"
+    "white"  : "5002"
+    "orange" : "5003"
+    "yellow" : "5004"
+  description = "Circuit Board Hardware - PCB TEST POINT"
+  pin p
+  landpattern = keystone-500x-pkg(p => keystone-500x-pkg.p)
+  reference-prefix = "J"
+  symbol = test-point-sym(p => test-point-sym.p)
+  property(self.rated-temperature) = min-max(-50.0, 145.0)
+
+
+pcb-landpattern keystone-500x-pkg :
+
+  pad p : pth-pad(1.02 / 2.0) at loc(0.0, 0.0)
+
+  layer(Courtyard(Top)) = Rectangle(2.54, 2.54)
+  layer(Courtyard(Bottom)) = Rectangle(2.54, 2.54)
+
+  ref-label()

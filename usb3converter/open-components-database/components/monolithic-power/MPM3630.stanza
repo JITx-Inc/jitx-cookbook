@@ -1,0 +1,141 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/monolithic-power/MPM3630:
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/modules/passive-circuits
+
+pcb-landpattern mps-MPM3630-pkg :
+
+  pad p[1] : smd-pad(S, 0.25, 0.7) at loc(-1.8, 1.55, -90.0)
+  pad p[2] : smd-pad(S, 0.25, 1.1) at loc(-1.8, 0.9, -90.0)
+  pad p[3] : smd-pad(S, 0.25, 1.1) at loc(-1.8, 0.25, -90.0)
+
+  for i in 0 to 3 do :
+    pad p[4 + i] : smd-pad(S, 0.25, 1.1) at loc(-1.8, -0.4 - to-double(i) * 0.85, -90.0)
+  
+  for i in 0 to 3 do :
+    pad p[7 + i] : smd-pad(S, 0.25, 1.1) at loc(1.8, -2.1 + to-double(i) * 0.85, 90.0)
+
+  pad p[10] : smd-pad(S, 0.25, 1.1) at loc(1.8, 0.25, 90.0)
+  pad p[11] : smd-pad(S, 0.25, 1.1) at loc(1.8, 0.9, 90.0)
+  pad p[12] : smd-pad(S, 0.25, 0.7) at loc(1.8, 1.55, 90.0)
+
+  for i in 0 to 6 do :
+    val pad-type = if i == 2 or i == 3 : smd-pad(S, 0.25, 1.1) else : smd-pad(S, 0.25, 0.7)
+    pad p[13 + i] : pad-type at loc(1.25 - to-double(i) * 0.5, 2.8, 180.0)
+
+  layer(ForbidVia()) = Rectangle(1.15, 0.79, loc(0.0, 0.575))
+  layer(Courtyard(Top)) = Rectangle(3.6, 5.6)
+  layer(Silkscreen("f-silk", Top)) = LineRectangle(3.8, 5.8)
+  layer(Silkscreen("f-silk", Top)) = Circle(-2.2, 1.55, 0.25)
+
+  ref-label()
+
+public pcb-component component:
+  name = "MPM3630"
+  manufacturer = "Monolithic Power Systems Inc."
+  mpn = "MPM3630GQV-P"
+  pin-properties :
+    [pin:Ref | pads:Int ...   | side:Dir  ]
+    [vin | 16 | Left]
+    [en  | 17 | Left]
+    [vcc | 2  | Left]
+    [pg  | 18 | Left]
+    [out | 7 8 9 | Right]
+    [fb | 1 | Right]
+    [bst | 11 | Right]
+    [sw | 4 5 6 | Right]
+    [pgnd | 12 13 14 | Down]
+    [agnd | 3 | Down]
+
+  make-box-symbol()
+  assign-landpattern(mps-MPM3630-pkg)
+
+; TODO: Merge with MPM3620A module
+public pcb-module module (v-out:Double) :
+  pin vin
+  pin vout
+  pin gnd
+  pin en
+  inst mpm : ocdb/components/monolithic-power/MPM3630/component
+
+  inst c-fb : ceramic-cap(22.0e-6)
+
+  inst c-in : ceramic-cap(["capacitance" => 22.0e-6, "min-rated-voltage" => 25.0])
+  inst c-out-0 : ceramic-cap(["capacitance" => 22.0e-6, "min-rated-voltage" => 25.0])
+  inst c-out-1 : ceramic-cap(["capacitance" => 22.0e-6, "min-rated-voltage" => 25.0])
+
+  inst en-r : chip-resistor(100.0e3)
+
+  net v-in (vin, c-in.p[2], mpm.vin, en-r.p[2])
+  net (en-r.p[1], mpm.en, en)
+
+  net vss (gnd, c-in.p[1], mpm.pgnd, c-out-0.p[1], c-out-1.p[1])
+
+  net out (vout, mpm.out,  c-fb.p[2], c-out-0.p[2], c-out-1.p[2])
+
+  net (mpm.fb, c-fb.p[1])
+  net agnd (mpm.agnd, gnd)
+
+  val mpm-vref = 0.6 ; NOTE: this is different than MPM3620A
+  property(vout.voltage) = tol%(v-out, 3.0)
+  make-voltage-divider(vout, mpm.fb, agnd, min-typ-max(0.55 0.6 0.65), 1.0e-4)
+    
+  ; place(mpm) at loc(0.0, 0.0) on Top
+  ; place(c-fb) at loc(-5.5, 2.0, -90.0) on Top
+  ; place(c-in) at loc(1.0, 5.0, 180.0) on Top
+  ; place(c-out-0) at loc(4.0, 0.0, -90.0) on Top
+  ; place(c-out-1) at loc(6.0, 0.0, -90.0) on Top
+  ; place(en-r) at loc(-2.0, 5.0, 90.0) on Top
+  ; place(fb-net.r-hi) at loc(-4.5, 2.0, -90.0) on Top
+  ; place(fb-net.r-lo) at loc(-3.5, 2.0, 90.0) on Top
+  ; val w2 = 7.0
+  
+;  layer solder-mask = union(
+;    rectangle(0.6, 1.95, loc(-1.0, -1.25))
+;    rectangle(0.6, 1.95, loc(1.0, -1.25))
+;  )
+  
+  ; geom(v-in) :
+  ;   copper-pour(LayerIndex(0), isolate = 0.13, rank = 1) = Polygon(
+  ;     [Point(-1.0, 2.0)
+  ;     Point(1.0, 2.0)
+  ;     Point(1.0, w2)
+  ;     Point((- w2), w2)
+  ;     Point((- w2), 4.0)
+  ;     Point(-1.0, 4.0)]
+  ;   )
+    ;copper-pour(isolate = 0.13, rank = 1) on layer(2) =
+    ;  rectangle(2.0 * w2, w2, loc(0.0, w2 / 2.0))
+  
+  ; geom(out) :
+  ;   copper-pour(LayerIndex(0), isolate = 0.13, rank = 1) = Polygon(
+  ;     [Point((- w2), 2.0)
+  ;     Point(-4.0, 2.0)
+  ;     Point(-4.0, 0.0)
+  ;     Point(w2, 0.0)
+  ;     Point(w2, (- w2))
+  ;     Point((- w2), (- w2))]
+  ;   )
+  ;   copper-pour(LayerIndex(0), isolate = 0.13, rank = 1) = 
+  ;     Rectangle(2.0 * w2, w2, loc(0.0, (- w2 / 2.0)))
+    ;plane(isolate = 0.13, rank = 2) on layer(2) = 
+    ;  rectangle(2.0 * w2, w2, loc(0.0, (- w2 / 2.0)))
+
+  ;geom(sw) :
+  ;  plane(isolate = 0.26, rank = 2) on layer(0) = 
+  ;    rectangle(3.0, 3.0, loc(-1.5, -1.5))
+
+
+public pcb-module module () :
+  inst i : module(1.0)

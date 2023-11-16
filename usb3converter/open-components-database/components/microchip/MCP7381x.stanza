@@ -1,0 +1,54 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/microchip/MCP7381x :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "Microchip"
+  mpn = "MCP73812"
+  description = "IC LI-ION/LI-POLY CTRLR SOT23-5"
+  
+  pin-properties :
+    [pin:Ref  | pads:Int ... | side:Dir   ]
+    [CE   | 1       | Left  ]
+    [VSS  | 2       | Down  ]
+    [VBAT | 3       | Right ]
+    [VDD  | 4       | Up    ]
+    [PROG | 5       | Left  ]
+
+  make-box-symbol()
+  assign-landpattern(SOT95P280X145-5N)
+
+public pcb-module module (chrg-rate:Double):
+  port power : power
+  pin ce
+  pin gnd
+  pin vbat
+
+  inst mgr : ocdb/components/microchip/MCP7381x/component
+  net (power.vdd, mgr.VDD)
+  net (power.gnd, gnd, mgr.VSS)
+
+  val r = 1000.0 / chrg-rate
+  if r > 20.0e3 :
+    println(" MCP73812 charge current %_ below suggested range" % [chrg-rate])
+  else if r < 2.0e3 :
+    println(" MCP73812 charge current %_ above suggested range" % [chrg-rate])
+  res-strap(mgr.PROG, gnd, closest-std-val(r, 1.0))
+
+  cap-strap(mgr.VDD, gnd, 1.0e-6)
+  cap-strap(mgr.VBAT, gnd, 1.0e-6)
+
+public pcb-module module () :
+  inst i : module(1000.0 / 10.0e3)

@@ -1,0 +1,37 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/soberton/GT-111P :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+pcb-landpattern buzzer-pkg :
+  pad high : pth-pad(0.4) at loc(0.0, (- 3.25))
+  pad low : pth-pad(0.4) at loc(0.0, 3.25)
+
+  layer(Courtyard(Top)) = Circle(6.0)
+  layer(Silkscreen("f-silk", Top)) = Circle(6.1)
+  ref-label()
+
+public pcb-component component :
+  manufacturer = "Soberton"
+  description = "AUDIO MAGNETIC XDCR 1-4V TH"
+  mpn = "GT-111P"
+
+  pin high
+  pin low
+
+  symbol = speaker-symbol(high => speaker-symbol.high, low => speaker-symbol.low)
+  landpattern = buzzer-pkg(high => buzzer-pkg.high, low => buzzer-pkg.low)
+
+public pcb-module module :
+  inst c : component

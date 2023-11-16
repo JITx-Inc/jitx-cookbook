@@ -1,0 +1,3 @@
+include "open-components-database/stanza.proj"
+package main defined-in "main.stanza"
+package helpers defined-in "helpers.stanza"

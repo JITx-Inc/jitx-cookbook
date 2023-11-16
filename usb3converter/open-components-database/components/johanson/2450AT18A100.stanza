@@ -1,0 +1,37 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/johanson/2450AT18A100 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns 
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+pcb-landpattern johanson-2450AT18A100-pkg :
+  make-two-pin-landpattern(4.2, 2.6, 1.6, 4.2, 1.6)
+  layer(Silkscreen("pol", Top)) = Line(0.25, [Point(-2.25, -0.3), Point(-2.25, 0.3)])
+  layer(ForbidCopper(LayerIndex(0), LayerIndex(0, Bottom))) = Rectangle(7.0, 10.0)
+  layer(Courtyard(Top)) = Rectangle(7.0, 10.0) 
+  ref-label()
+
+public pcb-component component :
+  manufacturer = "Johanson Technology"
+  mpn = "2450AT18A100E"
+  description = "2.4-2.5 GHz Antenna"
+
+  pin feed
+  pin nc
+
+  landpattern = johanson-2450AT18A100-pkg(feed => johanson-2450AT18A100-pkg.p[1], nc => johanson-2450AT18A100-pkg.p[2])
+  val sym = antenna-symbol(1, 1)
+  symbol = sym(feed => sym.p[1], nc => sym.p[2])
+
+public pcb-module module :
+  inst i : component

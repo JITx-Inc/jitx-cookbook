@@ -1,0 +1,53 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/cts/219 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/box-symbol
+  import ocdb/utils/symbols
+
+public pcb-component component (n-sw:Int):
+  manufacturer = "CTS Electrocomponents"
+  mpn = to-string("219-%_MSTR"%[n-sw])
+  description = "SWITCH SLIDE DIP SPST 100MA 20V"
+  port sw : pin[n-sw][2]
+  pin-properties :
+    [pin:Ref     | pads:Int ...   | side:Dir]
+    for i in 0 to n-sw do :
+      [sw[i][0] | (2 * i + 1) | Left]
+      [sw[i][1] | (2 * i + 2) | Right]
+
+  make-box-symbol()
+  assign-landpattern(cts-219-pkg(n-sw))
+
+  for i in 0 to n-sw do :
+    supports SPST :
+      SPST.p => self.sw[i][0]
+      SPST.t => self.sw[i][1]
+  reference-prefix = "SW"
+
+pcb-landpattern cts-219-pkg (n-sw:Int) : 
+
+  val n-col = n-sw
+  val n-row = 2
+  val row-pitch = 8.6
+  val pin-pitch = 2.54
+
+  val l0 = loc((to-double(n-row - 1) * row-pitch) / -2.0, (to-double(n-col - 1) * pin-pitch) / 2.0)
+  
+  for i in 0 to n-col do :
+    for j in 0 to n-row do :
+      pad p[n-row * i + j + 1] : smd-pad(2.44, 1.13) at l0 * loc(to-double(j) * row-pitch, (- to-double(i) * pin-pitch))
+
+  val c-w = 11.04
+  val c-h = to-double(n-col - 1) * 2.54 + 1.13 + 5.14
+  layer(Silkscreen("f-silk", Top)) = LineRectangle(c-w, c-h)
+  layer(Courtyard(Top)) = Rectangle(c-w, c-h)
+  ref-label()  

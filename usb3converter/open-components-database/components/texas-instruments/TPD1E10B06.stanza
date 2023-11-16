@@ -1,0 +1,35 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/TPD1E10B06 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+pcb-landpattern dpy-landpattern : 
+  for (l in grid-locs(1, 2, 1.0, 0.0), i in [1 2]) do :
+    pad p[i] : smd-pad(0.6, 0.5) at l
+
+  layer(Courtyard(Top)) = Rectangle(1.6, 0.8)
+  layer(Silkscreen("f-silk", Top)) = LineRectangle(1.6, 0.8)
+  ref-label()
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "TPD1E10B06DYPT"
+  description = "Single-Channel ESD Protection Diode in 0402 Package"
+  
+  port p : pin[[1 2]]
+  landpattern = dpy-landpattern(p[1] => dpy-landpattern.p[1], p[2] => dpy-landpattern.p[2])
+  symbol = diode-tvs(p[1] => diode-tvs.a, p[2] => diode-tvs.c)
+
+public pcb-module module :
+  inst c : component
