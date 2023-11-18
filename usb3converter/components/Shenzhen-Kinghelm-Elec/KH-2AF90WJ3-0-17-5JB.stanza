@@ -1,0 +1,274 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Shenzhen Kinghelm Elec", "mpn" => "KH-2AF90WJ3.0-17.5JB"])
+#use-added-syntax(jitx)
+defpackage components/Shenzhen-Kinghelm-Elec/KH-2AF90WJ3-0-17-5JB :
+  import core
+  import jitx
+  import jitx/commands
+
+
+pcb-pad circle-th-pad :
+  name = "circle-th-pad"
+  type = TH
+  shape = Circle(0.550)
+  layer(SolderMask(Top)) = Circle(0.600)
+  layer(SolderMask(Bottom)) = Circle(0.600)
+  layer(Cutout()) = Circle(0.350)
+
+pcb-pad circle-th-pad-1 :
+  name = "circle-th-pad-1"
+  type = TH
+  shape = Circle(1.550)
+  layer(SolderMask(Top)) = Circle(1.600)
+  layer(SolderMask(Bottom)) = Circle(1.600)
+  layer(Cutout()) = Circle(1.150)
+
+pcb-landpattern lp :
+  pad p[1] : circle-th-pad at loc(-3.500, 2.889) on Top
+  pad p[2] : circle-th-pad at loc(-1.000, 2.889) on Top
+  pad p[3] : circle-th-pad at loc(1.000, 2.889) on Top
+  pad p[4] : circle-th-pad at loc(3.500, 2.889) on Top
+  pad p[5] : circle-th-pad at loc(4.000, 4.390) on Top
+  pad p[6] : circle-th-pad at loc(2.000, 4.390) on Top
+  pad p[7] : circle-th-pad at loc(0.0, 4.390) on Top
+  pad p[8] : circle-th-pad at loc(-2.000, 4.390) on Top
+  pad p[9] : circle-th-pad at loc(-4.000, 4.390) on Top
+  pad p[10] : circle-th-pad at loc(-3.500, 6.090) on Top
+  pad p[11] : circle-th-pad at loc(-1.000, 6.090) on Top
+  pad p[12] : circle-th-pad at loc(1.000, 6.090) on Top
+  pad p[13] : circle-th-pad at loc(3.500, 6.090) on Top
+  pad p[14] : circle-th-pad at loc(4.000, 7.589) on Top
+  pad p[15] : circle-th-pad at loc(2.000, 7.589) on Top
+  pad p[16] : circle-th-pad at loc(0.0, 7.589) on Top
+  pad p[17] : circle-th-pad at loc(-2.000, 7.589) on Top
+  pad p[18] : circle-th-pad at loc(-4.000, 7.589) on Top
+  pad p[19] : circle-th-pad-1 at loc(-6.570, 6.570) on Top
+  pad p[20] : circle-th-pad-1 at loc(-6.570, 0.889) on Top
+  pad p[21] : circle-th-pad-1 at loc(6.570, 0.889) on Top
+  pad p[22] : circle-th-pad-1 at loc(6.570, 6.570) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 10.456), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 9.456), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Point(3.962, -0.573)
+    Point(3.378, -5.627)
+    Point(1.524, -5.627)
+    Point(0.942, -0.580)
+    Point(1.275, -0.555)
+    Point(1.930, -5.119)
+    Point(2.870, -5.119)
+    Point(3.658, -0.522)
+    Point(3.962, -0.573)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(1.372, -1.487), Point(3.454, -1.487)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(1.702, -3.240), Point(3.150, -3.240)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-2.769, -3.290), Point(-1.321, -3.290)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-3.099, -1.538), Point(-1.016, -1.538)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Point(-0.508, -0.623)
+    Point(-0.813, -0.573)
+    Point(-1.600, -5.170)
+    Point(-2.540, -5.170)
+    Point(-3.195, -0.606)
+    Point(-3.528, -0.631)
+    Point(-2.946, -5.678)
+    Point(-1.092, -5.678)
+    Point(-0.508, -0.623)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(7.250, 8.216), Point(7.250, 8.750)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(7.250, 2.536), Point(7.250, 4.924)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(7.250, -8.750), Point(7.250, -0.756)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-7.250, -0.756), Point(-7.250, -8.750)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-7.250, 4.924), Point(-7.250, 2.536)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-7.250, 8.750), Point(-7.250, 8.216)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-7.250, 8.750), Point(7.250, 8.750)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-7.250, -8.750), Point(7.250, -8.750)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-7.250, -8.750, 0.030, 0.0, -360.000)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(-5.000, -7.760)
+    Point(-5.000, -0.260)
+    Point(-4.000, -0.260)
+    Point(-4.000, -7.760)
+    Point(-5.000, -7.760)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(5.000, -7.760)
+    Point(5.000, -0.260)
+    Point(4.000, -0.260)
+    Point(4.000, -7.760)
+    Point(5.000, -7.760)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(-4.000, -0.260)
+    Point(4.000, -0.260)
+    Point(4.000, -1.260)
+    Point(-4.000, -1.260)
+    Point(-4.000, -0.260)])
+  layer(Courtyard(Top)) = Rectangle(14.500, 17.500)
+
+pcb-symbol sym-KH-2AF90WJ3_0-17_5JB :
+  pin p[1] at Point(-2.540, 26.670) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[2] at Point(-2.540, 24.130) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[3] at Point(-2.540, 21.590) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[4] at Point(-2.540, 19.050) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[5] at Point(-2.540, 16.510) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[6] at Point(-2.540, 13.970) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[7] at Point(-2.540, 11.430) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[8] at Point(-2.540, 8.890) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[9] at Point(-2.540, 6.350) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[10] at Point(-2.540, 3.810) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[11] at Point(-2.540, 1.270) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[12] at Point(-2.540, -1.270) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[13] at Point(-2.540, -3.810) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[14] at Point(-2.540, -6.350) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[15] at Point(-2.540, -8.890) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[16] at Point(-2.540, -11.430) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[17] at Point(-2.540, -13.970) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[18] at Point(-2.540, -16.510) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[19] at Point(-2.540, -19.050) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[20] at Point(-2.540, -21.590) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[21] at Point(-2.540, -24.130) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin p[22] at Point(-2.540, -26.670) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+
+  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 28.670), "", TrueTypeFont, false, false)
+  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 29.670), "", TrueTypeFont, false, false)
+  layer("foreground") = Rectangle(5.080, 58.420)
+  layer("foreground") = Circle(-1.270, 27.940, 0.381)
+
+public pcb-component component :
+  name = "C2979054"
+  description = "USB 3.0 2 Shrouded 9+9 Female Type-A Plugin  USB Connectors ROHS"
+  manufacturer = "Shenzhen Kinghelm Elec"
+  mpn = "KH-2AF90WJ3.0-17.5JB"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2203011630_Shenzhen-Kinghelm-Elec-KH-2AF90WJ3-0-17-5JB_C2979054.pdf"
+  reference-prefix = "U"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [p[1] | p[1] | Left | "unspecified" | 0]
+    [p[2] | p[2] | Left | "unspecified" | 0]
+    [p[3] | p[3] | Left | "unspecified" | 0]
+    [p[4] | p[4] | Left | "unspecified" | 0]
+    [p[5] | p[5] | Left | "unspecified" | 0]
+    [p[6] | p[6] | Left | "unspecified" | 0]
+    [p[7] | p[7] | Left | "unspecified" | 0]
+    [p[8] | p[8] | Left | "unspecified" | 0]
+    [p[9] | p[9] | Left | "unspecified" | 0]
+    [p[10] | p[10] | Left | "unspecified" | 0]
+    [p[11] | p[11] | Left | "unspecified" | 0]
+    [p[12] | p[12] | Left | "unspecified" | 0]
+    [p[13] | p[13] | Left | "unspecified" | 0]
+    [p[14] | p[14] | Left | "unspecified" | 0]
+    [p[15] | p[15] | Left | "unspecified" | 0]
+    [p[16] | p[16] | Left | "unspecified" | 0]
+    [p[17] | p[17] | Left | "unspecified" | 0]
+    [p[18] | p[18] | Left | "unspecified" | 0]
+    [p[19] | p[19] | Left | "unspecified" | 0]
+    [p[20] | p[20] | Left | "unspecified" | 0]
+    [p[21] | p[21] | Left | "unspecified" | 0]
+    [p[22] | p[22] | Left | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  assign-symbol(sym-KH-2AF90WJ3_0-17_5JB)
+
+  property(self.category) = "connector"
+  property(self.manufacturer) = "Shenzhen Kinghelm Elec"
+  property(self.manufacturer_aliases) = ["Shenzhen Kinghelm Elec"]
+  property(self.mpn) = "KH-2AF90WJ3.0-17.5JB"
+  property(self.mpn_aliases) = ["KH-2AF90WJ3.0-17.5JB"]
+  property(self.cofactr_id) = "CO9LFQHHHZXA"
+  property(self.reference_prefix) = "U"
+  property(self.trust) = "low"
+  property(self.x) = 14.500
+  property(self.y) = 17.500
+  property(self.area) = 253.750
+  property(self.case) = "Plugin"
+  property(self.\|vendor_part_numbers.lcsc|) = "C2979054"
+  property(self.minimum_quantity) = 2
+  property(self.price) = 0.310
+  property(self.stock) = 100
+

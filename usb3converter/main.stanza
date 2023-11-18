@@ -20,14 +20,23 @@ val board-shape = RoundedRectangle(38.1, 19.1, 1.57)
 ; Module to run as a design
 pcb-module my-design :
   ; instantiate all modules
+  ;USB type a connector circuit
+
   inst USB3Controller1 : components/Texas-Instruments/HD3SS3220RNHR/module
   inst BuckRegulator1 : components/Texas-Instruments/TPS62162DSGT/module
+  inst USB3TypeAConnector : components/Molex/_48393-0003/module
+  inst USB2ControllerCkt : components/Texas-Instruments/TUSB211RWBR/module
+  inst USBCConnectorCkt : components/Molex/_2012670005/module
+  
   ;
-  net GND (USB3Controller1.pwr3v3.gnd USB3Controller1.pwr5v0.gnd) ; creating a net ground
+  net GND (USB3Controller1.pwr3v3.gnd USB3Controller1.pwr5v0.gnd USB3TypeAConnector.pwr5v0Bundle.gnd) ; creating a net ground
+  net GND_SHIELD (USB3TypeAConnector.pwrShieldBundle.gnd)
   net pwr5v0 (BuckRegulator1.pwr5v0.vdd USB3Controller1.pwr5v0.vdd)
-  net pwr3v3 (BuckRegulator1.pwr3v3.vdd USB3Controller1.pwr3v3.vdd )
+  net pwr3v3 (BuckRegulator1.pwr3v3.vdd USB3Controller1.pwr3v3.vdd)
+
 
   symbol(GND) = ocdb/utils/symbols/altium-power-gnd-signal-sym
+  symbol(GND_SHIELD) = ocdb/utils/symbols/altium-gost-gnd-earth-sym
   symbol(pwr5v0) = ocdb/utils/symbols/altium-gost-power-arrow-sym
   symbol(pwr3v3) = ocdb/utils/symbols/altium-gost-power-arrow-sym
   
@@ -41,7 +50,7 @@ pcb-module my-design :
 ;     [optional] vendors  - Strings or AuthorizedVendors (if not give default vendors will be used)
 ;     [optional] quantity - Minimum stock quantity the vendor should carry (if not give default quantity will be used)
 setup-design(
-  "jitx-design2",
+  "jitx-design4",
   ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape)
 )
 

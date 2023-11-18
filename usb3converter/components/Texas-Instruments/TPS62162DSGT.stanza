@@ -120,7 +120,8 @@ public pcb-component component :
     [EP | p[9] | Down | "unspecified" | 0]
 
   assign-landpattern(lp)
-  assign-symbol(sym-TPS62162DSGT)
+  ; assign-symbol(sym-TPS62162DSGT)
+  make-box-symbol()
 
   property(self.category) = "power_supply_chip"
   property(self.manufacturer) = "Texas Instruments"

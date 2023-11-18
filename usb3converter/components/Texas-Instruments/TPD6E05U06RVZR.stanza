@@ -1,0 +1,165 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TPD6E05U06RVZR"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/TPD6E05U06RVZR :
+  import core
+  import jitx
+  import jitx/commands
+
+
+pcb-pad capsule-smd-pad :
+  name = "capsule-smd-pad"
+  type = SMD
+  shape = Capsule(0.815, 0.28, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.917, 0.382, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.815, 0.28, loc(0.0, 0.0))
+
+pcb-landpattern lp :
+  pad p[1] : capsule-smd-pad at loc(-1.500, -0.608, 90.000) on Top
+  pad p[2] : capsule-smd-pad at loc(-1.000, -0.608, 90.000) on Top
+  pad p[3] : capsule-smd-pad at loc(-0.500, -0.608, 90.000) on Top
+  pad p[4] : capsule-smd-pad at loc(0.0, -0.608, 90.000) on Top
+  pad p[5] : capsule-smd-pad at loc(0.500, -0.608, 90.000) on Top
+  pad p[6] : capsule-smd-pad at loc(1.000, -0.608, 90.000) on Top
+  pad p[7] : capsule-smd-pad at loc(1.500, -0.608, 90.000) on Top
+  pad p[8] : capsule-smd-pad at loc(1.500, 0.608, 90.000) on Top
+  pad p[9] : capsule-smd-pad at loc(1.000, 0.608, 90.000) on Top
+  pad p[10] : capsule-smd-pad at loc(0.500, 0.608, 90.000) on Top
+  pad p[11] : capsule-smd-pad at loc(0.0, 0.608, 90.000) on Top
+  pad p[12] : capsule-smd-pad at loc(-0.500, 0.608, 90.000) on Top
+  pad p[13] : capsule-smd-pad at loc(-1.000, 0.608, 90.000) on Top
+  pad p[14] : capsule-smd-pad at loc(-1.500, 0.608, 90.000) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.482), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.482), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(-1.826, -0.776), Point(-1.826, 0.776)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(1.826, -0.776), Point(1.826, 0.776)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-1.750, -0.700, 0.030, 0.0, -360.000)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.200, [
+    Arc(-1.905, -1.142, 0.100, 0.0, -360.000)])
+  layer(Finish(Top)) = Polyline(0.200, [
+    Arc(-1.524, -0.507, 0.100, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(3.652, 1.553)
+
+pcb-symbol sym-TPD6E05U06RVZR :
+  pin NC0 at Point(-6.350, 7.620) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin NC1 at Point(-6.350, 5.080) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin NC2 at Point(-6.350, 2.540) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin NC3 at Point(-6.350, 0.0) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin GND0 at Point(-6.350, -2.540) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin NC4 at Point(-6.350, -5.080) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin NC5 at Point(-6.350, -7.620) with :
+    direction = Left
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin D3- at Point(6.350, -7.620) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin D3+ at Point(6.350, -5.080) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin GND1 at Point(6.350, -2.540) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin D2- at Point(6.350, 0.0) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin D2+ at Point(6.350, 2.540) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin D1- at Point(6.350, 5.080) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+  pin D1+ at Point(6.350, 7.620) with :
+    direction = Right
+    length = 2.540
+    number-size = 1.000
+    name-size = 1.000
+
+  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 9.620), "", TrueTypeFont, false, false)
+  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 10.620), "", TrueTypeFont, false, false)
+  layer("foreground") = Rectangle(12.700, 20.320)
+  layer("foreground") = Circle(-5.080, 8.890, 0.381)
+
+public pcb-component component :
+  name = "C962978"
+  description = "14V 40W 6V 5.5V@Max USON-14(1.4x3.5)  TVS ROHS"
+  manufacturer = "Texas Instruments"
+  mpn = "TPD6E05U06RVZR"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2303021000_Texas-Instruments-TPD6E05U06RVZR_C962978.pdf"
+  reference-prefix = "F"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [NC0 | p[1] | Left | "unspecified" | 0]
+    [NC1 | p[2] | Left | "unspecified" | 0]
+    [NC2 | p[3] | Left | "unspecified" | 0]
+    [NC3 | p[4] | Left | "unspecified" | 0]
+    [GND0 | p[5] | Left | "unspecified" | 0]
+    [NC4 | p[6] | Left | "unspecified" | 0]
+    [NC5 | p[7] | Left | "unspecified" | 0]
+    [D3- | p[8] | Right | "unspecified" | 0]
+    [D3+ | p[9] | Right | "unspecified" | 0]
+    [GND1 | p[10] | Right | "unspecified" | 0]
+    [D2- | p[11] | Right | "unspecified" | 0]
+    [D2+ | p[12] | Right | "unspecified" | 0]
+    [D1- | p[13] | Right | "unspecified" | 0]
+    [D1+ | p[14] | Right | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  assign-symbol(sym-TPD6E05U06RVZR)
+
+  property(self.category) = "fuse"
+  property(self.manufacturer) = "Texas Instruments"
+  property(self.manufacturer_aliases) = ["Texas Instruments"]
+  property(self.mpn) = "TPD6E05U06RVZR"
+  property(self.mpn_aliases) = ["TPD6E05U06RVZR"]
+  property(self.cofactr_id) = "VPIAUYJ9JGIH"
+  property(self.reference_prefix) = "F"
+  property(self.trust) = "low"
+  property(self.x) = 3.652
+  property(self.y) = 1.553
+  property(self.area) = 5.672
+  property(self.case) = "USON-14(1.4x3.5)"
+  property(self.\|vendor_part_numbers.lcsc|) = "C962978"
+  property(self.minimum_quantity) = 1
+  property(self.price) = 0.752
+  property(self.stock) = 27
+
