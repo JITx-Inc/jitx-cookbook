@@ -29,14 +29,14 @@ pcb-module my-design :
   inst USBCConnectorCkt : components/Molex/_2012670005/module
   
   ;
-  net GND (USB3Controller1.pwr3v3.gnd USB3Controller1.pwr5v0.gnd USB3TypeAConnector.pwr5v0Bundle.gnd) ; creating a net ground
-  net GND_SHIELD (USB3TypeAConnector.pwrShieldBundle.gnd)
-  net pwr5v0 (BuckRegulator1.pwr5v0.vdd USB3Controller1.pwr5v0.vdd)
+  net GND (USB3Controller1.pwr3v3.gnd USB3Controller1.pwr5v0.gnd USB3TypeAConnector.pwr5v0Bundle.gnd USBCConnectorCkt.USBCPwer.gnd) ; creating a net ground
+  net GND_SHIELD (USB3TypeAConnector.pwrShieldBundle.gnd USBCConnectorCkt.USBCPwer.gnd)
+  net pwr5v0 (BuckRegulator1.pwr5v0.vdd USB3Controller1.pwr5v0.vdd USBCConnectorCkt.USBCPwer.vdd)
   net pwr3v3 (BuckRegulator1.pwr3v3.vdd USB3Controller1.pwr3v3.vdd)
 
 
   symbol(GND) = ocdb/utils/symbols/altium-power-gnd-signal-sym
-  symbol(GND_SHIELD) = ocdb/utils/symbols/altium-gost-gnd-earth-sym
+  symbol(GND_SHIELD) = ocdb/utils/symbols/altium-power-gnd-earth-sym
   symbol(pwr5v0) = ocdb/utils/symbols/altium-gost-power-arrow-sym
   symbol(pwr3v3) = ocdb/utils/symbols/altium-gost-power-arrow-sym
   

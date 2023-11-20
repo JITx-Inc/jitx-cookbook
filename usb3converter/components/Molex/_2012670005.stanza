@@ -8,6 +8,7 @@ defpackage components/Molex/_2012670005 :
   import ocdb/utils/bundles
   import ocdb/utils/generic-components
   import ocdb/utils/box-symbol
+  import ocdb/utils/design-vars
 
 pcb-pad rectangle-smd-pad :
   name = "rectangle-smd-pad"
@@ -400,6 +401,8 @@ public pcb-component component :
     [p[3] | p[3] | Right | "unspecified" | 0]
     [p[4] | p[4] | Right | "unspecified" | 0]
 
+  ; Overrides default value set in ocdb/utils/design-vars
+  MIN-PKG = "0402"
   assign-landpattern(lp)
   make-box-symbol()
   ;assign-symbol(sym-2012670005)
@@ -422,8 +425,30 @@ public pcb-component component :
   property(self.stock) = 15
   property(self.rated-temperature) = Toleranced(32.5, 72.5, 72.5)
 
-public pcb-module module :
-  ; Create ports for the module to connect to outside objects
-  inst USBCConnector : components/Molex/_2012670005/component
 
-view(component)
+public pcb-module module :
+  port USBCBundle1 : usb-c-full-bundle
+  port USBCPwer : power
+  net GND_SHIELD (USBCBundle1.shield)
+  net GND (USBCPwer.gnd)
+  net USBCPwerVBUS (USBCPwer.vdd)
+  
+  inst res1 : chip-resistor(0.01)
+  inst res2 : chip-resistor(0.01)
+  inst res3 : chip-resistor(0.01)
+  inst res4 : chip-resistor(0.01)
+
+  inst USBCConnector : components/Molex/_2012670005/component
+  net (USBCPwerVBUS USBCBundle1.VBUS USBCConnector.VBUS0 USBCConnector.VBUS1 USBCConnector.VBUS2 USBCConnector.VBUS3)
+  net (GND_SHIELD USBCBundle1.shield USBCConnector.p[1] USBCConnector.p[2] USBCConnector.p[3] USBCConnector.p[4])
+  net (GND USBCBundle1.GND USBCConnector.GND0 USBCConnector.GND1 USBCConnector.GND2 USBCConnector.GND3)
+  net (USBCPwerVBUS USBCBundle1.VBUS)
+  net (USBCBundle1.CC1 USBCConnector.CC1 res1.p[1])
+  net (res1.p[2] res4.p[2])
+  net (USBCConnector.CC1 res2.p[1])
+  net (res2.p[2] res3.p[2])
+  net (USBCBundle1.CC2 USBCConnector.CC2 res3.p[1])
+  net (USBCConnector.CC2 res4.p[1])
+  bypass-cap-strap(USBCConnector.VBUS0, GND, 10.0e-6)
+
+;view(module)
