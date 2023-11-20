@@ -31,9 +31,9 @@ pcb-module my-design :
   ;
   net GND (USB3Controller1.pwr3v3.gnd USB3Controller1.pwr5v0.gnd USB3TypeAConnector.pwr5v0Bundle.gnd USBCConnectorCkt.USBCPwer.gnd) ; creating a net ground
   net GND_SHIELD (USB3TypeAConnector.pwrShieldBundle.gnd USBCConnectorCkt.USBCPwer.gnd)
-  net pwr5v0 (BuckRegulator1.pwr5v0.vdd USB3Controller1.pwr5v0.vdd USBCConnectorCkt.USBCPwer.vdd)
-  net pwr3v3 (BuckRegulator1.pwr3v3.vdd USB3Controller1.pwr3v3.vdd)
-
+  net pwr5v0 (USB3Controller1.pwr5v0.vdd BuckRegulator1.pwr5v0.vdd USB3TypeAConnector.pwr5v0Bundle.vdd USBCConnectorCkt.USBCPwer.vdd USBCConnectorCkt.USBCPwer.vdd)
+  net pwr3v3 (BuckRegulator1.pwr3v3.vdd USB3Controller1.pwr3v3.vdd USB2ControllerCkt.pwr3v3.vdd)
+  net (USBCConnectorCkt.USBCBundle1.SSRXN2 USB3Controller1.usb.rx2[1].N)
 
   symbol(GND) = ocdb/utils/symbols/altium-power-gnd-signal-sym
   symbol(GND_SHIELD) = ocdb/utils/symbols/altium-power-gnd-earth-sym

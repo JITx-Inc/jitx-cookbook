@@ -162,18 +162,27 @@ public pcb-component component :
   property(self.minimum_quantity) = 1
   property(self.price) = 1.780
   property(self.stock) = 2422
-
-public pcb-bundle USB2Bundle : 
-  port D1 : diff-pair
-  port D2 : diff-pair
   
+public pcb-bundle USB2-D1-D2 :
+  port D1 : diff-pair[[1 2]]
+  port D2 : diff-pair[[1 2]]
 
 public pcb-module module :
+  port USB2Bundle : USB2-D1-D2
   port pwr3v3 : power
   port VREG : power
+  net GND (pwr3v3.gnd)
+  net VCC (pwr3v3.vdd)
 
   ; Create ports for the module to connect to outside objects
   inst USB2Controller : components/Texas-Instruments/TUSB211RWBR/component
 
-
-  net GND (pwr3v3.gnd USB2Controller.GND)
+  net (GND pwr3v3.gnd USB2Controller.GND)
+  net (VCC USB2Controller.VCC)
+  bypass-cap-strap(USB2Controller.VCC, GND, 10.0e-9)
+  bypass-cap-strap(USB2Controller.VCC, GND, 100.0e-9)
+  bypass-cap-strap(USB2Controller.RSTN, GND, 100.0e-9)
+  bypass-cap-strap(USB2Controller.VREG, GND, 100.0e-9)
+  res-strap(USB2Controller.EQ, GND, 1.6e3)
+  net (USB2Controller.D1M USB2Controller.D2M USB2Bundle.D1[1].N USB2Bundle.D2[1].N)
+  net (USB2Controller.D1P USB2Controller.D2P USB2Bundle.D1[1].P USB2Bundle.D2[1].P)

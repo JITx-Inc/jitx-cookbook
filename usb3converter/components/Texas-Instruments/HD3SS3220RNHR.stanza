@@ -368,8 +368,8 @@ public pcb-module module :
   net (usb.rx1[1].N controller.RX1n)                        ;07-connect the USB port - USB is the high-level module, connecting to the component's/controller's pin inside the module and gives access to the outside world via the port
   bypass-cap-strap(controller.TX2p, usb.tx2[1].P, 470.0e-9) ;08-adds a series capacitor between controller pin and module's port/pin
   bypass-cap-strap(controller.TX2n, usb.tx2[1].N, 470.0e-9) ;09-adds a series capacitor between controller pin and module's port/pin
-  net (usb.rx2[2].P controller.RX2p)                        ;10-connect the USB port - USB is the high-level module, connecting to the component's/controller's pin inside the module and gives access to the outside world via the port
-  net (usb.rx2[2].N controller.RX2n)                        ;11-connect the USB port - USB is the high-level module, connecting to the component's/controller's pin inside the module and gives access to the outside world via the port
+  net (usb.rx2[1].P controller.RX2p)                        ;10-connect the USB port - USB is the high-level module, connecting to the component's/controller's pin inside the module and gives access to the outside world via the port
+  net (usb.rx2[1].N controller.RX2n)                        ;11-connect the USB port - USB is the high-level module, connecting to the component's/controller's pin inside the module and gives access to the outside world via the port
   net (GND controller.GND0 controller.GND1 controller.EP)   ;12, 13, 14 - GND to controller GND0, GND1 and GND_EP
 
 ;view(component)
