@@ -22,18 +22,24 @@ pcb-module my-design :
   ; instantiate all modules
   ;USB type a connector circuit
 
-  inst USB3Controller1 : components/Texas-Instruments/HD3SS3220RNHR/module
-  inst BuckRegulator1 : components/Texas-Instruments/TPS62162DSGT/module
-  inst USB3TypeAConnector : components/Molex/_48393-0003/module
-  inst USB2ControllerCkt : components/Texas-Instruments/TUSB211RWBR/module
-  inst USBCConnectorCkt : components/Molex/_2012670005/module
+  inst U1_USB3Ctrlr : components/Texas-Instruments/HD3SS3220RNHR/module
+  inst U2_BuckRegulator : components/Texas-Instruments/TPS62162DSGT/module
+  inst J1_TypeAConnector : components/Molex/_48393-0003/module
+  inst U3_USB2Ctrlr : components/Texas-Instruments/TUSB211RWBR/module
+  inst J2_TypeCConnector : components/Molex/_2012670005/module
   
   ;
-  net GND (USB3Controller1.pwr3v3.gnd USB3Controller1.pwr5v0.gnd USB3TypeAConnector.pwr5v0Bundle.gnd USBCConnectorCkt.USBCPwer.gnd) ; creating a net ground
-  net GND_SHIELD (USB3TypeAConnector.pwrShieldBundle.gnd USBCConnectorCkt.USBCPwer.gnd)
-  net pwr5v0 (USB3Controller1.pwr5v0.vdd BuckRegulator1.pwr5v0.vdd USB3TypeAConnector.pwr5v0Bundle.vdd USBCConnectorCkt.USBCPwer.vdd USBCConnectorCkt.USBCPwer.vdd)
-  net pwr3v3 (BuckRegulator1.pwr3v3.vdd USB3Controller1.pwr3v3.vdd USB2ControllerCkt.pwr3v3.vdd)
-  net (USBCConnectorCkt.USBCBundle1.SSRXN2 USB3Controller1.usb.rx2[1].N)
+  net GND (U1_USB3Ctrlr.pwr3v3.gnd U1_USB3Ctrlr.pwr5v0.gnd J1_TypeAConnector.pwr5v0Bundle.gnd J2_TypeCConnector.USBCPwer.gnd) ; creating a net ground
+  net GND_SHIELD (J1_TypeAConnector.pwrShieldBundle.gnd J2_TypeCConnector.USBCPwer.gnd)
+  net pwr5v0 (U1_USB3Ctrlr.pwr5v0.vdd U2_BuckRegulator.pwr5v0.vdd J1_TypeAConnector.pwr5v0Bundle.vdd J2_TypeCConnector.USBCPwer.vdd J2_TypeCConnector.USBCPwer.vdd)
+  net pwr3v3 (U2_BuckRegulator.pwr3v3.vdd U1_USB3Ctrlr.pwr3v3.vdd U3_USB2Ctrlr.pwr3v3.vdd)
+
+  ;connecting bundles (are this visible or no?)
+  net (J2_TypeCConnector.USBCBundle1.SSRXN2 U1_USB3Ctrlr.usb.rx2[1].N)
+
+  ; connect the USB2 diffpairs across the schematic
+  net 
+
 
   symbol(GND) = ocdb/utils/symbols/altium-power-gnd-signal-sym
   symbol(GND_SHIELD) = ocdb/utils/symbols/altium-power-gnd-earth-sym
