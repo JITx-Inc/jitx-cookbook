@@ -1,0 +1,143 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "ROHM Semicon", "mpn" => "SML-210MTT86N"])
+#use-added-syntax(jitx)
+defpackage components/ROHM-Semicon/SML-210MTT86N :
+  import core
+  import jitx
+  import jitx/commands
+
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(1.200, 1.200)
+  layer(SolderMask(Top)) = Rectangle(1.302, 1.302)
+  layer(Paste(Top)) = Rectangle(1.200, 1.200)
+
+pcb-landpattern lp :
+  pad p[1] : rectangle-smd-pad at loc(-1.050, 0.0) on Top
+  pad p[2] : rectangle-smd-pad at loc(1.050, 0.0) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.356), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.356), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.150, [Point(-0.222, 0.650), Point(0.222, 0.650)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.150, [Point(-0.222, -0.650), Point(0.222, -0.650)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-1.000, -0.625, 0.030, 0.0, -360.000)])
+  layer(Silkscreen("F-SilkS", Top)) = PolygonWithArcs([
+    Point(-0.270, 0.350)
+    Point(-0.143, 0.350)
+    Point(-0.143, 0.223)
+    Point(-0.270, 0.223)
+    Point(-0.270, 0.350)])
+  layer(Silkscreen("F-SilkS", Top)) = PolygonWithArcs([
+    Point(-0.280, -0.180)
+    Point(-0.153, -0.180)
+    Point(-0.153, -0.307)
+    Point(-0.280, -0.307)
+    Point(-0.280, -0.180)])
+  layer(Silkscreen("F-SilkS", Top)) = PolygonWithArcs([
+    Point(-0.140, 0.060)
+    Point(-0.013, 0.060)
+    Point(-0.013, -0.067)
+    Point(-0.140, -0.067)
+    Point(-0.140, 0.060)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(-1.600, 0.100)
+    Point(-0.500, 0.100)
+    Point(-0.500, 0.0)
+    Point(-1.600, 0.0)
+    Point(-1.600, 0.100)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(0.500, 0.100)
+    Point(1.600, 0.100)
+    Point(1.600, 0.0)
+    Point(0.500, 0.0)
+    Point(0.500, 0.100)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(1.000, -0.500)
+    Point(1.000, 0.600)
+    Point(1.100, 0.600)
+    Point(1.100, -0.500)
+    Point(1.000, -0.500)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(-0.270, 0.352)
+    Point(-0.143, 0.352)
+    Point(-0.143, 0.225)
+    Point(-0.270, 0.225)
+    Point(-0.270, 0.352)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(-0.150, 0.066)
+    Point(-0.023, 0.066)
+    Point(-0.023, -0.061)
+    Point(-0.150, -0.061)
+    Point(-0.150, 0.066)])
+  layer(Finish(Top)) = PolygonWithArcs([
+    Point(-0.277, -0.177)
+    Point(-0.150, -0.177)
+    Point(-0.150, -0.304)
+    Point(-0.277, -0.304)
+    Point(-0.277, -0.177)])
+  layer(Courtyard(Top)) = Rectangle(2.100, 1.300)
+
+pcb-symbol sym- :
+  pin A at Point(0.0, 2.540) with :
+    direction = Up
+    length = 0.0
+    number-size = 0.500
+    name-size = 0.500
+  pin K at Point(0.0, -2.540) with :
+    direction = Down
+    length = 0.0
+    number-size = 0.500
+    name-size = 0.500
+
+  layer("") = Text("", 0.0, C, loc(0.0, 0.0), "", TrueTypeFont, false, false)
+  layer("") = Text("", 0.0, C, loc(0.0, 0.0), "", TrueTypeFont, false, false)
+  layer("foreground") = Circle(1.905)
+  layer("foreground") = Line(0.127, [Point(1.270, 0.254), Point(2.286, -0.762)])
+  layer("foreground") = Line(0.127, [Point(1.270, -0.508), Point(2.286, -1.524)])
+  layer("foreground") = Line(0.127, [Point(0.0, 2.540), Point(0.0, 1.016)])
+  layer("foreground") = Polygon([
+    Point(1.270, 1.016)
+    Point(-1.270, 1.016)
+    Point(0.0, -1.016)])
+  layer("foreground") = Line(0.127, [Point(0.0, -1.016), Point(0.0, -2.540)])
+  layer("foreground") = Line(0.127, [Point(-1.270, -1.016), Point(1.270, -1.016)])
+  layer("foreground") = Line(0.127, [Point(1.905, -0.762), Point(2.286, -0.762)])
+  layer("foreground") = Line(0.127, [Point(1.905, -1.524), Point(2.286, -1.524)])
+  layer("foreground") = Text(">REF", 0.5, W, loc(2.540, 1.270), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 0.5, W, loc(2.540, -1.270), "", TrueTypeFont, false, false)
+
+public pcb-component component :
+  name = "C600868"
+  description = "Green/Yellow-Green 0805  Light Emitting Diodes (LED) ROHS"
+  manufacturer = "ROHM Semicon"
+  mpn = "SML-210MTT86N"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2006151335_ROHM-Semicon-SML-210MTT86N_C600868.pdf"
+  reference-prefix = "LED"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [K | p[1] | Left | "unspecified" | 0]
+    [A | p[2] | Right | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  assign-symbol(sym-)
+
+  property(self.category) = "diode"
+  property(self.manufacturer) = "ROHM Semicon"
+  property(self.manufacturer_aliases) = ["ROHM Semicon"]
+  property(self.mpn) = "SML-210MTT86N"
+  property(self.mpn_aliases) = ["SML-210MTT86N"]
+  property(self.cofactr_id) = "OLV5NXAP0NA5"
+  property(self.reference_prefix) = "LED"
+  property(self.trust) = "low"
+  property(self.x) = 2.100
+  property(self.y) = 1.300
+  property(self.area) = 2.730
+  property(self.case) = "0805"
+  property(self.\|vendor_part_numbers.lcsc|) = "C600868"
+  property(self.minimum_quantity) = 5
+  property(self.price) = 0.058
+  property(self.stock) = 2768
+

@@ -1,0 +1,26 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/semtech/1N4148W :
+  import core
+  import collections
+  import math
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns 
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  pin a
+  pin c
+  manufacturer = "Semtech"
+  description = "DIODE GEN PURP 100V 300MA SOD123"
+  mpn = "1N4148W"
+  reference-prefix = "D"
+  val sym = diode-sym()
+  symbol = sym(a => sym.a, c => sym.c)  
+  val land = d-sod-123
+  landpattern = land(a => land.a, c => land.c)

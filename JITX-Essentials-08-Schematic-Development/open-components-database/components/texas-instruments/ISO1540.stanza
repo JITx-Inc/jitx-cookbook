@@ -1,0 +1,33 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/ISO1540 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+
+public pcb-component component :
+  name = "ISO1540DR"
+  manufacturer = "Texas Instruments"
+  mpn = "ISO1540DR"
+  description = "2.5-kVrms isolated bidirectional clock, bidirectional I2C isolator"
+  port p: i2c[[1 2]]
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir]
+    [GND1     | 4            | Down    ]
+    [GND2     | 5            | Down    ]
+    [p[1].scl | 3            | Left    ]
+    [p[2].scl | 6            | Right   ]
+    [p[1].sda | 2            | Left    ]
+    [p[2].sda | 7            | Right   ]
+    [VCC1     | 1            | Up      ]
+    [VCC2     | 8            | Up      ]
+  make-box-symbol()
+  assign-landpattern(soic127p-landpattern(8))

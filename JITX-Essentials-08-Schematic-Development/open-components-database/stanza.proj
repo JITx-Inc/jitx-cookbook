@@ -1,0 +1,41 @@
+;====================================
+;============ Utilities =============
+;====================================
+packages ocdb/utils/* defined-in "utils"
+packages ocdb/manufacturers/* defined-in "manufacturers"
+
+;====================================
+;============= Scripts  =============
+;====================================
+packages ocdb/scripts/* defined-in "scripts"
+
+;====================================
+;======== Circuit libraries ========= 
+;====================================
+packages ocdb/modules/*  defined-in "modules"
+
+;====================================
+;========= Component models =========
+;====================================
+packages ocdb/components/* defined-in "components"
+packages ocdb/artwork/*    defined-in "artwork"
+
+;====================================
+;====== Derating parameters ========= 
+;====================================
+package ocdb/space-derating defined-in "derating/space-derating.stanza"
+
+
+package ocdb defined-in "ocdb.stanza"
+packages ocdb/tests/* defined-in "tests"
+packages ocdb/designs/* defined-in "designs"
+
+build ocdb :
+  inputs: ocdb
+  pkg: "../build/pkgs"
+
+build-test ocdb-tests :
+  inputs: ocdb/tests/all
+  pkg: "../build/tests/pkgs"
+  o: "../build/bin/test-ocdb"
+

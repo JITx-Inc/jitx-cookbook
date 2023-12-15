@@ -1,0 +1,33 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/on-semiconductor/FDN352AP :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns 
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "ON Semiconductor"
+  description = "MOSFET P-CH 30V 1.3A SSOT-3"
+  mpn = "FDN352AP"
+
+  pin g
+  pin d
+  pin s
+
+  val pkg = SOT23()
+  val sym = fet-sym(FETPType, FETEnhancement, false)
+  landpattern = pkg(g => pkg.p[1], s => pkg.p[2], d => pkg.p[3])
+  symbol = sym(g => sym.g, d => sym.d, s => sym.s)
+  reference-prefix = "Q"
+
+public pcb-module module :
+  inst c : component

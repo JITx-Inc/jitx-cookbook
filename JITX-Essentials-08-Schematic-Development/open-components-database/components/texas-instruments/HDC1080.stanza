@@ -1,0 +1,67 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/HDC1080 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/symbol-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+
+pcb-landpattern son100p300x300x80-7n :
+  pad p[1] : smd-pad(0.86, 0.42) at loc(-1.435, 1.0, 0.0)
+  pad p[2] : smd-pad(0.86, 0.42) at loc(-1.435, -0.0, 0.0)
+  pad p[3] : smd-pad(0.86, 0.42) at loc(-1.435, -1.0, 0.0)
+  pad p[4] : smd-pad(0.86, 0.42) at loc(1.435, -1.0, 0.0)
+  pad p[5] : smd-pad(0.86, 0.42) at loc(1.435, -0.0, 0.0)
+  pad p[6] : smd-pad(0.86, 0.42) at loc(1.435, 1.0, 0.0)
+  pad p[7] : smd-pad(1.5, 2.4) at loc(0.0, -0.0, 0.0)
+
+  layer(Silkscreen("F-SilkS", Top)) = Circle(Point(-2.495, 1.0), 0.2)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(-1.5, 1.53), Point(1.5, 1.53) ])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [ Point(-1.5, -1.53), Point(1.5, -1.53) ])
+  ref-label()
+
+public pcb-component component :
+  pin VDD
+  pin-properties :
+    [pin:Ref | pads:Int ...  | side:Dir | generic-pin:GenericPin ]
+    [GND     | 2             | Down     |  -]
+    [SCL     | 6             | Left     |  GenericPin(min-max(-0.3, 6.0), 2.0e3)]
+    [SDA     | 1             | Left     |  GenericPin(min-max(-0.3, 6.0), 2.0e3)]
+    [VDD     | 5             | Up       |  GenericPin(min-max(-0.3, 6.0), 2.0e3)]
+    [NC[0]   | 3             | Right    | -]
+    [NC[1]   | 4             | Right    | -]
+    [NC[2]   | 7             | Right    | -]
+  
+  make-box-symbol()
+  assign-landpattern(son100p300x300x80-7n)
+  property(self.rated-temperature) = min-max(-20.0, 85.0)
+  no-connect(self.NC[0])
+  no-connect(self.NC[1])
+  no-connect(self.NC[2])
+
+
+  property(VDD.power-pin) = PowerPin(min-typ-max(2.7, 3.0, 5.5))
+  mpn = "HDC1080DMBR"
+  manufacturer = "Texas Instruments"
+  description = "I2C humidity sensor"
+
+public pcb-module module :
+  port i2c : i2c
+  port power : power
+  public inst sensor : ocdb/components/texas-instruments/HDC1080/component
+  net (power.vdd, sensor.VDD)
+  net (power.gnd, sensor.GND)
+  net (i2c.sda, sensor.SDA)
+  net (i2c.scl, sensor.SCL)
+  bypass-cap-strap(sensor.VDD, sensor.GND, 0.1e-6)
+
+  schematic-group(self) = HDC1080

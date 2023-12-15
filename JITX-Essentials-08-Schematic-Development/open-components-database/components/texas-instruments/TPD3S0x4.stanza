@@ -1,0 +1,52 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/texas-instruments/TPD3S0x4 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+
+public pcb-component component :
+  manufacturer = "Texas Instruments"
+  mpn = "TPD3S014DBVR"
+  description = "USB power and data protection"
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir | generic-pin:GenericPin]
+    [GND     | 2            | Down     | -]
+    [IN      | 3            | Left     | GenericPin(min-max(-0.3, 6.0), 2.0e3)]
+    [OUT     | 4            | Right    | GenericPin(min-max(-0.3, 6.0), 2.0e3)]
+    [EN      | 1            | Left     | GenericPin(min-max(-0.3, 6.0), 2.0e3)]
+    [D1      | 5            | Right    | GenericPin(min-max(-0.3, 6.0), 12.0e3)]
+    [D2      | 6            | Right    | GenericPin(min-max(-0.3, 6.0), 12.0e3)]
+  assign-landpattern(SOT95P280X145-6N)
+  make-box-symbol()
+  property(self.IN.power-pin) = PowerPin(min-max(4.5, 5.5))
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+
+
+public pcb-module module :
+  port usb-in : usb-2
+  port usb-out : usb-2
+  pin en
+
+  public inst tpd : ocdb/components/texas-instruments/TPD3S0x4/component
+  net (usb-in.vbus.vdd tpd.IN)
+  net (usb-in.vbus.gnd tpd.GND usb-out.vbus.gnd)
+  net (usb-out.vbus.vdd tpd.OUT)
+  net (usb-in.data.P tpd.D1 usb-out.data.P)
+  net (usb-in.data.N tpd.D2 usb-out.data.N)
+  net (usb-in.id usb-out.id)
+  net (tpd.EN en)
+  cap-strap(tpd.IN, tpd.GND, 0.1e-6)
+  cap-strap(tpd.OUT, tpd.GND, 10.0e-6)
+
+  schematic-group(self) = TPD3S0x4

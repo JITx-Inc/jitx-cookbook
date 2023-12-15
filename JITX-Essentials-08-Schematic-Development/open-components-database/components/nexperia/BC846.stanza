@@ -1,0 +1,32 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/nexperia/BC846 :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+public pcb-component component :
+  manufacturer = "Nexperia"
+  description = "65 V, 100 mA NPN general-purpose transistors"
+  mpn = "BC846"
+
+  pin b
+  pin e
+  pin c
+
+  val pkg = SOT23()
+  val sym = bjt-sym()
+  landpattern = pkg(b => pkg.p[1], e => pkg.p[2], c => pkg.p[3])
+  symbol = sym(b => sym.b, e => sym.e, c => sym.c)
+
+public pcb-module module :
+  inst c : component

@@ -1,0 +1,71 @@
+#use-added-syntax(jitx)
+defpackage ocdb/components/analog-devices/ADM7154:
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/property-structs
+
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+
+  import ocdb/utils/symbols
+  import ocdb/utils/box-symbol
+
+public pcb-component component (v-out:Double) :
+  name = "ADM7154"
+  description = "600 mA, Ultralow Noise, High PSRR, RF Linear Regulator"
+  manufacturer = "Analog Devices"
+  val a-code = switch(v-out) :
+    1.2 : "1.2"
+    1.8 : "1.8"
+    2.5 : "2.5"
+    2.8 : "2.8"
+    3.0 : "3.0"
+    3.3 : "3.3"
+    else : fatal("Incorrect output voltage for ADM7154 %_" % [v-out])
+  mpn = to-string("ADM7154ARDZ-%_-R7" % [a-code])
+  pin-properties :
+    [pin:Ref   | pads:Int ... | side:Dir]
+    [vin       | 8            | Left    ]
+    [en        | 7            | Left    ]
+    [vreg      | 1            | Left    ]
+    [byp       | 3            | Left    ]
+    [vout      | 2            | Right   ]
+    [ref       | 6            | Right   ]
+    [ref-sense | 5            | Right   ]
+    [gnd       | 4 9          | Down    ]
+
+  assign-landpattern(soic127p-landpattern(8, [2.3 2.3]))
+  make-box-symbol()
+
+  property(self.vout.power-supply-pin) = PowerSupplyPin(typ(v-out), 0.5)
+  property(self.vin.power-pin) = PowerPin(min-max(2.3, 5.5))
+  property(self.rated-temperature) = min-max(-40.0, 125.0)
+
+public pcb-module module (v-out:Double) :
+  pin vin
+  pin vout
+  pin gnd
+  pin en
+  public inst ps : ocdb/components/analog-devices/ADM7154/component(v-out)
+  cap-strap(ps.vin, gnd, 10.0e-6)
+  cap-strap(ps.vout, gnd, 10.0e-6)
+  cap-strap(ps.vreg, gnd, 10.0e-6)
+  cap-strap(ps.byp, gnd, 1.0e-6)
+  cap-strap(ps.byp, gnd, 47.0e-6)
+  net (ps.ref, ps.ref-sense)
+  cap-strap(ps.ref, gnd, 1.0e-6)
+  net (ps.en, en)
+  net (ps.vin, vin)
+  net (ps.vout, vout)
+  net (ps.gnd gnd)
+
+  schematic-group(self) = ADM7154
+  layout-group(self) = ADM7154
+
+public pcb-module module () : 
+  inst i : module(1.2) 

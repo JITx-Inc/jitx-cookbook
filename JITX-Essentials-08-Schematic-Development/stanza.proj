@@ -1,0 +1,13 @@
+include "open-components-database/stanza.proj"
+package main defined-in "main.stanza"
+package helpers defined-in "helpers.stanza"
+package custom_stackups defined-in "custom_stackups.stanza" ;added manually
+package custom_rules defined-in "custom_rules.stanza" ;added manually
+package components/Amphenol/GSB3211311WEU defined-in "components/Amphenol/GSB3211311WEU.stanza"
+package components/ROHM-Semicon/SML-210MTT86N defined-in "components/ROHM-Semicon/SML-210MTT86N.stanza"
+package components/Texas-Instruments/TPS62082DSGT defined-in "components/Texas-Instruments/TPS62082DSGT.stanza"
+package components/Texas-Instruments/TUSB211IRWBR defined-in "components/Texas-Instruments/TUSB211IRWBR.stanza"
+package components/Molex/_2012670005 defined-in "components/Molex/_2012670005.stanza"
+package components/Texas-Instruments/HD3SS3220RNHR defined-in "components/Texas-Instruments/HD3SS3220RNHR.stanza"
+package components/Texas-Instruments/TPD6E05U06RVZR defined-in "components/Texas-Instruments/TPD6E05U06RVZR.stanza"
+package components/Texas-Instruments/TPD4E05U06QDQARQ1 defined-in "components/Texas-Instruments/TPD4E05U06QDQARQ1.stanza"
