@@ -84,68 +84,6 @@ pcb-landpattern lp :
     Point(-5.896, 9.098)])
   layer(Courtyard(Top)) = Rectangle(12.096, 18.351)
 
-pcb-symbol sym-GSB3211311WEU :
-  pin VBUS at Point(-11.430, 10.160) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin D- at Point(-11.430, 7.620) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin D+ at Point(-11.430, 5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND at Point(-11.430, 2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SSTX- at Point(-11.430, 0.0) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SSTX+ at Point(-11.430, -2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND_DRAIN at Point(-11.430, -5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SSRX- at Point(-11.430, -7.620) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SSRX+ at Point(-11.430, -10.160) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SHELL0 at Point(10.160, -10.160) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SHELL1 at Point(10.160, 10.160) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-
-  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 12.160), "", TrueTypeFont, false, false)
-  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 13.160), "", TrueTypeFont, false, false)
-  layer("foreground") = Rectangle(21.590, 25.400, loc(-0.635, 0.0))
-  layer("foreground") = Circle(-10.160, 11.430, 0.381)
-
 public pcb-component component :
   name = "C429839"
   description = "USB 3.0 1 Shrouded 9 Female Type-B Plugin  USB Connectors ROHS"
@@ -169,45 +107,19 @@ public pcb-component component :
 
   assign-landpattern(lp)
   make-box-symbol()
-  ;assign-symbol(sym-GSB3211311WEU)
-
-  property(self.category) = "connector"
-  property(self.manufacturer) = "Amphenol"
-  property(self.manufacturer_aliases) = ["Amphenol ICC" "Amphenol"]
-  property(self.mpn) = "GSB3211311WEU"
-  property(self.mpn_aliases) = ["GSB3211311WEU"]
-  property(self.cofactr_id) = "CO123SU60ZPM"
-  property(self.reference_prefix) = "USB"
-  property(self.trust) = "low"
-  property(self.x) = 12.096
-  property(self.y) = 18.351
-  property(self.area) = 221.974
-  property(self.case) = "Plugin"
-  property(self.\|vendor_part_numbers.lcsc|) = "C429839"
-  property(self.minimum_quantity) = 1
-  property(self.price) = 1.622
-  property(self.stock) = 2718
 
 public pcb-module module :
-  port usb3a : usb-3-type-a
-  pin GND_SHIELD
+  port usb : usb-a-superspeed-connector
 
-  inst LED : components/ROHM-Semicon/SML-210MTT86N/component
   inst usba : components/Amphenol/GSB3211311WEU/component
-  inst D1 : ocdb/components/on-semiconductor/MBR0520L/component ;components/Diodes-Inc-/D3V3M1U2S9-7/component
 
-  cap-strap(usb3a.vbus.vdd, usb3a.vbus.gnd, 10.0e-6)
-  net (usb3a.vbus.vdd LED.A)
-  res-strap(usb3a.GND_DRAIN, LED.K, 330.0)
-  net (usb3a.vbus.vdd D1.c)
-  net (D1.a usb3a.GND_DRAIN)
-  net (usba.D- usb3a.D.N)
-  net (usba.D+ usb3a.D.P)
-  net (usba.VBUS usb3a.vbus.vdd)
-  net (usba.GND usb3a.vbus.gnd)
-  net (usba.SSTX- usb3a.StdA_SSRX.N)
-  net (usba.SSTX+ usb3a.StdA_SSRX.P)
-  net (usba.SSRX- usb3a.StdA_SSTX.N)
-  net (usba.SSRX+ usb3a.StdA_SSTX.P)
-  net (usba.GND_DRAIN usb3a.GND_DRAIN)
-  net (usba.SHELL0 usba.SHELL1 usb3a.GND_DRAIN GND_SHIELD)
+  net (usba.D- usb.D.N)
+  net (usba.D+ usb.D.P)
+  net (usba.VBUS usb.vbus.vdd)
+  net (usba.GND usb.vbus.gnd)
+  net (usba.SSTX- usb.ssrx.N)
+  net (usba.SSTX+ usb.ssrx.P)
+  net (usba.SSRX- usb.sstx.N)
+  net (usba.SSRX+ usb.sstx.P)
+  net (usba.GND_DRAIN usb.gnd-drain)
+  net (usba.SHELL0 usba.SHELL1 usb.shield)
