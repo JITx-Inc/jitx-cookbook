@@ -89,8 +89,8 @@ public pcb-module test-rig :
   inst design-under-test : usb-c-cable-tester-module
   inst usb-c-cable : usb-c-cable-module
 
-  require dut-in-usb : usb-c-full-bundle from design-under-test.in-usb
-  require dut-out-usb : usb-c-full-bundle from design-under-test.out-usb
+  require dut-in-usb : usb-c-connector from design-under-test.in-usb
+  require dut-out-usb : usb-c-connector from design-under-test.out-usb
 
   net IN (dut-in-usb usb-c-cable.in-usb-bundle)
   net OUT (dut-out-usb usb-c-cable.out-usb-bundle)

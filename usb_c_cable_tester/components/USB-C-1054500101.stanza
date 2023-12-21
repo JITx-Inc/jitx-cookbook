@@ -109,140 +109,7 @@ public pcb-landpattern MOLEX10545001011 :
     Point(152.85, 121.404), 
     Point(145.85, 121.404)])
 
-public pcb-symbol USB-C-1054500101 :
-  pin RX2- at Point(-12.7, -5.08) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin RX2+ at Point(-12.7, -7.62) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin GND_A at Point(-12.7, -10.16) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin TX1+ at Point(-12.7, 10.16) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin TX1- at Point(-12.7, 7.62) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin CC1 at Point(-12.7, 5.08) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin D1+ at Point(-12.7, 2.54) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin D1- at Point(-12.7, 0.0) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin SBU1 at Point(-12.7, -2.54) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin VBUS_A at Point(-12.7, 12.7) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin RX1- at Point(12.7, 7.62) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin RX1+ at Point(12.7, 10.16) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin GND_B at Point(12.7, -10.16) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin TX2+ at Point(12.7, -7.62) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin TX2- at Point(12.7, -5.08) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin CC2 at Point(12.7, -2.54) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin D2+ at Point(12.7, 0.0) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin D2- at Point(12.7, 2.54) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin SBU2 at Point(12.7, 5.08) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin VBUS_B at Point(12.7, 12.7) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-  pin SHIELD at Point(-12.7, -15.24) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.016
-    name-size = 1.016
-
-  layer("foreground") = Text(">REF", 1.27, C, loc(-12.7, 16.002), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(-12.7, -18.542), "", TrueTypeFont)
-  layer("foreground") = Rectangle(25.4, 33.02, loc(0.0, -1.27))
-
 public pcb-component component :
-  ; port usb-c-pinout : usb-c-full-bundle
-  ; pin-properties :
-  ;   [pin:Ref | pads:Ref ...            | side:Dir | electrical-type:String]
-  ;   [usb-c-pinout.SSRXN2 | A10 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.SSRXP2 | A11 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.GND    | A12 A1 B12 B1 | Left | "PowerIn"]
-  ;   [usb-c-pinout.SSTXP1 | A2 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.SSTXN1 | A3 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.CC1    | A5 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.DP1    | A6 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.DN1    | A7 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.SBU1   | A8 | Left | "Bidirectional"]
-  ;   [usb-c-pinout.VBUS   | A9 A4 B9 B4 | Left | "PowerIn"]
-  ;   [usb-c-pinout.SSRXN1 | B10 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.SSRXP1 | B11 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.SSTXP2 | B2 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.SSTXN2 | B3 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.CC2    | B5 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.DP2    | B6 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.DN2    | B7 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.SBU2   | B8 | Right | "Bidirectional"]
-  ;   [usb-c-pinout.shield | S4 S3 S2 S1 | Left | "Passive"]
 
   pin-properties :
     [pin:Ref | pads:Ref ...            | side:Dir | electrical-type:String]
@@ -266,26 +133,26 @@ public pcb-component component :
     [SBU2   | B8 | Right | "Bidirectional"]
     [shield | S4 S3 S2 S1 | Left | "Passive"]
 
-  supports usb-c-full-bundle :
-    usb-c-full-bundle.VBUS => self.VBUS
-    usb-c-full-bundle.CC1 => self.CC1
-    usb-c-full-bundle.CC2 => self.CC2
-    usb-c-full-bundle.DP1 => self.DP1
-    usb-c-full-bundle.DN1 => self.DN1
-    usb-c-full-bundle.DP2 => self.DP2
-    usb-c-full-bundle.DN2 => self.DN2
-    usb-c-full-bundle.SBU1 => self.SBU1
-    usb-c-full-bundle.SBU2 => self.SBU2
-    usb-c-full-bundle.GND => self.GND
-    usb-c-full-bundle.shield => self.shield
-    usb-c-full-bundle.SSTXP1 => self.SSTXP1
-    usb-c-full-bundle.SSTXN1 => self.SSTXN1
-    usb-c-full-bundle.SSRXP1 => self.SSRXP1
-    usb-c-full-bundle.SSRXN1 => self.SSRXN1
-    usb-c-full-bundle.SSRXP2 => self.SSRXP2
-    usb-c-full-bundle.SSRXN2 => self.SSRXN2
-    usb-c-full-bundle.SSTXP2 => self.SSTXP2
-    usb-c-full-bundle.SSTXN2 => self.SSTXN2
+  supports usb-c-connector :
+    usb-c-connector.vbus.vdd => self.VBUS
+    usb-c-connector.cc[1] => self.CC1
+    usb-c-connector.cc[2] => self.CC2
+    usb-c-connector.data[1].P => self.DP1
+    usb-c-connector.data[1].N => self.DN1
+    usb-c-connector.data[2].P => self.DP2
+    usb-c-connector.data[2].N => self.DN2
+    usb-c-connector.sbu[1] => self.SBU1
+    usb-c-connector.sbu[2] => self.SBU2
+    usb-c-connector.vbus.gnd => self.GND
+    usb-c-connector.shield => self.shield
+    usb-c-connector.sstx[1].P => self.SSTXP1
+    usb-c-connector.sstx[1].N => self.SSTXN1
+    usb-c-connector.ssrx[1].P => self.SSRXP1
+    usb-c-connector.ssrx[1].N => self.SSRXN1
+    usb-c-connector.ssrx[2].P => self.SSRXP2
+    usb-c-connector.ssrx[2].N => self.SSRXN2
+    usb-c-connector.sstx[2].P => self.SSTXP2
+    usb-c-connector.sstx[2].N => self.SSTXN2
 
   assign-landpattern(MOLEX10545001011)
   make-box-symbol()
