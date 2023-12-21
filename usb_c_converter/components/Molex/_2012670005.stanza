@@ -403,42 +403,34 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
-; "Connector standard"
-public pcb-bundle usb-c-connector :
-  port data : diff-pair
-  port vbus : power
-  pin GND_DRAIN
-  port cc : pin[[1 2]]
-  port sbu : pin[[1 2]]
-  port SSRX : diff-pair[[1 2]]
-  port SSTX : diff-pair[[1 2]]
-
 public pcb-module module :
-  port usb3 : usb-c-connector
+  port usb : usb-c-connector
 
-  inst usb3con : components/Molex/_2012670005/component
+  inst con : components/Molex/_2012670005/component
   
-  net (usb3.vbus.vdd usb3con.VBUS0 usb3con.VBUS1 usb3con.VBUS2 usb3con.VBUS3)
-  res-strap(usb3.cc[1], usb3con.CC1, 0.0)
-  res-strap(usb3.cc[2], usb3con.CC2, 0.0)
+  net (usb.vbus.vdd con.VBUS0 con.VBUS1 con.VBUS2 con.VBUS3)
+  net (usb.cc[1], con.CC1)
+  net (usb.cc[2], con.CC2)
 
-  net (usb3con.SUB1 usb3.sbu[1])
-  net (usb3con.SBU2 usb3.sbu[2])
+  net (con.SUB1 usb.sbu[1])
+  net (con.SBU2 usb.sbu[2])
   
-  net (usb3.data.N usb3con.D-0 usb3con.D-1)
-  net (usb3.data.P usb3con.D+0 usb3con.D+1)
+  net (usb.data[1].N con.D-0)
+  net (usb.data[1].P con.D+0)
+  net (usb.data[2].N con.D-1)
+  net (usb.data[2].P con.D+1)
   
-  net (usb3con.TX1+ usb3.SSTX[1].P)
-  net (usb3con.TX1- usb3.SSTX[1].N)
+  net (con.TX1+ usb.sstx[1].P)
+  net (con.TX1- usb.sstx[1].N)
 
-  net (usb3con.RX2+ usb3.SSRX[2].P)
-  net (usb3con.RX2- usb3.SSRX[2].N)
+  net (con.RX2+ usb.ssrx[2].P)
+  net (con.RX2- usb.ssrx[2].N)
   
-  net (usb3con.TX2+ usb3.SSTX[2].P)
-  net (usb3con.TX2- usb3.SSTX[2].N)
+  net (con.TX2+ usb.sstx[2].P)
+  net (con.TX2- usb.sstx[2].N)
 
-  net (usb3con.RX1+ usb3.SSRX[1].P)
-  net (usb3con.RX1- usb3.SSRX[1].N)
+  net (con.RX1+ usb.ssrx[1].P)
+  net (con.RX1- usb.ssrx[1].N)
 
-  net (usb3con.GND0 usb3con.GND1 usb3con.GND2 usb3con.GND3)
-  net GND_SHIELD (usb3.GND_DRAIN usb3con.p[1] usb3con.p[2] usb3con.p[3] usb3con.p[4])
+  net (con.GND0 con.GND1 con.GND2 con.GND3 usb.vbus.gnd)
+  net (usb.shield con.p[1] con.p[2] con.p[3] con.p[4])

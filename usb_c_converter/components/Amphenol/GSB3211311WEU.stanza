@@ -111,15 +111,15 @@ public pcb-component component :
 public pcb-module module :
   port usb : usb-a-superspeed-connector
 
-  inst usba : components/Amphenol/GSB3211311WEU/component
+  inst con : components/Amphenol/GSB3211311WEU/component
 
-  net (usba.D- usb.D.N)
-  net (usba.D+ usb.D.P)
-  net (usba.VBUS usb.vbus.vdd)
-  net (usba.GND usb.vbus.gnd)
-  net (usba.SSTX- usb.ssrx.N)
-  net (usba.SSTX+ usb.ssrx.P)
-  net (usba.SSRX- usb.sstx.N)
-  net (usba.SSRX+ usb.sstx.P)
-  net (usba.GND_DRAIN usb.gnd-drain)
-  net (usba.SHELL0 usba.SHELL1 usb.shield)
+  net (con.D- usb.D.N)
+  net (con.D+ usb.D.P)
+  net (con.VBUS usb.vbus.vdd)
+  net (con.GND usb.vbus.gnd)
+  net (con.SSTX- usb.ssrx.N)
+  net (con.SSTX+ usb.ssrx.P)
+  net (con.SSRX- usb.sstx.N)
+  net (con.SSRX+ usb.sstx.P)
+  net (con.GND_DRAIN usb.gnd-drain)
+  net (con.SHELL0 usba.SHELL1 usb.shield)
