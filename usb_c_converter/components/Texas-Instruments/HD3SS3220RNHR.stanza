@@ -186,168 +186,6 @@ pcb-landpattern lp :
     Arc(-1.800, -1.550, 0.075, 0.0, -360.000)])
   layer(Courtyard(Top)) = Rectangle(4.652, 2.653)
 
-pcb-symbol sym-HD3SS3220RNHR :
-  pin CC2 at Point(-25.400, 12.700) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin CC1 at Point(-25.400, 10.160) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin CURRENT_MODE at Point(-25.400, 7.620) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin PORT at Point(-25.400, 5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VBUS_DET at Point(-25.400, 2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TXp at Point(-25.400, 0.0) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TXn at Point(-25.400, -2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VCC33 at Point(-25.400, -5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RXp at Point(-25.400, -7.620) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RXn at Point(-25.400, -10.160) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin DIR at Point(-7.620, -25.400) with :
-    direction = Down
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin ENn_MUX at Point(-5.080, -25.400) with :
-    direction = Down
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND0 at Point(-2.540, -25.400) with :
-    direction = Down
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX1n at Point(0.0, -25.400) with :
-    direction = Down
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX1p at Point(2.540, -25.400) with :
-    direction = Down
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX1n at Point(22.860, -10.160) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX1p at Point(22.860, -7.620) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX2n at Point(22.860, -5.080) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX2p at Point(22.860, -2.540) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX2n at Point(22.860, 0.0) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX2p at Point(22.860, 2.540) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin ADDR at Point(22.860, 5.080) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin INT_N_OUT3 at Point(22.860, 7.620) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VCONN_FAULT_N at Point(22.860, 10.160) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SDA_OUT1 at Point(22.860, 12.700) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SCL_OUT2 at Point(2.540, 27.940) with :
-    direction = Up
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin ID at Point(0.0, 27.940) with :
-    direction = Up
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND1 at Point(-2.540, 27.940) with :
-    direction = Up
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin ENn_CC at Point(-5.080, 27.940) with :
-    direction = Up
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VDD5 at Point(-7.620, 27.940) with :
-    direction = Up
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin EP at Point(-10.160, 27.940) with :
-    direction = Up
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-
-  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 29.940), "", TrueTypeFont, false, false)
-  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 30.940), "", TrueTypeFont, false, false)
-  layer("foreground") = Rectangle(48.260, 53.340, loc(-1.270, 1.270))
-  layer("foreground") = Circle(-24.130, 26.670, 0.381)
-
 public pcb-component component :
   name = "C165155"
   description = " WQFN-30-EP(2.5x4.5)  Battery Management ICs ROHS"
@@ -393,67 +231,58 @@ public pcb-component component :
   make-box-symbol()
 
 public pcb-module module :
-  port usb3 : usb-3-2-gen-2x1
+  port usb-a : usb-a-superspeed-connector
+  port usb-c : usb-c-connector
   port power-3v3 : power
 
-  inst usb3mux : components/Texas-Instruments/HD3SS3220RNHR/component
-  inst LED1 : components/ROHM-Semicon/SML-210MTT86N/component
-  inst LED2 : components/ROHM-Semicon/SML-210MTT86N/component
-  inst LED3 : components/ROHM-Semicon/SML-210MTT86N/component
+  inst mux : components/Texas-Instruments/HD3SS3220RNHR/component
 
-  net GND (usb3.vbus.gnd usb3mux.GND0 usb3mux.GND1 usb3mux.EP)
-  net POWER_5V (usb3mux.VDD5 usb3.vbus.vdd)
-  net POWER_3V3 (usb3mux.VCC33)
+  net GND (usb-c.vbus.gnd power-3v3.gnd mux.GND0 mux.GND1 mux.EP)
+  net POWER_5V (mux.VDD5 usb3.vbus.vdd)
+  net POWER_3V3 (mux.VCC33 power-3v3.vdd)
 
-  cap-strap(power-3v3.vdd, usb3mux.VCC33, 100.0e-9)
-  cap-strap(POWER_5V, usb3.vbus.gnd, 47.0e-6)
+  ; Power capacitors
+  bypass-cap-strap(mux.VCC33, GND, 100.0e-9)
+  bypass-cap-strap(mux.VDD5, GND, 47.0e-6)
+  cap-strap(GND, mux.VCONN_FAULT_N, 47.0e-6)
   
-  ;pull-down resistors
+  ; Configuration resistors
+  res-strap(mux.DIR, POWER_5V, 200.0e3)
+  res-strap(POWER_5V, mux.VBUS_DET, 909.0e3)
+  res-strap(mux.INT_N_OUT3, POWER_5V, 200.0e3)
+  res-strap(mux.ID, POWER_3V3, 200.0e3)
+  res-strap(mux.ADDR, POWER_5V, 10.0e3)
+  res-strap(mux.ADDR, GND, 10.0e3)
+  res-strap(GND, mux.PORT, 4.7e3)
+  res-strap(GND, mux.ENn_CC, 0.0)
+  res-strap(mux.ENn_MUX, GND, 0.0)
 
-  ;pull-up resistors on pins
-  res-strap(usb3mux.DIR, POWER_5V, 200.0e3)
-  res-strap(POWER_5V, usb3mux.VBUS_DET, 909.0e3)
-  res-strap(usb3mux.INT_N_OUT3, POWER_5V, 200.0e3)
-  res-strap(usb3mux.ID, POWER_3V3, 200.0e3)
-  res-strap(usb3mux.ADDR, POWER_5V, 10.0e3)
-  res-strap(usb3mux.ADDR, GND, 10.0e3)
-  res-strap(GND, usb3mux.PORT, 4.7e3)
+  net (mux.CC1 usb-c.cc[1])
+  net (mux.CC2 usb-c.cc[2])
 
-
-  net (usb3mux.CC1 usb3.cc[1])
-  net (usb3mux.CC2 usb3.cc[2])
-  cap-strap(GND, usb3mux.VCONN_FAULT_N, 47.0e-6)
-  net (usb3mux.TXp usb3.StdA_SSTX[0].N)
-  net (usb3mux.TXn usb3.StdA_SSTX[0].P)
+  ; USB-A side
+  net (mux.TXp usb-a.sstx.P)
+  net (mux.TXn usb-a.sstx.N)
+  cap-strap(mux.RXp, usb-a.ssrx.N, 470.0e-9)
+  cap-strap(mux.RXn, usb-a.ssrx.P, 470.0e-9)
   
-  ;pull-down resistors
-  res-strap(GND, usb3mux.ENn_CC, 0.0)
-  res-strap(usb3mux.TXp, GND, 100.0e3)
-  res-strap(usb3mux.TXn, GND, 100.0e3)
-  cap-strap(usb3.StdA_SSRX[0].N, usb3mux.RXp, 470.0e-9)
-  cap-strap(usb3.StdA_SSRX[0].P, usb3mux.RXn, 470.0e-9)
-  res-strap(usb3mux.RXp, GND, 100.0e3)
-  res-strap(usb3mux.RXn, GND, 100.0e3)
-  res-strap(usb3mux.ENn_MUX, GND, 0.0)
+  ; Pull-down resistors on data lines
+  res-strap(mux.RXp, GND, 100.0e3)
+  res-strap(mux.TXp, GND, 100.0e3)
+  res-strap(mux.RXn, GND, 100.0e3)
+  res-strap(mux.TXn, GND, 100.0e3)
 
-  ;diffpairs on USB C side
-  cap-strap(usb3mux.TX1p, usb3.StdA_SSTX[1].N, 470.0e-9)
-  cap-strap(usb3mux.TX1n, usb3.StdA_SSTX[1].P, 470.0e-9)
-  cap-strap(usb3mux.TX2p, usb3.StdA_SSTX[2].P, 470.0e-9)
-  cap-strap(usb3mux.TX2n, usb3.StdA_SSTX[2].N, 470.0e-9)
-
-  net (usb3mux.RX1p usb3.StdA_SSRX[1].N)
-  net (usb3mux.RX1n usb3.StdA_SSRX[1].P)
-  net (usb3mux.RX2p usb3.StdA_SSRX[2].P)
-  net (usb3mux.RX2n usb3.StdA_SSRX[2].N)
+  ; USB-C side
+  cap-strap(mux.TX1p, usb-c.sstx[1].N, 470.0e-9)
+  cap-strap(mux.TX1n, usb-c.sstx[1].P, 470.0e-9)
+  cap-strap(mux.TX2p, usb-c.sstx[2].P, 470.0e-9)
+  cap-strap(mux.TX2n, usb-c.sstx[2].N, 470.0e-9)
+  net (mux.RX1p usb-c.ssrx[1].N)
+  net (mux.RX1n usb-c.ssrx[1].P)
+  net (mux.RX2p usb-c.ssrx[2].P)
+  net (mux.RX2n usb-c.ssrx[2].N)
   
   ;LED indicators
-  res-strap(usb3mux.SDA_OUT1, POWER_5V, 200.0e3)
-  res-strap(usb3mux.SCL_OUT2, POWER_5V, 200.0e3)
-  
-  res-strap(POWER_5V, LED1.A, 499.0)
-  net (LED1.K usb3mux.SDA_OUT1)
-  res-strap(POWER_5V, LED2.A, 499.0)
-  net (LED2.K usb3mux.SCL_OUT2)
-  res-strap(POWER_5V, LED3.A, 499.0)
-  net (LED3.K usb3mux.ID)
+  inst LED : components/ROHM-Semicon/SML-210MTT86N/component
+  res-strap(POWER_5V, LED.A, 499.0)
+  net (LED.K mux.ID)
