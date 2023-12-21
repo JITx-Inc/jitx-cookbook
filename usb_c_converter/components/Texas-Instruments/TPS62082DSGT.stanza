@@ -46,58 +46,6 @@ pcb-landpattern lp :
     Arc(-1.402, 1.142, 0.076, 0.0, -360.000)])
   layer(Courtyard(Top)) = Rectangle(2.109, 2.123)
 
-pcb-symbol sym-TPS62082DSGT :
-  pin EP at Point(7.620, 5.080) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VIN at Point(7.620, 2.540) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SW at Point(7.620, 0.0) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin PG at Point(7.620, -2.540) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VOS at Point(7.620, -5.080) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin FB at Point(-7.620, -5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin MODE at Point(-7.620, -2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND at Point(-7.620, 0.0) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin EN at Point(-7.620, 2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-
-  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 7.080), "", TrueTypeFont, false, false)
-  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 8.080), "", TrueTypeFont, false, false)
-  layer("foreground") = Rectangle(15.240, 15.240)
-  layer("foreground") = Circle(-6.350, 6.350, 0.381)
-
 public pcb-component component :
   name = "C2071042"
   description = "Yes Step-down type -40℃~+85℃@(TA) 1 Step-down Fixed 3.3V 2.3V~6V 1.2A 2MHz WSON-8-EP(2x2)  DC-DC Converters ROHS"
@@ -121,17 +69,20 @@ public pcb-component component :
   make-box-symbol()
 
 public pcb-module module :
-  port power-5v : power
+  port power-5v0 : power
   port power-3v3 : power
 
-  inst BuckReg : components/Texas-Instruments/TPS62082DSGT/component
-  ;place(BuckReg) at loc(0.0 0.0) on Top ; this must be placed first to make its module placeable in main.stanza
+  inst buck : components/Texas-Instruments/TPS62082DSGT/component
 
-  bypass-cap-strap(power-5v.vdd, BuckReg.GND, 10.0e-6) ;name is bypass for bypass caps, however, can use for decoupling as well. also different ratsnest color shows proximity
-  res-strap(BuckReg.PG, power-3v3.vdd, 178.0e3)
-  ind-strap(BuckReg.SW, power-3v3.vdd, 1.0e-6)
-  cap-strap(power-3v3.vdd, BuckReg.GND, 22.0e-6)
+  bypass-cap-strap(buck.VIN, buck.GND, 10.0e-6) 
+  res-strap(buck.PG, power-3v3.vdd, 178.0e3)
 
-  net (power-5v.vdd BuckReg.VIN BuckReg.EN)
-  net (power-5v.gnd BuckReg.GND BuckReg.MODE BuckReg.EP)
+  inst l : database-part(["mpn" => "NR3015T1R0N", "manufacturer" => "Taiyo Yuden"])
+  net (buck.SW, l.p[1])
+  net (l.p[2], power-3v3.vdd)
+
+  bypass-cap-strap(l.p[2], buck.GND, 22.0e-6)  
+
+  net (power-5v0.vdd buck.VIN buck.EN)
+  net (power-5v0.gnd power-3v3.gnd buck.GND buck.MODE buck.EP)
   

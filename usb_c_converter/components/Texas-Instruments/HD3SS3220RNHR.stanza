@@ -238,7 +238,7 @@ public pcb-module module :
   inst mux : components/Texas-Instruments/HD3SS3220RNHR/component
 
   net GND (usb-c.vbus.gnd power-3v3.gnd mux.GND0 mux.GND1 mux.EP)
-  net POWER_5V (mux.VDD5 usb3.vbus.vdd)
+  net POWER_5V (mux.VDD5 usb-c.vbus.vdd)
   net POWER_3V3 (mux.VCC33 power-3v3.vdd)
 
   ; Power capacitors

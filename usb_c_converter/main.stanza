@@ -14,69 +14,60 @@ defpackage main :
 ; Define the shape/size of the board
 val board-shape = RoundedRectangle(45.67, 25.4, 1.61)
 
-; Module to run as a design
-pcb-module my-design :
-  ; define some pins/ports
-  port power-5v : power
+pcb-module power-regulation :
+  port vbus : power
   port power-3v3 : power
-  port SHIELD : power
 
   inst buck : components/Texas-Instruments/TPS62082DSGT/module
-  inst usba : components/Amphenol/GSB3211311WEU/module
-  inst usbc : components/Molex/_2012670005/module
-  inst usb2 : components/Texas-Instruments/TUSB211IRWBR/module
-  inst usb3 : components/Texas-Instruments/HD3SS3220RNHR/module
-  inst esd1 : components/Texas-Instruments/TPD4E05U06QDQARQ1/component
-  inst esd2 : components/Texas-Instruments/TPD4E05U06QDQARQ1/component
-  inst esd3 : components/Texas-Instruments/TPD6E05U06RVZR/component
 
-  ;place(buck) at loc(0.75 0.85) on Top
-
-  net GND (usba.usb3a.vbus.gnd buck.power-5v.gnd)
-  net pwr5v0 (usba.usb3a.vbus.vdd buck.power-5v.vdd)
+  net (vbus buck.power-5v0)
+  net GND (vbus.gnd power-3v3.gnd)
+  net pwr5v0 (vbus.vdd)
   net pwr3v3 (buck.power-3v3.vdd)
-  net GND_SHIELD (usba.GND_SHIELD)
+
+  symbol(GND) = ocdb/utils/symbols/ground-sym
+  symbol(pwr5v0) = ocdb/utils/symbols/supply-sym
+  symbol(pwr3v3) = ocdb/utils/symbols/supply-sym
+
+; Module to run as a design
+pcb-module my-design :
+
+  inst usb-a : components/Amphenol/GSB3211311WEU/module
+  inst usb-c : components/Molex/_2012670005/module
+  inst power : power-regulation
+  net (usb-a.usb.vbus usb-c.usb.vbus power.vbus)
+  
+  inst usb3-mux : components/Texas-Instruments/HD3SS3220RNHR/module
+  net (usb3-mux.power-3v3, power.power-3v3)
+  net (usb3-mux.usb-a usb-a.usb)
+  net (usb3-mux.usb-c usb-c.usb)
 
   ; Connect the D+, D- diffpairs across the USBA and C connectors and USB2 Controller
-  net (usba.usb3a.D usb2.D1 usbc.usb3.data)
+  inst usb2-driver : components/Texas-Instruments/TUSB211IRWBR/module
+  net (usb2-driver.data usb-a.usb.data usb-c.usb.data[1] usb-c.usb.data[2])
+  net (usb2-driver.power, power.power-3v3)
 
-  net (usba.usb3a.StdA_SSTX usb3.usb3.StdA_SSTX[0])
-  net (usba.usb3a.StdA_SSRX usb3.usb3.StdA_SSRX[0])
-  net (usb3.usb3.cc[1] usbc.usb3.cc[1])
-  net (usb3.usb3.cc[2] usbc.usb3.cc[2])
-  
-  net (usb3.usb3.StdA_SSTX[1] usbc.usb3.SSTX[1])
-  net (usb3.usb3.StdA_SSTX[2] usbc.usb3.SSTX[2])
-  net (usb3.usb3.StdA_SSRX[1] usbc.usb3.SSRX[1])
-  net (usb3.usb3.StdA_SSRX[2] usbc.usb3.SSRX[2])
+  ; ESD Protection
+  inst ss-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 4)[2]
+  inst util-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 6)
 
-  ;ESD protection 1
-  net (usbc.usb3.SSTX[1].N esd1.D1+ esd1.NC3)
-  net (usbc.usb3.SSTX[1].P esd1.D1- esd1.NC2)
-  net (usbc.usb3.SSRX[1].N esd1.D2+ esd1.NC1)
-  net (usbc.usb3.SSRX[1].P esd1.D2- esd1.NC0)
-  net (esd1.GND0 esd1.GND1 GND)
+  net GND (power.vbus.gnd ss-esd[0].GND ss-esd[1].GND util-esd.GND)
 
-  ;ESD protection 2
-  net (usbc.usb3.SSTX[2].P esd2.D1+ esd2.NC3)
-  net (usbc.usb3.SSTX[2].N esd2.D1- esd2.NC2)
-  net (usbc.usb3.SSRX[2].P esd2.D2+ esd2.NC1)
-  net (usbc.usb3.SSRX[2].N esd2.D2- esd2.NC0)
-  net (esd2.GND0 esd2.GND1 GND)
+  require esd-1 : diff-pair[2] from ss-esd[0]
+  net (esd-1[0] usb-c.usb.sstx[1])
+  net (esd-1[1] usb-c.usb.ssrx[1])
 
-  ;ESD Protection 3
-  net (usbc.usb3.cc[1] esd3.D1+ esd3.NC0)
-  net (usbc.usb3.cc[2] esd3.D1- esd3.NC1)
-  net (usb2.D1.P esd3.D2+ esd3.NC2)
-  net (usb2.D1.N esd3.D2- esd3.NC3)
-  net (usbc.usb3.sbu[2] esd3.D3+ esd3.NC4)
-  net (usbc.usb3.sbu[1] esd3.D3- esd3.NC5)
-  net (esd3.GND0 esd3.GND1 GND)
+  require esd-2 : diff-pair[2] from ss-esd[1]
+  net (esd-2[0] usb-c.usb.sstx[2])
+  net (esd-2[1] usb-c.usb.ssrx[2])
 
-  symbol(GND) = ocdb/utils/symbols/altium-power-gnd-signal-sym
-  symbol(GND_SHIELD) = ocdb/utils/symbols/altium-power-gnd-earth-sym
-  symbol(pwr5v0) = ocdb/utils/symbols/altium-gost-power-arrow-sym
-  symbol(pwr3v3) = ocdb/utils/symbols/altium-gost-power-arrow-sym
+  require esd-3 : diff-pair[3] from util-esd
+  net (esd-3[0].N usb-a.usb.data.N)
+  net (esd-3[0].P usb-a.usb.data.P)
+  net (esd-3[1].N usb-c.usb.sbu[1])
+  net (esd-3[1].P usb-c.usb.sbu[2])
+  net (esd-3[2].N usb-c.usb.cc[1])
+  net (esd-3[2].P usb-c.usb.cc[2])
 
   ;assign a net to a layer
   geom(GND) :
@@ -84,7 +75,7 @@ pcb-module my-design :
     copper-pour(LayerIndex(4), isolate = 0.125, rank = 1) = board-shape
     
 ; Set the design name - a directory with this name will be generated under the "designs" directory
-set-current-design("jitx-design")
+set-current-design("USB-A-to-C")
 
 ; Setup the board
 defn setup-board () :

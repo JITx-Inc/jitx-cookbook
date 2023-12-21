@@ -104,6 +104,7 @@ public pcb-component component (-- channels:Int = 4):
     mpn = "TPD6E05U06RVZR"
     datasheet = "https://datasheet.lcsc.com/lcsc/2303021000_Texas-Instruments-TPD6E05U06RVZR_C962978.pdf"
     pin-properties :
+      [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
       [D1- | p[13] p[2]| Right | "unspecified" | 0]
       [D1+ | p[14] p[1]| Right | "unspecified" | 0]
       [D2- | p[11] p[4]| Right | "unspecified" | 0]
