@@ -230,6 +230,65 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
+;Create a fresh bundle with two pins 'a' and 'b' that can be mapped
+;to the given pins 'x' and 'y' in any order.
+defn swappable-pair (x:JITXObject, y:JITXObject) -> Bundle :
+  inside pcb-module :
+    pcb-bundle pair :
+      pin a
+      pin b
+    supports pair :
+      option :
+        pair.a => x
+        pair.b => y
+      option :
+        pair.a => y
+        pair.b => x
+    pair
+;Create a fresh bundle with two ports 'tx' and 'rx' with type 'diff-pair'.
+;The 'tx' port is mapped to whatever pins that support the given 'tx-bundle' bundle.
+;The 'rx' port is mapped to whatever pins that support the given 'rx-bundle' bundle.
+defn non-swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
+  inside pcb-module :
+    pcb-bundle tx-rx :
+      port tx:diff-pair
+      port rx:diff-pair
+    supports tx-rx :
+      require tx : tx-bundle
+      require rx : rx-bundle
+      tx-rx.tx.N => tx.a
+      tx-rx.tx.P => tx.b
+      tx-rx.rx.N => rx.a
+      tx-rx.rx.P => rx.b
+    tx-rx
+;Create a fresh bundle with two ports 'tx' and 'rx' with type 'diff-pair'.
+;The 'tx' port is mapped to whatever pins that support the given 'tx-bundle' or 'rx-bundle' bundle.
+;The 'rx' port is mapped to whatever pins that support the given 'tx-bundle' or 'rx-bundle' bundle, which
+;ever wasn't used already for the 'tx' port. 
+defn swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
+  inside pcb-module :
+    ;First create a temporary bundle that can be mapped
+    ;to either tx-bundle or rx-bundle.
+    pcb-bundle tmp :
+      pin a
+      pin b
+    for bundle in [tx-bundle,rx-bundle] do :
+      supports tmp :
+        require x:bundle
+        tmp.a => x.a
+        tmp.b => x.b
+    pcb-bundle tx-rx :
+      port tx:diff-pair
+      port rx:diff-pair
+    supports tx-rx :
+      require pairs : tmp[2]
+      tx-rx.tx.N => pairs[0].a
+      tx-rx.tx.P => pairs[0].b
+      tx-rx.rx.N => pairs[1].a
+      tx-rx.rx.P => pairs[1].b
+    tx-rx
+
+
 public pcb-module module :
   port usb-a : usb-a-superspeed-connector
   port usb-c : usb-c-connector
@@ -261,10 +320,13 @@ public pcb-module module :
   net (mux.CC2 usb-c.cc[2])
 
   ; USB-A side
-  net (mux.TXp usb-a.sstx.P)
-  net (mux.TXn usb-a.sstx.N)
-  cap-strap(mux.RXp, usb-a.ssrx.N, 470.0e-9)
-  cap-strap(mux.RXn, usb-a.ssrx.P, 470.0e-9)
+  require muxed : non-swappable-tx-rx(
+                  swappable-pair(mux.TXn, mux.TXp)
+                  swappable-pair(mux.RXn, mux.RXp))
+                    
+  net (muxed.tx usb-a.sstx)
+  cap-strap(muxed.rx.P, usb-a.ssrx.N, 470.0e-9)
+  cap-strap(muxed.rx.N, usb-a.ssrx.P, 470.0e-9)
   
   ; Pull-down resistors on data lines
   res-strap(mux.RXp, GND, 100.0e3)
@@ -273,14 +335,20 @@ public pcb-module module :
   res-strap(mux.TXn, GND, 100.0e3)
 
   ; USB-C side
-  cap-strap(mux.TX1p, usb-c.sstx[1].N, 470.0e-9)
-  cap-strap(mux.TX1n, usb-c.sstx[1].P, 470.0e-9)
-  cap-strap(mux.TX2p, usb-c.sstx[2].P, 470.0e-9)
-  cap-strap(mux.TX2n, usb-c.sstx[2].N, 470.0e-9)
-  net (mux.RX1p usb-c.ssrx[1].N)
-  net (mux.RX1n usb-c.ssrx[1].P)
-  net (mux.RX2p usb-c.ssrx[2].P)
-  net (mux.RX2n usb-c.ssrx[2].N)
+  require lane-1 : swappable-tx-rx(
+                     swappable-pair(mux.TX1n, mux.TX1p)
+                     swappable-pair(mux.RX1n, mux.RX1p))
+  require lane-2 : swappable-tx-rx(
+                     swappable-pair(mux.TX2n, mux.TX2p)
+                     swappable-pair(mux.RX2n, mux.RX2p))
+
+  net (lane-1.rx usb-c.ssrx[1])
+  net (lane-2.rx usb-c.ssrx[2])
+  cap-strap(lane-1.tx.P, usb-c.sstx[1].N, 470.0e-9)
+  cap-strap(lane-1.tx.N, usb-c.sstx[1].P, 470.0e-9)
+  cap-strap(lane-2.tx.P, usb-c.sstx[2].P, 470.0e-9)
+  cap-strap(lane-2.tx.N, usb-c.sstx[2].N, 470.0e-9)
+
   
   ;LED indicators
   inst LED : components/ROHM-Semicon/SML-210MTT86N/component
