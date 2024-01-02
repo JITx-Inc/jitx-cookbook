@@ -1,0 +1,6 @@
+include "open-components-database/stanza.proj"
+include "hacking_conference_badge/stanza.proj"
+include "battery_charger_design/stanza.proj"
+include "ble_mote_esp32_iot_board/stanza.proj"
+include "usb_c_cable_tester/stanza.proj"
+include "usb_c_converter/stanza.proj"

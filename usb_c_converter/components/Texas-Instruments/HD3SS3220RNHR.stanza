@@ -1,0 +1,356 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "HD3SS3220RNHR"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/HD3SS3220RNHR :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/bundles
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+
+
+pcb-pad capsule-smd-pad :
+  name = "capsule-smd-pad"
+  type = SMD
+  shape = Capsule(0.2, 0.505, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.302, 0.607, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.2, 0.505, loc(0.0, 0.0))
+
+pcb-pad capsule-smd-pad-1 :
+  name = "capsule-smd-pad-1"
+  type = SMD
+  shape = Capsule(0.505, 0.2, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.607, 0.302, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.505, 0.2, loc(0.0, 0.0))
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(3.200, 1.200)
+  layer(SolderMask(Top)) = Rectangle(3.302, 1.302)
+  layer(Paste(Top)) = Rectangle(3.200, 1.200)
+
+pcb-pad polygon-smd-pad :
+  name = "polygon-smd-pad"
+  type = SMD
+  shape = Polygon([
+    Point(0.250, 0.099)
+    Point(0.250, -0.101)
+    Point(-0.250, -0.100)
+    Point(-0.250, -0.100)
+    Point(-0.250, 0.0)
+    Point(-0.250, 0.0)
+    Point(-0.150, 0.099)])
+
+pcb-pad polygon-smd-pad-1 :
+  name = "polygon-smd-pad-1"
+  type = SMD
+  shape = Polygon([
+    Point(0.100, 0.250)
+    Point(-0.100, 0.250)
+    Point(-0.100, -0.249)
+    Point(-0.100, -0.249)
+    Point(0.0, -0.249)
+    Point(0.0, -0.249)
+    Point(0.100, -0.150)])
+
+pcb-pad polygon-smd-pad-2 :
+  name = "polygon-smd-pad-2"
+  type = SMD
+  shape = Polygon([
+    Point(-0.100, -0.251)
+    Point(0.100, -0.251)
+    Point(0.100, 0.249)
+    Point(0.100, 0.249)
+    Point(0.0, 0.249)
+    Point(0.0, 0.249)
+    Point(-0.100, 0.149)])
+
+pcb-pad polygon-smd-pad-3 :
+  name = "polygon-smd-pad-3"
+  type = SMD
+  shape = Polygon([
+    Point(-0.250, -0.099)
+    Point(-0.250, 0.100)
+    Point(0.250, 0.100)
+    Point(0.250, 0.100)
+    Point(0.250, 0.0)
+    Point(0.250, 0.0)
+    Point(0.150, -0.099)])
+
+pcb-pad polygon-smd-pad-4 :
+  name = "polygon-smd-pad-4"
+  type = SMD
+  shape = Polygon([
+    Point(-0.250, 0.099)
+    Point(-0.250, -0.101)
+    Point(0.250, -0.101)
+    Point(0.250, -0.100)
+    Point(0.250, -0.000999999999976353)
+    Point(0.250, -0.000999999999976353)
+    Point(0.150, 0.099)])
+
+pcb-pad polygon-smd-pad-5 :
+  name = "polygon-smd-pad-5"
+  type = SMD
+  shape = Polygon([
+    Point(-0.100, 0.250)
+    Point(0.100, 0.250)
+    Point(0.100, -0.250)
+    Point(0.100, -0.250)
+    Point(0.0, -0.250)
+    Point(0.0, -0.250)
+    Point(-0.100, -0.150)])
+
+pcb-pad polygon-smd-pad-6 :
+  name = "polygon-smd-pad-6"
+  type = SMD
+  shape = Polygon([
+    Point(0.100, -0.251)
+    Point(-0.100, -0.251)
+    Point(-0.100, 0.249)
+    Point(-0.100, 0.249)
+    Point(0.0, 0.249)
+    Point(0.0, 0.249)
+    Point(0.100, 0.149)])
+
+pcb-pad polygon-smd-pad-7 :
+  name = "polygon-smd-pad-7"
+  type = SMD
+  shape = Polygon([
+    Point(0.250, -0.099)
+    Point(0.250, 0.100)
+    Point(-0.250, 0.100)
+    Point(-0.250, 0.100)
+    Point(-0.250, 0.0)
+    Point(-0.250, 0.0)
+    Point(-0.150, -0.099)])
+
+pcb-landpattern lp :
+  pad p[1] : polygon-smd-pad-2 at loc(-1.800, -1.200) on Top
+  pad p[2] : capsule-smd-pad at loc(-1.400, -1.200) on Top
+  pad p[3] : capsule-smd-pad at loc(-1.000, -1.200) on Top
+  pad p[4] : capsule-smd-pad at loc(-0.600, -1.200) on Top
+  pad p[5] : capsule-smd-pad at loc(-0.200, -1.200) on Top
+  pad p[6] : capsule-smd-pad at loc(0.200, -1.200) on Top
+  pad p[7] : capsule-smd-pad at loc(0.600, -1.200) on Top
+  pad p[8] : capsule-smd-pad at loc(1.000, -1.200) on Top
+  pad p[9] : capsule-smd-pad at loc(1.400, -1.200) on Top
+  pad p[10] : polygon-smd-pad-6 at loc(1.800, -1.200) on Top
+  pad p[11] : polygon-smd-pad-7 at loc(2.200, -0.801) on Top
+  pad p[12] : capsule-smd-pad-1 at loc(2.200, -0.401) on Top
+  pad p[13] : capsule-smd-pad-1 at loc(2.200, -0.000499999999988177) on Top
+  pad p[14] : capsule-smd-pad-1 at loc(2.200, 0.400) on Top
+  pad p[15] : polygon-smd-pad at loc(2.200, 0.800) on Top
+  pad p[16] : polygon-smd-pad-1 at loc(1.800, 1.199) on Top
+  pad p[17] : capsule-smd-pad at loc(1.400, 1.199) on Top
+  pad p[18] : capsule-smd-pad at loc(1.000, 1.199) on Top
+  pad p[19] : capsule-smd-pad at loc(0.600, 1.199) on Top
+  pad p[20] : capsule-smd-pad at loc(0.200, 1.199) on Top
+  pad p[21] : capsule-smd-pad at loc(-0.200, 1.199) on Top
+  pad p[22] : capsule-smd-pad at loc(-0.600, 1.199) on Top
+  pad p[23] : capsule-smd-pad at loc(-1.000, 1.199) on Top
+  pad p[24] : capsule-smd-pad at loc(-1.400, 1.199) on Top
+  pad p[25] : polygon-smd-pad-5 at loc(-1.800, 1.199) on Top
+  pad p[26] : polygon-smd-pad-4 at loc(-2.200, 0.800) on Top
+  pad p[27] : capsule-smd-pad-1 at loc(-2.200, 0.400) on Top
+  pad p[28] : capsule-smd-pad-1 at loc(-2.200, -0.000499999999988177) on Top
+  pad p[29] : capsule-smd-pad-1 at loc(-2.200, -0.401) on Top
+  pad p[30] : polygon-smd-pad-3 at loc(-2.200, -0.801) on Top
+  pad p[31] : rectangle-smd-pad at loc(0.0, -0.000499999999988177) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 3.032), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 2.032), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
+    Point(-2.326, 1.102)
+    Point(-2.326, 1.327)
+    Point(-2.102, 1.327)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
+    Point(2.326, 1.102)
+    Point(2.326, 1.327)
+    Point(2.103, 1.327)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
+    Point(-2.326, -1.103)
+    Point(-2.326, -1.327)
+    Point(-2.102, -1.327)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
+    Point(2.326, -1.103)
+    Point(2.326, -1.327)
+    Point(2.103, -1.327)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-2.250, -1.250, 0.030, 0.0, -360.000)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150, [
+    Arc(-1.800, -1.731, 0.075, 0.0, -360.000)])
+  layer(Finish(Top)) = Polyline(0.150, [
+    Arc(-1.800, -1.550, 0.075, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(4.652, 2.653)
+
+public pcb-component component :
+  name = "C165155"
+  description = " WQFN-30-EP(2.5x4.5)  Battery Management ICs ROHS"
+  manufacturer = "Texas Instruments"
+  mpn = "HD3SS3220RNHR"
+  datasheet = "https://datasheet.lcsc.com/lcsc/1809010911_Texas-Instruments-HD3SS3220RNHR_C165155.pdf"
+  reference-prefix = "U"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [CC2 | p[1] | Left | "unspecified" | 0]
+    [CC1 | p[2] | Left | "unspecified" | 0]
+    [CURRENT_MODE | p[3] | Left | "unspecified" | 0]
+    [PORT | p[4] | Left | "unspecified" | 0]
+    [VBUS_DET | p[5] | Left | "unspecified" | 0]
+    [TXp | p[6] | Left | "unspecified" | 0]
+    [TXn | p[7] | Left | "unspecified" | 0]
+    [VCC33 | p[8] | Left | "unspecified" | 0]
+    [RXp | p[9] | Left | "unspecified" | 0]
+    [RXn | p[10] | Left | "unspecified" | 0]
+    [DIR | p[11] | Down | "unspecified" | 0]
+    [ENn_MUX | p[12] | Down | "unspecified" | 0]
+    [GND0 | p[13] | Down | "unspecified" | 0]
+    [RX1n | p[14] | Down | "unspecified" | 0]
+    [RX1p | p[15] | Down | "unspecified" | 0]
+    [TX1n | p[16] | Right | "unspecified" | 0]
+    [TX1p | p[17] | Right | "unspecified" | 0]
+    [RX2n | p[18] | Right | "unspecified" | 0]
+    [RX2p | p[19] | Right | "unspecified" | 0]
+    [TX2n | p[20] | Right | "unspecified" | 0]
+    [TX2p | p[21] | Right | "unspecified" | 0]
+    [ADDR | p[22] | Right | "unspecified" | 0]
+    [INT_N_OUT3 | p[23] | Right | "unspecified" | 0]
+    [VCONN_FAULT_N | p[24] | Right | "unspecified" | 0]
+    [SDA_OUT1 | p[25] | Right | "unspecified" | 0]
+    [SCL_OUT2 | p[26] | Up | "unspecified" | 0]
+    [ID | p[27] | Up | "unspecified" | 0]
+    [GND1 | p[28] | Up | "unspecified" | 0]
+    [ENn_CC | p[29] | Up | "unspecified" | 0]
+    [VDD5 | p[30] | Up | "unspecified" | 0]
+    [EP | p[31] | Up | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  make-box-symbol()
+
+;Create a fresh bundle with two pins 'a' and 'b' that can be mapped
+;to the given pins 'x' and 'y' in any order.
+defn swappable-pair (x:JITXObject, y:JITXObject) -> Bundle :
+  inside pcb-module :
+    pcb-bundle pair :
+      pin a
+      pin b
+    supports pair :
+      option :
+        pair.a => x
+        pair.b => y
+      option :
+        pair.a => y
+        pair.b => x
+    pair
+;Create a fresh bundle with two ports 'tx' and 'rx' with type 'diff-pair'.
+;The 'tx' port is mapped to whatever pins that support the given 'tx-bundle' bundle.
+;The 'rx' port is mapped to whatever pins that support the given 'rx-bundle' bundle.
+defn non-swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
+  inside pcb-module :
+    pcb-bundle tx-rx :
+      port tx:diff-pair
+      port rx:diff-pair
+    supports tx-rx :
+      require tx : tx-bundle
+      require rx : rx-bundle
+      tx-rx.tx.N => tx.a
+      tx-rx.tx.P => tx.b
+      tx-rx.rx.N => rx.a
+      tx-rx.rx.P => rx.b
+    tx-rx
+;Create a fresh bundle with two ports 'tx' and 'rx' with type 'diff-pair'.
+;The 'tx' port is mapped to whatever pins that support the given 'tx-bundle' or 'rx-bundle' bundle.
+;The 'rx' port is mapped to whatever pins that support the given 'tx-bundle' or 'rx-bundle' bundle, which
+;ever wasn't used already for the 'tx' port. 
+defn swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
+  inside pcb-module :
+    ;First create a temporary bundle that can be mapped
+    ;to either tx-bundle or rx-bundle.
+    pcb-bundle tmp :
+      pin a
+      pin b
+    for bundle in [tx-bundle,rx-bundle] do :
+      supports tmp :
+        require x:bundle
+        tmp.a => x.a
+        tmp.b => x.b
+    pcb-bundle tx-rx :
+      port tx:diff-pair
+      port rx:diff-pair
+    supports tx-rx :
+      require pairs : tmp[2]
+      tx-rx.tx.N => pairs[0].a
+      tx-rx.tx.P => pairs[0].b
+      tx-rx.rx.N => pairs[1].a
+      tx-rx.rx.P => pairs[1].b
+    tx-rx
+
+
+public pcb-module module :
+  port usb-a : usb-a-superspeed-connector
+  port usb-c : usb-c-connector
+  port power-3v3 : power
+
+  inst mux : components/Texas-Instruments/HD3SS3220RNHR/component
+
+  net GND (usb-c.vbus.gnd power-3v3.gnd mux.GND0 mux.GND1 mux.EP)
+  net POWER_5V (mux.VDD5 usb-c.vbus.vdd)
+  net POWER_3V3 (mux.VCC33 power-3v3.vdd)
+
+  ; Power capacitors
+  bypass-cap-strap(mux.VCC33, GND, 100.0e-9)
+  bypass-cap-strap(mux.VDD5, GND, 47.0e-6)
+  cap-strap(GND, mux.VCONN_FAULT_N, 47.0e-6)
+  
+  ; Configuration resistors
+  res-strap(mux.DIR, POWER_5V, 200.0e3)
+  res-strap(POWER_5V, mux.VBUS_DET, 909.0e3)
+  res-strap(mux.INT_N_OUT3, POWER_5V, 200.0e3)
+  res-strap(mux.ID, POWER_3V3, 200.0e3)
+  res-strap(mux.ADDR, POWER_5V, 10.0e3)
+  res-strap(mux.ADDR, GND, 10.0e3)
+  res-strap(GND, mux.PORT, 4.7e3)
+  res-strap(GND, mux.ENn_CC, 0.0)
+  res-strap(mux.ENn_MUX, GND, 0.0)
+
+  net (mux.CC1 usb-c.cc[1])
+  net (mux.CC2 usb-c.cc[2])
+
+  ; USB-A side
+  require muxed : non-swappable-tx-rx(
+                  swappable-pair(mux.TXn, mux.TXp)
+                  swappable-pair(mux.RXn, mux.RXp))
+                    
+  net (muxed.tx usb-a.sstx)
+  cap-strap(muxed.rx.P, usb-a.ssrx.N, 470.0e-9)
+  cap-strap(muxed.rx.N, usb-a.ssrx.P, 470.0e-9)
+  
+  ; Pull-down resistors on data lines
+  res-strap(mux.RXp, GND, 100.0e3)
+  res-strap(mux.TXp, GND, 100.0e3)
+  res-strap(mux.RXn, GND, 100.0e3)
+  res-strap(mux.TXn, GND, 100.0e3)
+
+  ; USB-C side
+  require lane-1 : swappable-tx-rx(
+                     swappable-pair(mux.TX1n, mux.TX1p)
+                     swappable-pair(mux.RX1n, mux.RX1p))
+  require lane-2 : swappable-tx-rx(
+                     swappable-pair(mux.TX2n, mux.TX2p)
+                     swappable-pair(mux.RX2n, mux.RX2p))
+
+  net (lane-1.rx usb-c.ssrx[1])
+  net (lane-2.rx usb-c.ssrx[2])
+  cap-strap(lane-1.tx.P, usb-c.sstx[1].N, 470.0e-9)
+  cap-strap(lane-1.tx.N, usb-c.sstx[1].P, 470.0e-9)
+  cap-strap(lane-2.tx.P, usb-c.sstx[2].P, 470.0e-9)
+  cap-strap(lane-2.tx.N, usb-c.sstx[2].N, 470.0e-9)
+
+  
+  ;LED indicators
+  inst LED : components/ROHM-Semicon/SML-210MTT86N/component
+  res-strap(POWER_5V, LED.A, 499.0)
+  net (LED.K mux.ID)

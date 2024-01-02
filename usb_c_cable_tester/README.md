@@ -349,29 +349,30 @@ Above, we mentioned the need to create a virtual USB cable component that allows
 
 To do so, in our definition of the USB-C connector, we'll define the pins to breakout a USB-C bundle:
 ```
+
 public pcb-component component :
-  port usb-c-pinout : usb-c-full-bundle
+  port usb-c : usb-c-connector
   pin-properties :
-    [pin:Ref | pads:Ref ...            | side:Dir | electrical-type:String]
-    [usb-c-pinout.SSRXN2 | A10 | Left | "Bidirectional"]
-    [usb-c-pinout.SSRXP2 | A11 | Left | "Bidirectional"]
-    [usb-c-pinout.GND    | A12 A1 B12 B1 | Left | "PowerIn"]
-    [usb-c-pinout.SSTXP1 | A2 | Left | "Bidirectional"]
-    [usb-c-pinout.SSTXN1 | A3 | Left | "Bidirectional"]
-    [usb-c-pinout.CC1    | A5 | Left | "Bidirectional"]
-    [usb-c-pinout.DP1    | A6 | Left | "Bidirectional"]
-    [usb-c-pinout.DN1    | A7 | Left | "Bidirectional"]
-    [usb-c-pinout.SBU1   | A8 | Left | "Bidirectional"]
-    [usb-c-pinout.VBUS   | A9 A4 B9 B4 | Left | "PowerIn"]
-    [usb-c-pinout.SSRXN1 | B10 | Right | "Bidirectional"]
-    [usb-c-pinout.SSRXP1 | B11 | Right | "Bidirectional"]
-    [usb-c-pinout.SSTXP2 | B2 | Right | "Bidirectional"]
-    [usb-c-pinout.SSTXN2 | B3 | Right | "Bidirectional"]
-    [usb-c-pinout.CC2    | B5 | Right | "Bidirectional"]
-    [usb-c-pinout.DP2    | B6 | Right | "Bidirectional"]
-    [usb-c-pinout.DN2    | B7 | Right | "Bidirectional"]
-    [usb-c-pinout.SBU2   | B8 | Right | "Bidirectional"]
-    [usb-c-pinout.shield | S4 S3 S2 S1 | Left | "Passive"]
+    [pin:Ref | pads:Ref ... | side:Dir ]
+    [usb-c.vbus.vdd | A4  A9  B9 B4 | Left ]
+    [usb-c.cc[1] | A5 | Right ]
+    [usb-c.cc[2] | B5 | Left ]
+    [usb-c.data[1].P | A6 | Right ]
+    [usb-c.data[1].N | A7 | Right ]
+    [usb-c.data[2].P | B6 | Left ]
+    [usb-c.data[2].N | B7 | Left ]
+    [usb-c.sbu[1] | A8 | Right ]
+    [usb-c.sbu[2] | B8 | Left ]
+    [usb-c.vbus.gnd | A12 B1 A1 B12 | Left ]
+    [usb-c.shield | p[25] p[26] p[27] p[28] | Down ]
+    [usb-c.sstx[1].P | A2 | Right ]
+    [usb-c.sstx[1].N | A3 | Right ]
+    [usb-c.ssrx[1].P | B11 | Left ]
+    [usb-c.ssrx[1].N | B10 | Left ]
+    [usb-c.ssrx[2].P | A11 | Right ]
+    [usb-c.ssrx[2].N | A10 | Right ]
+    [usb-c.sstx[2].P | B2 | Left ]
+    [usb-c.sstx[2].N | B3 | Left ]
 ```
 
 Since that component now implements the `usb-c-full-bundle`, we can create a usb-cable module in `main.stanza` that connects those two bundles together:

@@ -89,8 +89,8 @@ public pcb-module test-rig :
   inst design-under-test : usb-c-cable-tester-module
   inst usb-c-cable : usb-c-cable-module
 
-  require dut-in-usb : usb-c-full-bundle from design-under-test.in-usb
-  require dut-out-usb : usb-c-full-bundle from design-under-test.out-usb
+  require dut-in-usb : usb-c-connector from design-under-test.in-usb
+  require dut-out-usb : usb-c-connector from design-under-test.out-usb
 
   net IN (dut-in-usb usb-c-cable.in-usb-bundle)
   net OUT (dut-out-usb usb-c-cable.out-usb-bundle)
@@ -98,8 +98,8 @@ public pcb-module test-rig :
 
 ; a component that models a usb cable
 public pcb-module usb-c-cable-module:
-  port in-usb-bundle : ocdb/utils/bundles/usb-c-full-bundle
-  port out-usb-bundle : ocdb/utils/bundles/usb-c-full-bundle
+  port in-usb-bundle : usb-c-connector
+  port out-usb-bundle : usb-c-connector
   net (in-usb-bundle out-usb-bundle)
 
 pcb-module usb-c-cable-tester-module :
@@ -120,7 +120,7 @@ pcb-module usb-c-cable-tester-module :
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
   component-status(logo) :
-    bom-status : NotInBOM
+    bom-status = NotInBOM
 
   ; create a coin cell battery
   val battery-capacity = 90.0 ;mAh

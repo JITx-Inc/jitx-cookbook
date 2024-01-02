@@ -1,0 +1,88 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TPS62082DSGT"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/TPS62082DSGT :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/bundles
+  import ocdb/utils/generic-components
+  import ocdb/utils/box-symbol
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(0.521, 0.250)
+  layer(SolderMask(Top)) = Rectangle(0.621, 0.350)
+  layer(Paste(Top)) = Rectangle(0.521, 0.250)
+
+pcb-pad rectangle-smd-pad-1 :
+  name = "rectangle-smd-pad-1"
+  type = SMD
+  shape = Rectangle(0.900, 1.600)
+  layer(SolderMask(Top)) = Rectangle(1.000, 1.700)
+  layer(Paste(Top)) = Rectangle(0.900, 1.600)
+
+pcb-landpattern lp :
+  pad p[1] : rectangle-smd-pad at loc(-0.955, 0.749) on Top
+  pad p[2] : rectangle-smd-pad at loc(-0.955, 0.249) on Top
+  pad p[3] : rectangle-smd-pad at loc(-0.955, -0.251) on Top
+  pad p[4] : rectangle-smd-pad at loc(-0.955, -0.751) on Top
+  pad p[5] : rectangle-smd-pad at loc(0.946, -0.751) on Top
+  pad p[6] : rectangle-smd-pad at loc(0.946, -0.251) on Top
+  pad p[7] : rectangle-smd-pad at loc(0.946, 0.249) on Top
+  pad p[8] : rectangle-smd-pad at loc(0.946, 0.749) on Top
+  pad p[9] : rectangle-smd-pad-1 at loc(-0.005, -0.001) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.767), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.767), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.120, [Point(-1.044, -1.062), Point(1.054, -1.062)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.120, [Point(1.045, 1.062), Point(-1.054, 1.062)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-1.005, 0.999, 0.030, 0.0, -360.000)])
+  layer(Finish(Top)) = Polyline(0.200, [
+    Arc(-1.385, 0.759, 0.100, 0.0, -360.000)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Arc(-1.402, 1.142, 0.076, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(2.109, 2.123)
+
+public pcb-component component :
+  name = "C2071042"
+  description = "Yes Step-down type -40℃~+85℃@(TA) 1 Step-down Fixed 3.3V 2.3V~6V 1.2A 2MHz WSON-8-EP(2x2)  DC-DC Converters ROHS"
+  manufacturer = "Texas Instruments"
+  mpn = "TPS62082DSGT"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2303012000_Texas-Instruments-TPS62082DSGT_C2071042.pdf"
+  reference-prefix = "U"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [EP | p[9] | Right | "unspecified" | 0]
+    [VIN | p[8] | Right | "unspecified" | 0]
+    [SW | p[7] | Right | "unspecified" | 0]
+    [PG | p[6] | Right | "unspecified" | 0]
+    [VOS | p[5] | Right | "unspecified" | 0]
+    [FB | p[4] | Left | "unspecified" | 0]
+    [MODE | p[3] | Left | "unspecified" | 0]
+    [GND | p[2] | Left | "unspecified" | 0]
+    [EN | p[1] | Left | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  make-box-symbol()
+
+public pcb-module module :
+  port power-5v0 : power
+  port power-3v3 : power
+
+  inst buck : components/Texas-Instruments/TPS62082DSGT/component
+
+  bypass-cap-strap(buck.VIN, buck.GND, 10.0e-6) 
+  res-strap(buck.PG, power-3v3.vdd, 178.0e3)
+
+  inst l : database-part(["mpn" => "NR3015T1R0N", "manufacturer" => "Taiyo Yuden"])
+  net (buck.SW, l.p[1])
+  net (l.p[2], power-3v3.vdd)
+
+  bypass-cap-strap(l.p[2], buck.GND, 22.0e-6)  
+
+  net (power-5v0.vdd buck.VIN buck.EN)
+  net (power-5v0.gnd power-3v3.gnd buck.GND buck.MODE buck.EP)
+  

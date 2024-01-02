@@ -1,0 +1,145 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TPD4E05U06QDQARQ1"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/TPDxE05U06 :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/bundles
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(0.250, 0.609)
+  layer(SolderMask(Top)) = Rectangle(0.352, 0.711)
+  layer(Paste(Top)) = Rectangle(0.250, 0.609)
+
+pcb-pad rectangle-smd-pad-1 :
+  name = "rectangle-smd-pad-1"
+  type = SMD
+  shape = Rectangle(0.380, 0.609)
+  layer(SolderMask(Top)) = Rectangle(0.482, 0.711)
+  layer(Paste(Top)) = Rectangle(0.380, 0.609)
+
+pcb-landpattern lp-4 :
+  pad p[1] : rectangle-smd-pad at loc(-1.000, -0.414) on Top
+  pad p[2] : rectangle-smd-pad at loc(-0.500, -0.414) on Top
+  pad p[3] : rectangle-smd-pad-1 at loc(0.0, -0.414) on Top
+  pad p[4] : rectangle-smd-pad at loc(0.500, -0.414) on Top
+  pad p[5] : rectangle-smd-pad at loc(1.000, -0.414) on Top
+  pad p[6] : rectangle-smd-pad at loc(1.000, 0.414) on Top
+  pad p[7] : rectangle-smd-pad at loc(0.500, 0.414) on Top
+  pad p[8] : rectangle-smd-pad-1 at loc(0.0, 0.414) on Top
+  pad p[9] : rectangle-smd-pad at loc(-0.500, 0.414) on Top
+  pad p[10] : rectangle-smd-pad at loc(-1.000, 0.414) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.282), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.282), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(-1.326, -0.577), Point(-1.326, 0.577)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(1.326, 0.577), Point(1.326, -0.577)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-1.250, -0.500, 0.030, 0.0, -360.000)])
+  layer(Finish(Top)) = Polyline(0.200, [
+    Arc(-1.000, -0.899, 0.100, 0.0, -360.000)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.200, [
+    Arc(-1.000, -1.019, 0.100, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(2.652, 1.153)
+
+pcb-pad capsule-smd-pad :
+  name = "capsule-smd-pad"
+  type = SMD
+  shape = Capsule(0.815, 0.28, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.917, 0.382, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.815, 0.28, loc(0.0, 0.0))
+
+pcb-landpattern lp-6 :
+  pad p[1] : capsule-smd-pad at loc(-1.500, -0.608, 90.000) on Top
+  pad p[2] : capsule-smd-pad at loc(-1.000, -0.608, 90.000) on Top
+  pad p[3] : capsule-smd-pad at loc(-0.500, -0.608, 90.000) on Top
+  pad p[4] : capsule-smd-pad at loc(0.0, -0.608, 90.000) on Top
+  pad p[5] : capsule-smd-pad at loc(0.500, -0.608, 90.000) on Top
+  pad p[6] : capsule-smd-pad at loc(1.000, -0.608, 90.000) on Top
+  pad p[7] : capsule-smd-pad at loc(1.500, -0.608, 90.000) on Top
+  pad p[8] : capsule-smd-pad at loc(1.500, 0.608, 90.000) on Top
+  pad p[9] : capsule-smd-pad at loc(1.000, 0.608, 90.000) on Top
+  pad p[10] : capsule-smd-pad at loc(0.500, 0.608, 90.000) on Top
+  pad p[11] : capsule-smd-pad at loc(0.0, 0.608, 90.000) on Top
+  pad p[12] : capsule-smd-pad at loc(-0.500, 0.608, 90.000) on Top
+  pad p[13] : capsule-smd-pad at loc(-1.000, 0.608, 90.000) on Top
+  pad p[14] : capsule-smd-pad at loc(-1.500, 0.608, 90.000) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.482), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.482), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(-1.826, -0.776), Point(-1.826, 0.776)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(1.826, -0.776), Point(1.826, 0.776)])
+  layer(Finish(Top)) = Polyline(0.060, [
+    Arc(-1.750, -0.700, 0.030, 0.0, -360.000)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.200, [
+    Arc(-1.905, -1.142, 0.100, 0.0, -360.000)])
+  layer(Finish(Top)) = Polyline(0.200, [
+    Arc(-1.524, -0.507, 0.100, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(3.652, 1.553)
+
+public pcb-component component (-- channels:Int = 4):
+  name = "C81353"
+  description = "-40℃~+125℃@(Ta) 6.4V 14V 40W 2.5A Unidirectional 5.5V USON-10(1x2.5)  ESD Protection Devices ROHS"
+  manufacturer = "Texas Instruments"
+
+  if channels  == 4 :
+    mpn = "TPD4E05U06QDQARQ1"
+    datasheet = "https://datasheet.lcsc.com/lcsc/1809211227_Texas-Instruments-TPD4E05U06QDQARQ1_C81353.pdf"
+    pin-properties :
+      [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+      [D1+ | p[1] p[10] | Left | "unspecified" | 0]
+      [D1- | p[2] p[9] | Left | "unspecified" | 0]
+      [GND | p[3] p[8] | Left | "unspecified" | 0]
+      [D2+ | p[4] p[7] | Left | "unspecified" | 0]
+      [D2- | p[5] p[6] | Left | "unspecified" | 0]
+    assign-landpattern(lp-4)
+
+  else if channels == 6 :
+    mpn = "TPD6E05U06RVZR"
+    datasheet = "https://datasheet.lcsc.com/lcsc/2303021000_Texas-Instruments-TPD6E05U06RVZR_C962978.pdf"
+    pin-properties :
+      [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+      [D1- | p[13] p[2]| Right | "unspecified" | 0]
+      [D1+ | p[14] p[1]| Right | "unspecified" | 0]
+      [D2- | p[11] p[4]| Right | "unspecified" | 0]
+      [D2+ | p[12] p[3]| Right | "unspecified" | 0]
+      [GND | p[5] p[10] | Right | "unspecified" | 0]
+      [D3- | p[8] p[7] | Right | "unspecified" | 0]
+      [D3+ | p[9] p[6] | Right | "unspecified" | 0]
+
+    supports diff-pair : 
+      option:
+        diff-pair.N => self.D3-
+        diff-pair.P => self.D3+
+      option:
+        diff-pair.P => self.D3-
+        diff-pair.N => self.D3+
+    assign-landpattern(lp-6)
+
+  supports diff-pair : 
+    option:
+      diff-pair.N => self.D1-
+      diff-pair.P => self.D1+
+    option:
+      diff-pair.P => self.D1-
+      diff-pair.N => self.D1+
+
+  supports diff-pair : 
+    option:
+      diff-pair.N => self.D2-
+      diff-pair.P => self.D2+
+    option:
+      diff-pair.P => self.D2-
+      diff-pair.N => self.D2+
+
+  make-box-symbol()
+
+
+  property(self.rated-temperature) = Toleranced(42.5, 82.5, 82.5)
+

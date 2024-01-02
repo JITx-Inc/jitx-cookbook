@@ -1,7 +1,0 @@
-*.sw*
-/.vscode/*
-.DS_Store
-pending*dat
-voltage-propagation-iteration*
-designs/output-*
-parts-db
