@@ -3,6 +3,7 @@
 #use-added-syntax(jitx)
 defpackage components/Texas-Instruments/TPDxE05U06 :
   import core
+  import collections
   import jitx
   import jitx/commands
   import ocdb/utils/bundles
@@ -95,7 +96,7 @@ public pcb-component component (-- channels:Int = 4):
       [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
       [D1+ | p[1] p[10] | Left | "unspecified" | 0]
       [D1- | p[2] p[9] | Left | "unspecified" | 0]
-      [GND | p[3] p[8] | Left | "unspecified" | 0]
+      [GND | p[3] p[8] | Down | "unspecified" | 0]
       [D2+ | p[4] p[7] | Left | "unspecified" | 0]
       [D2- | p[5] p[6] | Left | "unspecified" | 0]
     assign-landpattern(lp-4)
@@ -140,6 +141,9 @@ public pcb-component component (-- channels:Int = 4):
 
   make-box-symbol()
 
-
   property(self.rated-temperature) = Toleranced(42.5, 82.5, 82.5)
 
+
+
+
+  

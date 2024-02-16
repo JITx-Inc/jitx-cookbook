@@ -2,6 +2,7 @@
 #use-added-syntax(jitx)
 defpackage main :
   import core
+  import collections
   import jitx
   import jitx/commands
   import ocdb/utils/generic-components
@@ -10,6 +11,77 @@ defpackage main :
   import helpers
   import custom_stackups
 
+defn esd-protect (signals:Tuple<JITXObject>, gnd:JITXObject) :
+  inside pcb-module :
+    val ps = Vector<JITXObject>()
+    for s in signals do :
+      if empty?(pins(s)) :
+        add(ps, s)
+      else :
+        for p in pins(s) do :
+          add(ps, p)
+
+    val n = length(ps)
+
+    val n-pkgs = (n + 3) / 4
+
+    inst esd : components/Texas-Instruments/TPDxE05U06/component(channels = 4)[n-pkgs]
+
+    pcb-bundle my-esd : 
+      pin esd
+
+    for i in 0 to n-pkgs do :  
+      supports my-esd :
+        my-esd.esd => esd[i].D1-
+      supports my-esd :
+        my-esd.esd => esd[i].D1+
+      supports my-esd :
+        my-esd.esd => esd[i].D2-
+      supports my-esd :
+        my-esd.esd => esd[i].D2+
+      net (gnd esd[i].GND)   
+
+    require e : my-esd[n]
+
+    for (p in ps, i in 0 to false) do :
+      net (p e[i].esd)
+
+
+pcb-routing-structure single-ended :
+  name = "50 Ohm single-ended"
+  layer(Top) :
+    trace-width = 0.156     ; mm
+    clearance = 0.3         ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(false 0.1 false false)
+
+  layer(Bottom) :
+    trace-width = 0.156     ; mm
+    clearance = 0.3         ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(false 0.1 false false)
+
+pcb-differential-routing-structure differential :
+  name = "100 Ohm common-mode impedance"
+  layer(Top) :
+    trace-width = 0.1080    ; mm
+    pair-spacing = 0.15     ; mm
+    clearance = 0.3         ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+
+  layer(Bottom) :
+    trace-width = 0.1080    ; mm
+    pair-spacing = 0.15     ; mm
+    clearance = 0.3         ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz                  
+  uncoupled-region = single-ended
+
+; SI constraints
+; Differential pair
 
 ; Define the shape/size of the board
 val board-shape = RoundedRectangle(45.67, 25.4, 1.61)
@@ -18,7 +90,7 @@ pcb-module power-regulation :
   port vbus : power
   port power-3v3 : power
 
-  inst buck : components/Texas-Instruments/TPS62082DSGT/module
+  inst buck : components/Texas-Instruments/TPS62082DSGT/module(output-voltage = 3.3)
 
   net (vbus buck.power-5v0)
   net GND (vbus.gnd power-3v3.gnd)
@@ -47,27 +119,9 @@ pcb-module my-design :
   net (usb2-driver.data usb-a.usb.data usb-c.usb.data[1] usb-c.usb.data[2])
   net (usb2-driver.power, power.power-3v3)
 
-  ; ESD Protection
-  inst ss-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 4)[2]
-  inst util-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 6)
+  net GND (power.vbus.gnd)
 
-  net GND (power.vbus.gnd ss-esd[0].GND ss-esd[1].GND util-esd.GND)
-
-  require esd-1 : diff-pair[2] from ss-esd[0]
-  net (esd-1[0] usb-c.usb.sstx[1])
-  net (esd-1[1] usb-c.usb.ssrx[1])
-
-  require esd-2 : diff-pair[2] from ss-esd[1]
-  net (esd-2[0] usb-c.usb.sstx[2])
-  net (esd-2[1] usb-c.usb.ssrx[2])
-
-  require esd-3 : diff-pair[3] from util-esd
-  net (esd-3[0].N usb-a.usb.data.N)
-  net (esd-3[0].P usb-a.usb.data.P)
-  net (esd-3[1].N usb-c.usb.sbu[1])
-  net (esd-3[1].P usb-c.usb.sbu[2])
-  net (esd-3[2].N usb-c.usb.cc[1])
-  net (esd-3[2].P usb-c.usb.cc[2])
+  esd-protect([usb-c.usb.sstx usb-c.usb.ssrx usb-c.usb.sbu usb-c.usb.cc usb-a.usb.data], GND)
 
   ;assign a net to a layer
   geom(GND) :

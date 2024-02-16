@@ -55,24 +55,28 @@ public pcb-component component :
   reference-prefix = "U"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
-    [EP | p[9] | Right | "unspecified" | 0]
-    [VIN | p[8] | Right | "unspecified" | 0]
-    [SW | p[7] | Right | "unspecified" | 0]
-    [PG | p[6] | Right | "unspecified" | 0]
-    [VOS | p[5] | Right | "unspecified" | 0]
-    [FB | p[4] | Left | "unspecified" | 0]
+    [VIN | p[8] | Left | "unspecified" | 0]
+    [EN | p[1] | Left | "unspecified" | 0]
     [MODE | p[3] | Left | "unspecified" | 0]
     [GND | p[2] | Left | "unspecified" | 0]
-    [EN | p[1] | Left | "unspecified" | 0]
+    [PG | p[6] | Right | "unspecified" | 0]
+    [SW | p[7] | Right | "unspecified" | 0]
+    [VOS | p[5] | Right | "unspecified" | 0]
+    [FB | p[4] | Right | "unspecified" | 0]
+    [EP | p[9] | Right | "unspecified" | 0]
 
   assign-landpattern(lp)
   make-box-symbol()
 
-public pcb-module module :
+public pcb-module module (-- output-voltage:Double = 3.3):
   port power-5v0 : power
   port power-3v3 : power
 
   inst buck : components/Texas-Instruments/TPS62082DSGT/component
+
+  inst feedback : ocdb/modules/passive-circuits/voltage-divider(source-voltage = typ(output-voltage),  
+                                                                divider-output = 0.45 +/- (3 %), 
+                                                                current = 6.0e-6)
 
   bypass-cap-strap(buck.VIN, buck.GND, 10.0e-6) 
   res-strap(buck.PG, power-3v3.vdd, 178.0e3)
