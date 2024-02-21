@@ -1,0 +1,14 @@
+#use-added-syntax(jitx)
+defpackage ensure:
+  import core
+  import jitx
+
+
+public defn ensure-positive! (field:String, value:Double) -> False :
+  if value <= 0.0 :
+    throw $ Exception("%_: Invalid Value: %_ > 0.0" % [field, value])
+
+public defn ensure-positive! (field:String, value?:Maybe<Double>) -> False :
+  match(value?):
+    (_:None): false
+    (v:One<Double>): ensure-positive!(field, value(v))

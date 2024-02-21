@@ -9,6 +9,8 @@ defpackage components/Amphenol/GSB3211311WEU :
   import ocdb/utils/box-symbol
   import ocdb/utils/generic-components
 
+  import si-tools
+
 pcb-pad circle-th-pad :
   name = "circle-th-pad"
   type = TH
@@ -108,18 +110,35 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
+  pin-model(self.D-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.D+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.SSTX-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.SSTX+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.SSRX-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.SSRX+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+
 public pcb-module module :
   port usb : usb-a-superspeed-connector
 
   inst con : components/Amphenol/GSB3211311WEU/component
 
-  net (con.D- usb.data.N)
-  net (con.D+ usb.data.P)
+  topo-net(con.D- usb.data.N)
+  topo-net(con.D+ usb.data.P)
+
+  topo-net(con.SSTX- usb.ssrx.N)
+  topo-net(con.SSTX+ usb.ssrx.P)
+  topo-net(con.SSRX- usb.sstx.N)
+  topo-net(con.SSRX+ usb.sstx.P)
+
+  ; net (con.D- usb.data.N)
+  ; net (con.D+ usb.data.P)
   net (con.VBUS usb.vbus.vdd)
   net (con.GND usb.vbus.gnd)
-  net (con.SSTX- usb.ssrx.N)
-  net (con.SSTX+ usb.ssrx.P)
-  net (con.SSRX- usb.sstx.N)
-  net (con.SSRX+ usb.sstx.P)
+  ; net (con.SSTX- usb.ssrx.N)
+  ; net (con.SSTX+ usb.ssrx.P)
+  ; net (con.SSRX- usb.sstx.N)
+  ; net (con.SSRX+ usb.sstx.P)
   net (con.GND_DRAIN usb.gnd-drain)
   net (con.SHELL0 con.SHELL1 usb.shield)
+

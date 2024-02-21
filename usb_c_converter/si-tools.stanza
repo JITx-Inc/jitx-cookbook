@@ -1,0 +1,106 @@
+#use-added-syntax(jitx)
+defpackage si-tools:
+  import core
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/bundles
+
+doc: \<DOC>
+Create a net and topology segment
+
+This function connects pins/ports together with a
+combination net and topology-segment. This is useful
+for constructing signal integrity routes in the design.
+
+The pin arguments can be either single pins, pin arrays, 
+or bundle-defined ports. Regardless, p1 and p2 must be
+the same type.
+
+No direction is implied by the order of p1 and p2.
+
+@param p1 Pin object
+@param p2 Pin object
+<DOC>
+public defn topo-net (p1:JITXObject, p2:JITXObject):
+  val p1-type = port-type(p1)
+  val p2-type = port-type(p2)
+  if p1-type != p2-type :
+    throw $ Exception("Invalid Port Types - p1 (%_) and p2 (%_) Must Match!" % [p1-type, p2-type])
+
+  inside pcb-module:
+    net (p1, p2)
+    topology-segment(p1, p2)
+
+
+doc: \<DOC>
+Construct a Topo-Net-based Series Connection
+
+@param p1 Pin/Port/Bundle for one side of the series component
+@param p2 Pin/Port/Bundle for the other side of the series component
+@param comp Series Component - this component is expected to be a 
+  2-pin component with `p[1,2]` pins
+<DOC>
+public defn topo-series-conn (p1:JITXObject, p2:JITXObject, comp:Instantiable) :
+  val p1-type = port-type(p1)
+  val p2-type = port-type(p2)
+  if p1-type != p2-type :
+    throw $ Exception("Invalid Port Types - p1 (%_) and p2 (%_) Must Match!" % [p1-type, p2-type])
+
+  inside pcb-module:
+    match(p1-type):
+      (p:SinglePin):
+        inst obj : comp
+        topo-net(p1, obj.p[1])
+        topo-net(obj.p[2], p2)
+      (pa:PortArray):
+        ; PortArray is in Tuple<Int> and allows the user to
+        ;    specifically choose which port indices are provided.
+        ; InstantiableArray only has a length and does not allow
+        ;    defining the indices explicitly.
+        ; The lack of consistency here is not great.
+        inst objs : InstantiableArray(comp, length(elements(pa)))
+        for (elem in elements(pa), i in 0 to false) do:
+          topo-net(p1[elem], objs[elem].p[1])
+          topo-net(objs[elem].p[2], p2[elem])
+      (b:Bundle):
+        inst objs : InstantiableArray(comp, length(pins(b)))
+        for (p1-b in pins(p1), p2-b in pins(p2), i in 0 to false) do:
+          topo-net(p1-b, objs[i].p[1])
+          topo-net(objs[i].p[2], p2-b)
+
+public pcb-module reverse-pair :
+  port b:diff-pair[[1, 2]]
+
+  topo-net(b[1].P, b[2].N)
+  topo-net(b[1].N, b[2].P)
+
+
+; public defn tap-off (p1:JITXObject, comp:Instantiable) -> JITXObject :
+;   p1
+
+
+
+val DEF_FREQ = 1.0e9 ; Hz
+
+doc: \<DOC>
+Compute the phase velocity of a given medium in mm / second
+@param stackup Stackup Definition for this Board
+@param copper Which copper layer we are computing the phase velocity for.
+<DOC>
+public defn compute-phase-velocity (stackup:JITXObject, copper, freq:Double = DEF_FREQ) -> Double:
+  println("TODO - Compute Phase Velocity")
+  0.19e12
+
+doc: \<DOC>
+Compute the insertion loss in dB / mm @ Frequency
+@param stackup Stackup Definition for this Board
+@param copper Which copper layer we are computing the phase velocity for.
+@param freq Frequency at which this insertion loss is computed.
+<DOC>
+public defn compute-insertion-loss (stackup:JITXObject, copper, freq:Double = DEF_FREQ) -> Double :
+  println("TODO - Compute Insertion Loss Rate")
+  0.008
+
+
+; public defn compute-microstrip-impedance ()

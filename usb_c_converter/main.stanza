@@ -8,6 +8,8 @@ defpackage main :
   import ocdb/utils/symbols
   import ocdb/utils/bundles
   import helpers
+  import si-tools
+  import Stackup
   import custom_stackups
 
 
@@ -39,12 +41,18 @@ pcb-module my-design :
   
   inst usb3-mux : components/Texas-Instruments/HD3SS3220RNHR/module
   net (usb3-mux.power-3v3, power.power-3v3)
+
+  ; Isn't there a double net assignment here if we net these and
+  ;  then `topo-net` the individual busses below ? 
   net (usb3-mux.usb-a usb-a.usb)
   net (usb3-mux.usb-c usb-c.usb)
 
   ; Connect the D+, D- diffpairs across the USBA and C connectors and USB2 Controller
   inst usb2-driver : components/Texas-Instruments/TUSB211IRWBR/module
-  net (usb2-driver.data usb-a.usb.data usb-c.usb.data[1] usb-c.usb.data[2])
+  topo-net(usb-a.usb.data, usb2-driver.din)
+  topo-net(usb2-driver.dout, usb-c.usb.data[1])
+  topo-net(usb-c.usb.data[1], usb-c.usb.data[2])
+  ; net (usb2-driver.data usb-a.usb.data usb-c.usb.data[1] usb-c.usb.data[2])
   net (usb2-driver.power, power.power-3v3)
 
   ; ESD Protection
@@ -54,16 +62,16 @@ pcb-module my-design :
   net GND (power.vbus.gnd ss-esd[0].GND ss-esd[1].GND util-esd.GND)
 
   require esd-1 : diff-pair[2] from ss-esd[0]
-  net (esd-1[0] usb-c.usb.sstx[1])
-  net (esd-1[1] usb-c.usb.ssrx[1])
+  topo-net(esd-1[0] usb-c.usb.sstx[1])
+  topo-net(esd-1[1] usb-c.usb.ssrx[1])
 
   require esd-2 : diff-pair[2] from ss-esd[1]
-  net (esd-2[0] usb-c.usb.sstx[2])
-  net (esd-2[1] usb-c.usb.ssrx[2])
+  topo-net(esd-2[0] usb-c.usb.sstx[2])
+  topo-net(esd-2[1] usb-c.usb.ssrx[2])
 
   require esd-3 : diff-pair[3] from util-esd
-  net (esd-3[0].N usb-a.usb.data.N)
-  net (esd-3[0].P usb-a.usb.data.P)
+  topo-net(esd-3[0] usb-a.usb.data)
+  
   net (esd-3[1].N usb-c.usb.sbu[1])
   net (esd-3[1].P usb-c.usb.sbu[2])
   net (esd-3[2].N usb-c.usb.cc[1])
@@ -76,6 +84,8 @@ pcb-module my-design :
     
 ; Set the design name - a directory with this name will be generated under the "designs" directory
 set-current-design("USB-A-to-C")
+
+
 
 ; Setup the board
 defn setup-board () :

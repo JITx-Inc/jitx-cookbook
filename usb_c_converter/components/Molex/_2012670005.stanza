@@ -9,6 +9,8 @@ defpackage components/Molex/_2012670005 :
   import ocdb/utils/generic-components
   import ocdb/utils/box-symbol
 
+  import si-tools
+
 pcb-pad rectangle-smd-pad :
   name = "rectangle-smd-pad"
   type = SMD
@@ -221,12 +223,12 @@ pcb-symbol sym-2012670005 :
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin TX1+ at Point(-8.890, 13.970) with :
+  pin TX1.P at Point(-8.890, 13.970) with :
     direction = Left
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin TX1- at Point(-8.890, 11.430) with :
+  pin TX1.N at Point(-8.890, 11.430) with :
     direction = Left
     length = 2.540
     number-size = 1.000
@@ -241,12 +243,12 @@ pcb-symbol sym-2012670005 :
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin D+0 at Point(-8.890, 3.810) with :
+  pin D0.P at Point(-8.890, 3.810) with :
     direction = Left
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin D-0 at Point(-8.890, 1.270) with :
+  pin D0.N at Point(-8.890, 1.270) with :
     direction = Left
     length = 2.540
     number-size = 1.000
@@ -261,12 +263,12 @@ pcb-symbol sym-2012670005 :
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin RX2- at Point(-8.890, -6.350) with :
+  pin RX2.N at Point(-8.890, -6.350) with :
     direction = Left
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin RX2+ at Point(-8.890, -8.890) with :
+  pin RX2.P at Point(-8.890, -8.890) with :
     direction = Left
     length = 2.540
     number-size = 1.000
@@ -281,12 +283,12 @@ pcb-symbol sym-2012670005 :
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin RX1+ at Point(-8.890, -16.510) with :
+  pin RX1.P at Point(-8.890, -16.510) with :
     direction = Left
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin RX1- at Point(8.890, -16.510) with :
+  pin RX1.N at Point(8.890, -16.510) with :
     direction = Right
     length = 2.540
     number-size = 1.000
@@ -301,12 +303,12 @@ pcb-symbol sym-2012670005 :
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin D-1 at Point(8.890, -8.890) with :
+  pin D1.N at Point(8.890, -8.890) with :
     direction = Right
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin D+1 at Point(8.890, -6.350) with :
+  pin D1.P at Point(8.890, -6.350) with :
     direction = Right
     length = 2.540
     number-size = 1.000
@@ -321,12 +323,12 @@ pcb-symbol sym-2012670005 :
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin TX2- at Point(8.890, 1.270) with :
+  pin TX2.N at Point(8.890, 1.270) with :
     direction = Right
     length = 2.540
     number-size = 1.000
     name-size = 1.000
-  pin TX2+ at Point(8.890, 3.810) with :
+  pin TX2.P at Point(8.890, 3.810) with :
     direction = Right
     length = 2.540
     number-size = 1.000
@@ -369,31 +371,42 @@ public pcb-component component :
   mpn = "2012670005"
   datasheet = "https://datasheet.lcsc.com/lcsc/2109161730_MOLEX-2012670005_C565324.pdf"
   reference-prefix = "U"
+
+  port TX1 : diff-pair
+  port TX2 : diff-pair
+
+  port RX1 : diff-pair
+  port RX2 : diff-pair
+
+  port D0 : diff-pair
+  port D1 : diff-pair
+
+
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
     [GND0 | A1 | Left | "unspecified" | 0]
-    [TX1+ | A2 | Left | "unspecified" | 0]
-    [TX1- | A3 | Left | "unspecified" | 0]
+    [TX1.P | A2 | Left | "unspecified" | 0]
+    [TX1.N | A3 | Left | "unspecified" | 0]
     [VBUS0 | A4 | Left | "unspecified" | 0]
     [CC1 | A5 | Left | "unspecified" | 0]
-    [D+0 | A6 | Left | "unspecified" | 0]
-    [D-0 | A7 | Left | "unspecified" | 0]
+    [D0.P | A6 | Left | "unspecified" | 0]
+    [D0.N | A7 | Left | "unspecified" | 0]
     [SUB1 | A8 | Left | "unspecified" | 0]
     [VBUS1 | A9 | Left | "unspecified" | 0]
-    [RX2- | A10 | Left | "unspecified" | 0]
-    [RX2+ | A11 | Left | "unspecified" | 0]
+    [RX2.N | A10 | Left | "unspecified" | 0]
+    [RX2.P | A11 | Left | "unspecified" | 0]
     [GND1 | A12 | Left | "unspecified" | 0]
     [GND2 | B12 | Left | "unspecified" | 0]
-    [RX1+ | B11 | Left | "unspecified" | 0]
-    [RX1- | B10 | Right | "unspecified" | 0]
+    [RX1.P | B11 | Left | "unspecified" | 0]
+    [RX1.N | B10 | Right | "unspecified" | 0]
     [VBUS2 | B9 | Right | "unspecified" | 0]
     [SBU2 | B8 | Right | "unspecified" | 0]
-    [D-1 | B7 | Right | "unspecified" | 0]
-    [D+1 | B6 | Right | "unspecified" | 0]
+    [D1.N | B7 | Right | "unspecified" | 0]
+    [D1.P | B6 | Right | "unspecified" | 0]
     [CC2 | B5 | Right | "unspecified" | 0]
     [VBUS3 | B4 | Right | "unspecified" | 0]
-    [TX2- | B3 | Right | "unspecified" | 0]
-    [TX2+ | B2 | Right | "unspecified" | 0]
+    [TX2.N | B3 | Right | "unspecified" | 0]
+    [TX2.P | B2 | Right | "unspecified" | 0]
     [GND3 | B1 | Right | "unspecified" | 0]
     [p[1] | p[1] | Right | "unspecified" | 0]
     [p[2] | p[2] | Right | "unspecified" | 0]
@@ -402,6 +415,25 @@ public pcb-component component :
 
   assign-landpattern(lp)
   make-box-symbol()
+
+  pin-model(self.D0.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.D0.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.D1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.D1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.TX1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TX1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.TX2.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TX2.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.RX1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.RX1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.RX2.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.RX2.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
 
 public pcb-module module :
   port usb : usb-c-connector
@@ -415,22 +447,29 @@ public pcb-module module :
   net (con.SUB1 usb.sbu[1])
   net (con.SBU2 usb.sbu[2])
   
-  net (usb.data[1].N con.D-0)
-  net (usb.data[1].P con.D+0)
-  net (usb.data[2].N con.D-1)
-  net (usb.data[2].P con.D+1)
-  
-  net (con.TX1+ usb.sstx[1].P)
-  net (con.TX1- usb.sstx[1].N)
+  topo-net(usb.data[1], con.D0)
+  topo-net(usb.data[2], con.D1)
 
-  net (con.RX2+ usb.ssrx[2].P)
-  net (con.RX2- usb.ssrx[2].N)
+  ; net (usb.data[1].N con.D-0)
+  ; net (usb.data[1].P con.D+0)
+  ; net (usb.data[2].N con.D-1)
+  ; net (usb.data[2].P con.D+1)
   
-  net (con.TX2+ usb.sstx[2].P)
-  net (con.TX2- usb.sstx[2].N)
+  topo-net(con.TX1, usb.sstx[1])
+  ; net (con.TX1+ usb.sstx[1].P)
+  ; net (con.TX1- usb.sstx[1].N)
 
-  net (con.RX1+ usb.ssrx[1].P)
-  net (con.RX1- usb.ssrx[1].N)
+  topo-net(con.RX2, usb.ssrx[2])
+  ; net (con.RX2+ usb.ssrx[2].P)
+  ; net (con.RX2- usb.ssrx[2].N)
+  
+  topo-net(con.TX2, usb.sstx[2])
+  ; net (con.TX2+ usb.sstx[2].P)
+  ; net (con.TX2- usb.sstx[2].N)
+
+  topo-net(con.RX1, usb.ssrx[1])
+  ; net (con.RX1+ usb.ssrx[1].P)
+  ; net (con.RX1- usb.ssrx[1].N)
 
   net (con.GND0 con.GND1 con.GND2 con.GND3 usb.vbus.gnd)
   net (usb.shield con.p[1] con.p[2] con.p[3] con.p[4])

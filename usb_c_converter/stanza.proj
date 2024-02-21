@@ -1,6 +1,9 @@
 include "../open-components-database/stanza.proj"
 package main defined-in "main.stanza"
+package si-tools defined-in "si-tools.stanza"
 package helpers defined-in "helpers.stanza"
+package ensure defined-in "ensure.stanza"
+
 package custom_stackups defined-in "custom_stackups.stanza" ;added manually
 package custom_rules defined-in "custom_rules.stanza" ;added manually
 package components/Amphenol/GSB3211311WEU defined-in "components/Amphenol/GSB3211311WEU.stanza"

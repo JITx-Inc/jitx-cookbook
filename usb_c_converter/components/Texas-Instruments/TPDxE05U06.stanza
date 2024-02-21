@@ -113,6 +113,9 @@ public pcb-component component (-- channels:Int = 4):
       [D3- | p[8] p[7] | Right | "unspecified" | 0]
       [D3+ | p[9] p[6] | Right | "unspecified" | 0]
 
+    pin-model(self.D3-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+    pin-model(self.D3+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
     supports diff-pair : 
       option:
         diff-pair.N => self.D3-
@@ -122,7 +125,14 @@ public pcb-component component (-- channels:Int = 4):
         diff-pair.N => self.D3+
     assign-landpattern(lp-6)
 
-  supports diff-pair : 
+
+  pin-model(self.D1-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.D1+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.D2-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.D2+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  supports diff-pair :
     option:
       diff-pair.N => self.D1-
       diff-pair.P => self.D1+
@@ -130,7 +140,7 @@ public pcb-component component (-- channels:Int = 4):
       diff-pair.P => self.D1-
       diff-pair.N => self.D1+
 
-  supports diff-pair : 
+  supports diff-pair :
     option:
       diff-pair.N => self.D2-
       diff-pair.P => self.D2+

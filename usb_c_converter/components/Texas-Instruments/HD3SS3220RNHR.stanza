@@ -9,6 +9,7 @@ defpackage components/Texas-Instruments/HD3SS3220RNHR :
   import ocdb/utils/box-symbol
   import ocdb/utils/generic-components
 
+  import si-tools
 
 pcb-pad capsule-smd-pad :
   name = "capsule-smd-pad"
@@ -230,6 +231,24 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
+  ; Mux Inputs
+  pin-model(self.RX1n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.RX1p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TX1n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TX1p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  pin-model(self.RX2n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.RX2p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TX2n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TX2p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+  ; Mux output
+  pin-model(self.RXn) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.RXp) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TXn) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  pin-model(self.TXp) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+
+
 ;Create a fresh bundle with two pins 'a' and 'b' that can be mapped
 ;to the given pins 'x' and 'y' in any order.
 defn swappable-pair (x:JITXObject, y:JITXObject) -> Bundle :
@@ -323,12 +342,20 @@ public pcb-module module :
   require muxed : non-swappable-tx-rx(
                   swappable-pair(mux.TXn, mux.TXp)
                   swappable-pair(mux.RXn, mux.RXp))
-                    
-  net (muxed.tx usb-a.sstx)
-  cap-strap(muxed.rx.P, usb-a.ssrx.N, 470.0e-9)
-  cap-strap(muxed.rx.N, usb-a.ssrx.P, 470.0e-9)
+
+  topo-net(muxed.tx usb-a.sstx)
+  ; net (muxed.tx usb-a.sstx)
+
+  val block-cap = ceramic-cap(470.0e-9)
+  topo-series-conn(muxed.rx, usb-a.ssrx, block-cap)
+  ;cap-strap(muxed.rx.P, usb-a.ssrx.N, 470.0e-9)
+  ; cap-strap(muxed.rx.N, usb-a.ssrx.P, 470.0e-9)
   
   ; Pull-down resistors on data lines
+  ; TODO - we need to re-structure here 
+  ;  Specifically, One topo needs to go from muxed.tx -> pull-down -> usb-a.sstx
+  ;   Second topo needs to go from muxed.rx -> pull-down -> blocking cap -> usb-a.sstx
+
   res-strap(mux.RXp, GND, 100.0e3)
   res-strap(mux.TXp, GND, 100.0e3)
   res-strap(mux.RXn, GND, 100.0e3)
@@ -342,12 +369,25 @@ public pcb-module module :
                      swappable-pair(mux.TX2n, mux.TX2p)
                      swappable-pair(mux.RX2n, mux.RX2p))
 
-  net (lane-1.rx usb-c.ssrx[1])
-  net (lane-2.rx usb-c.ssrx[2])
-  cap-strap(lane-1.tx.P, usb-c.sstx[1].N, 470.0e-9)
-  cap-strap(lane-1.tx.N, usb-c.sstx[1].P, 470.0e-9)
-  cap-strap(lane-2.tx.P, usb-c.sstx[2].P, 470.0e-9)
-  cap-strap(lane-2.tx.N, usb-c.sstx[2].N, 470.0e-9)
+  topo-net(lane-1.rx usb-c.ssrx[1])
+  topo-net(lane-2.rx usb-c.ssrx[2])
+  ; net (lane-1.rx usb-c.ssrx[1])
+  ; net (lane-2.rx usb-c.ssrx[2])
+
+  topo-series-conn(lane-1.tx.P, usb-c.sstx[1].N, block-cap)
+
+  inst lane-1-rp : reverse-pair
+  topo-net(lane-1.tx, lane-1-rp.b[1])
+  topo-series-conn(lane-1-rp.b[2], usb-c.sstx[1], block-cap)
+
+  inst lane-2-rp : reverse-pair
+  topo-net(lane-2.tx, lane-2-rp.b[1])
+  topo-series-conn(lane-2-rp.b[2], usb-c.sstx[2], block-cap)
+
+  ; cap-strap(lane-1.tx.P, usb-c.sstx[1].N, 470.0e-9)
+  ; cap-strap(lane-1.tx.N, usb-c.sstx[1].P, 470.0e-9)
+  ; cap-strap(lane-2.tx.P, usb-c.sstx[2].P, 470.0e-9)
+  ; cap-strap(lane-2.tx.N, usb-c.sstx[2].N, 470.0e-9)
 
   
   ;LED indicators
