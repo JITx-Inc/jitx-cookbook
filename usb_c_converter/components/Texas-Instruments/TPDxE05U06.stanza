@@ -83,6 +83,18 @@ pcb-landpattern lp-6 :
     Arc(-1.524, -0.507, 0.100, 0.0, -360.000)])
   layer(Courtyard(Top)) = Rectangle(3.652, 1.553)
 
+; TODO - This should go in JSL
+public defn swappable-diff-pair (p1:JITXObject, p2:JITXObject):
+  inside pcb-component:
+    supports diff-pair : 
+      option:
+        diff-pair.N => p1
+        diff-pair.P => p2
+      option:
+        diff-pair.P => p1
+        diff-pair.N => p2
+
+
 public pcb-component component (-- channels:Int = 4):
   name = "C81353"
   description = "-40℃~+125℃@(Ta) 6.4V 14V 40W 2.5A Unidirectional 5.5V USON-10(1x2.5)  ESD Protection Devices ROHS"
@@ -116,13 +128,15 @@ public pcb-component component (-- channels:Int = 4):
     pin-model(self.D3-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
     pin-model(self.D3+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
 
-    supports diff-pair : 
-      option:
-        diff-pair.N => self.D3-
-        diff-pair.P => self.D3+
-      option:
-        diff-pair.P => self.D3-
-        diff-pair.N => self.D3+
+    swappable-diff-pair(self.D3+, self.D3-)
+
+    ; supports diff-pair : 
+    ;   option:
+    ;     diff-pair.N => self.D3-
+    ;     diff-pair.P => self.D3+
+    ;   option:
+    ;     diff-pair.P => self.D3-
+    ;     diff-pair.N => self.D3+
     assign-landpattern(lp-6)
 
 
@@ -132,21 +146,24 @@ public pcb-component component (-- channels:Int = 4):
   pin-model(self.D2-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
   pin-model(self.D2+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
 
-  supports diff-pair :
-    option:
-      diff-pair.N => self.D1-
-      diff-pair.P => self.D1+
-    option:
-      diff-pair.P => self.D1-
-      diff-pair.N => self.D1+
+  swappable-diff-pair(self.D1+, self.D1-)
+  swappable-diff-pair(self.D2+, self.D2-)
 
-  supports diff-pair :
-    option:
-      diff-pair.N => self.D2-
-      diff-pair.P => self.D2+
-    option:
-      diff-pair.P => self.D2-
-      diff-pair.N => self.D2+
+  ; supports diff-pair :
+  ;   option:
+  ;     diff-pair.N => self.D1-
+  ;     diff-pair.P => self.D1+
+  ;   option:
+  ;     diff-pair.P => self.D1-
+  ;     diff-pair.N => self.D1+
+
+  ; supports diff-pair :
+  ;   option:
+  ;     diff-pair.N => self.D2-
+  ;     diff-pair.P => self.D2+
+  ;   option:
+  ;     diff-pair.P => self.D2-
+  ;     diff-pair.N => self.D2+
 
   make-box-symbol()
 
