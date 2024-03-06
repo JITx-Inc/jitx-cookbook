@@ -20,7 +20,7 @@ Click any of the links below to access a detailed walkthrough of how they were d
 | [USB-C Cable Tester](./usb_c_cable_tester/)                            | Test points, programmatic parts placement, USB-C connectors, LEDs, coin cell battery, circuit introspection                                  |
 | [BLE-mote Wireless IOT Sensor Board](./ble_mote_esp32_iot_board/)      | Microcontroller, pin assignment (supports/requires), parametric design, design optimization, copper pour, net-classes, stackup               |
 | [Hacking Conference Badge](./hacking_conference_badge/)                | A software-defined electronics playground - learn JITX by designing your own conference badge                                                |
-| [Example of a reusable regulator design (TPS62933DRLR)](./regulator-example/)                | Regulator fed from USB-C PD capable of delivering 20A                                                                  |
+| [Example of a reusable regulator design (TPS62933DRLR)](./regulator-example/) | Regulator fed from USB-C PD capable of delivering 20A |
 
 ### What is a recipe?
 
