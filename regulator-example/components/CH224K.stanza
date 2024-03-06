@@ -1,0 +1,87 @@
+; When renaming the stanza package name below, also rename it in the folder stanza.proj
+; See docs.jitx.com for help
+#use-added-syntax(jitx)
+defpackage components/CH224K:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+
+pcb-landpattern lp-CH224K :
+  make-n-pin-soic-landpattern(number-of-leads, pitch, lead-span, package-length,
+      package-width, terminal-length, terminal-width) where :
+    val number-of-leads = 10
+    val pitch = 1.0
+    val lead-span = tol(6.0, 0.15)
+    val package-length = tol(3.9, 0.2)
+    val package-width = tol(5.0, 0.35)
+    val terminal-length = tol((6.0 - 3.9) / 2.0, 0.15),
+    val terminal-width = tol(0.43, 0.01)  
+  pad p[0] : smd-pad(2.3, 3.2) at loc(0.0, 0.0)
+
+public pcb-component component :
+  name = "CH224K"
+  description = "USB-PD"
+  mpn = "CH224K"
+  manufacturer = "WCH(Jiangsu Qin Heng)"
+
+  pin-properties :
+    [pin:Ref | pads:Int ... | side:Dir ]
+    [VDD     | 1            | Left       ]
+    [VBUS    | 8            | Left       ]
+    [CFG[1]  | 9            | Left     ]
+    [CFG[2]  | 2            | Left    ]
+    [CFG[3]  | 3            | Left     ]
+    [DP      | 4            | Right    ]
+    [DM      | 5            | Right    ]
+    [PG      | 10           | Right    ]
+    [CC1     | 7            | Right    ]
+    [CC2     | 6            | Right    ]
+    [GND     | 0            | Right     ]
+
+  make-box-symbol()
+  assign-landpattern(lp-CH224K)
+
+
+public pcb-module module (v-out:Double):
+  pin VBUS
+  pin gnd
+  pin cc1
+  pin cc2
+  pin pg
+
+  inst ch : components/CH224K/component
+  net (ch.CC1 cc1)
+  net (ch.CC2 cc2)
+  net (ch.PG pg)
+
+  net (ch.GND gnd)
+  net (ch.DP ch.DM)
+  val r-vdd = res-strap(VBUS ch.VDD, 1.0e3)
+  val r-vbus = res-strap(VBUS ch.VBUS, 1.0e3)
+  val cap = bypass-cap-strap(ch.VDD, gnd, 1.0e-6)
+
+  val r-pd = 
+    switch(v-out) :
+      5.0 : 
+        res-strap(ch.CFG[1], gnd, 6.8e3)
+      12.0 : 
+        res-strap(ch.CFG[1], gnd, 24.e3)
+      15.0 : 
+        res-strap(ch.CFG[1], gnd, 56.e3)
+      20.0 : 
+        res-strap(ch.CFG[1], gnd, 1.0e3)
+
+  switch(v-out) :
+    20.0 :
+      do-not-populate(r-pd)
+
+  place(ch) at loc(0.0, 0.0, 180.0) on Top
+  place(r-vdd) at loc(-4.3131, 0.7745, 90.0) on Top
+  place(r-vbus) at loc(-4.3131, -0.6466, 90.0) on Top
+  place(r-pd) at loc(-4.1782, -2.2314, 0.0) on Top
+  place(cap) at loc(2.1114, -3.5771, 90.0) on Top
