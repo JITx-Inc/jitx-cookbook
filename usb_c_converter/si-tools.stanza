@@ -28,79 +28,347 @@ public defn topo-net (p1:JITXObject, p2:JITXObject):
   if p1-type != p2-type :
     throw $ Exception("Invalid Port Types - p1 (%_) and p2 (%_) Must Match!" % [p1-type, p2-type])
 
+  ; println("TopoNet: %_ => %_" % [ref(p1), ref(p2)])
   inside pcb-module:
     net (p1, p2)
     topology-segment(p1, p2)
 
 
-doc: \<DOC>
-Construct a Topo-Net-based Series Connection
+public defn topo-net (pair:KeyValue<JITXObject,JITXObject|KeyValue>):
+  val [p1, o2] = [key(pair), value(pair)]
+  match(o2):
+    (kp:KeyValue):
+      val [p2, rest] = [key(kp), value(kp)]
+      topo-net(p1, p2)
+      topo-net(kp)
+    (p2:JITXObject):
+      topo-net(p1, p2)
 
-@param p1 Pin/Port/Bundle for one side of the series component
-@param p2 Pin/Port/Bundle for the other side of the series component
-@param comp Series Component - this component is expected to be a 
-  2-pin component with `p[1,2]` pins
+doc: \<DOC>
+Expects two pins
 <DOC>
-public defn topo-series-conn (p1:JITXObject, p2:JITXObject, comp:Instantiable) :
-  val p1-type = port-type(p1)
-  val p2-type = port-type(p2)
-  if p1-type != p2-type :
-    throw $ Exception("Invalid Port Types - p1 (%_) and p2 (%_) Must Match!" % [p1-type, p2-type])
+public defn diff-pin-model (
+  p1:JITXObject, p2:JITXObject,
+  --
+  delay:Toleranced, loss:Toleranced = typ(0.0)
+  ) :
+  inside pcb-component:
+    pin-model(p1) = PinModel(delay, loss)
+    pin-model(p2) = PinModel(delay, loss)
+
+doc: \<DOC>
+Expects a diff-pair bundle port
+<DOC>
+public defn diff-pin-model (
+  dp:JITXObject,
+  --
+  delay:Toleranced, loss:Toleranced = typ(0.0)
+  ) :
+  inside pcb-component:
+    pin-model(dp.P) = PinModel(delay, loss)
+    pin-model(dp.N) = PinModel(delay, loss)
+
+
+public defn diff-pin-model (
+  pair:KeyValue<JITXObject, JITXObject>
+  --
+  delay:Toleranced, loss:Toleranced = typ(0.0)
+  ) :
+  val [p1, p2] = [key(pair), value(pair)]
+  diff-pin-model(p1, p2, delay = delay, loss = loss)
+
+
+defn reverse-pair (p:JITXObject) :
+  inside pcb-module:
+    node temp:diff-pair
+    topo-net(p.P, temp.N)
+    topo-net(p.N, temp.P)
+    temp
+
+public defn diff-structure (route-struct, dp-pairs:KeyValue<JITXObject, JITXObject> ...) :
+  inside pcb-module:
+    for dp-pair in dp-pairs do:
+      val [A, B] = [key(dp-pair), value(dp-pair)]
+      structure(A.P => B.P, A.N => B.N) = route-struct
+
+doc: \<DOC>
+Internal Tool for constructing sets of pins to operate on as KVP
+<DOC>
+defn make-ep-set (obj-A:JITXObject, obj-B:JITXObject) -> Seq<KeyValue<JITXObject, JITXObject>>:
+  for (pA in pins(obj-A), pB in pins(obj-B)) seq:
+    KeyValue(pA, pB)
+
+
+defn pair-wise (f: (KeyValue<JITXObject, JITXObject> -> False), ep-sets:Seqable<KeyValue<JITXObject, JITXObject>> ) :
+  for eps in ep-sets do:
+    val [ep-A, ep-B] = [key(eps), value(eps)]
+    match(port-type(ep-A), port-type(ep-B)):
+      (a-s:SinglePin, b-s:SinglePin):
+        f(ep-A => ep-B)
+      (a-b:Bundle, b-b:Bundle): ; Expects the bundles to be the same.
+        pair-wise{f, _} $ make-ep-set(ep-A, ep-B)
+      (a-a:PortArray, b-a:PortArray):
+        pair-wise{f, _} $ make-ep-set(ep-A, ep-B)
+
+
+doc: \<DOC>
+Add an insertion loss limiter for a set of endpoints. 
+
+Note: This function is recursive.
+
+@param loss-dB Loss range that this design is willing to accept.
+@param ep-sets a series of endpoint pairs for the routes that we wish
+  to adds limits on. Each `KeyValue` may be:
+  1.  Pin => Pin - Single pin to add constraints to
+  2.  Bundle => Bundle - Add individual constraints to each matching pin in the passed bundle. Must be the same type of bundle.
+  3.  PortArray => PortArray - Add individual constraints for each port of a port array. Each PortArray must be of equal length and type.
+
+<DOC>
+public defn insertion-loss-limit (loss-dB:Toleranced, ep-sets:KeyValue<JITXObject, JITXObject> ...) :
+  if min-value(loss-dB) < 0.0:
+    throw $ Exception("Invalid Min Loss")
+
+  val constraint = InsertionLossConstraint(loss-dB)
+  inside pcb-module:
+    ; convert a bundle or port array pair into a sequence
+    ;  of `KeyValue` pins
+    for eps in ep-sets pair-wise:
+      val [A, B] = [key(eps), value(eps)]
+      insertion-loss(A => B) = constraint
+
+public defn max-loss (max-dB:Double, ep-sets:KeyValue<JITXObject, JITXObject> ...):
+  insertion-loss-limit( min-max(0.0, max-dB), ep-sets = ep-sets)
+
+public defn delay-limit (delay-S:Toleranced, ep-sets:KeyValue<JITXObject, JITXObject> ...):
+  val constraint = TimingConstraint(delay-S)
+  inside pcb-module:
+    for eps in ep-sets pair-wise:
+      val [A, B] = [key(eps), value(eps)]
+      timing(A => B) = constraint
+
+doc: \<DOC>
+Set the maximum delay for the signals from A -> B in Seconds
+
+This sets an absolute time delay limit for the signals on
+the board (as opposed to a differential skew constraint for example).
+<DOC>
+public defn max-delay (
+  max-S:Double,
+  ep-sets:KeyValue<JITXObject, JITXObject> ...
+  ) :
+  delay-limit(min-max(0.0, max-S), ep-sets = ep-sets)
+
+
+public defn skew-window (
+  window:Toleranced,
+  pairs:KeyValue<JITXObject, JITXObject> ...
+  ) :
+  val constraint = TimingDifferenceConstraint(window)
 
   inside pcb-module:
-    match(p1-type):
-      (p:SinglePin):
-        inst obj : comp
-        topo-net(p1, obj.p[1])
-        topo-net(obj.p[2], p2)
-      (pa:PortArray):
-        ; PortArray is in Tuple<Int> and allows the user to
-        ;    specifically choose which port indices are provided.
-        ; InstantiableArray only has a length and does not allow
-        ;    defining the indices explicitly.
-        ; The lack of consistency here is not great.
-        inst objs : InstantiableArray(comp, length(elements(pa)))
-        for (elem in elements(pa), i in 0 to false) do:
-          topo-net(p1[elem], objs[elem].p[1])
-          topo-net(objs[elem].p[2], p2[elem])
-      (b:Bundle):
-        inst objs : InstantiableArray(comp, length(pins(b)))
-        for (p1-b in pins(p1), p2-b in pins(p2), i in 0 to false) do:
-          topo-net(p1-b, objs[i].p[1])
-          topo-net(objs[i].p[2], p2-b)
-
-public pcb-module reverse-pair :
-  port b:diff-pair[[1, 2]]
-
-  topo-net(b[1].P, b[2].N)
-  topo-net(b[1].N, b[2].P)
-
-
-; public defn tap-off (p1:JITXObject, comp:Instantiable) -> JITXObject :
-;   p1
+    for pair in pairs do:
+      val [A, B] = [key(pair), value(pair)]
+      match(port-type(A), port-type(B)):
+        (A-b:Bundle, B-b:Bundle):
+          timing-difference(A.P => B.P, A.N => B.N) = constraint
+        (A-pa:PortArray, B-pa:PortArray):
+          val pA = pins(A)
+          val pB = pins(B)
+          val A0 = pA[0]
+          val B0 = pB[0]
+          for (An in pA[1 to false], Bn in pB[1 to false]) do:
+            timing-difference(A0 => B0, An => Bn) = constraint
+        (type-A, type-B):
+          throw $ Exception("Invalid Type for Skew Constraint: A=%_ B=%_" % [type-A, type-B])
 
 
 
-val DEF_FREQ = 1.0e9 ; Hz
+; TODO - This should go in JSL
+doc: \<DOC>
+Expects p1 and p2 are pins on a component
+<DOC>
+public defn swappable-diff-pair (p1:JITXObject, p2:JITXObject):
+  inside pcb-component:
+    supports diff-pair : 
+      option:
+        diff-pair.N => p1
+        diff-pair.P => p2
+      option:
+        diff-pair.P => p1
+        diff-pair.N => p2
 
 doc: \<DOC>
-Compute the phase velocity of a given medium in mm / second
-@param stackup Stackup Definition for this Board
-@param copper Which copper layer we are computing the phase velocity for.
+Expects dp is a diff-pair bundle port
 <DOC>
-public defn compute-phase-velocity (stackup:JITXObject, copper, freq:Double = DEF_FREQ) -> Double:
-  println("TODO - Compute Phase Velocity")
-  0.19e12
+public defn swappable-diff-pair (dp:JITXObject):
+  inside pcb-component:
+    supports diff-pair : 
+      option:
+        diff-pair.N => dp.P
+        diff-pair.P => dp.N
+      option:
+        diff-pair.P => dp.P
+        diff-pair.N => dp.N
 
 doc: \<DOC>
-Compute the insertion loss in dB / mm @ Frequency
-@param stackup Stackup Definition for this Board
-@param copper Which copper layer we are computing the phase velocity for.
-@param freq Frequency at which this insertion loss is computed.
+Pass Through Bundle Type
+
+This provides a mechanism of describing a pass through
+connection through a device, primarily for implementing 
+the `supports/requrie` statements. 
+
+Example: 
+
+ESD Protection devices often have two pins that are intended
+to be shorted together to provide an ESD protected trace with
+minimal affect on the impedance of the trace.
 <DOC>
-public defn compute-insertion-loss (stackup:JITXObject, copper, freq:Double = DEF_FREQ) -> Double :
-  println("TODO - Compute Insertion Loss Rate")
-  0.008
+public pcb-bundle pass-through : 
+  pin A
+  pin B
+
+doc: \<DOC>
+Generate a Bidirectional `pass-through` support
+
+This function expects to be called within a `pcb-component`
+definition. 
+
+@param p1 SinglePin object for one side of the pass through.
+@param p2 SinglePin object for the other side of the pass through.
+
+<DOC>
+public defn add-pass-through (p1:JITXObject, p2:JITXObject) :
+  inside pcb-component:
+    supports pass-through:
+      option:
+        pass-through.A => p1
+        pass-through.B => p2
+      option:
+        pass-through.A => p2
+        pass-through.B => p1
+
+doc: \<DOC>
+Bidirectional Diff Pair
+<DOC>
+public pcb-bundle bidir-diff-pair :
+  port A : diff-pair
+  port B : diff-pair
+
+doc: \<DOC>
+Bidirectional Diff-Pair Support Generator
+
+This supports statement is for defining a bidirectional
+diff-pair where we don't care which side is the input
+vs the output but we do care what the P/N ordering is.
+
+@param A diff-pair bundle port instance
+@param B diff-pair bundle port instance
+<DOC>
+public defn reversible-diff-pair (A:JITXObject, B:JITXObject):
+  inside pcb-module:
+    supports bidir-diff-pair :
+      option:
+        bidir-diff-pair.A.P => A.P
+        bidir-diff-pair.A.N => A.N
+        bidir-diff-pair.B.P => B.P
+        bidir-diff-pair.B.N => B.N
+      option:
+        bidir-diff-pair.A.P => B.P
+        bidir-diff-pair.A.N => B.N
+        bidir-diff-pair.B.P => A.P
+        bidir-diff-pair.B.N => A.N
 
 
-; public defn compute-microstrip-impedance ()
+doc: \<DOC>
+Expects A and B are diff-pair bundle ports
+<DOC>
+public defn bidir-swappable-diff-pair (A:JITXObject, B:JITXObject):
+  bidir-swappable-diff-pair(A.P, A.N, B.P, B.N)
+
+public defn bidir-swappable-diff-pair (A-P:JITXObject, A-N:JITXObject, B-P:JITXObject, B-N:JITXObject):
+  inside pcb-module:
+    supports bidir-diff-pair :
+      option:
+        bidir-diff-pair.A.P => A-P
+        bidir-diff-pair.A.N => A-N
+        bidir-diff-pair.B.P => B-P
+        bidir-diff-pair.B.N => B-N
+      option:
+        bidir-diff-pair.A.P => B-P
+        bidir-diff-pair.A.N => B-N
+        bidir-diff-pair.B.P => A-P
+        bidir-diff-pair.B.N => A-N
+      option:
+        bidir-diff-pair.A.P => A-N
+        bidir-diff-pair.A.N => A-P
+        bidir-diff-pair.B.P => B-N
+        bidir-diff-pair.B.N => B-P
+      option:
+        bidir-diff-pair.A.P => B-N
+        bidir-diff-pair.A.N => B-P
+        bidir-diff-pair.B.P => A-N
+        bidir-diff-pair.B.N => A-P
+
+
+doc: \<DOC>
+Extract the courtyard dimensions for the landpattern of a component.
+<DOC>
+defn get-courtyard-dims (comp:Instantiable) -> Dims:
+  val lp = landpattern(comp)
+  val topC = Courtyard(Top)
+  dims $ Union $ for lspec in layers(lp) seq?:
+    switch(specifier(lspec)):
+      Courtyard(Top):
+        One $ shape(lspec)
+      else: None()
+
+
+doc: \<DOC>
+Diff-Pair Coupler
+
+This constructs module with two components 
+combined in a diff-pair configuration.
+
+Example: Block Capacitors for SI transmitter
+<DOC>
+public pcb-module dp-coupler (comp:Instantiable -- margin:Double = 0.0) :
+  port A : diff-pair
+  port B : diff-pair
+
+  inst c : comp[2]
+
+  topo-net(A.P, c[0].p[1])
+  topo-net(A.N, c[1].p[1])
+
+  topo-net(B.P, c[0].p[2])
+  topo-net(B.N, c[1].p[2])
+
+  bidir-swappable-diff-pair(c[0].p[1], c[1].p[1], c[0].p[2], c[1].p[2])
+
+  val cyard = get-courtyard-dims(comp)
+  val x-off = (x(cyard) + margin) / 2.0
+
+  place(c[0]) at loc(x-off, 0.0) on Top
+  place(c[1]) at loc((- x-off), 0.0) on Top
+
+doc: \<DOC>
+Construct Aligned Symmetric Pull Down Resistors
+<DOC>
+public pcb-module symmetric-pull-downs (comp:Instantiable -- margin:Double = 0.0) :
+  port A : diff-pair
+  port B : diff-pair
+  pin GND
+
+  inst R : comp[2]
+
+  topo-net(A.P => R[0].p[1] => B.P)
+  net (R[0].p[2], GND)
+
+  topo-net(A.N => R[1].p[1] => B.N)
+  net (R[1].p[2], GND)
+
+  val cyard = get-courtyard-dims(comp)
+  val y-off = (y(cyard) + margin) / 2.0
+
+  place(R[0]) at loc(0.0, y-off, 180.0) on Top
+  place(R[1]) at loc(0.0, (- y-off)) on Top
