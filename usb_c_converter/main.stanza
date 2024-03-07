@@ -7,9 +7,20 @@ defpackage main :
   import ocdb/utils/generic-components
   import ocdb/utils/symbols
   import ocdb/utils/bundles
+  import ocdb/utils/defaults
   import helpers
   import si-tools
   import custom_stackups
+
+public pcb-via my-via :
+  name = "My TH"
+  start = LayerIndex(0, Top)
+  stop = LayerIndex(0, Bottom)
+  diameter = 0.6
+  hole-diameter = 0.25
+  type = MechanicalDrill
+  tented = true
+
 
 
 ; Define the shape/size of the board
@@ -30,53 +41,139 @@ pcb-module power-regulation :
   symbol(pwr5v0) = ocdb/utils/symbols/supply-sym
   symbol(pwr3v3) = ocdb/utils/symbols/supply-sym
 
+doc: \<DOC>
+ESD Protection Generator
+
+This module instantiates some number of ESD protection devices and 
+then combines the supports from all of these devices in one module.
+This allows the higher level code to construct a PA problem where
+differential pairs and single-ended signals can use the appropriate 
+ESD protection channel without requiring any pin swapping in code.
+
+It "Just Works" (TM)
+<DOC>
+pcb-module esd-protection :
+  pin GND
+
+  inst IC : components/Texas-Instruments/TPDxE05U06/component(channels = 6)[2]
+
+  for i in 0 to length(IC) do:
+    net (IC[i].GND, GND)
+    for j in 0 to 3 do:
+      supports bidir-diff-pair:
+        require ch:bidir-diff-pair from IC[i]
+        bidir-diff-pair.A.P => ch.A.P
+        bidir-diff-pair.A.N => ch.A.N
+        bidir-diff-pair.B.P => ch.B.P
+        bidir-diff-pair.B.N => ch.B.N
+
+    for j in 0 to 6 do:
+      supports pass-through:
+        require pt:pass-through from IC[i]
+        pass-through.A => pt.A
+        pass-through.B => pt.B
+
 ; Module to run as a design
 pcb-module my-design :
-
+  ; Connectors 
   inst usb-a : components/Amphenol/GSB3211311WEU/module
   inst usb-c : components/Molex/_2012670005/module
+
+  ; Power
   inst power : power-regulation
   net (usb-a.usb.vbus usb-c.usb.vbus power.vbus)
   
+  ; USB SuperSpeed Mux 
   inst usb3-mux : components/Texas-Instruments/HD3SS3220RNHR/module
   net (usb3-mux.power-3v3, power.power-3v3)
 
-  ; Isn't there a double net assignment here if we net these and
-  ;  then `topo-net` the individual busses below ? 
-  net (usb3-mux.usb-a usb-a.usb)
-  net (usb3-mux.usb-c usb-c.usb)
+  net (usb3-mux.usb-c.vbus, usb-c.usb.vbus)
+  net (usb3-mux.usb-c.cc, usb-c.usb.cc)
 
   ; Connect the D+, D- diffpairs across the USBA and C connectors and USB2 Controller
   inst usb2-driver : components/Texas-Instruments/TUSB211IRWBR/module
-  topo-net(usb-a.usb.data, usb2-driver.din)
-  topo-net(usb2-driver.dout, usb-c.usb.data[1])
-  topo-net(usb-c.usb.data[1], usb-c.usb.data[2])
-  ; net (usb2-driver.data usb-a.usb.data usb-c.usb.data[1] usb-c.usb.data[2])
   net (usb2-driver.power, power.power-3v3)
 
-  ; ESD Protection
-  inst ss-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 4)[2]
-  inst util-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 6)
+  inst util-esd : components/Texas-Instruments/TPDxE05U06/component(channels = 4)
 
-  net GND (power.vbus.gnd ss-esd[0].GND ss-esd[1].GND util-esd.GND)
+  require repeater : bidir-diff-pair from usb2-driver
+  require esd-data : bidir-diff-pair from util-esd
 
-  require esd-1 : diff-pair[2] from ss-esd[0]
-  topo-net(esd-1[0] usb-c.usb.sstx[1])
-  topo-net(esd-1[1] usb-c.usb.ssrx[1])
+  topo-net(
+    usb-a.usb.data => 
+    esd-data.A => 
+    esd-data.B => 
+    repeater.A => 
+    repeater.B => 
+    usb-c.usb.data[1] => 
+    usb-c.usb.data[2]
+  )
 
-  require esd-2 : diff-pair[2] from ss-esd[1]
-  topo-net(esd-2[0] usb-c.usb.sstx[2])
-  topo-net(esd-2[1] usb-c.usb.ssrx[2])
+  ;   The total intra-pair skew allowed on the USB2.0 Data Pair
+  val USB2-skew = 7.5e-12 / 2.0
+  ; This seems a little weird at first - but the point here is that
+  ;   we want to limit the total skew and that means we have to 
+  ;   look end to end on the pair.
+  skew-window(0.0 +/- USB2-skew, usb-a.usb.data => usb-c.usb.data[2])
+  max-loss(12.0, usb-a.usb.data => usb-c.usb.data[2])
 
-  require esd-3 : diff-pair[3] from util-esd
-  topo-net(esd-3[0] usb-a.usb.data)
-  
-  net (esd-3[1].N usb-c.usb.sbu[1])
-  net (esd-3[1].P usb-c.usb.sbu[2])
-  net (esd-3[2].N usb-c.usb.cc[1])
-  net (esd-3[2].P usb-c.usb.cc[2])
+  diff-structure(diff-90, usb-a.usb.data => usb-c.usb.data[2])
 
-  ;assign a net to a layer
+  inst ss-esd : esd-protection
+  net GND (power.vbus.gnd, ss-esd.GND, util-esd.GND)
+
+  require esd-1 : bidir-diff-pair[2] from ss-esd
+  topo-net(usb3-mux.usb-c.sstx[1] => esd-1[0].A => esd-1[0].B => usb-c.usb.sstx[1])
+  topo-net(usb3-mux.usb-c.ssrx[1] => esd-1[1].A => esd-1[1].B => usb-c.usb.ssrx[1])
+
+  require esd-2 : bidir-diff-pair[2] from ss-esd
+  topo-net(usb3-mux.usb-c.sstx[2] => esd-2[0].A => esd-2[0].B => usb-c.usb.sstx[2])
+  topo-net(usb3-mux.usb-c.ssrx[2] => esd-2[1].A => esd-2[1].B => usb-c.usb.ssrx[2])
+
+  val USB3-skew = 1.0e-12
+  for i in [1, 2] do:
+    diff-structure(
+      diff-90, 
+      usb3-mux.usb-c.sstx[i] => usb-c.usb.sstx[i],
+      usb3-mux.usb-c.ssrx[i] => usb-c.usb.ssrx[i]
+    )
+
+    skew-window(
+      0.0 +/- USB3-skew, 
+      usb3-mux.usb-c.sstx[i] => usb-c.usb.sstx[i],
+      usb3-mux.usb-c.ssrx[i] => usb-c.usb.ssrx[i]
+    )
+
+    max-loss(
+      12.0,
+      usb3-mux.usb-c.sstx[i] => usb-c.usb.sstx[i]
+      usb3-mux.usb-c.ssrx[i] => usb-c.usb.ssrx[i]
+      )
+
+  ; Type A to Mux 
+  ; @TODO - do I need to reverse pair here ?
+  topo-net(usb3-mux.usb-a.sstx => usb-a.usb.sstx)
+  topo-net(usb3-mux.usb-a.ssrx => usb-a.usb.ssrx)
+
+  skew-window(
+    0.0 +/- USB3-skew, 
+    usb3-mux.usb-a.sstx => usb-a.usb.sstx,
+    usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
+  )
+
+  diff-structure(
+    diff-90, 
+    usb3-mux.usb-a.sstx => usb-a.usb.sstx,
+    usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
+    )
+
+
+  require pt : pass-through[4] from ss-esd
+  net (pt[0].A, usb-c.usb.sbu[1])
+  net (pt[1].A, usb-c.usb.cc[1])
+  net (pt[2].A, usb-c.usb.sbu[2])
+  net (pt[3].A, usb-c.usb.cc[2])
+
   geom(GND) :
     copper-pour(LayerIndex(1), isolate = 0.125, rank = 1) = board-shape
     copper-pour(LayerIndex(4), isolate = 0.125, rank = 1) = board-shape
@@ -85,10 +182,16 @@ pcb-module my-design :
 set-current-design("USB-A-to-C")
 
 
+public pcb-board my-board (outline:Shape) :
+  stackup = sierra-circuits-6-layer-100z-dif
+  boundary = outline
+  signal-boundary = outline
+  vias = [default-via minimum-via my-via]
+
 
 ; Setup the board
 defn setup-board () :
-  set-board(ocdb/utils/defaults/default-board(sierra-circuits-6-layer-100z-dif, board-shape))
+  set-board(my-board(board-shape))
   set-rules(custom_rules/sierra-circuits-notouch-rules-100z-diff) ;manufacturing rules
 
 ; Set the schematic sheet size

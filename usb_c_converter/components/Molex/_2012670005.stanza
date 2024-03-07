@@ -416,60 +416,38 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
-  pin-model(self.D0.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D0.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.D0, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D1, delay = 0.0 +/- 1.0e-12)
 
-  pin-model(self.D1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.TX1, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.TX2, delay = 0.0 +/- 1.0e-12)
 
-  pin-model(self.TX1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TX1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.RX1, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.RX2, delay = 0.0 +/- 1.0e-12)
 
-  pin-model(self.TX2.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TX2.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-
-  pin-model(self.RX1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.RX1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-
-  pin-model(self.RX2.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.RX2.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  reversible-diff-pair(self.D0, self.D1)
 
 
 public pcb-module module :
   port usb : usb-c-connector
 
-  inst con : components/Molex/_2012670005/component
-  
+  public inst con : components/Molex/_2012670005/component
+
   net (usb.vbus.vdd con.VBUS0 con.VBUS1 con.VBUS2 con.VBUS3)
   net (usb.cc[1], con.CC1)
   net (usb.cc[2], con.CC2)
 
   net (con.SUB1 usb.sbu[1])
   net (con.SBU2 usb.sbu[2])
-  
-  topo-net(usb.data[1], con.D0)
-  topo-net(usb.data[2], con.D1)
 
-  ; net (usb.data[1].N con.D-0)
-  ; net (usb.data[1].P con.D+0)
-  ; net (usb.data[2].N con.D-1)
-  ; net (usb.data[2].P con.D+1)
+  require usb-data : bidir-diff-pair from con
+  topo-net(usb-data.A, usb.data[1])
+  topo-net(usb-data.B, usb.data[2])
   
   topo-net(con.TX1, usb.sstx[1])
-  ; net (con.TX1+ usb.sstx[1].P)
-  ; net (con.TX1- usb.sstx[1].N)
-
-  topo-net(con.RX2, usb.ssrx[2])
-  ; net (con.RX2+ usb.ssrx[2].P)
-  ; net (con.RX2- usb.ssrx[2].N)
-  
-  topo-net(con.TX2, usb.sstx[2])
-  ; net (con.TX2+ usb.sstx[2].P)
-  ; net (con.TX2- usb.sstx[2].N)
-
   topo-net(con.RX1, usb.ssrx[1])
-  ; net (con.RX1+ usb.ssrx[1].P)
-  ; net (con.RX1- usb.ssrx[1].N)
+  topo-net(con.TX2, usb.sstx[2])
+  topo-net(con.RX2, usb.ssrx[2])
 
   net (con.GND0 con.GND1 con.GND2 con.GND3 usb.vbus.gnd)
   net (usb.shield con.p[1] con.p[2] con.p[3] con.p[4])

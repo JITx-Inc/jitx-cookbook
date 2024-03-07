@@ -79,41 +79,48 @@ public pcb-stackup sierra-circuits-6-layer-100z-dif :
 public val STACKUP = sierra-circuits-6-layer-100z-dif
 
 
+; I havne't checked these numbers yet.
 
+; @TODO - Compute from the JSL Stackup/Microstrip Structure
+public pcb-routing-structure se-50 :
+  name = "50 Ohm single-ended"
+  layer(Top) :
+    trace-width = 0.2    ; mm
+    clearance = 0.15         ; mm
+    velocity = 0.19e12   ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(
+      trace-width = 0.156 
+      clearance = 0.1 
+    )
 
-; pcb-routing-structure se-50 :
-;   name = "50 Ohm single-ended"
-;   layer(Top) :
-;     trace-width = 0.1080    ; mm
-;     clearance = 0.15         ; mm
-;     velocity = compute-phase-velocity(STACKUP, Top)      ; mm/s
-;     insertion-loss = compute-insertion-loss(STACKUP, Bottom)  ; db/mm @ 1GHz 
-;     neck-down = NeckDown(0.156 0.1 false false)
+  layer(Bottom) :
+    trace-width = 0.2    ; mm
+    clearance = 0.15         ; mm
+    velocity = 0.19e12   ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(
+      trace-width = 0.156 
+      clearance = 0.1 
+    )
 
-;   layer(Bottom) :
-;     trace-width = 0.1080    ; mm
-;     clearance = 0.15         ; mm
-;     velocity = compute-phase-velocity(STACKUP, Bottom)      ; mm/s
-;     insertion-loss = compute-insertion-loss(STACKUP, Bottom)  ; db/mm @ 1GHz 
-;     neck-down = NeckDown(0.156 0.1 false false)
+; @TODO - Compute from the JSL Stackup and Edge-Coupled Microstrip Structure
+public pcb-differential-routing-structure diff-90 :
+  name = "90 Ohm differential impedance - USB A"
+  layer(Top) :
+    trace-width = 0.2    ; mm
+    pair-spacing = 0.15     ; mm
+    clearance = 0.3         ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
 
-
-; pcb-differential-routing-structure diff-90 :
-;   name = "90 Ohm differential impedance - USB A"
-;   layer(Top) :
-;     trace-width = 0.1080    ; mm
-;     pair-spacing = 0.15     ; mm
-;     clearance = 0.3         ; mm
-;     velocity = 0.19e12      ; mm/s
-;     insertion-loss = 0.008  ; db/mm @ 1GHz 
-
-;   layer(Bottom) :
-;     trace-width = 0.1080    ; mm
-;     pair-spacing = 0.15     ; mm
-;     clearance = 0.3         ; mm
-;     velocity = 0.19e12      ; mm/s
-;     insertion-loss = 0.008  ; db/mm @ 1GHz
-;   uncoupled-region = se-50
+  layer(Bottom) :
+    trace-width = 0.2    ; mm
+    pair-spacing = 0.15     ; mm
+    clearance = 0.3         ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz
+  uncoupled-region = se-50
 
 
 

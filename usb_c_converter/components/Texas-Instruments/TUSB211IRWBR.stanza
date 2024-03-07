@@ -86,33 +86,32 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
-  ; TODO - according to the datasheet - Section 8.2
-  ;   D1 & D2 can be swapped so I think we should be using
-  ;   pin-assignment here.
 
-  pin-model(self.D1.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D1.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-
-  pin-model(self.D2.N) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D2.P) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.D1, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D2, delay = 0.0 +/- 1.0e-12)
 
 
 public pcb-module module :
   port power : power
-  port din : diff-pair
-  port dout : diff-pair
-  
+
   inst usb2sc : components/Texas-Instruments/TUSB211IRWBR/component
-  
+
+  ; According to the datasheet - Section 8.2
+  ;   D1 & D2 can be swapped but the P/N must stay the same
+  reversible-diff-pair(usb2sc.D1, usb2sc.D2)
+
   net (power.vdd usb2sc.VCC)
   net GND (power.gnd usb2sc.GND)
 
-  topo-net(din, usb2sc.D1)
-  topo-net(usb2sc.D1, usb2sc.D2)
-  topo-net(usb2sc.D2, dout)
-
-  ; net (data.N usb2sc.D1M usb2sc.D2M)
-  ; net (data.P usb2sc.D1P usb2sc.D2P)
+  ; Default Connection - Per the datasheet Section 8.2
+  ;  this connection is a requirement.
+  ; TODO - I probably want to add some kind of check here 
+  ;  for the usb2sc.D1 and usb2sc.D2 connection. 
+  ; Topo Nets and Nets can't really be applied here because
+  ;  if the user applies their own topo-net or net connection
+  ;  at the application layer - it will break the topology
+  ; topo-net(usb2sc.D1, usb2sc.D2)
+  ; net (usb2sc.D1, usb2sc.D2)
   
   bypass-cap-strap(usb2sc.VCC, GND, 10.0e-9)
   bypass-cap-strap(usb2sc.VCC, GND, 100.0e-9)

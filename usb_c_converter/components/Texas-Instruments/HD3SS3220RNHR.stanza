@@ -194,6 +194,13 @@ public pcb-component component :
   mpn = "HD3SS3220RNHR"
   datasheet = "https://datasheet.lcsc.com/lcsc/1809010911_Texas-Instruments-HD3SS3220RNHR_C165155.pdf"
   reference-prefix = "U"
+
+  port TX-O : diff-pair
+  port RX-O : diff-pair
+
+  port TX : diff-pair[[1, 2]]
+  port RX : diff-pair[[1, 2]]
+
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
     [CC2 | p[1] | Left | "unspecified" | 0]
@@ -201,22 +208,22 @@ public pcb-component component :
     [CURRENT_MODE | p[3] | Left | "unspecified" | 0]
     [PORT | p[4] | Left | "unspecified" | 0]
     [VBUS_DET | p[5] | Left | "unspecified" | 0]
-    [TXp | p[6] | Left | "unspecified" | 0]
-    [TXn | p[7] | Left | "unspecified" | 0]
+    [TX-O.P | p[6] | Left | "unspecified" | 0]
+    [TX-O.N | p[7] | Left | "unspecified" | 0]
     [VCC33 | p[8] | Left | "unspecified" | 0]
-    [RXp | p[9] | Left | "unspecified" | 0]
-    [RXn | p[10] | Left | "unspecified" | 0]
+    [RX-O.P | p[9] | Left | "unspecified" | 0]
+    [RX-O.N | p[10] | Left | "unspecified" | 0]
     [DIR | p[11] | Down | "unspecified" | 0]
     [ENn_MUX | p[12] | Down | "unspecified" | 0]
     [GND0 | p[13] | Down | "unspecified" | 0]
-    [RX1n | p[14] | Down | "unspecified" | 0]
-    [RX1p | p[15] | Down | "unspecified" | 0]
-    [TX1n | p[16] | Right | "unspecified" | 0]
-    [TX1p | p[17] | Right | "unspecified" | 0]
-    [RX2n | p[18] | Right | "unspecified" | 0]
-    [RX2p | p[19] | Right | "unspecified" | 0]
-    [TX2n | p[20] | Right | "unspecified" | 0]
-    [TX2p | p[21] | Right | "unspecified" | 0]
+    [RX[1].N | p[14] | Down | "unspecified" | 0]
+    [RX[1].P | p[15] | Down | "unspecified" | 0]
+    [TX[1].N | p[16] | Right | "unspecified" | 0]
+    [TX[1].P | p[17] | Right | "unspecified" | 0]
+    [RX[2].N | p[18] | Right | "unspecified" | 0]
+    [RX[2].P | p[19] | Right | "unspecified" | 0]
+    [TX[2].N | p[20] | Right | "unspecified" | 0]
+    [TX[2].P | p[21] | Right | "unspecified" | 0]
     [ADDR | p[22] | Right | "unspecified" | 0]
     [INT_N_OUT3 | p[23] | Right | "unspecified" | 0]
     [VCONN_FAULT_N | p[24] | Right | "unspecified" | 0]
@@ -231,28 +238,25 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
-  ; Mux Inputs
-  pin-model(self.RX1n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.RX1p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TX1n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TX1p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  ; These values are just dummy values for now until
+  ;  I can find the right values to use.
+  diff-pin-model(self.RX[1], delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.RX[2], delay = 0.0 +/- 1.0e-12)
 
-  pin-model(self.RX2n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.RX2p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TX2n) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TX2p) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.TX[1], delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.TX[2], delay = 0.0 +/- 1.0e-12)
 
-  ; Mux output
-  pin-model(self.RXn) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.RXp) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TXn) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.TXp) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.TX-O, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.RX-O, delay = 0.0 +/- 1.0e-12)
+
 
 
 ;Create a fresh bundle with two pins 'a' and 'b' that can be mapped
 ;to the given pins 'x' and 'y' in any order.
 defn swappable-pair (x:JITXObject, y:JITXObject) -> Bundle :
   inside pcb-module :
+    ; This is confusing because the type name and the supports
+    ;  are the same name and then we return that name 
     pcb-bundle pair :
       pin a
       pin b
@@ -307,13 +311,13 @@ defn swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
       tx-rx.rx.P => pairs[1].b
     tx-rx
 
-
 public pcb-module module :
   port usb-a : usb-a-superspeed-connector
+
   port usb-c : usb-c-connector
   port power-3v3 : power
 
-  inst mux : components/Texas-Instruments/HD3SS3220RNHR/component
+  public inst mux : components/Texas-Instruments/HD3SS3220RNHR/component
 
   net GND (usb-c.vbus.gnd power-3v3.gnd mux.GND0 mux.GND1 mux.EP)
   net POWER_5V (mux.VDD5 usb-c.vbus.vdd)
@@ -340,54 +344,52 @@ public pcb-module module :
 
   ; USB-A side
   require muxed : non-swappable-tx-rx(
-                  swappable-pair(mux.TXn, mux.TXp)
-                  swappable-pair(mux.RXn, mux.RXp))
+                  swappable-pair(mux.TX-O.N, mux.TX-O.P)
+                  swappable-pair(mux.RX-O.N, mux.RX-O.P))
 
-  topo-net(muxed.tx usb-a.sstx)
-  ; net (muxed.tx usb-a.sstx)
+  ; Pull-down resistors on TX Diff-Pair lines
+  val pd-R = chip-resistor(100.0e3)
+  inst tx-pds : symmetric-pull-downs(pd-R)
+  net (GND, tx-pds.GND)
 
+  topo-net(muxed.tx => tx-pds.A => tx-pds.B => usb-a.sstx)
+
+  inst rx-pds : symmetric-pull-downs(pd-R)
+  net (GND, rx-pds.GND)
+
+  ; TODO - This deserves a comment - Why are the blocking caps
+  ;   on the RX bundle here. Typically, the blocking caps are
+  ;   on the TX bundle.
   val block-cap = ceramic-cap(470.0e-9)
-  topo-series-conn(muxed.rx, usb-a.ssrx, block-cap)
-  ;cap-strap(muxed.rx.P, usb-a.ssrx.N, 470.0e-9)
-  ; cap-strap(muxed.rx.N, usb-a.ssrx.P, 470.0e-9)
-  
-  ; Pull-down resistors on data lines
-  ; TODO - we need to re-structure here 
-  ;  Specifically, One topo needs to go from muxed.tx -> pull-down -> usb-a.sstx
-  ;   Second topo needs to go from muxed.rx -> pull-down -> blocking cap -> usb-a.sstx
 
-  res-strap(mux.RXp, GND, 100.0e3)
-  res-strap(mux.TXp, GND, 100.0e3)
-  res-strap(mux.RXn, GND, 100.0e3)
-  res-strap(mux.TXn, GND, 100.0e3)
+  inst rx-bcap : dp-coupler(block-cap)
+  require rx-C : bidir-diff-pair from rx-bcap
+
+  topo-net(muxed.rx => rx-pds.A => rx-pds.B => rx-C.A)
+  topo-net(rx-C.B => usb-a.ssrx)
+
 
   ; USB-C side
+
   require lane-1 : swappable-tx-rx(
-                     swappable-pair(mux.TX1n, mux.TX1p)
-                     swappable-pair(mux.RX1n, mux.RX1p))
+                     swappable-pair(mux.TX[1].N, mux.TX[1].P)
+                     swappable-pair(mux.RX[1].N, mux.RX[1].P))
   require lane-2 : swappable-tx-rx(
-                     swappable-pair(mux.TX2n, mux.TX2p)
-                     swappable-pair(mux.RX2n, mux.RX2p))
+                     swappable-pair(mux.TX[2].N, mux.TX[2].P)
+                     swappable-pair(mux.RX[2].N, mux.RX[2].P))
 
-  topo-net(lane-1.rx usb-c.ssrx[1])
-  topo-net(lane-2.rx usb-c.ssrx[2])
-  ; net (lane-1.rx usb-c.ssrx[1])
-  ; net (lane-2.rx usb-c.ssrx[2])
+  topo-net(lane-1.rx => usb-c.ssrx[1])
+  topo-net(lane-2.rx => usb-c.ssrx[2])
 
-  topo-series-conn(lane-1.tx.P, usb-c.sstx[1].N, block-cap)
+  inst tx1-bcap : dp-coupler(block-cap)
+  require tx1 : bidir-diff-pair from tx1-bcap
+  topo-net(lane-1.tx => tx1.A)
+  topo-net(tx1.B => usb-c.sstx[1])
 
-  inst lane-1-rp : reverse-pair
-  topo-net(lane-1.tx, lane-1-rp.b[1])
-  topo-series-conn(lane-1-rp.b[2], usb-c.sstx[1], block-cap)
-
-  inst lane-2-rp : reverse-pair
-  topo-net(lane-2.tx, lane-2-rp.b[1])
-  topo-series-conn(lane-2-rp.b[2], usb-c.sstx[2], block-cap)
-
-  ; cap-strap(lane-1.tx.P, usb-c.sstx[1].N, 470.0e-9)
-  ; cap-strap(lane-1.tx.N, usb-c.sstx[1].P, 470.0e-9)
-  ; cap-strap(lane-2.tx.P, usb-c.sstx[2].P, 470.0e-9)
-  ; cap-strap(lane-2.tx.N, usb-c.sstx[2].N, 470.0e-9)
+  inst tx2-bcap : dp-coupler(block-cap)
+  require tx2 : bidir-diff-pair from tx2-bcap
+  topo-net(lane-2.tx => tx2.A)
+  topo-net(tx2.B => usb-c.sstx[2])
 
   
   ;LED indicators

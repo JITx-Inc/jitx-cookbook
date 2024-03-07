@@ -93,52 +93,46 @@ public pcb-component component :
   mpn = "GSB3211311WEU"
   datasheet = "https://datasheet.lcsc.com/lcsc/1912111437_Amphenol-ICC-GSB3211311WEU_C429839.pdf"
   reference-prefix = "USB"
+
+  port D : diff-pair
+  port SSTX : diff-pair
+  port SSRX : diff-pair
+
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
     [VBUS | p[1] | Left | "unspecified" | 0]
-    [D- | p[2] | Left | "unspecified" | 0]
-    [D+ | p[3] | Left | "unspecified" | 0]
+    [D.N | p[2] | Left | "unspecified" | 0]
+    [D.P | p[3] | Left | "unspecified" | 0]
     [GND | p[4] | Left | "unspecified" | 0]
-    [SSTX- | p[5] | Left | "unspecified" | 0]
-    [SSTX+ | p[6] | Left | "unspecified" | 0]
+    [SSTX.N | p[5] | Left | "unspecified" | 0]
+    [SSTX.P | p[6] | Left | "unspecified" | 0]
     [GND_DRAIN | p[7] | Left | "unspecified" | 0]
-    [SSRX- | p[8] | Left | "unspecified" | 0]
-    [SSRX+ | p[9] | Left | "unspecified" | 0]
+    [SSRX.N | p[8] | Left | "unspecified" | 0]
+    [SSRX.P | p[9] | Left | "unspecified" | 0]
     [SHELL0 | p[10] | Right | "unspecified" | 0]
     [SHELL1 | p[11] | Right | "unspecified" | 0]
 
   assign-landpattern(lp)
   make-box-symbol()
 
-  pin-model(self.D-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.SSTX-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.SSTX+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.SSRX-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.SSRX+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.D, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.SSTX, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.SSRX, delay = 0.0 +/- 1.0e-12)
 
 
 public pcb-module module :
   port usb : usb-a-superspeed-connector
 
-  inst con : components/Amphenol/GSB3211311WEU/component
+  public inst con : components/Amphenol/GSB3211311WEU/component
 
-  topo-net(con.D- usb.data.N)
-  topo-net(con.D+ usb.data.P)
+  topo-net(con.D, usb.data)
 
-  topo-net(con.SSTX- usb.ssrx.N)
-  topo-net(con.SSTX+ usb.ssrx.P)
-  topo-net(con.SSRX- usb.sstx.N)
-  topo-net(con.SSRX+ usb.sstx.P)
+  topo-net(con.SSTX, usb.sstx)
+  topo-net(con.SSRX, usb.ssrx)
 
-  ; net (con.D- usb.data.N)
-  ; net (con.D+ usb.data.P)
   net (con.VBUS usb.vbus.vdd)
   net (con.GND usb.vbus.gnd)
-  ; net (con.SSTX- usb.ssrx.N)
-  ; net (con.SSTX+ usb.ssrx.P)
-  ; net (con.SSRX- usb.sstx.N)
-  ; net (con.SSRX+ usb.sstx.P)
+
   net (con.GND_DRAIN usb.gnd-drain)
   net (con.SHELL0 con.SHELL1 usb.shield)
 

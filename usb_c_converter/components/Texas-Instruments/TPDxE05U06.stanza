@@ -9,6 +9,8 @@ defpackage components/Texas-Instruments/TPDxE05U06 :
   import ocdb/utils/box-symbol
   import ocdb/utils/generic-components
 
+  import si-tools
+
 
 pcb-pad rectangle-smd-pad :
   name = "rectangle-smd-pad"
@@ -83,90 +85,91 @@ pcb-landpattern lp-6 :
     Arc(-1.524, -0.507, 0.100, 0.0, -360.000)])
   layer(Courtyard(Top)) = Rectangle(3.652, 1.553)
 
-; TODO - This should go in JSL
-public defn swappable-diff-pair (p1:JITXObject, p2:JITXObject):
-  inside pcb-component:
-    supports diff-pair : 
-      option:
-        diff-pair.N => p1
-        diff-pair.P => p2
-      option:
-        diff-pair.P => p1
-        diff-pair.N => p2
-
 
 public pcb-component component (-- channels:Int = 4):
   name = "C81353"
   description = "-40℃~+125℃@(Ta) 6.4V 14V 40W 2.5A Unidirectional 5.5V USON-10(1x2.5)  ESD Protection Devices ROHS"
   manufacturer = "Texas Instruments"
 
+  port D1-A : diff-pair
+  port D1-B : diff-pair
+
+  port D2-A : diff-pair
+  port D2-B : diff-pair
+
   if channels  == 4 :
     mpn = "TPD4E05U06QDQARQ1"
     datasheet = "https://datasheet.lcsc.com/lcsc/1809211227_Texas-Instruments-TPD4E05U06QDQARQ1_C81353.pdf"
     pin-properties :
       [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
-      [D1+ | p[1] p[10] | Left | "unspecified" | 0]
-      [D1- | p[2] p[9] | Left | "unspecified" | 0]
-      [GND | p[3] p[8] | Left | "unspecified" | 0]
-      [D2+ | p[4] p[7] | Left | "unspecified" | 0]
-      [D2- | p[5] p[6] | Left | "unspecified" | 0]
+      [D1-A.P | p[1] | Left | "unspecified" | 0]
+      [D1-A.N | p[2] | Left | "unspecified" | 0]
+      [D1-B.P | p[10] | Right | "unspecified" | 0]
+      [D1-B.N | p[9] | Right | "unspecified" | 0]
+
+      [GND | p[3] p[8] | Down | "unspecified" | 0]
+      [D2-A.P | p[4] | Left | "unspecified" | 0]
+      [D2-A.N | p[5] | Left | "unspecified" | 0]
+      [D2-B.P | p[7] | Left | "unspecified" | 0]
+      [D2-B.N | p[6] | Left | "unspecified" | 0]
+
     assign-landpattern(lp-4)
 
   else if channels == 6 :
     mpn = "TPD6E05U06RVZR"
     datasheet = "https://datasheet.lcsc.com/lcsc/2303021000_Texas-Instruments-TPD6E05U06RVZR_C962978.pdf"
+
+    port D3-A : diff-pair
+    port D3-B : diff-pair
+
     pin-properties :
       [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
-      [D1- | p[13] p[2]| Right | "unspecified" | 0]
-      [D1+ | p[14] p[1]| Right | "unspecified" | 0]
-      [D2- | p[11] p[4]| Right | "unspecified" | 0]
-      [D2+ | p[12] p[3]| Right | "unspecified" | 0]
-      [GND | p[5] p[10] | Right | "unspecified" | 0]
-      [D3- | p[8] p[7] | Right | "unspecified" | 0]
-      [D3+ | p[9] p[6] | Right | "unspecified" | 0]
+      [D1-A.P | p[1] | Left | "unspecified" | 0]
+      [D1-A.N | p[2] | Left | "unspecified" | 0]
+      [D1-B.P | p[14] | Right | "unspecified" | 0]
+      [D1-B.N | p[13] | Right | "unspecified" | 0]
 
-    pin-model(self.D3-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-    pin-model(self.D3+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+      [D2-A.P | p[3] | Left | "unspecified" | 0]
+      [D2-A.N | p[4] | Left | "unspecified" | 0]
+      [D2-B.P | p[12] | Right | "unspecified" | 0]
+      [D2-B.N | p[11] | Right | "unspecified" | 0]
 
-    swappable-diff-pair(self.D3+, self.D3-)
+      [GND | p[5] p[10] | Down | "unspecified" | 0]
 
-    ; supports diff-pair : 
-    ;   option:
-    ;     diff-pair.N => self.D3-
-    ;     diff-pair.P => self.D3+
-    ;   option:
-    ;     diff-pair.P => self.D3-
-    ;     diff-pair.N => self.D3+
+      [D3-A.P | p[6] | Left | "unspecified" | 0]
+      [D3-A.N | p[7] | Left | "unspecified" | 0]
+      [D3-B.P | p[9] | Right | "unspecified" | 0]
+      [D3-B.N | p[8] | Right | "unspecified" | 0]
+
+
+    bidir-swappable-diff-pair(self.D3-A, self.D3-B)
+
+    diff-pin-model(self.D3-A, delay = 0.0 +/- 1.0e-12)
+    diff-pin-model(self.D3-B, delay = 0.0 +/- 1.0e-12)
+
+    add-pass-through(self.D3-A.P, self.D3-B.P)
+    add-pass-through(self.D3-A.N, self.D3-B.N)
+
+
     assign-landpattern(lp-6)
 
+  diff-pin-model(self.D1-A, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D1-B, delay = 0.0 +/- 1.0e-12)
 
-  pin-model(self.D1-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D1+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  diff-pin-model(self.D2-A, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D2-B, delay = 0.0 +/- 1.0e-12)
 
-  pin-model(self.D2-) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
-  pin-model(self.D2+) = PinModel(0.0 +/- 1.0e-12, typ(0.0))
+  bidir-swappable-diff-pair(self.D1-A, self.D1-B)
+  bidir-swappable-diff-pair(self.D2-A, self.D2-B)
 
-  swappable-diff-pair(self.D1+, self.D1-)
-  swappable-diff-pair(self.D2+, self.D2-)
+  add-pass-through(self.D1-A.P, self.D1-B.P)
+  add-pass-through(self.D1-A.N, self.D1-B.N)
 
-  ; supports diff-pair :
-  ;   option:
-  ;     diff-pair.N => self.D1-
-  ;     diff-pair.P => self.D1+
-  ;   option:
-  ;     diff-pair.P => self.D1-
-  ;     diff-pair.N => self.D1+
+  add-pass-through(self.D2-A.P, self.D2-B.P)
+  add-pass-through(self.D2-A.N, self.D2-B.N)
 
-  ; supports diff-pair :
-  ;   option:
-  ;     diff-pair.N => self.D2-
-  ;     diff-pair.P => self.D2+
-  ;   option:
-  ;     diff-pair.P => self.D2-
-  ;     diff-pair.N => self.D2+
 
   make-box-symbol()
 
-
-  property(self.rated-temperature) = Toleranced(42.5, 82.5, 82.5)
+  property(self.rated-temperature) = min-max(-40.0, 125.0)
 
