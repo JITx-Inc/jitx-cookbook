@@ -76,7 +76,8 @@ pcb-module esd-protection :
 ; Module to run as a design
 pcb-module my-design :
   ; Connectors 
-  inst usb-a : components/Amphenol/GSB3211311WEU/module
+  inst usb-a : components/XKB-Connectivity/U231-096N-3BLRT06-SS/module
+  ; inst usb-a : components/Amphenol/GSB3211311WEU/module
   inst usb-c : components/Molex/_2012670005/module
 
   ; Power
@@ -157,46 +158,53 @@ pcb-module my-design :
       )
 
   ; Type A to Mux 
-  ; @TODO - do I need to reverse pair here ?
+
+  node sstx : diff-pair
+  node ssrx : diff-pair
 
   val pd-R = chip-resistor(100.0e3)
+  inst rx-pds : symmetric-pull-downs(pd-R)
+  net (GND, rx-pds.GND)
+
+  topo-net(usb3-mux.usb-a.ssrx => rx-pds.A)
+  topo-net(rx-pds.B => ssrx)
 
   inst tx-pds : symmetric-pull-downs(pd-R)
   net (GND, tx-pds.GND)
 
+  inst tx-bcap : dp-coupler(block-cap)
+  require tx-C : bidir-diff-pair from tx-bcap
+
   topo-net(usb3-mux.usb-a.sstx => tx-pds.A)
-  topo-net(tx-pds.B => usb-a.usb.sstx)
-
-  inst rx-pds : symmetric-pull-downs(pd-R)
-  net (GND, rx-pds.GND)
-
-  ; TODO - This deserves a comment - Why are the blocking caps
-  ;   on the RX bundle here. Typically, the blocking caps are
-  ;   on the TX bundle.
-
-  inst rx-bcap : dp-coupler(block-cap)
-  require rx-C : bidir-diff-pair from rx-bcap
-
-  topo-net(usb3-mux.usb-a.ssrx => rx-pds.A)
-  topo-net(rx-pds.B => rx-C.A)
-  topo-net(rx-C.B => usb-a.usb.ssrx)
+  topo-net(tx-pds.B => tx-C.A)
+  topo-net(tx-C.B => sstx)
+  
+  ; NOTE: Because we are using a type-A connector which 
+  ;  is typically the host - we must swap the TX / RX 
+  ;  pairs.
+  ;  This is why the TX on Mux => RX on Connector
+  ;    and RX on Mux => TX on Connector
+  val sstx-ep = usb-a.usb.ssrx
+  val ssrx-ep = usb-a.usb.sstx
+  topo-net(ssrx => ssrx-ep)
+  topo-net(sstx => sstx-ep)
 
   diff-structure(
     diff-90, 
-    usb3-mux.usb-a.sstx => usb-a.usb.sstx,
-    usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
+    usb3-mux.usb-a.sstx => sstx-ep,
+    usb3-mux.usb-a.ssrx => ssrx-ep
     )
 
   skew-window(
     0.0 +/- USB3-skew, 
-    usb3-mux.usb-a.sstx => usb-a.usb.sstx,
-    usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
+    usb3-mux.usb-a.sstx => sstx-ep,
+    usb3-mux.usb-a.ssrx => ssrx-ep
   )
 
   max-loss(
     12.0,
-    usb3-mux.usb-a.sstx => usb-a.usb.sstx,
-    usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
+    usb3-mux.usb-a.sstx => sstx-ep,
+    usb3-mux.usb-a.ssrx => ssrx-ep
     )
 
 

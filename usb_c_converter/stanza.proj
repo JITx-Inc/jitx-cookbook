@@ -13,3 +13,4 @@ package components/Texas-Instruments/TUSB211IRWBR defined-in "components/Texas-I
 package components/Molex/_2012670005 defined-in "components/Molex/_2012670005.stanza"
 package components/Texas-Instruments/HD3SS3220RNHR defined-in "components/Texas-Instruments/HD3SS3220RNHR.stanza"
 package components/Texas-Instruments/TPDxE05U06 defined-in "components/Texas-Instruments/TPDxE05U06.stanza"
+package components/XKB-Connectivity/U231-096N-3BLRT06-SS defined-in "components/XKB-Connectivity/U231-096N-3BLRT06-SS.stanza"
