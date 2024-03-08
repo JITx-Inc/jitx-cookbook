@@ -109,11 +109,8 @@ pcb-module my-design :
     usb-c.usb.data[2]
   )
 
-  ;   The total intra-pair skew allowed on the USB2.0 Data Pair
+  ; The total intra-pair skew allowed on the USB2.0 Data Pair
   val USB2-skew = 7.5e-12 / 2.0
-  ; This seems a little weird at first - but the point here is that
-  ;   we want to limit the total skew and that means we have to 
-  ;   look end to end on the pair.
   skew-window(0.0 +/- USB2-skew, usb-a.usb.data => usb-c.usb.data[2])
   max-loss(12.0, usb-a.usb.data => usb-c.usb.data[2])
 
@@ -122,12 +119,21 @@ pcb-module my-design :
   inst ss-esd : esd-protection
   net GND (power.vbus.gnd, ss-esd.GND, util-esd.GND)
 
+  val block-cap = ceramic-cap(470.0e-9)
+  inst tx1-bcap : dp-coupler(block-cap)
+  require tx1 : bidir-diff-pair from tx1-bcap
+  topo-net(usb3-mux.usb-c.sstx[1] => tx1.A)
+
+  inst tx2-bcap : dp-coupler(block-cap)
+  require tx2 : bidir-diff-pair from tx2-bcap
+  topo-net(usb3-mux.usb-c.sstx[2] => tx2.A)
+
   require esd-1 : bidir-diff-pair[2] from ss-esd
-  topo-net(usb3-mux.usb-c.sstx[1] => esd-1[0].A => esd-1[0].B => usb-c.usb.sstx[1])
+  topo-net(tx1.B => esd-1[0].A => esd-1[0].B => usb-c.usb.sstx[1])
   topo-net(usb3-mux.usb-c.ssrx[1] => esd-1[1].A => esd-1[1].B => usb-c.usb.ssrx[1])
 
   require esd-2 : bidir-diff-pair[2] from ss-esd
-  topo-net(usb3-mux.usb-c.sstx[2] => esd-2[0].A => esd-2[0].B => usb-c.usb.sstx[2])
+  topo-net(tx2.B => esd-2[0].A => esd-2[0].B => usb-c.usb.sstx[2])
   topo-net(usb3-mux.usb-c.ssrx[2] => esd-2[1].A => esd-2[1].B => usb-c.usb.ssrx[2])
 
   val USB3-skew = 1.0e-12
@@ -152,8 +158,34 @@ pcb-module my-design :
 
   ; Type A to Mux 
   ; @TODO - do I need to reverse pair here ?
-  topo-net(usb3-mux.usb-a.sstx => usb-a.usb.sstx)
-  topo-net(usb3-mux.usb-a.ssrx => usb-a.usb.ssrx)
+
+  val pd-R = chip-resistor(100.0e3)
+
+  inst tx-pds : symmetric-pull-downs(pd-R)
+  net (GND, tx-pds.GND)
+
+  topo-net(usb3-mux.usb-a.sstx => tx-pds.A)
+  topo-net(tx-pds.B => usb-a.usb.sstx)
+
+  inst rx-pds : symmetric-pull-downs(pd-R)
+  net (GND, rx-pds.GND)
+
+  ; TODO - This deserves a comment - Why are the blocking caps
+  ;   on the RX bundle here. Typically, the blocking caps are
+  ;   on the TX bundle.
+
+  inst rx-bcap : dp-coupler(block-cap)
+  require rx-C : bidir-diff-pair from rx-bcap
+
+  topo-net(usb3-mux.usb-a.ssrx => rx-pds.A)
+  topo-net(rx-pds.B => rx-C.A)
+  topo-net(rx-C.B => usb-a.usb.ssrx)
+
+  diff-structure(
+    diff-90, 
+    usb3-mux.usb-a.sstx => usb-a.usb.sstx,
+    usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
+    )
 
   skew-window(
     0.0 +/- USB3-skew, 
@@ -161,8 +193,8 @@ pcb-module my-design :
     usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
   )
 
-  diff-structure(
-    diff-90, 
+  max-loss(
+    12.0,
     usb3-mux.usb-a.sstx => usb-a.usb.sstx,
     usb3-mux.usb-a.ssrx => usb-a.usb.ssrx
     )

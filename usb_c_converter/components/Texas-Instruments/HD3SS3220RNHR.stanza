@@ -347,27 +347,8 @@ public pcb-module module :
                   swappable-pair(mux.TX-O.N, mux.TX-O.P)
                   swappable-pair(mux.RX-O.N, mux.RX-O.P))
 
-  ; Pull-down resistors on TX Diff-Pair lines
-  val pd-R = chip-resistor(100.0e3)
-  inst tx-pds : symmetric-pull-downs(pd-R)
-  net (GND, tx-pds.GND)
-
-  topo-net(muxed.tx => tx-pds.A => tx-pds.B => usb-a.sstx)
-
-  inst rx-pds : symmetric-pull-downs(pd-R)
-  net (GND, rx-pds.GND)
-
-  ; TODO - This deserves a comment - Why are the blocking caps
-  ;   on the RX bundle here. Typically, the blocking caps are
-  ;   on the TX bundle.
-  val block-cap = ceramic-cap(470.0e-9)
-
-  inst rx-bcap : dp-coupler(block-cap)
-  require rx-C : bidir-diff-pair from rx-bcap
-
-  topo-net(muxed.rx => rx-pds.A => rx-pds.B => rx-C.A)
-  topo-net(rx-C.B => usb-a.ssrx)
-
+  topo-net(usb-a.ssrx => muxed.rx)
+  topo-net(usb-a.sstx => muxed.tx)
 
   ; USB-C side
 
@@ -381,15 +362,8 @@ public pcb-module module :
   topo-net(lane-1.rx => usb-c.ssrx[1])
   topo-net(lane-2.rx => usb-c.ssrx[2])
 
-  inst tx1-bcap : dp-coupler(block-cap)
-  require tx1 : bidir-diff-pair from tx1-bcap
-  topo-net(lane-1.tx => tx1.A)
-  topo-net(tx1.B => usb-c.sstx[1])
-
-  inst tx2-bcap : dp-coupler(block-cap)
-  require tx2 : bidir-diff-pair from tx2-bcap
-  topo-net(lane-2.tx => tx2.A)
-  topo-net(tx2.B => usb-c.sstx[2])
+  topo-net(lane-1.tx => usb-c.sstx[1])
+  topo-net(lane-2.tx => usb-c.sstx[2])
 
   
   ;LED indicators
