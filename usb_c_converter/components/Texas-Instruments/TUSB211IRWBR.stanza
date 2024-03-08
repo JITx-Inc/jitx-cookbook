@@ -87,8 +87,8 @@ public pcb-component component :
   make-box-symbol()
 
 
-  diff-pin-model(self.D1, delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.D2, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D1)
+  diff-pin-model(self.D2)
 
 
 public pcb-module module :

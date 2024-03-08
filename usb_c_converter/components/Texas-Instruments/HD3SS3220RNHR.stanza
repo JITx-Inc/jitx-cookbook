@@ -240,14 +240,14 @@ public pcb-component component :
 
   ; These values are just dummy values for now until
   ;  I can find the right values to use.
-  diff-pin-model(self.RX[1], delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.RX[2], delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.RX[1])
+  diff-pin-model(self.RX[2])
 
-  diff-pin-model(self.TX[1], delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.TX[2], delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.TX[1])
+  diff-pin-model(self.TX[2])
 
-  diff-pin-model(self.TX-O, delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.RX-O, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.TX-O)
+  diff-pin-model(self.RX-O)
 
 
 

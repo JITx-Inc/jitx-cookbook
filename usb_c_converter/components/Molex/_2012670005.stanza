@@ -416,14 +416,14 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
-  diff-pin-model(self.D0, delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.D1, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D0)
+  diff-pin-model(self.D1)
 
-  diff-pin-model(self.TX1, delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.TX2, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.TX1)
+  diff-pin-model(self.TX2)
 
-  diff-pin-model(self.RX1, delay = 0.0 +/- 1.0e-12)
-  diff-pin-model(self.RX2, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.RX1)
+  diff-pin-model(self.RX2)
 
   reversible-diff-pair(self.D0, self.D1)
 

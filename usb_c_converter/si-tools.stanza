@@ -50,7 +50,7 @@ Expects two pins
 public defn diff-pin-model (
   p1:JITXObject, p2:JITXObject,
   --
-  delay:Toleranced, loss:Toleranced = typ(0.0)
+  delay:Toleranced = typ(0.0), loss:Toleranced = typ(0.0)
   ) :
   inside pcb-component:
     pin-model(p1) = PinModel(delay, loss)
@@ -62,7 +62,7 @@ Expects a diff-pair bundle port
 public defn diff-pin-model (
   dp:JITXObject,
   --
-  delay:Toleranced, loss:Toleranced = typ(0.0)
+  delay:Toleranced = typ(0.0), loss:Toleranced = typ(0.0)
   ) :
   inside pcb-component:
     pin-model(dp.P) = PinModel(delay, loss)
@@ -72,7 +72,7 @@ public defn diff-pin-model (
 public defn diff-pin-model (
   pair:KeyValue<JITXObject, JITXObject>
   --
-  delay:Toleranced, loss:Toleranced = typ(0.0)
+  delay:Toleranced = typ(0.0), loss:Toleranced = typ(0.0)
   ) :
   val [p1, p2] = [key(pair), value(pair)]
   diff-pin-model(p1, p2, delay = delay, loss = loss)

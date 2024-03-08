@@ -144,8 +144,8 @@ public pcb-component component (-- channels:Int = 4):
 
     bidir-swappable-diff-pair(self.D3-A, self.D3-B)
 
-    diff-pin-model(self.D3-A, delay = 0.0 +/- 1.0e-12)
-    diff-pin-model(self.D3-B, delay = 0.0 +/- 1.0e-12)
+    diff-pin-model(self.D3-A)
+    diff-pin-model(self.D3-B)
 
     add-pass-through(self.D3-A.P, self.D3-B.P)
     add-pass-through(self.D3-A.N, self.D3-B.N)
