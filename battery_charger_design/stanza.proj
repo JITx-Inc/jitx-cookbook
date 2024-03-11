@@ -1,4 +1,3 @@
-include "../open-components-database/stanza.proj"
-package main defined-in "main.stanza"
-package helpers defined-in "helpers.stanza"
-packages components/* defined-in "components"
+package battery_charger_design/main defined-in "main.stanza"
+package battery_charger_design/helpers defined-in "helpers.stanza"
+packages battery_charger_design/components/* defined-in "components"

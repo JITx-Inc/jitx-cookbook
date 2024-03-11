@@ -3,7 +3,7 @@
 ; update your design in CAD, etc.
 ; ====================
 #use-added-syntax(jitx)
-defpackage helpers :
+defpackage ble_mote_esp32_iot_board/helpers :
   import core
   import collections
   import lang-utils

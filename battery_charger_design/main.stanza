@@ -4,7 +4,7 @@
 
 ; declare our package name and import dependencies
 #use-added-syntax(jitx)
-defpackage main : 
+defpackage battery_charger_design/main : 
   import core
   import jitx
   import jitx/commands
@@ -13,7 +13,7 @@ defpackage main :
   import ocdb/utils/generic-components
   import ocdb/utils/box-symbol
   import ocdb/utils/generator-utils
-  import helpers
+  import battery_charger_design/helpers
 
 ; Module to run as a design
 val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
@@ -31,31 +31,29 @@ pcb-module battery-manager-module :
 
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
-  component-status(logo) :
-    bom-status : NotInBOM
 
   ; create the battery manager IC, connect it
-  inst battery-manager : components/BQ24078RGTR/module
+  inst battery-manager : battery_charger_design/components/BQ24078RGTR/module
   net BMOUT (battery-manager.vout)
   net (battery-manager.gnd GND)
 
   ; create battery JST connector, connect it
-  inst battery-connector : components/PH2_0-2PWB/component
+  inst battery-connector : battery_charger_design/components/PH2_0-2PWB/component
   net (battery-connector.gnd GND)
   net (battery-connector.power battery-manager.bat+)
 
   ; create the battery itself
-  inst battery : components/LithiumBattery/component(typ(3.7), 500.0) ; (voltage, current)
+  inst battery : battery_charger_design/components/LithiumBattery/component(typ(3.7), 500.0) ; (voltage, current)
   net VBAT (battery.POWER battery-manager.bat+)
   net (GND battery.GND)
 
   ; create an input voltage from the USB cable
-  inst usb-cable : components/USBCable/component
+  inst usb-cable : battery_charger_design/components/USBCable/component
   net (usb-cable.POWER battery-manager.vin)
   net (GND usb-cable.GND)
 
   ; create switch and pull up, connect them. Switch pulls SYSOFF down for normal operation, high to disconnect battery
-  inst switch-phy : components/MK-12C02-G025/component
+  inst switch-phy : battery_charger_design/components/MK-12C02-G025/component
   net (GND switch-phy.left switch-phy.gnd) ; switch turns battery-manager on
   net (switch-phy.center battery-manager.sysoff)
   val sys-r = res-strap(switch-phy.right, VBAT, 100.0e3) ; pull-up turns battery monitor off
@@ -66,14 +64,14 @@ pcb-module battery-manager-module :
   net VBUS (battery-manager.vin usb.usb-2.vbus.vdd)
 
   ; create the LDO and connect it
-  inst ldo : components/AP2125K-2_8TRG1/module
+  inst ldo : battery_charger_design/components/AP2125K-2_8TRG1/module
   net (BMOUT ldo.vin ldo.ce)
   net (ldo.gnd GND)
   net P2V8 (ldo.vout)
   val ldo-pulldown = res-strap(ldo.ce GND, 100.0e3) ; pull-down on the CE pin disables the LDO when the battery manager is not outputting voltage
 
   ; create voltage output JST connector, connect it
-  inst vout-connector : components/PH2_0-2PWB/component
+  inst vout-connector : battery_charger_design/components/PH2_0-2PWB/component
   net (vout-connector.gnd GND)
   net (vout-connector.power ldo.vout)
 

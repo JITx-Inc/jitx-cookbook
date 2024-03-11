@@ -1,6 +1,6 @@
 ; A small JST connector, PH2-0-2PWB
 #use-added-syntax(jitx)
-defpackage components/PH2_0-2PWB :
+defpackage battery_charger_design/components/PH2_0-2PWB :
   import core
   import collections
   import jitx

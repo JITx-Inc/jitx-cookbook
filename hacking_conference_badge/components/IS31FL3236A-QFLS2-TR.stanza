@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/IS31FL3236A-QFLS2-TR :
+defpackage hacking_conference_badge/components/IS31FL3236A-QFLS2-TR :
   import core
   import collections
   import jitx

@@ -1,0 +1,4 @@
+package regulator_example/main defined-in "main.stanza"
+package regulator_example/helpers defined-in "helpers.stanza"
+package regulator_example/components/TPS62933DRLR defined-in "components/TPS62933DRLR.stanza"
+package regulator_example/components/CH224K defined-in "components/CH224K.stanza"

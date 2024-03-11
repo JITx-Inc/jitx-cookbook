@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/WS2816C-2121 :
+defpackage hacking_conference_badge/components/WS2816C-2121 :
   import core
   import collections
   import jitx

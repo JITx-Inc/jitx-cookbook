@@ -1,6 +1,6 @@
 ; A Lithium battery charger IC, BQ2407
 #use-added-syntax(jitx)
-defpackage components/BQ24078RGTR :
+defpackage battery_charger_design/components/BQ24078RGTR :
   import core
   import collections
   import jitx
@@ -172,7 +172,7 @@ public pcb-module module :
   pin sysoff
 
   ; using the component definition from above:
-  inst bq : components/BQ24078RGTR/component
+  inst bq : battery_charger_design/components/BQ24078RGTR/component
 
   ; apply properties to the component we just created
   apply-component-properties(bq)
