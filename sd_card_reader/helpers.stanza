@@ -1,0 +1,83 @@
+; ====================
+; A number of helpful functions to check your designs, export to CAD, 
+; update your design in CAD, etc.
+; ====================
+#use-added-syntax(jitx)
+defpackage helpers :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/checks
+  import ocdb/utils/generic-components
+  import ocdb/utils/netlist-checks/utils
+
+; =====================
+; Run the design checks
+; =====================
+public defn run-check-on-design (circuit:Instantiable) :
+  val main-module = ocdb/utils/generator-utils/run-final-passes(circuit) ; Analyze design with a pass
+  set-main-module(main-module) ; Treat the provided module as a design, and compile it.
+  run-checks("checks.txt")
+
+; ====================
+; Actual Export design
+; ====================
+val export-field-mapping = [
+  "LCSC" => "LCSC"
+  "lcsc" => "LCSC"
+  "vendor_part_numbers.lcsc" => "LCSC"
+]
+defn export-to-cad () :
+  set-export-backend(`kicad)
+  export-cad(export-field-mapping)
+
+; ====================
+; Export design to CAD
+; ====================
+public defn export-design () :
+  set-export-board?(true)
+  export-to-cad()
+
+; ===================================
+; Update CAD, keeping layout progress
+; ===================================
+public defn update-design () :
+  set-export-board?(false)
+  export-to-cad()
+
+; =================
+; Export BOM to tsv
+; =================
+public defn export-bill-of-materials () :
+  set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
+  set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
+  export-bom()
+
+; We want decoupling capacitors to be close to the component being decoupled
+public defn bypass-cap-strap (power-pin:JITXObject, gnd-pin:JITXObject, params:Tuple<KeyValue>) -> JITXObject :
+  inside pcb-module:
+    val cap = cap-strap(gnd-pin, power-pin, params)
+    short-trace(cap.p[2], power-pin)
+    cap
+
+public defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced, tol:Double) :
+  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance "tolerance" => tol])
+
+public defn bypass-cap-strap (first-pin:JITXObject, second-pin:JITXObject, capacitance:Double|Toleranced) :
+  bypass-cap-strap(first-pin, second-pin, ["capacitance" => capacitance])
+
+
+public defn cc-has-resistor (component:JITXObject) :
+  val ccs = connected-pins(component.usb-c.cc[1])
+
+  defn is-resistor? (r) :
+    has-property?(r.resistor)   and
+    has-property?(r.resistance)
+
+  ; First, we search for the resistors that might be connected to this pin
+  val resistors = ccs $> map{containing-instance!, _}
+                                              $> unique
+                                              $> filter{is-resistor?, _}
+                                              $> to-tuple
+
+  not empty?(resistors)

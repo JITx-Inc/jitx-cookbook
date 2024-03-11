@@ -1,0 +1,554 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Microchip", "mpn" => "USB2240-AEZG-06"])
+#use-added-syntax(jitx)
+defpackage components/Microchip/USB2240-AEZG-06 :
+  import core
+  import jitx
+  import jitx/commands
+
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(4.1, 4.1)
+  layer(SolderMask(Top)) = Rectangle(4.2, 4.2)
+
+pcb-pad rectangle-smd-pad-1 :
+  name = "rectangle-smd-pad-1"
+  type = SMD
+  shape = Rectangle(0.28, 0.89)
+  layer(SolderMask(Top)) = Rectangle(0.38, 0.99)
+
+pcb-landpattern lp :
+  pad p[1] : rectangle-smd-pad-1 at loc(-2.80999999999995, 2.0, 90.0) on Top
+  pad p[2] : rectangle-smd-pad-1 at loc(-2.80999999999995, 1.5, 90.0) on Top
+  pad p[3] : rectangle-smd-pad-1 at loc(-2.80999999999995, 1.0, 90.0) on Top
+  pad p[4] : rectangle-smd-pad-1 at loc(-2.80999999999995, 0.5, 90.0) on Top
+  pad p[5] : rectangle-smd-pad-1 at loc(-2.80999999999995, 0.0, 90.0) on Top
+  pad p[6] : rectangle-smd-pad-1 at loc(-2.80999999999995, -0.5, 90.0) on Top
+  pad p[7] : rectangle-smd-pad-1 at loc(-2.80999999999995, -1.0, 90.0) on Top
+  pad p[8] : rectangle-smd-pad-1 at loc(-2.80999999999995, -1.5, 90.0) on Top
+  pad p[9] : rectangle-smd-pad-1 at loc(-2.80999999999995, -2.0, 90.0) on Top
+  pad p[10] : rectangle-smd-pad-1 at loc(-2.0, -2.80900000000008, 180.0) on Top
+  pad p[11] : rectangle-smd-pad-1 at loc(-1.5, -2.80900000000008, 180.0) on Top
+  pad p[12] : rectangle-smd-pad-1 at loc(-1.0, -2.80900000000008, 180.0) on Top
+  pad p[13] : rectangle-smd-pad-1 at loc(-0.5, -2.80900000000008, 180.0) on Top
+  pad p[14] : rectangle-smd-pad-1 at loc(0.0, -2.80900000000008, 180.0) on Top
+  pad p[15] : rectangle-smd-pad-1 at loc(0.5, -2.80900000000008, 180.0) on Top
+  pad p[16] : rectangle-smd-pad-1 at loc(1.0, -2.80900000000008, 180.0) on Top
+  pad p[17] : rectangle-smd-pad-1 at loc(1.5, -2.80900000000008, 180.0) on Top
+  pad p[18] : rectangle-smd-pad-1 at loc(2.0, -2.80900000000008, 180.0) on Top
+  pad p[19] : rectangle-smd-pad-1 at loc(2.81000000000006, -2.0, 90.0) on Top
+  pad p[20] : rectangle-smd-pad-1 at loc(2.81000000000006, -1.5, 90.0) on Top
+  pad p[21] : rectangle-smd-pad-1 at loc(2.81000000000006, -1.0, 90.0) on Top
+  pad p[22] : rectangle-smd-pad-1 at loc(2.81000000000006, -0.5, 90.0) on Top
+  pad p[23] : rectangle-smd-pad-1 at loc(2.81000000000006, 0.0, 90.0) on Top
+  pad p[24] : rectangle-smd-pad-1 at loc(2.81000000000006, 0.5, 90.0) on Top
+  pad p[25] : rectangle-smd-pad-1 at loc(2.81000000000006, 1.0, 90.0) on Top
+  pad p[26] : rectangle-smd-pad-1 at loc(2.81000000000006, 1.5, 90.0) on Top
+  pad p[27] : rectangle-smd-pad-1 at loc(2.81000000000006, 2.0, 90.0) on Top
+  pad p[28] : rectangle-smd-pad-1 at loc(2.0, 2.80999999999995, 180.0) on Top
+  pad p[29] : rectangle-smd-pad-1 at loc(1.5, 2.80999999999995, 180.0) on Top
+  pad p[30] : rectangle-smd-pad-1 at loc(1.0, 2.80999999999995, 180.0) on Top
+  pad p[31] : rectangle-smd-pad-1 at loc(0.5, 2.80999999999995, 180.0) on Top
+  pad p[32] : rectangle-smd-pad-1 at loc(0.0, 2.80999999999995, 180.0) on Top
+  pad p[33] : rectangle-smd-pad-1 at loc(-0.5, 2.80999999999995, 180.0) on Top
+  pad p[34] : rectangle-smd-pad-1 at loc(-1.0, 2.80999999999995, 180.0) on Top
+  pad p[35] : rectangle-smd-pad-1 at loc(-1.5, 2.80999999999995, 180.0) on Top
+  pad p[36] : rectangle-smd-pad-1 at loc(-2.0, 2.80999999999995, 180.0) on Top
+  pad p[37] : rectangle-smd-pad at loc(0.0, 0.0) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.5, 4.7056), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.5, 3.7056), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(2.40000000000009, -3.0), Point(3.0, -3.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(3.0, -3.0), Point(3.0, -2.40000000000009)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(-3.0, -3.0), Point(-2.39999999999998, -3.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(-3.0, -2.40000000000009), Point(-3.0, -3.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(3.0, 2.39999999999998), Point(3.0, 3.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(3.0, 3.0), Point(2.40000000000009, 3.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(-2.39999999999998, 3.0), Point(-3.0, 3.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.15, [Point(-3.0, 3.0), Point(-3.0, 2.39999999999998)])
+  layer(Finish(Top)) = Polyline(0.06, [Arc(-3.0, 3.00099999999998, 0.03, 0.0, -360.0)])
+  layer(Finish(Top)) = Polyline(0.3, [Arc(-3.17499999999995, 2.15899999999999, 0.15, 0.0, -360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.3, [Arc(-3.68299999999999, 2.53999999999996, 0.15, 0.0, -360.0)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(2.1400000000001, 2.36500000000001), 
+    Point(2.1400000000001, 3.255), 
+    Point(1.86000000000001, 3.255), 
+    Point(1.86000000000001, 2.36500000000001), 
+    Point(2.1400000000001, 2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.139999999999986, 3.255), 
+    Point(-0.139999999999986, 2.36500000000001), 
+    Point(0.1400000000001, 2.36500000000001), 
+    Point(0.1400000000001, 3.255), 
+    Point(-0.139999999999986, 3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.639999999999986, 3.255), 
+    Point(-0.639999999999986, 2.36500000000001), 
+    Point(-0.3599999999999, 2.36500000000001), 
+    Point(-0.3599999999999, 3.255), 
+    Point(-0.639999999999986, 3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.13999999999999, 3.255), 
+    Point(-1.13999999999999, 2.36500000000001), 
+    Point(-0.8599999999999, 2.36500000000001), 
+    Point(-0.8599999999999, 3.255), 
+    Point(-1.13999999999999, 3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.6400000000001, 2.36500000000001), 
+    Point(1.6400000000001, 3.255), 
+    Point(1.36000000000001, 3.255), 
+    Point(1.36000000000001, 2.36500000000001), 
+    Point(1.6400000000001, 2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.63999999999999, 3.255), 
+    Point(-1.63999999999999, 2.36500000000001), 
+    Point(-1.3599999999999, 2.36500000000001), 
+    Point(-1.3599999999999, 3.255), 
+    Point(-1.63999999999999, 3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.13999999999999, 3.255), 
+    Point(-2.13999999999999, 2.36500000000001), 
+    Point(-1.8599999999999, 2.36500000000001), 
+    Point(-1.8599999999999, 3.255), 
+    Point(-2.13999999999999, 3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.360000000000014, 3.255), 
+    Point(0.360000000000014, 2.36500000000001), 
+    Point(0.6400000000001, 2.36500000000001), 
+    Point(0.6400000000001, 3.255), 
+    Point(0.360000000000014, 3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.1400000000001, 2.36500000000001), 
+    Point(1.1400000000001, 3.255), 
+    Point(0.860000000000014, 3.255), 
+    Point(0.860000000000014, 2.36500000000001), 
+    Point(1.1400000000001, 2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.36500000000001, 1.8599999999999), 
+    Point(-2.36500000000001, 2.13999999999999), 
+    Point(-3.255, 2.13999999999999), 
+    Point(-3.255, 1.8599999999999), 
+    Point(-2.36500000000001, 1.8599999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(3.255, 1.8599999999999), 
+    Point(3.255, 2.13999999999999), 
+    Point(2.36500000000001, 2.13999999999999), 
+    Point(2.36500000000001, 1.8599999999999), 
+    Point(3.255, 1.8599999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-3.255, 1.63999999999999), 
+    Point(-3.255, 1.3599999999999), 
+    Point(-2.36500000000001, 1.3599999999999), 
+    Point(-2.36500000000001, 1.63999999999999), 
+    Point(-3.255, 1.63999999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(3.255, 1.3599999999999), 
+    Point(3.255, 1.63999999999999), 
+    Point(2.36500000000001, 1.63999999999999), 
+    Point(2.36500000000001, 1.3599999999999), 
+    Point(3.255, 1.3599999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(3.255, 0.8599999999999), 
+    Point(3.255, 1.13999999999999), 
+    Point(2.36500000000001, 1.13999999999999), 
+    Point(2.36500000000001, 0.8599999999999), 
+    Point(3.255, 0.8599999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-3.255, 1.13999999999999), 
+    Point(-3.255, 0.8599999999999), 
+    Point(-2.36500000000001, 0.8599999999999), 
+    Point(-2.36500000000001, 1.13999999999999), 
+    Point(-3.255, 1.13999999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(3.255, 0.3599999999999), 
+    Point(3.255, 0.639999999999986), 
+    Point(2.36500000000001, 0.639999999999986), 
+    Point(2.36500000000001, 0.3599999999999), 
+    Point(3.255, 0.3599999999999)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-3.255, 0.639999999999986), 
+    Point(-3.255, 0.3599999999999), 
+    Point(-2.36500000000001, 0.3599999999999), 
+    Point(-2.36500000000001, 0.639999999999986), 
+    Point(-3.255, 0.639999999999986)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(3.255, -0.1400000000001), 
+    Point(3.255, 0.139999999999986), 
+    Point(2.36500000000001, 0.139999999999986), 
+    Point(2.36500000000001, -0.1400000000001), 
+    Point(3.255, -0.1400000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-3.255, 0.139999999999986), 
+    Point(-3.255, -0.1400000000001), 
+    Point(-2.36500000000001, -0.1400000000001), 
+    Point(-2.36500000000001, 0.139999999999986), 
+    Point(-3.255, 0.139999999999986)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(2.36500000000001, -0.360000000000014), 
+    Point(2.36500000000001, -0.6400000000001), 
+    Point(3.255, -0.6400000000001), 
+    Point(3.255, -0.360000000000014), 
+    Point(2.36500000000001, -0.360000000000014)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.36500000000001, -0.6400000000001), 
+    Point(-2.36500000000001, -0.360000000000014), 
+    Point(-3.255, -0.360000000000014), 
+    Point(-3.255, -0.6400000000001), 
+    Point(-2.36500000000001, -0.6400000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(2.36500000000001, -0.860000000000014), 
+    Point(2.36500000000001, -1.1400000000001), 
+    Point(3.255, -1.1400000000001), 
+    Point(3.255, -0.860000000000014), 
+    Point(2.36500000000001, -0.860000000000014)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.36500000000001, -1.1400000000001), 
+    Point(-2.36500000000001, -0.860000000000014), 
+    Point(-3.255, -0.860000000000014), 
+    Point(-3.255, -1.1400000000001), 
+    Point(-2.36500000000001, -1.1400000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(2.36500000000001, -1.36000000000001), 
+    Point(2.36500000000001, -1.6400000000001), 
+    Point(3.255, -1.6400000000001), 
+    Point(3.255, -1.36000000000001), 
+    Point(2.36500000000001, -1.36000000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.36500000000001, -1.6400000000001), 
+    Point(-2.36500000000001, -1.36000000000001), 
+    Point(-3.255, -1.36000000000001), 
+    Point(-3.255, -1.6400000000001), 
+    Point(-2.36500000000001, -1.6400000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(2.36500000000001, -1.86000000000001), 
+    Point(2.36500000000001, -2.1400000000001), 
+    Point(3.255, -2.1400000000001), 
+    Point(3.255, -1.86000000000001), 
+    Point(2.36500000000001, -1.86000000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.36500000000001, -2.1400000000001), 
+    Point(-2.36500000000001, -1.86000000000001), 
+    Point(-3.255, -1.86000000000001), 
+    Point(-3.255, -2.1400000000001), 
+    Point(-2.36500000000001, -2.1400000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.1400000000001, -3.255), 
+    Point(0.1400000000001, -2.36500000000001), 
+    Point(-0.139999999999986, -2.36500000000001), 
+    Point(-0.139999999999986, -3.255), 
+    Point(0.1400000000001, -3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.639999999999986, -2.36500000000001), 
+    Point(-0.639999999999986, -3.255), 
+    Point(-0.3599999999999, -3.255), 
+    Point(-0.3599999999999, -2.36500000000001), 
+    Point(-0.639999999999986, -2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.13999999999999, -2.36500000000001), 
+    Point(-1.13999999999999, -3.255), 
+    Point(-0.8599999999999, -3.255), 
+    Point(-0.8599999999999, -2.36500000000001), 
+    Point(-1.13999999999999, -2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(2.1400000000001, -3.255), 
+    Point(2.1400000000001, -2.36500000000001), 
+    Point(1.86000000000001, -2.36500000000001), 
+    Point(1.86000000000001, -3.255), 
+    Point(2.1400000000001, -3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.63999999999999, -2.36500000000001), 
+    Point(-1.63999999999999, -3.255), 
+    Point(-1.3599999999999, -3.255), 
+    Point(-1.3599999999999, -2.36500000000001), 
+    Point(-1.63999999999999, -2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.13999999999999, -2.36500000000001), 
+    Point(-2.13999999999999, -3.255), 
+    Point(-1.8599999999999, -3.255), 
+    Point(-1.8599999999999, -2.36500000000001), 
+    Point(-2.13999999999999, -2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.360000000000014, -2.36500000000001), 
+    Point(0.360000000000014, -3.255), 
+    Point(0.6400000000001, -3.255), 
+    Point(0.6400000000001, -2.36500000000001), 
+    Point(0.360000000000014, -2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.6400000000001, -3.255), 
+    Point(1.6400000000001, -2.36500000000001), 
+    Point(1.36000000000001, -2.36500000000001), 
+    Point(1.36000000000001, -3.255), 
+    Point(1.6400000000001, -3.255)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.860000000000014, -2.36500000000001), 
+    Point(0.860000000000014, -3.255), 
+    Point(1.1400000000001, -3.255), 
+    Point(1.1400000000001, -2.36500000000001), 
+    Point(0.860000000000014, -2.36500000000001)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.63999999999999, 1.63999999999999), 
+    Point(1.6400000000001, 1.63999999999999), 
+    Point(1.6400000000001, -1.6400000000001), 
+    Point(-1.63999999999999, -1.6400000000001), 
+    Point(-1.63999999999999, 1.63999999999999)])
+  layer(Courtyard(Top)) = Rectangle(6.0, 6.0)
+
+pcb-symbol sym-USB2240-AEZG-06 :
+  pin LED at Point(-36.8300736601473, 20.3200406400813) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin USB+ at Point(-36.8300736601473, 17.7800355600711) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin USB- at Point(-36.8300736601473, 15.240030480061) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D3_SD_D1_MS_D5 at Point(-36.8300736601473, 12.7000254000508) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D2_SD_D0_MS_D4 at Point(-36.8300736601473, 10.1600203200406) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin VDD330 at Point(-36.8300736601473, 7.62001524003048) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D1_SD_D7_MS_D6 at Point(-36.8300736601473, 5.08001016002032) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D0_SD_D6_MS_D7 at Point(-36.8300736601473, 2.54000508001016) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_nWP_SD_CLK_MS_BS at Point(-36.8300736601473, 0.0) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_ALE_SD_D5_MS_D1 at Point(-36.8300736601473, -2.54000508001016) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_CLE_SD_CMD_MS_D0 at Point(-36.8300736601473, -5.08001016002032) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_nWE at Point(-36.8300736601473, -7.62001524003048) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin VDD18 at Point(-36.8300736601473, -10.1600203200406) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin VDD331 at Point(-36.8300736601473, -12.7000254000508) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_nCE at Point(-36.8300736601473, -15.240030480061) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_nRE at Point(-36.8300736601473, -17.7800355600711) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_nB_R at Point(-36.8300736601473, -20.3200406400813) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin RESET_N at Point(-36.8300736601473, -22.8600457200914) with :
+    direction = Left
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_nCD at Point(36.8300736601473, -22.8600457200914) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D7_SD_D4_MS_D2 at Point(36.8300736601473, -20.3200406400813) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin CRD_PWR at Point(36.8300736601473, -17.7800355600711) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin VDD332 at Point(36.8300736601473, -15.240030480061) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D6_SD_D3_MS_D3 at Point(36.8300736601473, -12.7000254000508) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin MS_INS at Point(36.8300736601473, -10.1600203200406) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D5_SD_D2 at Point(36.8300736601473, -7.62001524003048) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin SD_nCD at Point(36.8300736601473, -5.08001016002032) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin RXD_SDA at Point(36.8300736601473, -2.54000508001016) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin TEST at Point(36.8300736601473, 0.0) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin NC at Point(36.8300736601473, 2.54000508001016) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin xD_D4_SD_WP_MS_SCLK at Point(36.8300736601473, 5.08001016002032) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin TXD_SCK_MS_SKT_SEL at Point(36.8300736601473, 7.62001524003048) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin XTAL2 at Point(36.8300736601473, 10.1600203200406) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin XTAL1_CLKIN at Point(36.8300736601473, 12.7000254000508) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin VDD18PLL at Point(36.8300736601473, 15.240030480061) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin RBIAS at Point(36.8300736601473, 17.7800355600711) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin VDDA33 at Point(36.8300736601473, 20.3200406400813) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+  pin GND at Point(36.8300736601473, 22.8600457200914) with :
+    direction = Right
+    length = 2.54000508001016
+    number-size = 1.0
+    name-size = 1.0
+
+  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 24.8600457200914), "", TrueTypeFont, false, false)
+  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 25.8600457200914), "", TrueTypeFont, false, false)
+  layer("foreground") = Rectangle(73.6601473202946, 50.8001016002032)
+  layer("foreground") = Circle(-35.5600711201422, 21.5900431800864, 0.381000762001524)
+
+public pcb-component component :
+  name = "C633328"
+  description = " QFN-36-EP(6x6)  Interface - Specialized ROHS"
+  manufacturer = "Microchip"
+  mpn = "USB2240-AEZG-06"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2202140030_Microchip-Tech-USB2240-AEZG-06_C633328.pdf"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [LED | p[1] | Left | "unspecified" | 0]
+    [USB+ | p[2] | Left | "unspecified" | 0]
+    [USB- | p[3] | Left | "unspecified" | 0]
+    [xD_D3_SD_D1_MS_D5 | p[4] | Left | "unspecified" | 0]
+    [xD_D2_SD_D0_MS_D4 | p[5] | Left | "unspecified" | 0]
+    [VDD330 | p[6] | Left | "unspecified" | 0]
+    [xD_D1_SD_D7_MS_D6 | p[7] | Left | "unspecified" | 0]
+    [xD_D0_SD_D6_MS_D7 | p[8] | Left | "unspecified" | 0]
+    [xD_nWP_SD_CLK_MS_BS | p[9] | Left | "unspecified" | 0]
+    [xD_ALE_SD_D5_MS_D1 | p[10] | Left | "unspecified" | 0]
+    [xD_CLE_SD_CMD_MS_D0 | p[11] | Left | "unspecified" | 0]
+    [xD_nWE | p[12] | Left | "unspecified" | 0]
+    [VDD18 | p[13] | Left | "unspecified" | 0]
+    [VDD331 | p[14] | Left | "unspecified" | 0]
+    [xD_nCE | p[15] | Left | "unspecified" | 0]
+    [xD_nRE | p[16] | Left | "unspecified" | 0]
+    [xD_nB_R | p[17] | Left | "unspecified" | 0]
+    [RESET_N | p[18] | Left | "unspecified" | 0]
+    [xD_nCD | p[19] | Right | "unspecified" | 0]
+    [xD_D7_SD_D4_MS_D2 | p[20] | Right | "unspecified" | 0]
+    [CRD_PWR | p[21] | Right | "unspecified" | 0]
+    [VDD332 | p[22] | Right | "unspecified" | 0]
+    [xD_D6_SD_D3_MS_D3 | p[23] | Right | "unspecified" | 0]
+    [MS_INS | p[24] | Right | "unspecified" | 0]
+    [xD_D5_SD_D2 | p[25] | Right | "unspecified" | 0]
+    [SD_nCD | p[26] | Right | "unspecified" | 0]
+    [RXD_SDA | p[27] | Right | "unspecified" | 0]
+    [TEST | p[28] | Right | "unspecified" | 0]
+    [NC | p[29] | Right | "unspecified" | 0]
+    [xD_D4_SD_WP_MS_SCLK | p[30] | Right | "unspecified" | 0]
+    [TXD_SCK_MS_SKT_SEL | p[31] | Right | "unspecified" | 0]
+    [XTAL2 | p[32] | Right | "unspecified" | 0]
+    [XTAL1_CLKIN | p[33] | Right | "unspecified" | 0]
+    [VDD18PLL | p[34] | Right | "unspecified" | 0]
+    [RBIAS | p[35] | Right | "unspecified" | 0]
+    [VDDA33 | p[36] | Right | "unspecified" | 0]
+    [GND | p[37] | Right | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  assign-symbol(sym-USB2240-AEZG-06)
+
+  property(self.manufacturer) = "Microchip"
+  property(self.manufacturer_aliases) = ["Microchip" "Microchip Tech"]
+  property(self.mpn) = "USB2240-AEZG-06"
+  property(self.mpn_aliases) = ["USB2240-AEZG-06"]
+  property(self.cofactr_id) = "ICBT2FAK42HB"
+  property(self.reference_prefix) = "U"
+  property(self.trust) = "low"
+  property(self.x) = 6.0
+  property(self.y) = 6.0
+  property(self.area) = 36.0
+  property(self.case) = "QFN-36-EP(6x6)"
+  property(self.\|vendor_part_numbers.lcsc|) = "C633328"
+  property(self.minimum_quantity) = 1
+  property(self.price) = 1.474647887
+  property(self.stock) = 4816
+

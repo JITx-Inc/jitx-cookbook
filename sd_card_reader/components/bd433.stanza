@@ -1,0 +1,35 @@
+#use-added-syntax(jitx)
+
+defpackage components/bd433:
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/utils/symbols
+  import bundles
+  import helpers
+
+public pcb-module voltage-regulator :
+  port power-in : power
+  port power-out : power
+
+  inst reg : database-part(["mpn" => "BD433M5FP-CE2", "manufacturer" => "ROHM Semicon"])
+
+  property(reg.rated-temperature) = min-max(-40.0, 150.0)
+  property(reg.mounting) = "smd"
+  property(reg.VCC.power-pin) = PowerPin(min-max(4.0,42.0))
+  property(reg.VOUT.power-supply-pin) = PowerSupplyPin(min-max(3.2, 3.37), 500.0e-3)
+
+  net (reg.FIN power-in.gnd power-out.gnd)
+  net (reg.VCC power-in.vdd)
+  net (reg.VOUT power-out.vdd)
+  
+  bypass-cap-strap(reg.VCC, power-in.gnd, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
+  bypass-cap-strap(reg.VOUT, power-out.gnd, ["capacitance" => 0.1e-6, "_exist" => ["vendor_part_numbers.lcsc"]])
