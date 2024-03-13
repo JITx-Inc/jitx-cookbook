@@ -1,0 +1,12 @@
+
+packages ambiq-demo/components/* defined-in "components"
+package ambiq-demo/demo-board defined-in "reference-design.stanza"
+; package evaluation-board defined-in "evaluation-board.stanza"
+package ambiq-demo/bundles defined-in "bundles.stanza"
+package ambiq-demo/board defined-in "board.stanza"
+
+; package AMAP4BPEVBKXR-Rev-1 defined-in "jitx-project/AMAP4BPEVBKXR-Rev-1/AMAP4BPEVBKXR-Rev-1.stanza"
+; packages AMAP4BPEVBKXR-Rev-1/* defined-in "jitx-project/AMAP4BPEVBKXR-Rev-1"
+
+; package components/MXIC-Macronix-/MX25UM51245GXDI00 defined-in "components/MXIC-Macronix-/MX25UM51245GXDI00.stanza"
+; package components/STMICROELECTRONICS/LSM6DSOXTR defined-in "components/STMICROELECTRONICS/LSM6DSOXTR.stanza"

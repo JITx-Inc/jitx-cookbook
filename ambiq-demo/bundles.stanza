@@ -1,0 +1,56 @@
+#use-added-syntax(jitx)
+defpackage ambiq-demo/bundles :
+  import core
+  import collections
+  import math
+  import jitx
+  import jitx/commands
+  import ocdb/utils/defaults
+  import ocdb/utils/bundles
+  import ambiq-demo/board
+
+public pcb-bundle octal-spi :
+  port sdio : pin[8]
+  pin sck
+  pin cs
+
+; design-specific bundles
+public pcb-bundle wpwr-ctl :
+  pin EN1
+  pin EN2
+  pin nCHG
+  pin CTRL
+
+public defn ospi-rules (in:JITXObject out:JITXObject time:Toleranced) :
+  inside pcb-module :
+    net (in out)
+    topology-segment(in.sck out.sck)
+    topology-segment(in.cs out.cs)
+    structure(in => out) = single-ended-50
+    for i in 0 to 8 do :
+      topology-segment(in.sdio[i] out.sdio[i])
+      net (in.sdio[i] out.sdio[i])
+      timing-difference(in.sdio[i] => out.sdio[i], in.sck => out.sck) = TimingDifferenceConstraint(time)
+
+public defn mipi-rules (time:Toleranced in:JITXObject out:JITXObject) :
+  inside pcb-module :
+    ; net (in out)
+    net (in.clk.N  out.clk.N )
+    net (in.clk.P  out.clk.P )
+    net (in.data.N out.data.N)
+    net (in.data.P out.data.P)
+
+    topology-segment(in.clk.N  out.clk.N )
+    topology-segment(in.clk.P  out.clk.P )
+    topology-segment(in.data.N out.data.N)
+    topology-segment(in.data.P out.data.P)
+    
+    structure(in.clk => out.clk) = differential-100
+    structure(in.data => out.data) = differential-100
+
+    timing-difference(in.clk.N => out.clk.N, in.clk.P => out.clk.P) = TimingDifferenceConstraint(time)
+    timing-difference(in.data.N => out.data.N, in.data.P => out.data.P) = TimingDifferenceConstraint(time)
+
+    timing-difference(in.clk.P => out.clk.P, in.data.N => out.data.N) = TimingDifferenceConstraint(time)
+    timing-difference(in.clk.P => out.clk.P, in.data.P => out.data.P) = TimingDifferenceConstraint(time)
+

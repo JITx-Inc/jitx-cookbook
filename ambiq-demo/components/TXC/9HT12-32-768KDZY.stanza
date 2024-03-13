@@ -1,0 +1,109 @@
+#use-added-syntax(jitx)
+defpackage ambiq-demo/components/TXC/9HT12-32-768KDZY :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/property-structs
+  import ocdb/utils/bundles
+  import ocdb/utils/generator-utils
+  import ocdb/utils/generic-components
+  
+pcb-pad rect-smd-pad :
+  type = SMD
+  shape = Rectangle(1.00076, 0.50038)
+  ocdb/utils/landpatterns/apply-soldermask(0.05)
+  layer(Paste(Top)) = Rectangle(1.00076, 0.50038)
+
+public pcb-landpattern XTAL2-1p6x1p0-SM-1 :
+  pad p[1] : rect-smd-pad at loc(-0.548639999999999, 0.0, 270.0) on Top
+  pad p[2] : rect-smd-pad at loc(0.548639999999999, 0.0, 270.0) on Top
+  
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.0254, [Point(-0.8001, -0.500380000000007), Point(-0.8001, 0.500379999999993)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.0254, [Point(-0.8001, -0.500380000000007), Point(0.8001, -0.500380000000007)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.0254, [Point(-0.8001, 0.500379999999993), Point(0.8001, 0.500379999999993)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.0254, [Point(0.8001, -0.500380000000007), Point(0.8001, 0.500379999999993)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1016, [Point(-1.054, -0.754500000000007), Point(-1.054, 0.754499999999993)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1016, [Point(-1.054, -0.754500000000007), Point(1.054, -0.754500000000007)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1016, [Point(-1.054, 0.754499999999993), Point(1.054, 0.754499999999993)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1016, [Point(1.054, -0.754500000000007), Point(1.054, 0.754499999999993)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(-0.254000000000001, 0.0), Point(0.253999999999998, 0.0)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(0.0, -0.254000000000005), Point(0.0, 0.253999999999991)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text("1", 1.016, C, loc(-1.15757, -0.489910000000009), "Arial", TrueTypeFont)
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text("2", 1.016, C, loc(0.883929999999999, -0.480800000000002), "Arial", TrueTypeFont)
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.016, C, loc(-0.555780000000002, -0.330200000000005), "Arial", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Text("", 1.016, C, loc(1.11761, -0.0761900000000111), "Arial", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Text("1", 1.016, C, loc(-1.55569, -0.395859999999999), "Arial", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(1.2446, -0.20320000000001), "Arial", TrueTypeFont)
+  
+  model3d = Model3D("..\\..\\3d-models\\XTAL2-1p6x1p0-SM_e8DF0939B.STEP",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 270.0))
+  
+public pcb-symbol XTAL :
+  pin p[1] at Point(0.0, -2.54) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.523
+  pin p[2] at Point(10.16, -2.54) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.523
+  
+  layer("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3635), "", TrueTypeFont)
+  layer("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.4255), "", TrueTypeFont)
+  layer("foreground") = Rectangle(2.54, 3.556, loc(5.08, -2.54))
+  layer("foreground") = Polyline(0.0762, [Arc(2.54, -2.54, 2.54, 180.0, 90.0)])
+  layer("foreground") = Polyline(0.0762, [Arc(7.62, -2.54, 2.54, 0.0, 90.0)])
+  layer("foreground") = Polyline(0.0762, [Arc(2.286, -2.286, 2.286, 90.0, 96.34)])
+  layer("foreground") = Line(0.127, [Point(10.16, -2.54), Point(7.112, -2.54)])
+  layer("foreground") = Polyline(0.0762, [Arc(7.62, -2.54, 2.54, 270.0, 90.0)])
+  layer("foreground") = Line(0.127, [Point(2.54, -5.08), Point(7.62, -5.08)])
+  layer("foreground") = Line(0.127, [Point(2.286, 0.0), Point(7.62, 0.0)])
+  layer("foreground") = Line(0.127, [Point(7.112, -1.27), Point(7.112, -3.81)])
+  layer("foreground") = Line(0.127, [Point(3.048, -1.27), Point(3.048, -3.81)])
+  layer("foreground") = Line(0.127, [Point(3.048, -2.54), Point(0.0, -2.54)])
+  
+public pcb-component component :
+  description = "XTAL"
+  manufacturer = "TXC"
+  mpn = "9HT12-32.768KDZY"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir]
+    [p[1] | p[1] | Left]
+    [p[2] | p[2] | Right]
+    
+  assign-landpattern(XTAL2-1p6x1p0-SM-1)
+  assign-symbol(XTAL)
+  
+  property(self.AMBIQ_PN) = "AM-04-0342"
+  property(self.DISTRIBUTOR) = "MOUSER"
+  property(self.DISTRIBUTOR_PN) = "717-9HT12-32.76KDZYT"
+  property(self.Frequency) = "32.768 kHz"
+  property(self.HEIGHT) = "0.50MM"
+  property(self.LEAD_FREE) = "Yes"
+  property(self.MFG_NAME) = "TXC"
+  property(self.MFG_PN) = "9HT12-32.768KDZY"
+  property(self.Manufacturer_Datasheet) = "http://www.txccorp.com/download/products/quartz_crystals/2015TXC_9HT12_29.pdf"
+  property(self.PART_TYPE) = "CRYSTAL"
+  property(self.\|PCB Footprint|) = "XTAL2-1p6x1p0-SM"
+  property(self.ROHS) = "Yes"
+  property(self.STATUS) = "Production"
+  property(self.Type) = "SMD"
+
+  property(self.crystal-resonator) = ocdb/utils/property-structs/CrystalResonator(
+                                        12.5e-12, ;   load-capacitance:Double     ; Load capacitance in Farads           
+                                        1.3e-12, ;   shunt-capacitance:Double    ; Shunt capacitance in Farads          
+                                        6.4e-15, ;   motional-capacitance:Double ; Motional capacitance in Farads       
+                                        90.0e3,  ;   ESR:Double                  ; Series resistance of crystal in Ohms 
+                                        32.768e3,;   frequency:Double            ; Fundamental frequency in Hz        
+                                        20.0e-6 * 32.768e3, ;   frequency-tolerance:Double  ; Frequency tolerance in Hz            
+                                        0.5e-6)  ;   max-drive-level:Double      ; Max drive level in W           
+
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+
+  supports low-freq-oscillator:
+    low-freq-oscillator.in => self.p[1]
+    low-freq-oscillator.out =>self.p[2]

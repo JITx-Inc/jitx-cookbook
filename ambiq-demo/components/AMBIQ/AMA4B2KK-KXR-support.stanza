@@ -1,0 +1,1350 @@
+#use-added-syntax(jitx)
+defpackage ambiq-demo/components/AMBIQ/AMA4B2KK-KXR-support :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/symbol-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+
+  import ambiq-demo/bundles
+  
+pcb-pad my-oval-smd-pad :
+  type = SMD
+  shape = Capsule(0.1999, 0.1999, loc(0.0, 0.0))
+  ocdb/utils/landpatterns/apply-soldermask(0.03)
+  layer(Paste(Top)) = Capsule(0.1999, 0.1999, loc(0.0, 0.0))
+
+public pcb-landpattern bga131_0p35_4p7x4p7-1 :
+  pad A1 : my-oval-smd-pad at loc(-1.92507, 1.92506999999999, 270.0) on Top
+  pad A10 : my-oval-smd-pad at loc(1.22504, 1.92506999999999, 270.0) on Top
+  pad A11 : my-oval-smd-pad at loc(1.57505, 1.92506999999999, 270.0) on Top
+  pad A12 : my-oval-smd-pad at loc(1.92507, 1.92506999999999, 270.0) on Top
+  pad A2 : my-oval-smd-pad at loc(-1.57505, 1.92506999999999, 270.0) on Top
+  pad A3 : my-oval-smd-pad at loc(-1.22504, 1.92506999999999, 270.0) on Top
+  pad A4 : my-oval-smd-pad at loc(-0.875029999999999, 1.92506999999999, 270.0) on Top
+  pad A5 : my-oval-smd-pad at loc(-0.525020000000001, 1.92506999999999, 270.0) on Top
+  pad A6 : my-oval-smd-pad at loc(-0.17501, 1.92506999999999, 270.0) on Top
+  pad A7 : my-oval-smd-pad at loc(0.17501, 1.92506999999999, 270.0) on Top
+  pad A8 : my-oval-smd-pad at loc(0.525020000000001, 1.92506999999999, 270.0) on Top
+  pad A9 : my-oval-smd-pad at loc(0.875029999999999, 1.92506999999999, 270.0) on Top
+  pad B1 : my-oval-smd-pad at loc(-1.92507, 1.57505, 270.0) on Top
+  pad B10 : my-oval-smd-pad at loc(1.22504, 1.57505, 270.0) on Top
+  pad B11 : my-oval-smd-pad at loc(1.57505, 1.57505, 270.0) on Top
+  pad B12 : my-oval-smd-pad at loc(1.92507, 1.57505, 270.0) on Top
+  pad B2 : my-oval-smd-pad at loc(-1.57505, 1.57505, 270.0) on Top
+  pad B3 : my-oval-smd-pad at loc(-1.22504, 1.57505, 270.0) on Top
+  pad B4 : my-oval-smd-pad at loc(-0.875029999999999, 1.57505, 270.0) on Top
+  pad B5 : my-oval-smd-pad at loc(-0.525020000000001, 1.57505, 270.0) on Top
+  pad B6 : my-oval-smd-pad at loc(-0.17501, 1.57505, 270.0) on Top
+  pad B7 : my-oval-smd-pad at loc(0.17501, 1.57505, 270.0) on Top
+  pad B8 : my-oval-smd-pad at loc(0.525020000000001, 1.57505, 270.0) on Top
+  pad B9 : my-oval-smd-pad at loc(0.875029999999999, 1.57505, 270.0) on Top
+  pad C1 : my-oval-smd-pad at loc(-1.92507, 1.22503999999999, 270.0) on Top
+  pad C10 : my-oval-smd-pad at loc(1.22504, 1.22503999999999, 270.0) on Top
+  pad C11 : my-oval-smd-pad at loc(1.57505, 1.22503999999999, 270.0) on Top
+  pad C12 : my-oval-smd-pad at loc(1.92507, 1.22503999999999, 270.0) on Top
+  pad C2 : my-oval-smd-pad at loc(-1.57505, 1.22503999999999, 270.0) on Top
+  pad C3 : my-oval-smd-pad at loc(-1.22504, 1.22503999999999, 270.0) on Top
+  pad C4 : my-oval-smd-pad at loc(-0.875029999999999, 1.22503999999999, 270.0) on Top
+  pad C5 : my-oval-smd-pad at loc(-0.525020000000001, 1.22503999999999, 270.0) on Top
+  pad C6 : my-oval-smd-pad at loc(-0.17501, 1.22503999999999, 270.0) on Top
+  pad C7 : my-oval-smd-pad at loc(0.17501, 1.22503999999999, 270.0) on Top
+  pad C8 : my-oval-smd-pad at loc(0.525020000000001, 1.22503999999999, 270.0) on Top
+  pad C9 : my-oval-smd-pad at loc(0.875029999999999, 1.22503999999999, 270.0) on Top
+  pad D1 : my-oval-smd-pad at loc(-1.92507, 0.875029999999995, 270.0) on Top
+  pad D10 : my-oval-smd-pad at loc(1.22504, 0.875029999999995, 270.0) on Top
+  pad D11 : my-oval-smd-pad at loc(1.57505, 0.875029999999995, 270.0) on Top
+  pad D12 : my-oval-smd-pad at loc(1.92507, 0.875029999999995, 270.0) on Top
+  pad D2 : my-oval-smd-pad at loc(-1.57505, 0.875029999999995, 270.0) on Top
+  pad D3 : my-oval-smd-pad at loc(-1.22504, 0.875029999999995, 270.0) on Top
+  pad D4 : my-oval-smd-pad at loc(-0.875029999999999, 0.875029999999995, 270.0) on Top
+  pad D5 : my-oval-smd-pad at loc(-0.525020000000001, 0.875029999999995, 270.0) on Top
+  pad D6 : my-oval-smd-pad at loc(-0.17501, 0.875029999999995, 270.0) on Top
+  pad D7 : my-oval-smd-pad at loc(0.17501, 0.875029999999995, 270.0) on Top
+  pad D8 : my-oval-smd-pad at loc(0.525020000000001, 0.875029999999995, 270.0) on Top
+  pad D9 : my-oval-smd-pad at loc(0.875029999999999, 0.875029999999995, 270.0) on Top
+  pad E1 : my-oval-smd-pad at loc(-1.92507, 0.525019999999998, 270.0) on Top
+  pad E10 : my-oval-smd-pad at loc(1.22504, 0.525019999999998, 270.0) on Top
+  pad E11 : my-oval-smd-pad at loc(1.57505, 0.525019999999998, 270.0) on Top
+  pad E12 : my-oval-smd-pad at loc(1.92507, 0.525019999999998, 270.0) on Top
+  pad E2 : my-oval-smd-pad at loc(-1.57505, 0.525019999999998, 270.0) on Top
+  pad E3 : my-oval-smd-pad at loc(-1.22504, 0.525019999999998, 270.0) on Top
+  pad E4 : my-oval-smd-pad at loc(-0.875029999999999, 0.525019999999998, 270.0) on Top
+  pad E5 : my-oval-smd-pad at loc(-0.525020000000001, 0.525019999999998, 270.0) on Top
+  pad E6 : my-oval-smd-pad at loc(-0.17501, 0.525019999999998, 270.0) on Top
+  pad E7 : my-oval-smd-pad at loc(0.17501, 0.525019999999998, 270.0) on Top
+  pad E8 : my-oval-smd-pad at loc(0.525020000000001, 0.525019999999998, 270.0) on Top
+  pad E9 : my-oval-smd-pad at loc(0.875029999999999, 0.525019999999998, 270.0) on Top
+  pad F1 : my-oval-smd-pad at loc(-1.92507, 0.17501, 270.0) on Top
+  pad F10 : my-oval-smd-pad at loc(1.22504, 0.17501, 270.0) on Top
+  pad F11 : my-oval-smd-pad at loc(1.57505, 0.17501, 270.0) on Top
+  pad F12 : my-oval-smd-pad at loc(1.92507, 0.17501, 270.0) on Top
+  pad F2 : my-oval-smd-pad at loc(-1.57505, 0.17501, 270.0) on Top
+  pad F3 : my-oval-smd-pad at loc(-1.22504, 0.17501, 270.0) on Top
+  pad F4 : my-oval-smd-pad at loc(-0.875029999999999, 0.17501, 270.0) on Top
+  ; pad F5 : my-oval-smd-pad at loc(-0.525020000000001, 0.17501, 270.0) on Top
+  ; pad F6 : my-oval-smd-pad at loc(-0.17501, 0.17501, 270.0) on Top
+  ; pad F7 : my-oval-smd-pad at loc(0.17501, 0.17501, 270.0) on Top
+  ; pad F8 : my-oval-smd-pad at loc(0.5250, 0.17501, 270.0) on Top
+  pad F9 : my-oval-smd-pad at loc(0.875029999999999, 0.17501, 270.0) on Top
+  pad G1 : my-oval-smd-pad at loc(-1.92507, -0.17501, 270.0) on Top
+  pad G10 : my-oval-smd-pad at loc(1.22504, -0.17501, 270.0) on Top
+  pad G11 : my-oval-smd-pad at loc(1.57505, -0.17501, 270.0) on Top
+  pad G12 : my-oval-smd-pad at loc(1.92507, -0.17501, 270.0) on Top
+  pad G2 : my-oval-smd-pad at loc(-1.57505, -0.17501, 270.0) on Top
+  pad G3 : my-oval-smd-pad at loc(-1.22504, -0.17501, 270.0) on Top
+  pad G4 : my-oval-smd-pad at loc(-0.875029999999999, -0.17501, 270.0) on Top
+  ; pad G5 : my-oval-smd-pad at loc(-0.525020000000001, -0.17501, 270.0) on Top
+  ; pad G6 : my-oval-smd-pad at loc(-0.17501, -0.17501, 270.0) on Top
+  ; pad G7 : my-oval-smd-pad at loc(0.17501,-0.17501, 270.0) on Top
+  ; pad G8 : my-oval-smd-pad at loc(0.5250, -0.17501, 270.0) on Top
+  pad G9 : my-oval-smd-pad at loc(0.875029999999999, -0.17501, 270.0) on Top
+  pad H1 : my-oval-smd-pad at loc(-1.92507, -0.525019999999998, 270.0) on Top
+  pad H10 : my-oval-smd-pad at loc(1.22504, -0.525019999999998, 270.0) on Top
+  pad H11 : my-oval-smd-pad at loc(1.57505, -0.525019999999998, 270.0) on Top
+  pad H12 : my-oval-smd-pad at loc(1.92507, -0.525019999999998, 270.0) on Top
+  pad H2 : my-oval-smd-pad at loc(-1.57505, -0.525019999999998, 270.0) on Top
+  pad H3 : my-oval-smd-pad at loc(-1.22504, -0.525019999999998, 270.0) on Top
+  pad H4 : my-oval-smd-pad at loc(-0.875029999999999, -0.525019999999998, 270.0) on Top
+  ; pad H5 : my-oval-smd-pad at loc(-0.525020000000001, -0.52501, 270.0) on Top
+  ; pad H6 : my-oval-smd-pad at loc(-0.17501, -0.52501, 270.0) on Top
+  ; pad H7 : my-oval-smd-pad at loc(0.17501,-0.52501, 270.0) on Top
+  ; pad H8 : my-oval-smd-pad at loc(0.5250, -0.52501, 270.0) on Top
+  pad H9 : my-oval-smd-pad at loc(0.875029999999999, -0.525019999999998, 270.0) on Top
+  pad J1 : my-oval-smd-pad at loc(-1.92507, -0.875029999999995, 270.0) on Top
+  pad J10 : my-oval-smd-pad at loc(1.22504, -0.875029999999995, 270.0) on Top
+  pad J11 : my-oval-smd-pad at loc(1.57505, -0.875029999999995, 270.0) on Top
+  pad J12 : my-oval-smd-pad at loc(1.92507, -0.875029999999995, 270.0) on Top
+  pad J2 : my-oval-smd-pad at loc(-1.57505, -0.875029999999995, 270.0) on Top
+  pad J3 : my-oval-smd-pad at loc(-1.22504, -0.875029999999995, 270.0) on Top
+  pad J4 : my-oval-smd-pad at loc(-0.875029999999999, -0.875029999999995, 270.0) on Top
+  pad J5 : my-oval-smd-pad at loc(-0.525020000000001, -0.875029999999995, 270.0) on Top
+  pad J6 : my-oval-smd-pad at loc(-0.17501, -0.875029999999995, 270.0) on Top
+  pad J7 : my-oval-smd-pad at loc(0.17501, -0.875029999999995, 270.0) on Top
+  pad J8 : my-oval-smd-pad at loc(0.525020000000001, -0.875029999999995, 270.0) on Top
+  pad J9 : my-oval-smd-pad at loc(0.875029999999999, -0.875029999999995, 270.0) on Top
+  pad K1 : my-oval-smd-pad at loc(-1.92507, -1.22504000000001, 270.0) on Top
+  pad K10 : my-oval-smd-pad at loc(1.22504, -1.22504000000001, 270.0) on Top
+  pad K11 : my-oval-smd-pad at loc(1.57505, -1.22504000000001, 270.0) on Top
+  pad K12 : my-oval-smd-pad at loc(1.92507, -1.22504000000001, 270.0) on Top
+  pad K2 : my-oval-smd-pad at loc(-1.57505, -1.22504000000001, 270.0) on Top
+  pad K3 : my-oval-smd-pad at loc(-1.22504, -1.22504000000001, 270.0) on Top
+  pad K4 : my-oval-smd-pad at loc(-0.875029999999999, -1.22504000000001, 270.0) on Top
+  pad K5 : my-oval-smd-pad at loc(-0.525020000000001, -1.22504000000001, 270.0) on Top
+  pad K6 : my-oval-smd-pad at loc(-0.17501, -1.22504000000001, 270.0) on Top
+  pad K7 : my-oval-smd-pad at loc(0.17501, -1.22504000000001, 270.0) on Top
+  pad K8 : my-oval-smd-pad at loc(0.525020000000001, -1.22504000000001, 270.0) on Top
+  pad K9 : my-oval-smd-pad at loc(0.875029999999999, -1.22504000000001, 270.0) on Top
+  pad L1 : my-oval-smd-pad at loc(-1.92507, -1.57505, 270.0) on Top
+  pad L10 : my-oval-smd-pad at loc(1.22504, -1.57505, 270.0) on Top
+  pad L11 : my-oval-smd-pad at loc(1.57505, -1.57505, 270.0) on Top
+  pad L12 : my-oval-smd-pad at loc(1.92507, -1.57505, 270.0) on Top
+  pad L2 : my-oval-smd-pad at loc(-1.57505, -1.57505, 270.0) on Top
+  ; pad L3 : my-oval-smd-pad at loc(-1.22504, -1.57505, 270.0) on Top
+  pad L4 : my-oval-smd-pad at loc(-0.875029999999999, -1.57505, 270.0) on Top
+  pad L5 : my-oval-smd-pad at loc(-0.525020000000001, -1.57505, 270.0) on Top
+  pad L6 : my-oval-smd-pad at loc(-0.17501, -1.57505, 270.0) on Top
+  pad L7 : my-oval-smd-pad at loc(0.17501, -1.57505, 270.0) on Top
+  pad L8 : my-oval-smd-pad at loc(0.525020000000001, -1.57505, 270.0) on Top
+  pad L9 : my-oval-smd-pad at loc(0.875029999999999, -1.57505, 270.0) on Top
+  pad M1 : my-oval-smd-pad at loc(-1.92507, -1.92507000000001, 270.0) on Top
+  pad M10 : my-oval-smd-pad at loc(1.22504, -1.92507000000001, 270.0) on Top
+  pad M11 : my-oval-smd-pad at loc(1.57505, -1.92507000000001, 270.0) on Top
+  pad M12 : my-oval-smd-pad at loc(1.92507, -1.92507000000001, 270.0) on Top
+  pad M2 : my-oval-smd-pad at loc(-1.57505, -1.92507000000001, 270.0) on Top
+  pad M3 : my-oval-smd-pad at loc(-1.22504, -1.92507000000001, 270.0) on Top
+  pad M4 : my-oval-smd-pad at loc(-0.875029999999999, -1.92507000000001, 270.0) on Top
+  pad M5 : my-oval-smd-pad at loc(-0.525020000000001, -1.92507000000001, 270.0) on Top
+  pad M6 : my-oval-smd-pad at loc(-0.17501, -1.92507000000001, 270.0) on Top
+  pad M7 : my-oval-smd-pad at loc(0.17501, -1.92507000000001, 270.0) on Top
+  pad M8 : my-oval-smd-pad at loc(0.525020000000001, -1.92507000000001, 270.0) on Top
+  pad M9 : my-oval-smd-pad at loc(0.875029999999999, -1.92507000000001, 270.0) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.45008, -2.45008), Point(-2.45008, 2.45008)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.45008, -2.45008), Point(2.45008, -2.45008)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.45008, 2.45008), Point(2.45008, 2.45008)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.45008, -2.45008), Point(2.45008, 2.45008)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.127, [Point(-2.35001, -2.35001), Point(-2.35001, 2.35001)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.127, [Point(-2.35001, -2.35001), Point(2.35001, -2.35001)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.127, [Point(-2.35001, 2.35001), Point(2.35001, 2.35001)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.127, [Point(2.35001, -2.35001), Point(2.35001, 2.35001)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(-2.45008, -2.45008), Point(-2.45008, 2.45008)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(-2.45008, -2.45008), Point(2.45008, -2.45008)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(-2.45008, 2.45008), Point(2.45008, 2.45008)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(2.45008, -2.45008), Point(2.45008, 2.45008)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(-0.254000000000001, 0.0), Point(0.254000000000001, 0.0)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(0.0, -0.254000000000005), Point(0.0, 0.254000000000005)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Polyline(0.381, [Arc(-1.90144, 1.90143999999999, 0.10008, 0.0, 360.0)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.016, C, loc(-0.243449999999999, 0.461829999999992, 270.0), "Arial", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.381, [Arc(-2.19405, 2.70205, 0.10008, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 2.032, C, loc(2.6781, -2.98266, 270.0), "Arial", TrueTypeFont)
+
+  layer(Courtyard(Top)) = Rectangle(6.0, 6.0)
+ 
+  model3d = Model3D("..\\..\\3d-models\\bga131_0p35_4p7x4p7_e905019D4.STEP",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 270.0))
+  
+public pcb-symbol AMA4B2KK-KXR-B2_1A :
+  pin GPIO[0] at Point(0.0, -5.08) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[1] at Point(0.0, -7.62) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[2] at Point(0.0, -10.16) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[3] at Point(0.0, -12.7) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[93] at Point(33.02, -119.38) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[5] at Point(0.0, -17.78) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[6] at Point(0.0, -20.32) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[7] at Point(0.0, -22.86) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[8] at Point(0.0, -25.4) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[9] at Point(0.0, -27.94) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[10] at Point(0.0, -30.48) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[11] at Point(0.0, -33.02) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[12] at Point(0.0, -35.56) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[13] at Point(0.0, -38.1) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[14] at Point(0.0, -40.64) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[15] at Point(0.0, -43.18) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[16] at Point(0.0, -45.72) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[17] at Point(0.0, -48.26) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[18] at Point(0.0, -50.8) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[19] at Point(0.0, -53.34) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[22] at Point(0.0, -58.42) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[23] at Point(0.0, -60.96) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[24] at Point(0.0, -63.5) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[25] at Point(0.0, -66.04) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[26] at Point(0.0, -68.58) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[27] at Point(0.0, -71.12) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[28] at Point(0.0, -73.66) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[29] at Point(0.0, -76.2) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[30] at Point(0.0, -78.74) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[31] at Point(0.0, -81.28) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[32] at Point(0.0, -83.82) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[33] at Point(0.0, -86.36) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[37] at Point(0.0, -91.44) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[38] at Point(0.0, -93.98) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[47] at Point(33.02, -15.24) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[48] at Point(33.02, -17.78) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[49] at Point(33.02, -20.32) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[50] at Point(33.02, -22.86) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[51] at Point(33.02, -25.4) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[40] at Point(0.0, -99.06) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[39] at Point(0.0, -96.52) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[43] at Point(33.02, -5.08) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[42] at Point(0.0, -104.14) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[44] at Point(33.02, -7.62) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[41] at Point(0.0, -101.6) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[56] at Point(33.02, -30.48) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[57] at Point(33.02, -33.02) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[61] at Point(33.02, -40.64) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[62] at Point(33.02, -43.18) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[63] at Point(33.02, -45.72) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[64] at Point(33.02, -48.26) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[65] at Point(33.02, -50.8) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[66] at Point(33.02, -53.34) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[67] at Point(33.02, -55.88) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[68] at Point(33.02, -58.42) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[69] at Point(33.02, -60.96) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[70] at Point(33.02, -63.5) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[71] at Point(33.02, -66.04) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[72] at Point(33.02, -68.58) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[73] at Point(33.02, -71.12) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[74] at Point(33.02, -73.66) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[75] at Point(33.02, -76.2) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[76] at Point(33.02, -78.74) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[77] at Point(33.02, -81.28) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[78] at Point(33.02, -83.82) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[79] at Point(33.02, -86.36) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[80] at Point(33.02, -88.9) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[81] at Point(33.02, -91.44) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[82] at Point(33.02, -93.98) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[83] at Point(33.02, -96.52) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[84] at Point(33.02, -99.06) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[85] at Point(33.02, -101.6) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[86] at Point(33.02, -104.14) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[87] at Point(33.02, -106.68) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[88] at Point(33.02, -109.22) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[45] at Point(33.02, -10.16) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[20] at Point(0.0, -114.3) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[21] at Point(0.0, -116.84) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin RSTN at Point(0.0, -124.46) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[104] at Point(33.02, -124.46) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin GPIO[91] at Point(33.02, -114.3) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+
+  preferred-orientation = PreferRotation([0])
+  
+  layer("foreground") = Text(">VALUE", 0.762, C, loc(-7.67, 0.3), "", TrueTypeFont)
+  layer("foreground") = Text(">REF", 0.762, C, loc(-7.67, 1.362), "", TrueTypeFont)
+  layer("foreground") = Polygon([  
+    Point(0.0, 0.0), 
+    Point(0.0, 0.0), 
+    Point(0.0, -129.54), 
+    Point(33.02, -129.54), 
+    Point(33.02, 0.0), 
+    Point(0.0, 0.0)])
+  
+public pcb-symbol AMA4B2KK-KXR-B2_1B :
+  pin USB0PN at Point(0.0, -5.08) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin USB0PP at Point(0.0, -7.62) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDP at Point(45.72, -5.08) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDH at Point(45.72, -10.16) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDA at Point(45.72, -20.32) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin LPADC_VREF at Point(45.72, -40.64) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin SIMOBUCK_SW at Point(45.72, -50.8) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin SIMOBUCK_SWSEL at Point(45.72, -55.88) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDC at Point(45.72, -60.96) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDF at Point(45.72, -71.12) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDS at Point(45.72, -76.2) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDB at Point(45.72, -81.28) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDBH_SW at Point(45.72, -86.36) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDBH at Point(45.72, -91.44) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDH2 at Point(45.72, -15.24) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDD18 at Point(45.72, -25.4) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDUSB0P9 at Point(45.72, -106.68) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDUSB33 at Point(45.72, -111.76) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDAUDA at Point(45.72, -30.48) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDAUDD at Point(45.72, -35.56) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDBH_RF at Point(45.72, -101.6) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VDDC_LV at Point(45.72, -66.04) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin LPMICBIAS at Point(45.72, -116.84) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin MIPI_D0N at Point(0.0, -22.86) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin MIPI_CLKN at Point(0.0, -15.24) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin MIPI_CLKP at Point(0.0, -17.78) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSVCO at Point(0.0, -129.54) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSS at Point(0.0, -127.0) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSB at Point(0.0, -124.46) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSP at Point(0.0, -121.92) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSA at Point(0.0, -119.38) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSS at Point(0.0, -116.84) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSAUSB at Point(0.0, -114.3) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSAUDD at Point(0.0, -111.76) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSSAUDA at Point(0.0, -109.22) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin VSS18 at Point(0.0, -106.68) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin LPADCD0PSE1 at Point(0.0, -43.18) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin LPADCD0NSE0 at Point(0.0, -40.64) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin MIPI_D0P at Point(0.0, -25.4) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin LPADCD1PSE3 at Point(0.0, -48.26) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin RFIOP at Point(0.0, -63.5) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin RFIOM at Point(0.0, -68.58) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin TXEN at Point(0.0, -58.42) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin XO32M at Point(0.0, -88.9) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin XI32M at Point(0.0, -93.98) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin XO at Point(45.72, -129.54) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin XI at Point(45.72, -124.46) with :
+    direction = Right
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin RFSUB at Point(0.0, -104.14) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin LPADCD1NSE2 at Point(0.0, -45.72) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  pin DNU at Point(0.0, -99.06) with :
+    direction = Left
+    length = 7.62
+    number-size = 1.523
+    name-size = 1.523
+  
+  preferred-orientation = PreferRotation([0])
+
+
+  layer("foreground") = Text(">VALUE", 0.762, C, loc(-7.67, 0.3), "", TrueTypeFont)
+  layer("foreground") = Text(">REF", 0.762, C, loc(-7.67, 1.362), "", TrueTypeFont)
+  layer("foreground") = Polygon([  
+    Point(0.0, 0.0), 
+    Point(0.0, 0.0), 
+    Point(0.0, -134.62), 
+    Point(45.72, -134.62), 
+    Point(45.72, 0.0), 
+    Point(0.0, 0.0)])
+  
+
+
+public deftype Settings
+public defmulti entries (s:Settings) -> Tuple<KeyValue<Symbol,?>>
+public defmulti set (s:Settings, k:Symbol, value) -> False
+public defmulti get (s:Settings, k:Symbol) -> ?
+public defn Settings (initial-entries:Tuple<KeyValue<Symbol,?>>) :
+  val table = to-hashtable<Symbol,?>(initial-entries)
+  new Settings :
+    defmethod entries (this) :
+      val sorted-keys = qsort(keys(table))
+      to-tuple $ for k in sorted-keys seq :
+        k => table[k]
+    defmethod set (this, k:Symbol, v) :
+      table[k] = v
+    defmethod get (this, k:Symbol) :
+      table[k]
+
+public val DEFAULT-SETTINGS = [
+    `enable-usb => false
+    `enable-mipi => false
+    `enable-bluetooth => false
+    `enable-debug => false
+    `xtal-32k => ambiq-demo/components/TXC/9HT12-32-768KDZY/component
+    `xtal-32M => ambiq-demo/components/ABRACON-CORP/ABM12W-32-0000MHZ-6-D1X-T3/component
+    `regulator-1V8 => ambiq-demo/components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/module(typ(1.8))
+    `regulator-1V8LN => ambiq-demo/components/TEXAS-INSTRUMENTS/TPS7A0218PDBVR/module
+    `regulator-3V3USB => ambiq-demo/components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/module(typ(3.3))
+    `regulator-0V9USB => ambiq-demo/components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/module(typ(0.9))
+    `debug-connector => ocdb/components/tag-connect/TC2030-IDC/component
+    ]
+
+public pcb-check ambiq-apollo4 (lfxtal:JITXObject, hfxtal:JITXObject, simo-ind:JITXObject) :
+    val name = "AMBIQ Apollo4 Checks"
+    val category = "Component Checks"
+    #CHECK(
+      condition =            property(simo-ind.inductance) == 2.2e-6,
+      name =                 name
+      description =          "SIMO Buck Inductor"
+      subcheck-description = "Check the inductance of the SIMO Buck Inductor",
+      category =             category
+      pass-message =         "Inductance of %_ is correct at %_" % [ref(simo-ind) 2.2e-6]
+      fail-message =         "Inductance of %_ is incorrect at %_" % [ref(simo-ind) property(simo-ind.inductance)]
+      locators =             []
+      )   
+
+    #CHECK(
+      condition =            property(simo-ind.saturation-current) >= 500.0e-3,
+      name =                 name
+      description =          "SIMO Buck Inductor"
+      subcheck-description = "Check the saturation current of the SIMO Buck Inductor",
+      category =             category
+      pass-message =         "Saturation current %_ of %_ is greater than %_A" % [property(simo-ind.saturation-current) ref(simo-ind) 500.0e-3]
+      fail-message =         "Saturation current %_ of %_ is less than %_" % [property(simo-ind.saturation-current) ref(simo-ind) property(simo-ind.saturation-current)]
+      locators =             []
+      ) 
+
+    #CHECK(
+      condition =            frequency(property(hfxtal.crystal-resonator)) == 32.0e6,
+      name =                 name
+      description =          "32MHz Crystal"
+      subcheck-description = "Check the frequncy of the 32MHz crystal",
+      category =             category
+      pass-message =         "Freqeuncy of %_ is correct at %_" % [ref(hfxtal) 32.0e6]
+      fail-message =         "Freqeuncy of %_ is incorrect at %_" % [ref(hfxtal) frequency(property(hfxtal.crystal-resonator))]
+      locators =             []
+      )    
+    #CHECK(
+      condition =            ESR(property(hfxtal.crystal-resonator)) <=100.0,
+      name =                 name
+      description =          "32MHz Crystal"
+      subcheck-description = "Check the ESR of the 32MHz crystal",
+      category =             category
+      pass-message =         "ESR %_ of %_ is less than %_" % [ESR(property(hfxtal.crystal-resonator)) ref(hfxtal) 90.0e3]
+      fail-message =         "ESR %_ of %_ is greater than %_" % [ESR(property(hfxtal.crystal-resonator)) ref(hfxtal) ESR(property(hfxtal.crystal-resonator))]
+      locators =             []
+      )  
+    #CHECK(
+      condition =            load-capacitance(property(hfxtal.crystal-resonator)) <= 6.0e-12,
+      name =                 name
+      description =          "32MHz Crystal"
+      subcheck-description = "Check the load capacitance of the 32MHz crystal",
+      category =             category
+      pass-message =         "Load capacitance %_ of %_ is less than %_" % [load-capacitance(property(hfxtal.crystal-resonator)) ref(hfxtal) 100.0]
+      fail-message =         "ESR %_ of %_ is greater than %_" % [load-capacitance(property(hfxtal.crystal-resonator)) ref(hfxtal) 6.0e-12]
+      locators =             []
+      ) 
+
+    #CHECK(
+      condition =            frequency(property(lfxtal.crystal-resonator)) == 32.768e3,
+      name =                 name
+      description =          "32.768 Crystal"
+      subcheck-description = "Check the frequncy of the 32.768kHz crystal",
+      category =             category
+      pass-message =         "Freqeuncy of %_ is correct at %_" % [ref(lfxtal) 32.768e3]
+      fail-message =         "Freqeuncy of %_ is incorrect at %_" % [ref(lfxtal) frequency(property(lfxtal.crystal-resonator))]
+      locators =             []
+      )    
+    #CHECK(
+      condition =            ESR(property(lfxtal.crystal-resonator)) <= 90.0e3,
+      name =                 name
+      description =          "32.768 Crystal"
+      subcheck-description = "Check the ESR of the 32.768kHz crystal",
+      category =             category
+      pass-message =         "ESR %_ of %_ is less than %_" % [ESR(property(lfxtal.crystal-resonator)) ref(lfxtal) 90.0e3]
+      fail-message =         "ESR %_ of %_ is greater than %_" % [ESR(property(lfxtal.crystal-resonator)) ref(lfxtal) ESR(property(lfxtal.crystal-resonator))]
+      locators =             []
+      )  
+    #CHECK(
+      condition =            load-capacitance(property(lfxtal.crystal-resonator)) <= 7.0e-12,
+      name =                 name
+      description =          "32.768 Crystal"
+      subcheck-description = "Check the load capacitance of the 32.768kHz crystal",
+      category =             category
+      pass-message =         "Load capacitance %_ of %_ is less than %_" % [load-capacitance(property(lfxtal.crystal-resonator)) ref(lfxtal) 90.0e3]
+      fail-message =         "ESR %_ of %_ is greater than %_" % [load-capacitance(property(lfxtal.crystal-resonator)) ref(lfxtal) 7.0e-12]
+      locators =             []
+      )  
+
+public defn add-caps (decouple-array) :
+  inside pcb-module:
+    for [pin1, pin2, value, size, rated-v, dielectric] in decouple-array do:
+      val decouple-cap = cap-strap(pin1, pin2, ["capacitance" => value, "min-rated-voltage" => rated-v, "case" => size, "temperature-coefficient.code" => dielectric])
+      schematic-group(decouple-cap) = bypass
+
+public defn make-supports ():
+  inside pcb-component:
+    
+    supports reset:
+      reset.reset => self.RSTN
+
+    pcb-bundle SWDSWO:
+      pin p
+
+    val swdswo-list = [self.GPIO[3] self.GPIO[22] self.GPIO[23] self.GPIO[24] self.GPIO[28] self.GPIO[41] self.GPIO[44] self.GPIO[56] self.GPIO[57] self.GPIO[64] self.GPIO[65] self.GPIO[66] self.GPIO[67] self.GPIO[68] self.GPIO[69] self.GPIO[79]]
+    for p in swdswo-list do:
+      supports SWDSWO:
+        SWDSWO.p => p
+
+    supports swd([SWD-SWO]):
+      require swdswo:SWDSWO
+      swd([SWD-SWO]).swdio => self.GPIO[21]
+      swd([SWD-SWO]).swdclk => self.GPIO[20]
+      swd([SWD-SWO]).swo => swdswo.p
+
+    for gp in pins(self) do:
+      val s = to-string(ref(gp))
+      if prefix?(s, "GPIO"):
+        supports gpio:
+          gpio.gpio => gp
+
+    ; uart 0
+    pcb-bundle UART0TX:
+      pin p
+    pcb-bundle UART0RX:
+      pin p
+    pcb-bundle UART0RTS:
+      pin p
+    pcb-bundle UART0CTS:
+      pin p
+    
+    val uart0tx-list = [self.GPIO[0] self.GPIO[12] self.GPIO[20] self.GPIO[30] self.GPIO[41] self.GPIO[45] self.GPIO[66] self.GPIO[72] self.GPIO[78]]
+    val uart0rx-list = [self.GPIO[2] self.GPIO[22] self.GPIO[32] self.GPIO[43] self.GPIO[47] self.GPIO[62] self.GPIO[68] self.GPIO[74]]
+    val uart0rts-list = [self.GPIO[24] self.GPIO[38] self.GPIO[49] self.GPIO[57] self.GPIO[64] self.GPIO[70] self.GPIO[76]]
+    val uart0cts-list = [self.GPIO[6] self.GPIO[18] self.GPIO[40] self.GPIO[51] self.GPIO[65] self.GPIO[71] self.GPIO[77]]
+    for i in uart0tx-list do:
+      supports UART0TX:
+        UART0TX.p => i
+    for i in uart0rx-list do:
+      supports UART0RX:
+        UART0RX.p => i
+    for i in uart0rts-list do:
+      supports UART0RTS:
+        UART0RTS.p => i
+    for i in uart0cts-list do:
+      supports UART0CTS:
+        UART0CTS.p => i
+    
+    supports uart():
+      require tx:UART0TX
+      uart().tx => tx.p
+      require rx:UART0RX
+      uart().rx => rx.p
+
+    supports uart([UART-RX UART-TX UART-CTS UART-RTS]):
+      require tx:UART0TX
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).tx => tx.p
+      require rx:UART0RX
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).rx => rx.p
+      require cts:UART0CTS
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).cts => cts.p
+      require rts:UART0RTS
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).rts => rts.p
+  
+
+    ; uart 1
+    pcb-bundle UART1TX:
+      pin p
+    pcb-bundle UART1RX:
+      pin p
+    pcb-bundle UART1RTS:
+      pin p
+    pcb-bundle UART1CTS:
+      pin p
+    
+    val uart1tx-list = [self.GPIO[0] self.GPIO[12] self.GPIO[20]]
+    val uart1rx-list = [self.GPIO[2] self.GPIO[14] self.GPIO[22] self.GPIO[47] self.GPIO[62]]
+    val uart1rts-list = [self.GPIO[16] self.GPIO[24] self.GPIO[49] self.GPIO[57]]
+    val uart1cts-list = [self.GPIO[6] self.GPIO[18] self.GPIO[29] self.GPIO[51]]
+    for i in uart1tx-list do:
+      supports UART1TX:
+        UART1TX.p => i
+    for i in uart1rx-list do:
+      supports UART1RX:
+        UART1RX.p => i
+    for i in uart1rts-list do:
+      supports UART1RTS:
+        UART1RTS.p => i
+    for i in uart1cts-list do:
+      supports UART1CTS:
+        UART1CTS.p => i
+    
+    supports uart():
+      require tx:UART1TX
+      uart().tx => tx.p
+      require rx:UART1RX
+      uart().rx => rx.p
+
+    supports uart([UART-RX UART-TX UART-CTS UART-RTS]):
+      require tx:UART1TX
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).tx => tx.p
+      require rx:UART1RX
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).rx => rx.p
+      require cts:UART1CTS
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).cts => cts.p
+      require rts:UART1RTS
+      uart([UART-RX UART-TX UART-CTS UART-RTS]).rts => rts.p
+
+
+    val adc-list = [self.GPIO[12] self.GPIO[13] self.GPIO[14] self.GPIO[15] self.GPIO[16] self.GPIO[17] self.GPIO[18] self.GPIO[19]]
+    for a in adc-list do:
+      supports adc:
+        adc.adc => a
+
+    supports i2c:
+      i2c.sda => self.GPIO[6]
+      i2c.scl => self.GPIO[5]
+      property(self.GPIO[6].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[5].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+
+
+    supports i2c:
+      i2c.sda => self.GPIO[9]
+      i2c.scl => self.GPIO[8]
+      property(self.GPIO[9].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[8].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+
+
+    supports i2c:
+      i2c.sda => self.GPIO[26]
+      i2c.scl => self.GPIO[25]
+      property(self.GPIO[26].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[25].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+
+    supports i2c:
+      i2c.sda => self.GPIO[32]
+      i2c.scl => self.GPIO[31]
+      property(self.GPIO[32].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[31].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+    
+    supports i2c:
+      i2c.sda => self.GPIO[48]
+      i2c.scl => self.GPIO[47]
+      property(self.GPIO[48].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[47].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+
+    supports i2c:
+      i2c.sda => self.GPIO[62]
+      i2c.scl => self.GPIO[61]
+      property(self.GPIO[62].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[61].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+
+    supports i2c:
+      i2c.sda => self.GPIO[23]
+      i2c.scl => self.GPIO[22]
+      property(self.GPIO[23].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+      property(self.GPIO[22].digital-io) = DigitalIO(OpenCollector(min-max(0.0, 0.4), 15.0e-3), FractionalVoltage(0.3, self.VDDH), FractionalVoltage(0.7, self.VDDH), self.VDDH, self.VSS, 50.0e-9)
+
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[5]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[7]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[6]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[0]
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[8]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[10]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[9]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[1]
+
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[25]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[27]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[26]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[2]
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[31]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[33]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[32]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[3]
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[47]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[49]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[48]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[5]
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[61]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[63]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[62]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[6]
+
+    supports spi([SPI-CIPO SPI-COPI SPI-CS]):
+      spi([SPI-CIPO SPI-COPI SPI-CS]).sck => self.GPIO[22]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cipo => self.GPIO[24]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).copi => self.GPIO[23]
+      spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[7]
+
+    pcb-bundle ce-pins :
+      pin p
+
+    val all-ces = [self.GPIO[14] self.GPIO[56] self.GPIO[57] self.GPIO[73] 
+                   self.GPIO[75] self.GPIO[83] self.GPIO[84] self.GPIO[85]
+                   self.GPIO[86] self.GPIO[91] self.GPIO[93]]
+    for ce in all-ces do :
+      supports ce-pins :
+        ce-pins.p => ce
+    
+    supports octal-spi :
+      require ce : ce-pins from self
+      octal-spi.sck     => self.GPIO[72]
+      octal-spi.cs      => ce.p
+      octal-spi.sdio[0] => self.GPIO[64]
+      octal-spi.sdio[1] => self.GPIO[65]
+      octal-spi.sdio[2] => self.GPIO[66]
+      octal-spi.sdio[3] => self.GPIO[67]
+      octal-spi.sdio[4] => self.GPIO[68]
+      octal-spi.sdio[5] => self.GPIO[69]
+      octal-spi.sdio[6] => self.GPIO[70]
+      octal-spi.sdio[7] => self.GPIO[71]
+
+    supports octal-spi :
+      require ce : ce-pins from self
+      octal-spi.sck     => self.GPIO[45]
+      octal-spi.cs      => ce.p
+      octal-spi.sdio[0] => self.GPIO[37]
+      octal-spi.sdio[1] => self.GPIO[38]
+      octal-spi.sdio[2] => self.GPIO[39]
+      octal-spi.sdio[3] => self.GPIO[40]
+      octal-spi.sdio[4] => self.GPIO[41]
+      octal-spi.sdio[5] => self.GPIO[42]
+      octal-spi.sdio[6] => self.GPIO[43]
+      octal-spi.sdio[7] => self.GPIO[44]
+
+    supports octal-spi :
+      require ce : ce-pins from self
+      octal-spi.sck     => self.GPIO[82]
+      octal-spi.cs      => ce.p
+      octal-spi.sdio[0] => self.GPIO[74]
+      octal-spi.sdio[1] => self.GPIO[75]
+      octal-spi.sdio[2] => self.GPIO[76]
+      octal-spi.sdio[3] => self.GPIO[77]
+      octal-spi.sdio[4] => self.GPIO[78]
+      octal-spi.sdio[5] => self.GPIO[79]
+      octal-spi.sdio[6] => self.GPIO[80]
+      octal-spi.sdio[7] => self.GPIO[81]
+
+    supports low-freq-oscillator:
+      low-freq-oscillator.in => self.XI
+      low-freq-oscillator.out =>self.XO
+
+    supports high-freq-oscillator:
+      high-freq-oscillator.in => self.XI32M
+      high-freq-oscillator.out => self.XO32M
+
+    supports mipi-d-phy :
+      mipi-d-phy.clk.N => self.MIPI_CLKN
+      mipi-d-phy.clk.P => self.MIPI_CLKP
+      mipi-d-phy.data.N => self.MIPI_D0N
+      mipi-d-phy.data.P => self.MIPI_D0P
+
+public defn make-properties () :
+  inside pcb-component :
+    property(self.rated-temperature) = min-max(-45.0, 85.0)
+      
+    property(self.VDD18.power-pin)      = PowerPin(min-max(1.62, 1.98))
+    property(self.VDDP.power-pin)       = PowerPin(min-max(1.71, 2.20))
+    property(self.VDDH.power-pin)       = PowerPin(min-max(1.71, 2.20))
+    property(self.VDDA.power-pin)       = PowerPin(min-max(1.71, 2.20))
+    property(self.VDDB.power-pin)       = PowerPin(min-max(1.71, 2.20))
+    property(self.VDDH2.power-pin)      = PowerPin(min-max(1.14, 2.70)) 
+    property(self.VDDUSB0P9.power-pin)  = PowerPin(min-max(0.84, 0.99))
+    property(self.VDDUSB33.power-pin)   = PowerPin(min-max(3.00, 3.63))
+    property(self.VDDAUDA.power-pin)    = PowerPin(min-max(1.62, 1.98))
+    property(self.VDDAUDD.power-pin)    = PowerPin(min-max(1.71, 2.20))
+
+    ; GPIO50 -> GPIO57
+    val io-audd = [self.GPIO[50] self.GPIO[51] self.GPIO[56] self.GPIO[57]]
+    eval-when has-property?(self.VDDAUDD.voltage):
+      val vdd = max-value(property(self.VDDAUDD.voltage))
+      ; Digital logic levels
+      val vol = min-max(0.0, 0.1 * vdd)
+      val voh = min-max(0.8 * vdd, vdd)
+      val vih = typ(0.25 * vdd)
+      val vil = typ(0.75 * vdd)
+      val cmos = CMOSOutput(vol, voh)
+      val dio = DigitalIO(cmos, vil, vih, self.VDDAUDD, self.VSSAUDD, 50.0e-9)
+      for p in io-audd do:
+        property(p.digital-io) = dio
+
+    ; GPIO8 -> GPIO19, GPIO22 -> GPIO24
+    val io-vddh2 = [self.GPIO[8] self.GPIO[9] self.GPIO[10] self.GPIO[11] self.GPIO[12] self.GPIO[13] self.GPIO[14] self.GPIO[15] self.GPIO[16] self.GPIO[17] self.GPIO[18] self.GPIO[19] self.GPIO[22] self.GPIO[23] self.GPIO[24]]
+    eval-when has-property?(self.VDDH2.voltage):
+      val vdd = max-value(property(self.VDDH2.voltage))
+      val vol = min-max(0.0, 0.1 * vdd)
+      val voh = min-max(0.8 * vdd, vdd)
+      val vih = typ(0.25 * vdd)
+      val vil = typ(0.75 * vdd)
+      val cmos = CMOSOutput(vol, voh)
+      val oc = OpenCollector(vol, 5.00e-3)
+      val dio = DigitalIO(cmos, vil, vih, self.VDDH2, self.VSS, 50.0e-9)
+      for p in io-vddh2 do:
+        property(p.digital-io) = dio
+
+    ; GPIO0 -> GPIO7, GPIO20, GPIO21, GPIO25 -> GPIO49, GPIO58 -> GPIO104
+    eval-when has-property?(self.VDDH.voltage):
+      val vdd = max-value(property(self.VDDH.voltage))
+      val vol = min-max(0.0, 0.1 * vdd)
+      val voh = min-max(0.8 * vdd, vdd)
+      val vih = typ(0.25 * vdd)
+      val vil = typ(0.75 * vdd)
+      val cmos = CMOSOutput(vol, voh)
+      val oc = OpenCollector(vol, 5.00e-3)
+      val dio = DigitalIO(cmos, vil, vih, self.VDDH, self.VSS, 50.0e-9)
+      for i in [0 1 2 3 5 6 7] do :
+        property(self.GPIO[i].digital-io) = dio
+      for i in [20 21] do :
+        property(self.GPIO[i].digital-io) = dio
+      for i in [25 26 27 28 29 30 31 32 33 37 38 39 40 41 42 43 44 45 47 48 49] do : 
+        property(self.GPIO[i].digital-io) = dio
+      for i in [61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 91 93 10] do :
+        property(self.GPIO[i].digital-io) = dio
+    ; Max critical gain for oscillator: 4*ESR*(2*PI*F)^2*(c-shunt + c-load)^2
+    ; https://infocenter.nordicsemi.com/pdf/nRF52832_PS_v1.4.pdf -- Section 19.4.2
+    for p in [self.XI self.XO] do:
+      property(p.max-critical-gain) = 0.003 ; A/V
+      property(p.drive-level) = 13.0e-6 ; W. 250uA^2*ESR 
+      property(p.c) = 7.0e-12 ; Internal capacitance
+      property(p.frequency-tolerance) = 40.0e-6 * 32.0e6 ; 40ppm allowed from datasheet
+      property(p.frequency) = 32.0e6 
+
+    for p in [self.XI32M self.XO32M] do:
+      property(p.max-critical-gain) = 1.8465e-6 ; A/V
+      property(p.drive-level) = 6.5e-9; W. 0.25uA^2*ESR 
+      property(p.c) = 6.0e-12 ; Internal capacitance
+      property(p.frequency-tolerance) = 20.0e-6 * 32.786e3; 50ppm allowed from datasheet
+      property(p.frequency) = 32.768e3 

@@ -1,0 +1,137 @@
+#use-added-syntax(jitx)
+defpackage ambiq-demo/components/TEXAS-INSTRUMENTS/TPS22919 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+
+pcb-pad rect-smd-pad :
+  type = SMD
+  shape = Rectangle(0.381, 1.016)
+  ocdb/utils/landpatterns/apply-soldermask(0.1016)
+  layer(Paste(Top)) = Rectangle(0.381, 1.016)
+
+public pcb-landpattern SC70-6-1 :
+  pad p[1] : rect-smd-pad at loc(-0.65151, -1.10744) on Top
+  pad p[2] : rect-smd-pad at loc(-0.00126999999999811, -1.10744) on Top
+  pad p[3] : rect-smd-pad at loc(0.648969999999998, -1.10744) on Top
+  pad p[4] : rect-smd-pad at loc(0.648969999999998, 1.10236) on Top
+  pad p[5] : rect-smd-pad at loc(-0.00126999999999811, 1.10236) on Top
+  pad p[6] : rect-smd-pad at loc(-0.65151, 1.10236) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.15443, -1.80594), Point(-1.15443, 1.80086)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.15443, -1.80594), Point(0.201930000000001, -1.80594)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.15443, 1.80086), Point(1.14935, 1.80086)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(0.194310000000002, -1.80594), Point(1.14935, -1.80594)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.14935, -1.80594), Point(1.14935, 1.80086)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1524, [Point(-1.09347, -0.662939999999999), Point(-1.09347, 0.657859999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1524, [Point(-1.09347, -0.662939999999999), Point(1.09093, -0.662939999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1524, [Point(-1.09347, 0.657859999999999), Point(1.09093, 0.657859999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1524, [Point(1.09093, -0.662939999999999), Point(1.09093, 0.657859999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(-1.42748, -1.80594), Point(-1.42748, 1.80086)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(-1.42748, -1.80594), Point(0.201930000000001, -1.80594)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(-1.42748, 1.80086), Point(1.397, 1.80086)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(0.194310000000002, -1.80594), Point(1.397, -1.80594)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.1524, [Point(1.397, -1.80594), Point(1.397, 1.80086)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.0254, [Point(-0.255269999999999, -0.00253999999999976), Point(0.25273, -0.00253999999999976)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.0254, [Point(-0.00126999999999811, -0.256539999999999), Point(-0.00126999999999811, 0.25146)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text("1", 1.016, C, loc(-1.51003, -1.23444), "Arial", TrueTypeFont)
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 0.7874, C, loc(-0.58813, -0.21027), "Arial", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.1016, [Arc(-1.42915, -2.09702, 0.127, 0.0, 360.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(-1.38303, -1.10744, 90.0), "Arial", TrueTypeFont)
+  
+  model3d = Model3D("..\\..\\3d-models\\SC70-6_e96E84EF7.STEP",
+    Vec3D(-0.00761999999999929, -0.00126999999999988, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+public pcb-symbol TPS22919 :
+  pin IN at Point(0.0, -2.54) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.523
+    name-size = 1.523
+  pin GND at Point(0.0, -7.62) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.523
+    name-size = 1.523
+  pin ON at Point(0.0, -12.7) with :
+    direction = Left
+    length = 2.54
+    number-size = 1.523
+    name-size = 1.523
+  pin NC at Point(15.24, -12.7) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.523
+    name-size = 1.523
+  pin QOD at Point(15.24, -7.62) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.523
+    name-size = 1.523
+  pin OUT at Point(15.24, -2.54) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.523
+    name-size = 1.523
+  
+  layer("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3), "", TrueTypeFont)
+  layer("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.362), "", TrueTypeFont)
+  layer("foreground") = Rectangle(15.24, 15.24, loc(7.62, -7.62))
+
+  preferred-orientation = PreferRotation([0])
+  
+public pcb-component component :
+  description = "TPS22919"
+  manufacturer = "TEXAS INSTRUMENTS"
+  mpn = "TPS22919"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir]
+    [IN | p[1] | Left]
+    [GND | p[2] | Left]
+    [ON | p[3] | Left]
+    [NC | p[4] | Right]
+    [QOD | p[5] | Right]
+    [OUT | p[6] | Right]
+    
+  assign-landpattern(SC70-6-1)
+  assign-symbol(TPS22919)
+  no-connect(self.NC)
+  
+  property(self.AMBIQ_PN) = "AM-07-2348"
+  property(self.DISTRIBUTOR) = "MOUSER"
+  property(self.DISTRIBUTOR_PN) = "595-TPS22919DCKR"
+  property(self.HEIGHT) = "1.1mm"
+  property(self.\|IC Type|) = "SC70"
+  property(self.LEAD_FREE) = "Yes"
+  property(self.MFG_NAME) = "TEXAS INSTRUMENTS"
+  property(self.MFG_PN) = "TPS22919"
+  property(self.Manufacturer_Datasheet) = "https://www.ti.com/lit/ds/symlink/tps22919.pdf?ts=1599257340346&ref_url=https%253A%252F%252Fwww.ti.com%252Fpower-management%252Fpower-switches%252Fload-switches%252Fproducts.html"
+  property(self.PART_TYPE) = "SWITCH"
+  property(self.\|PCB Footprint|) = "SC70-6"
+  property(self.ROHS) = "Yes"
+  property(self.STATUS) = "Production"
+
+public pcb-module module :
+  pin IN 
+  pin OUT
+  pin GND
+  pin ON
+
+  inst sw : ambiq-demo/components/TEXAS-INSTRUMENTS/TPS22919/component
+
+  cap-strap(sw.IN GND, 1.0e-6)
+  res-strap(sw.ON GND, 1.0e6)
+
+  net (IN  sw.IN )  
+  net (OUT sw.OUT sw.QOD)  
+  net (GND sw.GND)  
+  net (ON  sw.ON ) 
+  
+  eval-when has-property?(sw.IN.voltage) :
+    property(sw.OUT.voltage) = property(sw.IN.voltage)
+  schematic-group(self) = TPS22919
