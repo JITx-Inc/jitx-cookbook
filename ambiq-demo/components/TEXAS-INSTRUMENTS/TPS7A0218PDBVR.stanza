@@ -43,38 +43,6 @@ public pcb-landpattern FP-DBV0005A-IPC_B-1 :
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.25, [Arc(-2.5281, 0.975000000000001, 0.125, 0.0, 360.0)])
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(-0.792199999999998, 2.15374, 270.0), "Arial", TrueTypeFont)
   
-public pcb-symbol CMP-04917-000292-1 :
-  pin EN at Point(5.08, -5.08) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin IN at Point(5.08, 0.0) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin NC at Point(5.08, -10.16) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin GND at Point(27.94, -10.16) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin OUT at Point(27.94, 0.0) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(-0.05, 2.84), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(-0.05, 3.902), "", TrueTypeFont)
-  layer("foreground") = Rectangle(22.86, 15.24, loc(16.51, -5.08))
-  
-  preferred-orientation = PreferRotation([0])
   
 public pcb-component component :
   mpn = "TPS7A0218PDBVR"
@@ -85,12 +53,12 @@ public pcb-component component :
     [pin:Ref | pads:Ref ... | side:Dir]
     [EN | p[3] | Left]
     [IN | p[1] | Left]
-    [NC | p[4] | Left]
-    [GND | p[2] | Right]
+    [NC | p[4] | Down]
+    [GND | p[2] | Down]
     [OUT | p[5] | Right]
     
   assign-landpattern(FP-DBV0005A-IPC_B-1)
-  assign-symbol(CMP-04917-000292-1)
+  make-box-symbol()
   
   no-connect(self.NC)
   property(self.IN.power-pin) = PowerPin(min-max(2.25, 6.0))

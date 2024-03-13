@@ -54,64 +54,23 @@ public pcb-landpattern UDFN6_2X2-1 :
     Vec3D(0.0, 0.0, 0.0),
     Vec3D(1.0, 1.0, 1.0),
     Vec3D(0.0, 0.0, 270.0))
-  
-public pcb-symbol NCP380LMUAJAATBG :
-  pin OUT at Point(15.24, -2.54) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin ILIM at Point(15.24, -7.62) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin FLAG at Point(0.0, -12.7) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin EN at Point(0.0, -7.62) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin GND at Point(15.24, -10.16) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin IN at Point(0.0, -2.54) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin PAD at Point(15.24, -12.7) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.362), "", TrueTypeFont)
-  layer("foreground") = Rectangle(15.24, 15.24, loc(7.62, -7.62))
-  
+
 public pcb-component component :
   description = "NCP380LMUAJAATBG"
   manufacturer = "ON SEMICONDUCTOR"
   mpn = "NCP380LMUAJAATBG"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir]
-    [OUT | p[1] | Right]
+    [OUT  | p[1] | Right]
     [ILIM | p[2] | Right]
     [FLAG | p[3] | Left]
-    [EN | p[4] | Left]
-    [GND | p[5] | Right]
-    [IN | p[6] | Left]
-    [PAD | p[7] | Right]
+    [EN   | p[4] | Left]
+    [GND  | p[5] | Down]
+    [IN   | p[6] | Left]
+    [PAD  | p[7] | Down]
     
   assign-landpattern(UDFN6_2X2-1)
-  assign-symbol(NCP380LMUAJAATBG)
+  make-box-symbol()
   
   property(self.AMBIQ_PN) = "AM-07-2216"
   property(self.DISTRIBUTOR) = "DIGIKEY"

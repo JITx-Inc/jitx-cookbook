@@ -47,43 +47,6 @@ public pcb-landpattern SC70-6-1 :
     Vec3D(1.0, 1.0, 1.0),
     Vec3D(0.0, 0.0, 0.0))
   
-public pcb-symbol TPS22919 :
-  pin IN at Point(0.0, -2.54) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin GND at Point(0.0, -7.62) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin ON at Point(0.0, -12.7) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin NC at Point(15.24, -12.7) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin QOD at Point(15.24, -7.62) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin OUT at Point(15.24, -2.54) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.362), "", TrueTypeFont)
-  layer("foreground") = Rectangle(15.24, 15.24, loc(7.62, -7.62))
-
-  preferred-orientation = PreferRotation([0])
   
 public pcb-component component :
   description = "TPS22919"
@@ -91,15 +54,15 @@ public pcb-component component :
   mpn = "TPS22919"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir]
-    [IN | p[1] | Left]
-    [GND | p[2] | Left]
-    [ON | p[3] | Left]
-    [NC | p[4] | Right]
+    [IN  | p[1] | Left]
+    [GND | p[2] | Down]
+    [ON  | p[3] | Left]
+    [NC  | p[4] | Down]
     [QOD | p[5] | Right]
     [OUT | p[6] | Right]
     
   assign-landpattern(SC70-6-1)
-  assign-symbol(TPS22919)
+  make-box-symbol()
   no-connect(self.NC)
   
   property(self.AMBIQ_PN) = "AM-07-2348"
@@ -134,4 +97,5 @@ public pcb-module module :
   
   eval-when has-property?(sw.IN.voltage) :
     property(sw.OUT.voltage) = property(sw.IN.voltage)
-  schematic-group(self) = TPS22919
+  schematic-group(self) = TPS22919  
+  layout-group(self) = TPS22919

@@ -162,10 +162,10 @@ public pcb-component component :
     [SDX | p[2] | Left | "unspecified" | 0]
     [SCX | p[3] | Left | "unspecified" | 0]
     [INT1 | p[4] | Left | "unspecified" | 0]
-    [VDDIO | p[5] | Left | "unspecified" | 0]
-    [GND0 | p[6] | Left | "unspecified" | 0]
-    [GND1 | p[7] | Left | "unspecified" | 0]
-    [VDD | p[8] | Right | "unspecified" | 0]
+    [VDDIO | p[5] | Up | "unspecified" | 0]
+    [GND0 | p[6] | Down | "unspecified" | 0]
+    [GND1 | p[7] | Down | "unspecified" | 0]
+    [VDD | p[8] | Up | "unspecified" | 0]
     [INT2 | p[9] | Right | "unspecified" | 0]
     [OSC_AUX | p[10] | Right | "unspecified" | 0]
     [SDO_AUX | p[11] | Right | "unspecified" | 0]
@@ -174,7 +174,7 @@ public pcb-component component :
     [SDA | p[14] | Right | "unspecified" | 0]
 
   assign-landpattern(lp)
-  assign-symbol(sym-LSM6DSOXTR)
+  make-box-symbol()
 
   property(self.category) = "ic"
   property(self.manufacturer_aliases) = ["STMicroelectronics"]

@@ -491,88 +491,7 @@ public pcb-landpattern r_pwson_n14_3x2_update-1 :
     Vec3D(0.0, 0.0, 0.0),
     Vec3D(1.0, 1.0, 1.0),
     Vec3D(0.0, 0.0, 90.0))
-  
-public pcb-symbol TPS22976 :
-  pin VIN1_1 at Point(0.0, -2.54) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VIN1_2 at Point(0.0, -5.08) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin ON1 at Point(0.0, -10.16) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VBIAS at Point(22.86, -27.94) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin ON2 at Point(0.0, -22.86) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VIN2_1 at Point(0.0, -15.24) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VIN2_2 at Point(0.0, -17.78) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VOUT2_1 at Point(22.86, -15.24) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VOUT2_2 at Point(22.86, -17.78) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin CT2 at Point(22.86, -22.86) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin GND at Point(0.0, -27.94) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin PAD at Point(0.0, -30.48) with :
-    direction = Left
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin CT1 at Point(22.86, -10.16) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VOUT1_2 at Point(22.86, -5.08) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  pin VOUT1_1 at Point(22.86, -2.54) with :
-    direction = Right
-    length = 2.54
-    number-size = 1.523
-    name-size = 1.523
-  
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.362), "", TrueTypeFont)
-  layer("foreground") = Rectangle(22.86, 33.02, loc(11.43, -16.51))
-  
+    
 public pcb-component component :
   description = "TPS22976"
   manufacturer = "TEXAS INSTRUMENTS"
@@ -581,23 +500,23 @@ public pcb-component component :
     [pin:Ref | pads:Ref ... | side:Dir]
     [VIN1_1 | p[1] | Left]
     [VIN1_2 | p[2] | Left]
-    [ON1 | p[3] | Left]
-    [VBIAS | p[4] | Right]
-    [ON2 | p[5] | Left]
+    [ON1    | p[3] | Left]
+    [VBIAS  | p[4] | Right]
+    [ON2    | p[5] | Left]
     [VIN2_1 | p[6] | Left]
     [VIN2_2 | p[7] | Left]
     [VOUT2_1 | p[8] | Right]
     [VOUT2_2 | p[9] | Right]
     [CT2 | p[10] | Right]
-    [GND | p[11] | Left]
-    [PAD | p[15] | Left]
+    [GND | p[11] | Down]
+    [PAD | p[15] | Down]
     [CT1 | p[12] | Right]
     [VOUT1_2 | p[13] | Right]
     [VOUT1_1 | p[14] | Right]
     
   assign-landpattern(r_pwson_n14_3x2_update-1)
-  assign-symbol(TPS22976)
-  
+  make-box-symbol()
+
   property(self.AMBIQ_PN) = "AM-07-2349"
   property(self.DISTRIBUTOR) = "MOUSER"
   property(self.DISTRIBUTOR_PN) = "595-TPS22976DPUR"

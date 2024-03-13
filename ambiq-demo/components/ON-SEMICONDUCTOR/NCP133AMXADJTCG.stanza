@@ -58,46 +58,6 @@ public pcb-landpattern SON40P120X45_HS-7N-1 :
     Vec3D(1.0, 1.0, 1.0),
     Vec3D(0.0, 0.0, 0.0))
   
-public pcb-symbol NCP133AMXADJTCG :
-  pin OUT at Point(7.62, 6.35) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin ADJ at Point(7.62, 3.81) with :
-    direction = Right
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin EN at Point(-7.62, -1.27) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin BIAS at Point(-7.62, 3.81) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin GND at Point(7.62, -2.54) with :
-    direction = Down
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin IN at Point(-7.62, 6.35) with :
-    direction = Left
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  pin PAD at Point(7.62, 0.0) with :
-    direction = Down
-    length = 5.08
-    number-size = 1.523
-    name-size = 1.523
-  
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(-12.75, 9.19), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(-12.75, 10.252), "", TrueTypeFont)
-  layer("foreground") = Rectangle(15.24, 13.97, loc(0.0, 1.905))
   
 public pcb-component component :
   description = "Linear Voltage Regulator IC Positive Adjustable 1 Output 500mA 6-XDFN (1.2x1.2)"

@@ -468,133 +468,6 @@ pcb-landpattern lp :
     [],
     )
 
-pcb-symbol sym-MX25UM51245GXDI00 :
-  pin NC0 at Point(-10.160, 13.970) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin NC1 at Point(-10.160, 11.430) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RESET_NOT at Point(-10.160, 8.890) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin ECS_NOT at Point(-10.160, 6.350) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin DNU0 at Point(-10.160, 3.810) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SCLK at Point(-10.160, 1.270) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND at Point(-10.160, -1.270) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VCC at Point(-10.160, -3.810) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin DNU1 at Point(-10.160, -6.350) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VSSQ0 at Point(-10.160, -8.890) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin CS_NOT at Point(-10.160, -11.430) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin DQS at Point(-10.160, -13.970) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO2 at Point(10.160, -13.970) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin NC2 at Point(10.160, -11.430) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VCCQ0 at Point(10.160, -8.890) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO1 at Point(10.160, -6.350) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO0 at Point(10.160, -3.810) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO3 at Point(10.160, -1.270) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO4 at Point(10.160, 1.270) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO7 at Point(10.160, 3.810) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO6 at Point(10.160, 6.350) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SIO5 at Point(10.160, 8.890) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VCCQ1 at Point(10.160, 11.430) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VSSQ1 at Point(10.160, 13.970) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-
-  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 16.621), "", TrueTypeFont, false, false)
-  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 17.621), "", TrueTypeFont, false, false)
-  layer("foreground") = Rectangle(20.320, 33.020)
-  layer("foreground") = Circle(-8.890, 15.240, 0.381)
-
 public pcb-component component :
   name = "C2913622"
   description = "512Mbit SPI TBGA-24  NOR FLASH ROHS"
@@ -604,33 +477,33 @@ public pcb-component component :
   reference-prefix = "U"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
-    [NC0 | A2_0 | Left | "unspecified" | 0]
-    [NC1 | A3_0 | Left | "unspecified" | 0]
+    [NC0       | A2_0 | Down | "unspecified" | 0]
+    [NC1       | A3_0 | Down | "unspecified" | 0]
     [RESET_NOT | A4_0 | Left | "unspecified" | 0]
-    [ECS_NOT | A5_0 | Left | "unspecified" | 0]
-    [DNU0 | B1_0 | Left | "unspecified" | 0]
-    [SCLK | B2_0 | Left | "unspecified" | 0]
-    [GND | B3_0 | Left | "unspecified" | 0]
-    [VCC | B4_0 | Left | "unspecified" | 0]
-    [DNU1 | B5_0 | Left | "unspecified" | 0]
-    [VSSQ0 | C1_0 | Left | "unspecified" | 0]
-    [CS_NOT | C2_0 | Left | "unspecified" | 0]
-    [DQS | C3_0 | Left | "unspecified" | 0]
-    [SIO2 | C4_0 | Right | "unspecified" | 0]
-    [NC2 | C5_0 | Right | "unspecified" | 0]
-    [VCCQ0 | D1_0 | Right | "unspecified" | 0]
-    [SIO1 | D2_0 | Right | "unspecified" | 0]
-    [SIO0 | D3_0 | Right | "unspecified" | 0]
-    [SIO3 | D4_0 | Right | "unspecified" | 0]
-    [SIO4 | D5_0 | Right | "unspecified" | 0]
-    [SIO7 | E1_0 | Right | "unspecified" | 0]
-    [SIO6 | E2_0 | Right | "unspecified" | 0]
-    [SIO5 | E3_0 | Right | "unspecified" | 0]
-    [VCCQ1 | E4_0 | Right | "unspecified" | 0]
-    [VSSQ1 | E5_0 | Right | "unspecified" | 0]
+    [ECS_NOT   | A5_0 | Left | "unspecified" | 0]
+    [DNU0      | B1_0 | Down | "unspecified" | 0]
+    [SCLK      | B2_0 | Left | "unspecified" | 0]
+    [GND       | B3_0 | Down | "unspecified" | 0]
+    [VCC       | B4_0 | Up   | "unspecified" | 0]
+    [DNU1      | B5_0 | Down | "unspecified" | 0]
+    [VSSQ0     | C1_0 | Down | "unspecified" | 0]
+    [CS_NOT    | C2_0 | Left | "unspecified" | 0]
+    [DQS       | C3_0 | Right | "unspecified" | 0]
+    [SIO2      | C4_0 | Right | "unspecified" | 0]
+    [NC2       | C5_0 | Down  | "unspecified" | 0]
+    [VCCQ0     | D1_0 | Up    | "unspecified" | 0]
+    [SIO1      | D2_0 | Right | "unspecified" | 0]
+    [SIO0      | D3_0 | Right | "unspecified" | 0]
+    [SIO3      | D4_0 | Right | "unspecified" | 0]
+    [SIO4      | D5_0 | Right | "unspecified" | 0]
+    [SIO7      | E1_0 | Right | "unspecified" | 0]
+    [SIO6      | E2_0 | Right | "unspecified" | 0]
+    [SIO5      | E3_0 | Right | "unspecified" | 0]
+    [VCCQ1     | E4_0 | Up    | "unspecified" | 0]
+    [VSSQ1     | E5_0 | Down  | "unspecified" | 0]
 
   assign-landpattern(lp)
-  assign-symbol(sym-MX25UM51245GXDI00)
+  make-box-symbol()
 
   property(self.category) = "ic"
   property(self.manufacturer_aliases) = ["MXIC(Macronix)"]

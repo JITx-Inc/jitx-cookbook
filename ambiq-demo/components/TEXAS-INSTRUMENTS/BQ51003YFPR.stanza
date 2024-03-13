@@ -115,3 +115,4 @@ public pcb-module module :
   bypass-cap-strap(VBUS, GND, 4.7e-6)
 
   layout-group(self) = wireless-power
+  schematic-group(self) = wireless-power
