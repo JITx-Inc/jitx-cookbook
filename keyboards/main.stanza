@@ -27,7 +27,7 @@ pcb-module low-profile :
 ; Module to run as a design
 pcb-module my-design :
 
-  inst keys : keyboard-from-kle("layouts/standard-60.json", button = low-profile)
+  inst keys : keyboard-from-kle("keyboards/layouts/standard-60.json", button = low-profile)
   inst mcu : ocdb/components/nordic/nRF52840/module(include-LFO? = false, include-antenna? = false, power-config = 5)
 
   for i in indices(keys.r) do :
