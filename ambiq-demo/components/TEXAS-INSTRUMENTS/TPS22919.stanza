@@ -6,6 +6,7 @@ defpackage ambiq-demo/components/TEXAS-INSTRUMENTS/TPS22919 :
   import jitx/commands
   import ocdb/utils/box-symbol
   import ocdb/utils/generic-components
+  import ocdb/utils/landpatterns
 
 pcb-pad rect-smd-pad :
   type = SMD
@@ -40,8 +41,8 @@ public pcb-landpattern SC70-6-1 :
   ; layer(CustomLayer("Pcb-Mechanical1")) = Text("1", 1.016, C, loc(-1.51003, -1.23444), "Arial", TrueTypeFont)
   ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 0.7874, C, loc(-0.58813, -0.21027), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.1016, [Arc(-1.42915, -2.09702, 0.127, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(-1.38303, -1.10744, 90.0), "Arial", TrueTypeFont)
-  
+  ref-label()
+
   model3d = Model3D("..\\..\\3d-models\\SC70-6_e96E84EF7.STEP",
     Vec3D(-0.00761999999999929, -0.00126999999999988, 0.0),
     Vec3D(1.0, 1.0, 1.0),

@@ -7,7 +7,8 @@ defpackage ambiq-demo/components/STMICROELECTRONICS/LSM6DSOXTR :
   import jitx/commands
   import ocdb/utils/box-symbol
   import ocdb/utils/bundles
-
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generic-components
 
 pcb-pad rectangle-smd-pad :
   name = "rectangle-smd-pad"
@@ -39,7 +40,7 @@ pcb-landpattern lp :
   pad p[13] : rectangle-smd-pad-1 at loc(0.0, 0.924) on Top
   pad p[14] : rectangle-smd-pad-1 at loc(-0.500, 0.924) on Top
 
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 0.5, W, loc(-0.750, 3.108), "", TrueTypeFont, false, false)
+  ref-label()
   layer(CustomLayer("Fab", Top)) = Text(">VALUE", 0.5, W, loc(-0.750, 2.108), "", TrueTypeFont, false, false)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
     Point(0.831, 1.327)
@@ -72,82 +73,6 @@ pcb-landpattern lp :
     [],
     )
 
-pcb-symbol sym-LSM6DSOXTR :
-  pin SDO_SA0 at Point(-13.970, 7.620) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SDX at Point(-13.970, 5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SCX at Point(-13.970, 2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin INT1 at Point(-13.970, 0.0) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VDDIO at Point(-13.970, -2.540) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND0 at Point(-13.970, -5.080) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND1 at Point(-13.970, -7.620) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VDD at Point(13.970, -7.620) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin INT2 at Point(13.970, -5.080) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin OSC_AUX at Point(13.970, -2.540) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SDO_AUX at Point(13.970, 0.0) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin CS at Point(13.970, 2.540) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SCL at Point(13.970, 5.080) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SDA at Point(13.970, 7.620) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-
-  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 10.271), "", TrueTypeFont, false, false)
-  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 11.271), "", TrueTypeFont, false, false)
-  layer("foreground") = Rectangle(27.940, 20.320)
-  layer("foreground") = Circle(-12.700, 8.890, 0.381)
 
 public pcb-component component :
   name = "C481766"
@@ -202,3 +127,6 @@ public pcb-module module :
 
   net VDD (pwr.vdd imu.VDDIO imu.VDD)
   net GND (pwr.gnd imu.GND0 imu.GND1)
+
+  bypass-cap-strap(imu.VDDIO, imu.GND0, 100.0e-9)
+  bypass-cap-strap(imu.VDD, imu.GND0, 100.0e-9)

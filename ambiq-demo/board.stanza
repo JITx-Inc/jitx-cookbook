@@ -38,16 +38,16 @@ public pcb-via via-0-1 :
   tented = false                  ;Top|Bottom|True|False with default false.
   via-in-pad = true
 
-public pcb-via via-1-2 :
-  name = "VIA-1-2"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
-  start = LayerIndex(1, Top)
-  stop = LayerIndex(2, Top)
-  diameter = 0.250
-  hole-diameter = 0.150
-  type = MechanicalDrill
-  filled = false
-  tented = false                  ;Top|Bottom|True|False with default false.
-  via-in-pad = false
+; public pcb-via via-1-2 :
+;   name = "VIA-1-2"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
+;   start = LayerIndex(1, Top)
+;   stop = LayerIndex(2, Top)
+;   diameter = 0.250
+;   hole-diameter = 0.150
+;   type = MechanicalDrill
+;   filled = false
+;   tented = false                  ;Top|Bottom|True|False with default false.
+;   via-in-pad = false
 
 public pcb-via via-2-3 :
   name = "VIP-2-3"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
@@ -72,38 +72,38 @@ public pcb-via std-via :
   tented = true                  ;Top|Bottom|True|False with default false.
   via-in-pad = false
 
-public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 14.4, 0.0, 360.0)])
+public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 9.4, 0.0, 360.0)])
 public pcb-board demo-board :
   stackup = stackup
-  boundary = PolygonWithArcs([Arc(Point(0.0, 0.0), 15.4, 0.0, 360.0)]) ; Circle(0.0, 0.0, 25.4)
+  boundary = PolygonWithArcs([Arc(Point(0.0, 0.0), 10.4, 0.0, 360.0)]) ; Circle(0.0, 0.0, 25.4)
   signal-boundary = signal-shape; PolygonWithArcs([Arc(Point(0.0, 0.0), 14.4, 0.0, 360.0)]); Circle(0.0, 0.0, 25.4)
-  vias = [via-0-1 via-1-2 via-2-3 std-via]
+  vias = [via-0-1 via-2-3 std-via]
 
 public pcb-routing-structure single-ended-50 :
   name = "50 Ohm single-ended"
   layer(Top) :
-    trace-width = 0.176     ; mm
+    trace-width = 0.114     ; mm
     clearance = 0.12        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
     neck-down = NeckDown(0.114 0.12 false false)
 
   layer(LayerIndex(1)) :
-    trace-width = 0.190     ; mm
+    trace-width = 0.120     ; mm
     clearance = 0.12        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
     neck-down = NeckDown(0.120 0.12 false false)
 
   layer(LayerIndex(1, Bottom)) :
-    trace-width = 0.190     ; mm
+    trace-width = 0.120     ; mm
     clearance = 0.12        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
     neck-down = NeckDown(0.120 0.12 false false)
 
   layer(Bottom) :
-    trace-width = 0.176     ; mm
+    trace-width = 0.114     ; mm
     clearance = 0.12        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
@@ -112,29 +112,29 @@ public pcb-routing-structure single-ended-50 :
 public pcb-differential-routing-structure differential-100 :
   name = "100 Ohm common-mode impedance"
   layer(Top) :
-    trace-width = 0.135     ; mm
-    pair-spacing = 0.175    ; mm
+    trace-width = 0.100     ; mm
+    pair-spacing = 0.120    ; mm
     clearance = 0.18        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
 
   layer(LayerIndex(1)) :
-    trace-width = 0.150     ; mm
-    pair-spacing = 0.16     ; mm
+    trace-width = 0.110     ; mm
+    pair-spacing = 0.130    ; mm
     clearance = 0.18        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
 
   layer(LayerIndex(1, Bottom)) :
-    trace-width = 0.150     ; mm
-    pair-spacing = 0.16     ; mm
+    trace-width = 0.110     ; mm
+    pair-spacing = 0.130    ; mm
     clearance = 0.18        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
     
   layer(Bottom) :
-    trace-width = 0.135     ; mm
-    pair-spacing = 0.175     ; mm
+    trace-width = 0.100     ; mm
+    pair-spacing = 0.120    ; mm
     clearance = 0.18        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz                  

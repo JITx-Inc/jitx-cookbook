@@ -64,8 +64,8 @@ public pcb-landpattern r_pwson_n14_3x2_update-1 :
   ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(0.0, -0.254000000000001), Point(0.0, 0.253999999999998)])
   ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 0.7112, C, loc(0.221220000000001, -0.545530000000003, 90.0), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.25, [Arc(-2.032, -1.651, 0.12407, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.27, C, loc(0.8636, 2.54, 180.0), "Arial", TrueTypeFont)
-  
+  ref-label()
+    
   copper(LayerIndex(0)) = Polygon([  
     Point(-1.29982, -1.39993), 
     Point(-1.09982, -1.39993), 

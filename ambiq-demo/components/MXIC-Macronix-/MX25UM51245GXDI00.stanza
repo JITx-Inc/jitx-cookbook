@@ -7,6 +7,7 @@ defpackage ambiq-demo/components/MXIC-Macronix-/MX25UM51245GXDI00 :
   import jitx/commands
   import ocdb/utils/box-symbol
   import ocdb/utils/bundles
+  import ocdb/utils/landpatterns
   import ocdb/utils/generic-components
 
   import ambiq-demo/bundles
@@ -45,7 +46,7 @@ pcb-landpattern lp :
   pad E4_0 : circle-smd-pad at loc(2.114, 1.114) on Top
   pad E5_0 : circle-smd-pad at loc(2.114, 2.114) on Top
 
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 0.5, W, loc(-0.750, 4.972), "", TrueTypeFont, false, false)
+  ref-label()
   layer(CustomLayer("Fab", Top)) = Text(">VALUE", 0.5, W, loc(-0.750, 3.972), "", TrueTypeFont, false, false)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
     Point(-3.962, 3.191)

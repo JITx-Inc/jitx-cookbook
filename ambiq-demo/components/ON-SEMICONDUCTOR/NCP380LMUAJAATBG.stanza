@@ -5,6 +5,7 @@ defpackage ambiq-demo/components/ON-SEMICONDUCTOR/NCP380LMUAJAATBG :
   import jitx
   import jitx/commands
   import ocdb/utils/box-symbol
+  import ocdb/utils/landpatterns
 
 pcb-pad rect-smd-pad-1 :
   type = SMD
@@ -47,9 +48,9 @@ public pcb-landpattern UDFN6_2X2-1 :
   layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(0.0, -0.253999999999998), Point(0.0, 0.254000000000001)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.1016, [Arc(-1.51091, 1.22416, 0.04954, 0.0, 360.0)])
   layer(CustomLayer("Pcb-Mechanical1")) = Polyline(0.1016, [Arc(-1.00076, 1.00076, 0.04954, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(-0.370450000000002, -1.397, 270.0), "Arial", TrueTypeFont)
   layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.016, C, loc(-0.243450000000003, 0.52467, 270.0), "Arial", TrueTypeFont)
-  
+  ref-label()
+
   model3d = Model3D("..\\..\\3d-models\\UDFN6_2X2_e914973F2.STEP",
     Vec3D(0.0, 0.0, 0.0),
     Vec3D(1.0, 1.0, 1.0),

@@ -184,8 +184,7 @@ public pcb-landpattern bga131_0p35_4p7x4p7-1 :
   ; layer(CustomLayer("Pcb-Mechanical1")) = Polyline(0.381, [Arc(-1.90144, 1.90143999999999, 0.10008, 0.0, 360.0)])
   ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.016, C, loc(-0.243449999999999, 0.461829999999992, 270.0), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.381, [Arc(-2.19405, 2.70205, 0.10008, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 2.032, C, loc(2.6781, -2.98266, 270.0), "Arial", TrueTypeFont)
-
+  ref-label()
   layer(Courtyard(Top)) = Rectangle(6.0, 6.0)
  
   model3d = Model3D("..\\..\\3d-models\\bga131_0p35_4p7x4p7_e905019D4.STEP",

@@ -41,8 +41,7 @@ public pcb-landpattern FP-DBV0005A-IPC_B-1 :
   ; layer(CustomLayer("Pcb-Mechanical2")) = Line(0.2, [Point(2.1031, -1.7), Point(2.1031, 1.69999)])
   ; layer(CustomLayer("Pcb-Mechanical2")) = Text(">REF", 1.0, C, loc(0.146660000000001, -0.495709999999999, 270.0), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.25, [Arc(-2.5281, 0.975000000000001, 0.125, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(-0.792199999999998, 2.15374, 270.0), "Arial", TrueTypeFont)
-  
+  ref-label()  
   
 public pcb-component component :
   mpn = "TPS7A0218PDBVR"

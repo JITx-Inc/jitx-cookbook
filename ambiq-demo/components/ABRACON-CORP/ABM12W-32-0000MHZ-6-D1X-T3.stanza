@@ -9,6 +9,7 @@ defpackage ambiq-demo/components/ABRACON-CORP/ABM12W-32-0000MHZ-6-D1X-T3 :
   import ocdb/utils/bundles
   import ocdb/utils/generator-utils
   import ocdb/utils/generic-components
+  import ocdb/utils/landpatterns
 
 pcb-pad rect-smd-pad :
   type = SMD
@@ -40,9 +41,8 @@ public pcb-landpattern xtal4_1p6x1p2mm_sm-1 :
   ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1016, [Point(0.0, -0.254000000000001), Point(0.0, 0.254000000000001)])
   ; layer(CustomLayer("Pcb-Mechanical1")) = Polyline(0.1016, [Arc(-0.8001, -0.599440000000001, 0.127, 0.0, 360.0)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.1016, [Arc(-0.956670000000003, -1.04691, 0.127, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(-1.47320000000001, 0.812799999999999, 180.0), "Arial", TrueTypeFont)
-  layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 0.7112, C, loc(0.380269999999996, 0.3048, 180.0), "Arial", TrueTypeFont)
-  
+  ref-label()
+
   model3d = Model3D("..\\..\\3d-models\\xtal4_1p6x1p2mm_sm_e914911A9.STEP",
     Vec3D(0.0, -0.00153999999999854, 0.0),
     Vec3D(1.0, 1.0, 1.0),
@@ -67,7 +67,6 @@ public pcb-symbol XTAL4_GND24 :
     number-size = 1.523
   
   layer("foreground") = Text(">VALUE", 0.762, C, loc(1.016, 2.89), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(1.016, 3.952), "", TrueTypeFont)
   layer("foreground") = Rectangle(8.128, 14.224, loc(5.08, -8.128))
   layer("foreground") = Rectangle(2.032, 5.08, loc(5.08, -5.08))
   layer("foreground") = Line(0.127, [Point(6.858, -3.81), Point(6.858, -6.35)])
@@ -84,11 +83,12 @@ public pcb-symbol XTAL4_GND24 :
     Point(2.54, 0.0)])
   layer("foreground") = Text("GND4", 1.066, SW, loc(8.382, -15.04462, 90.0), "", TrueTypeFont)
   layer("foreground") = Text("GND2", 1.066, SW, loc(3.556, -15.04462, 90.0), "", TrueTypeFont)
-  
+
 public pcb-component component :
   description = "XTAL4_GND24"
   manufacturer = "ABRACON CORP"
   mpn = "ABM12W-32.0000MHZ-6-D1X-T3"
+  reference-prefix = "X"  
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir]
     [p[1] | p[1] | Up]

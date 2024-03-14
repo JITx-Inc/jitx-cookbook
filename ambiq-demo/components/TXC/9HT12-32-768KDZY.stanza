@@ -9,6 +9,7 @@ defpackage ambiq-demo/components/TXC/9HT12-32-768KDZY :
   import ocdb/utils/bundles
   import ocdb/utils/generator-utils
   import ocdb/utils/generic-components
+  import ocdb/utils/landpatterns
   
 pcb-pad rect-smd-pad :
   type = SMD
@@ -35,8 +36,8 @@ public pcb-landpattern XTAL2-1p6x1p0-SM-1 :
   ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.016, C, loc(-0.555780000000002, -0.330200000000005), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Text("", 1.016, C, loc(1.11761, -0.0761900000000111), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Text("1", 1.016, C, loc(-1.55569, -0.395859999999999), "Arial", TrueTypeFont)
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(1.2446, -0.20320000000001), "Arial", TrueTypeFont)
-  
+  ref-label()
+
   model3d = Model3D("..\\..\\3d-models\\XTAL2-1p6x1p0-SM_e8DF0939B.STEP",
     Vec3D(0.0, 0.0, 0.0),
     Vec3D(1.0, 1.0, 1.0),
@@ -70,6 +71,7 @@ public pcb-component component :
   description = "XTAL"
   manufacturer = "TXC"
   mpn = "9HT12-32.768KDZY"
+  reference-prefix = "X"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir]
     [p[1] | p[1] | Left]

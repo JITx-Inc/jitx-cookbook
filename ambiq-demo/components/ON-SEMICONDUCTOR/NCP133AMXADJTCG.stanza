@@ -51,8 +51,8 @@ public pcb-landpattern SON40P120X45_HS-7N-1 :
   ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1, [Point(0.0, -0.5), Point(0.0, 0.5)])
   ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.0, C, loc(-0.496890000000001, -0.27942), "Arial", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.1, [Arc(-0.912129999999998, 0.73213, 0.05, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.016, C, loc(1.11398, -0.734719999999999), "Arial", TrueTypeFont)
-  
+  ref-label()
+    
   model3d = Model3D("..\\..\\3d-models\\SON40P120X45_HS-7N_gF9BB0A81.STEP",
     Vec3D(0.0, 0.0, 0.0),
     Vec3D(1.0, 1.0, 1.0),

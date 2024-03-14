@@ -71,12 +71,14 @@ pcb-landpattern lp :
   ;   Vec3D(-1.650, -0.750, 0.0),
   ;   Vec3D(1.0, 1.0, 1.0),
   ;   Vec3D(-90.0, 0.0, -90.0))
+  ref-label()
 
 public pcb-component component :
   name = "FH19C-6S-0.5SH(10)"
   description = "6 Position FFC, FPC Connector Contacts, Bottom 0.020\" (0.50mm) Surface Mount, Right Angle"
   manufacturer = "Hirose"
   mpn = "FH19C-6S-0.5SH(10)"
+  reference-prefix = "J"
   datasheet = "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/822/FH19C_FH19SC_Series.pdf"
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
