@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/PH2-0-2PWB :
+defpackage hacking_conference_badge/components/PH2-0-2PWB :
   import core
   import collections
   import jitx

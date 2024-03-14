@@ -1,7 +1,7 @@
 ; When renaming the stanza package name below, also rename it in the folder stanza.proj
 ; See docs.jitx.com for help
 #use-added-syntax(jitx)
-defpackage components/logic-level-shifter:
+defpackage hacking_conference_badge/components/logic-level-shifter:
   import core
   import collections
   import jitx
@@ -35,8 +35,8 @@ public pcb-module i2c-level-shifter-module :
   pin hv
 
   ; create level shifters
-  inst scl-shift : components/logic-level-shifter/module
-  inst sda-shift : components/logic-level-shifter/module
+  inst scl-shift : hacking_conference_badge/components/logic-level-shifter/module
+  inst sda-shift : hacking_conference_badge/components/logic-level-shifter/module
 
   ; create i2c ports for level shifters
   port lv-i2c : i2c

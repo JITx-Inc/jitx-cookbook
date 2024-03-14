@@ -5,7 +5,7 @@
 
 ; declare our package name and import dependencies
 #use-added-syntax(jitx)
-defpackage main : 
+defpackage usb_c_cable_tester/main : 
   import core
   import collections
   import jitx
@@ -14,8 +14,8 @@ defpackage main :
   import ocdb/utils/checks
   import ocdb/utils/generic-components
   import ocdb/utils/generator-utils
-  import helpers
-  import components/LED-maker-ROYGB
+  import usb_c_cable_tester/helpers
+  import usb_c_cable_tester/components/LED-maker-ROYGB
   import ocdb/utils/bundles
 
 ; define parameters of the board
@@ -45,7 +45,7 @@ defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITX
     tp-pad
 
 ; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
-pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:components/LED-maker-ROYGB/LED-COLORS) :
+pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:usb_c_cable_tester/components/LED-maker-ROYGB/LED-COLORS) :
   pin in
   pin out
 
@@ -55,7 +55,7 @@ pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:compone
   val test-pad = my-testpoint-strap(IN, net-name, 2.0) ; in current versions of OCDB, we can directly call `testpoint-strap` function
 
   ; generate LED of certain color with a ballast resistor tuned for that color and LED type
-  inst status-led : components/LED-maker-ROYGB/module(color, voltage)
+  inst status-led : usb_c_cable_tester/components/LED-maker-ROYGB/module(color, voltage)
   net (status-led.in in)
   net (status-led.out out)
 
@@ -68,7 +68,7 @@ pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:compone
 ; take a Tuple of pins we want to add status LEDs to, and the GND pin. Add status LEDs and test pins to each of the input pins.
 defn generate-test-leds-array (in-pins:Tuple<Net>, gnd-pin:JITXObject, voltage:Toleranced) :
   inside pcb-module :
-    val colors:Seq<components/LED-maker-ROYGB/LED-COLORS> = generate-rainbow(length(in-pins))
+    val colors:Seq<usb_c_cable_tester/components/LED-maker-ROYGB/LED-COLORS> = generate-rainbow(length(in-pins))
     for (in-pin in in-pins, color in colors, place in 0 to false) do :
       ; create test LED and connect it
       inst test-led : generate-test-led(voltage, to-string(ref(in-pin)), color)
@@ -89,8 +89,8 @@ public pcb-module test-rig :
   inst design-under-test : usb-c-cable-tester-module
   inst usb-c-cable : usb-c-cable-module
 
-  require dut-in-usb : usb-c-full-bundle from design-under-test.in-usb
-  require dut-out-usb : usb-c-full-bundle from design-under-test.out-usb
+  require dut-in-usb : usb-c-connector from design-under-test.in-usb
+  require dut-out-usb : usb-c-connector from design-under-test.out-usb
 
   net IN (dut-in-usb usb-c-cable.in-usb-bundle)
   net OUT (dut-out-usb usb-c-cable.out-usb-bundle)
@@ -98,8 +98,8 @@ public pcb-module test-rig :
 
 ; a component that models a usb cable
 public pcb-module usb-c-cable-module:
-  port in-usb-bundle : ocdb/utils/bundles/usb-c-full-bundle
-  port out-usb-bundle : ocdb/utils/bundles/usb-c-full-bundle
+  port in-usb-bundle  : ocdb/utils/bundles/usb-c-connector
+  port out-usb-bundle : ocdb/utils/bundles/usb-c-connector
   net (in-usb-bundle out-usb-bundle)
 
 pcb-module usb-c-cable-tester-module :
@@ -119,8 +119,6 @@ pcb-module usb-c-cable-tester-module :
   ; setup logo
   inst logo : ocdb/artwork/jitx-logo/logo(10.0)
   place(logo) at loc(10.0, -5.0, 0.0) on Bottom
-  component-status(logo) :
-    bom-status : NotInBOM
 
   ; create a coin cell battery
   val battery-capacity = 90.0 ;mAh
@@ -135,10 +133,10 @@ pcb-module usb-c-cable-tester-module :
   val usb-x-shift = 4.0
   val usb-y-shift = -7.0
   ; public inst in-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
-  public inst in-usb : components/USB-C-1054500101/component
+  public inst in-usb : usb_c_cable_tester/components/USB-C-1054500101/component
   place(in-usb) at loc((-1.0 * width(board-shape) / 2.0) + usb-x-shift, usb-y-shift, -90.0) on Top
   ; public inst out-usb : ocdb/components/xkb/U263-241N-4BQC11-1/component
-  public inst out-usb : components/USB-C-1054500101/component
+  public inst out-usb : usb_c_cable_tester/components/USB-C-1054500101/component
   place(out-usb) at loc((width(board-shape) / 2.0) - usb-x-shift, usb-y-shift, 90.0) on Top
 
   ; make nets for all of the pins on the usb C that we want to test

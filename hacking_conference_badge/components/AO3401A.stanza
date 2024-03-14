@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/AO3401A :
+defpackage hacking_conference_badge/components/AO3401A :
   import core
   import collections
   import math

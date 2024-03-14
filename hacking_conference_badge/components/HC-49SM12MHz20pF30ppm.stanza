@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/HC-49SM12MHz20pF30ppm :
+defpackage hacking_conference_badge/components/HC-49SM12MHz20pF30ppm :
   import core
   import collections
   import jitx

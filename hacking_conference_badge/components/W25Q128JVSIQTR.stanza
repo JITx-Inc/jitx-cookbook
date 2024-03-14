@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/W25Q128JVSIQTR :
+defpackage hacking_conference_badge/components/W25Q128JVSIQTR :
   import core
   import collections
   import jitx

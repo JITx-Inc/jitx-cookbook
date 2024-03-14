@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/RP2040 :
+defpackage hacking_conference_badge/components/RP2040 :
   import core
   import collections
   import jitx
@@ -527,7 +527,7 @@ public pcb-module module :
   port usb  : usb-2-data
 
   ; TODO: Model gpio properly in parts-db
-  public inst mcu : components/RP2040/component
+  public inst mcu : hacking_conference_badge/components/RP2040/component
 
   val r-usb-M = res-strap(usb.N, mcu.USB_DM, 27.0)
   val r-usb-P = res-strap(usb.P, mcu.USB_DP, 27.0)

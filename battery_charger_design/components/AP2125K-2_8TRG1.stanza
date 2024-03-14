@@ -1,6 +1,6 @@
 ; A 2.8V LDO voltage regulator IC, AP2125K
 #use-added-syntax(jitx)
-defpackage components/AP2125K-2_8TRG1 :
+defpackage battery_charger_design/components/AP2125K-2_8TRG1 :
   import core
   import collections
   import jitx
@@ -95,7 +95,7 @@ public pcb-module module :
   pin vout
   pin gnd
   pin ce
-  public inst ps : components/AP2125K-2_8TRG1/component
+  public inst ps : battery_charger_design/components/AP2125K-2_8TRG1/component
 
   ; create the bypass capacitors
   ocdb/utils/generic-components/bypass-cap-strap(ps.VIN, gnd, 1.0e-6)

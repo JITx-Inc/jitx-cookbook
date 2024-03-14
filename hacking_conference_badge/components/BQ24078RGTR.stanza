@@ -1,6 +1,6 @@
 ; A Lithium battery charger IC, BQ2407
 #use-added-syntax(jitx)
-defpackage components/BQ24078RGTR :
+defpackage hacking_conference_badge/components/BQ24078RGTR :
   import core
   import collections
   import jitx

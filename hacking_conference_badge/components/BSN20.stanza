@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/BSN20 :
+defpackage hacking_conference_badge/components/BSN20 :
   import core
   import collections
   import jitx

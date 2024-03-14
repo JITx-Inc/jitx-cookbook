@@ -1,6 +1,6 @@
 ; A model of a standard lithium battery, to be used for testing and voltage propogation (not to be part of the final layout)
 #use-added-syntax(jitx)
-defpackage components/LithiumBattery:
+defpackage battery_charger_design/components/LithiumBattery:
   import core
   import collections
   import jitx

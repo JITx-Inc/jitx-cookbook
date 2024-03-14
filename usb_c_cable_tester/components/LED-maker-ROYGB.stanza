@@ -2,7 +2,7 @@
 ; A module that accepts color and voltage, and creates an LED with tuned ballast resistor for a 50mCd luminous intensity.
 
 #use-added-syntax(jitx)
-defpackage components/LED-maker-ROYGB:
+defpackage usb_c_cable_tester/components/LED-maker-ROYGB:
   import core
   import collections
   import jitx
@@ -109,7 +109,7 @@ public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
   pin out
 
   ; using the component definition from above:
-  inst led : components/LED-maker-ROYGB/led-component(color)
+  inst led : usb_c_cable_tester/components/LED-maker-ROYGB/led-component(color)
 
   ; create ballast resistor
   val brightness = 50.0e-3 ; candella

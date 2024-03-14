@@ -1,6 +1,6 @@
 ; A small SMD SPDT switch component
 #use-added-syntax(jitx)
-defpackage components/MK-12C02-G025 :
+defpackage battery_charger_design/components/MK-12C02-G025 :
   import core
   import collections
   import jitx

@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/RK09K1130AP5 :
+defpackage hacking_conference_badge/components/RK09K1130AP5 :
   import core
   import collections
   import jitx

@@ -3,7 +3,7 @@
 ; update your design in CAD, etc.
 ; ====================
 #use-added-syntax(jitx)
-defpackage helpers :
+defpackage usb_c_cable_tester/helpers :
   import core
   import collections
   import lang-utils
