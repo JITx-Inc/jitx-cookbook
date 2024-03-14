@@ -87,7 +87,7 @@ public pcb-module module :
 
   inst sw : ambiq-demo/components/TEXAS-INSTRUMENTS/TPS22919/component
 
-  cap-strap(sw.IN GND, 1.0e-6)
+  bypass-cap-strap(sw.IN GND, 1.0e-6)
   res-strap(sw.ON GND, 1.0e6)
 
   net (IN  sw.IN )  

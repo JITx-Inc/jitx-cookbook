@@ -35,10 +35,10 @@ public pcb-landpattern SON40P120X45_HS-7N-1 :
   pad p[6] : my-rect-smd-pad-1 at loc(0.515000000000001, 0.4, 90.0) on Top
   pad p[7] : my-rect-smd-pad-2 at loc(0.0, 0.0, 90.0) on Top
   
-  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1, [Point(-0.625, -0.625), Point(-0.625, 0.625)])
-  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1, [Point(-0.625, -0.625), Point(0.625, -0.625)])
-  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1, [Point(-0.625, 0.625), Point(0.625, 0.625)])
-  ; layer(CustomLayer("Pcb-Mechanical1")) = Line(0.1, [Point(0.625, -0.625), Point(0.625, 0.625)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point(-0.755, -0.725), Point(-0.755,  0.725)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point(-0.755, -0.725), Point( 0.755, -0.725)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point(-0.755,  0.725), Point( 0.755,  0.725)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point( 0.755, -0.725), Point( 0.755,  0.725)])
   ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.0508, [Point(-1.185, -0.9), Point(-1.185, 0.899999999999999)])
   ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.05, [Point(-1.185, -0.9), Point(-1.185, 0.899999999999999)])
   ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.0508, [Point(-1.185, -0.9), Point(1.185, -0.9)])

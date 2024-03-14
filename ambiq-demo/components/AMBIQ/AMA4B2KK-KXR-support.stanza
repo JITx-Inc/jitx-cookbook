@@ -316,7 +316,7 @@ public pcb-check ambiq-apollo4 (lfxtal:JITXObject, hfxtal:JITXObject, simo-ind:J
 public defn add-caps (decouple-array) :
   inside pcb-module:
     for [pin1, pin2, value, size, rated-v, dielectric] in decouple-array do:
-      val decouple-cap = cap-strap(pin1, pin2, ["capacitance" => value, "min-rated-voltage" => rated-v, "case" => size, "temperature-coefficient.code" => dielectric])
+      val decouple-cap = bypass-cap-strap(pin1, pin2, ["capacitance" => value, "min-rated-voltage" => rated-v, "case" => size, "temperature-coefficient.code" => dielectric])
       schematic-group(decouple-cap) = bypass
 
 public defn make-supports ():

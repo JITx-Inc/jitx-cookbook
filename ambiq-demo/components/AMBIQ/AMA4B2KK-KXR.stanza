@@ -273,7 +273,7 @@ public pcb-module module (options:Tuple<KeyValue<Symbol,?>>):
   require xls : low-freq-oscillator from apollo
   require xlsxtal : low-freq-oscillator from XTAL-RTC
   net (xls xlsxtal)
-  schematic-group(XTAL-RTC) = apollo.clock
+  schematic-group(XTAL-RTC) = apollo-clock
   ; val rtc-xtal-params = ["frequency" => 32768, "load-capacitance" => 4.0e-12, "ESR" => 90.0e3, "frequency-tolerance" => 20.0e-6 * 32.768e3]
 
   ; TODO: 7. Add option for external clock source for 32K_EXTCLK circuit to replace crystal
@@ -294,7 +294,7 @@ public pcb-module module (options:Tuple<KeyValue<Symbol,?>>):
   require xhsxtal : high-freq-oscillator from XTAL-HS
   net (xhs xhsxtal)
   net (GND XTAL-HS.p[2] XTAL-HS.p[4])
-  schematic-group(XTAL-HS) = apollo.clock
+  schematic-group(XTAL-HS) = apollo-clock
   ; val hs-xtal-params = ["frequency" => 32.0e6, "load-capacitance" => 6.0e-12, "ESR" => 100, "frequency-tolerance" => 40.0e-6 * 32.0e6]
 
 
@@ -340,7 +340,7 @@ public pcb-module module (options:Tuple<KeyValue<Symbol,?>>):
     symbol(VDD_0V9)     = ocdb/utils/symbols/altium-power-bar-sym
     symbol(VDD_USB3V3)  = ocdb/utils/symbols/altium-power-bar-sym
     symbol(VDD_USB0V9)  = ocdb/utils/symbols/altium-power-bar-sym
-    schematic-group([REG3V3 REG0V9 loadsw]) = power
+    schematic-group([REG3V3 REG0V9 loadsw]) = apollo-power
   else:
     ; 8.3.1 USB Unused
     ; If the USB peripheral is not used, please leave the USB data pads (USB0PP and
@@ -380,7 +380,7 @@ public pcb-module module (options:Tuple<KeyValue<Symbol,?>>):
     net (vdd18en.gpio vdd18sw.ON)
     net (REG1V8.OUT vdd18sw.IN)
     net (vdd18sw.OUT apollo.VDD18)
-    schematic-group([vdd18sw]) = mipi-power
+    schematic-group([vdd18sw]) = apollo-power
   else :
     property(apollo.VDD18.power-pin)   = PowerPin(typ(0.0))
     net (GND apollo.VDD18)

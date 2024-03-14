@@ -76,8 +76,8 @@ pcb-module reference-design :
   geom(GND) :
     copper-pour(LayerIndex(1), isolate = 0.15, rank = 1) = signal-shape
 
-  geom(GND) :
-    copper-pour(LayerIndex(3), isolate = 0.15, rank = 1) = signal-shape
+  ; geom(GND) :
+  ;   copper-pour(LayerIndex(3), isolate = 0.15, rank = 1) = signal-shape
 
   ; geom(VDD1V8) :
   ;   copper-pour(LayerIndex(4), isolate = 0.15, rank = 1) = signal-shape
