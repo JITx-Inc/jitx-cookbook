@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/VL53L0CXV0DH_1 :
+defpackage hacking_conference_badge/components/VL53L0CXV0DH_1 :
   import core
   import collections
   import jitx
@@ -85,7 +85,7 @@ public pcb-module module :
   port i2c : i2c ; Address: 0x52
   pin x-shut 
   pin gpio1
-  public inst tof : database-part(["mpn" => "VL53L0CXV0DH1", "manufacturer" => "STMicroelectronics"])
+  public inst tof : database-part(["mpn" => "VL53L0CXV0DH1", "manufacturer" => "STMICROELECTRONICS"])
   bypass-cap-strap(tof.VDD, tof.GND, 4.7e-6)
   bypass-cap-strap(tof.AVDD, tof.GND, 0.1e-6)
   net (i2c.sda tof.SDA)

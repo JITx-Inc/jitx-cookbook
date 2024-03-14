@@ -1,3 +1,2 @@
-include "../open-components-database/stanza.proj"
-package helpers defined-in "helpers.stanza"
-package main defined-in "main.stanza"
+package ble_mote_esp32_iot_board/helpers defined-in "helpers.stanza"
+package ble_mote_esp32_iot_board/main defined-in "main.stanza"

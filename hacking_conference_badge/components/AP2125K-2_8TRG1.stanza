@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/AP2125K-2_8TRG1 :
+defpackage hacking_conference_badge/components/AP2125K-2_8TRG1 :
   import core
   import collections
   import jitx
@@ -8,61 +8,12 @@ defpackage components/AP2125K-2_8TRG1 :
   import ocdb/utils/property-structs
   import ocdb/utils/generic-components
 
-pcb-pad rect-smd-pad :
-  type = SMD
-  shape = Rectangle(1.0, 0.6)
-  layer(Paste(Top)) = Rectangle(1.0, 0.6)
-  layer(SolderMask(Top)) = Rectangle(1.0, 0.6)
-
-public pcb-landpattern SOT-23-5_L30-W16-P095-LS28-BL :
-  pad p[1] : rect-smd-pad at loc(-0.949936, -1.300102, 270.0) on Top
-  pad p[2] : rect-smd-pad at loc(2.5e-05, -1.300102, 270.0) on Top
-  pad p[3] : rect-smd-pad at loc(0.949987, -1.300102, 270.0) on Top
-  pad p[4] : rect-smd-pad at loc(0.949987, 1.300102, 270.0) on Top
-  pad p[5] : rect-smd-pad at loc(-0.949936, 1.300102, 270.0) on Top
-
-  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.300102), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.300102), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.300102), "", TrueTypeFont)
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-0.400076, 0.900051), Point(0.399949, 0.900051)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(1.550013, 0.900051), Point(1.550013, -0.899975)])
-  layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-1.550013, 0.900051), Point(-1.550013, -0.899975)])
-  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254001, [Arc(-1.650978, -1.523876, 0.127, 0.0, 360.0)])
-  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(-1.450064, -1.399924, 0.029973, 0.0, 360.0)])
-  layer(Finish(Top)) = Polyline(0.3, [Arc(-0.888976, -1.27013, 0.150114, 0.0, 360.0)])
-
-  model3d = Model3D("../../3d-models/SOT-23-5_L3.0-W1.6-P0.95-LS2.8-BL.wrl",
-    Vec3D(0.0, 0.0, 0.0),
-    Vec3D(1.0, 1.0, 1.0),
-    Vec3D(0.0, 0.0, 0.0))
-
-
-public pcb-component component :
-  description = "AP2125K-2_8TRG1"
-  mpn = "AP2125K-2.8TRG1"
-  pin-properties :
-    [pin:Ref | pads:Ref ... | side:Dir ]
-    [VIN | p[1] | Left ]
-    [GND | p[2] | Left ]
-    [EN | p[3] | Left ]
-    [NC | p[4] | Right ]
-    [VOUT | p[5] | Right ]
-
-  assign-landpattern(SOT-23-5_L30-W16-P095-LS28-BL)
-  make-box-symbol()
-
-  property(self.VIN.power-pin) = PowerPin(min-max(2.8 + 0.3, 6.0))
-  property(self.VOUT.power-supply-pin) = PowerSupplyPin(min-typ-max(2.744 2.8 2.856), 0.3)
-  property(self.VOUT.voltage) = min-typ-max(2.744 2.8 2.856)
-
-  property(self.LCSC) = "C176953"
-
 public pcb-module module : 
   pin vin
   pin vout
   pin gnd
   pin en
-  public inst ps : database-part(["manufacturer" => "Diodes Incorporated", "mpn" => "AP2125K-2.8TRG1"])
+  public inst ps : database-part(["manufacturer" => "Diodes Inc.", "mpn" => "AP2125K-2.8TRG1"])
   ocdb/utils/generic-components/bypass-cap-strap(ps.VIN, gnd, 1.0e-6)
   ocdb/utils/generic-components/bypass-cap-strap(ps.VOUT, gnd, 1.0e-6)
   net (vin, ps.VIN)

@@ -1,7 +1,7 @@
 ; When renaming the stanza package name below, also rename it in the folder stanza.proj
 ; See docs.jitx.com for help
 #use-added-syntax(jitx)
-defpackage components/high-side-switch:
+defpackage hacking_conference_badge/components/high-side-switch:
   import core
   import collections
   import jitx
@@ -23,8 +23,8 @@ public pcb-module high-side-switch () :
   inst rinput : chip-resistor(closest-std-val(1000.0, 10.0), 0.01)
   inst rint : chip-resistor(closest-std-val(10000.0, 10.0), 0.01)
 
-  inst q1 : components/BJT-2N3904S-RTKPS/module
-  inst pmos-sw : components/MOS-A06409/module
+  inst q1 : hacking_conference_badge/components/BJT-2N3904S-RTKPS/module
+  inst pmos-sw : hacking_conference_badge/components/MOS-A06409/module
 
   net (input rinput.p[1])
   net (VDD rint.p[2])

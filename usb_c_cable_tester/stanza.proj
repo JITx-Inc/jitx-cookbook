@@ -1,4 +1,3 @@
-include "../open-components-database/stanza.proj"
-package main defined-in "main.stanza"
-package helpers defined-in "helpers.stanza"
-packages components/* defined-in "components"
+package usb_c_cable_tester/main defined-in "main.stanza"
+package usb_c_cable_tester/helpers defined-in "helpers.stanza"
+packages usb_c_cable_tester/components/* defined-in "components"

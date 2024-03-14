@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/NCP1117LPST33T3G :
+defpackage hacking_conference_badge/components/NCP1117LPST33T3G :
   import core
   import collections
   import jitx

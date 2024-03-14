@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/_0603White_light_C2290 :
+defpackage hacking_conference_badge/components/_0603White_light_C2290 :
   import core
   import collections
   import jitx

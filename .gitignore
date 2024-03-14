@@ -1,4 +1,3 @@
-/jitx-design
 /pending.*dat
 *.txt
 *-backups/
@@ -6,3 +5,9 @@
 *bin
 temp/
 .DS_Store
+*.backup*
+*~
+parts-db/
+designs/*/cache
+voltage-prop*.txt
+bom-vendors/

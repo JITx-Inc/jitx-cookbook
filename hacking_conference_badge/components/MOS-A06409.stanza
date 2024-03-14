@@ -1,7 +1,7 @@
 ; When renaming the stanza package name below, also rename it in the folder stanza.proj
 ; See docs.jitx.com for help
 #use-added-syntax(jitx)
-defpackage components/MOS-A06409:
+defpackage hacking_conference_badge/components/MOS-A06409:
   import core
   import collections
   import jitx
@@ -11,7 +11,7 @@ defpackage components/MOS-A06409:
   import ocdb/utils/box-symbol
   import ocdb/utils/bundles
   import ocdb/utils/generic-components
-  import checks
+  import hacking_conference_badge/checks
  
 public pcb-module module :
   pin d

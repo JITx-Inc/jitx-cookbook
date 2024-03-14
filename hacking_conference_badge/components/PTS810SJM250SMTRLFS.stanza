@@ -1,5 +1,5 @@
 #use-added-syntax(jitx)
-defpackage components/PTS810SJM250SMTRLFS :
+defpackage hacking_conference_badge/components/PTS810SJM250SMTRLFS :
   import core
   import collections
   import jitx

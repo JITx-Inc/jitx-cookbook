@@ -1,6 +1,6 @@
 ; A model of a standard 5V USB input, to be used for testing and voltage propogation (not to be part of the final layout)
 #use-added-syntax(jitx)
-defpackage components/USBCable:
+defpackage battery_charger_design/components/USBCable:
   import core
   import collections
   import jitx
