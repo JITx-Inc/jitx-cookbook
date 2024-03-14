@@ -1,3 +1,0 @@
-package keyboards/main defined-in "main.stanza"
-package keyboards/keyboard-generator defined-in "keyboard-generator.stanza"
-package keyboards/helpers defined-in "helpers.stanza"

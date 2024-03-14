@@ -3,7 +3,7 @@
 ; update your design in CAD, etc.
 ; ====================
 #use-added-syntax(jitx)
-defpackage keyboards/helpers :
+defpackage keyboard/helpers :
   import core
   import jitx
   import jitx/commands
