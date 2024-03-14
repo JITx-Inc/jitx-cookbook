@@ -4,9 +4,9 @@ Here you'll find a number of recipes (example projects) that will show you what 
 
 ### How to Use
 
-1. Install VsCode and JITX extension [How to install JITX](https://docs.jitx.com/faq/installationinstructions.html)
-2. Open any of the recipe folder in VsCode with `File -> Open Folder -> (Select the recipe folder)`
-3. Open `main.stanza` and press "Ctrl+Enter"
+1. Install VSCode and JITX extension [How to install JITX](https://docs.jitx.com/faq/installationinstructions.html)
+2. Open to root cookbook folder in VSCode with `File -> Open Folder -> (Select jitx-cookbook folder)`
+3. Open `main.stanza` in the subfolder of the project that you want to run and press "Ctrl+Enter"
 
 You've now built the recipe! Checkout the tutorial and documentation to learn more about JITX: [JITX Docs](https://docs.jitx.com/)
 
