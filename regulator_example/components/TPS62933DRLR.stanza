@@ -94,7 +94,6 @@ public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 
   val c-ss = cap-strap(buck.SS, gnd, closest-std-val(css, 10.0))
 
   val bst-params = ["capacitance" => 0.1e-6 "min-rated-voltage" => 16.0 "temperature-coefficient.code" => "X7R" ]
-
   inst cbst : ceramic-cap(bst-params)
   net (cbst.p[1], buck.SW)
   val r-bst = res-strap(cbst.p[2] buck.BST, 2.7) ; resistance smaller than 10 Ω be used between BST to the bootstrap capacitor.
@@ -112,13 +111,12 @@ public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 
   inst inductor : database-part(["mpn" => "WPN4020H6R8MT", "manufacturer" => "Sunlord"])
   net (inductor.p[1] buck.SW)
   net (inductor.p[2] vout)
-
   ; Output capacitance
   val D = output-voltage / input-voltage
   val cout-min = ripple-current / (fsw * ripple * K) * ((1. - D) * (1. + 1.0 * K) + pow(1.0 * K, 2.) / 12.0 * (2. - D))
-  ; Turns out derating is going to be datasheet-dependent - what a mess.
-  val derated-capacitance = cout-min * 3. ; Arbitrary. The world should be better than this.
-  val cap = 22.0e-6  ; I choose 22uF caps
+  val derated-capacitance = cout-min * 3.0
+
+  val cap = 22.0e-6  
   val output-cap-params = ["capacitance" => cap, "case" => "0805" "temperature-coefficient.code" => "X7R", "min-rated-voltage" => output-voltage * 2.]
   val min-output-caps:Int = to-int(derated-capacitance / cap) + 1
   val output-caps = to-tuple $

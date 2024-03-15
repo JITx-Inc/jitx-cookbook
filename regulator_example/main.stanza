@@ -19,7 +19,7 @@ OPERATING-TEMPERATURE = min-max(20.0 30.0)
 setup-design(
   "buck",
   ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape)
-  vendors = [Mouser DigiKey]
+  vendors = [Mouser]
   rules = ocdb/manufacturers/rules/jlcpcb-basic-rules
 )
 pcb-module design :
@@ -27,25 +27,25 @@ pcb-module design :
   inst j : pin-header(5)
 
   net VIN (j.p[1])
-  net GND (j.p[2])
-  property(VIN.voltage) = typ(20.0)
-  property(GND.voltage) = typ(0.0)
+  net GND (j.p[2] j.p[3])
   symbol(GND) = ocdb/utils/symbols/ground-sym
 
-  inst r : chip-resistor(100.0)
-  net (r.p[1] j.p[3])
-  net (r.p[2] j.p[4])
 
-  inst buck : regulator_example/components/TPS62933DRLR/module( output-voltage = 3.3 
+  inst buck : regulator_example/components/TPS62933DRLR/module( output-voltage = 1.8 
                                                                 input-voltage = 20.0
                                                                 output-current = 0.75
-                                                                ripple = 33.0e-3
+                                                                ripple = 30.0e-3
                                                                 placed? = true)
   place(buck) at loc(5.0, 0.0) on Top        
+
+  ; inst pmic : ocdb/components/texas-instruments/TPS65217/module
+
 
   net (buck.vin VIN)                                               
   net (buck.gnd GND)                                               
 
+  property(VIN.voltage) = typ(20.0)
+  property(GND.voltage) = typ(0.0)
   ocdb/utils/checks/check-design(self)
 
 ; Set the schematic sheet size
