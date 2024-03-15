@@ -1,0 +1,110 @@
+#use-added-syntax(jitx)
+defpackage ambiq-demo/demo-board :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/design-vars
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/connects
+
+  import ambiq-demo/bundles
+  import ambiq-demo/board
+
+MIN-PKG = "0201"
+
+  ; =====================================
+  ; =====================================
+  ; Ambiq design generator options
+  ; =====================================
+  ; =====================================
+; public val DEFAULT-SETTINGS = [
+;     `enable-usb => false
+;     `enable-mipi => false
+;     `enable-bluetooth => false
+;     `enable-debug => false
+;     `xtal-32k => components/TXC/9HT12-32-768KDZY/component
+;     `xtal-32M => components/ABRACON-CORP/ABM12W-32-0000MHZ-6-D1X-T3/component
+;     `regulator-1V8 => components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/module(typ(1.8))
+;     `regulator-1V8LN => components/TEXAS-INSTRUMENTS/TPS7A0218PDBVR/module
+;     `regulator-3V3USB => components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/module(typ(3.3))
+;     `regulator-0V9USB => components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/module(typ(0.9))
+;     `debug-connector => ocdb/components/tag-connect/TC2030-IDC/component
+;     ]
+
+pcb-module reference-design :
+  inst apollo : ambiq-demo/components/AMBIQ/AMA4B2KK-KXR/module([`enable-usb => false `enable-bluetooth => false `enable-mipi => true])
+
+  net VDD5V0 (apollo.VDD5V0)
+  net GND (apollo.GND)
+  property(VDD5V0.voltage) = typ(5.0)
+  property(GND.voltage) = typ(0.0)
+  symbol(GND) = ocdb/utils/symbols/ground-sym
+
+  inst wpwr : ambiq-demo/components/TEXAS-INSTRUMENTS/BQ51003YFPR/module
+  net (GND wpwr.GND)
+  net (VDD5V0 wpwr.VBUS)
+
+  require wpwr-ctl : gpio[4] from apollo.apollo
+  net (wpwr.CMD.EN1  wpwr-ctl[0].gpio)
+  net (wpwr.CMD.EN2  wpwr-ctl[1].gpio)
+  net (wpwr.CMD.nCHG wpwr-ctl[2].gpio)
+  net (wpwr.CMD.CTRL wpwr-ctl[3].gpio)
+
+  ; require flash-interface : spi-controller() from apollo.apollo
+  ; inst win-flash : ocdb/components/windbond/W25Q128JVSIQ/module
+  ; connect-spi(flash-interface, win-flash.spi)
+
+  require ospi-mcu : octal-spi from apollo.apollo
+  inst flash : ambiq-demo/components/MXIC-Macronix-/MX25UM51245GXDI00/module
+  ospi-rules(flash.ospi ospi-mcu, 0.0 +/- 3.0e-12)
+  net (flash.pwr.vdd apollo.VDD1V8)
+  net (GND flash.pwr.gnd)
+
+  require spi-mcu : spi-controller() from apollo.apollo
+  inst imu : ambiq-demo/components/STMICROELECTRONICS/LSM6DSOXTR/module
+  connect-spi(spi-mcu imu.spi)
+  net VDD1V8 (apollo.VDD1V8 imu.pwr.vdd)
+  net (GND imu.pwr.gnd)
+
+  inst mipi-conn : ambiq-demo/components/HIROSE/FH19C-15S-0p5SH-10-/module
+  mipi-rules(0.0 +/- 1.0e-12, apollo.mipi mipi-conn.mipi)
+  net (GND mipi-conn.conn.p[1] mipi-conn.conn.p[4] mipi-conn.conn.p[7] mipi-conn.conn.p[10] mipi-conn.conn.p[13])
+  net (VDD1V8 mipi-conn.conn.p[14] mipi-conn.conn.p[15])
+
+  geom(GND) :
+    copper-pour(LayerIndex(1), isolate = 0.15, rank = 1) = signal-shape
+
+  ; geom(GND) :
+  ;   copper-pour(LayerIndex(3), isolate = 0.15, rank = 1) = signal-shape
+
+  ; geom(VDD1V8) :
+  ;   copper-pour(LayerIndex(4), isolate = 0.15, rank = 1) = signal-shape
+
+  ocdb/utils/checks/check-design(self)
+
+defn compile-design (circuit:Instantiable) :
+  set-current-design("ambiq-demo")
+  set-export-backend(`altium)
+  set-rules(ocdb/manufacturers/rules/sierra-adv-rules)
+  set-board(demo-board)
+  
+  set-main-module(ocdb/utils/generator-utils/run-final-passes(circuit))
+  
+  run-checks("checks.txt")
+  view-board()
+  view-schematic()
+  view-design-explorer()
+
+defn export-to-cad () :
+  set-paper(ANSI-B)
+  set-export-backend(`altium)
+  export-cad()
+
+defn export-bill-of-materials () :
+  set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
+  set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
+  view-bom(BOM-STD)
+
+compile-design(reference-design)
