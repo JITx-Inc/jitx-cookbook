@@ -11,3 +11,5 @@ parts-db/
 designs/*/cache
 voltage-prop*.txt
 bom-vendors/
+schematic.design
+bom
