@@ -1,0 +1,126 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Amphenol", "mpn" => "10051922-2210ELF"])
+#use-added-syntax(jitx)
+defpackage ambiq-demo/components/HIROSE/FH19C-15S-0p5SH-10- :
+  import core
+  import jitx
+  import jitx/commands
+  
+  import ocdb/utils/landpatterns
+  import ocdb/utils/box-symbol
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ambiq-demo/bundles
+
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(0.300, 0.800)
+  layer(SolderMask(Top)) = Rectangle(0.300, 0.800)
+  layer(Paste(Top)) = Rectangle(0.300, 0.800)
+
+pcb-pad mounting-smd-pad :
+  name = "mounting-smd-pad"
+  type = SMD
+  shape = Rectangle(0.400, 0.800)
+  layer(SolderMask(Top)) = Rectangle(0.400, 0.800)
+  layer(Paste(Top)) = Rectangle(0.400, 0.800)
+
+
+pcb-landpattern lp :
+  pad p[ 1] : rectangle-smd-pad at loc(-3.500, -0.400) on Top
+  pad p[ 2] : rectangle-smd-pad at loc(-3.000, -0.400) on Top
+  pad p[ 3] : rectangle-smd-pad at loc(-2.500, -0.400) on Top
+  pad p[ 4] : rectangle-smd-pad at loc(-2.000, -0.400) on Top
+  pad p[ 5] : rectangle-smd-pad at loc(-1.500, -0.400) on Top
+  pad p[ 6] : rectangle-smd-pad at loc(-1.000, -0.400) on Top
+  pad p[ 7] : rectangle-smd-pad at loc(-0.500, -0.400) on Top
+  pad p[ 8] : rectangle-smd-pad at loc( 0.000, -0.400) on Top
+  pad p[ 9] : rectangle-smd-pad at loc( 0.500, -0.400) on Top
+  pad p[10] : rectangle-smd-pad at loc( 1.000, -0.400) on Top
+  pad p[11] : rectangle-smd-pad at loc( 1.500, -0.400) on Top
+  pad p[12] : rectangle-smd-pad at loc( 2.000, -0.400) on Top
+  pad p[13] : rectangle-smd-pad at loc( 2.500, -0.400) on Top
+  pad p[14] : rectangle-smd-pad at loc( 3.000, -0.400) on Top
+  pad p[15] : rectangle-smd-pad at loc( 3.500, -0.400) on Top
+
+  pad p[16] : mounting-smd-pad at loc(-9.000 / 2.0 - 0.200, 0.400 - 3.300) on Top
+  pad p[17] : mounting-smd-pad at loc( 9.000 / 2.0 + 0.200, 0.400 - 3.300) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-2.500, 1.138), "", TrueTypeFont, false, false)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, W, loc(-2.500, 0.438), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.180, [
+    Point( 4.500,  0.000)
+    Point( 4.500, -3.300)
+    Point(-4.500, -3.300)
+    Point(-4.500,  0.000)
+    Point( 4.500,  0.000)
+    ])
+  ; layer(Silkscreen("F-SilkS", Top)) = Polyline(0.180, [
+  ;   Point(-2.179, -0.884)
+  ;   Point(-2.179,  0.132)
+  ;   Point(-1.671, -0.424)
+  ;   Point(-2.179, -0.884)])
+  ; layer(CustomLayer("Fab", Top)) = Polyline(0.100, [
+  ;   Arc(-1.200, 0.400, 0.050, 0.0, -360.000)])
+  ; layer(Silkscreen("F-SilkS", Top)) = Polyline(0.100, [
+  ;   Arc(-1.200, 0.400, 0.050, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(9.9, 3.3, loc(0.000, -1.650))
+  ; model3d = Model3D("3d-models/FH19C-6S-0.5SH.stp",
+  ;   Vec3D(-1.650, -0.750, 0.0),
+  ;   Vec3D(1.0, 1.0, 1.0),
+  ;   Vec3D(-90.0, 0.0, -90.0))
+  ref-label()
+
+public pcb-component component :
+  name = "FH19C-6S-0.5SH(10)"
+  description = "6 Position FFC, FPC Connector Contacts, Bottom 0.020\" (0.50mm) Surface Mount, Right Angle"
+  manufacturer = "Hirose"
+  mpn = "FH19C-6S-0.5SH(10)"
+  reference-prefix = "J"
+  datasheet = "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/822/FH19C_FH19SC_Series.pdf"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [p[ 1] | p[ 1] | Left | "unspecified" | 0]
+    [p[ 2] | p[ 2] | Left | "unspecified" | 0]
+    [p[ 3] | p[ 3] | Left | "unspecified" | 0]
+    [p[ 4] | p[ 4] | Left | "unspecified" | 0]
+    [p[ 5] | p[ 5] | Left | "unspecified" | 0]
+    [p[ 6] | p[ 6] | Left | "unspecified" | 0]
+    [p[ 7] | p[ 7] | Left | "unspecified" | 0]
+    [p[ 8] | p[ 8] | Left | "unspecified" | 0]
+    [p[ 9] | p[ 9] | Left | "unspecified" | 0]
+    [p[10] | p[10] | Left | "unspecified" | 0]
+    [p[11] | p[11] | Left | "unspecified" | 0]
+    [p[12] | p[12] | Left | "unspecified" | 0]
+    [p[13] | p[13] | Left | "unspecified" | 0]
+    [p[14] | p[14] | Left | "unspecified" | 0]
+    [p[15] | p[15] | Left | "unspecified" | 0]
+
+    [p[16] | p[16] | Left | "unspecified" | 0] ; mounting pad
+    [p[17] | p[17] | Left | "unspecified" | 0] ; mounting pad
+
+  assign-landpattern(lp)
+  make-box-symbol()
+
+  property(self.category) = "connector"
+  property(self.reference_prefix) = "J"
+  property(self.trust) = "low"
+  property(self.case) = "SMD,P=0.5mm"
+  property(self.rated-temperature) = Toleranced(15.0, 70.0, 70.0)
+
+public pcb-module module :
+  port mipi : mipi-d-phy
+
+  public inst conn : ambiq-demo/components/HIROSE/FH19C-15S-0p5SH-10-/component
+
+  net (mipi.clk.P  conn.p[6])
+  net (mipi.clk.N  conn.p[5])
+  net (mipi.data.P conn.p[9])
+  net (mipi.data.N conn.p[8])
+
+  topology-segment(mipi.clk.P  conn.p[6])
+  topology-segment(mipi.clk.N  conn.p[5])
+  topology-segment(mipi.data.P conn.p[9])
+  topology-segment(mipi.data.N conn.p[8])

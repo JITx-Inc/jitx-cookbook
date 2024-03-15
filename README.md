@@ -4,9 +4,9 @@ Here you'll find a number of recipes (example projects) that will show you what 
 
 ### How to Use
 
-1. Install VsCode and JITX extension [How to install JITX](https://docs.jitx.com/faq/installationinstructions.html)
-2. Open any of the recipe folder in VsCode with `File -> Open Folder -> (Select the recipe folder)`
-3. Open `main.stanza` and press "Ctrl+Enter"
+1. Install VSCode and JITX extension [How to install JITX](https://docs.jitx.com/faq/installationinstructions.html)
+2. Open to root cookbook folder in VSCode with `File -> Open Folder -> (Select jitx-cookbook folder)`
+3. Open `main.stanza` in the subfolder of the project that you want to run and press "Ctrl+Enter"
 
 You've now built the recipe! Checkout the tutorial and documentation to learn more about JITX: [JITX Docs](https://docs.jitx.com/)
 
@@ -22,6 +22,7 @@ Click any of the links below to access a detailed walkthrough of how they were d
 | [Hacking Conference Badge](./hacking_conference_badge/)                | A software-defined electronics playground - learn JITX by designing your own conference badge                                                |
 | [Example of a reusable regulator design (TPS62933DRLR)](./regulator-example/) | Regulator fed from USB-C PD capable of delivering high current |
 | [Example of a reusable keyboard layout generator](./keyboard/) | Keyboard generator which generates layout which is quickly implementable  |
+| [System based on Ambiq Apollo 4 Blue processor with wireless charging MIPI-DSI, octal SPI, 6-axis IMU peripherals](./ambiq-demo/) | Ambiq processor along with a few peripherals which demonstrate pin assignment and SI constraints  |
 ### What is a recipe?
 
 These recipes are fully functional projects built in JITX to help show you what JITX can do, teach you how to do what you need in JITX, and to serve as reference or template projects for your next design. Recipes can be thought of as JITX example projects, reference designs, recipes, project blueprints, and/or design templates.

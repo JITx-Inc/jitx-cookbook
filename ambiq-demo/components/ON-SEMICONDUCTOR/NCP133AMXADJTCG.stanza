@@ -1,0 +1,143 @@
+#use-added-syntax(jitx)
+defpackage ambiq-demo/components/ON-SEMICONDUCTOR/NCP133AMXADJTCG :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/symbol-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ocdb/utils/generator-utils
+
+pcb-pad my-rect-smd-pad-1 :
+  type = SMD
+  shape = Rectangle(0.24, 0.37)
+  ocdb/utils/landpatterns/apply-soldermask(0.05)
+  layer(Paste(Top)) = Rectangle(0.24, 0.37)
+
+pcb-pad my-rect-smd-pad-2 :
+  type = SMD
+  shape = Rectangle(1.08, 0.4)
+  ocdb/utils/landpatterns/apply-soldermask(0.03)
+  layer(Paste(Top)) = Rectangle(1.08, 0.4)
+
+public pcb-landpattern SON40P120X45_HS-7N-1 :
+  pad p[1] : my-rect-smd-pad-1 at loc(-0.515000000000001, 0.4, 90.0) on Top
+  pad p[2] : my-rect-smd-pad-1 at loc(-0.515000000000001, 0.0, 90.0) on Top
+  pad p[3] : my-rect-smd-pad-1 at loc(-0.515000000000001, -0.4, 90.0) on Top
+  pad p[4] : my-rect-smd-pad-1 at loc(0.515000000000001, -0.4, 90.0) on Top
+  pad p[5] : my-rect-smd-pad-1 at loc(0.515000000000001, 0.0, 90.0) on Top
+  pad p[6] : my-rect-smd-pad-1 at loc(0.515000000000001, 0.4, 90.0) on Top
+  pad p[7] : my-rect-smd-pad-2 at loc(0.0, 0.0, 90.0) on Top
+  
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point(-0.755, -0.725), Point(-0.755,  0.725)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point(-0.755, -0.725), Point( 0.755, -0.725)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point(-0.755,  0.725), Point( 0.755,  0.725)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.1, [Point( 0.755, -0.725), Point( 0.755,  0.725)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.0508, [Point(-1.185, -0.9), Point(-1.185, 0.899999999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.05, [Point(-1.185, -0.9), Point(-1.185, 0.899999999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.0508, [Point(-1.185, -0.9), Point(1.185, -0.9)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.05, [Point(-1.185, -0.9), Point(1.185, -0.9)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.0508, [Point(-1.185, 0.899999999999999), Point(1.185, 0.899999999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.05, [Point(-1.185, 0.899999999999999), Point(1.185, 0.899999999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.05, [Point(1.185, -0.9), Point(1.185, 0.899999999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical15")) = Line(0.0508, [Point(1.185, -0.9), Point(1.185, 0.899999999999999)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1, [Point(-0.5, 0.0), Point(0.5, 0.0)])
+  ; layer(CustomLayer("Pcb-Mechanical16")) = Line(0.1, [Point(0.0, -0.5), Point(0.0, 0.5)])
+  ; layer(CustomLayer("Pcb-Mechanical1")) = Text(">REF", 1.0, C, loc(-0.496890000000001, -0.27942), "Arial", TrueTypeFont)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.1, [Arc(-0.912129999999998, 0.73213, 0.05, 0.0, 360.0)])
+  ref-label()
+    
+  model3d = Model3D("..\\..\\3d-models\\SON40P120X45_HS-7N_gF9BB0A81.STEP",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+  
+  
+public pcb-component component :
+  description = "Linear Voltage Regulator IC Positive Adjustable 1 Output 500mA 6-XDFN (1.2x1.2)"
+  mpn = "NCP133AMXADJTCG"
+  manufacturer = "On Semi"
+  ; datasheet = "https://www.onsemi.com/pdf/datasheet/ncp133-d.pdf"
+  
+  pin-properties :
+    [pin:Ref  | pads:Ref ...  | side:Dir]
+    [IN       | p[6]          | Left    ] ; Input Voltage Supply pin
+    [EN       | p[3]          | Left    ] ; Enable pin. Driving this pin high enables the regulator. Driving this pin low puts the regulator into shutdown mode.
+    [BIAS     | p[4]          | Left    ] ; Bias voltage supply for internal control circuits. This pin is monitored by internal Under-Voltage Lockout Circuit.
+    [OUT      | p[1]          | Right   ] ; Regulated Output Voltage pin
+    [ADJ      | p[2]          | Right   ] ; Adjustable Regulator Feedback Input. Connect to output voltage resistor divider central node.
+    [GND      | p[5]          | Down    ] ; Ground
+    [PAD      | p[7]          | Down    ] ; Should be soldered to the ground plane for increased thermal performance.
+    
+  assign-landpattern(SON40P120X45_HS-7N-1)
+  make-box-symbol()
+
+  property(self.IN.power-pin) = PowerPin(min-max(0.8, 5.5))
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+
+  property(self.v-drop-out) = [[0.0 0.0] [0.500 0.100]] ; [current voltage] pairs
+  property(self.t-drop-out) = [[-40.0 1.0] [25.0 1.20] [85.0 1.40]] ; [temperature multiplicative-increase] pairs
+
+public pcb-module module (target-v:Toleranced):
+
+  pin OUT
+  pin GND
+  pin IN
+
+  public inst ldo : ambiq-demo/components/ON-SEMICONDUCTOR/NCP133AMXADJTCG/component
+
+  net (GND ldo.GND ldo.PAD)
+  net (IN ldo.IN ldo.EN ldo.BIAS)
+  net (OUT ldo.OUT)
+
+  cap-strap(IN GND ["capacitance" => 0.1e-6, "min-rated-voltage" => 5.4 * 2.1])
+  cap-strap(IN GND ["capacitance" => 1.0e-6, "min-rated-voltage" => 5.4 * 2.1])
+  cap-strap(OUT GND ["capacitance" => 2.2e-6, "min-rated-voltage" => max-value(target-v) * 2.1])
+
+  val adj-voltage = tol%(0.80, 5.0)
+  val i-target = max-value(target-v) / 100.0e3
+
+  inst feedback-voltage-divider : ocdb/modules/passive-circuits/voltage-divider(source-voltage = target-v, divider-output = adj-voltage, current = i-target) ;where :
+
+  net (feedback-voltage-divider.in ldo.OUT)
+  net (feedback-voltage-divider.out ldo.ADJ)
+  net (feedback-voltage-divider.lo ldo.GND)
+
+  val t-mult = PWL(property(ldo.t-drop-out))[max-value(property(ldo.rated-temperature)) as Double] ; could be max-value(property(self.rated-temperature))
+  val vdo = PWL(property(ldo.v-drop-out))[0.500] ; max-current to start?
+
+  property(ldo.OUT.power-supply-pin) = PowerSupplyPin(target-v, 0.500)
+  property(ldo.OUT.voltage) = target-v
+
+  eval-when has-property?(IN.voltage):
+    val vin = property(IN.voltage)
+    val expected-vin = vdo + min-max(min-value(target-v), 5.5) as Toleranced
+    check voltage-is-within(ldo.IN, expected-vin)
+
+  schematic-group(self) = NCP133AMXADJTCG
+
+
+;Check to ensure that the .voltage property on 'p' is within
+;the given range.
+pcb-check voltage-is-within (p:JITXObject, value:Toleranced) :
+  if has-property?(p.voltage) :
+    val t = property(p.voltage)
+    val name = "NCP113AMX Check"
+    val description = "Check dropout voltage"
+    val category = "Component Checks"
+    #CHECK(
+      condition =            in-range?(value, t),
+      name =                 name
+      description =          description
+      category =             category
+      subcheck-description = "Check that a value is within a given range"
+      pass-message =         "Range %_ is correctly within %_" % [t value]
+      fail-message =         "Value %_ to %_ is not within the range of %_ to %_" % [min-value(t) max-value(t) min-value(value) max-value(value)]
+      locators =             []
+      )    

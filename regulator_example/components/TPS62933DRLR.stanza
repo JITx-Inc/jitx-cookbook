@@ -70,7 +70,7 @@ public pcb-component component :
   property(self.area) = 2.926
   property(self.case) = "SOT-583"
 
-public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 25.0, soft-start:Double = 2.0e-3, output-current:Double = 3.0, ripple:Double = 30.0e-3):
+public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 25.0, soft-start:Double = 2.0e-3, output-current:Double = 3.0, ripple:Double = 30.0e-3, placed?:True|False = true):
   pin vin
   pin vout
   pin gnd
@@ -127,10 +127,10 @@ public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 
       bc
   
   ; Input capacitance - 10uF derated.
-  val input-cap-params = ["capacitance" => 10.0e-6, "temperature-coefficient.code" => "X7R", "min-rated-voltage" => output-voltage * 2.]
+  val input-cap-params = ["capacitance" => 10.0e-6, "temperature-coefficient.code" => "X7R", "min-rated-voltage" => input-voltage * 2.]
   val c-inp-reg-1 = bypass-cap-strap(buck.VIN, gnd, input-cap-params)
   val c-inp-reg-2 = bypass-cap-strap(buck.VIN, gnd, input-cap-params)
-  val c-inp-sm  = bypass-cap-strap(buck.VIN, gnd, ["capacitance" => 0.1e-6, "temperature-coefficient.code" => "X7R", "min-rated-voltage" => output-voltage * 2.])
+  val c-inp-sm  = bypass-cap-strap(buck.VIN, gnd, ["capacitance" => 0.1e-6, "temperature-coefficient.code" => "X7R", "min-rated-voltage" => input-voltage * 2.])
 
   ; Feedforward cap
   val c-ff = cap-strap(feedback.in, feedback.out, 100.0e-12) ; 100pf because I wish I had a working simulation.
@@ -138,21 +138,22 @@ public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 
   property(vout.voltage) = typ(output-voltage)
 
   ; placement 
-  place(buck) at loc(0.0, 0.0, 180.0) on Top
-  place(RT-res) at loc(-1.547, 1.9727, 180.0) on Top
-  place(feedback.r-lo) at loc(1.475, 1.920) on Top
-  place(feedback.r-hi) at loc(2.452, 1.920) on Top
-  place(c-ss) at loc(1.860218 0.395469 90.0) on Top
-  place(cbst) at loc(3.497936 -0.597491 180.0) on Top
-  place(r-bst) at loc(2.249856 -0.555152, 270.0) on Top
-  place(inductor) at loc(2.592758, -3.859867, 270.0) on Top
-  for (c in output-caps, i in 0 to false) do :
-    place(output-caps[i]) at loc(3.786237 + to-double(i) * -1.79, -8.080, 180.0) on Top
-    geom(GND) :
-      via(ocdb/utils/defaults/default-via) at Point(3.786237 + to-double(i) * -1.79, -10.0)
+  if placed? :
+    place(buck) at loc(0.0, 0.0, 180.0) on Top
+    place(RT-res) at loc(-1.547, 1.9727, 180.0) on Top
+    place(feedback.r-lo) at loc(1.475, 1.920) on Top
+    place(feedback.r-hi) at loc(2.452, 1.920) on Top
+    place(c-ss) at loc(1.860218 0.395469 90.0) on Top
+    place(cbst) at loc(3.497936 -0.597491 180.0) on Top
+    place(r-bst) at loc(2.249856 -0.555152, 270.0) on Top
+    place(inductor) at loc(2.592758, -3.859867, 270.0) on Top
+    for (c in output-caps, i in 0 to false) do :
+      place(output-caps[i]) at loc(3.786237 + to-double(i) * -1.79, -8.080, 180.0) on Top
+      geom(GND) :
+        via(ocdb/utils/defaults/default-via) at Point(3.786237 + to-double(i) * -1.79, -10.0)
 
-  place(c-inp-reg-1) at loc(-3.065656 -1.036099 180.0) on Top
-  place(c-inp-reg-2) at loc(-4.599985 -1.036099 180.0) on Top
-  place(c-inp-sm) at loc(-1.770369 -0.807124 180.0) on Top
-  place(c-ff) at loc(3.411575 1.927403 0.0) on Top
+    place(c-inp-reg-1) at loc(-3.565656 -2.036099 180.0) on Top
+    place(c-inp-reg-2) at loc(-5.599985 -2.036099 180.0) on Top
+    place(c-inp-sm) at loc(-1.770369 -0.807124 180.0) on Top
+    place(c-ff) at loc(3.411575 1.927403 0.0) on Top
 
