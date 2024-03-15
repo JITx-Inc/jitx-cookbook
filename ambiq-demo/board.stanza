@@ -51,8 +51,8 @@ public pcb-via via-0-1 :
 
 public pcb-via via-2-3 :
   name = "VIP-2-3"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
-  stop = LayerIndex(1, Bottom)
-  start = LayerIndex(0, Bottom)
+  start = LayerIndex(2, Top)
+  stop = LayerIndex(3, Top)
   diameter = 0.150
   hole-diameter = 0.100
   type = LaserDrill
@@ -72,7 +72,7 @@ public pcb-via std-via :
   tented = true                  ;Top|Bottom|True|False with default false.
   via-in-pad = false
 
-public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 9.4, 0.0, 360.0)])
+public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 1.0, 0.0, 360.0)])
 public pcb-board demo-board :
   stackup = stackup
   boundary = PolygonWithArcs([Arc(Point(0.0, 0.0), 10.4, 0.0, 360.0)]) ; Circle(0.0, 0.0, 25.4)
