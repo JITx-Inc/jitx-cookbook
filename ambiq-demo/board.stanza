@@ -28,7 +28,7 @@ pcb-stackup stackup :
   layer(0.04750, SolderResist)
 
 public pcb-via via-0-1 :
-  name = "VIP-0-1"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
+  name = "Top uVia"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
   start = LayerIndex(0, Top)
   stop = LayerIndex(1, Top)
   diameter = 0.250
@@ -38,21 +38,10 @@ public pcb-via via-0-1 :
   tented = false                  ;Top|Bottom|True|False with default false.
   via-in-pad = true
 
-; public pcb-via via-1-2 :
-;   name = "VIA-1-2"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
-;   start = LayerIndex(1, Top)
-;   stop = LayerIndex(2, Top)
-;   diameter = 0.250
-;   hole-diameter = 0.150
-;   type = MechanicalDrill
-;   filled = false
-;   tented = false                  ;Top|Bottom|True|False with default false.
-;   via-in-pad = false
-
 public pcb-via via-2-3 :
-  name = "VIP-2-3"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
-  start = LayerIndex(0, Bottom)
-  stop = LayerIndex(2, Bottom)
+  name = "Bottom uVia"               
+  start = LayerIndex(2, Top)
+  stop = LayerIndex(3, Top)
   diameter = 0.150
   hole-diameter = 0.100
   type = LaserDrill
@@ -72,7 +61,7 @@ public pcb-via std-via :
   tented = true                  ;Top|Bottom|True|False with default false.
   via-in-pad = false
 
-public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 9.4, 0.0, 360.0)])
+public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 10.0, 0.0, 360.0)])
 public pcb-board demo-board :
   stackup = stackup
   boundary = PolygonWithArcs([Arc(Point(0.0, 0.0), 10.4, 0.0, 360.0)]) ; Circle(0.0, 0.0, 25.4)
@@ -89,11 +78,11 @@ public pcb-routing-structure single-ended-50 :
     neck-down = NeckDown(0.114 0.12 false false)
 
   layer(LayerIndex(1)) :
-    trace-width = 0.120     ; mm
-    clearance = 0.12        ; mm
+    trace-width = 0.1     ; mm
+    clearance = 0.1        ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
-    neck-down = NeckDown(0.120 0.12 false false)
+    neck-down = NeckDown(0.075 0.075 false false)
 
   layer(LayerIndex(1, Bottom)) :
     trace-width = 0.120     ; mm
