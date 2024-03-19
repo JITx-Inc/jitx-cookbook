@@ -1,0 +1,84 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/R_Potentiometer_Trim :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+pcb-pad circle-th-pad :
+  type = TH
+  shape = Circle(0.775)
+  layer(SolderMask(Top)) = Circle(0.775)
+  layer(SolderMask(Bottom)) = Circle(0.775)
+  layer(Cutout()) = Circle(0.5)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.55, 1.55)
+  layer(SolderMask(Top)) = Rectangle(1.55, 1.55)
+  layer(SolderMask(Bottom)) = Rectangle(1.55, 1.55)
+  layer(Cutout()) = Circle(0.5)
+
+public pcb-landpattern Potentiometer_Runtron_RM-065_Vertical_Improved :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : circle-th-pad at loc(2.5, -5.0) on Top
+  pad p[3] : circle-th-pad at loc(5.0, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.03, 1.55), 
+    Point(-1.03, -6.05), 
+    Point(6.03, -6.05), 
+    Point(6.03, 1.55)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(2.6, -7.4, 180.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(2.5, -2.5, 180.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(2.6, 2.5, 180.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.81, 1.21), Point(-0.81, 0.96)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.81, -4.5), Point(-0.81, -0.96)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.71, 1.41), Point(-0.71, 1.21)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.71, 1.41), Point(0.71, 1.41)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.71, 1.21), Point(-0.81, 1.21)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(0.71, 1.21), Point(0.71, 1.41)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(0.71, 1.21), Point(4.29, 1.21)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.99, -5.81), Point(0.5, -5.81)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(4.29, 1.41), Point(5.71, 1.41)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(4.29, 1.21), Point(4.29, 1.41)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(4.5, -5.81), Point(3.01, -5.81)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.71, 1.41), Point(5.71, 1.21)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.71, 1.21), Point(5.81, 1.21)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.81, 1.21), Point(5.81, 0.52)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.81, -0.52), Point(5.81, -4.5)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.12, [Arc(0.499999601747078, -4.50000039825292, 1.30999960174714, 270.000017418487, -90.0000348369749)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.12, [Arc(4.50000039825293, -4.50000039825291, 1.30999960174713, 1.74184869823396e-05, -90.0000348369749)])
+  layer(Finish(Top)) = Line(0.1, [Point(-0.7, -4.5), Point(-0.7, 1.1)])
+  layer(Finish(Top)) = Line(0.1, [Point(-0.6, 1.3), Point(0.6, 1.3)])
+  layer(Finish(Top)) = Line(0.1, [Point(-0.6, 1.1), Point(-0.6, 1.3)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.5, -5.7), Point(4.5, -5.7)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.6, 1.3), Point(0.6, 1.1)])
+  layer(Finish(Top)) = Line(0.1, [Point(4.4, 1.3), Point(4.4, 1.1)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.6, 1.3), Point(4.41, 1.3)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.6, 1.1), Point(5.6, 1.3)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.7, 1.1), Point(-0.7, 1.1)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.7, -4.5), Point(5.7, 1.1)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(0.500000469194618, -4.49999953080538, 1.20000046919471, 269.999977597616, -89.9999551952319)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(4.49999953080539, -4.4999995308054, 1.2000004691947, 0.0, -89.9999551952328)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(2.5, -2.5, 3.0, 0.0, 360.0)])
+
+  model3d = Model3D("../../3d-models/Potentiometer_Runtron_RM-065_Vertical.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
+public pcb-component component :
+  emodel = Resistor(10000.0)
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[1] | p[1] | Up | "Passive"]
+    [p[2] | p[2] | Right | "Passive"]
+    [p[3] | p[3] | Down | "Passive"]
+
+  assign-landpattern(Potentiometer_Runtron_RM-065_Vertical_Improved)
+  assign-symbol(VCO/symbols/R_Potentiometer_Trim/R_Potentiometer_Trim)
+

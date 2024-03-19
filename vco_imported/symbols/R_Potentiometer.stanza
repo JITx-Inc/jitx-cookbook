@@ -1,0 +1,32 @@
+#use-added-syntax(jitx)
+defpackage VCO/symbols/R_Potentiometer :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+public pcb-symbol R_Potentiometer :
+  pin p[1] at Point(0.0, 2.54) with :
+    direction = Up
+    length = 1.27
+    number-size = 1.27
+  pin p[2] at Point(2.54, 0.0) with :
+    direction = Right
+    length = 1.27
+    number-size = 1.27
+  pin p[3] at Point(0.0, -2.54) with :
+    direction = Down
+    length = 1.27
+    number-size = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(-4.445, 0.0, 90.0), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(-2.54, 0.0, 90.0), "", TrueTypeFont, false, false)
+  layer("none") = Rectangle(2.032, 5.08)
+  layer("none") = Line(0.0, [Point(2.54, 0.0), Point(1.524, 0.0)])
+  layer("background") = Polygon([
+    Point(1.143, 0.0), 
+    Point(2.286, 0.508), 
+    Point(2.286, -0.508), 
+    Point(1.143, 0.0)])
+

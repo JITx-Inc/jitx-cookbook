@@ -1,0 +1,91 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/_1N4148 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(Cutout()) = Circle(0.4)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.6, 1.6)
+  layer(SolderMask(Top)) = Rectangle(1.6, 1.6)
+  layer(SolderMask(Bottom)) = Rectangle(1.6, 1.6)
+  layer(Cutout()) = Circle(0.4)
+
+public pcb-landpattern D_DO-35_SOD27_P762mm_Horizontal :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : oval-th-pad at loc(7.62, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.05, 1.25), 
+    Point(-1.05, -1.25), 
+    Point(8.67, -1.25), 
+    Point(8.67, 1.25)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(3.81, -2.12), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text("K", 1.0, C, loc(0.0, 1.8), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 0.8, C, loc(4.11, 0.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text("K", 1.0, C, loc(0.0, 1.8), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(3.81, 2.12), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.04, 0.0), Point(1.69, 0.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.69, 1.12), Point(1.69, -1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.69, -1.12), Point(5.93, -1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.29, 1.12), Point(2.29, -1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.41, 1.12), Point(2.41, -1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.53, 1.12), Point(2.53, -1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.93, 1.12), Point(1.69, 1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.93, -1.12), Point(5.93, 1.12)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(6.58, 0.0), Point(5.93, 0.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, 0.0), Point(1.81, 0.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(1.81, 1.0), Point(1.81, -1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(1.81, -1.0), Point(5.81, -1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.31, 1.0), Point(2.31, -1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.41, 1.0), Point(2.41, -1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.51, 1.0), Point(2.51, -1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.81, 1.0), Point(1.81, 1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.81, -1.0), Point(5.81, 1.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(7.62, 0.0), Point(5.81, 0.0)])
+
+  model3d = Model3D("../../3d-models/D_DO-35_SOD27_P7.62mm_Horizontal.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
+public pcb-symbol _1N4148 :
+  pin K at Point(-1.27, 0.0) with :
+    direction = Left
+    length = 2.54
+  pin A at Point(1.27, 0.0) with :
+    direction = Right
+    length = 2.54
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 2.54), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont, false, false)
+  layer("none") = Line(0.254, [Point(-1.27, 1.27), Point(-1.27, -1.27)])
+  layer("none") = Line(0.0, [Point(1.27, 0.0), Point(-1.27, 0.0)])
+  layer("none") = Line(0.254, [
+    Point(1.27, 1.27), 
+    Point(1.27, -1.27), 
+    Point(-1.27, 0.0), 
+    Point(1.27, 1.27)])
+
+public pcb-component component :
+  datasheet = "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [K | p[1] | Left | "Passive"]
+    [A | p[2] | Right | "Passive"]
+
+  assign-landpattern(D_DO-35_SOD27_P762mm_Horizontal)
+  assign-symbol(_1N4148)
+
+  property(self.Value) = "1N4148"
+

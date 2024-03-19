@@ -1,0 +1,7 @@
+* A dual opamp ngspice model
+* file name: LM13700-dual.lib
+.subckt LM13700-dual 1ABin 1DBias 1in+ 1in- 1out vcc- 1Bin 1Bout 2Bout 2Bin vcc+ 2out 2in- 2in+ 2Dbias 2ABin
+.include LM13700.MOD
+XU1C 1ABin 1DBias 1in+ 1in- 1out vcc- 1Bin 1Bout vcc+ LM13700/NS
+XU1A 2ABin 2DBias 2in+ 2in- 2out vcc- 2Bin 2Bout vcc+ LM13700/NS
+.ends

@@ -1,0 +1,64 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad circle-th-pad-1 :
+  type = TH
+  shape = Circle(1.62)
+  layer(SolderMask(Top)) = Circle(1.62)
+  layer(SolderMask(Bottom)) = Circle(1.62)
+  layer(Cutout()) = Circle(0.9)
+
+pcb-pad circle-th-pad-2 :
+  type = TH
+  shape = Circle(0.9)
+  layer(SolderMask(Top)) = Circle(0.9)
+  layer(SolderMask(Bottom)) = Circle(0.9)
+  layer(Cutout()) = Circle(0.5)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.8, 1.8)
+  layer(SolderMask(Top)) = Rectangle(1.8, 1.8)
+  layer(SolderMask(Bottom)) = Rectangle(1.8, 1.8)
+  layer(Cutout()) = Circle(0.5)
+
+public pcb-landpattern Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0, 270.0) on Bottom
+  pad p[2] : circle-th-pad-2 at loc(0.0, -2.5, 270.0) on Bottom
+  pad p[3] : circle-th-pad-2 at loc(0.0, -5.0, 270.0) on Bottom
+  pad unnamed[0] : circle-th-pad-1 at loc(7.5, -7.3, 270.0) on Bottom
+  pad unnamed[1] : circle-th-pad-1 at loc(7.5, 2.3, 270.0) on Bottom
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.15, -9.17), 
+    Point(12.6, -9.17), 
+    Point(12.6, 4.17), 
+    Point(-1.15, 4.17)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -10.11, 270.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(7.62, -2.54, 90.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("B-SilkS", Top)) = Text(">REF", 1.0, C, loc(6.45, 4.8, 270.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(0.88, -7.37), Point(0.88, -5.88)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(0.88, -7.37), Point(5.6, -7.37)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(0.88, -4.16), Point(0.88, -3.33)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(0.88, -1.71), Point(0.88, -1.18)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(0.88, 1.19), Point(0.88, 2.37)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(0.88, 2.38), Point(5.6, 2.38)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(9.41, -7.37), Point(12.47, -7.37)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(9.41, 2.37), Point(12.47, 2.37)])
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(12.47, -7.37), Point(12.47, 2.37)])
+  layer(Finish(Top)) = Line(0.1, [Point(1.0, -7.25), Point(1.0, 2.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(1.0, -7.25), Point(12.35, -7.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(1.0, 2.25), Point(12.35, 2.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(12.35, -7.25), Point(12.35, 2.25)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(7.5, -2.5, 3.5, 0.0, 360.0)])
+
+  model3d = Model3D("../3d-models/Potentiometer_Alpha_RD901F-40-00D_Single_Vertical.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
