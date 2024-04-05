@@ -1,0 +1,561 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "MXIC(Macronix)", "mpn" => "MX25UM51245GXDI00"])
+#use-added-syntax(jitx)
+defpackage ambiq_demo/components/MXIC-Macronix-/MX25UM51245GXDI00 :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/bundles
+  import ocdb/utils/landpatterns
+  import ocdb/utils/generic-components
+
+  import ambiq_demo/bundles
+
+
+pcb-pad circle-smd-pad :
+  name = "circle-smd-pad"
+  type = SMD
+  shape = Circle(0.200)
+  layer(SolderMask(Top)) = Circle(0.195)
+  ; layer(Paste(Top)) = Circle(0.200)
+
+pcb-landpattern lp :
+  pad A2_0 : circle-smd-pad at loc(-1.886, -0.886) on Top
+  pad A3_0 : circle-smd-pad at loc(-1.886, 0.114) on Top
+  pad A4_0 : circle-smd-pad at loc(-1.886, 1.114) on Top
+  pad A5_0 : circle-smd-pad at loc(-1.886, 2.114) on Top
+  pad B1_0 : circle-smd-pad at loc(-0.886, -1.886) on Top
+  pad B2_0 : circle-smd-pad at loc(-0.886, -0.886) on Top
+  pad B3_0 : circle-smd-pad at loc(-0.886, 0.114) on Top
+  pad B4_0 : circle-smd-pad at loc(-0.886, 1.114) on Top
+  pad B5_0 : circle-smd-pad at loc(-0.886, 2.114) on Top
+  pad C1_0 : circle-smd-pad at loc(0.114, -1.886) on Top
+  pad C2_0 : circle-smd-pad at loc(0.114, -0.886) on Top
+  pad C3_0 : circle-smd-pad at loc(0.114, 0.114) on Top
+  pad C4_0 : circle-smd-pad at loc(0.114, 1.114) on Top
+  pad C5_0 : circle-smd-pad at loc(0.114, 2.114) on Top
+  pad D1_0 : circle-smd-pad at loc(1.114, -1.886) on Top
+  pad D2_0 : circle-smd-pad at loc(1.114, -0.886) on Top
+  pad D3_0 : circle-smd-pad at loc(1.114, 0.114) on Top
+  pad D4_0 : circle-smd-pad at loc(1.114, 1.114) on Top
+  pad D5_0 : circle-smd-pad at loc(1.114, 2.114) on Top
+  pad E1_0 : circle-smd-pad at loc(2.114, -1.886) on Top
+  pad E2_0 : circle-smd-pad at loc(2.114, -0.886) on Top
+  pad E3_0 : circle-smd-pad at loc(2.114, 0.114) on Top
+  pad E4_0 : circle-smd-pad at loc(2.114, 1.114) on Top
+  pad E5_0 : circle-smd-pad at loc(2.114, 2.114) on Top
+
+  ref-label()
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 0.5, W, loc(-0.750, 3.972), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
+    Point(-3.962, 3.191)
+    Point(4.190, 3.191)
+    Point(4.190, -2.962)
+    Point(-3.962, -2.962)
+    Point(-3.962, 3.191)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.152, [
+    Point(-4.190, -2.162)
+    Point(-4.190, -3.191)
+    Point(-3.162, -3.191)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.060, [
+    Arc(-3.886, -2.886, 0.030, 0.0, -360.000)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.014, -0.726)
+    Point(-1.758, -0.726)
+    Point(-1.758, -0.726)
+    Point(-1.725, -0.758)
+    Point(-1.725, -0.758)
+    Point(-1.725, -1.014)
+    Point(-1.725, -1.014)
+    Point(-1.758, -1.046)
+    Point(-1.758, -1.046)
+    Point(-2.014, -1.046)
+    Point(-2.014, -1.046)
+    Point(-2.046, -1.014)
+    Point(-2.046, -1.014)
+    Point(-2.046, -0.758)
+    Point(-2.014, -0.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.014, 0.274)
+    Point(-1.758, 0.274)
+    Point(-1.758, 0.274)
+    Point(-1.725, 0.242)
+    Point(-1.725, 0.242)
+    Point(-1.725, -0.014)
+    Point(-1.725, -0.014)
+    Point(-1.758, -0.046)
+    Point(-1.758, -0.046)
+    Point(-2.014, -0.046)
+    Point(-2.014, -0.046)
+    Point(-2.046, -0.014)
+    Point(-2.046, -0.014)
+    Point(-2.046, 0.242)
+    Point(-2.014, 0.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.014, 1.274)
+    Point(-1.758, 1.274)
+    Point(-1.758, 1.274)
+    Point(-1.725, 1.242)
+    Point(-1.725, 1.242)
+    Point(-1.725, 0.986)
+    Point(-1.725, 0.986)
+    Point(-1.758, 0.954)
+    Point(-1.758, 0.954)
+    Point(-2.014, 0.954)
+    Point(-2.014, 0.954)
+    Point(-2.046, 0.986)
+    Point(-2.046, 0.986)
+    Point(-2.046, 1.242)
+    Point(-2.014, 1.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-2.014, 2.274)
+    Point(-1.758, 2.274)
+    Point(-1.758, 2.274)
+    Point(-1.725, 2.242)
+    Point(-1.725, 2.242)
+    Point(-1.725, 1.986)
+    Point(-1.725, 1.986)
+    Point(-1.758, 1.954)
+    Point(-1.758, 1.954)
+    Point(-2.014, 1.954)
+    Point(-2.014, 1.954)
+    Point(-2.046, 1.986)
+    Point(-2.046, 1.986)
+    Point(-2.046, 2.242)
+    Point(-2.014, 2.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.014, -1.726)
+    Point(-0.758, -1.726)
+    Point(-0.758, -1.726)
+    Point(-0.725, -1.758)
+    Point(-0.725, -1.758)
+    Point(-0.725, -2.014)
+    Point(-0.725, -2.014)
+    Point(-0.758, -2.046)
+    Point(-0.758, -2.046)
+    Point(-1.014, -2.046)
+    Point(-1.014, -2.046)
+    Point(-1.046, -2.014)
+    Point(-1.046, -2.014)
+    Point(-1.046, -1.758)
+    Point(-1.014, -1.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.014, -0.726)
+    Point(-0.758, -0.726)
+    Point(-0.758, -0.726)
+    Point(-0.725, -0.758)
+    Point(-0.725, -0.758)
+    Point(-0.725, -1.014)
+    Point(-0.725, -1.014)
+    Point(-0.758, -1.046)
+    Point(-0.758, -1.046)
+    Point(-1.014, -1.046)
+    Point(-1.014, -1.046)
+    Point(-1.046, -1.014)
+    Point(-1.046, -1.014)
+    Point(-1.046, -0.758)
+    Point(-1.014, -0.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.014, 0.274)
+    Point(-0.758, 0.274)
+    Point(-0.758, 0.274)
+    Point(-0.725, 0.242)
+    Point(-0.725, 0.242)
+    Point(-0.725, -0.014)
+    Point(-0.725, -0.014)
+    Point(-0.758, -0.046)
+    Point(-0.758, -0.046)
+    Point(-1.014, -0.046)
+    Point(-1.014, -0.046)
+    Point(-1.046, -0.014)
+    Point(-1.046, -0.014)
+    Point(-1.046, 0.242)
+    Point(-1.014, 0.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.014, 1.274)
+    Point(-0.758, 1.274)
+    Point(-0.758, 1.274)
+    Point(-0.725, 1.242)
+    Point(-0.725, 1.242)
+    Point(-0.725, 0.986)
+    Point(-0.725, 0.986)
+    Point(-0.758, 0.954)
+    Point(-0.758, 0.954)
+    Point(-1.014, 0.954)
+    Point(-1.014, 0.954)
+    Point(-1.046, 0.986)
+    Point(-1.046, 0.986)
+    Point(-1.046, 1.242)
+    Point(-1.014, 1.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-1.014, 2.274)
+    Point(-0.758, 2.274)
+    Point(-0.758, 2.274)
+    Point(-0.725, 2.242)
+    Point(-0.725, 2.242)
+    Point(-0.725, 1.986)
+    Point(-0.725, 1.986)
+    Point(-0.758, 1.954)
+    Point(-0.758, 1.954)
+    Point(-1.014, 1.954)
+    Point(-1.014, 1.954)
+    Point(-1.046, 1.986)
+    Point(-1.046, 1.986)
+    Point(-1.046, 2.242)
+    Point(-1.014, 2.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.014, -1.726)
+    Point(0.242, -1.726)
+    Point(0.242, -1.726)
+    Point(0.275, -1.758)
+    Point(0.275, -1.758)
+    Point(0.275, -2.014)
+    Point(0.275, -2.014)
+    Point(0.242, -2.046)
+    Point(0.242, -2.046)
+    Point(-0.014, -2.046)
+    Point(-0.014, -2.046)
+    Point(-0.046, -2.014)
+    Point(-0.046, -2.014)
+    Point(-0.046, -1.758)
+    Point(-0.014, -1.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.014, -0.726)
+    Point(0.242, -0.726)
+    Point(0.242, -0.726)
+    Point(0.275, -0.758)
+    Point(0.275, -0.758)
+    Point(0.275, -1.014)
+    Point(0.275, -1.014)
+    Point(0.242, -1.046)
+    Point(0.242, -1.046)
+    Point(-0.014, -1.046)
+    Point(-0.014, -1.046)
+    Point(-0.046, -1.014)
+    Point(-0.046, -1.014)
+    Point(-0.046, -0.758)
+    Point(-0.014, -0.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.014, 0.274)
+    Point(0.242, 0.274)
+    Point(0.242, 0.274)
+    Point(0.275, 0.242)
+    Point(0.275, 0.242)
+    Point(0.275, -0.014)
+    Point(0.275, -0.014)
+    Point(0.242, -0.046)
+    Point(0.242, -0.046)
+    Point(-0.014, -0.046)
+    Point(-0.014, -0.046)
+    Point(-0.046, -0.014)
+    Point(-0.046, -0.014)
+    Point(-0.046, 0.242)
+    Point(-0.014, 0.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.014, 1.274)
+    Point(0.242, 1.274)
+    Point(0.242, 1.274)
+    Point(0.275, 1.242)
+    Point(0.275, 1.242)
+    Point(0.275, 0.986)
+    Point(0.275, 0.986)
+    Point(0.242, 0.954)
+    Point(0.242, 0.954)
+    Point(-0.014, 0.954)
+    Point(-0.014, 0.954)
+    Point(-0.046, 0.986)
+    Point(-0.046, 0.986)
+    Point(-0.046, 1.242)
+    Point(-0.014, 1.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(-0.014, 2.274)
+    Point(0.242, 2.274)
+    Point(0.242, 2.274)
+    Point(0.275, 2.242)
+    Point(0.275, 2.242)
+    Point(0.275, 1.986)
+    Point(0.275, 1.986)
+    Point(0.242, 1.954)
+    Point(0.242, 1.954)
+    Point(-0.014, 1.954)
+    Point(-0.014, 1.954)
+    Point(-0.046, 1.986)
+    Point(-0.046, 1.986)
+    Point(-0.046, 2.242)
+    Point(-0.014, 2.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.986, -1.726)
+    Point(1.242, -1.726)
+    Point(1.242, -1.726)
+    Point(1.275, -1.758)
+    Point(1.275, -1.758)
+    Point(1.275, -2.014)
+    Point(1.275, -2.014)
+    Point(1.242, -2.046)
+    Point(1.242, -2.046)
+    Point(0.986, -2.046)
+    Point(0.986, -2.046)
+    Point(0.954, -2.014)
+    Point(0.954, -2.014)
+    Point(0.954, -1.758)
+    Point(0.986, -1.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.986, -0.726)
+    Point(1.242, -0.726)
+    Point(1.242, -0.726)
+    Point(1.275, -0.758)
+    Point(1.275, -0.758)
+    Point(1.275, -1.014)
+    Point(1.275, -1.014)
+    Point(1.242, -1.046)
+    Point(1.242, -1.046)
+    Point(0.986, -1.046)
+    Point(0.986, -1.046)
+    Point(0.954, -1.014)
+    Point(0.954, -1.014)
+    Point(0.954, -0.758)
+    Point(0.986, -0.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.986, 0.274)
+    Point(1.242, 0.274)
+    Point(1.242, 0.274)
+    Point(1.275, 0.242)
+    Point(1.275, 0.242)
+    Point(1.275, -0.014)
+    Point(1.275, -0.014)
+    Point(1.242, -0.046)
+    Point(1.242, -0.046)
+    Point(0.986, -0.046)
+    Point(0.986, -0.046)
+    Point(0.954, -0.014)
+    Point(0.954, -0.014)
+    Point(0.954, 0.242)
+    Point(0.986, 0.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.986, 1.274)
+    Point(1.242, 1.274)
+    Point(1.242, 1.274)
+    Point(1.275, 1.242)
+    Point(1.275, 1.242)
+    Point(1.275, 0.986)
+    Point(1.275, 0.986)
+    Point(1.242, 0.954)
+    Point(1.242, 0.954)
+    Point(0.986, 0.954)
+    Point(0.986, 0.954)
+    Point(0.954, 0.986)
+    Point(0.954, 0.986)
+    Point(0.954, 1.242)
+    Point(0.986, 1.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(0.986, 2.274)
+    Point(1.242, 2.274)
+    Point(1.242, 2.274)
+    Point(1.275, 2.242)
+    Point(1.275, 2.242)
+    Point(1.275, 1.986)
+    Point(1.275, 1.986)
+    Point(1.242, 1.954)
+    Point(1.242, 1.954)
+    Point(0.986, 1.954)
+    Point(0.986, 1.954)
+    Point(0.954, 1.986)
+    Point(0.954, 1.986)
+    Point(0.954, 2.242)
+    Point(0.986, 2.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.986, -1.726)
+    Point(2.242, -1.726)
+    Point(2.242, -1.726)
+    Point(2.275, -1.758)
+    Point(2.275, -1.758)
+    Point(2.275, -2.014)
+    Point(2.275, -2.014)
+    Point(2.242, -2.046)
+    Point(2.242, -2.046)
+    Point(1.986, -2.046)
+    Point(1.986, -2.046)
+    Point(1.954, -2.014)
+    Point(1.954, -2.014)
+    Point(1.954, -1.758)
+    Point(1.986, -1.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.986, -0.726)
+    Point(2.242, -0.726)
+    Point(2.242, -0.726)
+    Point(2.275, -0.758)
+    Point(2.275, -0.758)
+    Point(2.275, -1.014)
+    Point(2.275, -1.014)
+    Point(2.242, -1.046)
+    Point(2.242, -1.046)
+    Point(1.986, -1.046)
+    Point(1.986, -1.046)
+    Point(1.954, -1.014)
+    Point(1.954, -1.014)
+    Point(1.954, -0.758)
+    Point(1.986, -0.726)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.986, 0.274)
+    Point(2.242, 0.274)
+    Point(2.242, 0.274)
+    Point(2.275, 0.242)
+    Point(2.275, 0.242)
+    Point(2.275, -0.014)
+    Point(2.275, -0.014)
+    Point(2.242, -0.046)
+    Point(2.242, -0.046)
+    Point(1.986, -0.046)
+    Point(1.986, -0.046)
+    Point(1.954, -0.014)
+    Point(1.954, -0.014)
+    Point(1.954, 0.242)
+    Point(1.986, 0.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.986, 1.274)
+    Point(2.242, 1.274)
+    Point(2.242, 1.274)
+    Point(2.275, 1.242)
+    Point(2.275, 1.242)
+    Point(2.275, 0.986)
+    Point(2.275, 0.986)
+    Point(2.242, 0.954)
+    Point(2.242, 0.954)
+    Point(1.986, 0.954)
+    Point(1.986, 0.954)
+    Point(1.954, 0.986)
+    Point(1.954, 0.986)
+    Point(1.954, 1.242)
+    Point(1.986, 1.274)])
+  layer(Paste(Top)) = PolygonWithArcs([
+    Point(1.986, 2.274)
+    Point(2.242, 2.274)
+    Point(2.242, 2.274)
+    Point(2.275, 2.242)
+    Point(2.275, 2.242)
+    Point(2.275, 1.986)
+    Point(2.275, 1.986)
+    Point(2.242, 1.954)
+    Point(2.242, 1.954)
+    Point(1.986, 1.954)
+    Point(1.986, 1.954)
+    Point(1.954, 1.986)
+    Point(1.954, 1.986)
+    Point(1.954, 2.242)
+    Point(1.986, 2.274)])
+  layer(Silkscreen("F-SilkS", Top)) = PolygonWithArcs([
+    Point(-3.962, -2.962)
+    Point(-3.162, -2.962)
+    Point(-3.162, -2.962)
+    Point(-3.962, -2.162)
+    Point(-3.962, -2.162)
+    Point(-3.962, -2.962)
+    Point(-3.962, -2.962)])
+  layer(CustomLayer("Fab", Top)) = PolygonWithArcs([
+    Point(-3.962, -2.962)
+    Point(-3.162, -2.962)
+    Point(-3.162, -2.962)
+    Point(-3.962, -2.162)
+    Point(-3.962, -2.162)
+    Point(-3.962, -2.962)
+    Point(-3.962, -2.962)])
+  layer(Courtyard(Top)) = Rectangle(8.533, 6.533)
+
+  model3d = Model3D("../../3d-models/jitx-64d17eaab789d8dc4b8187c8.stp",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.000, 1.000, 1.000),
+    Vec3D(0.0, 0.0, 0.0),
+    [],
+    )
+
+public pcb-component component :
+  name = "C2913622"
+  description = "512Mbit SPI TBGA-24  NOR FLASH ROHS"
+  manufacturer = "MXIC(Macronix)"
+  mpn = "MX25UM51245GXDI00"
+  datasheet = "https://www.macronix.com/Lists/Datasheet/Attachments/8967/MX25UM51245G,%201.8V,%20512Mb,%20v1.5.pdf"
+  reference-prefix = "U"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
+    [NC0       | A2_0 | Down | "unspecified" | 0]
+    [NC1       | A3_0 | Down | "unspecified" | 0]
+    [RESET_NOT | A4_0 | Left | "unspecified" | 0]
+    [ECS_NOT   | A5_0 | Left | "unspecified" | 0]
+    [DNU0      | B1_0 | Down | "unspecified" | 0]
+    [SCLK      | B2_0 | Left | "unspecified" | 0]
+    [GND       | B3_0 | Down | "unspecified" | 0]
+    [VCC       | B4_0 | Up   | "unspecified" | 0]
+    [DNU1      | B5_0 | Down | "unspecified" | 0]
+    [VSSQ0     | C1_0 | Down | "unspecified" | 0]
+    [CS_NOT    | C2_0 | Left | "unspecified" | 0]
+    [DQS       | C3_0 | Right | "unspecified" | 0]
+    [SIO2      | C4_0 | Right | "unspecified" | 0]
+    [NC2       | C5_0 | Down  | "unspecified" | 0]
+    [VCCQ0     | D1_0 | Up    | "unspecified" | 0]
+    [SIO1      | D2_0 | Right | "unspecified" | 0]
+    [SIO0      | D3_0 | Right | "unspecified" | 0]
+    [SIO3      | D4_0 | Right | "unspecified" | 0]
+    [SIO4      | D5_0 | Right | "unspecified" | 0]
+    [SIO7      | E1_0 | Right | "unspecified" | 0]
+    [SIO6      | E2_0 | Right | "unspecified" | 0]
+    [SIO5      | E3_0 | Right | "unspecified" | 0]
+    [VCCQ1     | E4_0 | Up    | "unspecified" | 0]
+    [VSSQ1     | E5_0 | Down  | "unspecified" | 0]
+
+  assign-landpattern(lp)
+  make-box-symbol()
+
+  property(self.category) = "ic"
+  property(self.manufacturer_aliases) = ["MXIC(Macronix)"]
+  property(self.mpn_aliases) = ["MX25UM51245GXDI00"]
+  property(self.cofactr_id) = "XXLGXKVIDOSW"
+  property(self.reference_prefix) = "U"
+  property(self.trust) = "low"
+  property(self.x) = 8.533
+  property(self.y) = 6.533
+  property(self.area) = 55.746
+  property(self.case) = "TBGA-24"
+  property(self.mounting) = "smd"
+
+  no-connect(self.NC0) 
+  no-connect(self.NC1) 
+  no-connect(self.DNU0) 
+  no-connect(self.DNU1) 
+  no-connect(self.NC2) 
+
+public pcb-module module :
+  port pwr : power
+  port ospi : octal-spi
+
+  public inst mem : ambiq_demo/components/MXIC-Macronix-/MX25UM51245GXDI00/component
+  net GND (pwr.gnd mem.VSSQ0 mem.VSSQ1 mem.GND)
+  net VDD (pwr.vdd mem.VCC mem.VCCQ0 mem.VCCQ1)
+  res-strap(mem.RESET_NOT GND, 1.0e3)
+
+  net (ospi.sck      mem.SCLK   )
+  net (ospi.cs       mem.CS_NOT )
+  net (ospi.sdio[0]  mem.SIO0   )
+  net (ospi.sdio[1]  mem.SIO1   )
+  net (ospi.sdio[2]  mem.SIO2   )
+  net (ospi.sdio[3]  mem.SIO3   )
+  net (ospi.sdio[4]  mem.SIO4   )
+  net (ospi.sdio[5]  mem.SIO5   )
+  net (ospi.sdio[6]  mem.SIO6   )
+  net (ospi.sdio[7]  mem.SIO7   )
+
+  topology-segment(ospi.sck      mem.SCLK   )
+  topology-segment(ospi.cs       mem.CS_NOT )
+  topology-segment(ospi.sdio[0]  mem.SIO0   )
+  topology-segment(ospi.sdio[1]  mem.SIO1   )
+  topology-segment(ospi.sdio[2]  mem.SIO2   )
+  topology-segment(ospi.sdio[3]  mem.SIO3   )
+  topology-segment(ospi.sdio[4]  mem.SIO4   )
+  topology-segment(ospi.sdio[5]  mem.SIO5   )
+  topology-segment(ospi.sdio[6]  mem.SIO6   )
+  topology-segment(ospi.sdio[7]  mem.SIO7   )
+
+  for n in [mem.VCC mem.VCCQ0 mem.VCCQ1] do :
+    bypass-cap-strap(n, mem.VSSQ0, 100.0e-9)
+  ; schematic-group(self) = memory
+  layout-group(self) = mem

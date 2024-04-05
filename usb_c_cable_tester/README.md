@@ -207,7 +207,7 @@ We've now created many components and circuit generators that will serve as the 
 
 First, we create a `pcb-module`, define our input/output pins, add version label text, and place a logo on the silkscreen:
 ```
-pcb-module usb-c-cable-tester-module :
+pcb-module usb_c_cable_tester_module :
   ; define pins to expose from our module
   pin gnd
   pin power
@@ -389,7 +389,7 @@ And finally, let's create a top level test rig `pcb-module` that includes that U
 ```
 ; a rig that plugs a USB cable into both connectors on the main usb cable testing board - this is created to allow us to run checks
 public pcb-module test-rig :
-  inst design-under-test : usb-c-cable-tester-module
+  inst design-under-test : usb_c_cable_tester_module
   inst usb-c-cable : usb-c-cable-module
   net IN (design-under-test.in-usb.usb-c-pinout usb-c-cable.in-usb-bundle)
   net OUT (design-under-test.out-usb.usb-c-pinout usb-c-cable.out-usb-bundle)

@@ -2,7 +2,7 @@
 
 This recipe serves as a playground for you to learn JITX while working on a functional PCB design. You’ll use the electronic conference badge template design in this folder to design your own electronic badge.
 
-This template is a fully functioning board with an RP2040 microcontroller, battery and USB power solution, and a number of peripheral input/output devices that you can use as part of your badge design. We can roughly seperate the template badge into 2 parts - the subsystems that you won’t change, and those that you (likely) will change.
+This template is a fully functioning board with an RP2040 microcontroller, battery and USB power solution, and a number of peripheral input/output devices that you can use as part of your badge design. We can roughly separate the template badge into 2 parts - the subsystems that you won’t change, and those that you (likely) will change.
 
 ##### Won't Change
 
@@ -30,7 +30,7 @@ The main design of the board is in `main.stanza`, open that in JITX VSCode and p
 
 Briefly, let's go through the code.
 
-The top level module is `public pcb-module buddha :`
+The top level module is `public pcb-module hacking_conference_badge_module :`
 
 Here, we instantiate and connect everything that will be part of our board.
 

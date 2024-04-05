@@ -1,3 +1,3 @@
-package battery_charger_design/main defined-in "main.stanza"
+package battery_charger_design/battery_charger_design_module defined-in "main.stanza"
 package battery_charger_design/helpers defined-in "helpers.stanza"
 packages battery_charger_design/components/* defined-in "components"

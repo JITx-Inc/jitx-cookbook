@@ -1,4 +1,4 @@
-package hacking_conference_badge/main defined-in "main.stanza"
+package hacking_conference_badge/hacking_conference_badge_module defined-in "main.stanza"
 package hacking_conference_badge/checks defined-in "checks.stanza"
 package hacking_conference_badge/helpers defined-in "helpers.stanza"
 packages hacking_conference_badge/components/* defined-in "components"
