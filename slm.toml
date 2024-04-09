@@ -1,0 +1,5 @@
+name = "jitx-cookbook"
+version = "0.1.0"
+[dependencies]
+ocdb = { path = "{SLM_ROOT}/ocdb" }
+JITX = { path = "/Users/bgupta/src/JITX/jitx-client/build/slm/JITX" }

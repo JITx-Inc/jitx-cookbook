@@ -1,4 +1,5 @@
-include "open-components-database/stanza.proj"
+include? ".slm/stanza.proj"
+pkg-cache: ".slm/pkg-cache"
 include "battery_charger_design/stanza.proj"
 include "regulator_example/stanza.proj"
 include "ble_mote_esp32_iot_board/stanza.proj"
