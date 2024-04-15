@@ -347,23 +347,49 @@ public pcb-module module :
                   swappable-pair(mux.TX-O.N, mux.TX-O.P)
                   swappable-pair(mux.RX-O.N, mux.RX-O.P))
 
-  topo-net(usb-a.ssrx => muxed.rx)
-  topo-net(usb-a.sstx => muxed.tx)
+  ; Drop Pull-downs for both the TX and RX channels but keep them
+  ;  in a differential-pair accessible format.
+  val pd-R = chip-resistor(100.0e3)
+  inst rx-pds : symmetric-pull-downs(pd-R)
+  net (GND, rx-pds.GND)
 
-  ; USB-C side
+  topo-net(muxed.rx => rx-pds.A)
+  topo-net(rx-pds.B => usb-a.ssrx )
 
-  require lane-1 : swappable-tx-rx(
-                     swappable-pair(mux.TX[1].N, mux.TX[1].P)
-                     swappable-pair(mux.RX[1].N, mux.RX[1].P))
-  require lane-2 : swappable-tx-rx(
-                     swappable-pair(mux.TX[2].N, mux.TX[2].P)
-                     swappable-pair(mux.RX[2].N, mux.RX[2].P))
+  property(usb-a.ssrx.signal-end) = muxed.rx
 
-  topo-net(lane-1.rx => usb-c.ssrx[1])
-  topo-net(lane-2.rx => usb-c.ssrx[2])
+  ; TX has the pull downs and blocking caps
+  inst tx-pds : symmetric-pull-downs(pd-R)
+  net (GND, tx-pds.GND)
 
-  topo-net(lane-1.tx => usb-c.sstx[1])
-  topo-net(lane-2.tx => usb-c.sstx[2])
+  val block-cap = ceramic-cap(470.0e-9)
+  inst tx-bcap : dp-coupler(block-cap)
+  require tx-C : bidir-diff-pair from tx-bcap
+
+  topo-net(muxed.tx => tx-pds.A)
+  topo-net(tx-pds.B => tx-C.A)
+  topo-net(tx-C.B => usb-a.sstx)
+
+  property(usb-a.sstx.signal-end) = muxed.tx
+
+  ; USB-C side - There are two lanes of rx/tx pairs.
+  ;  We want to make each accessible with blocking caps
+  ;  on the TX side.
+
+  for i in [1, 2] do:
+    require lane-port : swappable-tx-rx(
+                     swappable-pair(mux.TX[i].N, mux.TX[i].P)
+                     swappable-pair(mux.RX[i].N, mux.RX[i].P))
+
+    topo-net(lane-port.rx => usb-c.ssrx[i])
+    set-signal-end(usb-c.ssrx[i], lane-port.rx)
+
+    inst tx1-bcap : dp-coupler(block-cap)
+    require tx1 : bidir-diff-pair from tx1-bcap
+    topo-net(lane-port.tx => tx1.A)
+    topo-net(tx1.B => usb-c.sstx[i])
+
+    set-signal-end(usb-c.sstx[i], lane-port.tx)
 
   
   ;LED indicators
