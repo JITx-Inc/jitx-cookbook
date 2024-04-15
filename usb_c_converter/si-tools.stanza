@@ -372,3 +372,40 @@ public pcb-module symmetric-pull-downs (comp:Instantiable -- margin:Double = 0.0
 
   place(R[0]) at loc(0.0, y-off, 180.0) on Top
   place(R[1]) at loc(0.0, (- y-off)) on Top
+
+
+doc: \<DOC>
+Set the Signal End Property for a Topology Port
+
+Many times, a module may not expose the end point of a topology on its
+port. We might have pull-up/down resistors, blocking caps, or other 
+components in series.
+
+This function allows us to publish the true endpoint of the topology
+via a `property` statement.
+
+This function is typically only used inside the module that is providing
+the endpoint of the topology.
+
+@param conn This is the exported `port` for which we need to publish an endpoint.
+@param sig-end This is the component/module port or abstract port to expose as the signal end.
+
+<DOC>
+public defn set-signal-end (conn:JITXObject, sig-end:JITXObject) :
+  inside pcb-module:
+    property(conn.signal-end) = sig-end
+
+doc: \<DOC>
+Get the Signal End Property of a Topology Port
+
+This function returns the port that is the end of the signal topology
+we are attempting to inspect. This will typically be a port from an internal
+component or abstract port. 
+
+@returns The signal end port for this topology. In most applications, this is a `Pin` object.
+<DOC>
+public defn get-signal-end (conn:JITXObject) -> JITXObject :
+  inside pcb-module:
+    if not has-property?(conn.signal-end):
+      throw $ Exception("No Signal End Present on Port: %_" % [ref(conn)])
+    property(conn.signal-end)
