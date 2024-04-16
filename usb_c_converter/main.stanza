@@ -19,12 +19,14 @@ pcb-module power-regulation :
   port vbus : power
   port power-3v3 : power
 
-  inst buck : components/Texas-Instruments/TPS62082DSGT/module
+  inst buck : components/Texas-Instruments/TPS62082DSGT/module(vout-V = 3.3)
 
-  net (vbus buck.power-5v0)
-  net GND (vbus.gnd power-3v3.gnd)
+  net (vbus, buck.vin)
+  net (power-3v3, buck.vout)
+
+  net GND (vbus.gnd)
   net pwr5v0 (vbus.vdd)
-  net pwr3v3 (buck.power-3v3.vdd)
+  net pwr3v3 (power-3v3.vdd)
 
   symbol(GND) = ocdb/utils/symbols/ground-sym
   symbol(pwr5v0) = ocdb/utils/symbols/supply-sym
