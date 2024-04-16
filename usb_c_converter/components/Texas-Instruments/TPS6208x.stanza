@@ -1,7 +1,7 @@
 ; This file is generated based on the parts database query below:")
 ;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TPS62082DSGT"])
 #use-added-syntax(jitx)
-defpackage components/Texas-Instruments/TPS62082DSGT :
+defpackage components/Texas-Instruments/TPS6208x :
   import core
   import jitx
   import jitx/commands
@@ -98,7 +98,7 @@ public pcb-module module (-- vout-V:Double) :
   port vin : power
   port vout : power
 
-  inst buck : components/Texas-Instruments/TPS62082DSGT/component(vout-V = vout-V)
+  inst buck : component(vout-V = vout-V)
 
   net (vin.vdd buck.VIN buck.EN)
   net (vin.gnd vout.gnd buck.GND buck.MODE buck.EP)

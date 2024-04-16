@@ -19,7 +19,7 @@ pcb-module power-regulation :
   port vbus : power
   port power-3v3 : power
 
-  inst buck : components/Texas-Instruments/TPS62082DSGT/module(vout-V = 3.3)
+  inst buck : components/Texas-Instruments/TPS6208x/module(vout-V = 3.3)
 
   net (vbus, buck.vin)
   net (power-3v3, buck.vout)
