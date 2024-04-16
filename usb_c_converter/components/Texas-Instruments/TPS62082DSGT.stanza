@@ -138,5 +138,7 @@ public pcb-module module (-- vout-V:Double) :
 
   if not property(buck.adjustable):
     println("Set DNP")
-    dnp(vdiv)
+    do-not-populate(vdiv.r-hi)
+    do-not-populate(vdiv.r-lo)
+
     ; dnp([vdiv.r-hi, vdiv.r-lo])
