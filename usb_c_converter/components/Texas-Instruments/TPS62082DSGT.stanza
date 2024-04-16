@@ -8,6 +8,8 @@ defpackage components/Texas-Instruments/TPS62082DSGT :
   import ocdb/utils/bundles
   import ocdb/utils/generic-components
   import ocdb/utils/box-symbol
+  import ocdb/utils/generator-utils
+  import ocdb/modules/passive-circuits
 
 pcb-pad rectangle-smd-pad :
   name = "rectangle-smd-pad"
@@ -46,43 +48,97 @@ pcb-landpattern lp :
     Arc(-1.402, 1.142, 0.076, 0.0, -360.000)])
   layer(Courtyard(Top)) = Rectangle(2.109, 2.123)
 
-public pcb-component component :
-  name = "C2071042"
-  description = "Yes Step-down type -40℃~+85℃@(TA) 1 Step-down Fixed 3.3V 2.3V~6V 1.2A 2MHz WSON-8-EP(2x2)  DC-DC Converters ROHS"
+doc: \<DOC>
+Family of low-voltage DC/DC with 1.2A Max current
+<DOC>
+public pcb-component component (-- vout-V:Double):
+  name = "Buck Converter"
+
+  if vout-V == 3.3:
+    description = "Step-down Buck Converter, 3.3V Fixed Output"
+    mpn = "TPS62082DSGT"
+    property(self.fixed-output) = 3.3
+    property(self.adjustable) = false
+  else if vout-V == 1.8:
+    description = "Step-down Buck Converter, 1.8V Fixed Output"
+    mpn = "TPS62081DSGT"
+    property(self.fixed-output) = 1.8
+    property(self.adjustable) = false
+  else:
+    description = "Step-down Buck Converter, Adjustable Output"
+    mpn = "TPS62080DSGT"
+    property(self.adjustable) = true
+  
   manufacturer = "Texas Instruments"
-  mpn = "TPS62082DSGT"
-  datasheet = "https://datasheet.lcsc.com/lcsc/2303012000_Texas-Instruments-TPS62082DSGT_C2071042.pdf"
+  datasheet = "https://www.ti.com/lit/ds/symlink/tps62082.pdf"
   reference-prefix = "U"
+
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
-    [EP | p[9] | Right | "unspecified" | 0]
-    [VIN | p[8] | Right | "unspecified" | 0]
-    [SW | p[7] | Right | "unspecified" | 0]
-    [PG | p[6] | Right | "unspecified" | 0]
-    [VOS | p[5] | Right | "unspecified" | 0]
-    [FB | p[4] | Left | "unspecified" | 0]
+
+    [VIN | p[8] | Left | "unspecified" | 0]
+    [EN | p[1] | Left | "unspecified" | 0]
     [MODE | p[3] | Left | "unspecified" | 0]
     [GND | p[2] | Left | "unspecified" | 0]
-    [EN | p[1] | Left | "unspecified" | 0]
+    [EP | p[9] | Left | "unspecified" | 0]
+
+    [PG | p[6] | Right | "unspecified" | 0]
+    [SW | p[7] | Right | "unspecified" | 0]
+    [VOS | p[5] | Right | "unspecified" | 0]
+    [FB | p[4] | Right | "unspecified" | 0]
 
   assign-landpattern(lp)
   make-box-symbol()
 
-public pcb-module module :
-  port power-5v0 : power
-  port power-3v3 : power
+  property(self.VIN.op-range) = min-max(2.3, 6.0)
 
-  inst buck : components/Texas-Instruments/TPS62082DSGT/component
+public pcb-module module (-- vout-V:Double) :
+  port vin : power
+  port vout : power
 
-  bypass-cap-strap(buck.VIN, buck.GND, 10.0e-6) 
-  res-strap(buck.PG, power-3v3.vdd, 178.0e3)
+  inst buck : components/Texas-Instruments/TPS62082DSGT/component(vout-V = vout-V)
+
+  net (vin.vdd buck.VIN buck.EN)
+  net (vin.gnd vout.gnd buck.GND buck.MODE buck.EP)
+
+  val V-safety-factor = 2.0
+  val vin-min-rating = max-value(property(buck.VIN.op-range)) * V-safety-factor
+
+  bypass-cap-strap(
+    buck.VIN, buck.GND, 
+    ["capacitance" => 10.0e-6, "min-rated-voltage" => vin-min-rating]
+  )
+  res-strap(buck.PG, vout.vdd, 178.0e3)
 
   inst l : database-part(["mpn" => "NR3015T1R0N", "manufacturer" => "Taiyo Yuden"])
   net (buck.SW, l.p[1])
-  net (l.p[2], power-3v3.vdd)
 
-  bypass-cap-strap(l.p[2], buck.GND, 22.0e-6)  
+  net VOUT (l.p[2], vout.vdd, buck.VOS)
 
-  net (power-5v0.vdd buck.VIN buck.EN)
-  net (power-5v0.gnd power-3v3.gnd buck.GND buck.MODE buck.EP)
-  
+  property(self.vout.vdd.voltage) = vout-V
+
+  val vout-min-rating = V-safety-factor * vout-V
+  bypass-cap-strap(
+    l.p[2], buck.GND,
+    ["capacitance" => 22.0e-6, "min-rated-voltage" => vout-min-rating]
+  )
+
+  ; Create the feedback divider for the power converter here.
+  ; Note that we place regardless and then DNP if not adjustable
+  inst vdiv : voltage-divider(
+    source-voltage = typ(vout-V),
+    divider-output = vout-targ,
+    current = 0.0005
+    ) where:
+    val V-ref = min-typ-max(0.438 0.45 0.462)  ; Datasheet, Section 7.5, VFB
+    val vout-targ = typ(V-ref) +/- (3 %)
+
+  net (VOUT, vdiv.in)
+  net (buck.FB, vdiv.out)
+  net (buck.GND, vdiv.lo)
+
+  if not property(buck.adjustable):
+    do-not-populate(vdiv.r-hi)
+    do-not-populate(vdiv.r-lo)
