@@ -108,10 +108,11 @@ public pcb-component component (-- channels:Int = 4):
       [D1-B.N | p[9] | Right | "unspecified" | 0]
 
       [GND | p[3] p[8] | Down | "unspecified" | 0]
+
       [D2-A.P | p[4] | Left | "unspecified" | 0]
       [D2-A.N | p[5] | Left | "unspecified" | 0]
-      [D2-B.P | p[7] | Left | "unspecified" | 0]
-      [D2-B.N | p[6] | Left | "unspecified" | 0]
+      [D2-B.P | p[7] | Right | "unspecified" | 0]
+      [D2-B.N | p[6] | Right | "unspecified" | 0]
 
     assign-landpattern(lp-4)
 

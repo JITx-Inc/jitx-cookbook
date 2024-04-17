@@ -71,8 +71,8 @@ public pcb-component component :
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
     [VCC | p[12] | Up | "unspecified" | 0]
-    [VREG | p[11] | Up | "unspecified" | 0]
-    [GND | p[10] | Up | "unspecified" | 0]
+    [VREG | p[11] | Down | "unspecified" | 0]
+    [GND | p[10] | Down | "unspecified" | 0]
     [ENA_HS | p[9] | Up | "unspecified" | 0]
     [D1.N | p[1] | Left | "unspecified" | 0]
     [D1.P | p[2] | Left | "unspecified" | 0]
@@ -86,6 +86,7 @@ public pcb-component component :
   assign-landpattern(lp)
   make-box-symbol()
 
+  no-connect(self.TEST)
 
   diff-pin-model(self.D1)
   diff-pin-model(self.D2)
@@ -116,5 +117,8 @@ public pcb-module module :
   bypass-cap-strap(usb2sc.VCC, GND, 10.0e-9)
   bypass-cap-strap(usb2sc.VCC, GND, 100.0e-9)
   bypass-cap-strap(usb2sc.VREG, GND, 100.0e-9)
+
+  ; Internal Pullup (500k) on RSTN
   cap-strap(usb2sc.RSTN, GND, 100.0e-9)
+
   res-strap(usb2sc.EQ, GND, 1.6e3)

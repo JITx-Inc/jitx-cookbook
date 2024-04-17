@@ -217,152 +217,7 @@ pcb-landpattern lp :
     Arc(4.623, -3.533, 0.550, 0.0, -180.000)])
   layer(Courtyard(Top)) = Rectangle(9.380, 8.476)
 
-pcb-symbol sym-2012670005 :
-  pin GND0 at Point(-8.890, 16.510) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX1.P at Point(-8.890, 13.970) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX1.N at Point(-8.890, 11.430) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VBUS0 at Point(-8.890, 8.890) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin CC1 at Point(-8.890, 6.350) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin D0.P at Point(-8.890, 3.810) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin D0.N at Point(-8.890, 1.270) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SUB1 at Point(-8.890, -1.270) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VBUS1 at Point(-8.890, -3.810) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX2.N at Point(-8.890, -6.350) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX2.P at Point(-8.890, -8.890) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND1 at Point(-8.890, -11.430) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND2 at Point(-8.890, -13.970) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX1.P at Point(-8.890, -16.510) with :
-    direction = Left
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin RX1.N at Point(8.890, -16.510) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VBUS2 at Point(8.890, -13.970) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin SBU2 at Point(8.890, -11.430) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin D1.N at Point(8.890, -8.890) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin D1.P at Point(8.890, -6.350) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin CC2 at Point(8.890, -3.810) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin VBUS3 at Point(8.890, -1.270) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX2.N at Point(8.890, 1.270) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin TX2.P at Point(8.890, 3.810) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin GND3 at Point(8.890, 6.350) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin p[1] at Point(8.890, 8.890) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin p[2] at Point(8.890, 11.430) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin p[3] at Point(8.890, 13.970) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
-  pin p[4] at Point(8.890, 16.510) with :
-    direction = Right
-    length = 2.540
-    number-size = 1.000
-    name-size = 1.000
 
-  layer("value") = Text(">VALUE", 0.7056, C, loc(0.0, 18.510), "", TrueTypeFont, false, false)
-  layer("reference") = Text(">REF", 0.7056, C, loc(0.0, 19.510), "", TrueTypeFont, false, false)
-  layer("foreground") = Rectangle(17.780, 38.100)
-  layer("foreground") = Circle(-7.620, 17.780, 0.381)
 
 public pcb-component component :
   name = "C565324"
@@ -384,34 +239,38 @@ public pcb-component component :
 
   pin-properties :
     [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String | bank:Int]
-    [GND0 | A1 | Left | "unspecified" | 0]
+
+    [VBUS0 | A4 | Up | "unspecified" | 0]
+    [VBUS1 | A9 | Up | "unspecified" | 0]
+    [VBUS2 | B9 | Up | "unspecified" | 0]
+    [VBUS3 | B4 | Up | "unspecified" | 0]
+
+    [GND0 | A1 | Down | "unspecified" | 0]
+    [GND1 | A12 | Down | "unspecified" | 0]
+    [GND2 | B12 | Down | "unspecified" | 0]
+    [GND3 | B1 | Down | "unspecified" | 0]
+
     [TX1.P | A2 | Left | "unspecified" | 0]
     [TX1.N | A3 | Left | "unspecified" | 0]
-    [VBUS0 | A4 | Left | "unspecified" | 0]
     [CC1 | A5 | Left | "unspecified" | 0]
     [D0.P | A6 | Left | "unspecified" | 0]
     [D0.N | A7 | Left | "unspecified" | 0]
     [SUB1 | A8 | Left | "unspecified" | 0]
-    [VBUS1 | A9 | Left | "unspecified" | 0]
+
     [RX2.N | A10 | Left | "unspecified" | 0]
     [RX2.P | A11 | Left | "unspecified" | 0]
-    [GND1 | A12 | Left | "unspecified" | 0]
-    [GND2 | B12 | Left | "unspecified" | 0]
-    [RX1.P | B11 | Left | "unspecified" | 0]
+
+    [RX1.P | B11 | Right | "unspecified" | 0]
     [RX1.N | B10 | Right | "unspecified" | 0]
-    [VBUS2 | B9 | Right | "unspecified" | 0]
+
     [SBU2 | B8 | Right | "unspecified" | 0]
     [D1.N | B7 | Right | "unspecified" | 0]
     [D1.P | B6 | Right | "unspecified" | 0]
     [CC2 | B5 | Right | "unspecified" | 0]
-    [VBUS3 | B4 | Right | "unspecified" | 0]
     [TX2.N | B3 | Right | "unspecified" | 0]
     [TX2.P | B2 | Right | "unspecified" | 0]
-    [GND3 | B1 | Right | "unspecified" | 0]
-    [p[1] | p[1] | Right | "unspecified" | 0]
-    [p[2] | p[2] | Right | "unspecified" | 0]
-    [p[3] | p[3] | Right | "unspecified" | 0]
-    [p[4] | p[4] | Right | "unspecified" | 0]
+    ; Shield 
+    [SHIELD | p[1] p[2] p[3] p[4] | Down | "unspecified" | 0]
 
   assign-landpattern(lp)
   make-box-symbol()
@@ -450,4 +309,4 @@ public pcb-module module :
   topo-net(con.RX2, usb.ssrx[2])
 
   net (con.GND0 con.GND1 con.GND2 con.GND3 usb.vbus.gnd)
-  net (usb.shield con.p[1] con.p[2] con.p[3] con.p[4])
+  net (usb.shield con.SHIELD)
