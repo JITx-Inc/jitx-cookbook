@@ -41,7 +41,7 @@ defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITX
     value-label(tp-pad) = Text(tp-name, 1.0, W, loc(1.2, 0.0))
     ; val my-label = Text(tp-name, 1.0, W, loc(1.5, 0.0))
     inst my-label : ocdb/artwork/board-text/text(tp-name, 1.0, 0.0)
-    place(my-label) at loc(1.2, -0.4, 0.0) on Top (relative-to tp-pad)
+    place(my-label) at loc(3.2, -0.4, 0.0) on Top (relative-to tp-pad)
     tp-pad
 
 ; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
