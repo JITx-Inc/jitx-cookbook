@@ -4,16 +4,17 @@ defpackage main :
   import core
   import jitx
   import jitx/commands
-  import ocdb/utils/generic-components
-  import ocdb/utils/symbols
   import ocdb/utils/bundles
   import ocdb/utils/defaults
+  import ocdb/utils/design-vars
   import helpers
   import si-tools
   import custom_stackups
 
 ; Define the shape/size of the board
 val board-shape = RoundedRectangle(45.67, 25.4, 1.61)
+
+OPERATING-TEMPERATURE = min-max(-10.0, 50.0)
 
 pcb-module power-regulation :
   port vbus : power
