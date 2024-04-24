@@ -1,0 +1,97 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/_1N5819 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(2.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(2.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(2.2, 2.2, loc(0.0, 0.0))
+  layer(Cutout()) = Circle(0.55)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(2.2, 2.2)
+  layer(SolderMask(Top)) = Rectangle(2.2, 2.2)
+  layer(SolderMask(Bottom)) = Rectangle(2.2, 2.2)
+  layer(Cutout()) = Circle(0.55)
+
+public pcb-landpattern D_DO-41_SOD81_P1016mm_Horizontal :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : oval-th-pad at loc(10.16, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.35, 1.6), 
+    Point(-1.35, -1.6), 
+    Point(11.51, -1.6), 
+    Point(11.51, 1.6)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(5.08, -2.47), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text("K", 1.0, C, loc(0.0, -2.2), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(5.47, 0.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text("K", 1.0, C, loc(0.0, 2.1), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(5.1, -2.4), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.34, 0.0), Point(2.36, 0.0)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.36, 1.47), Point(2.36, -1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.36, -1.47), Point(7.8, -1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(3.14, 1.47), Point(3.14, -1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(3.26, 1.47), Point(3.26, -1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(3.38, 1.47), Point(3.38, -1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(7.8, 1.47), Point(2.36, 1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(7.8, -1.47), Point(7.8, 1.47)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(8.82, 0.0), Point(7.8, 0.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, 0.0), Point(2.48, 0.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.48, 1.35), Point(2.48, -1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.48, -1.35), Point(7.68, -1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(3.16, 1.35), Point(3.16, -1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(3.26, 1.35), Point(3.26, -1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(3.36, 1.35), Point(3.36, -1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(7.68, 1.35), Point(2.48, 1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(7.68, -1.35), Point(7.68, 1.35)])
+  layer(Finish(Top)) = Line(0.1, [Point(10.16, 0.0), Point(7.68, 0.0)])
+
+  model3d = Model3D("../../3d-models/D_DO-41_SOD81_P10.16mm_Horizontal.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
+public pcb-symbol _1N5819 :
+  pin K at Point(-1.27, 0.0) with :
+    direction = Left
+    length = 2.54
+  pin A at Point(1.27, 0.0) with :
+    direction = Right
+    length = 2.54
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 2.54), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont, false, false)
+  layer("none") = Line(0.0, [Point(1.27, 0.0), Point(-1.27, 0.0)])
+  layer("none") = Line(0.254, [
+    Point(1.27, 1.27), 
+    Point(1.27, -1.27), 
+    Point(-1.27, 0.0), 
+    Point(1.27, 1.27)])
+  layer("none") = Line(0.254, [
+    Point(-1.905, 0.635), 
+    Point(-1.905, 1.27), 
+    Point(-1.27, 1.27), 
+    Point(-1.27, -1.27), 
+    Point(-0.635, -1.27), 
+    Point(-0.635, -0.635)])
+
+public pcb-component component :
+  datasheet = "http://www.vishay.com/docs/88525/1n5817.pdf"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [K | p[1] | Left | "Passive"]
+    [A | p[2] | Right | "Passive"]
+
+  assign-landpattern(D_DO-41_SOD81_P1016mm_Horizontal)
+  assign-symbol(_1N5819)
+
+  property(self.Value) = "1N5819"
+

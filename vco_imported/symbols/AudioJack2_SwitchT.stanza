@@ -1,0 +1,44 @@
+#use-added-syntax(jitx)
+defpackage VCO/symbols/AudioJack2_SwitchT :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+public pcb-symbol AudioJack2_SwitchT :
+  pin p[0] at Point(2.54, 2.54) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.27
+  pin p[1] at Point(2.54, 0.0) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.27
+  pin p[2] at Point(2.54, -2.54) with :
+    direction = Right
+    length = 2.54
+    number-size = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 8.89), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, 6.35), "", TrueTypeFont, false, false)
+  layer("foreground") = Rectangle(5.08, 8.89, loc(0.0, -0.635))
+  layer("background") = Rectangle(1.27, 2.54, loc(-3.175, -1.27))
+  layer("none") = Line(0.0, [Point(1.778, -0.254), Point(2.032, -0.762)])
+  layer("none") = Line(0.254, [
+    Point(0.0, 0.0), 
+    Point(0.635, -0.635), 
+    Point(1.27, 0.0), 
+    Point(2.54, 0.0)])
+  layer("none") = Line(0.0, [
+    Point(2.54, -2.54), 
+    Point(1.778, -2.54), 
+    Point(1.778, -0.254), 
+    Point(1.524, -0.762)])
+  layer("none") = Line(0.254, [
+    Point(2.54, 2.54), 
+    Point(-0.635, 2.54), 
+    Point(-0.635, 0.0), 
+    Point(-1.27, -0.635), 
+    Point(-1.905, 0.0)])
+

@@ -1,0 +1,43 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/C_Disc_D50mm_W25mm_P500mm :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad circle-th-pad :
+  type = TH
+  shape = Circle(0.8)
+  layer(SolderMask(Top)) = Circle(0.8)
+  layer(SolderMask(Bottom)) = Circle(0.8)
+  layer(Cutout()) = Circle(0.4)
+
+public pcb-landpattern C_Disc_D50mm_W25mm_P500mm :
+  pad p[1] : circle-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : circle-th-pad at loc(5.0, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.05, 1.5), 
+    Point(-1.05, -1.5), 
+    Point(6.05, -1.5), 
+    Point(6.05, 1.5)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(2.5, -2.5), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(2.5, 0.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(2.5, -2.4), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.12, 1.37), Point(-0.12, 1.055)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.12, 1.37), Point(5.12, 1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.12, -1.055), Point(-0.12, -1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.12, -1.37), Point(5.12, -1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.12, 1.37), Point(5.12, 1.055)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(5.12, -1.055), Point(5.12, -1.37)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, 1.25), Point(0.0, -1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, -1.25), Point(5.0, -1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.0, 1.25), Point(0.0, 1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(5.0, -1.25), Point(5.0, 1.25)])
+
+  model3d = Model3D("../3d-models/C_Disc_D5.0mm_W2.5mm_P5.00mm.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+

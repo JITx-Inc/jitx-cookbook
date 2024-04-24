@@ -1,0 +1,20 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/R-25 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+public pcb-component component :
+  emodel = Resistor(3300000.0)
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[1] | p[1] | Up | "Passive"]
+    [p[0] | p[2] | Down | "Passive"]
+
+  assign-landpattern(VCO/landpatterns/R_Axial_DIN0207_L63mm_D25mm_P762mm_Horizontal/R_Axial_DIN0207_L63mm_D25mm_P762mm_Horizontal)
+  assign-symbol(VCO/symbols/R/R)
+

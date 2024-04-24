@@ -1,0 +1,14 @@
+version 2
+1
+9
+.tran 1u 1.5m 1m{return}.kicad adjustpaths{return}.save all{return}.probe alli
+3
+1
+V(BaseSquare)
+ 
+1
+V(BaseTriangle)
+ 
+1
+V(LEDSine)
+ 
