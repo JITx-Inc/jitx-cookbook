@@ -1,0 +1,130 @@
+#use-added-syntax(jitx)
+defpackage ambiq_demo/board :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+pcb-material FR-4 :
+  type = Dielectric
+  dielectric-coefficient = 4.5
+
+pcb-material SolderResist :
+  type = Dielectric
+  dielectric-coefficient = 3.5
+
+pcb-material copper :
+  type = Conductor
+
+pcb-stackup stackup :
+  layer(0.04750, SolderResist)
+  layer(0.01750, copper)
+  layer(0.10000, FR-4)
+  layer(0.03600, copper)
+  layer(1.20000, FR-4)
+  layer(0.03600, copper)
+  layer(0.10000, FR-4)
+  layer(0.01750, copper)
+  layer(0.04750, SolderResist)
+
+public pcb-via via-0-1 :
+  name = "Top uVia"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
+  start = LayerIndex(0, Top)
+  stop = LayerIndex(1, Top)
+  diameter = 0.250
+  hole-diameter = 0.100
+  type = LaserDrill
+  filled = true
+  tented = false                  ;Top|Bottom|True|False with default false.
+  via-in-pad = true
+
+public pcb-via via-2-3 :
+  name = "Bottom uVia"               
+  start = LayerIndex(2, Top)
+  stop = LayerIndex(3, Top)
+  diameter = 0.150
+  hole-diameter = 0.100
+  type = LaserDrill
+  filled = true
+  tented = false                  ;Top|Bottom|True|False with default false.
+  via-in-pad = true
+
+public pcb-via std-via :
+  name = "standard"               ;This name appears in the UI. If not provided, 'my-via' is used instead.
+  start = LayerIndex(0, Top)
+  stop  = LayerIndex(0, Bottom)
+  diameter = 0.350
+  hole-diameter = 0.150
+  type = MechanicalDrill
+  center = Point(0.0, 0.0)
+  filled = false
+  tented = true                  ;Top|Bottom|True|False with default false.
+  via-in-pad = false
+
+public val signal-shape = PolygonWithArcs([Arc(Point(0.0, 0.0), 10.0, 0.0, 360.0)])
+public pcb-board ambiq_demo_board :
+  stackup = stackup
+  boundary = PolygonWithArcs([Arc(Point(0.0, 0.0), 10.4, 0.0, 360.0)]) ; Circle(0.0, 0.0, 25.4)
+  signal-boundary = signal-shape; PolygonWithArcs([Arc(Point(0.0, 0.0), 14.4, 0.0, 360.0)]); Circle(0.0, 0.0, 25.4)
+  vias = [via-0-1 via-2-3 std-via]
+
+public pcb-routing-structure single-ended-50 :
+  name = "50 Ohm single-ended"
+  layer(Top) :
+    trace-width = 0.114     ; mm
+    clearance = 0.12        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(0.114 0.12 false false)
+
+  layer(LayerIndex(1)) :
+    trace-width = 0.1     ; mm
+    clearance = 0.1        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(0.075 0.075 false false)
+
+  layer(LayerIndex(1, Bottom)) :
+    trace-width = 0.120     ; mm
+    clearance = 0.12        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(0.120 0.12 false false)
+
+  layer(Bottom) :
+    trace-width = 0.114     ; mm
+    clearance = 0.12        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    neck-down = NeckDown(0.114 0.12 false false)
+
+public pcb-differential-routing-structure differential-100 :
+  name = "100 Ohm common-mode impedance"
+  layer(Top) :
+    trace-width = 0.100     ; mm
+    pair-spacing = 0.120    ; mm
+    clearance = 0.18        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+
+  layer(LayerIndex(1)) :
+    trace-width = 0.110     ; mm
+    pair-spacing = 0.130    ; mm
+    clearance = 0.18        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+
+  layer(LayerIndex(1, Bottom)) :
+    trace-width = 0.110     ; mm
+    pair-spacing = 0.130    ; mm
+    clearance = 0.18        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    
+  layer(Bottom) :
+    trace-width = 0.100     ; mm
+    pair-spacing = 0.120    ; mm
+    clearance = 0.18        ; mm
+    velocity = 0.19e12      ; mm/s
+    insertion-loss = 0.008  ; db/mm @ 1GHz                  
+  uncoupled-region = single-ended-50

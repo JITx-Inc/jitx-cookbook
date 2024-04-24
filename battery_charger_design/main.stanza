@@ -4,7 +4,7 @@
 
 ; declare our package name and import dependencies
 #use-added-syntax(jitx)
-defpackage battery_charger_design/main : 
+defpackage battery_charger_design/battery_charger_design_module : 
   import core
   import jitx
   import jitx/commands
@@ -17,7 +17,7 @@ defpackage battery_charger_design/main :
 
 ; Module to run as a design
 val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
-pcb-module battery-manager-module :
+pcb-module battery_charger_design_module :
   pin gnd
 
   ; setup the ground network
@@ -99,11 +99,11 @@ set-current-design("battery_charger_design") ; set which directly we will save t
 set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313, board-shape))
 set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
-; Run checks
-run-check-on-design(battery-manager-module)
-
 ; Run the code
-set-main-module(battery-manager-module) ; Treat the provided module as a design, and compile it.
+set-main-module(battery_charger_design_module) ; Treat the provided module as a design, and compile it.
+
+; Run checks
+run-check-on-design(battery_charger_design_module)
 
 ; Export to CAD
 ;export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!

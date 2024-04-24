@@ -1,0 +1,5 @@
+name = "jitx-cookbook"
+version = "0.1.0"
+[dependencies]
+ocdb = { path = "{SLM_ROOT}/ocdb" }
+JITX = { path = "{SLM_ROOT}/JITX" }

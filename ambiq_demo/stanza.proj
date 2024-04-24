@@ -1,0 +1,5 @@
+
+packages ambiq_demo/components/* defined-in "components"
+package ambiq_demo/ambiq_demo_module defined-in "main.stanza"
+package ambiq_demo/bundles defined-in "bundles.stanza"
+package ambiq_demo/board defined-in "board.stanza"

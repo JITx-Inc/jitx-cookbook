@@ -13,3 +13,6 @@ voltage-prop*.txt
 bom-vendors/
 schematic.design
 bom
+.slm
+slm.lock
+designs

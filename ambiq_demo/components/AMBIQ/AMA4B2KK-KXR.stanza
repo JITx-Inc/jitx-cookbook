@@ -1,0 +1,420 @@
+#use-added-syntax(jitx)
+defpackage ambiq_demo/components/AMBIQ/AMA4B2KK-KXR :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+  import ocdb/utils/defaults
+  import ocdb/utils/landpatterns
+  import ocdb/utils/symbols
+  import ocdb/utils/symbol-utils
+  import ocdb/utils/generic-components
+  import ocdb/utils/bundles
+  import ocdb/utils/property-structs
+  import ambiq_demo/components/AMBIQ/AMA4B2KK-KXR-support
+
+public pcb-component component :
+  description = "AMA4B2KK-KXR-B2"
+  pin-properties :
+    [pin:Ref          | pads:Ref ...  | side:Dir  | bank:Ref]
+    [GPIO[0]          | H3            | Left      | A       ]
+    [GPIO[1]          | J4            | Left      | A       ]
+    [GPIO[2]          | K4            | Left      | A       ]
+    [GPIO[3]          | L4            | Left      | A       ]
+    [GPIO[5]          | H4            | Left      | A       ]
+    [GPIO[6]          | J5            | Left      | A       ]
+    [GPIO[7]          | J6            | Left      | A       ]
+    [GPIO[8]          | E8            | Left      | A       ]
+    [GPIO[9]          | E7            | Left      | A       ]
+    [GPIO[10]         | E6            | Left      | A       ]
+    [GPIO[11]         | E4            | Left      | A       ]
+    [GPIO[12]         | B4            | Left      | A       ]
+    [GPIO[13]         | D5            | Left      | A       ]
+    [GPIO[14]         | D6            | Left      | A       ]
+    [GPIO[15]         | E5            | Left      | A       ]
+    [GPIO[16]         | D7            | Left      | A       ]
+    [GPIO[17]         | D4            | Right     | A       ]
+    [GPIO[18]         | D3            | Right     | A       ]
+    [GPIO[19]         | C3            | Right     | A       ]
+    [GPIO[20]         | K3            | Right     | A       ]
+    [GPIO[21]         | J3            | Right     | A       ]
+    [GPIO[22]         | F3            | Right     | A       ]
+    [GPIO[23]         | F2            | Right     | A       ]
+    [GPIO[24]         | E2            | Right     | A       ]
+    [GPIO[25]         | K5            | Right     | A       ]
+    [GPIO[26]         | L5            | Right     | A       ]
+    [GPIO[27]         | M5            | Right     | A       ]
+    [GPIO[28]         | E3            | Right     | A       ]
+    [GPIO[29]         | F4            | Right     | A       ]
+    [GPIO[30]         | G4            | Right     | A       ]
+    [GPIO[31]         | H2            | Right     | A       ]
+    [GPIO[32]         | G2            | Left      | B       ]
+    [GPIO[33]         | G3            | Left      | B       ]
+    [GPIO[37]         | F11           | Left      | B       ]
+    [GPIO[38]         | F12           | Left      | B       ]
+    [GPIO[39]         | C9            | Left      | B       ]
+    [GPIO[40]         | C10           | Left      | B       ]
+    [GPIO[41]         | E9            | Left      | B       ]
+    [GPIO[42]         | D9            | Left      | B       ]
+    [GPIO[43]         | D10           | Left      | B       ]
+    [GPIO[44]         | E10           | Left      | B       ]
+    [GPIO[45]         | F10           | Left      | B       ]
+    [GPIO[47]         | F1            | Left      | B       ]
+    [GPIO[48]         | E1            | Left      | B       ]
+    [GPIO[49]         | D1            | Left      | B       ]
+    [GPIO[50]         | A9            | Left      | B       ]
+    [GPIO[51]         | B9            | Right     | B       ]
+    [GPIO[56]         | J7            | Right     | B       ]
+    [GPIO[57]         | J8            | Right     | B       ]
+    [GPIO[61]         | K6            | Right     | B       ]
+    [GPIO[62]         | L6            | Right     | B       ]
+    [GPIO[63]         | M6            | Right     | B       ]
+    [GPIO[64]         | B6            | Right     | B       ]
+    [GPIO[65]         | A7            | Right     | B       ]
+    [GPIO[66]         | A8            | Right     | B       ]
+    [GPIO[67]         | C6            | Right     | B       ]
+    [GPIO[68]         | B7            | Right     | B       ]
+    [GPIO[69]         | B8            | Right     | B       ]
+    [GPIO[70]         | C5            | Right     | B       ]
+    [GPIO[71]         | C7            | Right     | B       ]
+    [GPIO[72]         | C8            | Right     | B       ]
+    [GPIO[73]         | D8            | Left      | C       ]
+    [GPIO[74]         | G11           | Left      | C       ]
+    [GPIO[75]         | H11           | Left      | C       ]
+    [GPIO[76]         | J11           | Left      | C       ]
+    [GPIO[77]         | K11           | Left      | C       ]
+    [GPIO[78]         | L11           | Left      | C       ]
+    [GPIO[79]         | M11           | Left      | C       ]
+    [GPIO[80]         | K10           | Left      | C       ]
+    [GPIO[81]         | L10           | Left      | C       ]
+    [GPIO[82]         | L9            | Left      | C       ]
+    [GPIO[83]         | K9            | Left      | C       ]
+    [GPIO[84]         | J9            | Left      | C       ]
+    [GPIO[85]         | H9            | Left      | C       ]
+    [GPIO[86]         | G10           | Left      | C       ]
+    [GPIO[87]         | G9            | Left      | C       ]
+    [GPIO[88]         | F9            | Right     | C       ]
+    [GPIO[91]         | K2            | Right     | C       ]
+    [GPIO[93]         | M4            | Right     | C       ]
+    [GPIO[104]        | J2            | Right     | C       ]
+    [RSTN             | A6            | Left      | D       ]
+    [USB0PN           | M8            | Left      | D       ]
+    [USB0PP           | M7            | Left      | D       ]
+    [VDDP             | B1            | Right     | E       ]
+    [VDDH             | M10           | Right     | E       ]
+    [VDDA             | C4            | Right     | E       ]
+    [LPADC_VREF       | A12           | Right     | E       ]
+    [SIMOBUCK_SW      | A1            | Right     | E       ]
+    [SIMOBUCK_SWSEL   | A2            | Right     | E       ]
+    [VDDC             | A3            | Right     | E       ]
+    [VDDF             | C2            | Right     | E       ]
+    [VDDS             | C1            | Right     | E       ]
+    [VDDB             | G1            | Right     | E       ]
+    [VDDBH_SW         | H12           | Right     | E       ]
+    [VDDBH            | G12           | Right     | E       ]
+    [VDDH2            | M9            | Right     | E       ]
+    [VDD18            | H10           | Right     | E       ]
+    [VDDUSB0P9        | L7            | Right     | E       ]
+    [VDDUSB33         | K7            | Right     | E       ]
+    [VDDAUDA          | B11           | Right     | E       ]
+    [VDDAUDD          | E11           | Right     | E       ]
+    [VDDBH_RF         | J1            | Right     | E       ]
+    [VDDC_LV          | B3            | Right     | E       ]
+    [LPMICBIAS        | B10           | Right     | D       ]
+    [MIPI_D0N         | L12           | Left      | D       ]
+    [MIPI_CLKN        | J12           | Left      | D       ]
+    [MIPI_CLKP        | K12           | Left      | D       ]
+    [VSSVCO           | L1            | Down      | F       ]
+    [VSSS             | L2            | Down      | F       ]
+    [VSSB             | H1            | Down      | F       ]
+    [VSSP             | B2            | Down      | F       ]
+    [VSSA             | B5            | Down      | F       ]
+    [VSS              | D2            | Down      | F       ]
+    [VSSAUSB          | L8            | Down      | F       ]
+    [VSSAUDD          | E12           | Down      | F       ]
+    [VSSAUDA          | B12           | Down      | F       ]
+    [VSS18            | J10           | Down      | F       ]
+    [LPADCD0PSE1      | A11           | Left      | D       ]
+    [LPADCD0NSE0      | A10           | Left      | D       ]
+    [MIPI_D0P         | M12           | Left      | D       ]
+    [LPADCD1PSE3      | D11           | Left      | D       ]
+    [RFIOP            | M2            | Left      | D       ]
+    [RFIOM            | M1            | Left      | D       ]
+    [TXEN             | K1            | Left      | D       ]
+    [XO32M            | D12           | Left      | D       ]
+    [XI32M            | C12           | Left      | D       ]
+    [XO               | A5            | Right     | D       ]
+    [XI               | A4            | Right     | B       ]
+    [RFSUB            | M3            | Left      | F       ]
+    [LPADCD1NSE2      | C11           | Left      | D       ]
+    [DNU              | K8            | Left      | D       ]
+
+  no-connect(self.DNU)
+    
+  assign-landpattern(bga131_0p35_4p7x4p7-1)
+  make-box-symbol()
+
+  make-supports()
+  make-properties()
+
+; =====================================
+; =====================================
+; Hardware Design Generator
+; For Apollo4 and Apollo3 SoC Families
+; A-SOCAPG-UGGA02EN v1.0
+; =====================================
+; =====================================
+
+; This code is an implementation of detailed design guidelines for the Apollo3 and Apollo4 SoC
+; families. This document is to be used in conjunction with the selected SoC documentation,
+; including datasheet, programmer’s guide (if applicable), and errata. See Reference Documents
+; for a comprehensive list.
+
+public pcb-module module (options:Tuple<KeyValue<Symbol,?>>):
+  val settings = Settings(DEFAULT-SETTINGS)
+  for entry in options do :
+    settings[key(entry)] = value(entry)
+
+  pin VDD5V0
+  pin VDD1V8
+  pin GND
+
+  port debug : swd()
+  port rst : reset
+
+  public inst apollo : ambiq_demo/components/AMBIQ/AMA4B2KK-KXR/component
+
+  val gnd-pins = [apollo.VSSVCO apollo.VSSS apollo.VSSB apollo.VSSP 
+                  apollo.VSSA apollo.VSS apollo.VSSAUSB apollo.VSSAUDD 
+                  apollo.VSSAUDA apollo.VSS18]
+  for p in gnd-pins do :
+    net (GND p)
+
+  ; =====================================
+  ; =====================================
+; Table 2-1: Apollo4 Recommended Internal Supply and Capacitor Values
+;  1. Recommend use of 5 V or greater caps for 1.9 V rails.
+;  2. Recommend use of 10 V caps for 3.3 V rails.
+;  3. Do not float any supply inputs. If a supply is not powered, it should be grounded.
+  ; =====================================
+  ; =====================================
+  val decouple-array = [
+    [apollo.VDDC,       GND,          2.2e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDC_LV,    GND,          2.2e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDS,       GND,          2.2e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDF,       GND,          2.2e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDF,       apollo.VDDP,  2.2e-6,   "0201",   10.0, "X5R"] ; ERR087 suggestion
+    [apollo.LPADC_VREF, GND,          0.1e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDP,       GND,          1.0e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDH,       GND,          1.0e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDH2,      GND,          1.0e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDA,       GND,          1.0e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDAUDD,    GND,          2.2e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDAUDA,    GND,          2.2e-6,   "0201",   10.0, "X5R"]
+    [apollo.VDDB,       GND,          2.2e-6,   "0201",   10.0, "X5R"]
+  ]
+  add-caps(decouple-array)
+
+  inst REG1V8 : settings[`regulator-1V8]
+  inst REG1V8_LN : settings[`regulator-1V8LN]
+
+  net VDD_5V0 (REG1V8.IN VDD5V0 REG1V8_LN.IN)
+  net VDD_1V8 (REG1V8.OUT apollo.VDDH2 apollo.VDDAUDD apollo.VDDB apollo.VDDP apollo.VDDH VDD1V8)
+  net VDD_1V8_LN (REG1V8_LN.OUT apollo.VDDAUDA apollo.VDDA)
+  net (GND REG1V8.GND REG1V8_LN.GND)
+
+  symbol(VDD_5V0)     = ocdb/utils/symbols/altium-power-bar-sym
+  symbol(VDD_1V8)     = ocdb/utils/symbols/altium-power-bar-sym
+  symbol(VDD_1V8_LN) = ocdb/utils/symbols/altium-power-bar-sym
+
+  ; =====================================
+  ; =====================================
+  ; 3. SIMO Buck Inductor Selection
+  ; =====================================
+  ; =====================================
+  ;  3.3 Guidelines
+  ; Recommended SIMO buck inductor for the Apollo4 and Apollo3 families is
+  ; described below.
+  ; - Apollo3 and Apollo4: 2.2 μH
+  ; - Saturation current > 400 mA (> 500 mA preferred)
+  ; - Maximum DC resistance < 0.55 Ω
+  ; - Operating frequency range > 20 MHz
+  val simo-ind-params = ["inductance" => 2.2e-6, "min-saturation-current" => 0.5, "max-dc-resistance" => 0.55]
+  val simo-ind = ind-strap(apollo.SIMOBUCK_SWSEL, apollo.SIMOBUCK_SW, simo-ind-params)
+
+  ; =====================================
+  ; =====================================
+  ; 4. BLE Buck Induction Selection
+  ; =====================================
+  ; =====================================
+  if settings[`enable-bluetooth] :
+    val ble-decouple = [
+      [apollo.VDDBH,      GND,          4.7e-6,   "0402",   10.0, "X5R"]
+      [apollo.VDDBH_RF,   GND,          1.0e-6,   "0201",   10.0, "X5R"]
+    ]
+    add-caps(ble-decouple)
+    val ble-ind = ind-strap(apollo.VDDBH, apollo.VDDBH_SW, ["inductance" => 1.0e-6, "min-saturation-current" => 0.8, "max-dc-resistance" => 0.55])
+    res-strap(apollo.VDDBH, apollo.VDDBH_RF, 0.0)
+  else:
+    net (GND apollo.VDDBH apollo.VDDBH_SW apollo.VDDBH_RF)
+
+  ; =====================================
+  ; =====================================
+  ; 5. 32 kHz XTAL Selection
+  ; =====================================
+  ; =====================================
+  ; The recommended 32 kHz XTAL circuit components used for both the Apollo3 and
+  ; Apollo4 SoC families are described below.
+  ; - 7 pF maximum load capacitance per pin
+  ; - 90 kΩ or less ESR
+  ; - Start-up time < 300 ms
+  inst XTAL-RTC : settings[`xtal-32k]
+  require xls : low-freq-oscillator from apollo
+  require xlsxtal : low-freq-oscillator from XTAL-RTC
+  net (xls xlsxtal)
+  schematic-group(XTAL-RTC) = apollo-clock
+  ; val rtc-xtal-params = ["frequency" => 32768, "load-capacitance" => 4.0e-12, "ESR" => 90.0e3, "frequency-tolerance" => 20.0e-6 * 32.768e3]
+
+  ; TODO: 7. Add option for external clock source for 32K_EXTCLK circuit to replace crystal
+
+  ; =====================================
+  ; =====================================
+  ; 6. 32 MHz XTAL Selection
+  ; =====================================
+  ; =====================================
+  ; The Apollo4 32 MHz XTAL circuitry is designed to work with crystals specified for 6
+  ; pF of load capacitance, a maximum ESR of 100 Ω, and a maximum of ± 40 PPM
+  ; including initial tolerance/aging/temperature drift. It is recommended to choose a
+  ; crystal with tighter tolerance to account for board-to-board load capacitance vari-
+  ; ation.
+
+  inst XTAL-HS : settings[`xtal-32M]
+  require xhs : high-freq-oscillator from apollo
+  require xhsxtal : high-freq-oscillator from XTAL-HS
+  net (xhs xhsxtal)
+  net (GND XTAL-HS.p[2] XTAL-HS.p[4])
+  schematic-group(XTAL-HS) = apollo-clock
+  ; val hs-xtal-params = ["frequency" => 32.0e6, "load-capacitance" => 6.0e-12, "ESR" => 100, "frequency-tolerance" => 40.0e-6 * 32.0e6]
+
+
+  ; =====================================
+  ; =====================================
+  ; 8. Apollo4 USB Guidelines
+  ; =====================================
+  ; =====================================
+  if settings[`enable-usb] :
+    port usb : usb-2-data
+    net (apollo.USB0PP, usb.P)
+    net (apollo.USB0PN, usb.N)
+
+    ; Table 2-2: Apollo4 Recommended External Supply and Capacitor Values
+    val usb-decouple = [
+      [apollo.VDDUSB33,   GND,          2.2e-6,   "0201",   10.0, "X5R"]
+      [apollo.VDDUSB0P9,  GND,          2.2e-6,   "0201",    5.0, "X5R"]
+    ]
+    add-caps(usb-decouple)
+
+    inst REG3V3 : settings[`regulator-3V3USB]
+    inst REG0V9 : settings[`regulator-0V9USB]
+    net (VDD5V0 REG3V3.IN)
+    net VDD_3V3 (REG0V9.IN REG3V3.OUT)
+    net (REG3V3.GND REG0V9.GND GND)
+
+    ; On system power-up, VDDUSB33 and VDDUSB0P9 should be in the OFF state.
+    ; For power-sequencing considerations, see the Apollo4 SoC Datasheet.
+    inst loadsw : ambiq_demo/components/TEXAS-INSTRUMENTS/TPS22976/module
+    require vddusb33en : gpio from apollo
+    require vddusb09en : gpio from apollo
+
+    net VDD_0V9 (REG0V9.OUT loadsw.IN2)
+    net (VDD_3V3 loadsw.IN1 loadsw.BIAS)
+    net (GND loadsw.GND)
+
+    net (loadsw.EN1 vddusb33en.gpio)
+    net (loadsw.EN2 vddusb09en.gpio)
+
+    net VDD_USB3V3 (loadsw.OUT2 apollo.VDDUSB0P9)
+    net VDD_USB0V9 (loadsw.OUT1 apollo.VDDUSB33)
+    symbol(VDD_3V3)     = ocdb/utils/symbols/altium-power-bar-sym
+    symbol(VDD_0V9)     = ocdb/utils/symbols/altium-power-bar-sym
+    symbol(VDD_USB3V3)  = ocdb/utils/symbols/altium-power-bar-sym
+    symbol(VDD_USB0V9)  = ocdb/utils/symbols/altium-power-bar-sym
+    schematic-group([REG3V3 REG0V9 loadsw]) = apollo-power
+  else:
+    ; 8.3.1 USB Unused
+    ; If the USB peripheral is not used, please leave the USB data pads (USB0PP and
+    ; USB0PN) floating, and connect the USB PHY power rails (VDDUSB33 and
+    ; VDDUSB0P9) to ground. 
+    no-connect(apollo.USB0PN)
+    no-connect(apollo.USB0PP)
+    property(apollo.VDDUSB0P9.power-pin)  = PowerPin(typ(0.0))
+    property(apollo.VDDUSB33.power-pin)   = PowerPin(typ(0.0))
+    net (apollo.VDDUSB0P9 GND)
+    net (apollo.VDDUSB33 GND)
+
+  ; =====================================
+  ; =====================================
+  ; 9. Apollo4 MIPI DSI PHY Guidelines
+  ; =====================================
+  ; =====================================
+  if settings[`enable-mipi] :
+    port mipi : mipi-d-phy
+    require m : mipi-d-phy from apollo
+    ; net (m mipi)
+    net (m.data.N mipi.data.N)
+    net (m.data.P mipi.data.P)
+    net (m.clk.N mipi.clk.N)
+    net (m.clk.P mipi.clk.P)
+    ; topology-segment(m mipi)
+    topology-segment(m.data.N mipi.data.N)
+    topology-segment(m.data.P mipi.data.P)
+    topology-segment(m.clk.N mipi.clk.N)
+    topology-segment(m.clk.P mipi.clk.P)
+    val mipi-decouple = [
+      [apollo.VDD18,      GND,          2.2e-6,   "0201",    5.0, "X5R"]
+    ]
+    add-caps(mipi-decouple)
+    inst vdd18sw : ambiq_demo/components/TEXAS-INSTRUMENTS/TPS22919/module
+    require vdd18en : gpio from apollo
+    net (vdd18en.gpio vdd18sw.ON)
+    net (REG1V8.OUT vdd18sw.IN)
+    net (vdd18sw.OUT apollo.VDD18)
+    schematic-group([vdd18sw]) = apollo-power
+  else :
+    property(apollo.VDD18.power-pin)   = PowerPin(typ(0.0))
+    net (GND apollo.VDD18)
+    no-connect(apollo.MIPI_D0P)    
+    no-connect(apollo.MIPI_D0N)    
+    no-connect(apollo.MIPI_CLKP)    
+    no-connect(apollo.MIPI_CLKN)
+
+
+  if settings[`enable-debug] :
+    ; =====================================
+    ; =====================================
+    ; Apollo4 DEBUG
+    ; =====================================
+    ; =====================================
+    require apollo-swd:swd() from apollo
+
+  ; Check SWDCK and SWDIO, which should be connected to a debug
+  ; header.
+  ; - SWDCK needs a 10 kΩ pull-down resistor
+  ; - SWDIO needs a 10 kΩ pull-up resistor
+    res-strap(apollo-swd.swdclk apollo.VDDH, 10.0e3)
+    res-strap(apollo-swd.swdio GND, 10.0e3)
+
+    inst debug-conn : settings[`debug-connector]
+    require debug-swd:swd() from debug-conn
+    net (apollo-swd debug-swd)
+
+; Check the reset pin. External 1nF capacitor recommended to filter exter-
+; nal noise/glitches. Consider including pads for an external pull-up resis-
+; tor. If an external IC is connected to control nRST, it must be open-drain.
+  require areset:reset from apollo
+  cap-strap(areset.reset, GND, 1.0e-9)
+
+  layout-group(self) = apollo-proc
+  
+  check ambiq-apollo4(XTAL-RTC, XTAL-HS, simo-ind)

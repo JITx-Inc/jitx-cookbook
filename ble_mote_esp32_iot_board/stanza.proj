@@ -1,2 +1,2 @@
 package ble_mote_esp32_iot_board/helpers defined-in "helpers.stanza"
-package ble_mote_esp32_iot_board/main defined-in "main.stanza"
+package ble_mote_esp32_iot_board/ble_mote_esp32_iot_board_module defined-in "main.stanza"

@@ -1,11 +1,11 @@
 ; ====================
 ; A USB-C cable tester
-; The top level module of our final design begins on the line `pcb-module usb-c-cable-tester-module`. Start there if you're reading this recipe for the first time.
+; The top level module of our final design begins on the line `pcb-module usb_c_cable_tester_module`. Start there if you're reading this recipe for the first time.
 ; ====================
 
 ; declare our package name and import dependencies
 #use-added-syntax(jitx)
-defpackage usb_c_cable_tester/main : 
+defpackage usb_c_cable_tester/usb_c_cable_tester : 
   import core
   import collections
   import jitx
@@ -41,7 +41,7 @@ defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITX
     value-label(tp-pad) = Text(tp-name, 1.0, W, loc(1.2, 0.0))
     ; val my-label = Text(tp-name, 1.0, W, loc(1.5, 0.0))
     inst my-label : ocdb/artwork/board-text/text(tp-name, 1.0, 0.0)
-    place(my-label) at loc(1.2, -0.4, 0.0) on Top (relative-to tp-pad)
+    place(my-label) at loc(3.2, -0.4, 0.0) on Top (relative-to tp-pad)
     tp-pad
 
 ; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
@@ -86,7 +86,7 @@ defn generate-test-leds-array (in-pins:Tuple<Net>, gnd-pin:JITXObject, voltage:T
 
 ; a rig that plugs a USB cable into both connectors on the main usb cable testing board - this is created to allow us to run checks
 public pcb-module test-rig :
-  inst design-under-test : usb-c-cable-tester-module
+  inst design-under-test : usb_c_cable_tester_module
   inst usb-c-cable : usb-c-cable-module
 
   require dut-in-usb : usb-c-connector from design-under-test.in-usb
@@ -102,7 +102,7 @@ public pcb-module usb-c-cable-module:
   port out-usb-bundle : ocdb/utils/bundles/usb-c-connector
   net (in-usb-bundle out-usb-bundle)
 
-pcb-module usb-c-cable-tester-module :
+pcb-module usb_c_cable_tester_module :
   ; define pins to expose from our module
   pin gnd
   pin power
@@ -174,7 +174,7 @@ set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 ; Run checks
 run-check-on-design(test-rig)
 
-set-main-module(usb-c-cable-tester-module) ; Treat the provided module as a design, and compile it.
+set-main-module(usb_c_cable_tester_module) ; Treat the provided module as a design, and compile it.
 
 ; Export to CAD
 ; export-design() ; this will overwrite previous export, only run this if you don't need your previous Kicad/Altium layout work!

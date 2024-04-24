@@ -6,18 +6,33 @@ defpackage hacking_conference_badge/helpers :
   import jitx
   import jitx/commands
 
-; ; ====================================
-; ; Compile the design, view the results
-; ; ====================================
-; defn compile-design (circuit:Instantiable) :
-;   run-design(circuit, false)
+; ====================================
+; Compile the design, view the results
+; ====================================
+; ==========================================
+; Configure the design, then run or check it
+; ==========================================
+public defn run-design (name:String, board-shape:Shape, circuit:Instantiable, run-checks?:True|False) :
+  ; set-paper(ANSI-A5)
+  set-current-design(name)
+  set-board(ocdb/utils/defaults/default-board(ocdb/manufacturers/stackups/jlcpcb-jlc2313-6layer, board-shape))
+  set-rules(ocdb/manufacturers/rules/jlcpcb-rules)
 
-; ; =====================
-; ; Run the design checks
-; ; =====================
-; defn check-design (circuit:Instantiable) :
-;   run-design(circuit, true)
+  var main-module = circuit
 
+  if run-checks? :
+    main-module = ocdb/utils/generator-utils/run-final-passes(circuit) ; Analyze design with a pass
+  
+  set-main-module(main-module) ; Treat the provided module as a design, and compile it.
+  set-use-layout-groups()
+  if run-checks? :
+    run-checks("checks.txt")
+    view-design-explorer()
+    export-design()
+  else:  
+    view-board()
+    view-schematic()
+    view-design-explorer()
 ; ====================
 ; Export design to CAD
 ; ====================
@@ -45,8 +60,3 @@ defn export-bill-of-materials () :
   set-bom-vendors(ocdb/utils/design-vars/APPROVED-DISTRIBUTOR-LIST)
   set-bom-design-quantity(ocdb/utils/design-vars/DESIGN-QUANTITY)
   export-bom()
-
-; ============
-; Run the code
-; ============
-; compile-design(usb-powered-design)

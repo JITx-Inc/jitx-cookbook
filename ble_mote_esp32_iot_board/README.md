@@ -31,7 +31,7 @@ We will use an ESP32-WROOM module to provide wireless connectivity and processin
 ##### Resources
 
 This board is fully open source, available here: [BLE-mote ESP32 IOT Sensor Board](https://github.com/JITx-Inc/jitx-cookbook/tree/main/ble_mote_esp32_iot_board)
-Clone [this repo](https://github.com/JITx-Inc/jitx-cookbook), open the subfolder `ble_mote_esp32_iot_board` in VSCode, and build once with `Ctrl+Enter` to follow along.
+Clone [this repo](https://github.com/JITx-Inc/jitx-cookbook), open the root folder in VSCode, then proceed to open `main.stanza` in the subfolder `ble_mote_esp32_iot_board`, and build once with `Ctrl+Enter` to follow along.
 
 ![](images/full_design_screenshot_vscode_blemote.png)
 
@@ -170,7 +170,7 @@ We add a 3.3V LDO and connect it to the power bus of the protected USB connectio
   property(gnd.voltage) = typ(0.0)
 ```  
 
-Maybe these generators assume a few things that don't match our design intent -- so customize them! Change any code in this generator, or in the included libraries (`ocdb` in this case), and recompile the design anytime with `Ctrl + Enter` when in your `main.stanza` file. This will pull in all code changes in the design and in the library, and commpile a new version of the design.
+Maybe these generators assume a few things that don't match our design intent -- so customize them! Change any code in this generator, or in the included libraries (`ocdb` in this case), and recompile the design anytime with `Ctrl + Enter` when in your `main.stanza` file. This will pull in all code changes in the design and in the library, and compile a new version of the design.
 
 #### USB to UART
 Now we can create the CP2105 USB to UART converter IC and connect it to power.
@@ -207,10 +207,10 @@ We can then create the air quality sensor we defined earlier, and connect the se
 
 ## Top level module
 
-Now that we've created our sensors and supporting circuitry in the `peripherals` subcircuit, let's create a top level module called `sensor-system` which instantiates an instance of the `peripherals` sub-module:
+Now that we've created our sensors and supporting circuitry in the `peripherals` subcircuit, let's create a top level module called `ble_mote_esp32_iot_board_module` which instantiates an instance of the `peripherals` sub-module:
 
 ```stanza
-pcb-module sensor-system (processor:Instantiable, board-outline:Rectangle):
+pcb-module ble_mote_esp32_iot_board_module (processor:Instantiable, board-outline:Rectangle):
   inst peripherals : peripherals
   
   val x = width(board-outline) / 2.0
@@ -219,15 +219,15 @@ pcb-module sensor-system (processor:Instantiable, board-outline:Rectangle):
   place(peripherals.particle-counter) at loc(5.0 - x, y - 5.0, 180.0) on Bottom
 ```
 
-This is a `pcb-module` which accepts arguments of a specific process and board-outline. We already defined `board-outline` earlier, so we can use that when instantiating `sensor-system`. However, we don't yet have a processor, so let's jump to the very end of the `main-stanza` file, create a processor, and then pass it to an instantiation of the `sensor-system` `pcb-module`:
+This is a `pcb-module` which accepts arguments of a specific process and board-outline. We already defined `board-outline` earlier, so we can use that when instantiating `ble_mote_esp32_iot_board_module`. However, we don't yet have a processor, so let's jump to the very end of the `main.stanza` file, create a processor, and then pass it to an instantiation of the `ble_mote_esp32_iot_board_module` `pcb-module`:
 
 ```stanza
-val circuit = sensor-system(ocdb/components/espressif/esp32-wroom-32/module(ocdb/components/espressif/esp32-wroom-32/ESP32-WROOM-32E-N16), board-outline)
+val circuit = ble_mote_esp32_iot_board_module(ocdb/components/espressif/esp32-wroom-32/module(ocdb/components/espressif/esp32-wroom-32/ESP32-WROOM-32E-N16), board-outline)
 ```
 
 #### Microcontroller
 
-Let's add a Bluetooth SoC to our design. Above, we defined the `sensor-system` module to accept the processor as an argument, so we can use differnt versions of the ESP32. The ESP32-WROOM, ESP32-PIO-D4, and other ESP32 version could work. In this case we'll use the ESP32-WROOM module, which includes both bluetooth and WiFi. If we inspect the module for the ESP32 in `ocdb`, we can see that it includes the few external components this SoC needs to function correctly. In the case that the module used is the PICO-D4 (which doesn't have its own antenna), we also include a 2.4GHz trace antenna (with a PI matching network) and place it on the board.
+Let's add a Bluetooth SoC to our design. Above, we defined the `ble_mote_esp32_iot_board_module` module to accept the processor as an argument, so we can use differnt versions of the ESP32. The ESP32-WROOM, ESP32-PIO-D4, and other ESP32 version could work. In this case we'll use the ESP32-WROOM module, which includes both bluetooth and WiFi. If we inspect the module for the ESP32 in `ocdb`, we can see that it includes the few external components this SoC needs to function correctly. In the case that the module used is the PICO-D4 (which doesn't have its own antenna), we also include a 2.4GHz trace antenna (with a PI matching network) and place it on the board.
 
 ```stanza
   inst proc : processor

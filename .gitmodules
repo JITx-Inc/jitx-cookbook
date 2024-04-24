@@ -1,4 +1,0 @@
-[submodule "open-components-database"]
-	path = open-components-database
-	url = git@github.com:JITx-Inc/open-components-database.git
-	branch = main
