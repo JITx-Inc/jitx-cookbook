@@ -108,19 +108,22 @@ public pcb-routing-structure se-50 :
 public pcb-differential-routing-structure diff-90 :
   name = "90 Ohm differential impedance - USB A"
   layer(Top) :
-    trace-width = 0.2    ; mm
-    pair-spacing = 0.15     ; mm
-    clearance = 0.3         ; mm
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
+    trace-width = 0.1    ; mm
+    pair-spacing = 0.2
+    neck-down = DifferentialNeckDown(
+      trace-width = 0.05    ; mm
+      pair-spacing = 0.1)     ; mm
 
   layer(Bottom) :
-    trace-width = 0.2    ; mm
-    pair-spacing = 0.15     ; mm
-    clearance = 0.3         ; mm
     velocity = 0.19e12      ; mm/s
-    insertion-loss = 0.008  ; db/mm @ 1GHz
-  uncoupled-region = se-50
+    insertion-loss = 0.008  ; db/mm @ 1GHz 
+    trace-width = 0.1    ; mm
+    pair-spacing = 0.2
+    neck-down = DifferentialNeckDown(
+      trace-width = 0.05    ; mm
+      pair-spacing = 0.1)     ; mm
 
 
 
