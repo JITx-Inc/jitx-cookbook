@@ -51,8 +51,8 @@ defpackage custom_rules :
 
 
 public pcb-rules sierra-circuits-notouch-rules-100z-diff :
-  min-copper-width = 0.102 ; 4mil
-  min-copper-copper-space = 0.102 ; 4mil
+  min-copper-width = 0.05 ; 4mil
+  min-copper-copper-space = 0.10 ; 4mil
   min-copper-hole-space = 0.2032 ; 8mil
   min-copper-edge-space = 0.381 ; 10mil outer, but 15mil inner
   min-annular-ring = 0.127 ; 5mil

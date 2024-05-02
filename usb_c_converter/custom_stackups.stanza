@@ -110,8 +110,8 @@ public pcb-differential-routing-structure diff-90 :
   layer(Top) :
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
-    trace-width = 0.1    ; mm
-    pair-spacing = 0.2
+    trace-width = 0.051    ; mm
+    pair-spacing = 0.1
     neck-down = DifferentialNeckDown(
       trace-width = 0.05    ; mm
       pair-spacing = 0.1)     ; mm
@@ -120,7 +120,7 @@ public pcb-differential-routing-structure diff-90 :
     velocity = 0.19e12      ; mm/s
     insertion-loss = 0.008  ; db/mm @ 1GHz 
     trace-width = 0.1    ; mm
-    pair-spacing = 0.2
+    pair-spacing = 0.1
     neck-down = DifferentialNeckDown(
       trace-width = 0.05    ; mm
       pair-spacing = 0.1)     ; mm
