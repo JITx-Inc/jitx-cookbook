@@ -1,0 +1,174 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TPD4E05U06QDQARQ1"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/TPDxE05U06 :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/generic-components
+
+  import jsl/symbols/SymbolDefn
+  import jsl/symbols/box-symbol
+  import jsl/bundles
+  import jsl/pin-assignment
+  import jsl/si/helpers
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(0.250, 0.609)
+  layer(SolderMask(Top)) = Rectangle(0.352, 0.711)
+  layer(Paste(Top)) = Rectangle(0.250, 0.609)
+
+pcb-pad rectangle-smd-pad-1 :
+  name = "rectangle-smd-pad-1"
+  type = SMD
+  shape = Rectangle(0.380, 0.609)
+  layer(SolderMask(Top)) = Rectangle(0.482, 0.711)
+  layer(Paste(Top)) = Rectangle(0.380, 0.609)
+
+pcb-landpattern lp-4 :
+  pad p[1] : rectangle-smd-pad at loc(-1.000, -0.414) on Top
+  pad p[2] : rectangle-smd-pad at loc(-0.500, -0.414) on Top
+  pad p[3] : rectangle-smd-pad-1 at loc(0.0, -0.414) on Top
+  pad p[4] : rectangle-smd-pad at loc(0.500, -0.414) on Top
+  pad p[5] : rectangle-smd-pad at loc(1.000, -0.414) on Top
+  pad p[6] : rectangle-smd-pad at loc(1.000, 0.414) on Top
+  pad p[7] : rectangle-smd-pad at loc(0.500, 0.414) on Top
+  pad p[8] : rectangle-smd-pad-1 at loc(0.0, 0.414) on Top
+  pad p[9] : rectangle-smd-pad at loc(-0.500, 0.414) on Top
+  pad p[10] : rectangle-smd-pad at loc(-1.000, 0.414) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.282), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(-1.326, -0.577), Point(-1.326, 0.577)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(1.326, 0.577), Point(1.326, -0.577)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.200, [
+    Arc(-1.000, -1.019, 0.100, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(2.652, 1.153)
+
+pcb-pad capsule-smd-pad :
+  name = "capsule-smd-pad"
+  type = SMD
+  shape = Capsule(0.815, 0.28, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(0.917, 0.382, loc(0.0, 0.0))
+  layer(Paste(Top)) = Capsule(0.815, 0.28, loc(0.0, 0.0))
+
+pcb-landpattern lp-6 :
+  pad p[1] : capsule-smd-pad at loc(-1.500, -0.608, 90.000) on Top
+  pad p[2] : capsule-smd-pad at loc(-1.000, -0.608, 90.000) on Top
+  pad p[3] : capsule-smd-pad at loc(-0.500, -0.608, 90.000) on Top
+  pad p[4] : capsule-smd-pad at loc(0.0, -0.608, 90.000) on Top
+  pad p[5] : capsule-smd-pad at loc(0.500, -0.608, 90.000) on Top
+  pad p[6] : capsule-smd-pad at loc(1.000, -0.608, 90.000) on Top
+  pad p[7] : capsule-smd-pad at loc(1.500, -0.608, 90.000) on Top
+  pad p[8] : capsule-smd-pad at loc(1.500, 0.608, 90.000) on Top
+  pad p[9] : capsule-smd-pad at loc(1.000, 0.608, 90.000) on Top
+  pad p[10] : capsule-smd-pad at loc(0.500, 0.608, 90.000) on Top
+  pad p[11] : capsule-smd-pad at loc(0.0, 0.608, 90.000) on Top
+  pad p[12] : capsule-smd-pad at loc(-0.500, 0.608, 90.000) on Top
+  pad p[13] : capsule-smd-pad at loc(-1.000, 0.608, 90.000) on Top
+  pad p[14] : capsule-smd-pad at loc(-1.500, 0.608, 90.000) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.482), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(-1.826, -0.776), Point(-1.826, 0.776)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.152, [Point(1.826, -0.776), Point(1.826, 0.776)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.200, [
+    Arc(-1.905, -1.142, 0.100, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(3.652, 1.553)
+
+
+public pcb-component component (-- channels:Int = 4):
+  name = "C81353"
+  description = "6.4V 14V 40W 2.5A Unidirectional 5.5V ESD Protection Devices ROHS"
+  manufacturer = "Texas Instruments"
+
+  port D1-A : diff-pair
+  port D1-B : diff-pair
+
+  port D2-A : diff-pair
+  port D2-B : diff-pair
+
+  val box-params = BoxSymbolParams(
+    col-width = 1
+  )
+
+  val box = BoxSymbol(self, params = box-params)
+
+  if channels  == 4 :
+    mpn = "TPD4E05U06QDQARQ1"
+    datasheet = "https://www.ti.com/lit/ds/symlink/tpd4e05u06-q1.pdf"
+    pin-properties :
+      [pin:Ref | pads:Ref ... | side:Dir | row:Int ]
+      [D1-A.P | p[1] | Left | 0]
+      [D1-A.N | p[2] | Left | 0]
+      [D1-B.P | p[10] | Right | 0]
+      [D1-B.N | p[9] | Right | 0]
+
+      [D2-A.P | p[4] | Left | 1]
+      [D2-A.N | p[5] | Left | 1]
+      [D2-B.P | p[7] | Right | 1]
+      [D2-B.N | p[6] | Right | 1]
+
+      [GND | p[3] p[8] | Left | 2]
+
+    set-grid(box, [3,2])
+
+    assign-landpattern(lp-4)
+
+  else if channels == 6 :
+    mpn = "TPD6E05U06RVZR"
+    datasheet = "https://www.ti.com/lit/ds/symlink/tpd6e05u06.pdf"
+
+    port D3-A : diff-pair
+    port D3-B : diff-pair
+
+    pin-properties :
+      [pin:Ref | pads:Ref ... | side:Dir | row:Int ]
+      [D1-A.P | p[1] | Left | 0]
+      [D1-A.N | p[2] | Left | 0]
+      [D1-B.P | p[14] | Right | 0]
+      [D1-B.N | p[13] | Right | 0]
+
+      [D2-A.P | p[3] | Left | 1]
+      [D2-A.N | p[4] | Left | 1]
+      [D2-B.P | p[12] | Right | 1]
+      [D2-B.N | p[11] | Right | 1]
+
+      [D3-A.P | p[6] | Left | 2]
+      [D3-A.N | p[7] | Left | 2]
+      [D3-B.P | p[9] | Right | 2]
+      [D3-B.N | p[8] | Right | 2]
+
+      [GND | p[5] p[10] | Left | 3]
+
+
+    set-grid(box, [4,2])
+    bidir-swappable-dual-pair(self.D3-A, self.D3-B)
+
+    diff-pin-model(self.D3-A, delay = 0.0 +/- 1.0e-12)
+    diff-pin-model(self.D3-B, delay = 0.0 +/- 1.0e-12)
+
+    add-pass-through(self.D3-A.P, self.D3-B.P)
+    add-pass-through(self.D3-A.N, self.D3-B.N)
+
+    assign-landpattern(lp-6)
+
+  diff-pin-model(self.D1-A, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D1-B, delay = 0.0 +/- 1.0e-12)
+
+  diff-pin-model(self.D2-A, delay = 0.0 +/- 1.0e-12)
+  diff-pin-model(self.D2-B, delay = 0.0 +/- 1.0e-12)
+
+  bidir-swappable-dual-pair(self.D1-A, self.D1-B)
+  bidir-swappable-dual-pair(self.D2-A, self.D2-B)
+
+  add-pass-through(self.D1-A.P, self.D1-B.P)
+  add-pass-through(self.D1-A.N, self.D1-B.N)
+
+  add-pass-through(self.D2-A.P, self.D2-B.P)
+  add-pass-through(self.D2-A.N, self.D2-B.N)
+
+  assign-symbol $ create-symbol(box)
+
+  property(self.rated-temperature) = min-max(-40.0, 125.0)
+

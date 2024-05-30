@@ -1,0 +1,174 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "XKB Connectivity", "mpn" => "U231-096N-3BLRT06-SS"])
+#use-added-syntax(jitx)
+defpackage components/XKB-Connectivity/U231-096N-3BLRT06-SS :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/generic-components
+
+
+  import jsl/bundles
+  import jsl/si/helpers
+  import jsl/symbols/SymbolDefn
+  import jsl/symbols/box-symbol
+  import jsl/protocols/usb
+
+
+pcb-pad circle-th-pad :
+  name = "circle-th-pad"
+  type = TH
+  shape = Circle(0.65)
+  layer(SolderMask(Top)) = Circle(0.700)
+  layer(SolderMask(Bottom)) = Circle(0.700)
+  layer(Cutout()) = Circle(0.4)
+
+pcb-pad capsule-th-pad :
+  name = "capsule-th-pad"
+  type = TH
+  shape = Capsule(1.3, 2.5, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.4, 2.6, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.4, 2.6, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.8, 2.0, loc(0.0, 0.0))
+
+pcb-pad capsule-th-pad-1 :
+  name = "capsule-th-pad-1"
+  type = TH
+  shape = Capsule(1.3, 2.0, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.4, 2.1, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.4, 2.1, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.8, 1.5, loc(0.0, 0.0))
+
+
+pcb-landpattern lp :
+  pad p[1] : circle-th-pad at loc(3.500, 7.500) on Top
+  pad p[2] : circle-th-pad at loc(1.000, 7.500) on Top
+  pad p[3] : circle-th-pad at loc(-1.000, 7.500) on Top
+  pad p[4] : circle-th-pad at loc(-3.500, 7.500) on Top
+  pad p[5] : circle-th-pad at loc(-4.000, 6.000) on Top
+  pad p[6] : circle-th-pad at loc(-2.000, 6.000) on Top
+  pad p[7] : circle-th-pad at loc(0.0, 6.000) on Top
+  pad p[8] : circle-th-pad at loc(2.000, 6.000) on Top
+  pad p[9] : circle-th-pad at loc(4.000, 6.000) on Top
+  pad p[10] : capsule-th-pad at loc(8.000, 6.750) on Top
+  pad p[11] : capsule-th-pad-1 at loc(8.000, -2.300) on Top
+  pad p[12] : capsule-th-pad-1 at loc(-8.000, -2.300) on Top
+  pad p[13] : capsule-th-pad at loc(-8.000, 6.750) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 0.5, W, loc(-0.750, 10.283), "", TrueTypeFont, false, false)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 0.5, W, loc(-0.750, 9.283), "", TrueTypeFont, false, false)
+  layer(Cutout()) = Polygon([
+    Point(-6.850, 4.650), Point(6.850, 4.650),
+    Point(6.850, -7.650), Point(-6.850, -7.65),
+  ])
+  layer(Cutout()) = Circle(Point(-6.85 + 0.5, 4.65), 0.5)
+  layer(Cutout()) = Circle(Point(6.85 - 0.5, 4.65), 0.5)
+
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-6.550, 4.380), Point(6.550, 4.380)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-5.743, -8.021), Point(5.678, -8.021)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-5.550, -8.450), Point(5.551, -8.450)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Point(-6.550, 8.450)
+    Point(6.550, 8.450)
+    Point(6.550, -7.600)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-6.550, 8.450), Point(-6.550, -7.650)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Arc(-7.124, -7.689, 0.575, 257.324, 106.510)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Arc(7.124, -7.638, 0.575, 282.666, -106.506)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Arc(-6.509, -8.623, 0.974, 92.423, -82.166)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.254, [
+    Arc(6.509, -8.573, 0.974, 87.573, 82.168)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.060, [
+    Arc(8.150, 8.450, 0.030, 0.0, -360.000)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.300, [
+    Arc(4.500, 7.650, 0.150, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(17.400, 17.154)
+
+  model3d = Model3D("../../3d-models/jitx-64d16f1bb789d8dc4b7f86d1.stp",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.000, 1.000, 1.000),
+    Vec3D(0.0, 0.0, 0.0),
+    [],
+    )
+
+
+public pcb-component component :
+  name = "C2880662"
+  description = "1.8A USB 3.0 1 235℃ Sink board 9 Female -40℃~+85℃ Gold Copper Alloy Type-A Plugin  USB Connectors ROHS"
+  manufacturer = "XKB Connectivity"
+  mpn = "U231-096N-3BLRT06-SS"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2110112230_XKB-Connectivity-U231-096N-3BLRT06-SS_C2880662.pdf"
+  reference-prefix = "J"
+
+  port D : diff-pair
+  port SSTX : diff-pair
+  port SSRX : diff-pair
+
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir ]
+    [VBUS | p[1] | Left ]
+    [D.P | p[3] | Left ]
+    [D.N | p[2] | Left ]
+    [SSRX.P | p[6] | Left ]
+    [SSRX.N | p[5] | Left ]
+    [SSTX.P | p[9] | Left ]
+    [SSTX.N | p[8] | Left ]
+    [GND[0] | p[4] | Left ]
+    [GND[1] | p[7] | Left ]
+    [EH[0] | p[13] | Right ]
+    [EH[1] | p[12] | Right ]
+    [EH[2] | p[10] | Right ]
+    [EH[3] | p[11] | Right ]
+
+  assign-landpattern(lp)
+
+  val box-params = BoxSymbolParams(
+    col-width = 1
+  )
+  val box = BoxSymbol(self, params = box-params)
+  set-alignment(N, self.VBUS)
+  set-alignment(S, self.GND)
+  set-alignment(S, self.EH)
+
+  set-head-margin(0.5, self.D.P)
+  set-head-margin(0.5, self.SSRX.P)
+  set-head-margin(0.5, self.GND[0])
+
+  assign-symbol $ create-symbol(box)
+
+  diff-pin-model(self.D, delay = typ(0.0))
+  diff-pin-model(self.SSTX, delay = typ(0.0))
+  diff-pin-model(self.SSRX, delay = typ(0.0))
+
+
+  property(self.category) = "connector"
+  property(self.manufacturer_aliases) = ["XKB Connectivity"]
+  property(self.mpn_aliases) = ["U231-096N-3BLRT06-SS"]
+  property(self.reference_prefix) = "J"
+  property(self.trust) = "low"
+  property(self.x) = 17.400
+  property(self.y) = 17.154
+  property(self.area) = 298.480
+  property(self.case) = "Plugin"
+  property(self.mounting) = "through-hole"
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+
+
+public pcb-module module :
+  port conn : usb-a-SS-connector
+
+  public inst J : component
+
+  topo-net(J.D, conn.bus.data)
+  topo-net(J.SSTX, conn.bus.lane[0].TX)
+  topo-net(J.SSRX, conn.bus.lane[0].RX)
+
+  net (J.VBUS conn.vbus.V+)
+  net SIG-GND (J.GND[0], J.GND[1], conn.vbus.V-)
+
+  net SHIELD (J.EH[0], J.EH[1], J.EH[2], J.EH[3] conn.shield)
+
+  res-strap(SHIELD, SIG-GND, 1.0e6 )
+  cap-strap(SHIELD, SIG-GND, 4.7e-9)

@@ -1,0 +1,306 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "HD3SS3220RNHR"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/HD3SS3220RNHR :
+  import core
+  import jitx
+  import jitx/commands
+
+  import jsl/bundles
+  import jsl/si/helpers
+  import jsl/si/couplers
+  import jsl/si/signal-ends
+  import jsl/protocols/usb
+  import jsl/symbols/SymbolDefn
+  import jsl/symbols/box-symbol
+  import jsl/symbols/decorators
+  import jsl/landpatterns/packages
+  import jsl/landpatterns/QFN
+  import jsl/landpatterns/quad
+  import jsl/landpatterns/pad-planner
+
+  import ocdb/utils/generic-components
+
+  ; import ocdb/utils/generic-components with:
+  ;   only => (res-strap, ceramic-cap, chip-resistor, bypass-cap-strap, cap-strap)
+
+
+defn create-RNH0030A-lp () :
+  val lead = QFN-Lead(
+    length = min-max(0.25, 0.35),
+    width = min-max(0.15, 0.25)
+  )
+
+  val asym-profile = Quad-Lead-Profile(
+    x-span = min-max(2.4, 2.6),
+    x-pitch = 0.4,
+    x-lead = lead,
+    y-span = min-max(4.4, 4.6),
+    y-pitch = 0.4,
+    y-lead = lead,
+    x-count = 10
+    y-count = 5
+  )
+
+  val pkg-body = PackageBody(
+    width = min-max(2.4, 2.6),
+    length = min-max(4.4, 4.6),
+    height = min-max(0.5, 0.8)
+  )
+
+  QFN(
+    num-leads = 30,
+    lead-profile = asym-profile,
+    thermal-lead? = Rectangle(1.2, 3.2),
+    package-body = pkg-body,
+    pad-planner = Corner-PadPlanner(
+      chamfered-corner-shaper(0.1),
+      rect-shaper,
+      [10, 5, 10, 5]
+    )
+  )
+
+
+
+
+public pcb-component component :
+  name = "C165155"
+  description = "USB Superspeed Mux IC ROHS"
+  manufacturer = "Texas Instruments"
+  mpn = "HD3SS3220RNHR"
+  datasheet = "https://www.ti.com/lit/ds/symlink/hd3ss3220.pdf"
+  reference-prefix = "U"
+
+  port TX-O : diff-pair
+  port RX-O : diff-pair
+
+  port TX : diff-pair[2]
+  port RX : diff-pair[2]
+
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | row:Int | bank:Ref]
+    [VBUS_DET     | p[5] | Left | 0 | control]
+    [ID           | p[27] | Left | 0 | control]
+    [CC2          | p[1] | Left | 0 | control]
+    [CC1          | p[2] | Left | 0 | control]
+    [CURRENT_MODE | p[3] | Left | 1 | control]
+    [PORT         | p[4] | Left | 1 | control]
+    [ENn_CC       | p[29] | Left | 1 | control]
+    [TX-O.P       | p[6] | Left | 1 | mux]
+    [TX-O.N       | p[7] | Left | 1 | mux]
+    [RX-O.P       | p[9] | Left | 1 | mux]
+    [RX-O.N       | p[10] | Left | 1 | mux]
+
+    [VDD5         | p[30] | Right | 0 | control]
+    [VCC33        | p[8] | Right | 0 | control]
+
+    [SDA_OUT1     | p[25] | Right | 0 | control]
+    [SCL_OUT2     | p[26] | Right | 0 | control]
+
+    [DIR          | p[11] | Right | 1 | control]
+    [ENn_MUX      | p[12] | Left  | 2 | mux]
+
+    [TX[0].P      | p[17] | Right | 0 | mux]
+    [TX[0].N      | p[16] | Right | 0 | mux]
+    [RX[0].P      | p[15] | Right | 0 | mux]
+    [RX[0].N      | p[14] | Right | 0 | mux]
+
+    [TX[1].P      | p[21] | Right | 2 | mux]
+    [TX[1].N      | p[20] | Right | 2 | mux]
+    [RX[1].P      | p[19] | Right | 2 | mux]
+    [RX[1].N      | p[18] | Right | 2 | mux]
+
+    [INT_N_OUT3   | p[23] | Right | 1 | control]
+    [ADDR         | p[22] | Right | 1 | control]
+    [VCONN_FAULT_N | p[24] | Right | 1 | control]
+    [EP           | p[31] | Left | 1 | control]
+    [GND0         | p[13] | Left | 1 | control]
+    [GND1         | p[28] | Left | 1 | control]
+
+  val RNH0030A-lp = create-RNH0030A-lp()
+  assign-landpattern $ create-landpattern(RNH0030A-lp)
+
+  val box-params = BoxSymbolParams(
+    show-grid = false
+    col-width = 1
+  )
+  val box = BoxSymbol(self, params = box-params)
+  set-grid(box, [2, 2], #R(control))
+  set-grid(box, [3, 2], #R(mux))
+
+  set-alignment(N, self.VDD5, self.VCC33)
+
+  set-group("i2c", self.SDA_OUT1, self.SCL_OUT2)
+  set-tail-margin(box, 0.5, "i2c")
+
+  set-group("gnds", self.GND0, self.GND1)
+  set-head-margin(box, 0.5, "gnds")
+
+  val ind = CardinalityDecorator(InputPin, size = Dims(0.25, 0.25))
+  val in-pins = [self.CURRENT_MODE, self.ENn_MUX, self.ENn_CC, self.ADDR, self.PORT, self.VBUS_DET ]
+  add-decorator(box, to-tuple(in-pins), [ind])
+  val outd = CardinalityDecorator(OutputPin, size = Dims(0.25, 0.25))
+  add-decorator(box, [self.DIR, self.VCONN_FAULT_N], [outd])
+
+  assign-symbols(
+    #R(control) => box,
+    #R(mux) => box
+  )
+
+
+  ; These values are just dummy values for now until
+  ;  I can find the right values to use.
+  for i in 0 to 2 do:
+    diff-pin-model(self.RX[i], delay = typ(0.0))
+    diff-pin-model(self.TX[i], delay = typ(0.0))
+
+  diff-pin-model(self.TX-O, delay = typ(0.0))
+  diff-pin-model(self.RX-O, delay = typ(0.0))
+
+
+
+;Create a fresh bundle with two pins 'a' and 'b' that can be mapped
+;to the given pins 'x' and 'y' in any order.
+defn swappable-pair (x:JITXObject, y:JITXObject) -> Bundle :
+  inside pcb-module :
+    ; This is confusing because the type name and the supports
+    ;  are the same name and then we return that name 
+    pcb-bundle pair :
+      pin a
+      pin b
+    supports pair :
+      option :
+        pair.a => x
+        pair.b => y
+      option :
+        pair.a => y
+        pair.b => x
+    pair
+;Create a fresh bundle with two ports 'tx' and 'rx' with type 'diff-pair'.
+;The 'tx' port is mapped to whatever pins that support the given 'tx-bundle' bundle.
+;The 'rx' port is mapped to whatever pins that support the given 'rx-bundle' bundle.
+defn non-swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
+  inside pcb-module :
+    pcb-bundle tx-rx :
+      port tx:diff-pair
+      port rx:diff-pair
+    supports tx-rx :
+      require tx : tx-bundle
+      require rx : rx-bundle
+      tx-rx.tx.N => tx.a
+      tx-rx.tx.P => tx.b
+      tx-rx.rx.N => rx.a
+      tx-rx.rx.P => rx.b
+    tx-rx
+;Create a fresh bundle with two ports 'tx' and 'rx' with type 'diff-pair'.
+;The 'tx' port is mapped to whatever pins that support the given 'tx-bundle' or 'rx-bundle' bundle.
+;The 'rx' port is mapped to whatever pins that support the given 'tx-bundle' or 'rx-bundle' bundle, which
+;ever wasn't used already for the 'tx' port. 
+defn swappable-tx-rx (tx-bundle:Bundle, rx-bundle:Bundle) -> Bundle :
+  inside pcb-module :
+    ;First create a temporary bundle that can be mapped
+    ;to either tx-bundle or rx-bundle.
+    pcb-bundle tmp :
+      pin a
+      pin b
+    for bundle in [tx-bundle,rx-bundle] do :
+      supports tmp :
+        require x:bundle
+        tmp.a => x.a
+        tmp.b => x.b
+    pcb-bundle tx-rx :
+      port tx:diff-pair
+      port rx:diff-pair
+    supports tx-rx :
+      require pairs : tmp[2]
+      tx-rx.tx.N => pairs[0].a
+      tx-rx.tx.P => pairs[0].b
+      tx-rx.rx.N => pairs[1].a
+      tx-rx.rx.P => pairs[1].b
+    tx-rx
+
+public pcb-module module :
+  port usb-a : usb-superspeed()
+  port usb-c : usb-c()
+  port power-5v : power
+  port power-3v3 : power
+
+  public inst mux : components/Texas-Instruments/HD3SS3220RNHR/component
+
+  net GND (power-5v.V- power-3v3.V- mux.GND0 mux.GND1 mux.EP)
+  net POWER_5V (mux.VDD5 power-5v.V+)
+  net POWER_3V3 (mux.VCC33 power-3v3.V+)
+
+  ; Power capacitors
+  bypass-cap-strap(mux.VCC33, GND, 100.0e-9)
+  bypass-cap-strap(mux.VDD5, GND, 47.0e-6)
+  cap-strap(GND, mux.VCONN_FAULT_N, 47.0e-6)
+  
+  ; Configuration resistors
+  res-strap(mux.DIR, POWER_5V, 200.0e3)
+  res-strap(POWER_5V, mux.VBUS_DET, 909.0e3)
+  res-strap(mux.INT_N_OUT3, POWER_5V, 200.0e3)
+  res-strap(mux.ID, POWER_3V3, 200.0e3)
+  res-strap(mux.ADDR, POWER_5V, 10.0e3)
+  res-strap(mux.ADDR, GND, 10.0e3)
+  res-strap(GND, mux.PORT, 4.7e3)
+  res-strap(GND, mux.ENn_CC, 0.0)
+  res-strap(mux.ENn_MUX, GND, 0.0)
+
+  net (mux.CC1 usb-c.cc[0])
+  net (mux.CC2 usb-c.cc[1])
+
+  ; USB-A side
+  require muxed : non-swappable-tx-rx(
+                  swappable-pair(mux.TX-O.N, mux.TX-O.P)
+                  swappable-pair(mux.RX-O.N, mux.RX-O.P))
+
+  ; Drop Pull-downs for both the TX and RX channels but keep them
+  ;  in a differential-pair accessible format.
+  val pd-R = chip-resistor(100.0e3)
+  inst rx-pds : symmetric-shunt(pd-R)
+  net (GND, rx-pds.COMMON)
+
+  topo-net(muxed.rx => rx-pds.A)
+  topo-net(rx-pds.B => usb-a.lane[0].RX )
+
+  property(usb-a.lane[0].RX.signal-end) = muxed.rx
+
+  ; TX has the pull downs and blocking caps
+  inst tx-pds : symmetric-shunt(pd-R)
+  net (GND, tx-pds.COMMON)
+
+  val block-cap = ceramic-cap(470.0e-9)
+  inst tx-bcap : dp-coupler(block-cap)
+  require tx-C : dual-pair from tx-bcap
+
+  topo-net(muxed.tx => tx-pds.A)
+  topo-net(tx-pds.B => tx-C.A)
+  topo-net(tx-C.B => usb-a.lane[0].TX)
+
+  set-signal-end(usb-a.lane[0].TX, muxed.tx)
+
+  ; USB-C side - There are two lanes of rx/tx pairs.
+  ;  We want to make each accessible with blocking caps
+  ;  on the TX side.
+
+  for i in 0 to 2 do:
+    require lane-port : swappable-tx-rx(
+                     swappable-pair(mux.TX[i].N, mux.TX[i].P)
+                     swappable-pair(mux.RX[i].N, mux.RX[i].P))
+
+    topo-net(lane-port.rx => usb-c.lane[i].RX)
+    set-signal-end(usb-c.lane[i].RX, lane-port.rx)
+
+    inst tx1-bcap : dp-coupler(block-cap)
+    require tx1 : dual-pair from tx1-bcap
+    topo-net(lane-port.tx => tx1.A)
+    topo-net(tx1.B => usb-c.lane[i].TX)
+
+    set-signal-end(usb-c.lane[i].TX, lane-port.tx)
+
+  
+  ;LED indicators
+  inst LED : components/ROHM-Semicon/SML-210MTT86N/component
+  res-strap(POWER_5V, LED.A, 499.0)
+  net (LED.K mux.ID)

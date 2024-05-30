@@ -1,0 +1,336 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Molex", "mpn" => "2012670005"])
+#use-added-syntax(jitx)
+defpackage components/Molex/_2012670005 :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/generic-components
+
+  import jsl/bundles
+  import jsl/si/helpers
+  import jsl/symbols/SymbolDefn
+  import jsl/symbols/box-symbol
+  import jsl/protocols/usb
+  import jsl/pin-assignment
+
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(0.300, 0.700)
+  layer(SolderMask(Top)) = Rectangle(0.400, 0.800)
+
+pcb-pad rectangle-smd-pad-1 :
+  name = "rectangle-smd-pad-1"
+  type = SMD
+  shape = Rectangle(0.900, 0.700)
+  layer(SolderMask(Top)) = Rectangle(1.000, 0.800)
+
+pcb-pad capsule-th-pad :
+  name = "capsule-th-pad"
+  type = TH
+  shape = Capsule(1.1, 2.1, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.2, 2.2, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.6, 1.6, loc(0.0, 0.0))
+
+pcb-pad capsule-th-pad-1 :
+  name = "capsule-th-pad-1"
+  type = TH
+  shape = Capsule(1.1, 3.6, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.2, 3.7, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.2, 3.7, loc(0.0, 0.0))
+  layer(Cutout()) = Capsule(0.6, 2.1, loc(0.0, 0.0))
+
+pcb-landpattern lp :
+  pad A1 : rectangle-smd-pad at loc(-2.997, 3.888) on Top
+  pad A10 : rectangle-smd-pad at loc(2.003, 3.888) on Top
+  pad A11 : rectangle-smd-pad at loc(2.503, 3.888) on Top
+  pad A12 : rectangle-smd-pad at loc(3.003, 3.888) on Top
+  pad A2 : rectangle-smd-pad at loc(-2.497, 3.888) on Top
+  pad A3 : rectangle-smd-pad at loc(-1.997, 3.888) on Top
+  pad A4 : rectangle-smd-pad at loc(-1.497, 3.888) on Top
+  pad A5 : rectangle-smd-pad at loc(-0.997, 3.888) on Top
+  pad A6 : rectangle-smd-pad at loc(-0.497, 3.888) on Top
+  pad A7 : rectangle-smd-pad at loc(0.503, 3.888) on Top
+  pad A8 : rectangle-smd-pad at loc(1.003, 3.888) on Top
+  pad A9 : rectangle-smd-pad at loc(1.503, 3.888) on Top
+  pad B1 : rectangle-smd-pad-1 at loc(3.053, 2.188) on Top
+  pad B10 : rectangle-smd-pad at loc(-1.747, 2.188) on Top
+  pad B11 : rectangle-smd-pad at loc(-2.247, 2.188) on Top
+  pad B12 : rectangle-smd-pad-1 at loc(-3.047, 2.188) on Top
+  pad B2 : rectangle-smd-pad at loc(2.253, 2.188) on Top
+  pad B3 : rectangle-smd-pad at loc(1.753, 2.188) on Top
+  pad B4 : rectangle-smd-pad at loc(1.253, 2.188) on Top
+  pad B5 : rectangle-smd-pad at loc(0.753, 2.188) on Top
+  pad B6 : rectangle-smd-pad at loc(0.253, 2.188) on Top
+  pad B7 : rectangle-smd-pad at loc(-0.247, 2.188) on Top
+  pad B8 : rectangle-smd-pad at loc(-0.747, 2.188) on Top
+  pad B9 : rectangle-smd-pad at loc(-1.247, 2.188) on Top
+  pad p[1] : capsule-th-pad at loc(4.323, 3.078) on Top
+  pad p[2] : capsule-th-pad at loc(-4.317, 3.078) on Top
+  pad p[3] : capsule-th-pad-1 at loc(-4.617, -2.283) on Top
+  pad p[4] : capsule-th-pad-1 at loc(4.623, -2.283) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 5.944), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(3.384, 4.035), Point(3.510, 4.035)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-0.116, 4.035), Point(0.122, 4.035)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-3.685, 4.035), Point(-3.378, 4.035)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(4.690, -0.228), Point(4.690, 1.840)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-4.284, -4.238), Point(4.290, -4.238)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-4.690, 1.822), Point(-4.690, -0.228)])
+  layer(Paste(Top)) = Polygon([
+    Point(-2.397, 2.537)
+    Point(-2.097, 2.537)
+    Point(-2.097, 1.837)
+    Point(-2.397, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(-1.897, 2.537)
+    Point(-1.597, 2.537)
+    Point(-1.597, 1.837)
+    Point(-1.897, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(-1.397, 2.537)
+    Point(-1.097, 2.537)
+    Point(-1.097, 1.837)
+    Point(-1.397, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(-0.897, 2.537)
+    Point(-0.597, 2.537)
+    Point(-0.597, 1.837)
+    Point(-0.897, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(-0.397, 2.537)
+    Point(-0.097, 2.537)
+    Point(-0.097, 1.837)
+    Point(-0.397, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(0.103, 2.537)
+    Point(0.403, 2.537)
+    Point(0.403, 1.837)
+    Point(0.103, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(0.603, 2.537)
+    Point(0.903, 2.537)
+    Point(0.903, 1.837)
+    Point(0.603, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(1.103, 2.537)
+    Point(1.403, 2.537)
+    Point(1.403, 1.837)
+    Point(1.103, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(1.603, 2.537)
+    Point(1.903, 2.537)
+    Point(1.903, 1.837)
+    Point(1.603, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(2.103, 2.537)
+    Point(2.403, 2.537)
+    Point(2.403, 1.837)
+    Point(2.103, 1.837)])
+  layer(Paste(Top)) = Polygon([
+    Point(2.603, 2.538)
+    Point(3.503, 2.538)
+    Point(3.503, 1.838)
+    Point(2.603, 1.838)])
+  layer(Paste(Top)) = Polygon([
+    Point(2.853, 4.238)
+    Point(3.153, 4.238)
+    Point(3.153, 3.537)
+    Point(2.853, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(2.353, 4.238)
+    Point(2.653, 4.238)
+    Point(2.653, 3.537)
+    Point(2.353, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(1.853, 4.238)
+    Point(2.153, 4.238)
+    Point(2.153, 3.537)
+    Point(1.853, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(1.353, 4.238)
+    Point(1.653, 4.238)
+    Point(1.653, 3.537)
+    Point(1.353, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(0.853, 4.238)
+    Point(1.153, 4.238)
+    Point(1.153, 3.537)
+    Point(0.853, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(0.353, 4.238)
+    Point(0.653, 4.238)
+    Point(0.653, 3.537)
+    Point(0.353, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-0.647, 4.238)
+    Point(-0.347, 4.238)
+    Point(-0.347, 3.537)
+    Point(-0.647, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-1.147, 4.238)
+    Point(-0.847, 4.238)
+    Point(-0.847, 3.537)
+    Point(-1.147, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-1.647, 4.238)
+    Point(-1.347, 4.238)
+    Point(-1.347, 3.537)
+    Point(-1.647, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-2.147, 4.238)
+    Point(-1.847, 4.238)
+    Point(-1.847, 3.537)
+    Point(-2.147, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-2.647, 4.238)
+    Point(-2.347, 4.238)
+    Point(-2.347, 3.537)
+    Point(-2.647, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-3.147, 4.238)
+    Point(-2.847, 4.238)
+    Point(-2.847, 3.537)
+    Point(-3.147, 3.537)])
+  layer(Paste(Top)) = Polygon([
+    Point(-3.497, 2.538)
+    Point(-2.597, 2.538)
+    Point(-2.597, 1.838)
+    Point(-3.497, 1.838)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(4.323, 3.577, 0.550, 180.000, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(4.323, 2.577, 0.550, 0.0, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(-4.317, 3.577, 0.550, 180.000, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(-4.317, 2.577, 0.550, 0.0, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(-4.617, -1.033, 0.550, 180.000, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(-4.617, -3.533, 0.550, 0.0, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(4.623, -1.033, 0.550, 180.000, -180.000)])
+  layer(Paste(Top)) = Polyline(0.0, [
+    Arc(4.623, -3.533, 0.550, 0.0, -180.000)])
+  layer(Courtyard(Top)) = Rectangle(9.380, 8.476)
+
+
+
+public pcb-component component :
+  name = "C565324"
+  description = "1 Surface Mount 24 Female Type-C SMD  USB Connectors ROHS"
+  manufacturer = "Molex"
+  mpn = "2012670005"
+  datasheet = "https://datasheet.lcsc.com/lcsc/2109161730_MOLEX-2012670005_C565324.pdf"
+  reference-prefix = "U"
+
+  property(self.rated-temperature) = min-max(-40.0, 105.0)
+
+  port TX1 : diff-pair
+  port TX2 : diff-pair
+
+  port RX1 : diff-pair
+  port RX2 : diff-pair
+
+  port D0 : diff-pair
+  port D1 : diff-pair
+
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | bank:Ref | row:Int ]
+
+    [VBUS[0] | A4 | Right | A-side | 0]
+    [VBUS[1] | A9 | Right | A-side | 0]
+    [VBUS[3] | B4 | Right | B-side | 0]
+    [VBUS[2] | B9 | Right | B-side | 0]
+
+    [D0.P | A6 | Left | A-side | 1]
+    [D0.N | A7 | Left | A-side | 1]
+
+    [TX1.P | A2 | Left | A-side | 1]
+    [TX1.N | A3 | Left | A-side | 1]
+
+    [RX1.P | B11 | Left | A-side | 1]
+    [RX1.N | B10 | Left | A-side | 1]
+
+    [CC1 | A5 | Left | A-side | 1]
+    [SBU1 | A8 | Left | A-side | 1]
+
+    [D1.P | B6 | Left | B-side | 1]
+    [D1.N | B7 | Left | B-side | 1]
+
+    [TX2.P | B2 | Left | B-side | 1]
+    [TX2.N | B3 | Left | B-side | 1]
+
+    [RX2.P | A11 | Left | B-side | 1]
+    [RX2.N | A10 | Left | B-side | 1]
+
+    [CC2 | B5 | Left | B-side | 1]
+    [SBU2 | B8 | Left | B-side | 1]
+
+    [GND[0] | A1 | Left | A-side | 2]
+    [GND[1] | A12 | Left | A-side | 2]
+    [GND[2] | B12 | Left | B-side | 2]
+    [GND[3] | B1 | Left | B-side | 2]
+
+    ; Shield
+    [SHIELD | p[1] p[2] p[3] p[4] | Right | A-side | 2]
+
+
+  val box = BoxSymbol(self)
+  set-grid(box, [3, 2], Ref("A-side"))
+  set-grid(box, [3, 2], Ref("B-side"))
+
+  set-alignment(N, self.VBUS)
+  set-alignment(S, self.GND)
+  set-alignment(S, self.SHIELD)
+
+  set-head-margin(0.5, self.TX1.P, self.TX2.P)
+  set-head-margin(0.5, self.RX1.P, self.RX2.P)
+  set-head-margin(0.5, self.CC1, self.CC2)
+
+  assign-symbols(
+    Ref("A-side") => box,
+    Ref("B-side") => box,
+  )
+
+  assign-landpattern(lp)
+
+  diff-pin-model(self.D0, delay = typ(0.0))
+  diff-pin-model(self.D1, delay = typ(0.0))
+
+  diff-pin-model(self.TX1, delay = typ(0.0))
+  diff-pin-model(self.TX2, delay = typ(0.0))
+
+  diff-pin-model(self.RX1, delay = typ(0.0))
+  diff-pin-model(self.RX2, delay = typ(0.0))
+
+  reversible-dual-pair(self.D0, self.D1)
+
+
+public pcb-module module :
+  port conn : usb-c-connector
+
+  public inst J : components/Molex/_2012670005/component
+
+  net (conn.vbus.V+ J.VBUS[0] J.VBUS[1] J.VBUS[2] J.VBUS[3])
+  net (J.CC1, conn.bus.cc[0])
+  net (J.CC2, conn.bus.cc[1])
+
+  net (J.SBU1 conn.bus.sbu[0])
+  net (J.SBU2 conn.bus.sbu[1])
+
+  require usb-data : dual-pair from J
+  topo-net(conn.bus.data, usb-data.A)
+  topo-net(usb-data.A, usb-data.B)
+
+  topo-net(J.TX1, conn.bus.lane[0].TX)
+  topo-net(J.RX1, conn.bus.lane[0].RX)
+  topo-net(J.TX2, conn.bus.lane[1].TX)
+  topo-net(J.RX2, conn.bus.lane[1].RX)
+
+  net (J.GND[0] J.GND[1] J.GND[2] J.GND[3] conn.vbus.V-)
+  net (conn.shield J.SHIELD)

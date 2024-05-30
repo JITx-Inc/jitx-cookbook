@@ -1,0 +1,177 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TUSB211IRWBR"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/TUSB211IRWBR :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/generic-components
+
+  import jsl/si/helpers
+  import jsl/bundles
+  import jsl/symbols/SymbolDefn
+  import jsl/symbols/box-symbol
+  import jsl/pin-assignment
+  import jsl/landpatterns/packages
+  import jsl/landpatterns/QFN
+  import jsl/landpatterns/quad
+  import jsl/landpatterns/pad-planner
+
+
+pcb-pad rectangle-smd-pad :
+  name = "rectangle-smd-pad"
+  type = SMD
+  shape = Rectangle(0.200, 0.700)
+  layer(SolderMask(Top)) = Rectangle(0.302, 0.802)
+  layer(Paste(Top)) = Rectangle(0.200, 0.700)
+
+pcb-pad rectangle-smd-pad-1 :
+  name = "rectangle-smd-pad-1"
+  type = SMD
+  shape = Rectangle(0.505, 0.200)
+  layer(SolderMask(Top)) = Rectangle(0.607, 0.302)
+  layer(Paste(Top)) = Rectangle(0.505, 0.200)
+
+pcb-landpattern lp :
+  pad p[1] : rectangle-smd-pad at loc(-0.200, -0.650) on Top
+  pad p[2] : rectangle-smd-pad at loc(0.200, -0.650) on Top
+  pad p[3] : rectangle-smd-pad-1 at loc(0.750, -0.599) on Top
+  pad p[4] : rectangle-smd-pad-1 at loc(0.750, -0.199) on Top
+  pad p[5] : rectangle-smd-pad-1 at loc(0.750, 0.200) on Top
+  pad p[6] : rectangle-smd-pad-1 at loc(0.750, 0.600) on Top
+  pad p[7] : rectangle-smd-pad at loc(0.200, 0.651) on Top
+  pad p[8] : rectangle-smd-pad at loc(-0.200, 0.651) on Top
+  pad p[9] : rectangle-smd-pad-1 at loc(-0.750, 0.600) on Top
+  pad p[10] : rectangle-smd-pad-1 at loc(-0.750, 0.200) on Top
+  pad p[11] : rectangle-smd-pad-1 at loc(-0.750, -0.199) on Top
+  pad p[12] : rectangle-smd-pad-1 at loc(-0.750, -0.599) on Top
+
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.565), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(0.870, 0.860), Point(0.870, 0.810)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(0.870, 0.860), Point(0.510, 0.860)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(-0.870, -0.859), Point(-0.510, -0.859)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(-0.870, -0.859), Point(-0.870, -0.809)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(0.870, -0.859), Point(0.510, -0.859)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(0.870, -0.859), Point(0.870, -0.809)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(-0.870, 0.860), Point(-0.870, 0.810)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.100, [Point(-0.870, 0.860), Point(-0.510, 0.860)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150, [
+    Arc(-0.200, -1.279, 0.075, 0.0, -360.000)])
+  layer(Courtyard(Top)) = Rectangle(1.740, 1.719)
+
+
+defn create-RWB0012A () :
+
+  val x-lead = QFN-Lead(
+    length = min-max(0.4, 0.6),
+    width = min-max(0.15, 0.25)
+  )
+
+  val y-lead = QFN-Lead(
+    length = min-max(0.2, 0.4)
+    width = min-max(0.15, 0.25)
+  )
+
+  val asym-profile = Quad-Lead-Profile(
+    x-span = min-max(1.55, 1.65),
+    x-pitch = 0.4,
+    x-lead = x-lead,
+    y-span = min-max(1.55, 1.65),
+    y-pitch = 0.4,
+    y-lead = y-lead,
+    x-count = 2
+    y-count = 4
+  )
+
+  val pkg-body = PackageBody(
+    width = min-max(1.55, 1.65),
+    length = min-max(1.55, 1.65),
+    height = min-max(0.3, 0.4)
+  )
+
+  QFN(
+    num-leads = 12,
+    lead-profile = asym-profile,
+    thermal-lead? = false,  
+    package-body = pkg-body,
+  )
+
+
+public pcb-component component :
+  name = "C575567"
+  description = " X2QFN-12(1.6x1.6)  Interface - Specialized ROHS"
+  manufacturer = "Texas Instruments"
+  mpn = "TUSB211IRWBR"
+  datasheet = "https://www.ti.com/lit/ds/symlink/tusb211.pdf"
+  reference-prefix = "U"
+
+  port D1 : diff-pair
+  port D2 : diff-pair
+
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | row:Int]
+    [VCC | p[12] | Right | 0]
+    [VREG | p[11] | Right | 3]
+
+    [D1.P | p[2] | Left | 1]
+    [D1.N | p[1] | Left | 1]
+    [D2.P | p[7] | Right | 1]
+    [D2.N | p[8] | Right | 1]
+
+    [TEST | p[3] | Left | 2]
+    [ENA_HS | p[9] | Right | 2]
+    [CD | p[4] | Right | 2]
+    [RSTN | p[5] | Left | 2]
+    [EQ | p[6] | Left | 2]
+
+    [GND | p[10] | Left | 3]
+
+  val RWB0012A = create-RWB0012A()
+  assign-landpattern $ create-landpattern(RWB0012A)
+
+  val box-params = BoxSymbolParams(
+    col-width = 1
+  )
+  val box = BoxSymbol(self, params = box-params)
+  set-grid(box, [4, 2])
+  set-alignment(N, self.VCC)
+  set-alignment(S, self.GND, self.VREG)
+
+  assign-symbol $ create-symbol(box)
+
+  no-connect(self.TEST)
+
+  diff-pin-model(self.D1, delay = typ(0.0))
+  diff-pin-model(self.D2, delay = typ(0.0))
+
+
+public pcb-module module :
+  port power : power
+
+  inst usb2sc : components/Texas-Instruments/TUSB211IRWBR/component
+
+  ; According to the datasheet - Section 8.2
+  ;   D1 & D2 can be swapped but the P/N must stay the same
+  reversible-dual-pair(usb2sc.D1, usb2sc.D2)
+
+  net (power.V+ usb2sc.VCC)
+  net GND (power.V- usb2sc.GND)
+
+  ; Default Connection - Per the datasheet Section 8.2
+  ;  this connection is a requirement.
+  ; TODO - I probably want to add some kind of check here 
+  ;  for the usb2sc.D1 and usb2sc.D2 connection. 
+  ; Topo Nets and Nets can't really be applied here because
+  ;  if the user applies their own topo-net or net connection
+  ;  at the application layer - it will break the topology
+  ; topo-net(usb2sc.D1, usb2sc.D2)
+  ; net (usb2sc.D1, usb2sc.D2)
+  
+  bypass-cap-strap(usb2sc.VCC, GND, 10.0e-9)
+  bypass-cap-strap(usb2sc.VCC, GND, 100.0e-9)
+  bypass-cap-strap(usb2sc.VREG, GND, 100.0e-9)
+
+  ; Internal Pullup (500k) on RSTN
+  cap-strap(usb2sc.RSTN, GND, 100.0e-9)
+
+  res-strap(usb2sc.EQ, GND, 1.6e3)

@@ -1,0 +1,139 @@
+; This file is generated based on the parts database query below:")
+;   database-part(["manufacturer" => "Texas Instruments", "mpn" => "TPS62082DSGT"])
+#use-added-syntax(jitx)
+defpackage components/Texas-Instruments/TPS6208x :
+  import core
+  import jitx
+  import jitx/commands
+  import ocdb/utils/generic-components
+  import ocdb/utils/generator-utils
+  import ocdb/modules/passive-circuits
+
+  import jsl/bundles
+  import jsl/symbols/SymbolDefn
+  import jsl/symbols/box-symbol
+  import jsl/landpatterns/packages
+  import jsl/landpatterns/leads/lead-profile
+  import jsl/landpatterns/SON
+
+
+defn create-DSG0008A ():
+  SON(
+    num-leads = 8,
+    lead-profile = Lead-Profile(
+      span = min-max(1.9, 2.1),
+      pitch = 0.5,
+      lead = SON-Lead(
+        length = min-max(0.2, 0.4),
+        width = min-max(0.18, 0.32)
+      )
+    ),
+    thermal-lead? = Rectangle(0.9, 1.6),
+    package-body = PackageBody(
+      width = min-max(1.9, 2.1)
+      length = min-max(1.9, 2.1)
+      height = min-max(0.7, 0.8)
+    )
+  )
+
+doc: \<DOC>
+Family of low-voltage DC/DC with 1.2A Max current
+<DOC>
+public pcb-component component (-- vout-V:Double):
+  name = "Buck Converter"
+
+  if vout-V == 3.3:
+    description = "Step-down Buck Converter, 3.3V Fixed Output"
+    mpn = "TPS62082DSGT"
+    property(self.fixed-output) = 3.3
+    property(self.adjustable) = false
+  else if vout-V == 1.8:
+    description = "Step-down Buck Converter, 1.8V Fixed Output"
+    mpn = "TPS62081DSGT"
+    property(self.fixed-output) = 1.8
+    property(self.adjustable) = false
+  else:
+    description = "Step-down Buck Converter, Adjustable Output"
+    mpn = "TPS62080DSGT"
+    property(self.adjustable) = true
+  
+  manufacturer = "Texas Instruments"
+  datasheet = "https://www.ti.com/lit/ds/symlink/tps62082.pdf"
+  reference-prefix = "U"
+
+  property(self.rated-temperature) = min-max(-40.0, 85.0)
+
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir ]
+
+    [VIN | p[8] | Left ]
+    [EN | p[1] | Left ]
+    [MODE | p[3] | Left ]
+    [GND | p[2] | Left ]
+    [EP | p[9] | Left ]
+
+    [PG | p[6] | Right ]
+    [SW | p[7] | Right ]
+    [VOS | p[5] | Right ]
+    [FB | p[4] | Right ]
+
+  val DSG0008A = create-DSG0008A()
+  assign-landpattern $ create-landpattern(DSG0008A)
+
+  val box-params = BoxSymbolParams(
+    col-width = 1
+  )
+  val box = BoxSymbol(self, params = box-params)
+  set-head-margin(1.0, self.FB)
+  assign-symbol $ create-symbol(box)
+
+  property(self.VIN.op-range) = min-max(2.3, 6.0)
+
+public pcb-module module (-- vout-V:Double) :
+  port vin : power
+  port vout : power
+
+  inst buck : component(vout-V = vout-V)
+
+  net (vin.V+ buck.VIN buck.EN)
+  net (vin.V- vout.V- buck.GND buck.MODE buck.EP)
+
+  val V-safety-factor = 2.0
+  val vin-min-rating = max-value(property(buck.VIN.op-range)) * V-safety-factor
+
+  bypass-cap-strap(
+    buck.VIN, buck.GND,
+    ["capacitance" => 10.0e-6, "min-rated-voltage" => vin-min-rating]
+  )
+  res-strap(buck.PG, vout.V+, 178.0e3)
+
+  inst l : database-part(["mpn" => "NR3015T1R0N", "manufacturer" => "Taiyo Yuden"])
+  net (buck.SW, l.p[1])
+
+  net VOUT (l.p[2], vout.V+, buck.VOS)
+
+  property(self.vout.V+.voltage) = vout-V
+
+  val vout-min-rating = V-safety-factor * vout-V
+  bypass-cap-strap(
+    l.p[2], buck.GND,
+    ["capacitance" => 22.0e-6, "min-rated-voltage" => vout-min-rating]
+  )
+
+  ; Create the feedback divider for the power converter here.
+  ; Note that we place regardless and then DNP if not adjustable
+  inst vdiv : voltage-divider(
+    source-voltage = typ(vout-V),
+    divider-output = vout-targ,
+    current = 0.0005
+    ) where:
+    val V-ref = min-typ-max(0.438 0.45 0.462)  ; Datasheet, Section 7.5, VFB
+    val vout-targ = typ(V-ref) +/- (3 %)
+
+  net (VOUT, vdiv.in)
+  net (buck.FB, vdiv.out)
+  net (buck.GND, vdiv.lo)
+
+  if not property(buck.adjustable):
+    do-not-populate(vdiv.r-hi)
+    do-not-populate(vdiv.r-lo)
