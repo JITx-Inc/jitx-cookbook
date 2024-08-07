@@ -8,8 +8,8 @@ defpackage hacking_conference_badge/components/PH2-0-2PWB :
   import ocdb/utils/generic-components
 
 public pcb-module module:
-  pin power
-  pin ground
+  port power
+  port ground
   
   inst battery : database-part(["vendor_part_numbers.lcsc" => "C47647"])
   net (ground battery.p[1])

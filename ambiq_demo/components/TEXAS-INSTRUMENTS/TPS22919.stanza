@@ -81,10 +81,10 @@ public pcb-component component :
   property(self.STATUS) = "Production"
 
 public pcb-module module :
-  pin IN 
-  pin OUT
-  pin GND
-  pin ON
+  port IN 
+  port OUT
+  port GND
+  port ON
 
   inst sw : ambiq_demo/components/TEXAS-INSTRUMENTS/TPS22919/component
 

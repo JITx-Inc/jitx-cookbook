@@ -91,10 +91,10 @@ public pcb-component component :
   check ap2125k-voltage-in-range-check(self.VIN, vin)
 
 public pcb-module module : 
-  pin vin
-  pin vout
-  pin gnd
-  pin ce
+  port vin
+  port vout
+  port gnd
+  port ce
   public inst ps : battery_charger_design/components/AP2125K-2_8TRG1/component
 
   ; create the bypass capacitors

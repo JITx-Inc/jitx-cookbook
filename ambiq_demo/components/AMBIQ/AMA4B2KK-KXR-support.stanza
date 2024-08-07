@@ -325,7 +325,7 @@ public defn make-supports ():
       reset.reset => self.RSTN
 
     pcb-bundle SWDSWO:
-      pin p
+      port p
 
     val swdswo-list = [self.GPIO[3] self.GPIO[22] self.GPIO[23] self.GPIO[24] self.GPIO[28] self.GPIO[41] self.GPIO[44] self.GPIO[56] self.GPIO[57] self.GPIO[64] self.GPIO[65] self.GPIO[66] self.GPIO[67] self.GPIO[68] self.GPIO[69] self.GPIO[79]]
     for p in swdswo-list do:
@@ -346,13 +346,13 @@ public defn make-supports ():
 
     ; uart 0
     pcb-bundle UART0TX:
-      pin p
+      port p
     pcb-bundle UART0RX:
-      pin p
+      port p
     pcb-bundle UART0RTS:
-      pin p
+      port p
     pcb-bundle UART0CTS:
-      pin p
+      port p
     
     val uart0tx-list = [self.GPIO[0] self.GPIO[12] self.GPIO[20] self.GPIO[30] self.GPIO[41] self.GPIO[45] self.GPIO[66] self.GPIO[72] self.GPIO[78]]
     val uart0rx-list = [self.GPIO[2] self.GPIO[22] self.GPIO[32] self.GPIO[43] self.GPIO[47] self.GPIO[62] self.GPIO[68] self.GPIO[74]]
@@ -390,13 +390,13 @@ public defn make-supports ():
 
     ; uart 1
     pcb-bundle UART1TX:
-      pin p
+      port p
     pcb-bundle UART1RX:
-      pin p
+      port p
     pcb-bundle UART1RTS:
-      pin p
+      port p
     pcb-bundle UART1CTS:
-      pin p
+      port p
     
     val uart1tx-list = [self.GPIO[0] self.GPIO[12] self.GPIO[20]]
     val uart1rx-list = [self.GPIO[2] self.GPIO[14] self.GPIO[22] self.GPIO[47] self.GPIO[62]]
@@ -526,7 +526,7 @@ public defn make-supports ():
       spi([SPI-CIPO SPI-COPI SPI-CS]).cs => self.GPIO[7]
 
     pcb-bundle ce-pins :
-      pin p
+      port p
 
     val all-ces = [self.GPIO[14] self.GPIO[56] self.GPIO[57] self.GPIO[73] 
                    self.GPIO[75] self.GPIO[83] self.GPIO[84] self.GPIO[85]

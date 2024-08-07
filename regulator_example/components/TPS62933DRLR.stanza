@@ -71,9 +71,9 @@ public pcb-component component :
   property(self.case) = "SOT-583"
 
 public pcb-module module (-- output-voltage:Double = 3.3 input-voltage:Double = 25.0, soft-start:Double = 2.0e-3, output-current:Double = 3.0, ripple:Double = 30.0e-3, placed?:True|False = true):
-  pin vin
-  pin vout
-  pin gnd
+  port vin
+  port vout
+  port gnd
   
   inst buck : regulator_example/components/TPS62933DRLR/component
   net (vin, buck.VIN)

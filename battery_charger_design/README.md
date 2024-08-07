@@ -120,11 +120,11 @@ To do so, let's add a line to define our module, define the pins of the mdoule w
 
 ```
 public pcb-module module :
-  pin vin
-  pin vout
-  pin gnd
-  pin bat+
-  pin sysoff
+  port vin
+  port vout
+  port gnd
+  port bat+
+  port sysoff
 
   ; using the component definition from above:
   inst bq : components/BQ24078RGTR/component

@@ -13,8 +13,8 @@ defpackage hacking_conference_badge/components/high-side-switch:
   import ocdb/utils/generic-components
 
 public pcb-module high-side-switch () :
-  pin input
-  pin output
+  port input
+  port output
   port power : power
 
   net GND (power.gnd)

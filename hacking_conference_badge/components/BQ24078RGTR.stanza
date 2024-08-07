@@ -114,10 +114,10 @@ defn apply-component-properties (comp:JITXObject) :
         property(comp.PGOOD_NOT.digital-io) = dio
 
 public pcb-module module :
-  pin vin
-  pin vout
-  pin gnd
-  pin bat+
+  port vin
+  port vout
+  port gnd
+  port bat+
 
   ; using the component definition from above:
   inst bq : database-part(["manufacturer" => "Texas Instruments", "mpn" => "BQ24078RGTR"])

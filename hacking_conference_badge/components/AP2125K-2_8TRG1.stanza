@@ -9,10 +9,10 @@ defpackage hacking_conference_badge/components/AP2125K-2_8TRG1 :
   import ocdb/utils/generic-components
 
 public pcb-module module : 
-  pin vin
-  pin vout
-  pin gnd
-  pin en
+  port vin
+  port vout
+  port gnd
+  port en
   public inst ps : database-part(["manufacturer" => "Diodes Inc.", "mpn" => "AP2125K-2.8TRG1"])
   ocdb/utils/generic-components/bypass-cap-strap(ps.VIN, gnd, 1.0e-6)
   ocdb/utils/generic-components/bypass-cap-strap(ps.VOUT, gnd, 1.0e-6)

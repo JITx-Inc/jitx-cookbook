@@ -18,7 +18,7 @@ defpackage battery_charger_design/battery_charger_design_module :
 ; Module to run as a design
 val board-shape = RoundedRectangle(30.0, 18.5, 0.25)
 pcb-module battery_charger_design_module :
-  pin gnd
+  port gnd
 
   ; setup the ground network
   net GND (gnd)

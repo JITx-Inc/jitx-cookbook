@@ -46,8 +46,8 @@ defn my-testpoint-strap (tp:JITXObject, tp-name:String, diameter:Double) -> JITX
 
 ; generate an LED with tuned ballast resistor, connect a testpad, and place all the components relative to each other in a linear fashion
 pcb-module generate-test-led (voltage:Toleranced, net-name:String, color:usb_c_cable_tester/components/LED-maker-ROYGB/LED-COLORS) :
-  pin in
-  pin out
+  port in
+  port out
 
   net IN (in)
 
@@ -104,8 +104,8 @@ public pcb-module usb-c-cable-module:
 
 pcb-module usb_c_cable_tester_module :
   ; define pins to expose from our module
-  pin gnd
-  pin power
+  port gnd
+  port power
 
   ; define nets
   net GND (gnd)

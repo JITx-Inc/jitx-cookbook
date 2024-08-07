@@ -27,10 +27,10 @@ DESIGN-QUANTITY = 1
 val board-shape = RoundedRectangle(110.0, 52.0, 0.25)
 
 pcb-module serial-RGB (num:Int):
-  pin vdd-5V
-  pin vdd-3V3
-  pin gnd
-  pin din
+  port vdd-5V
+  port vdd-3V3
+  port gnd
+  port din
 
   inst led : database-part(["manufacturer" => "Worldsemi", "mpn" => "WS2816C-2121"])[num]
   for i in 0 to num - 1 do :
@@ -53,7 +53,7 @@ pcb-module serial-RGB (num:Int):
 
 pcb-module led-grid (x:Int, y:Int):
   val num-leds = x * y
-  pin a
+  port a
   port k : pin[num-leds]
   inst led : database-part(["mpn" => "KT-0603W", "manufacturer" => "Hubei KENTO Elec"])[num-leds]
   for (i in 0 to num-leds, pose in grid-locs(x, y, 3.5, 3.5)) do :
@@ -65,7 +65,7 @@ pcb-module led-grid (x:Int, y:Int):
 
 pcb-module rgb-grid (x:Int, y:Int):
   val num-leds = x * y
-  pin a
+  port a
   port rgb : rgb-led[num-leds]
   ;inst led : database-part(["manufacturer" => "Foshan NationStar Optoelectronics", "mpn" => "FM-B2020RGBA-HG"])[num-leds] ; not in stock at JLCPCB
   inst led : database-part(["manufacturer" => "Foshan NationStar Optoelectronics", "mpn" => "NH-Z1921RGBA-SF"])[num-leds] ; in stock at JLCPCB
@@ -84,8 +84,8 @@ pcb-module rgb-grid (x:Int, y:Int):
   layout-group(self) = rgb-grid
 
 public pcb-module led-driver :
-  pin vdd
-  pin gnd
+  port vdd
+  port gnd
   port i2c : i2c
 
   public inst u : hacking_conference_badge/components/IS31FL3236A-QFLS2-TR/component
@@ -118,10 +118,10 @@ public pcb-module key-matrix :
       schematic-group(d) = col[i] 
 
 public pcb-module class-d-audio :
-  pin in 
-  pin vdd
-  pin gnd
-  pin en
+  port in 
+  port vdd
+  port gnd
+  port en
 
   ; Low pass the PWM @ 20 KHz
   inst r : chip-resistor(closest-std-val(80.0, 5.0))

@@ -19,9 +19,9 @@ public pcb-component component :
   description = "30V 4A 44mΩ@10V,4.3A 1.4W 1.3V@250uA P Channel SOT-23-3L MOSFETs ROHS"
   mpn = "AO3401A"
 
-  pin g
-  pin d
-  pin s
+  port g
+  port d
+  port s
 
   val pkg = SOT23()
   val sym = fet-sym(FETPType, FETEnhancement, false)
