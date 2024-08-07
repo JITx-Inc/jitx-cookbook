@@ -49,26 +49,26 @@ public pcb-symbol _0603White_light_C2290 :
     number-size = 0.6
     name-size = 0.6
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("foreground") = Polygon([  
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("foreground") = Polygon([  
     Point(-40.5, 24.4), 
     Point(-39.5, 25.0), 
     Point(-40.5, 25.7), 
     Point(-40.5, 24.4)])
-  layer("foreground") = Polygon([  
+  draw("foreground") = Polygon([  
     Point(-38.9, 26.7), 
     Point(-39.3, 26.5), 
     Point(-39.1, 26.3), 
     Point(-38.9, 26.7)])
-  layer("foreground") = Polygon([  
+  draw("foreground") = Polygon([  
     Point(-38.5, 26.3), 
     Point(-38.9, 26.1), 
     Point(-38.7, 25.9), 
     Point(-38.5, 26.3)])
-  layer("none") = Line(0.0, [Point(-39.6, 26.0), Point(-38.9, 26.7)])
-  layer("none") = Line(0.0, [Point(-39.5, 25.8), Point(-39.5, 24.2)])
-  layer("none") = Line(0.0, [Point(-39.2, 25.6), Point(-38.5, 26.3)])
+  draw("none") = Line(0.0, [Point(-39.6, 26.0), Point(-38.9, 26.7)])
+  draw("none") = Line(0.0, [Point(-39.5, 25.8), Point(-39.5, 24.2)])
+  draw("none") = Line(0.0, [Point(-39.2, 25.6), Point(-38.5, 26.3)])
   
 public pcb-component component :
   description = "0603White_light_C2290"

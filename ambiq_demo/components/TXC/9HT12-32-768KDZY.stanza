@@ -53,19 +53,19 @@ public pcb-symbol XTAL :
     length = 2.54
     number-size = 1.523
   
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3635), "", TrueTypeFont)
-  layer("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.4255), "", TrueTypeFont)
-  layer("foreground") = Rectangle(2.54, 3.556, loc(5.08, -2.54))
-  layer("foreground") = Polyline(0.0762, [Arc(2.54, -2.54, 2.54, 180.0, 90.0)])
-  layer("foreground") = Polyline(0.0762, [Arc(7.62, -2.54, 2.54, 0.0, 90.0)])
-  layer("foreground") = Polyline(0.0762, [Arc(2.286, -2.286, 2.286, 90.0, 96.34)])
-  layer("foreground") = Line(0.127, [Point(10.16, -2.54), Point(7.112, -2.54)])
-  layer("foreground") = Polyline(0.0762, [Arc(7.62, -2.54, 2.54, 270.0, 90.0)])
-  layer("foreground") = Line(0.127, [Point(2.54, -5.08), Point(7.62, -5.08)])
-  layer("foreground") = Line(0.127, [Point(2.286, 0.0), Point(7.62, 0.0)])
-  layer("foreground") = Line(0.127, [Point(7.112, -1.27), Point(7.112, -3.81)])
-  layer("foreground") = Line(0.127, [Point(3.048, -1.27), Point(3.048, -3.81)])
-  layer("foreground") = Line(0.127, [Point(3.048, -2.54), Point(0.0, -2.54)])
+  draw("foreground") = Text(">VALUE", 0.762, C, loc(-2.59, 0.3635), "", TrueTypeFont)
+  draw("foreground") = Text(">REF", 0.762, C, loc(-2.59, 1.4255), "", TrueTypeFont)
+  draw("foreground") = Rectangle(2.54, 3.556, loc(5.08, -2.54))
+  draw("foreground") = Polyline(0.0762, [Arc(2.54, -2.54, 2.54, 180.0, 90.0)])
+  draw("foreground") = Polyline(0.0762, [Arc(7.62, -2.54, 2.54, 0.0, 90.0)])
+  draw("foreground") = Polyline(0.0762, [Arc(2.286, -2.286, 2.286, 90.0, 96.34)])
+  draw("foreground") = Line(0.127, [Point(10.16, -2.54), Point(7.112, -2.54)])
+  draw("foreground") = Polyline(0.0762, [Arc(7.62, -2.54, 2.54, 270.0, 90.0)])
+  draw("foreground") = Line(0.127, [Point(2.54, -5.08), Point(7.62, -5.08)])
+  draw("foreground") = Line(0.127, [Point(2.286, 0.0), Point(7.62, 0.0)])
+  draw("foreground") = Line(0.127, [Point(7.112, -1.27), Point(7.112, -3.81)])
+  draw("foreground") = Line(0.127, [Point(3.048, -1.27), Point(3.048, -3.81)])
+  draw("foreground") = Line(0.127, [Point(3.048, -2.54), Point(0.0, -2.54)])
   
 public pcb-component component :
   description = "XTAL"

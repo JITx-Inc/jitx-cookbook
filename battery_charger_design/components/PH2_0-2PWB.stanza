@@ -70,10 +70,10 @@ public pcb-symbol PH2_0-2PWB :
     number-size = 1.0
     name-size = 1.0
 
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("foreground") = Rectangle(5.08, 7.62, loc(0.0, -10.16))
-  layer("foreground") = Circle(-1.27, -7.62, 0.381)
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("foreground") = Rectangle(5.08, 7.62, loc(0.0, -10.16))
+  draw("foreground") = Circle(-1.27, -7.62, 0.381)
 
 public pcb-component component :
   description = "PH2_0-2PWB"

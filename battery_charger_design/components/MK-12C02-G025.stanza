@@ -86,21 +86,21 @@ public pcb-symbol MK-12C02-G025 :
   ;   number-size = 0.6
   ;   name-size = 0.6
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("foreground") = Rectangle(1.6, 0.6, loc(0.0, -5.0))
-  layer("foreground") = Rectangle(1.6, 0.6, loc(-2.0, -5.0))
-  layer("foreground") = Rectangle(1.6, 0.6, loc(2.0, -5.0))
-  layer("none") = Line(0.0, [Point(2.0, -4.7), Point(2.1, -4.3)])
-  layer("none") = Line(0.0, [  
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("foreground") = Rectangle(1.6, 0.6, loc(0.0, -5.0))
+  draw("foreground") = Rectangle(1.6, 0.6, loc(-2.0, -5.0))
+  draw("foreground") = Rectangle(1.6, 0.6, loc(2.0, -5.0))
+  draw("none") = Line(0.0, [Point(2.0, -4.7), Point(2.1, -4.3)])
+  draw("none") = Line(0.0, [  
     Point(0.0, -3.5), 
     Point(-2.0, -3.5), 
     Point(-2.0, -4.7), 
     Point(-1.9, -4.3)])
-  layer("none") = Line(0.0, [Point(2.0, -4.7), Point(1.9, -4.3)])
-  layer("none") = Line(0.0, [Point(0.0, -4.7), Point(-0.1, -4.3)])
-  layer("none") = Line(0.0, [Point(-2.0, -4.7), Point(-2.1, -4.3)])
-  layer("none") = Line(0.0, [  
+  draw("none") = Line(0.0, [Point(2.0, -4.7), Point(1.9, -4.3)])
+  draw("none") = Line(0.0, [Point(0.0, -4.7), Point(-0.1, -4.3)])
+  draw("none") = Line(0.0, [Point(-2.0, -4.7), Point(-2.1, -4.3)])
+  draw("none") = Line(0.0, [  
     Point(2.0, -4.7), 
     Point(2.0, -3.0), 
     Point(0.0, -3.0), 

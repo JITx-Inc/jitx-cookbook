@@ -58,13 +58,13 @@ public pcb-symbol PTS810SJM250SMTRLFS :
     number-size = 0.6
     name-size = 0.6
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("none") = Line(0.0, [Point(0.0, -6.0), Point(0.0, -5.4)])
-  layer("none") = Line(0.0, [Point(0.0, -5.4), Point(-0.5, -4.7)])
-  layer("none") = Line(0.0, [Point(-2.0, -4.0), Point(2.0, -4.0)])
-  layer("none") = Line(0.0, [Point(-2.0, -6.0), Point(2.0, -6.0)])
-  layer("none") = Line(0.0, [Point(0.0, -4.0), Point(0.0, -4.6)])
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("none") = Line(0.0, [Point(0.0, -6.0), Point(0.0, -5.4)])
+  draw("none") = Line(0.0, [Point(0.0, -5.4), Point(-0.5, -4.7)])
+  draw("none") = Line(0.0, [Point(-2.0, -4.0), Point(2.0, -4.0)])
+  draw("none") = Line(0.0, [Point(-2.0, -6.0), Point(2.0, -6.0)])
+  draw("none") = Line(0.0, [Point(0.0, -4.0), Point(0.0, -4.6)])
   
 public pcb-component component :
   description = "PTS810SJM250SMTRLFS"
