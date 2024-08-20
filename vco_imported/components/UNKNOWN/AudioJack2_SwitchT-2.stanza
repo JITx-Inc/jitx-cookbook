@@ -1,0 +1,23 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/AudioJack2_SwitchT-2 :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+public pcb-component component :
+  description = "PWM"
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[0] | S | Right | "Passive"]
+    [p[1] | T | Right | "Passive"]
+    [p[2] | TN | Right | "Passive"]
+
+  assign-landpattern(VCO/landpatterns/Jack_35mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles/Jack_35mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles)
+  assign-symbol(VCO/symbols/AudioJack2_SwitchT/AudioJack2_SwitchT)
+
+  property(self.Value) = "AudioJack2_SwitchT"
+

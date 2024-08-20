@@ -1,0 +1,52 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/R_Axial_DIN0207_L63mm_D25mm_P762mm_Horizontal :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad circle-th-pad :
+  type = TH
+  shape = Circle(0.8)
+  layer(SolderMask(Top)) = Circle(0.8)
+  layer(SolderMask(Bottom)) = Circle(0.8)
+  layer(Cutout()) = Circle(0.4)
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(Cutout()) = Circle(0.4)
+
+public pcb-landpattern R_Axial_DIN0207_L63mm_D25mm_P762mm_Horizontal :
+  pad p[1] : circle-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : oval-th-pad at loc(7.62, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.05, 1.5), 
+    Point(-1.05, -1.5), 
+    Point(8.67, -1.5), 
+    Point(8.67, 1.5)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(3.81, -2.37), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(3.81, 0.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(3.81, 2.37), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(0.54, 1.37), Point(7.08, 1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(0.54, 1.04), Point(0.54, 1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(0.54, -1.04), Point(0.54, -1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(0.54, -1.37), Point(7.08, -1.37)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(7.08, 1.37), Point(7.08, 1.04)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(7.08, -1.37), Point(7.08, -1.04)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.0, 0.0), Point(0.66, 0.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.66, 1.25), Point(0.66, -1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.66, -1.25), Point(6.96, -1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(6.96, 1.25), Point(0.66, 1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(6.96, -1.25), Point(6.96, 1.25)])
+  layer(Finish(Top)) = Line(0.1, [Point(7.62, 0.0), Point(6.96, 0.0)])
+
+  model3d = Model3D("../3d-models/R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
