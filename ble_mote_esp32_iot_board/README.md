@@ -75,8 +75,8 @@ PCB modules can be complete PCBs or subcircuits of a larger design. This design 
 pcb-bundle pms7003-interface :
   port vin : power
   port vin-mcu : power
-  pin reset
-  pin set
+  port reset
+  port set
   port uart : uart()
 
 pcb-module pms7003 :

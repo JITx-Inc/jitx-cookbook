@@ -539,14 +539,14 @@ public pcb-component component :
   property(self.rated-temperature) = min-max(-40.0, 105.0)
 
 public pcb-module module:
-  pin IN1
-  pin IN2
-  pin OUT1
-  pin OUT2
-  pin GND
-  pin EN1
-  pin EN2
-  pin BIAS
+  port IN1
+  port IN2
+  port OUT1
+  port OUT2
+  port GND
+  port EN1
+  port EN2
+  port BIAS
 
   public inst loadsw : ambiq_demo/components/TEXAS-INSTRUMENTS/TPS22976/component
 

@@ -50,37 +50,37 @@ public pcb-symbol BSN20 :
     number-size = 0.6
     name-size = 0.6
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("none") = Line(0.0, [Point(-1.2, -4.1), Point(-1.2, -5.9)])
-  layer("none") = Line(0.0, [  
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("none") = Line(0.0, [Point(-1.2, -4.1), Point(-1.2, -5.9)])
+  draw("none") = Line(0.0, [  
     Point(-1.0, -5.0), 
     Point(0.0, -5.0), 
     Point(0.0, -6.0), 
     Point(1.0, -6.0), 
     Point(1.0, -5.3)])
-  layer("none") = Line(0.0, [  
+  draw("none") = Line(0.0, [  
     Point(0.6, -4.9), 
     Point(0.7, -4.8), 
     Point(1.3, -4.8), 
     Point(1.4, -4.7)])
-  layer("none") = Line(0.0, [Point(-2.0, -5.0), Point(-1.2, -5.0)])
-  layer("none") = Line(0.0, [Point(0.0, -5.7), Point(-1.0, -5.7)])
-  layer("none") = Line(0.0, [  
+  draw("none") = Line(0.0, [Point(-2.0, -5.0), Point(-1.2, -5.0)])
+  draw("none") = Line(0.0, [Point(0.0, -5.7), Point(-1.0, -5.7)])
+  draw("none") = Line(0.0, [  
     Point(-1.0, -4.3), 
     Point(0.0, -4.3), 
     Point(0.0, -4.0), 
     Point(1.0, -4.0), 
     Point(1.0, -4.8)])
-  layer("none") = Line(0.0, [Point(-1.0, -5.2), Point(-1.0, -4.8)])
-  layer("none") = Line(0.0, [Point(-1.0, -5.9), Point(-1.0, -5.5)])
-  layer("none") = Line(0.0, [Point(-1.0, -4.1), Point(-1.0, -4.5)])
-  layer("foreground") = Polygon([  
+  draw("none") = Line(0.0, [Point(-1.0, -5.2), Point(-1.0, -4.8)])
+  draw("none") = Line(0.0, [Point(-1.0, -5.9), Point(-1.0, -5.5)])
+  draw("none") = Line(0.0, [Point(-1.0, -4.1), Point(-1.0, -4.5)])
+  draw("foreground") = Polygon([  
     Point(-1.0, -5.0), 
     Point(-0.4, -4.8), 
     Point(-0.4, -5.2), 
     Point(-1.0, -5.0)])
-  layer("foreground") = Polygon([  
+  draw("foreground") = Polygon([  
     Point(1.0, -4.8), 
     Point(1.3, -5.3), 
     Point(0.7, -5.3), 

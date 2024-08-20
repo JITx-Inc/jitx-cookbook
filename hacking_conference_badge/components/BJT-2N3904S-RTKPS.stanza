@@ -12,9 +12,9 @@ defpackage hacking_conference_badge/components/BJT-2N3904S-RTKPS:
   import hacking_conference_badge/checks
 
 public pcb-module module :
-  pin b
-  pin c
-  pin e
+  port b
+  port c
+  port e
   
   inst bjt : database-part(["mpn" => "2N3904S-RTK/PS", "manufacturer" => "KEC Semicon"])
   net (bjt.B b)

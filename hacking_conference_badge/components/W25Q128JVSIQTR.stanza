@@ -81,11 +81,11 @@ public pcb-symbol W25Q128JVSIQTR :
     number-size = 0.6
     name-size = 0.6
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("foreground") = Rectangle(8.0, 5.4, loc(0.0, -7.5))
-  layer("foreground") = Circle(-3.5, -5.3, 0.15)
-  layer("foreground") = Circle(-3.5, -5.3, 0.15)
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("foreground") = Rectangle(8.0, 5.4, loc(0.0, -7.5))
+  draw("foreground") = Circle(-3.5, -5.3, 0.15)
+  draw("foreground") = Circle(-3.5, -5.3, 0.15)
   
 public pcb-component component :
   description = "W25Q128JVSIQTR"

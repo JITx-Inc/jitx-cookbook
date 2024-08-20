@@ -216,9 +216,9 @@ public pcb-symbol USB-C-1054500101 :
     number-size = 1.016
     name-size = 1.016
 
-  layer("foreground") = Text(">REF", 1.27, C, loc(-12.7, 16.002), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(-12.7, -18.542), "", TrueTypeFont)
-  layer("foreground") = Rectangle(25.4, 33.02, loc(0.0, -1.27))
+  draw("foreground") = Text(">REF", 1.27, C, loc(-12.7, 16.002), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(-12.7, -18.542), "", TrueTypeFont)
+  draw("foreground") = Rectangle(25.4, 33.02, loc(0.0, -1.27))
 
 public pcb-component component :
   pin-properties :

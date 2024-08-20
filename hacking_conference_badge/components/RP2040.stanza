@@ -392,11 +392,11 @@ public pcb-symbol RP2040 :
     number-size = 0.58
     name-size = 0.58
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("foreground") = Rectangle(23.0, 38.0, loc(0.0, -4.0))
-  layer("foreground") = Text("Raspberry Pi", 1.15, C, loc(0.0, -2.0), "", TrueTypeFont)
-  layer("foreground") = Text("RP2040", 1.15, C, loc(0.0, -4.0), "", TrueTypeFont)
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("foreground") = Rectangle(23.0, 38.0, loc(0.0, -4.0))
+  draw("foreground") = Text("Raspberry Pi", 1.15, C, loc(0.0, -2.0), "", TrueTypeFont)
+  draw("foreground") = Text("RP2040", 1.15, C, loc(0.0, -4.0), "", TrueTypeFont)
   
 public pcb-component component :
   description = "RP2040"
@@ -468,7 +468,7 @@ public pcb-component component :
     property(p.power-pin) = PowerPin(min-max(1.8 3.4))
 
   pcb-bundle io-pin : 
-    pin p
+    port p
 
   for p in pins(self.GPIO) do :
     supports gpio :
@@ -480,13 +480,13 @@ public pcb-component component :
     timer.timer => self.GPIO[0] ; PWM0 A (there are 8 more, dual channels)
 
   pcb-bundle I2C0-SDA : 
-    pin p  
+    port p  
   pcb-bundle I2C1-SDA : 
-    pin p  
+    port p  
   pcb-bundle I2C0-SCL : 
-    pin p  
+    port p  
   pcb-bundle I2C1-SCL : 
-    pin p  
+    port p  
 
   for p in [self.GPIO[0] self.GPIO[4] self.GPIO[8] self.GPIO[12] self.GPIO[16] self.GPIO[20]] do :
     supports I2C0-SDA :
@@ -522,8 +522,8 @@ public pcb-component component :
   property(self.datasheet) = "https://datasheet.lcsc.com/lcsc/2201101600_Raspberry-Pi-RP2040_C2040.pdf"
 
 public pcb-module module :
-  pin vdd
-  pin gnd
+  port vdd
+  port gnd
   port usb  : usb-2-data
 
   ; TODO: Model gpio properly in parts-db

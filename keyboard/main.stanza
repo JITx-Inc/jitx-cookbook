@@ -13,8 +13,8 @@ defpackage keyboard/keyboard_module :
 val board-shape = RoundedRectangle(300.0, 100.0, 5.0)
 
 pcb-module low-profile :
-  pin r
-  pin c
+  port r
+  port c
   inst sw  : database-part(["mpn" => "CPG135001D03", "manufacturer" => "Kailh"])
   inst d : database-part(["mpn" => "1N4148WS", "manufacturer" => "ON Semiconductor"])
   net (sw.p[1], d.A)

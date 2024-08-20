@@ -176,9 +176,9 @@ public pcb-module module (options:Tuple<KeyValue<Symbol,?>>):
   for entry in options do :
     settings[key(entry)] = value(entry)
 
-  pin VDD5V0
-  pin VDD1V8
-  pin GND
+  port VDD5V0
+  port VDD1V8
+  port GND
 
   port debug : swd()
   port rst : reset

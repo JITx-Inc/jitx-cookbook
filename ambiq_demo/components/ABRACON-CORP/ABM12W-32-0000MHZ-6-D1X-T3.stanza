@@ -66,23 +66,23 @@ public pcb-symbol XTAL4_GND24 :
     length = 2.54
     number-size = 1.523
   
-  layer("foreground") = Text(">VALUE", 0.762, C, loc(1.016, 2.89), "", TrueTypeFont)
-  layer("foreground") = Rectangle(8.128, 14.224, loc(5.08, -8.128))
-  layer("foreground") = Rectangle(2.032, 5.08, loc(5.08, -5.08))
-  layer("foreground") = Line(0.127, [Point(6.858, -3.81), Point(6.858, -6.35)])
-  layer("foreground") = Line(0.127, [  
+  draw("foreground") = Text(">VALUE", 0.762, C, loc(1.016, 2.89), "", TrueTypeFont)
+  draw("foreground") = Rectangle(8.128, 14.224, loc(5.08, -8.128))
+  draw("foreground") = Rectangle(2.032, 5.08, loc(5.08, -5.08))
+  draw("foreground") = Line(0.127, [Point(6.858, -3.81), Point(6.858, -6.35)])
+  draw("foreground") = Line(0.127, [  
     Point(6.858, -5.08), 
     Point(6.858, -5.08), 
     Point(7.62, -5.08), 
     Point(7.62, 0.0)])
-  layer("foreground") = Line(0.127, [Point(3.302, -3.81), Point(3.302, -6.35)])
-  layer("foreground") = Line(0.127, [  
+  draw("foreground") = Line(0.127, [Point(3.302, -3.81), Point(3.302, -6.35)])
+  draw("foreground") = Line(0.127, [  
     Point(3.302, -5.08), 
     Point(3.302, -5.08), 
     Point(2.54, -5.08), 
     Point(2.54, 0.0)])
-  layer("foreground") = Text("GND4", 1.066, SW, loc(8.382, -15.04462, 90.0), "", TrueTypeFont)
-  layer("foreground") = Text("GND2", 1.066, SW, loc(3.556, -15.04462, 90.0), "", TrueTypeFont)
+  draw("foreground") = Text("GND4", 1.066, SW, loc(8.382, -15.04462, 90.0), "", TrueTypeFont)
+  draw("foreground") = Text("GND2", 1.066, SW, loc(3.556, -15.04462, 90.0), "", TrueTypeFont)
 
 public pcb-component component :
   description = "XTAL4_GND24"

@@ -11,15 +11,15 @@ defpackage ambiq_demo/bundles :
 
 public pcb-bundle octal-spi :
   port sdio : pin[8]
-  pin sck
-  pin cs
+  port sck
+  port cs
 
 ; design-specific bundles
 public pcb-bundle wpwr-ctl :
-  pin EN1
-  pin EN2
-  pin nCHG
-  pin CTRL
+  port EN1
+  port EN2
+  port nCHG
+  port CTRL
 
 public defn ospi-rules (in:JITXObject out:JITXObject time:Toleranced) :
   inside pcb-module :

@@ -48,11 +48,11 @@ public pcb-component component :
 
 
 public pcb-module module (v-out:Double):
-  pin VBUS
-  pin gnd
-  pin cc1
-  pin cc2
-  pin pg
+  port VBUS
+  port gnd
+  port cc1
+  port cc2
+  port pg
 
   inst ch : regulator_example/components/CH224K/component
   net (ch.CC1 cc1)

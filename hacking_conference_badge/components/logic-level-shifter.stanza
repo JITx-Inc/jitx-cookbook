@@ -11,11 +11,11 @@ defpackage hacking_conference_badge/components/logic-level-shifter:
   import ocdb/utils/generic-components
 
 public pcb-module module :
-  pin hv
-  pin lv
-  pin gnd
-  pin lv-signal
-  pin hv-signal
+  port hv
+  port lv
+  port gnd
+  port lv-signal
+  port hv-signal
   
   inst fet : database-part(["mpn" => "BSS138", "manufacturer" => "LGE"])
 
@@ -30,9 +30,9 @@ public pcb-module module :
   layout-group([fet, lv-pullup, hv-pullup]) = shifter-lg
 
 public pcb-module i2c-level-shifter-module :
-  pin gnd
-  pin lv
-  pin hv
+  port gnd
+  port lv
+  port hv
 
   ; create level shifters
   inst scl-shift : hacking_conference_badge/components/logic-level-shifter/module

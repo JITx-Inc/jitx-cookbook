@@ -14,9 +14,9 @@ defpackage hacking_conference_badge/components/MOS-A06409:
   import hacking_conference_badge/checks
  
 public pcb-module module :
-  pin d
-  pin g
-  pin s
+  port d
+  port g
+  port s
 
   inst mosfet : database-part(["mpn" => "AO6409", "manufacturer" => "Alpha & Omega Semicon"])
   net (mosfet.D0 mosfet.D1 mosfet.D2 mosfet.D3 d)

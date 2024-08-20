@@ -72,17 +72,17 @@ public pcb-symbol RK09K1130AP5 :
     number-size = 0.6
     name-size = 0.6
   
-  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
-  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
-  layer("none") = Line(0.0, [Point(-39.4, 26.6), Point(-39.4, 27.1)])
-  layer("none") = Line(0.0, [Point(-40.4, 25.0), Point(-38.4, 25.0)])
-  layer("none") = Line(0.0, [  
+  draw("foreground") = Text(">REF", 1.27, C, loc(0.0, 1.27), "", TrueTypeFont)
+  draw("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont)
+  draw("none") = Line(0.0, [Point(-39.4, 26.6), Point(-39.4, 27.1)])
+  draw("none") = Line(0.0, [Point(-40.4, 25.0), Point(-38.4, 25.0)])
+  draw("none") = Line(0.0, [  
     Point(-40.4, 26.4), 
     Point(-38.4, 26.4), 
     Point(-38.4, 25.4), 
     Point(-40.4, 25.4), 
     Point(-40.4, 26.4)])
-  layer("foreground") = Polygon([  
+  draw("foreground") = Polygon([  
     Point(-39.4, 26.4), 
     Point(-39.6, 26.9), 
     Point(-39.2, 26.9), 

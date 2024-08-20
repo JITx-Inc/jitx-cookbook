@@ -105,8 +105,8 @@ defn compute-ballast-resistor (led:JITXObject, voltage:Toleranced, brightness:Do
  
 ; the LED and ballast resistor module
 public pcb-module module (color:LED-COLORS, voltage-in:Toleranced) :
-  pin in
-  pin out
+  port in
+  port out
 
   ; using the component definition from above:
   inst led : usb_c_cable_tester/components/LED-maker-ROYGB/led-component(color)

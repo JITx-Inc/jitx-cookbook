@@ -54,8 +54,8 @@ public pcb-component component :
   assign-landpattern(lp)
 
 public pcb-module module :
-  pin VBUS
-  pin GND
+  port VBUS
+  port GND
   port CMD : wpwr-ctl
 
   public inst wpwr : ambiq_demo/components/TEXAS-INSTRUMENTS/BQ51003YFPR/component
