@@ -83,16 +83,16 @@ public pcb-landpattern MOLEX10545001011 :
     Point(5.22, -4.2), 
     Point(-5.22, -4.2)])
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.003598, C, loc(-1.899125, 6.992835), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.003504, C, loc(5.748805, -5.717805), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.003504, C, loc(5.748805, -5.717805), "", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [Point(-4.47, -0.3), Point(-4.47, 1.9)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [Point(-4.47, -3.77), Point(4.47, -3.77)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.127, [Point(4.47, -0.3), Point(4.47, 1.9)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.2, [Arc(-3.048, 5.08, 0.1, 0.0, 360.0)])
-  layer(Finish(Top)) = Line(0.127, [Point(-4.47, 3.95), Point(-4.47, -3.95)])
-  layer(Finish(Top)) = Line(0.127, [Point(-4.47, -3.95), Point(4.47, -3.95)])
-  layer(Finish(Top)) = Line(0.127, [Point(4.47, 3.95), Point(-4.47, 3.95)])
-  layer(Finish(Top)) = Line(0.127, [Point(4.47, -3.95), Point(4.47, 3.95)])
-  layer(Finish(Top)) = Polyline(0.2, [Arc(-3.048, 5.08, 0.1, 0.0, 360.0)])
+  layer(CustomLayer("Fab", Top)) = Line(0.127, [Point(-4.47, 3.95), Point(-4.47, -3.95)])
+  layer(CustomLayer("Fab", Top)) = Line(0.127, [Point(-4.47, -3.95), Point(4.47, -3.95)])
+  layer(CustomLayer("Fab", Top)) = Line(0.127, [Point(4.47, 3.95), Point(-4.47, 3.95)])
+  layer(CustomLayer("Fab", Top)) = Line(0.127, [Point(4.47, -3.95), Point(4.47, 3.95)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.2, [Arc(-3.048, 5.08, 0.1, 0.0, 360.0)])
   layer(ForbidCopper(LayerIndex(0), LayerIndex(0))) = Polygon([
     Point(145.85, 115.754), 
     Point(152.85, 115.754), 

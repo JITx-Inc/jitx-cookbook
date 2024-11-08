@@ -28,12 +28,12 @@ pcb-landpattern lp :
   pad p[8] : rectangle-smd-pad at loc(-0.640, -0.750, 90.000) on Top
 
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, W, loc(-1.500, 2.849), "", TrueTypeFont, false, false)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.849), "", TrueTypeFont, false, false)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, W, loc(-1.500, 1.849), "", TrueTypeFont, false, false)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(0.508, 1.143), Point(-0.508, 1.143)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254, [Point(-0.508, -1.143), Point(0.508, -1.143)])
-  layer(Finish(Top)) = Polyline(0.060, [
+  layer(CustomLayer("Fab", Top)) = Polyline(0.060, [
     Arc(0.800, -1.050, 0.030, 0.0, -360.000)])
-  layer(Finish(Top)) = Polyline(0.200, [
+  layer(CustomLayer("Fab", Top)) = Polyline(0.200, [
     Arc(0.762, -0.762, 0.100, 0.0, -360.000)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150, [
     Arc(0.850, -1.199, 0.075, 0.0, -360.000)])

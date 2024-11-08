@@ -28,14 +28,14 @@ public pcb-landpattern C146799 :
   pad p[4] : rect-smd-pad-2 at loc(-2.857506, 0.0) on Top
   
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 5.401219), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.401219), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -7.401219), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.401219), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text("REF**", 1.0, C, loc(0.0, -7.401219), "", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.396393, -3.401219), Point(-1.396393, 3.401219)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.396393, -3.401219), Point(-1.396393, -3.401219)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(1.396393, 3.401219), Point(1.396393, -3.401219)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-1.396393, 3.401219), Point(1.396393, 3.401219)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(3.5, -3.250038, 0.0299969999999998, 0.0, 360.0)])
-  layer(Finish(Top)) = Polyline(0.5, [Arc(4.228626, -2.276607, 0.250013, 0.0, 360.0)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.5, [Arc(4.228626, -2.276607, 0.250013, 0.0, 360.0)])
   
   model3d = Model3D("..\\..\\3d-models\\C146799.wrl",
     Vec3D(0.0, 0.0, 0.0),

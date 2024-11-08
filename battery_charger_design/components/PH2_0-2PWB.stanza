@@ -28,8 +28,8 @@ public pcb-landpattern CONN-SMD_2P-P200_PH20-SPWB :
   pad p[4] : rect-smd-pad-2 at loc(3.250064, 2.524917) on Top
 
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 5.825095), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.825095), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -7.825095), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, C, loc(0.0, -5.825095), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text("REF**", 1.0, C, loc(0.0, -7.825095), "", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.200076, -2.175159), Point(-3.200076, -3.775438)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.200406, -3.774879), Point(3.200406, -2.175159)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(4.000432, -3.774879), Point(3.200406, -3.774879)])
@@ -39,14 +39,14 @@ public pcb-landpattern CONN-SMD_2P-P200_PH20-SPWB :
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-3.999594, -3.774981), Point(-3.999594, 3.825095)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.200838, -2.175159), Point(-3.199975, -2.175159)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(4.000127, -4.250038, 0.0299719999999999, 0.0, 360.0)])
-  layer(Finish(Top)) = Line(0.254001, [Point(3.200559, -2.175159), Point(-3.200254, -2.175159)])
-  layer(Finish(Top)) = Line(0.254001, [Point(4.000152, -3.775057), Point(3.200127, -3.775057)])
-  layer(Finish(Top)) = Line(0.254001, [Point(3.200127, -3.775057), Point(3.200127, -2.175159)])
-  layer(Finish(Top)) = Line(0.254001, [Point(-3.20033, -3.77521), Point(-4.000432, -3.77521)])
-  layer(Finish(Top)) = Line(0.254001, [Point(4.000152, 3.824917), Point(4.000152, -3.775159)])
-  layer(Finish(Top)) = Line(0.254001, [Point(-3.999873, -3.775159), Point(-3.999873, 3.824917)])
-  layer(Finish(Top)) = Line(0.254001, [Point(-3.999873, 3.824841), Point(4.000152, 3.824917)])
-  layer(Finish(Top)) = Line(0.254001, [Point(-3.200356, -2.175159), Point(-3.200356, -3.775616)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(3.200559, -2.175159), Point(-3.200254, -2.175159)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(4.000152, -3.775057), Point(3.200127, -3.775057)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(3.200127, -3.775057), Point(3.200127, -2.175159)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(-3.20033, -3.77521), Point(-4.000432, -3.77521)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(4.000152, 3.824917), Point(4.000152, -3.775159)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(-3.999873, -3.775159), Point(-3.999873, 3.824917)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(-3.999873, 3.824841), Point(4.000152, 3.824917)])
+  layer(CustomLayer("Fab", Top)) = Line(0.254001, [Point(-3.200356, -2.175159), Point(-3.200356, -3.775616)])
 
 public pcb-symbol PH2_0-2PWB :
   pin gnd at Point(-2.54, -8.89) with :

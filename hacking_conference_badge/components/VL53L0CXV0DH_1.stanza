@@ -36,8 +36,8 @@ public pcb-landpattern OPTO-SMD_12P_VL53L0CXV0DH-1 :
   pad p[12] : rect-smd-pad-2 at loc(1.599949, 0.0) on Top
 
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 3.2762), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.2762), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -5.2762), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, C, loc(0.0, -3.2762), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text("REF**", 1.0, C, loc(0.0, -5.2762), "", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.2762, -1.2762), Point(-2.014503, -1.2762)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(2.2762, -0.414503), Point(2.2762, -1.2762)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.1524, [Point(-2.2762, 1.2762), Point(-2.014503, 1.2762)])
@@ -50,8 +50,8 @@ public pcb-landpattern OPTO-SMD_12P_VL53L0CXV0DH-1 :
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.059995, [Arc(2.199898, -1.199898, 0.0299719999999999, 0.0, 360.0)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.250013, [Arc(1.649987, -1.599949, 0.124969, 0.0, 360.0)])
   layer(Silkscreen("F-SilkS", Top)) = Polyline(0.150013, [Arc(-0.949962, 0.0, 0.0749299999999999, 0.0, 360.0)])
-  layer(Finish(Top)) = Polyline(0.150013, [Arc(-0.949962, 0.0, 0.0749299999999999, 0.0, 360.0)])
-  layer(Finish(Top)) = Polyline(0.250013, [Arc(0.949962, 0.0, 0.124968, 0.0, 360.0)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.150013, [Arc(-0.949962, 0.0, 0.0749299999999999, 0.0, 360.0)])
+  layer(CustomLayer("Fab", Top)) = Polyline(0.250013, [Arc(0.949962, 0.0, 0.124968, 0.0, 360.0)])
 
   model3d = Model3D("../../3d-models/OPTO-SMD_12P_VL53L0CXV0DH-1.wrl",
     Vec3D(0.0, 0.0, 0.0),
