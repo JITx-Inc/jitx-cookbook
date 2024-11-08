@@ -1,0 +1,47 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/TO-92_Inline :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(1.05, 1.5, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.05, 1.5, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.05, 1.5, loc(0.0, 0.0))
+  layer(Cutout()) = Circle(0.375)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.05, 1.5)
+  layer(SolderMask(Top)) = Rectangle(1.05, 1.5)
+  layer(SolderMask(Bottom)) = Rectangle(1.05, 1.5)
+  layer(Cutout()) = Circle(0.375)
+
+public pcb-landpattern TO-92_Inline :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : oval-th-pad at loc(1.27, 0.0) on Top
+  pad p[3] : oval-th-pad at loc(2.54, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.46, 2.73), 
+    Point(-1.46, -2.01), 
+    Point(4.0, -2.01), 
+    Point(4.0, 2.73)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(1.27, -2.79, 90.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(1.27, 0.0, 90.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(1.27, 3.56, 90.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-0.53, -1.85), Point(3.07, -1.85)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.12, [Arc(1.26999994098585, -2.81174715535371e-07, 2.60000028117472, 224.999996538206, -134.999997838691)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.12, [Arc(1.27000005901415, -2.81174715276202e-07, 2.60000028117472, 90.0000013004851, -134.999997838691)])
+  layer(Finish(Top)) = Line(0.1, [Point(-0.5, -1.75), Point(3.0, -1.75)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(1.27000042226437, -3.26225954794734e-07, 2.48000032622599, 224.999987772376, -134.999978016745)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(1.26999957773563, -3.26225954604829e-07, 2.48000032622599, 89.9999902443697, -134.999978016745)])
+
+  model3d = Model3D("../3d-models/TO-92_Inline.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+

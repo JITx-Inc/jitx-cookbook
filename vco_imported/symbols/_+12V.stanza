@@ -1,0 +1,18 @@
+#use-added-syntax(jitx)
+defpackage VCO/symbols/_+12V :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+public pcb-symbol _+12V :
+  pin p+12V at Point(0.0, 0.0) with :
+    direction = Down
+    length = 0.0
+
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, 3.556), "", TrueTypeFont, false, false)
+  layer("none") = Line(0.0, [Point(-0.762, 1.27), Point(0.0, 2.54)])
+  layer("none") = Line(0.0, [Point(0.0, 0.0), Point(0.0, 2.54)])
+  layer("none") = Line(0.0, [Point(0.0, 2.54), Point(0.762, 1.27)])
+

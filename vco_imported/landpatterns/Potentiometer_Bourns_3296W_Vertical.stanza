@@ -1,0 +1,45 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/Potentiometer_Bourns_3296W_Vertical :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad circle-th-pad :
+  type = TH
+  shape = Circle(0.72)
+  layer(SolderMask(Top)) = Circle(0.72)
+  layer(SolderMask(Bottom)) = Circle(0.72)
+  layer(Cutout()) = Circle(0.4)
+
+public pcb-landpattern Potentiometer_Bourns_3296W_Vertical :
+  pad p[1] : circle-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : circle-th-pad at loc(-2.54, 0.0) on Top
+  pad p[3] : circle-th-pad at loc(-5.08, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-7.6, 2.7), 
+    Point(-7.6, -2.7), 
+    Point(2.5, -2.7), 
+    Point(2.5, 2.7)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(-2.54, -3.67, 90.0), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(-3.175, -0.005, 90.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(-2.54, 3.66, 90.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-7.425, 2.53), Point(-7.425, -2.54)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-7.425, 2.53), Point(2.345, 2.53)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-7.425, -2.54), Point(2.345, -2.54)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.345, 2.53), Point(2.345, -2.54)])
+  layer(Finish(Top)) = Line(0.1, [Point(-7.305, 2.41), Point(-7.305, -2.42)])
+  layer(Finish(Top)) = Line(0.1, [Point(-7.305, -2.42), Point(2.225, -2.42)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.955, -2.235), Point(0.956, -0.066)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.955, -2.235), Point(0.956, -0.066)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.225, 2.41), Point(-7.305, 2.41)])
+  layer(Finish(Top)) = Line(0.1, [Point(2.225, -2.42), Point(2.225, 2.41)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(0.955, -1.15, 1.095, 0.0, 360.0)])
+
+  model3d = Model3D("../3d-models/Potentiometer_Bourns_3296W_Vertical.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+

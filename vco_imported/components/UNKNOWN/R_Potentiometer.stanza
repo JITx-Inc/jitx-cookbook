@@ -1,0 +1,22 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/R_Potentiometer :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+public pcb-component component :
+  description = "PWM"
+  emodel = Resistor(50000.0)
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[1] | p[1] | Up | "Passive"]
+    [p[2] | p[2] | Right | "Passive"]
+    [p[3] | p[3] | Down | "Passive"]
+
+  assign-landpattern(VCO/landpatterns/Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles/Potentiometer_Alpha_RD901F-40-00D_Single_Vertical_CircularHoles)
+  assign-symbol(VCO/symbols/R_Potentiometer/R_Potentiometer)
+

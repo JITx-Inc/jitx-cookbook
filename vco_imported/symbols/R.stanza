@@ -1,0 +1,20 @@
+#use-added-syntax(jitx)
+defpackage VCO/symbols/R :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+public pcb-symbol R :
+  pin p[1] at Point(0.0, 2.54) with :
+    direction = Up
+    length = 1.27
+  pin p[0] at Point(0.0, -2.54) with :
+    direction = Down
+    length = 1.27
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(2.032, 0.0, 90.0), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, 0.0, 90.0), "", TrueTypeFont, false, false)
+  layer("none") = Rectangle(2.032, 5.08)
+

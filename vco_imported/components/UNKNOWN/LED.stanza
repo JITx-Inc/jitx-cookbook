@@ -1,0 +1,90 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/LED :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+pcb-pad circle-th-pad :
+  type = TH
+  shape = Circle(0.9)
+  layer(SolderMask(Top)) = Circle(0.9)
+  layer(SolderMask(Bottom)) = Circle(0.9)
+  layer(Cutout()) = Circle(0.45)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.8, 1.8)
+  layer(SolderMask(Top)) = Rectangle(1.8, 1.8)
+  layer(SolderMask(Bottom)) = Rectangle(1.8, 1.8)
+  layer(Cutout()) = Circle(0.45)
+
+public pcb-landpattern LED_D50mm :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Bottom
+  pad p[2] : circle-th-pad at loc(2.54, 0.0) on Bottom
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.95, -3.25), 
+    Point(4.5, -3.25), 
+    Point(4.5, 3.25), 
+    Point(-1.95, 3.25)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(1.27, -3.96), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 0.8, C, loc(1.25, 0.0), "", TrueTypeFont, false, false)
+  layer(Silkscreen("B-SilkS", Top)) = Text(">REF", 1.0, C, loc(1.27, 3.96), "", TrueTypeFont, false, false)
+  layer(Silkscreen("B-SilkS", Top)) = Line(0.12, [Point(-1.29, 1.545), Point(-1.29, -1.545)])
+  layer(Silkscreen("B-SilkS", Top)) = Polyline(0.12, [Arc(1.27000013270101, -3.19822155872931e-07, 2.9899999030414, 211.108841869817, 148.900017319333)])
+  layer(Silkscreen("B-SilkS", Top)) = Polyline(0.12, [Arc(1.27000013270101, 3.19822156013824e-07, 2.9899999030414, 359.99114081085, 148.900017319333)])
+  layer(Silkscreen("B-SilkS", Top)) = Polyline(0.12, [Arc(1.27, 0.0, 2.5, 0.0, 360.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(-1.23, 1.469694), Point(-1.23, -1.469694)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(1.27000006458838, 3.91551550818979e-07, 2.89999993545795, 210.449685570966, 299.100005094752)])
+  layer(Finish(Top)) = Polyline(0.1, [Arc(1.27, 0.0, 2.5, 0.0, 360.0)])
+
+  model3d = Model3D("../../3d-models/LED_D5.0mm.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+
+public pcb-symbol LED :
+  pin K at Point(-1.27, 0.0) with :
+    direction = Left
+    length = 2.54
+  pin A at Point(1.27, 0.0) with :
+    direction = Right
+    length = 2.54
+
+  layer("foreground") = Text(">REF", 1.27, C, loc(0.0, 2.54), "", TrueTypeFont, false, false)
+  layer("foreground") = Text(">VALUE", 1.27, C, loc(0.0, -2.54), "", TrueTypeFont, false, false)
+  layer("none") = Line(0.254, [
+    Point(1.27, -1.27), 
+    Point(1.27, 1.27), 
+    Point(-1.27, 0.0), 
+    Point(1.27, -1.27)])
+  layer("none") = Line(0.0, [
+    Point(-3.048, -0.762), 
+    Point(-4.572, -2.286), 
+    Point(-3.81, -2.286), 
+    Point(-4.572, -2.286), 
+    Point(-4.572, -1.524)])
+  layer("none") = Line(0.0, [Point(-1.27, 0.0), Point(1.27, 0.0)])
+  layer("none") = Line(0.254, [Point(-1.27, -1.27), Point(-1.27, 1.27)])
+  layer("none") = Line(0.0, [
+    Point(-1.778, -0.762), 
+    Point(-3.302, -2.286), 
+    Point(-2.54, -2.286), 
+    Point(-3.302, -2.286), 
+    Point(-3.302, -1.524)])
+
+public pcb-component component :
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [K | p[1] | Left | "Passive"]
+    [A | p[2] | Right | "Passive"]
+
+  assign-landpattern(LED_D50mm)
+  assign-symbol(LED)
+
+  property(self.Value) = "LED"
+

@@ -1,0 +1,65 @@
+#use-added-syntax(jitx)
+defpackage VCO/landpatterns/DIP-8_W762mm_Socket :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+
+
+pcb-pad oval-th-pad :
+  type = TH
+  shape = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(SolderMask(Top)) = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(SolderMask(Bottom)) = Capsule(1.6, 1.6, loc(0.0, 0.0))
+  layer(Cutout()) = Circle(0.4)
+
+pcb-pad rect-th-pad :
+  type = TH
+  shape = Rectangle(1.6, 1.6)
+  layer(SolderMask(Top)) = Rectangle(1.6, 1.6)
+  layer(SolderMask(Bottom)) = Rectangle(1.6, 1.6)
+  layer(Cutout()) = Circle(0.4)
+
+public pcb-landpattern DIP-8_W762mm_Socket :
+  pad p[1] : rect-th-pad at loc(0.0, 0.0) on Top
+  pad p[2] : oval-th-pad at loc(0.0, -2.54) on Top
+  pad p[3] : oval-th-pad at loc(0.0, -5.08) on Top
+  pad p[4] : oval-th-pad at loc(0.0, -7.62) on Top
+  pad p[5] : oval-th-pad at loc(7.62, -7.62) on Top
+  pad p[6] : oval-th-pad at loc(7.62, -5.08) on Top
+  pad p[7] : oval-th-pad at loc(7.62, -2.54) on Top
+  pad p[8] : oval-th-pad at loc(7.62, 0.0) on Top
+
+  layer(Courtyard(Top)) = Polygon([
+    Point(-1.55, 1.6), 
+    Point(-1.55, -9.2), 
+    Point(9.15, -9.2), 
+    Point(9.15, 1.6)])
+  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(3.81, -9.95), "", TrueTypeFont, false, false)
+  layer(Finish(Top)) = Text(">REF", 1.0, C, loc(3.81, -3.81), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(3.8, -10.1), "", TrueTypeFont, false, false)
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, 1.39), Point(-1.33, -9.01)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(-1.33, -9.01), Point(8.95, -9.01)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.16, 1.33), Point(1.16, -8.95)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(1.16, -8.95), Point(6.46, -8.95)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(2.81, 1.33), Point(1.16, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(6.46, 1.33), Point(4.81, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(6.46, -8.95), Point(6.46, 1.33)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(8.95, 1.39), Point(-1.33, 1.39)])
+  layer(Silkscreen("F-SilkS", Top)) = Line(0.12, [Point(8.95, -9.01), Point(8.95, 1.39)])
+  layer(Silkscreen("F-SilkS", Top)) = Polyline(0.12, [Arc(3.81, 1.33, 1.0, 1.27222187258541e-14, -180.0)])
+  layer(Finish(Top)) = Line(0.1, [Point(-1.27, 1.33), Point(-1.27, -8.95)])
+  layer(Finish(Top)) = Line(0.1, [Point(-1.27, -8.95), Point(8.89, -8.95)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.635, 0.27), Point(1.635, 1.27)])
+  layer(Finish(Top)) = Line(0.1, [Point(0.635, -8.89), Point(0.635, 0.27)])
+  layer(Finish(Top)) = Line(0.1, [Point(1.635, 1.27), Point(6.985, 1.27)])
+  layer(Finish(Top)) = Line(0.1, [Point(6.985, 1.27), Point(6.985, -8.89)])
+  layer(Finish(Top)) = Line(0.1, [Point(6.985, -8.89), Point(0.635, -8.89)])
+  layer(Finish(Top)) = Line(0.1, [Point(8.89, 1.33), Point(-1.27, 1.33)])
+  layer(Finish(Top)) = Line(0.1, [Point(8.89, -8.95), Point(8.89, 1.33)])
+
+  model3d = Model3D("../3d-models/DIP-8_W7.62mm_Socket.wrl",
+    Vec3D(0.0, 0.0, 0.0),
+    Vec3D(1.0, 1.0, 1.0),
+    Vec3D(0.0, 0.0, 0.0))
+

@@ -1,0 +1,20 @@
+#use-added-syntax(jitx)
+defpackage VCO/components/UNKNOWN/jitx-C :
+  import core
+  import collections
+  import jitx
+  import jitx/commands
+  import ocdb/utils/box-symbol
+
+
+public pcb-component component :
+  emodel = Capacitor(1.0e-07)
+  datasheet = "~"
+  pin-properties :
+    [pin:Ref | pads:Ref ... | side:Dir | electrical-type:String]
+    [p[1] | p[1] | Up | "Passive"]
+    [p[0] | p[2] | Down | "Passive"]
+
+  assign-landpattern(VCO/landpatterns/C_Disc_D50mm_W25mm_P500mm/C_Disc_D50mm_W25mm_P500mm)
+  assign-symbol(VCO/symbols/jitx-C/jitx-C)
+
