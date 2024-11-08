@@ -31,8 +31,8 @@ public pcb-landpattern C778186 :
   pad p[7] : rect-smd-pad-2 at loc(-3.799975, 1.544056) on Top
   
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 4.440932), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -4.440932), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -6.440932), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, C, loc(0.0, -4.440932), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text("REF**", 1.0, C, loc(0.0, -6.440932), "", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.299898, -0.052794), Point(3.299898, 0.871006)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-0.000127, -2.440932), Point(-0.000127, -0.940856)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(3.199873, -0.940856), Point(-3.200127, -0.940856)])

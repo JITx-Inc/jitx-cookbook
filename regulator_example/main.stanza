@@ -38,8 +38,8 @@ pcb-module regulator_example_module :
                                                                 placed? = true)
   place(buck) at loc(5.0, 0.0) on Top
 
-  net (buck.vin VIN)                                               
-  net (buck.gnd GND)                                               
+  net (buck.vin VIN)
+  net (buck.gnd GND)
 
   property(VIN.voltage) = typ(20.0)
   property(GND.voltage) = typ(0.0)

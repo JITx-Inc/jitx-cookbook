@@ -28,8 +28,8 @@ public pcb-landpattern C470295 :
   pad p[5] : oval-th-pad at loc(4.900051, 0.769495) on Top
   
   layer(Silkscreen("F-SilkS", Top)) = Text(">REF", 1.0, C, loc(0.0, 8.286513), "", TrueTypeFont)
-  layer(Finish(Top)) = Text(">VALUE", 1.0, C, loc(0.0, -8.286513), "", TrueTypeFont)
-  layer(Finish(Top)) = Text("REF**", 1.0, C, loc(0.0, -10.286513), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text(">VALUE", 1.0, C, loc(0.0, -8.286513), "", TrueTypeFont)
+  layer(CustomLayer("Fab", Top)) = Text("REF**", 1.0, C, loc(0.0, -10.286513), "", TrueTypeFont)
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-5.08001, 2.349505), Point(-5.08001, 6.286513)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(-5.08001, -6.286513), Point(-3.683007, -6.286513)])
   layer(Silkscreen("F-SilkS", Top)) = Line(0.254001, [Point(5.08001, -6.286513), Point(5.08001, -0.952502)])
